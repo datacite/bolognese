@@ -1,7 +1,7 @@
 module Bolognese
   module Datacite
     def get_datacite_metadata(doi, options = {})
-      return {} if doi.blank?
+      return { error: 'No DOI provided.'} if doi.blank?
 
       params = { q: "doi:" + doi,
                  rows: 1,

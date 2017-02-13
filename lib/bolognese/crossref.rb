@@ -1,59 +1,84 @@
 module Bolognese
   module Crossref
-    def get_crossref_metadata(doi, options = {})
-      return {} if doi.blank?
+    def initialize(id:, service:, **options)
+      @id = doi_as_url(id)
+      @service = service
 
-      url = "https://api.crossref.org/works/" + PostRank::URI.escape(doi)
-      response = Maremma.get(url, options.merge(host: true))
+      response = Maremma.get(id, options.merge(accept: "application/vnd.crossref.unixref+xml", host: true))
+    end
 
-      metadata = response.body.fetch("data", {}).fetch("message", {})
-      return { error: 'Resource not found.', status: 404 } if metadata.blank?
 
-      # don't use these metadata
-      metadata = metadata.except("URL", "update-policy")
+    # def get_crossref_metadata(doi, options = {})
+    #   return { "error" => "No DOI provided." } if doi.blank?
 
-      date_parts = metadata.fetch("issued", {}).fetch("date-parts", []).first
+    #   id = doi_as_url(doi)
+    #   response = Maremma.get(id, options.merge(accept: "application/vnd.crossref.unixref+xml", host: true))
+    #   response.body.fetch("errors", nil) if response.body.fetch("errors", nil).present?
 
-      # Don't set issued if date-parts are missing.
-      if !date_parts.nil?
-        year, month, day = date_parts[0], date_parts[1], date_parts[2]
+    #   metadata = response.body.fetch("data", {}).fetch("doi_records", {}).fetch("doi_record", nil)
+    #   return { "error" => "Resource not found." } if metadata.blank?
 
-        # set date published if date issued is in the future
-        if year.nil? || Date.new(*date_parts) > Time.now.to_date
-          metadata["issued"] = metadata.fetch("indexed", {}).fetch("date-time", nil)
-          metadata["published"] = get_date_from_parts(year, month, day)
-        else
-          metadata["issued"] = get_date_from_parts(year, month, day)
-          metadata["published"] = metadata["issued"]
-        end
-      # handle missing date issued, e.g. for components
-      else
-        metadata["issued"] = metadata.fetch("created", {}).fetch("date-time", nil)
-        metadata["published"] = metadata["issued"]
-      end
+    #   if metadata.dig("crossref", "journal").present?
+    #     type_key = metadata.dig("crossref", "journal").keys.last
+    #   else
+    #     puts metadata.dig("crossref")
+    #     type_key = metadata.dig("crossref").keys.last
+    #   end
 
-      metadata["deposited"] = metadata.fetch("deposited", {}).fetch("date-time", nil)
-      metadata["updated"] = metadata.fetch("indexed", {}).fetch("date-time", nil)
+    #   journal_meta = metadata.dig("crossref", "journal", "journal_metadata")
+    #   if journal_meta.present?
+    #     is_part_of = {
+    #       "@type" => "Periodical",
+    #       "name" => journal_meta["full_title"],
+    #       "issn" => journal_meta["issn"] }
+    #   else
+    #     is_part_of = nil
+    #   end
 
-      metadata["title"] = case metadata["title"].length
-            when 0 then nil
-            when 1 then metadata["title"][0]
-            else metadata["title"][0].presence || metadata["title"][1]
-            end
+    #   pub_date = metadata.dig("crossref", "journal", type_key, "publication_date")
+    #   if pub_date.present?
+    #     date_published = get_date_from_parts(pub_date["year"], pub_date["month"], pub_date["day"])
+    #   else
+    #     date_published = nil
+    #   end
 
-      if metadata["title"].blank? && !TYPES_WITH_TITLE.include?(metadata["type"])
-        metadata["title"] = metadata["container-title"][0].presence || "(:unas)"
-      end
+    #   title = metadata.dig("crossref", "journal", type_key, "titles", "title")
+    #   if title.is_a?(String)
+    #     name = title
+    #   elsif title.is_a?(Array)
+    #     name = title.first
+    #   else
+    #     name = nil
+    #   end
 
-      metadata["registration_agency_id"] = "crossref"
-      metadata["publisher_id"] = metadata.fetch("member", "")[30..-1]
-      metadata["container-title"] = metadata.fetch("container-title", [])[0]
+    #   author = metadata.dig("crossref", "journal", type_key, "contributors", "person_name")
+    #   author = Array(author).select { |a| a["contributor_role"] == "author" }.map do |a|
+    #     { "@type" => "Person",
+    #       "@id" => a["ORCID"],
+    #       "givenName" => a["given_name"],
+    #       "familyName" => a["surname"] }.compact
+    #   end
 
-      metadata["resource_type_id"] = "Text"
-      metadata["resource_type"] = metadata["type"] if metadata["type"]
-      metadata["author"] = metadata["author"].map { |author| author.except("affiliation") } if metadata["author"]
+    #   date_modified = Time.parse(metadata.fetch("timestamp", "")).utc.iso8601
 
-      metadata
+    #   provider = {
+    #     "@type" => "Organization",
+    #     "name" => "Crossref" }
+
+    #   type = Bolognese::Metadata::CROSSREF_TYPE_TRANSLATIONS[type_key.dasherize] || "CreativeWork"
+
+
+    def schema_org
+      { "@context" => "http://schema.org",
+        "@type" => type,
+        "@id" => id,
+        "name" => name,
+        "author" => author,
+        "datePublished" => date_published,
+        "dateModified" => date_modified,
+        "isPartOf" => is_part_of,
+        "provider" => provider
+      }.compact
     end
   end
 end

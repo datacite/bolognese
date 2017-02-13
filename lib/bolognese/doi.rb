@@ -12,5 +12,10 @@ module Bolognese
     def doi_as_url(doi)
       Addressable::URI.encode("https://doi.org/#{clean_doi(doi)}") if doi.present?
     end
+
+    # remove non-printing whitespace
+    def clean_doi(doi)
+      doi.gsub(/\u200B/, '')
+    end
   end
 end

@@ -20,6 +20,36 @@ module Bolognese
     include Bolognese::AuthorUtils
     include Bolognese::DateUtils
 
+    # CrossRef types from https://api.crossref.org/types
+    CROSSREF_TYPE_TRANSLATIONS = {
+      "proceedings" => nil,
+      "reference-book" => nil,
+      "journal-issue" => nil,
+      "proceedings-article" => nil,
+      "other" => nil,
+      "dissertation" => nil,
+      "dataset" => "Dataset",
+      "edited-book" => "Book",
+      "journal-article" => "ScholarlyArticle",
+      "journal" => nil,
+      "report" => "report",
+      "book-series" => nil,
+      "report-series" => nil,
+      "book-track" => nil,
+      "standard" => nil,
+      "book-section" => nil,
+      "book-part" => nil,
+      "book" => "Book",
+      "book-chapter" => nil,
+      "standard-series" => nil,
+      "monograph" => "book",
+      "component" => nil,
+      "reference-entry" => nil,
+      "journal-volume" => nil,
+      "book-set" => nil,
+      "posted-content" => nil
+    }
+
     def get_metadata(id:, service:, **options)
       metadata = case service
         when "crossref" then get_crossref_metadata(id, options = {})

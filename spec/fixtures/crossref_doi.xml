@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doi_records>
+  <doi_record owner="10.1371" timestamp="2016-12-31 22:37:08">
+    <crossref>
+      <journal>
+        <journal_metadata language="en">
+          <full_title>PLoS ONE</full_title>
+          <abbrev_title>PLoS ONE</abbrev_title>
+          <issn media_type="electronic">1932-6203</issn>
+        </journal_metadata>
+        <journal_issue>
+          <publication_date media_type="online">
+            <month>12</month>
+            <day>20</day>
+            <year>2006</year>
+          </publication_date>
+          <journal_volume>
+            <volume>1</volume>
+          </journal_volume>
+          <issue>1</issue>
+        </journal_issue>
+        <journal_article publication_type="full_text">
+          <titles>
+            <title>Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes</title>
+          </titles>
+          <contributors>
+            <person_name contributor_role="author" sequence="first">
+              <given_name>Markus</given_name>
+              <surname>Ralser</surname>
+            </person_name>
+            <person_name contributor_role="author" sequence="additional">
+              <given_name>Gino</given_name>
+              <surname>Heeren</surname>
+            </person_name>
+            <person_name contributor_role="author" sequence="additional">
+              <given_name>Michael</given_name>
+              <surname>Breitenbach</surname>
+            </person_name>
+            <person_name contributor_role="author" sequence="additional">
+              <given_name>Hans</given_name>
+              <surname>Lehrach</surname>
+            </person_name>
+            <person_name contributor_role="author" sequence="additional">
+              <given_name>Sylvia</given_name>
+              <surname>Krobitsch</surname>
+            </person_name>
+            <person_name contributor_role="editor" sequence="first">
+              <given_name>Guilhem</given_name>
+              <surname>Janbon</surname>
+            </person_name>
+          </contributors>
+          <publication_date media_type="online">
+            <month>12</month>
+            <day>20</day>
+            <year>2006</year>
+          </publication_date>
+          <pages>
+            <first_page>e30</first_page>
+          </pages>
+          <publisher_item>
+            <item_number>10.1371/journal.pone.0000030</item_number>
+          </publisher_item>
+          <crossmark>
+            <crossmark_version>1</crossmark_version>
+            <crossmark_policy>10.1371/journal.pone.corrections_policy</crossmark_policy>
+            <crossmark_domains>
+              <crossmark_domain>
+                <domain>www.plosone.org</domain>
+              </crossmark_domain>
+            </crossmark_domains>
+            <crossmark_domain_exclusive>false</crossmark_domain_exclusive>
+            <custom_metadata>
+              <program name="AccessIndicators">
+                <license_ref>http://creativecommons.org/licenses/by/4.0/</license_ref>
+              </program>
+            </custom_metadata>
+          </crossmark>
+          <doi_data>
+            <doi>10.1371/journal.pone.0000030</doi>
+            <timestamp>20161231025645</timestamp>
+            <resource>http://dx.plos.org/10.1371/journal.pone.0000030</resource>
+            <collection property="crawler-based">
+              <item crawler="iParadigms">
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030</resource>
+              </item>
+            </collection>
+          </doi_data>
+          <citation_list>
+            <citation key="ref1">
+              <journal_title>N Engl J Med</journal_title>
+              <author>AS Schneider</author>
+              <volume>272</volume>
+              <first_page>229</first_page>
+              <cYear>1965</cYear>
+              <article_title>Hereditary Hemolytic Anemia with Triosephosphate Isomerase Deficiency.</article_title>
+            </citation>
+            <citation key="ref2">
+              <journal_title>Baillieres Best Pract Res Clin Haematol</journal_title>
+              <author>AS Schneider</author>
+              <volume>13</volume>
+              <first_page>119</first_page>
+              <cYear>2000</cYear>
+              <article_title>Triosephosphate isomerase deficiency: historical perspectives and molecular aspects.</article_title>
+            </citation>
+            <citation key="ref3">
+              <journal_title>Blood Cells Mol Dis</journal_title>
+              <author>A Schneider</author>
+              <volume>22</volume>
+              <first_page>82</first_page>
+              <cYear>1996</cYear>
+              <article_title>Hematologically important mutations: triosephosphate isomerase.</article_title>
+            </citation>
+            <citation key="ref4">
+              <journal_title>Biochem Soc Trans</journal_title>
+              <author>J Olah</author>
+              <volume>30</volume>
+              <first_page>30</first_page>
+              <cYear>2002</cYear>
+              <article_title>Triosephosphate isomerase deficiency: a neurodegenerative misfolding disease.</article_title>
+            </citation>
+            <citation key="ref5">
+              <journal_title>Am J Hum Genet</journal_title>
+              <author>M Watanabe</author>
+              <volume>58</volume>
+              <first_page>308</first_page>
+              <cYear>1996</cYear>
+              <article_title>Molecular analysis of a series of alleles in humans with reduced activity at the triosephosphate isomerase locus.</article_title>
+            </citation>
+            <citation key="ref6">
+              <journal_title>Ann Hum Genet</journal_title>
+              <author>HW Mohrenweiser</author>
+              <volume>51 ( Pt 4)</volume>
+              <first_page>303</first_page>
+              <cYear>1987</cYear>
+              <article_title>Frequency and distribution of rare electrophoretic mobility variants in a population of human newborns in Ann Arbor, Michigan.</article_title>
+            </citation>
+            <citation key="ref7">
+              <journal_title>Pediatr Res</journal_title>
+              <author>HW Mohrenweiser</author>
+              <volume>16</volume>
+              <first_page>960</first_page>
+              <cYear>1982</cYear>
+              <article_title>Elevated frequency of carriers for triosephosphate isomerase deficiency in newborn infants.</article_title>
+            </citation>
+            <citation key="ref8">
+              <journal_title>Hum Genet</journal_title>
+              <author>SW Eber</author>
+              <volume>67</volume>
+              <first_page>336</first_page>
+              <cYear>1984</cYear>
+              <article_title>Prevalence of partial deficiency of red cell triosephosphate isomerase in Germany–a study of 3000 people.</article_title>
+            </citation>
+            <citation key="ref9">
+              <journal_title>Am J Hum Genet</journal_title>
+              <author>JV Neel</author>
+              <volume>42</volume>
+              <first_page>663</first_page>
+              <cYear>1988</cYear>
+              <article_title>Search for mutations altering protein charge and/or function in children of atomic bomb survivors: final report.</article_title>
+            </citation>
+            <citation key="ref10">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>HW Mohrenweiser</author>
+              <volume>78</volume>
+              <first_page>5046</first_page>
+              <cYear>1981</cYear>
+              <article_title>Frequency of enzyme deficiency variants in erythrocytes of newborn infants.</article_title>
+            </citation>
+            <citation key="ref11">
+              <journal_title>Eur J Clin Invest</journal_title>
+              <author>SW Eber</author>
+              <volume>9</volume>
+              <first_page>195</first_page>
+              <cYear>1979</cYear>
+              <article_title>Hereditary deficiency of triosephosphate isomerase in four unrelated families.</article_title>
+            </citation>
+            <citation key="ref12">
+              <journal_title>Genetics</journal_title>
+              <author>S Merkle</author>
+              <volume>123</volume>
+              <first_page>837</first_page>
+              <cYear>1989</cYear>
+              <article_title>Characterization of triosephosphate isomerase mutants with reduced enzyme activity in Mus musculus.</article_title>
+            </citation>
+            <citation key="ref13">
+              <journal_title>J Theor Biol</journal_title>
+              <author>F Orosz</author>
+              <volume>182</volume>
+              <first_page>437</first_page>
+              <cYear>1996</cYear>
+              <article_title>Triosephosphate isomerase deficiency: predictions and facts.</article_title>
+            </citation>
+            <citation key="ref14">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>IO Daar</author>
+              <volume>83</volume>
+              <first_page>7903</first_page>
+              <cYear>1986</cYear>
+              <article_title>Human triose-phosphate isomerase deficiency: a single amino acid substitution results in a thermolabile enzyme.</article_title>
+            </citation>
+            <citation key="ref15">
+              <journal_title>Hum Mutat</journal_title>
+              <author>R Arya</author>
+              <volume>10</volume>
+              <first_page>290</first_page>
+              <cYear>1997</cYear>
+              <article_title>Evidence for founder effect of the Glu104Asp substitution and identification of new mutations in triosephosphate isomerase deficiency.</article_title>
+            </citation>
+            <citation key="ref16">
+              <journal_title>Hum Genet</journal_title>
+              <author>BA Perry</author>
+              <volume>88</volume>
+              <first_page>634</first_page>
+              <cYear>1992</cYear>
+              <article_title>Human triosephosphate isomerase: substitution of Arg for Gly at position 122 in a thermolabile electromorph variant, TPI-Manchester.</article_title>
+            </citation>
+            <citation key="ref17">
+              <journal_title>Blood</journal_title>
+              <author>C Valentin</author>
+              <volume>96</volume>
+              <first_page>1130</first_page>
+              <cYear>2000</cYear>
+              <article_title>Triose phosphate isomerase deficiency in 3 French families: two novel null alleles, a frameshift mutation (TPI Alfortville) and an alteration in the initiation codon (TPI Paris).</article_title>
+            </citation>
+            <citation key="ref18">
+              <journal_title>Am J Hum Genet</journal_title>
+              <author>ML Chang</author>
+              <volume>52</volume>
+              <first_page>1260</first_page>
+              <cYear>1993</cYear>
+              <article_title>Human triosephosphate isomerase deficiency resulting from mutation of Phe-240.</article_title>
+            </citation>
+            <citation key="ref19">
+              <journal_title>Hum Genet</journal_title>
+              <author>S Hollan</author>
+              <volume>92</volume>
+              <first_page>486</first_page>
+              <cYear>1993</cYear>
+              <article_title>Hereditary triosephosphate isomerase (TPI) deficiency: two severely affected brothers one with and one without neurological symptoms.</article_title>
+            </citation>
+            <citation key="ref20">
+              <journal_title>C R Seances Soc Biol Fil</journal_title>
+              <author>S Hollan</author>
+              <volume>192</volume>
+              <first_page>929</first_page>
+              <cYear>1998</cYear>
+              <article_title>[Glycolytic enzyme defects and neurodegeneration].</article_title>
+            </citation>
+            <citation key="ref21">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>S Hollan</author>
+              <volume>94</volume>
+              <first_page>10362</first_page>
+              <cYear>1997</cYear>
+              <article_title>Search for the pathogenesis of the differing phenotype in two compound heterozygote Hungarian brothers with the same genotypic triosephosphate isomerase deficiency.</article_title>
+            </citation>
+            <citation key="ref22">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>S Hollan</author>
+              <volume>92</volume>
+              <first_page>268</first_page>
+              <cYear>1995</cYear>
+              <article_title>Erythrocyte lipids in triose-phosphate isomerase deficiency.</article_title>
+            </citation>
+            <citation key="ref23">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>F Orosz</author>
+              <volume>97</volume>
+              <first_page>1026</first_page>
+              <cYear>2000</cYear>
+              <article_title>Enhanced association of mutant triosephosphate isomerase to red cell membranes and to brain microtubules.</article_title>
+            </citation>
+            <citation key="ref24">
+              <journal_title>Gene</journal_title>
+              <author>D Mumberg</author>
+              <volume>156</volume>
+              <first_page>119</first_page>
+              <cYear>1995</cYear>
+              <article_title>Yeast vectors for the controlled expression of heterologous proteins in different genetic backgrounds.</article_title>
+            </citation>
+            <citation key="ref25">
+              <journal_title>Biochem Biophys Res Commun</journal_title>
+              <author>M Ralser</author>
+              <volume>347</volume>
+              <first_page>747</first_page>
+              <cYear>2006</cYear>
+              <article_title>An efficient and economic enhancer mix for PCR.</article_title>
+            </citation>
+            <citation key="ref26">
+              <journal_title>Yeast</journal_title>
+              <author>CB Brachmann</author>
+              <volume>14</volume>
+              <first_page>115</first_page>
+              <cYear>1998</cYear>
+              <article_title>Designer deletion strains derived from &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt; S288C: a useful set of strains and plasmids for PCR-mediated gene disruption and other applications.</article_title>
+            </citation>
+            <citation key="ref27">
+              <journal_title>Mol Cell</journal_title>
+              <author>H Goehler</author>
+              <volume>15</volume>
+              <first_page>853</first_page>
+              <cYear>2004</cYear>
+              <article_title>A protein interaction network links GIT1, an enhancer of huntingtin aggregation, to Huntington&amp;apos;s disease.</article_title>
+            </citation>
+            <citation key="ref28">
+              <journal_title>Curr Genet</journal_title>
+              <author>RH Schiestl</author>
+              <volume>16</volume>
+              <first_page>339</first_page>
+              <cYear>1989</cYear>
+              <article_title>High efficiency transformation of intact yeast cells using single stranded nucleic acids as a carrier.</article_title>
+            </citation>
+            <citation key="ref29">
+              <journal_title>Biotechnol Prog</journal_title>
+              <author>C Compagno</author>
+              <volume>12</volume>
+              <first_page>591</first_page>
+              <cYear>1996</cYear>
+              <article_title>Glycerol production in a triose phosphate isomerase deficient mutant of &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
+            </citation>
+            <citation key="ref30">
+              <journal_title>Appl Environ Microbiol</journal_title>
+              <author>KM Overkamp</author>
+              <volume>68</volume>
+              <first_page>2814</first_page>
+              <cYear>2002</cYear>
+              <article_title>Metabolic engineering of glycerol production in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
+            </citation>
+            <citation key="ref31">
+              <journal_title>J Bacteriol</journal_title>
+              <author>M Ciriacy</author>
+              <volume>139</volume>
+              <first_page>152</first_page>
+              <cYear>1979</cYear>
+              <article_title>Physiological effects of seven different blocks in glycolysis in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
+            </citation>
+            <citation key="ref32">
+              <journal_title>Arch Biochem Biophys</journal_title>
+              <author>R Yamaji</author>
+              <volume>423</volume>
+              <first_page>332</first_page>
+              <cYear>2004</cYear>
+              <article_title>Hypoxic up-regulation of triosephosphate isomerase expression in mouse brain capillary endothelial cells.</article_title>
+            </citation>
+            <citation key="ref33">
+              <journal_title>BMC Biotechnol</journal_title>
+              <author>S Harju</author>
+              <volume>4</volume>
+              <first_page>8</first_page>
+              <cYear>2004</cYear>
+              <article_title>Rapid isolation of yeast genomic DNA: Bust n&amp;apos; Grab.</article_title>
+            </citation>
+            <citation key="ref34">
+              <journal_title>Hum Mol Genet</journal_title>
+              <author>M Ralser</author>
+              <volume>14</volume>
+              <first_page>2893</first_page>
+              <cYear>2005</cYear>
+              <article_title>Ataxin-2 and huntingtin interact with endophilin-A complexes to function in plastin-associated pathways.</article_title>
+            </citation>
+            <citation key="ref35">
+              <journal_title>FEMS Yeast Res</journal_title>
+              <author>G Heeren</author>
+              <volume>5</volume>
+              <first_page>157</first_page>
+              <cYear>2004</cYear>
+              <article_title>The role of respiration, reactive oxygen species and oxidative stress in mother cell-specific ageing of yeast strains defective in the RAS signalling pathway.</article_title>
+            </citation>
+            <citation key="ref36">
+              <journal_title>Biotechniques</journal_title>
+              <author>M Ralser</author>
+              <volume>39</volume>
+              <first_page>165</first_page>
+              <cYear>2005</cYear>
+              <article_title>Generation of a yeast two-hybrid strain suitable for competitive protein binding analysis.</article_title>
+            </citation>
+            <citation key="ref37">
+              <journal_title>J Biol Chem</journal_title>
+              <author>PK Maitra</author>
+              <volume>246</volume>
+              <first_page>475</first_page>
+              <cYear>1971</cYear>
+              <article_title>A kinetic study of glycolytic enzyme synthesis in yeast.</article_title>
+            </citation>
+            <citation key="ref38">
+              <journal_title>Acta Crystallograph Sect F Struct Biol Cryst Commun</journal_title>
+              <author>T Kinoshita</author>
+              <volume>61</volume>
+              <first_page>346</first_page>
+              <cYear>2005</cYear>
+              <article_title>Structure of a high-resolution crystal form of human triosephosphate isomerase: improvement of crystals using the gel-tube method.</article_title>
+            </citation>
+            <citation key="ref39">
+              <journal_title>J Biol Chem</journal_title>
+              <author>Y Shi</author>
+              <volume>280</volume>
+              <first_page>41805</first_page>
+              <cYear>2005</cYear>
+              <article_title>Genetic perturbation of glycolysis results in inhibition of de novo inositol biosynthesis.</article_title>
+            </citation>
+            <citation key="ref40">
+              <journal_title>Blood</journal_title>
+              <author>F Orosz</author>
+              <volume>98</volume>
+              <first_page>3106</first_page>
+              <cYear>2001</cYear>
+              <article_title>Distinct behavior of mutant triosephosphate isomerase in hemolysate and in isolated form: molecular basis of enzyme deficiency.</article_title>
+            </citation>
+            <citation key="ref41">
+              <journal_title>Mol Genet Genomics</journal_title>
+              <author>AV Kochetov</author>
+              <volume>270</volume>
+              <first_page>442</first_page>
+              <cYear>2003</cYear>
+              <article_title>Interrelations between the efficiency of translation start sites and other sequence features of yeast mRNAs.</article_title>
+            </citation>
+            <citation key="ref42">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>M Kozak</author>
+              <volume>92</volume>
+              <first_page>2662</first_page>
+              <cYear>1995</cYear>
+              <article_title>Adherence to the first-AUG rule when a second AUG codon follows closely upon the first.</article_title>
+            </citation>
+            <citation key="ref43">
+              <journal_title>Mol Genet Genomics</journal_title>
+              <author>AV Kochetov</author>
+              <volume>273</volume>
+              <first_page>491</first_page>
+              <cYear>2005</cYear>
+              <article_title>The role of alternative translation start sites in the generation of human protein diversity.</article_title>
+            </citation>
+            <citation key="ref44">
+              <journal_title>Proc Int Conf Intell Syst Mol Biol</journal_title>
+              <author>AG Pedersen</author>
+              <volume>5</volume>
+              <first_page>226</first_page>
+              <cYear>1997</cYear>
+              <article_title>Neural network prediction of translation initiation sites in eukaryotes: perspectives for EST and genome analysis.</article_title>
+            </citation>
+            <citation key="ref45">
+              <journal_title>Gene</journal_title>
+              <author>CI Gonzalez</author>
+              <volume>274</volume>
+              <first_page>15</first_page>
+              <cYear>2001</cYear>
+              <article_title>Nonsense-mediated mRNA decay in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
+            </citation>
+            <citation key="ref46">
+              <journal_title>Mol Cell Biol</journal_title>
+              <author>J Estojak</author>
+              <volume>15</volume>
+              <first_page>5820</first_page>
+              <cYear>1995</cYear>
+              <article_title>Correlation of two-hybrid affinity data with in vitro measurements.</article_title>
+            </citation>
+            <citation key="ref47">
+              <journal_title>Anal Biochem</journal_title>
+              <author>IG Serebriiskii</author>
+              <volume>285</volume>
+              <first_page>1</first_page>
+              <cYear>2000</cYear>
+              <article_title>Uses of lacZ to study gene function: evaluation of beta-galactosidase assays employed in the yeast two-hybrid system.</article_title>
+            </citation>
+            <citation key="ref48">
+              <journal_title>Mol Microbiol</journal_title>
+              <author>P Laun</author>
+              <volume>39</volume>
+              <first_page>1166</first_page>
+              <cYear>2001</cYear>
+              <article_title>Aged mother cells of &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt; show markers of oxidative stress and apoptosis.</article_title>
+            </citation>
+            <citation key="ref49">
+              <journal_title>J Cell Biol</journal_title>
+              <author>F Madeo</author>
+              <volume>145</volume>
+              <first_page>757</first_page>
+              <cYear>1999</cYear>
+              <article_title>Oxygen stress: a regulator of apoptosis in yeast.</article_title>
+            </citation>
+            <citation key="ref50">
+              <journal_title>Proc Soc Exp Biol Med</journal_title>
+              <author>RA Floyd</author>
+              <volume>222</volume>
+              <first_page>236</first_page>
+              <cYear>1999</cYear>
+              <article_title>Antioxidants, oxidative stress, and degenerative neurological disorders.</article_title>
+            </citation>
+            <citation key="ref51">
+              <journal_title>Eur J Pediatr</journal_title>
+              <author>SW Eber</author>
+              <volume>150</volume>
+              <first_page>761</first_page>
+              <cYear>1991</cYear>
+              <article_title>Triosephosphate isomerase deficiency: haemolytic anaemia, myopathy with altered mitochondria and mental retardation due to a new variant with accelerated enzyme catabolism and diminished specific activity.</article_title>
+            </citation>
+            <citation key="ref52">
+              <journal_title>J Biol Chem</journal_title>
+              <author>J Jung</author>
+              <volume>277</volume>
+              <first_page>48931</first_page>
+              <cYear>2002</cYear>
+              <article_title>Interaction of cofilin with triose-phosphate isomerase contributes glycolytic fuel for Na,K-ATPase via Rho-mediated signaling pathway.</article_title>
+            </citation>
+            <citation key="ref53">
+              <journal_title>J Biol Chem</journal_title>
+              <author>TH Sawyer</author>
+              <volume>247</volume>
+              <first_page>6499</first_page>
+              <cYear>1972</cYear>
+              <article_title>Studies on human triosephosphate isomerase. II. Nature of the electrophoretic multiplicity in erythrocytes.</article_title>
+            </citation>
+            <citation key="ref54">
+              <journal_title>Comp Biochem Physiol B</journal_title>
+              <author>RM Snapka</author>
+              <volume>49</volume>
+              <first_page>733</first_page>
+              <cYear>1974</cYear>
+              <article_title>Comparison of the electrophoretic properties of triosephosphate isomerases of various tissues and species.</article_title>
+            </citation>
+            <citation key="ref55">
+              <journal_title>Nucleic Acids Res</journal_title>
+              <author>S Stamm</author>
+              <volume>34</volume>
+              <first_page>D46</first_page>
+              <cYear>2006</cYear>
+              <article_title>ASD: a bioinformatics resource on alternative splicing.</article_title>
+            </citation>
+            <citation key="ref56">
+              <journal_title>J Neurochem</journal_title>
+              <author>IH Henn</author>
+              <volume>92</volume>
+              <first_page>114</first_page>
+              <cYear>2005</cYear>
+              <article_title>Pathogenic mutations inactivate parkin by distinct mechanisms.</article_title>
+            </citation>
+            <citation key="ref57">
+              <journal_title>Med Hypotheses</journal_title>
+              <author>GP Concepcion</author>
+              <volume>65</volume>
+              <first_page>865</first_page>
+              <cYear>2005</cYear>
+              <article_title>The codon for the methionine at position 129 (M129) in the human prion protein provides an alternative initiation site for translation and renders individuals homozygous for M129 more susceptible to prion disease.</article_title>
+            </citation>
+            <citation key="ref58">
+              <journal_title>Oncogene</journal_title>
+              <author>J Liu</author>
+              <volume>19</volume>
+              <first_page>2767</first_page>
+              <cYear>2000</cYear>
+              <article_title>Initiation of translation from a downstream in-frame AUG codon on BRCA1 can generate the novel isoform protein DeltaBRCA1(17aa).</article_title>
+            </citation>
+            <citation key="ref59">
+              <journal_title>Trends Biochem Sci</journal_title>
+              <author>NJ Marianayagam</author>
+              <volume>29</volume>
+              <first_page>618</first_page>
+              <cYear>2004</cYear>
+              <article_title>The power of two: protein dimerization in biology.</article_title>
+            </citation>
+            <citation key="ref60">
+              <journal_title>Biochem J</journal_title>
+              <author>J Olah</author>
+              <volume>392</volume>
+              <first_page>675</first_page>
+              <cYear>2005</cYear>
+              <article_title>Triosephosphate isomerase deficiency: consequences of an inherited mutation at mRNA, protein and metabolic levels.</article_title>
+            </citation>
+            <citation key="ref61">
+              <journal_title>Biochem Biophys Res Commun</journal_title>
+              <author>NS Kosower</author>
+              <volume>37</volume>
+              <first_page>593</first_page>
+              <cYear>1969</cYear>
+              <article_title>Diamide, a new reagent for the intracellular oxidation of glutathione to the disulfide.</article_title>
+            </citation>
+            <citation key="ref62">
+              <journal_title>Methods Enzymol</journal_title>
+              <author>NS Kosower</author>
+              <volume>251</volume>
+              <first_page>123</first_page>
+              <cYear>1995</cYear>
+              <article_title>Diamide: an oxidant probe for thiols.</article_title>
+            </citation>
+            <citation key="ref63">
+              <journal_title>Proc Natl Acad Sci U S A</journal_title>
+              <author>GW Thorpe</author>
+              <volume>101</volume>
+              <first_page>6564</first_page>
+              <cYear>2004</cYear>
+              <article_title>Cells have distinct mechanisms to maintain protection against different reactive oxygen species: oxidative-stress-response genes.</article_title>
+            </citation>
+            <citation key="ref64">
+              <journal_title>Biochem J</journal_title>
+              <author>D Shenton</author>
+              <volume>374</volume>
+              <first_page>513</first_page>
+              <cYear>2003</cYear>
+              <article_title>Protein S-thiolation targets glycolysis and protein synthesis in response to oxidative stress in the yeast &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
+            </citation>
+            <citation key="ref65">
+              <journal_title>Faseb J</journal_title>
+              <author>C Colussi</author>
+              <volume>14</volume>
+              <first_page>2266</first_page>
+              <cYear>2000</cYear>
+              <article_title>H2O2-induced block of glycolysis as an active ADP-ribosylation reaction protecting cells from apoptosis.</article_title>
+            </citation>
+            <citation key="ref66">
+              <journal_title>Free Radic Biol Med</journal_title>
+              <author>VM Costa</author>
+              <volume>33</volume>
+              <first_page>1507</first_page>
+              <cYear>2002</cYear>
+              <article_title>Hydrogen peroxide-induced carbonylation of key metabolic enzymes in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;: the involvement of the oxidative stress response regulators Yap1 and Skn7.</article_title>
+            </citation>
+            <citation key="ref67">
+              <journal_title>Mol Cell Biol</journal_title>
+              <author>CM Grant</author>
+              <volume>19</volume>
+              <first_page>2650</first_page>
+              <cYear>1999</cYear>
+              <article_title>Differential protein S-thiolation of glyceraldehyde-3-phosphate dehydrogenase isoenzymes influences sensitivity to oxidative stress.</article_title>
+            </citation>
+            <citation key="ref68">
+              <journal_title>Eur J Biochem</journal_title>
+              <author>I Schuppe-Koistinen</author>
+              <volume>221</volume>
+              <first_page>1033</first_page>
+              <cYear>1994</cYear>
+              <article_title>S-thiolation of human endothelial cell glyceraldehyde-3-phosphate dehydrogenase after hydrogen peroxide treatment.</article_title>
+            </citation>
+            <citation key="ref69">
+              <journal_title>J Biol Chem</journal_title>
+              <author>V Ravichandran</author>
+              <volume>269</volume>
+              <first_page>25010</first_page>
+              <cYear>1994</cYear>
+              <article_title>S-thiolation of glyceraldehyde-3-phosphate dehydrogenase induced by the phagocytosis-associated respiratory burst in blood monocytes.</article_title>
+            </citation>
+            <citation key="ref70">
+              <journal_title>Curr Genet</journal_title>
+              <author>B Krems</author>
+              <volume>27</volume>
+              <first_page>427</first_page>
+              <cYear>1995</cYear>
+              <article_title>Mutants of &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt; sensitive to oxidative and osmotic stress.</article_title>
+            </citation>
+            <citation key="ref71">
+              <journal_title>Annu Rev Plant Biol</journal_title>
+              <author>BB Buchanan</author>
+              <volume>56</volume>
+              <first_page>187</first_page>
+              <cYear>2005</cYear>
+              <article_title>Redox regulation: a broadening horizon.</article_title>
+            </citation>
+            <citation key="ref72">
+              <journal_title>Antioxid Redox Signal</journal_title>
+              <author>A Holmgren</author>
+              <volume>2</volume>
+              <first_page>811</first_page>
+              <cYear>2000</cYear>
+              <article_title>Antioxidant function of thioredoxin and glutaredoxin systems.</article_title>
+            </citation>
+            <citation key="ref73">
+              <journal_title>N Engl J Med</journal_title>
+              <author>KB Hammond</author>
+              <volume>325</volume>
+              <first_page>769</first_page>
+              <cYear>1991</cYear>
+              <article_title>Efficacy of statewide neonatal screening for cystic fibrosis by assay of trypsinogen concentrations.</article_title>
+            </citation>
+          </citation_list>
+          <component_list>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g001</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g001</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g002</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g002</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g003</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g003</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g004</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g004</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g005</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g005</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g006</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g006</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g007</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g007</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <description />
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.g008</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g008</resource>
+              </doi_data>
+            </component>
+            <component parent_relation="isPartOf">
+              <doi_data>
+                <doi>10.1371/journal.pone.0000030.s001</doi>
+                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.s001</resource>
+              </doi_data>
+            </component>
+          </component_list>
+        </journal_article>
+      </journal>
+    </crossref>
+  </doi_record>
+</doi_records>
