@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.5438/4K3M-NYVG</identifier>
+  <creators>
+    <creator>
+      <creatorName>Fenner, Martin</creatorName>
+      <givenName>Martin</givenName>
+      <familyName>Fenner</familyName>
+      <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">0000-0003-1419-2405</nameIdentifier>
+    </creator>
+  </creators>
+  <titles>
+    <title>Eating your own Dog Food</title>
+  </titles>
+  <publisher>DataCite</publisher>
+  <publicationYear>2016</publicationYear>
+  <resourceType resourceTypeGeneral="Text">BlogPosting</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="Local accession number">MS-49-3632-5083</alternateIdentifier>
+  </alternateIdentifiers>
+  <subjects>
+    <subject>datacite</subject>
+    <subject>doi</subject>
+    <subject>metadata</subject>
+  </subjects>
+  <dates>
+    <date dateType="Created">2016-12-20</date>
+    <date dateType="Issued">2016-12-20</date>
+    <date dateType="Updated">2016-12-20</date>
+  </dates>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.5438/0012</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.5438/55E5-T5C0</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsPartOf">10.5438/0000-00SS</relatedIdentifier>
+  </relatedIdentifiers>
+  <version>1.0</version>
+  <descriptions>
+    <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
+  </descriptions>
+</resource>

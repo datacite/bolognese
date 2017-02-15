@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    Bolognese (0.1)
+    Bolognese (0.2)
       activesupport (~> 4.2, >= 4.2.5)
       builder (~> 3.2, >= 3.2.2)
       dotenv (~> 2.1, >= 2.1.1)
       json-schema (~> 2.5)
-      maremma (~> 3.1.2)
+      maremma (~> 3.5)
       namae (~> 0.10.2)
       nokogiri (~> 1.6, >= 1.6.8)
       postrank-uri (~> 1.0, >= 1.0.18)
@@ -42,7 +42,7 @@ GEM
     json (1.8.6)
     json-schema (2.6.2)
       addressable (~> 2.3.8)
-    maremma (3.1.5)
+    maremma (3.5)
       activesupport (~> 4.2, >= 4.2.5)
       addressable (>= 2.3.6)
       builder (~> 3.2, >= 3.2.2)

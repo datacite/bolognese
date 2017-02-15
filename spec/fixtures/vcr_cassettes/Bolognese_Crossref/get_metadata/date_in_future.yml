@@ -23,7 +23,7 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018
       Expires:
-      - Mon, 13 Feb 2017 18:39:46 GMT
+      - Tue, 14 Feb 2017 12:39:48 GMT
       Link:
       - <https://api.elsevier.com/content/usage/doi/>; rel="dul"
       Content-Type:
@@ -31,14 +31,14 @@ http_interactions:
       Content-Length:
       - '195'
       Date:
-      - Mon, 13 Feb 2017 18:15:50 GMT
+      - Tue, 14 Feb 2017 11:44:56 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018">http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018</a></body></html>
     http_version: 
-  recorded_at: Wed, 24 Jun 2015 22:00:00 GMT
+  recorded_at: Tue, 14 Feb 2017 11:44:57 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018
@@ -74,7 +74,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Mon, 13 Feb 2017 18:15:50 GMT
+      - Tue, 14 Feb 2017 11:44:57 GMT
       Connection:
       - close
     body:
@@ -223,5 +223,5 @@ http_interactions:
         ICAgIDwvam91cm5hbF9hcnRpY2xlPg0KICAgICAgPC9qb3VybmFsPg0KICAg
         IDwvY3Jvc3NyZWY+DQogIDwvZG9pX3JlY29yZD4NCjwvZG9pX3JlY29yZHM+
     http_version: 
-  recorded_at: Wed, 24 Jun 2015 22:00:00 GMT
+  recorded_at: Tue, 14 Feb 2017 11:44:57 GMT
 recorded_with: VCR 3.0.3

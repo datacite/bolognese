@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1371%2Fjournal.pone.0000030
       Expires:
-      - Mon, 13 Feb 2017 18:39:46 GMT
+      - Wed, 15 Feb 2017 09:39:50 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '195'
       Date:
-      - Mon, 13 Feb 2017 18:15:59 GMT
+      - Wed, 15 Feb 2017 09:36:45 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1371%2Fjournal.pone.0000030">http://data.crossref.org/10.1371%2Fjournal.pone.0000030</a></body></html>
     http_version: 
-  recorded_at: Wed, 24 Jun 2015 22:00:00 GMT
+  recorded_at: Wed, 15 Feb 2017 09:36:45 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1371%2Fjournal.pone.0000030
@@ -70,7 +70,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Mon, 13 Feb 2017 18:15:59 GMT
+      - Wed, 15 Feb 2017 09:36:45 GMT
       Connection:
       - close
     body:
@@ -926,5 +926,46 @@ http_interactions:
         bGU+DQogICAgICA8L2pvdXJuYWw+DQogICAgPC9jcm9zc3JlZj4NCiAgPC9k
         b2lfcmVjb3JkPg0KPC9kb2lfcmVjb3Jkcz4=
     http_version: 
-  recorded_at: Wed, 24 Jun 2015 22:00:00 GMT
+  recorded_at: Wed, 15 Feb 2017 09:36:46 GMT
+- request:
+    method: get
+    uri: https://doi.crossref.org/doiRA/10.1371/JOURNAL.PONE.0000030
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Crossref-Deployment-Name:
+      - svc1-1
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Language:
+      - en-US
+      Content-Length:
+      - '66'
+      Date:
+      - Wed, 15 Feb 2017 09:36:46 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        [
+         {
+         "DOI": "10.1371/JOURNAL.PONE.0000030",
+         "RA": "Crossref"
+        }
+        ]
+    http_version: 
+  recorded_at: Wed, 15 Feb 2017 09:36:46 GMT
 recorded_with: VCR 3.0.3
