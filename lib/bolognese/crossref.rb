@@ -1,8 +1,10 @@
 require_relative 'doi_utils'
+require_relative 'utils'
 
 module Bolognese
   class Crossref < Metadata
     include Bolognese::DoiUtils
+    include Bolognese::Utils
 
     # CrossRef types from https://api.crossref.org/types
     CROSSREF_TYPE_TRANSLATIONS = {
@@ -84,19 +86,12 @@ module Bolognese
     end
 
     def name
-      title = bibliographic_metadata.dig("titles", "title")
-      if title.is_a?(String)
-        title
-      elsif title.is_a?(Array)
-        title.first
-      else
-        nil
-      end
+      parse_attribute(bibliographic_metadata.dig("titles", "title"))
     end
 
     def alternate_name
-      bibliographic_metadata.dig("publisher_item", "item_number", "text") ||
-      bibliographic_metadata.dig("item_number", "text")
+      puts bibliographic_metadata.dig("publisher_item")
+      parse_attribute(bibliographic_metadata.dig("publisher_item", "item_number"))
     end
 
     def description
@@ -105,15 +100,10 @@ module Bolognese
 
     def license
       access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
-      case
-      when access_indicator["license_ref"].is_a?(String)
-        access_indicator["license_ref"]
-      when access_indicator["license_ref"].is_a?(Hash)
-        access_indicator.dig("license_ref", "text")
-      when access_indicator["license_ref"].is_a?(Array)
-        access_indicator.fetch("license_ref")
-                        .find { |l| l["applies_to"] == "vor" }.fetch("text", nil)
-      else nil
+      if access_indicator.present?
+        parse_attribute(access_indicator["license_ref"])
+      else
+        nil
       end
     end
 
@@ -134,7 +124,7 @@ module Bolognese
           "@id" => a["ORCID"],
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
-      end
+      end.presence
     end
 
     def date_published
@@ -163,7 +153,7 @@ module Bolognese
       if journal_metadata.present?
         { "@type" => "Periodical",
           "name" => journal_metadata["full_title"],
-          "issn" => journal_metadata.dig("issn", "text") }
+          "issn" => parse_attribute(journal_metadata.fetch("issn", nil)) }.compact
       else
         nil
       end
@@ -174,7 +164,7 @@ module Bolognese
        Array(citations).select { |c| c["doi"].present? }.map do |c|
          { "@type" => "CreativeWork",
            "@id" => normalize_doi(c["doi"]) }
-       end
+       end.presence
     end
 
     def provider

@@ -1,8 +1,10 @@
 require_relative 'doi_utils'
+require_relative 'utils'
 
 module Bolognese
   class Datacite < Metadata
     include Bolognese::DoiUtils
+    include Bolognese::Utils
 
     DATACITE_TYPE_TRANSLATIONS = {
       "Audiovisual" => "VideoObject",
@@ -77,15 +79,11 @@ module Bolognese
     end
 
     def version
-      metadata.fetch("version")
+      metadata.fetch("version", nil)
     end
 
     def date_published
       metadata.fetch("publicationYear")
-    end
-
-    def date_modified
-
     end
 
     def related_identifiers(relation_type)
@@ -103,11 +101,11 @@ module Bolognese
     end
 
     def has_part
-      related_identifiers("HasPart")
+      related_identifiers("HasPart").presence
     end
 
     def citation
-      related_identifiers("Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy")
+      related_identifiers("Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
     end
 
     def publisher
@@ -126,15 +124,11 @@ module Bolognese
         "name" => name,
         "alternateName" => alternate_name,
         "author" => author,
-        "editor" => editor,
         "description" => description,
         "license" => license,
         "version" => version,
         "keywords" => keywords,
         "datePublished" => date_published,
-        "dateModified" => date_modified,
-        "pageStart" => page_start,
-        "pageEnd" => page_end,
         "isPartOf" => is_part_of,
         "hasPart" => has_part,
         "citation" => citation,

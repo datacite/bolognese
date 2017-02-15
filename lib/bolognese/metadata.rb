@@ -2,6 +2,7 @@ require_relative 'doi_utils'
 require_relative 'author_utils'
 require_relative 'date_utils'
 require_relative 'pid_utils'
+require_relative 'utils'
 
 module Bolognese
   class Metadata
@@ -9,6 +10,7 @@ module Bolognese
     include Bolognese::AuthorUtils
     include Bolognese::DateUtils
     include Bolognese::PidUtils
+    include Bolognese::Utils
 
     attr_reader :id, :metadata, :provider
 

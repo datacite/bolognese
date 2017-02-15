@@ -63,6 +63,14 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
     end
 
+    it "DOI test" do
+      id = "10.12688/f1000research.2-147.v1"
+      subject = Bolognese::Crossref.new(id)
+      expect(subject.as_schema_org).to eq(25)
+    end
+
+
+
     it "DOI with SICI DOI" do
       id = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
       subject = Bolognese::Crossref.new(id)

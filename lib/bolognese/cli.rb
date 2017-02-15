@@ -24,7 +24,7 @@ module Bolognese
         when "datacte" then DataCite.new(pid)
         end
 
-      puts provider.schema.org
+      puts provider.as_schema_org
     end
   end
 end
