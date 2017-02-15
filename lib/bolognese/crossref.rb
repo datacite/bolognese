@@ -1,46 +1,52 @@
-require_relative 'doi'
+require_relative 'doi_utils'
 
 module Bolognese
-  class Crossref
-    include Bolognese::Doi
+  class Crossref < Metadata
+    include Bolognese::DoiUtils
 
     # CrossRef types from https://api.crossref.org/types
     CROSSREF_TYPE_TRANSLATIONS = {
-      "proceedings" => nil,
-      "reference-book" => nil,
-      "journal-issue" => nil,
-      "proceedings-article" => nil,
-      "other" => nil,
-      "dissertation" => nil,
-      "dataset" => "Dataset",
-      "edited-book" => "Book",
-      "journal-article" => "ScholarlyArticle",
-      "journal" => nil,
-      "report" => "report",
-      "book-series" => nil,
-      "report-series" => nil,
-      "book-track" => nil,
-      "standard" => nil,
-      "book-section" => nil,
-      "book-part" => nil,
-      "book" => "Book",
-      "book-chapter" => nil,
-      "standard-series" => nil,
-      "monograph" => "book",
-      "component" => nil,
-      "reference-entry" => nil,
-      "journal-volume" => nil,
-      "book-set" => nil,
-      "posted-content" => nil
+      "Proceedings" => nil,
+      "ReferenceBook" => nil,
+      "JournalIssue" => nil,
+      "ProceedingsArticle" => nil,
+      "Other" => nil,
+      "Dissertation" => "Thesis",
+      "Dataset" => "Dataset",
+      "EditedBook" => "Book",
+      "JournalArticle" => "ScholarlyArticle",
+      "Journal" => nil,
+      "Report" => nil,
+      "BookSeries" => nil,
+      "ReportSeries" => nil,
+      "BookTrack" => nil,
+      "Standard" => nil,
+      "BookSection" => nil,
+      "BookPart" => nil,
+      "Book" => "Book",
+      "BookChapter" => "Chapter",
+      "StandardSeries" => nil,
+      "Monograph" => "Book",
+      "Component" => nil,
+      "ReferenceEntry" => nil,
+      "JournalVolume" => nil,
+      "BookSet" => nil,
+      "PostedContent" => nil
     }
 
     attr_reader = :id, :metadata, :schema_org
 
     def initialize(doi)
       @id = normalize_doi(doi)
+    end
 
-      response = Maremma.get(@id, accept: "application/vnd.crossref.unixref+xml", host: true)
-      @metadata = response.body.fetch("data", {}).fetch("doi_records", {}).fetch("doi_record", {})
+    def raw
+      response = Maremma.get(@id, accept: "application/vnd.crossref.unixref+xml", host: true, raw: true)
+      @raw ||= response.body.fetch("data", nil)
+    end
+
+    def metadata
+      @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("doi_records", {}).fetch("doi_record", {}) : {}
     end
 
     def exists?
@@ -65,13 +71,16 @@ module Bolognese
       bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || {}
     end
 
-    def type
+    def additional_type
       if metadata.dig("crossref", "journal").present?
-        k = metadata.dig("crossref", "journal").keys.last
+        metadata.dig("crossref", "journal").keys.last.camelize
       else
-        k = metadata.dig("crossref").keys.last
+        metadata.dig("crossref").keys.last.camelize
       end
-      CROSSREF_TYPE_TRANSLATIONS[k.dasherize] || "CreativeWork"
+    end
+
+    def type
+      CROSSREF_TYPE_TRANSLATIONS[additional_type] || "CreativeWork"
     end
 
     def name
@@ -177,6 +186,7 @@ module Bolognese
       { "@context" => "http://schema.org",
         "@type" => type,
         "@id" => id,
+        "additionalType" => additional_type,
         "name" => name,
         "alternateName" => alternate_name,
         "author" => author,

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.crossref.org/doiRA/
+    uri: https://doi.crossref.org/doiRA/10.1371/JOURNAL.PONE.0000030
     body:
       encoding: US-ASCII
       string: ''
@@ -25,9 +25,9 @@ http_interactions:
       Content-Language:
       - en-US
       Content-Length:
-      - '51'
+      - '66'
       Date:
-      - Wed, 15 Feb 2017 10:05:45 GMT
+      - Wed, 15 Feb 2017 21:25:42 GMT
       Connection:
       - close
     body:
@@ -35,10 +35,10 @@ http_interactions:
       string: |-
         [
          {
-         "DOI": "/doiRA",
-         "status": "Invalid DOI"
+         "DOI": "10.1371/JOURNAL.PONE.0000030",
+         "RA": "Crossref"
         }
         ]
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 10:05:46 GMT
+  recorded_at: Wed, 15 Feb 2017 21:25:42 GMT
 recorded_with: VCR 3.0.3

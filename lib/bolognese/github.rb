@@ -1,5 +1,5 @@
 module Bolognese
-  module Github
+  class Github < Metadata
     # def get_github_metadata(url, options = {})
     #   return {} if url.blank?
 

@@ -1,33 +1,39 @@
-require_relative 'doi'
+require_relative 'doi_utils'
 
 module Bolognese
-  class Datacite
-    include Bolognese::Doi
+  class Datacite < Metadata
+    include Bolognese::DoiUtils
 
     DATACITE_TYPE_TRANSLATIONS = {
-      "Audiovisual" => nil,
-      "Collection" => nil,
+      "Audiovisual" => "VideoObject",
+      "Collection" => "Collection",
       "Dataset" => "Dataset",
-      "Event" => nil,
-      "Image" => nil,
+      "Event" => "Event",
+      "Image" => "ImageObject",
       "InteractiveResource" => nil,
       "Model" => nil,
       "PhysicalObject" => nil,
-      "Service" => nil,
-      "Software" => nil,
-      "Sound" => nil,
-      "Text" => nil,
+      "Service" => "Service",
+      "Software" => "SoftwareSourceCode",
+      "Sound" => "AudioObject",
+      "Text" => "ScholarlyArticle",
       "Workflow" => nil,
-      "Other" => nil
+      "Other" => "CreativeWork"
     }
 
     attr_reader = :id, :metadata, :schema_org
 
     def initialize(doi)
       @id = normalize_doi(doi)
+    end
 
-      response = Maremma.get(@id, accept: "application/vnd.datacite.datacite+xml")
-      @metadata = response.body.fetch("data", {}).fetch("resource", {})
+    def raw
+      response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
+      @raw = response.body.fetch("data", nil)
+    end
+
+    def metadata
+      @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("resource", {}) : {}
     end
 
     def exists?
@@ -35,8 +41,13 @@ module Bolognese
     end
 
     def type
-      k = metadata.fetch("resourceType", {}).fetch("resourceTypeGeneral", "")
-      DATACITE_TYPE_TRANSLATIONS[k.dasherize] || "CreativeWork"
+      k = metadata.dig("resourceType", "resourceTypeGeneral")
+      DATACITE_TYPE_TRANSLATIONS[k.to_s.dasherize] || "CreativeWork"
+    end
+
+    def additional_type
+      metadata.fetch("resourceType", {}).fetch("text", nil) ||
+      metadata.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil)
     end
 
     def name
@@ -98,48 +109,6 @@ module Bolognese
     def citation
       related_identifiers("Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy")
     end
-
-    # def get_datacite_metadata(doi, options = {})
-    #   return { error: 'No DOI provided.'} if doi.blank?
-
-    #   params = { q: "doi:" + doi,
-    #              rows: 1,
-    #              fl: "doi,creator,title,publisher,publicationYear,resourceTypeGeneral,resourceType,datacentre,datacentre_symbol,prefix,relatedIdentifier,xml,minted,updated",
-    #              wt: "json" }
-    #   url = "https://search.datacite.org/api?" + URI.encode_www_form(params)
-
-    #   response = Maremma.get(url, options)
-
-    #   metadata = response.body.fetch("data", {}).fetch("response", {}).fetch("docs", []).first
-    #   return { error: 'Resource not found.', status: 404 } if metadata.blank?
-
-    #   doi = metadata.fetch("doi", nil)
-    #   doi = doi.upcase if doi.present?
-    #   title = metadata.fetch("title", []).first
-    #   title = title.chomp(".") if title.present?
-
-    #   xml = Base64.decode64(metadata.fetch('xml', "PGhzaD48L2hzaD4=\n"))
-    #   doc = Nokogiri::XML(xml)
-    #   issued = doc.at_xpath('//xmlns:date[@dateType="Issued"]')
-    #   issued = issued.text if issued.present?
-
-    #   xml = Hash.from_xml(xml).fetch("resource", {})
-    #   authors = xml.fetch("creators", {}).fetch("creator", [])
-    #   authors = [authors] if authors.is_a?(Hash)
-
-    #   { "author" => get_hashed_authors(authors),
-    #     "title" => title,
-    #     "container-title" => metadata.fetch("publisher", nil),
-    #     "published" => metadata.fetch("publicationYear", nil),
-    #     "deposited" => metadata.fetch("minted", nil),
-    #     "issued" => issued,
-    #     "updated" => metadata.fetch("updated", nil),
-    #     "DOI" => doi,
-    #     "resource_type_id" => metadata.fetch("resourceTypeGeneral", nil),
-    #     "resource_type" => metadata.fetch("resourceType", nil),
-    #     "publisher_id" => metadata.fetch("datacentre_symbol", nil),
-    #     "registration_agency_id" => "datacite" }
-    # end
 
     def publisher
       metadata.fetch("publisher")

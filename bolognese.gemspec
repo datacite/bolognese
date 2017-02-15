@@ -17,7 +17,6 @@ Gem::Specification.new do |s|
   # Declary dependencies here, rather than in the Gemfile
   s.add_dependency 'maremma', '~> 3.5'
   s.add_dependency 'nokogiri', '~> 1.6', '>= 1.6.8'
-  s.add_dependency 'json-schema', '~> 2.5'
   s.add_dependency 'builder', '~> 3.2', '>= 3.2.2'
   s.add_dependency 'activesupport', '~> 4.2', '>= 4.2.5'
   s.add_dependency 'dotenv', '~> 2.1', '>= 2.1.1'

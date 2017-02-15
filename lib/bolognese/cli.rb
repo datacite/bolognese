@@ -16,11 +16,15 @@ module Bolognese
       puts Bolognese::VERSION
     end
 
-    desc "read pid", "read metadata for PID"
-    method_option :sandbox, :type => :boolean, :force => false
-    def read(pid)
+    desc "get pid", "read metadata for PID"
+    def get(pid)
       metadata = Metadata.new(pid)
-      puts metadata.service
+      provider = case metadata.provider
+        when "crossref" then Crossref.new(pid)
+        when "datacte" then DataCite.new(pid)
+        end
+
+      puts provider.schema.org
     end
   end
 end

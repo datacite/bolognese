@@ -1,5 +1,5 @@
 module Bolognese
-  module Doi
+  module DoiUtils
     def validate_doi(doi)
       Array(/\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
     end

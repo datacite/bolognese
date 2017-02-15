@@ -1,5 +1,6 @@
 module Bolognese
-  class Orcid
+  class Orcid < Metadata
+    include Bolognese::PidUtils
     # def get_orcid_metadata(orcid, options = {})
     #   return {} if orcid.blank?
 
@@ -19,25 +20,5 @@ module Bolognese
     #     "URL" => orcid_as_url(orcid),
     #     "type" => 'entry' }
     # end
-
-    def normalize_orcid(orcid)
-      orcid = validate_orcid(orcid)
-      return nil unless orcid.present?
-
-      # turn ORCID ID into URL
-      doi = "http://orcid.org/" + Addressable::URI.encode(doi)
-    end
-
-    def orcid_from_url(url)
-      Array(/\Ahttp:\/\/orcid\.org\/(.+)/.match(url)).last
-    end
-
-    def orcid_as_url(orcid)
-      "http://orcid.org/#{orcid}" if orcid.present?
-    end
-
-    def validate_orcid(orcid)
-      Array(/\A(?:http:\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(orcid)).last
-    end
   end
 end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.crossref.org/doiRA/10.5438/4K3M-NYVG
+    uri: https://doi.crossref.org/doiRA/
     body:
       encoding: US-ASCII
       string: ''
@@ -25,9 +25,9 @@ http_interactions:
       Content-Language:
       - en-US
       Content-Length:
-      - '55'
+      - '51'
       Date:
-      - Wed, 15 Feb 2017 09:56:51 GMT
+      - Wed, 15 Feb 2017 21:25:44 GMT
       Connection:
       - close
     body:
@@ -35,10 +35,10 @@ http_interactions:
       string: |-
         [
          {
-         "DOI": "10.5438/4K3M-NYVG",
-         "RA": "DataCite"
+         "DOI": "/doiRA",
+         "status": "Invalid DOI"
         }
         ]
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 09:56:52 GMT
+  recorded_at: Wed, 15 Feb 2017 21:25:44 GMT
 recorded_with: VCR 3.0.3
