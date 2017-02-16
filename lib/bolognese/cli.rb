@@ -16,15 +16,23 @@ module Bolognese
       puts Bolognese::VERSION
     end
 
-    desc "get pid", "read metadata for PID"
-    def get(pid)
+    desc "read pid", "read metadata for PID"
+    method_option :as, :default => "schema_org"
+    def read(pid)
       metadata = Metadata.new(pid)
       provider = case metadata.provider
         when "crossref" then Crossref.new(pid)
-        when "datacte" then DataCite.new(pid)
+        when "datacite" then Datacite.new(pid)
+        when "orcid" then Orcid.new(pid)
         end
 
-      puts provider.as_schema_org
+      case options[:as]
+      when "schema_org" then provider.as_schema_org
+      when "crossref"
+        provider == "crossref" ? Crossref.new(pid).raw : "not implemented"
+      when "datacite"
+        provider == "datacite" ? Datacite.new(pid).raw : "not implemented"
+      end
     end
   end
 end

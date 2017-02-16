@@ -58,18 +58,10 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
-      expect(subject.citation.count).to eq(25)
-      expect(subject.citation[19]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k")
+      expect(subject.citation.count).to eq(27)
+      expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
     end
-
-    it "DOI test" do
-      id = "10.12688/f1000research.2-147.v1"
-      subject = Bolognese::Crossref.new(id)
-      expect(subject.as_schema_org).to eq(25)
-    end
-
-
 
     it "DOI with SICI DOI" do
       id = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"

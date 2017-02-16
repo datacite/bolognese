@@ -82,8 +82,23 @@ module Bolognese
       metadata.fetch("version", nil)
     end
 
+    def dates
+      Array(metadata.dig("dates", "date"))
+    end
+
+    def date_created
+      created = dates.find { |d| d["dateType"] == "Created" } || {}
+      created.fetch("text", nil)
+    end
+
     def date_published
-      metadata.fetch("publicationYear")
+      published = dates.find { |d| d["dateType"] == "Issued" } || {}
+      published.fetch("text", nil) || metadata.fetch("publicationYear")
+    end
+
+    def date_modified
+      modified = dates.find { |d| d["dateType"] == "Updated" } || {}
+      modified.fetch("text", nil)
     end
 
     def related_identifiers(relation_type)
@@ -128,7 +143,9 @@ module Bolognese
         "license" => license,
         "version" => version,
         "keywords" => keywords,
+        "dateCreated" => date_created,
         "datePublished" => date_published,
+        "dateModified" => date_modified,
         "isPartOf" => is_part_of,
         "hasPart" => has_part,
         "citation" => citation,

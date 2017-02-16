@@ -12,7 +12,7 @@ module Bolognese
     include Bolognese::PidUtils
     include Bolognese::Utils
 
-    attr_reader :id, :metadata, :provider
+    attr_reader :id, :provider
 
     def initialize(id)
       @id = normalize_id(id)

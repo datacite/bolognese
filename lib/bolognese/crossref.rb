@@ -90,8 +90,11 @@ module Bolognese
     end
 
     def alternate_name
-      puts bibliographic_metadata.dig("publisher_item")
-      parse_attribute(bibliographic_metadata.dig("publisher_item", "item_number"))
+      if bibliographic_metadata.fetch("publisher_item", nil).present?
+        parse_attribute(bibliographic_metadata.dig("publisher_item", "item_number"))
+      else
+        parse_attribute(bibliographic_metadata.fetch("item_number", nil))
+      end
     end
 
     def description
@@ -161,9 +164,12 @@ module Bolognese
 
     def citation
        citations = bibliographic_metadata.dig("citation_list", "citation")
-       Array(citations).select { |c| c["doi"].present? }.map do |c|
+       Array(citations).map do |c|
          { "@type" => "CreativeWork",
-           "@id" => normalize_doi(c["doi"]) }
+           "@id" => normalize_doi(c["doi"]),
+           "position" => c["key"],
+           "name" => c["article_title"],
+           "datePublished" => c["cYear"] }.compact
        end.presence
     end
 

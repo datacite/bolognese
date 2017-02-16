@@ -38,7 +38,8 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.name).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("MS-49-3632-5083")
       expect(subject.description).to start_with("Eating your own dog food")
-      expect(subject.date_published).to eq("2016")
+      expect(subject.date_published).to eq("2016-12-20")
+      expect(subject.date_modified).to eq("2016-12-20")
       expect(subject.is_part_of).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0000-00ss")
       expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55e5-t5c0"}])
