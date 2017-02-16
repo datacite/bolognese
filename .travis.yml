@@ -2,6 +2,9 @@ language: ruby
 rvm:
 - 2.3.3
 
+before_install:
+- export TZ=Europe/Berlin
+
 install:
 - travis_retry bundle install
 
