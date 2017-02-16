@@ -4,7 +4,7 @@ require File.expand_path("../lib/bolognese/version", __FILE__)
 Gem::Specification.new do |s|
   s.authors       = "Martin Fenner"
   s.email         = "mfenner@datacite.org"
-  s.name          = "Bolognese"
+  s.name          = "bolognese"
   s.homepage      = "https://github.com/datacite/bolognese"
   s.summary       = "Ruby client library for conversion of DOI Metadata"
   s.date          = Date.today
