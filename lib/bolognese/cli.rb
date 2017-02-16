@@ -19,19 +19,19 @@ module Bolognese
     desc "read pid", "read metadata for PID"
     method_option :as, :default => "schema_org"
     def read(pid)
-      metadata = Metadata.new(pid)
-      provider = case metadata.provider
-        when "crossref" then Crossref.new(pid)
-        when "datacite" then Datacite.new(pid)
-        when "orcid" then Orcid.new(pid)
-        end
+      provider = Metadata.new(pid).provider
 
-      case options[:as]
-      when "schema_org" then provider.as_schema_org
-      when "crossref"
-        provider == "crossref" ? Crossref.new(pid).raw : "not implemented"
+      case
+      when provider == "crossref" && options[:as] == "crossref"
+        puts Crossref.new(pid).raw
+      when provider == "crossref"
+        puts Crossref.new(pid).as_schema_org
+      when provider == "datacite" && options[:as] == "datacite"
+        puts Datacite.new(pid).raw
       when "datacite"
-        provider == "datacite" ? Datacite.new(pid).raw : "not implemented"
+        puts Datacite.new(pid).as_schema_org
+      else
+        puts "not implemented"
       end
     end
   end
