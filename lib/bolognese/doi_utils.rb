@@ -18,9 +18,9 @@ module Bolognese
     def doi_from_url(url)
       if /(http|https):\/\/(dx\.)?doi\.org\/(\w+)/.match(url)
         uri = Addressable::URI.parse(url)
-        uri.path[1..-1].upcase
+        uri.path[1..-1].downcase
       elsif url.is_a?(String) && url.starts_with?("doi:")
-        url[4..-1].upcase
+        url[4..-1].downcase
       end
     end
 
@@ -43,6 +43,5 @@ module Bolognese
         { "errors" => response.body.fetch("errors", nil) || response.body.fetch("data", nil) }
       end
     end
-
   end
 end

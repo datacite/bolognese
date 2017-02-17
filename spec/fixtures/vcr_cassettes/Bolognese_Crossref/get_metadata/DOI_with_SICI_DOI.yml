@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1890%2F0012-9658%282006%2987%5B2832%3Atiopma%5D2.0.co%3B2
       Expires:
-      - Wed, 15 Feb 2017 22:59:48 GMT
+      - Fri, 17 Feb 2017 08:46:47 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '255'
       Date:
-      - Wed, 15 Feb 2017 22:02:42 GMT
+      - Fri, 17 Feb 2017 08:07:11 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1890%2F0012-9658%282006%2987%5B2832%3Atiopma%5D2.0.co%3B2">http://data.crossref.org/10.1890%2F0012-9658%282006%2987%5B2832%3Atiopma%5D2.0.co%3B2</a></body></html>
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:43 GMT
+  recorded_at: Fri, 17 Feb 2017 08:07:11 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1890%2F0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2
@@ -72,7 +72,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Wed, 15 Feb 2017 22:02:43 GMT
+      - Fri, 17 Feb 2017 08:07:11 GMT
       Connection:
       - close
     body:
@@ -136,7 +136,7 @@ http_interactions:
         X2FydGljbGU+DQogICAgICA8L2pvdXJuYWw+DQogICAgPC9jcm9zc3JlZj4N
         CiAgPC9kb2lfcmVjb3JkPg0KPC9kb2lfcmVjb3Jkcz4=
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:43 GMT
+  recorded_at: Fri, 17 Feb 2017 08:07:11 GMT
 - request:
     method: get
     uri: https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2
@@ -160,20 +160,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1890%2F0012-9658%282006%2987%5B2832%3Atiopma%5D2.0.co%3B2
       Expires:
-      - Wed, 15 Feb 2017 22:59:48 GMT
+      - Fri, 17 Feb 2017 08:46:47 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '255'
       Date:
-      - Wed, 15 Feb 2017 22:02:43 GMT
+      - Fri, 17 Feb 2017 08:07:11 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1890%2F0012-9658%282006%2987%5B2832%3Atiopma%5D2.0.co%3B2">http://data.crossref.org/10.1890%2F0012-9658%282006%2987%5B2832%3Atiopma%5D2.0.co%3B2</a></body></html>
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:43 GMT
+  recorded_at: Fri, 17 Feb 2017 08:07:12 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1890%2F0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2
@@ -209,7 +209,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Wed, 15 Feb 2017 22:02:43 GMT
+      - Fri, 17 Feb 2017 08:07:12 GMT
       Connection:
       - close
     body:
@@ -273,5 +273,5 @@ http_interactions:
         X2FydGljbGU+DQogICAgICA8L2pvdXJuYWw+DQogICAgPC9jcm9zc3JlZj4N
         CiAgPC9kb2lfcmVjb3JkPg0KPC9kb2lfcmVjb3Jkcz4=
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:43 GMT
+  recorded_at: Fri, 17 Feb 2017 08:07:12 GMT
 recorded_with: VCR 3.0.3

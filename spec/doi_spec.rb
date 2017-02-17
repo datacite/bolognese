@@ -83,7 +83,7 @@ describe Bolognese::Crossref, vcr: true do
     it "not found" do
       doi = "https://doi.org/10.5061/dryad.8515x"
       response = subject.get_doi_ra(doi)
-      expect(response["errors"]).to eq([{"DOI"=>"10.5061/DRYAD.8515X", "status"=>"Invalid DOI"}])
+      expect(response["errors"]).to eq([{"DOI"=>"10.5061/dryad.8515x", "status"=>"Invalid DOI"}])
     end
   end
 end

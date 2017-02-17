@@ -67,7 +67,12 @@ module Bolognese
     end
 
     def description
-      metadata.dig("descriptions", "description", "text")
+      des = metadata.dig("descriptions", "description", "text")
+      if des.is_a?(Hash)
+        des.to_xml
+      elsif des.is_a?(String)
+        des
+      end
     end
 
     def license

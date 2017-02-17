@@ -104,7 +104,12 @@ module Bolognese
     end
 
     def description
-      bibliographic_metadata.fetch("abstract", {}).values.first
+      des = bibliographic_metadata.fetch("abstract", {}).values.first
+      if des.is_a?(Hash)
+        des.to_xml
+      elsif des.is_a?(String)
+        des
+      end
     end
 
     def license
@@ -124,7 +129,7 @@ module Bolognese
       person = bibliographic_metadata.dig("contributors", "person_name")
       Array(person).select { |a| a["contributor_role"] == "author" }.map do |a|
         { "@type" => "Person",
-          "@id" => a["ORCID"],
+          "@id" => parse_attribute(a["ORCID"]),
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
       end
@@ -134,7 +139,7 @@ module Bolognese
       person = bibliographic_metadata.dig("contributors", "person_name")
       Array(person).select { |a| a["contributor_role"] == "editor" }.map do |a|
         { "@type" => "Person",
-          "@id" => a["ORCID"],
+          "@id" => parse_attribute(a["ORCID"]),
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
       end.presence

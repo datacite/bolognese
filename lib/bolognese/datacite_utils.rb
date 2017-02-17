@@ -22,6 +22,7 @@ module Bolognese
 
     LICENSE_NAMES = {
       "http://creativecommons.org/publicdomain/zero/1.0/" => "Public Domain (CC0 1.0)",
+      "http://creativecommons.org/licenses/by/3.0/" => "Creative Commons Attribution 3.0 (CC-BY 3.0)",
       "https://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
       "https://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
       "https://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
@@ -88,7 +89,7 @@ module Bolognese
 
       xml.contributors do
         Array(editor).each do |contributor|
-          xml.contributor("contributorType" => contributor[:contributor_type]) do
+          xml.contributor("contributorType" => "Editor") do
             insert_person(xml, contributor, "contributor")
           end
         end
@@ -96,12 +97,12 @@ module Bolognese
     end
 
     def insert_person(xml, person, type)
-      person_name = [person["familyName"], person["givenName"], person["name"]].compact.join(", ")
+      person_name = [person["familyName"], person["givenName"]].compact.join(", ").presence || person["name"]
 
       xml.send(:'creatorName', person_name) if type == "creator"
       xml.send(:'contributorName', person_name) if type == "contributor"
-      xml.send(:'givenName', person[:given_name]) if person["givenName"].present?
-      xml.send(:'familyName', person[:family_name]) if person["familyName"].present?
+      xml.send(:'givenName', person["givenName"]) if person["givenName"].present?
+      xml.send(:'familyName', person["familyName"]) if person["familyName"].present?
       xml.nameIdentifier(person["@id"], 'schemeURI' => 'http://orcid.org/', 'nameIdentifierScheme' => 'ORCID') if person["@id"].present?
     end
 
@@ -165,6 +166,14 @@ module Bolognese
       xml.version(version)
     end
 
+        def is_part_of
+      related_identifiers("IsPartOf").first
+    end
+
+    def related_identifiers
+      Array.wrap(is_part_of) + Array(has_part) + Array(citation)
+    end
+
     def insert_related_identifiers(xml)
       return xml unless related_identifiers.present?
 
@@ -187,7 +196,7 @@ module Bolognese
       return xml unless description.present?
 
       xml.descriptions do
-        xml.description(description)
+        xml.description(description, 'descriptionType' => "Abstract")
       end
     end
 

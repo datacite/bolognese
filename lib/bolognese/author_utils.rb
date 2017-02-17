@@ -48,6 +48,7 @@ module Bolognese
       Array(authors).map { |author| get_one_author(author, options) }
     end
 
+    # pase nameIdentifier from DataCite
     def get_name_identifier(author)
       name_identifier = author.dig("nameIdentifier", "text")
       name_identifier_scheme = author.dig("nameIdentifier", "nameIdentifierScheme") || "ORCID"

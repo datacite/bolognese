@@ -80,6 +80,32 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
     end
 
+    it "DOI with ORCID ID" do
+      id = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Crossref.new(id)
+      expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Wendy", "familyName"=>"Thanassi"},
+                                    {"@type"=>"Person", "givenName"=>"Art", "familyName"=>"Noda"},
+                                    {"@type"=>"Person",
+                                     "@id"=>"http://orcid.org/0000-0003-2043-4925",
+                                     "givenName"=>"Beatriz",
+                                     "familyName"=>"Hernandez"},
+                                    {"@type"=>"Person", "givenName"=>"Jeffery", "familyName"=>"Newell"},
+                                    {"@type"=>"Person", "givenName"=>"Paul", "familyName"=>"Terpeluk"},
+                                    {"@type"=>"Person", "givenName"=>"David", "familyName"=>"Marder"},
+                                    {"@type"=>"Person", "givenName"=>"Jerome A.", "familyName"=>"Yesavage"}])
+      expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
+      expect(subject.name).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
+      expect(subject.date_published).to eq("2012")
+      expect(subject.date_modified).to eq("2016-08-02T12:42:41Z")
+      expect(subject.page_start).to eq("1")
+      expect(subject.page_end).to eq("7")
+      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>"2090-1836")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+    end
+
     it "date in future" do
       id = "https://doi.org/10.1016/j.ejphar.2015.03.018"
       subject = Bolognese::Crossref.new(id)
@@ -116,6 +142,15 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+    end
+
+    it "DOI with ORCID ID" do
+      id = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Crossref.new(id)
+      expect(subject.validation_errors).to be_empty
+      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      expect(datacite.dig("creators", "creator").count).to eq(7)
+      expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi")
     end
   end
 end

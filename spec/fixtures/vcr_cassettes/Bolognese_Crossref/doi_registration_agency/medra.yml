@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.crossref.org/doiRA/10.1392/ROMA081203
+    uri: https://doi.crossref.org/doiRA/10.1392/roma081203
     body:
       encoding: US-ASCII
       string: ''
@@ -27,7 +27,7 @@ http_interactions:
       Content-Length:
       - '53'
       Date:
-      - Wed, 15 Feb 2017 21:25:41 GMT
+      - Fri, 17 Feb 2017 08:06:48 GMT
       Connection:
       - close
     body:
@@ -35,10 +35,10 @@ http_interactions:
       string: |-
         [
          {
-         "DOI": "10.1392/ROMA081203",
+         "DOI": "10.1392/roma081203",
          "RA": "mEDRA"
         }
         ]
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 21:25:41 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:48 GMT
 recorded_with: VCR 3.0.3

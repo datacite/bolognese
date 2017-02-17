@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.datacite.org/10.5438%2F4k3m-nyvg
       Expires:
-      - Wed, 15 Feb 2017 22:27:42 GMT
+      - Fri, 17 Feb 2017 08:28:22 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '173'
       Date:
-      - Wed, 15 Feb 2017 22:02:44 GMT
+      - Fri, 17 Feb 2017 08:06:58 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.datacite.org/10.5438%2F4k3m-nyvg">http://data.datacite.org/10.5438%2F4k3m-nyvg</a></body></html>
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:44 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:59 GMT
 - request:
     method: get
     uri: http://data.datacite.org/10.5438%2F4k3m-nyvg
@@ -56,7 +56,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Wed, 15 Feb 2017 22:02:44 GMT
+      - Fri, 17 Feb 2017 08:06:59 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -70,7 +70,7 @@ http_interactions:
       string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
         bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:44 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:59 GMT
 - request:
     method: get
     uri: https://data.datacite.org/10.5438%2F4k3m-nyvg
@@ -90,7 +90,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Wed, 15 Feb 2017 22:02:44 GMT
+      - Fri, 17 Feb 2017 08:06:59 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Content-Length:
@@ -151,7 +151,7 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:44 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:59 GMT
 - request:
     method: get
     uri: https://doi.org/10.5438/4k3m-nyvg
@@ -175,20 +175,20 @@ http_interactions:
       Location:
       - http://data.datacite.org/10.5438%2F4k3m-nyvg
       Expires:
-      - Wed, 15 Feb 2017 22:27:42 GMT
+      - Fri, 17 Feb 2017 08:28:22 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '173'
       Date:
-      - Wed, 15 Feb 2017 22:02:44 GMT
+      - Fri, 17 Feb 2017 08:06:59 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.datacite.org/10.5438%2F4k3m-nyvg">http://data.datacite.org/10.5438%2F4k3m-nyvg</a></body></html>
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:44 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:59 GMT
 - request:
     method: get
     uri: http://data.datacite.org/10.5438%2F4k3m-nyvg
@@ -208,7 +208,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Wed, 15 Feb 2017 22:02:44 GMT
+      - Fri, 17 Feb 2017 08:06:59 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -222,7 +222,7 @@ http_interactions:
       string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
         bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:44 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:59 GMT
 - request:
     method: get
     uri: https://data.datacite.org/10.5438%2F4k3m-nyvg
@@ -242,7 +242,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Wed, 15 Feb 2017 22:02:44 GMT
+      - Fri, 17 Feb 2017 08:06:59 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Content-Length:
@@ -303,5 +303,5 @@ http_interactions:
           </descriptions>
         </resource>
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 22:02:44 GMT
+  recorded_at: Fri, 17 Feb 2017 08:06:59 GMT
 recorded_with: VCR 3.0.3
