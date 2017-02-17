@@ -1,12 +1,14 @@
 require_relative 'doi_utils'
+require_relative 'datacite_utils'
 require_relative 'utils'
 
 module Bolognese
   class Datacite < Metadata
     include Bolognese::DoiUtils
+    include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    DATACITE_TYPE_TRANSLATIONS = {
+    DC_TO_SO_TRANSLATIONS = {
       "Audiovisual" => "VideoObject",
       "Collection" => "Collection",
       "Dataset" => "Dataset",
@@ -42,9 +44,13 @@ module Bolognese
       metadata.present?
     end
 
+    def doi
+      doi_from_url(id)
+    end
+
     def type
       k = metadata.dig("resourceType", "resourceTypeGeneral")
-      DATACITE_TYPE_TRANSLATIONS[k.to_s.dasherize] || "CreativeWork"
+      DC_TO_SO_TRANSLATIONS[k.to_s.dasherize] || "CreativeWork"
     end
 
     def additional_type

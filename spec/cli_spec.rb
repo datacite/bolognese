@@ -18,6 +18,11 @@ describe Bolognese::CLI do
         subject.options = { as: "crossref" }
         expect { subject.read id }.to output(/journal_metadata/).to_stdout
       end
+
+      it 'as datacite' do
+        subject.options = { as: "datacite" }
+        expect { subject.read id }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
+      end
     end
 
     context "datacite" do

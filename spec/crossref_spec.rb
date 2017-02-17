@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 describe Bolognese::Crossref, vcr: true do
+  let(:id) { "10.7554/eLife.01567" }
+
+  subject { Bolognese::Crossref.new(id) }
+
   context "get metadata" do
-    let(:id) { "https://doi.org/10.1371/journal.pone.0000030" }
-
-    subject { Bolognese::Crossref.new(id) }
-
     it "journal article" do
+      id = "https://doi.org/10.1371/journal.pone.0000030"
+      subject = Bolognese::Crossref.new(id)
       expect(subject.id).to eq(id)
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -43,8 +45,6 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "DOI with data citation" do
-      id = "10.7554/eLife.01567"
-      subject = Bolognese::Crossref.new(id)
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -104,10 +104,18 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "not found error" do
-      id = "https://doi.org/10.1371/journal.pone.0000030x"
+      id = "https://doi.org/10.7554/elife.01567x"
       subject = Bolognese::Crossref.new(id)
       expect(subject.id).to eq(id)
       expect(subject.exists?).to be false
+    end
+  end
+
+  context "get metadata as datacite xml" do
+    it "DOI with data citation" do
+      expect(subject.validation_errors).to be_empty
+      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
     end
   end
 end

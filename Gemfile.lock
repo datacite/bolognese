@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Bolognese (0.2)
+    bolognese (0.3)
       activesupport (~> 4.2, >= 4.2.5)
       builder (~> 3.2, >= 3.2.2)
       dotenv (~> 2.1, >= 2.1.1)
@@ -103,7 +103,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Bolognese!
+  bolognese!
   bundler (~> 1.0)
   codeclimate-test-reporter (~> 1.0, >= 1.0.0)
   rack-test (~> 0)

@@ -1,13 +1,15 @@
 require_relative 'doi_utils'
+require_relative 'datacite_utils'
 require_relative 'utils'
 
 module Bolognese
   class Crossref < Metadata
     include Bolognese::DoiUtils
     include Bolognese::Utils
+    include Bolognese::DataciteUtils
 
     # CrossRef types from https://api.crossref.org/types
-    CROSSREF_TYPE_TRANSLATIONS = {
+    CR_TO_SO_TRANSLATIONS = {
       "Proceedings" => nil,
       "ReferenceBook" => nil,
       "JournalIssue" => nil,
@@ -55,6 +57,10 @@ module Bolognese
       metadata.present?
     end
 
+    def doi
+      doi_from_url(id)
+    end
+
     def journal_metadata
       metadata.dig("crossref", "journal", "journal_metadata").presence || {}
     end
@@ -82,7 +88,7 @@ module Bolognese
     end
 
     def type
-      CROSSREF_TYPE_TRANSLATIONS[additional_type] || "CreativeWork"
+      CR_TO_SO_TRANSLATIONS[additional_type] || "CreativeWork"
     end
 
     def name
@@ -110,6 +116,10 @@ module Bolognese
       end
     end
 
+    def keywords
+
+    end
+
     def author
       person = bibliographic_metadata.dig("contributors", "person_name")
       Array(person).select { |a| a["contributor_role"] == "author" }.map do |a|
@@ -128,6 +138,14 @@ module Bolognese
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
       end.presence
+    end
+
+    def version
+
+    end
+
+    def date_created
+
     end
 
     def date_published
@@ -171,6 +189,10 @@ module Bolognese
            "name" => c["article_title"],
            "datePublished" => c["cYear"] }.compact
        end.presence
+    end
+
+    def related_identifiers
+
     end
 
     def provider

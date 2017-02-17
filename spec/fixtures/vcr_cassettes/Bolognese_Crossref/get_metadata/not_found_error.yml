@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.org/10.1371/journal.pone.0000030x
+    uri: https://doi.org/10.7554/elife.01567x
     body:
       encoding: US-ASCII
       string: ''
@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
-      - '5006'
+      - '4988'
       Date:
-      - Wed, 15 Feb 2017 21:52:26 GMT
+      - Fri, 17 Feb 2017 07:26:37 GMT
     body:
       encoding: UTF-8
       string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n
@@ -51,7 +51,7 @@ http_interactions:
         TABLE FOR CONTENT -->      \n<table width=\"100%\" border=\"0\" cellpadding=\"0\"
         cellspacing=\"0\" bgcolor=\"#ffffff\">\n<tr>\n<td colspan=\"6\">\n<img src=\"/static/img/transparent.gif\"
         alt=\"\" width=\"100\" height=\"20\" border=\"0\" />\n</td>\n</tr>\n\n<tr>\n\n<td
-        valign=\"top\">\n\n<h2>DOI Not Found</h2>\n\n<div class=\"divider\">&nbsp;</div>\n\n\n\n<h3>10.1371/journal.pone.0000030x</h3>\n\n<div
+        valign=\"top\">\n\n<h2>DOI Not Found</h2>\n\n<div class=\"divider\">&nbsp;</div>\n\n\n\n<h3>10.7554/elife.01567x</h3>\n\n<div
         class=\"divider\">&nbsp;</div>\n\n\n\n\n<p>This DOI cannot be found in the
         DOI System.  Possible reasons are:</p>\n\n\n<ul>\n\n<li style=\"padding-bottom:
         .5em;\">The DOI is incorrect in your source. Search for the item by name,
@@ -67,7 +67,7 @@ http_interactions:
         name=\"notFoundForm\">\n\n\n<table border=\"0\" cellspacing=\"3\" cellpadding=\"3\">\n<tbody>\n<tr>\n<td>\n\n<table
         border=\"0\" align=\"center\" cellpadding=\"3\" cellspacing=\"3\">\n<tbody><tr>\n<th
         \ align=\"right\" scope=\"row\"><label>DOI:</label></th>\n<td><input name=\"missingHandle\"
-        type=\"text\" value=\"10.1371/journal.pone.0000030x\" size=\"42\" readonly=\"readonly\"
+        type=\"text\" value=\"10.7554/elife.01567x\" size=\"42\" readonly=\"readonly\"
         /></td>\n</tr>\n<tr>\n<th align=\"right\" scope=\"row\"><label>URL of Web
         Page Listing the DOI:</label></th>\n<td><input name=\"referringPage\" type=\"text\"
         value=\"\" size=\"42\" readonly=\"readonly\" /></td>\n</tr>\n<tr>\n<th align=\"right\"
@@ -89,5 +89,5 @@ http_interactions:
         super;\">&reg;</span>, and shortDOI<span style=\"vertical-align: super;\">&reg;</span>
         are trademarks of the International DOI Foundation.</span>\n</td>       \n</tr>\n</table>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Wed, 15 Feb 2017 21:52:27 GMT
+  recorded_at: Fri, 17 Feb 2017 07:26:38 GMT
 recorded_with: VCR 3.0.3

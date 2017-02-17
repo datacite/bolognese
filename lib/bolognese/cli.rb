@@ -17,13 +17,15 @@ module Bolognese
     end
 
     desc "read pid", "read metadata for PID"
-    method_option :as, :default => "schema_org"
+    method_option :as, default: "schema_org"
     def read(pid)
       provider = Metadata.new(pid).provider
 
       case
       when provider == "crossref" && options[:as] == "crossref"
         puts Crossref.new(pid).raw
+      when provider == "crossref" && options[:as] == "datacite"
+        puts Crossref.new(pid).as_datacite
       when provider == "crossref"
         puts Crossref.new(pid).as_schema_org
       when provider == "datacite" && options[:as] == "datacite"
