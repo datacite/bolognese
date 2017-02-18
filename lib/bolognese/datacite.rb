@@ -1,12 +1,5 @@
-require_relative 'doi_utils'
-require_relative 'datacite_utils'
-require_relative 'utils'
-
 module Bolognese
   class Datacite < Metadata
-    include Bolognese::DoiUtils
-    include Bolognese::DataciteUtils
-    include Bolognese::Utils
 
     DC_TO_SO_TRANSLATIONS = {
       "Audiovisual" => "VideoObject",

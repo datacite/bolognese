@@ -1,12 +1,5 @@
-require_relative 'doi_utils'
-require_relative 'datacite_utils'
-require_relative 'utils'
-
 module Bolognese
   class Crossref < Metadata
-    include Bolognese::DoiUtils
-    include Bolognese::Utils
-    include Bolognese::DataciteUtils
 
     # CrossRef types from https://api.crossref.org/types
     CR_TO_SO_TRANSLATIONS = {

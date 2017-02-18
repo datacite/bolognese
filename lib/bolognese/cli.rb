@@ -18,7 +18,7 @@ module Bolognese
 
     desc "read pid", "read metadata for PID"
     method_option :as, default: "schema_org"
-    def open(pid)
+    def read(pid)
       provider = Metadata.new(id: pid).provider
 
       case
