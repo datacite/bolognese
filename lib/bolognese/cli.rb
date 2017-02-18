@@ -18,20 +18,20 @@ module Bolognese
 
     desc "read pid", "read metadata for PID"
     method_option :as, default: "schema_org"
-    def read(pid)
-      provider = Metadata.new(pid).provider
+    def open(pid)
+      provider = Metadata.new(id: pid).provider
 
       case
       when provider == "crossref" && options[:as] == "crossref"
-        puts Crossref.new(pid).raw
+        puts Crossref.new(id: pid).raw
       when provider == "crossref" && options[:as] == "datacite"
-        puts Crossref.new(pid).as_datacite
+        puts Crossref.new(id: pid).as_datacite
       when provider == "crossref"
-        puts Crossref.new(pid).as_schema_org
+        puts Crossref.new(id: pid).as_schema_org
       when provider == "datacite" && options[:as] == "datacite"
-        puts Datacite.new(pid).raw
+        puts Datacite.new(id: pid).raw
       when "datacite"
-        puts Datacite.new(pid).as_schema_org
+        puts Datacite.new(id: pid).as_schema_org
       else
         puts "not implemented"
       end

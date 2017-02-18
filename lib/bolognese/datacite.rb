@@ -25,15 +25,17 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
-    attr_reader = :id, :metadata, :schema_org
+    attr_reader = :id, :raw, :metadata, :schema_org
 
-    def initialize(doi)
-      @id = normalize_doi(doi)
-    end
+    def initialize(id: nil, string: nil)
+      id = normalize_doi(id) if id.present?
 
-    def raw
-      response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
-      @raw = response.body.fetch("data", nil)
+      if string.present?
+        @raw = string
+      elsif id.present?
+        response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
+        @raw = response.body.fetch("data", nil)
+      end
     end
 
     def metadata
@@ -45,7 +47,11 @@ module Bolognese
     end
 
     def doi
-      doi_from_url(id)
+      metadata.fetch("identifier", {}).fetch("text", nil)
+    end
+
+    def id
+      normalize_doi(doi)
     end
 
     def type
@@ -71,7 +77,7 @@ module Bolognese
       if des.is_a?(Hash)
         des.to_xml
       elsif des.is_a?(String)
-        des
+        des.strip
       end
     end
 
@@ -94,7 +100,7 @@ module Bolognese
     end
 
     def dates
-      Array(metadata.dig("dates", "date"))
+      Array.wrap(metadata.dig("dates", "date"))
     end
 
     def date_created

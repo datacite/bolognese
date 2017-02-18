@@ -3,12 +3,31 @@ require 'spec_helper'
 describe Bolognese::Crossref, vcr: true do
   let(:id) { "10.7554/eLife.01567" }
 
-  subject { Bolognese::Crossref.new(id) }
+  subject { Bolognese::Crossref.new(id: id) }
 
   context "get metadata" do
+    it "DOI with data citation" do
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
+                                    {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
+                                    {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
+                                    {"@type"=>"Person", "givenName"=>"Ioannis", "familyName"=>"Xenarios"},
+                                    {"@type"=>"Person", "givenName"=>"Christian S", "familyName"=>"Hardtke"}])
+      expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
+      expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(subject.date_published).to eq("2014-02-11")
+      expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
+      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.citation.count).to eq(27)
+      expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+    end
+
     it "journal article" do
       id = "https://doi.org/10.1371/journal.pone.0000030"
-      subject = Bolognese::Crossref.new(id)
+      subject = Bolognese::Crossref.new(id: id)
       expect(subject.id).to eq(id)
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -29,7 +48,7 @@ describe Bolognese::Crossref, vcr: true do
 
     it "posted_content" do
       id = "https://doi.org/10.1101/097196"
-      subject = Bolognese::Crossref.new(id)
+      subject = Bolognese::Crossref.new(id: id)
       expect(subject.id).to eq(id)
       expect(subject.type).to eq("CreativeWork")
       expect(subject.additional_type).to eq("PostedContent")
@@ -44,28 +63,9 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
     end
 
-    it "DOI with data citation" do
-      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.additional_type).to eq("JournalArticle")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
-                                    {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
-                                    {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
-                                    {"@type"=>"Person", "givenName"=>"Ioannis", "familyName"=>"Xenarios"},
-                                    {"@type"=>"Person", "givenName"=>"Christian S", "familyName"=>"Hardtke"}])
-      expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
-      expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(subject.date_published).to eq("2014-02-11")
-      expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
-      expect(subject.citation.count).to eq(27)
-      expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
-    end
-
     it "DOI with SICI DOI" do
       id = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
-      subject = Bolognese::Crossref.new(id)
+      subject = Bolognese::Crossref.new(id: id)
       expect(subject.id).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -82,7 +82,7 @@ describe Bolognese::Crossref, vcr: true do
 
     it "DOI with ORCID ID" do
       id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id)
+      subject = Bolognese::Crossref.new(id: id)
       expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -108,7 +108,7 @@ describe Bolognese::Crossref, vcr: true do
 
     it "date in future" do
       id = "https://doi.org/10.1016/j.ejphar.2015.03.018"
-      subject = Bolognese::Crossref.new(id)
+      subject = Bolognese::Crossref.new(id: id)
       expect(subject.id).to eq(id)
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -131,9 +131,34 @@ describe Bolognese::Crossref, vcr: true do
 
     it "not found error" do
       id = "https://doi.org/10.7554/elife.01567x"
-      subject = Bolognese::Crossref.new(id)
-      expect(subject.id).to eq(id)
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.id).to be_nil
       expect(subject.exists?).to be false
+    end
+  end
+
+  context "get metadata as string" do
+    it "DOI with data citation" do
+      id = "10.7554/eLife.01567"
+      string = Bolognese::Crossref.new(id: id).raw
+
+      subject = Bolognese::Crossref.new(string: string)
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
+                                    {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
+                                    {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
+                                    {"@type"=>"Person", "givenName"=>"Ioannis", "familyName"=>"Xenarios"},
+                                    {"@type"=>"Person", "givenName"=>"Christian S", "familyName"=>"Hardtke"}])
+      expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
+      expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(subject.date_published).to eq("2014-02-11")
+      expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
+      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.citation.count).to eq(27)
+      expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
     end
   end
 
@@ -146,7 +171,7 @@ describe Bolognese::Crossref, vcr: true do
 
     it "DOI with ORCID ID" do
       id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id)
+      subject = Bolognese::Crossref.new(id: id)
       expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("creators", "creator").count).to eq(7)

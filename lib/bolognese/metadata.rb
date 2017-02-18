@@ -1,7 +1,6 @@
 require_relative 'doi_utils'
 require_relative 'author_utils'
 require_relative 'date_utils'
-require_relative 'pid_utils'
 require_relative 'utils'
 
 module Bolognese
@@ -9,12 +8,11 @@ module Bolognese
     include Bolognese::DoiUtils
     include Bolognese::AuthorUtils
     include Bolognese::DateUtils
-    include Bolognese::PidUtils
     include Bolognese::Utils
 
-    attr_reader :id, :provider
+    attr_reader :id, :raw, :provider
 
-    def initialize(id)
+    def initialize(id: nil)
       @id = normalize_id(id)
       @provider = find_provider(@id)
     end
@@ -24,7 +22,13 @@ module Bolognese
     end
 
     def find_provider(id)
-      get_doi_ra(id).fetch("id", nil) || "orcid"
+      if /(http|https):\/\/(dx\.)?doi\.org\/(\w+)/.match(id)
+        get_doi_ra(id).fetch("id", nil)
+      elsif /\A(?:http:\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
+        "orcid"
+      else
+        "schema_org"
+      end
     end
   end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Bolognese::Crossref, vcr: true do
   let(:id) { "https://doi.org/10.1371/journal.pone.0000030" }
 
-  subject { Bolognese::Crossref.new(id) }
+  subject { Bolognese::Crossref.new(id: id) }
 
   context "normalize doi" do
     it "doi" do

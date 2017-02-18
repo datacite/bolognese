@@ -38,15 +38,17 @@ module Bolognese
       "PostedContent" => nil
     }
 
-    attr_reader = :id, :metadata, :schema_org
+    attr_reader = :id, :raw, :metadata, :schema_org
 
-    def initialize(doi)
-      @id = normalize_doi(doi)
-    end
+    def initialize(id: nil, string: nil)
+      id = normalize_doi(id) if id.present?
 
-    def raw
-      response = Maremma.get(@id, accept: "application/vnd.crossref.unixref+xml", host: true, raw: true)
-      @raw ||= response.body.fetch("data", nil)
+      if string.present?
+        @raw = string
+      elsif id.present?
+        response = Maremma.get(id, accept: "application/vnd.crossref.unixref+xml", host: true, raw: true)
+        @raw = response.body.fetch("data", nil)
+      end
     end
 
     def metadata
@@ -58,7 +60,11 @@ module Bolognese
     end
 
     def doi
-      doi_from_url(id)
+      bibliographic_metadata.dig("doi_data", "doi")
+    end
+
+    def id
+      normalize_doi(doi)
     end
 
     def journal_metadata
@@ -69,7 +75,7 @@ module Bolognese
       if metadata.dig("crossref", "journal", "journal_article").present?
         metadata.dig("crossref", "journal", "journal_article")
       else
-        k = metadata.dig("crossref").keys.last
+        k = metadata.fetch("crossref", {}).keys.last
         metadata.dig("crossref", k).presence || {}
       end
     end

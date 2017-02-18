@@ -1,6 +1,6 @@
 module Bolognese
   class Orcid < Metadata
-    include Bolognese::PidUtils
+    include Bolognese::Utils
     # def get_orcid_metadata(orcid, options = {})
     #   return {} if orcid.blank?
 
