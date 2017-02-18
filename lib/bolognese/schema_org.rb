@@ -12,7 +12,7 @@ module Bolognese
       end
     end
 
-    alias_method :as_schema_org, :raw
+    alias_method :schema_org, :raw
 
     def metadata
       @metadata ||= begin
@@ -59,11 +59,11 @@ module Bolognese
     end
 
     def author
-      Array(metadata.fetch("author", nil)).map { |a| a.except("name") }
+      Array(metadata.fetch("author", nil)).map { |a| a.except("name") }.presence
     end
 
     def editor
-      Array(metadata.fetch("editor", nil)).map { |a| a.except("name") }
+      Array(metadata.fetch("editor", nil)).map { |a| a.except("name") }.presence
     end
 
     def description
@@ -103,11 +103,11 @@ module Bolognese
     end
 
     def has_part
-      related_identifiers("hasPart")
+      related_identifiers("hasPart").presence
     end
 
     def citation
-      related_identifiers("citation")
+      related_identifiers("citation").presence
     end
 
     def publisher
