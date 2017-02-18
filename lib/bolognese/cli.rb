@@ -27,6 +27,7 @@ module Bolognese
     def read(pid)
       id = normalize_id(pid)
       provider = find_provider(id)
+      output = options[:as] || "schema_org"
 
       if provider.present?
         p = case provider
@@ -35,7 +36,7 @@ module Bolognese
             else SchemaOrg.new(id: id)
             end
 
-        puts p.send("as_#{options[:as]}")
+        puts p.send("as_#{output}")
       else
         puts "not implemented"
       end
