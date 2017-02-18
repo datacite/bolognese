@@ -24,9 +24,9 @@ module Bolognese
     end
 
     def find_provider(id)
-      if /(http|https):\/\/(dx\.)?doi\.org\/(\w+)/.match(id)
+      if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
         get_doi_ra(id).fetch("id", nil)
-      elsif /\A(?:http:\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
+      elsif /\A(?:(http|https):\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
         "orcid"
       else
         "schema_org"

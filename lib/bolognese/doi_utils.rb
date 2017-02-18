@@ -16,11 +16,9 @@ module Bolognese
     end
 
     def doi_from_url(url)
-      if /(http|https):\/\/(dx\.)?doi\.org\/(\w+)/.match(url)
+      if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(url)
         uri = Addressable::URI.parse(url)
         uri.path[1..-1].downcase
-      elsif url.is_a?(String) && url.starts_with?("doi:")
-        url[4..-1].downcase
       end
     end
 
