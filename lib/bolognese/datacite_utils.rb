@@ -160,28 +160,17 @@ module Bolognese
     end
 
     def rel_identifiers
-      ipo = Array.wrap(is_part_of).map do |i|
-        {
-          "text" => i["@id"],
-          "related_identifier_type" => validate_url(i["@id"]),
-          "relation_type" => "IsPartOf" }
-      end.select { |i| i["related_identifier_type"].present? }
+      rel_identifier(rel_ids: is_part_of, relation_type: "IsPartOf") +
+      rel_identifier(rel_ids: has_part, relation_type: "HasPart") +
+      rel_identifier(rel_ids: citation, relation_type: "References")
+    end
 
-      hp = Array.wrap(has_part).map do |i|
-        {
-          "text" => i["@id"],
+    def rel_identifier(rel_ids: nil, relation_type: nil)
+      Array.wrap(rel_ids).map do |i|
+        { "text" => i["@id"],
           "related_identifier_type" => validate_url(i["@id"]),
-          "relation_type" => "HasPart" }
+          "relation_type" => relation_type }
       end.select { |i| i["related_identifier_type"].present? }
-
-      c = Array.wrap(citation).map do |i|
-        {
-          "text" => i["@id"],
-          "related_identifier_type" => validate_url(i["@id"]),
-          "relation_type" => "References" }
-      end.select { |i| i["related_identifier_type"].present? }
-
-      ipo + hp + c
     end
 
     def insert_related_identifiers(xml)
