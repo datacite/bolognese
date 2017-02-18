@@ -29,7 +29,8 @@ module Bolognese
       end
     end
 
-    alias_method :as_datacite, :raw
+    alias_method :datacite, :raw
+    alias_method :schema_org, :as_schema_org
 
     def metadata
       @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("resource", {}) : {}
@@ -79,19 +80,19 @@ module Bolognese
     end
 
     def keywords
-      Array(metadata.dig("subjects", "subject")).join(", ")
+      Array.wrap(metadata.dig("subjects", "subject")).join(", ").presence
     end
 
     def author
       authors = metadata.dig("creators", "creator")
       authors = [authors] if authors.is_a?(Hash)
-      get_authors(authors)
+      get_authors(authors).presence
     end
 
     def editor
       editors = metadata.dig("contributors", "contributor")
       editors = [editors] if editors.is_a?(Hash)
-      get_authors(editors)
+      get_authors(editors).presence
     end
 
     def version
@@ -102,19 +103,21 @@ module Bolognese
       Array.wrap(metadata.dig("dates", "date"))
     end
 
+    def date(date_type)
+      d = dates.find { |d| d["dateType"] == date_type } || {}
+      d.fetch("text", nil)
+    end
+
     def date_created
-      created = dates.find { |d| d["dateType"] == "Created" } || {}
-      created.fetch("text", nil)
+      date("Created")
     end
 
     def date_published
-      published = dates.find { |d| d["dateType"] == "Issued" } || {}
-      published.fetch("text", nil) || metadata.fetch("publicationYear")
+      date("Issued") || metadata.fetch("publicationYear")
     end
 
     def date_modified
-      modified = dates.find { |d| d["dateType"] == "Updated" } || {}
-      modified.fetch("text", nil)
+      date("Updated")
     end
 
     def related_identifiers(relation_type)
