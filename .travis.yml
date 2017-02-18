@@ -2,6 +2,10 @@ language: ruby
 rvm:
 - 2.3.3
 
+addons:
+  code_climate:
+    repo_token: $CODECLIMATE_TOKEN
+
 before_install:
 - export TZ=Europe/Berlin
 
