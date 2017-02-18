@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.org/10.5438/4k3m-nyvg
+    uri: https://blog.datacite.org/eating-your-own-dog-food
     body:
       encoding: US-ASCII
       string: ''
@@ -13,30 +13,51 @@ http_interactions:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
     status:
-      code: 303
+      code: 302
       message: ''
     headers:
       Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - https://blog.datacite.org/eating-your-own-dog-food/
-      Expires:
-      - Sat, 18 Feb 2017 11:28:50 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '187'
+      - openresty/1.11.2.2
       Date:
-      - Sat, 18 Feb 2017 10:38:47 GMT
+      - Sat, 18 Feb 2017 21:51:17 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '313'
+      Connection:
+      - keep-alive
+      X-Amz-Error-Code:
+      - Found
+      X-Amz-Error-Message:
+      - Resource Found
+      X-Amz-Request-Id:
+      - 8D6ABE84DB15942F
+      X-Amz-Id-2:
+      - LcStspnlLD85wDmmUAmXWy8/BC32nnx2nn5Uh7UX2Ann5/3jV6nROdCTK+YZX1tDR+j6vGN6Xw8=
+      Location:
+      - "/eating-your-own-dog-food/"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
     body:
       encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="https://blog.datacite.org/eating-your-own-dog-food/">https://blog.datacite.org/eating-your-own-dog-food/</a></body></html>
+      string: |
+        <html>
+        <head><title>302 Moved Temporarily</title></head>
+        <body>
+        <h1>302 Moved Temporarily</h1>
+        <ul>
+        <li>Code: Found</li>
+        <li>Message: Resource Found</li>
+        <li>RequestId: 8D6ABE84DB15942F</li>
+        <li>HostId: LcStspnlLD85wDmmUAmXWy8/BC32nnx2nn5Uh7UX2Ann5/3jV6nROdCTK+YZX1tDR+j6vGN6Xw8=</li>
+        </ul>
+        <hr/>
+        </body>
+        </html>
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 10:38:47 GMT
+  recorded_at: Sat, 18 Feb 2017 21:51:18 GMT
 - request:
     method: get
     uri: https://blog.datacite.org/eating-your-own-dog-food/
@@ -56,7 +77,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Sat, 18 Feb 2017 10:38:47 GMT
+      - Sat, 18 Feb 2017 21:51:17 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -64,9 +85,9 @@ http_interactions:
       Connection:
       - keep-alive
       X-Amz-Id-2:
-      - qlycxI5g7MyxrYWbp48A/hW5CMCT8Ratd9xyiK7/jaLl9DCxdhTH3rFSNg0OUIwo+fXvjZuaL3o=
+      - NnqzNV3+jDxX7EtSPpQZX8i3tCJzhyKP4rPNuZx+uQ4b+RDAzLEnzeV5m6zCgzR9JGiMfLw6/rM=
       X-Amz-Request-Id:
-      - AA9F1FEFC28D222E
+      - C74E2179740EA8B6
       Cache-Control:
       - max-age=31536000
       Last-Modified:
@@ -628,5 +649,5 @@ http_interactions:
         CiAgZ2EoJ3NlbmQnLCAncGFnZXZpZXcnKTsKCjwvc2NyaXB0PgoKICA8L2Jv
         ZHk+CjwvaHRtbD4K
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 10:38:47 GMT
+  recorded_at: Sat, 18 Feb 2017 21:51:18 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Bolognese::SchemaOrg, vcr: true do
   context "get metadata" do
-    let(:id) { "https://doi.org/10.5438/4K3M-NYVG" }
+    let(:id) { "https://blog.datacite.org/eating-your-own-dog-food" }
 
     subject { Bolognese::SchemaOrg.new(id: id) }
 

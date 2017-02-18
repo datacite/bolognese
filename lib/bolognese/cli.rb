@@ -36,7 +36,7 @@ module Bolognese
             else SchemaOrg.new(id: id)
             end
 
-        puts p.send("as_#{output}")
+        puts p.send(output)
       else
         puts "not implemented"
       end

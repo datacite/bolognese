@@ -7,7 +7,7 @@ module Bolognese
       orcid = get_name_identifier(author)
       author = author.fetch("creatorName", nil)
 
-      return { "Name" => "" } if author.strip.blank?
+      return { "Name" => "" } if author.to_s.strip.blank?
 
       author = cleanup_author(author)
       names = Namae.parse(author)
@@ -51,8 +51,10 @@ module Bolognese
     # pase nameIdentifier from DataCite
     def get_name_identifier(author)
       name_identifier = author.dig("nameIdentifier", "text")
+      name_identifier = validate_orcid(name_identifier)
+
       name_identifier_scheme = author.dig("nameIdentifier", "nameIdentifierScheme") || "ORCID"
-      if name_identifier_scheme.downcase == "orcid" && name_identifier = validate_orcid(name_identifier)
+      if name_identifier.present? && name_identifier_scheme.downcase == "orcid"
         "http://orcid.org/#{name_identifier}"
       else
         nil
