@@ -1,24 +1,7 @@
 module Bolognese
   class SchemaOrg < Metadata
 
-    DC_TO_SO_TRANSLATIONS = {
-      "Audiovisual" => "VideoObject",
-      "Collection" => "Collection",
-      "Dataset" => "Dataset",
-      "Event" => "Event",
-      "Image" => "ImageObject",
-      "InteractiveResource" => nil,
-      "Model" => nil,
-      "PhysicalObject" => nil,
-      "Service" => "Service",
-      "Software" => "SoftwareSourceCode",
-      "Sound" => "AudioObject",
-      "Text" => "ScholarlyArticle",
-      "Workflow" => nil,
-      "Other" => "CreativeWork"
-    }
-
-    attr_reader = :id, :raw, :metadata, :schema_org
+    attr_reader = :raw
 
     def initialize(id: nil, string: nil)
       id = normalize_url(id) if id.present?
@@ -141,30 +124,6 @@ module Bolognese
 
     def provider
       metadata.fetch("provider", nil)
-    end
-
-    def as_schema_org
-      { "@context" => "http://schema.org",
-        "@type" => type,
-        "@id" => id,
-        "url" => url,
-        "name" => name,
-        "alternateName" => alternate_name,
-        "author" => author,
-        "editor" => editor,
-        "description" => description,
-        "license" => license,
-        "version" => version,
-        "keywords" => keywords,
-        "dateCreated" => date_created,
-        "datePublished" => date_published,
-        "dateModified" => date_modified,
-        "isPartOf" => is_part_of,
-        "hasPart" => has_part,
-        "citation" => citation,
-        "publisher" => publisher,
-        "provider" => provider
-      }.compact
     end
   end
 end

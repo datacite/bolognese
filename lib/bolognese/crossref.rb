@@ -31,7 +31,7 @@ module Bolognese
       "PostedContent" => nil
     }
 
-    attr_reader = :id, :raw, :metadata, :schema_org
+    attr_reader = :raw
 
     def initialize(id: nil, string: nil)
       id = normalize_doi(id) if id.present?
@@ -120,36 +120,22 @@ module Bolognese
       end
     end
 
-    def keywords
-
-    end
-
     def author
-      person = bibliographic_metadata.dig("contributors", "person_name")
-      Array(person).select { |a| a["contributor_role"] == "author" }.map do |a|
-        { "@type" => "Person",
-          "@id" => parse_attribute(a["ORCID"]),
-          "givenName" => a["given_name"],
-          "familyName" => a["surname"] }.compact
-      end
+      people("author")
     end
 
     def editor
+      people("editor")
+    end
+
+    def people(contributor_role)
       person = bibliographic_metadata.dig("contributors", "person_name")
-      Array(person).select { |a| a["contributor_role"] == "editor" }.map do |a|
+      Array(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
         { "@type" => "Person",
           "@id" => parse_attribute(a["ORCID"]),
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
       end.presence
-    end
-
-    def version
-
-    end
-
-    def date_created
-
     end
 
     def date_published
@@ -188,10 +174,6 @@ module Bolognese
       is_part_of.fetch("name", nil)
     end
 
-    def has_part
-
-    end
-
     def citation
        citations = bibliographic_metadata.dig("citation_list", "citation")
        Array.wrap(citations).map do |c|
@@ -206,28 +188,6 @@ module Bolognese
     def provider
       { "@type" => "Organization",
         "name" => "Crossref" }
-    end
-
-    def as_schema_org
-      { "@context" => "http://schema.org",
-        "@type" => type,
-        "@id" => id,
-        "additionalType" => additional_type,
-        "name" => name,
-        "alternateName" => alternate_name,
-        "author" => author,
-        "editor" => editor,
-        "description" => description,
-        "license" => license,
-        "datePublished" => date_published,
-        "dateModified" => date_modified,
-        "pageStart" => page_start,
-        "pageEnd" => page_end,
-        "isPartOf" => is_part_of,
-        "hasPart" => has_part,
-        "citation" => citation,
-        "provider" => provider
-      }.compact
     end
   end
 end

@@ -9,7 +9,7 @@ module Bolognese
       return nil unless doi.present?
 
       # remove non-printing whitespace and downcase
-      doi = doi.gsub(/\u200B/, '').downcase
+      doi = doi.delete("\u200B").downcase
 
       # turn DOI into URL, escape unsafe characters
       "https://doi.org/" + Addressable::URI.encode(doi)

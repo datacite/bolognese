@@ -18,7 +18,7 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
-    attr_reader = :id, :raw, :metadata, :schema_org
+    attr_reader = :raw
 
     def initialize(id: nil, string: nil)
       id = normalize_doi(id) if id.present?
@@ -89,7 +89,9 @@ module Bolognese
     end
 
     def editor
-
+      editors = metadata.dig("contributors", "contributor")
+      editors = [editors] if editors.is_a?(Hash)
+      get_authors(editors)
     end
 
     def version
@@ -149,28 +151,6 @@ module Bolognese
     def provider
       { "@type" => "Organization",
         "name" => "DataCite" }
-    end
-
-    def as_schema_org
-      { "@context" => "http://schema.org",
-        "@type" => type,
-        "@id" => id,
-        "name" => name,
-        "alternateName" => alternate_name,
-        "author" => author,
-        "description" => description,
-        "license" => license,
-        "version" => version,
-        "keywords" => keywords,
-        "dateCreated" => date_created,
-        "datePublished" => date_published,
-        "dateModified" => date_modified,
-        "isPartOf" => is_part_of,
-        "hasPart" => has_part,
-        "citation" => citation,
-        "publisher" => publisher,
-        "provider" => provider
-      }.compact
     end
   end
 end

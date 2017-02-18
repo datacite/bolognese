@@ -3,7 +3,7 @@ require 'namae'
 module Bolognese
   module AuthorUtils
     # only assume personal name when using sort-order: "Turing, Alan"
-    def get_one_author(author, options = {})
+    def get_one_author(author)
       orcid = get_name_identifier(author)
       author = author.fetch("creatorName", nil)
 
@@ -44,8 +44,8 @@ module Bolognese
     end
 
     # parse array of author strings into CSL format
-    def get_authors(authors, options={})
-      Array(authors).map { |author| get_one_author(author, options) }
+    def get_authors(authors)
+      Array(authors).map { |author| get_one_author(author) }
     end
 
     # pase nameIdentifier from DataCite
