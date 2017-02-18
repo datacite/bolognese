@@ -1,11 +1,5 @@
 module Bolognese
   module DataciteUtils
-    #   @resource_type = metadata.fetch("resource_type", nil)
-    #   @rights_list = metadata.fetch("rights_list", nil)
-    #   @descriptions = metadata.fetch("descriptions", nil)
-    #   @contributors = metadata.fetch("contributors", nil)
-    #   @alternate_identifier = metadata.fetch("alternate_identifier", nil)
-    #   @media = metadata.fetch("media", nil)
 
     SO_TO_DC_TRANSLATIONS = {
       "VideoObject" => "Audiovisual",
@@ -23,10 +17,10 @@ module Bolognese
     LICENSE_NAMES = {
       "http://creativecommons.org/publicdomain/zero/1.0/" => "Public Domain (CC0 1.0)",
       "http://creativecommons.org/licenses/by/3.0/" => "Creative Commons Attribution 3.0 (CC-BY 3.0)",
-      "https://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
-      "https://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
-      "https://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
-      "https://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivaties 4.0 (CC-BY-NC-ND 4.0)"
+      "http://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
+      "http://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
+      "http://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
+      "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivaties 4.0 (CC-BY-NC-ND 4.0)"
     }
 
     SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
@@ -76,7 +70,7 @@ module Bolognese
 
     def insert_creators(xml)
       xml.creators do
-        Array(author).each do |creator|
+        Array.wrap(author).each do |creator|
           xml.creator do
             insert_person(xml, creator, "creator")
           end
@@ -88,7 +82,7 @@ module Bolognese
       return xml unless editor.present?
 
       xml.contributors do
-        Array(editor).each do |contributor|
+        Array.wrap(editor).each do |contributor|
           xml.contributor("contributorType" => "Editor") do
             insert_person(xml, contributor, "contributor")
           end
@@ -97,12 +91,11 @@ module Bolognese
     end
 
     def insert_person(xml, person, type)
-      person_name = [person["familyName"], person["givenName"]].compact.join(", ").presence || person["name"]
+      person_name = person["name"].presence || [person["familyName"], person["givenName"]].compact.join(", ")
 
-      xml.send(:'creatorName', person_name) if type == "creator"
-      xml.send(:'contributorName', person_name) if type == "contributor"
-      xml.send(:'givenName', person["givenName"]) if person["givenName"].present?
-      xml.send(:'familyName', person["familyName"]) if person["familyName"].present?
+      xml.send(type + "Name", person_name)
+      xml.givenName(person["givenName"]) if person["givenName"].present?
+      xml.familyName(person["familyName"]) if person["familyName"].present?
       xml.nameIdentifier(person["@id"], 'schemeURI' => 'http://orcid.org/', 'nameIdentifierScheme' => 'ORCID') if person["@id"].present?
     end
 
@@ -117,7 +110,7 @@ module Bolognese
     end
 
     def insert_publisher(xml)
-      xml.publisher(is_part_of["name"])
+      xml.publisher(container_title)
     end
 
     def insert_publication_year(xml)
@@ -166,20 +159,37 @@ module Bolognese
       xml.version(version)
     end
 
-        def is_part_of
-      related_identifiers("IsPartOf").first
-    end
+    def rel_identifiers
+      ipo = Array.wrap(is_part_of).map do |i|
+        {
+          "text" => i["@id"],
+          "related_identifier_type" => validate_url(i["@id"]),
+          "relation_type" => "IsPartOf" }
+      end.select { |i| i["related_identifier_type"].present? }
 
-    def related_identifiers
-      Array.wrap(is_part_of) + Array(has_part) + Array(citation)
+      hp = Array.wrap(has_part).map do |i|
+        {
+          "text" => i["@id"],
+          "related_identifier_type" => validate_url(i["@id"]),
+          "relation_type" => "HasPart" }
+      end.select { |i| i["related_identifier_type"].present? }
+
+      c = Array.wrap(citation).map do |i|
+        {
+          "text" => i["@id"],
+          "related_identifier_type" => validate_url(i["@id"]),
+          "relation_type" => "References" }
+      end.select { |i| i["related_identifier_type"].present? }
+
+      ipo + hp + c
     end
 
     def insert_related_identifiers(xml)
-      return xml unless related_identifiers.present?
+      return xml unless rel_identifiers.present?
 
       xml.relatedIdentifiers do
-        related_identifiers.each do |related_identifier|
-          xml.relatedIdentifier(related_identifier[:value], 'relatedIdentifierType' => related_identifier[:related_identifier_type], 'relationType' => related_identifier[:relation_type])
+        rel_identifiers.each do |related_identifier|
+          xml.relatedIdentifier(related_identifier["text"], 'relatedIdentifierType' => related_identifier["related_identifier_type"], 'relationType' => related_identifier["relation_type"])
         end
       end
     end

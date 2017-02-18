@@ -79,6 +79,10 @@ module Bolognese
       Array(metadata.fetch("author", nil)).map { |a| a.except("name") }
     end
 
+    def editor
+      Array(metadata.fetch("editor", nil)).map { |a| a.except("name") }
+    end
+
     def description
       metadata.fetch("description", nil)
     end
@@ -127,6 +131,14 @@ module Bolognese
       metadata.fetch("publisher", nil)
     end
 
+    def container_title
+      if publisher.is_a?(Hash)
+        publisher.fetch("name", nil)
+      elsif publisher.is_a?(String)
+        publisher
+      end
+    end
+
     def provider
       metadata.fetch("provider", nil)
     end
@@ -139,6 +151,7 @@ module Bolognese
         "name" => name,
         "alternateName" => alternate_name,
         "author" => author,
+        "editor" => editor,
         "description" => description,
         "license" => license,
         "version" => version,

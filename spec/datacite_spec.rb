@@ -25,6 +25,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.has_part).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/1"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/2"}])
       expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Dryad Digital Repository")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
 
@@ -43,6 +44,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.is_part_of).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0000-00ss")
       expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
 
@@ -56,6 +58,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.name).to eq("The Minimum Size of Qubit Unextendible Product Bases")
       expect(subject.description).to start_with("We investigate the problem of constructing unextendible product bases in the qubit case")
       expect(subject.date_published).to eq("2013")
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
   end

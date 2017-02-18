@@ -184,19 +184,23 @@ module Bolognese
       end
     end
 
+    def container_title
+      is_part_of.fetch("name", nil)
+    end
+
+    def has_part
+
+    end
+
     def citation
        citations = bibliographic_metadata.dig("citation_list", "citation")
-       Array(citations).map do |c|
+       Array.wrap(citations).map do |c|
          { "@type" => "CreativeWork",
-           "@id" => normalize_doi(c["doi"]),
+           "@id" => normalize_url(c["doi"]),
            "position" => c["key"],
            "name" => c["article_title"],
            "datePublished" => c["cYear"] }.compact
        end.presence
-    end
-
-    def related_identifiers
-
     end
 
     def provider
@@ -220,6 +224,7 @@ module Bolognese
         "pageStart" => page_start,
         "pageEnd" => page_end,
         "isPartOf" => is_part_of,
+        "hasPart" => has_part,
         "citation" => citation,
         "provider" => provider
       }.compact

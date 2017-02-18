@@ -5,6 +5,26 @@ describe Bolognese::Crossref, vcr: true do
 
   subject { Bolognese::Crossref.new(id: id) }
 
+  context "validate url" do
+    it "DOI" do
+      str = "https://doi.org/10.5438/0000-00ss"
+      response = subject.validate_url(str)
+      expect(response).to eq("DOI")
+    end
+
+    it "URL" do
+      str = "https://blog.datacite.org/eating-your-own-dog-food"
+      response = subject.validate_url(str)
+      expect(response).to eq("URL")
+    end
+
+    it "string" do
+      str = "eating-your-own-dog-food"
+      response = subject.validate_url(str)
+      expect(response).to be_nil
+    end
+  end
+
   context "parse attributes" do
     it "string" do
       element = "10.5061/DRYAD.8515"

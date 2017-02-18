@@ -88,6 +88,10 @@ module Bolognese
       get_authors(authors)
     end
 
+    def editor
+
+    end
+
     def version
       metadata.fetch("version", nil)
     end
@@ -134,7 +138,12 @@ module Bolognese
     end
 
     def publisher
-      metadata.fetch("publisher")
+      { "@type" => "Organization",
+        "name" => metadata.fetch("publisher") }
+    end
+
+    def container_title
+      publisher.fetch("name", nil)
     end
 
     def provider

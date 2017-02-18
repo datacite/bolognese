@@ -30,8 +30,12 @@ module Bolognese
         puts Crossref.new(id: pid).as_schema_org
       when provider == "datacite" && options[:as] == "datacite"
         puts Datacite.new(id: pid).raw
-      when "datacite"
+      when provider == "datacite"
         puts Datacite.new(id: pid).as_schema_org
+      when provider == "schema_org" && options[:as] == "datacite"
+        puts SchemaOrg.new(id: pid).as_datacite
+      when provider == "schema_org"
+        puts SchemaOrg.new(id: pid).as_schema_org
       else
         puts "not implemented"
       end

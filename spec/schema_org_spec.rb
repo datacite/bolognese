@@ -14,11 +14,13 @@ describe Bolognese::SchemaOrg, vcr: true do
       expect(subject.name).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("MS-49-3632-5083")
       expect(subject.description).to start_with("Eating your own dog food")
+      expect(subject.keywords).to eq("datacite, doi, metadata, featured")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
       expect(subject.is_part_of).to eq("@type"=>"Blog", "@id"=>"https://doi.org/10.5438/0000-00ss", "name"=>"DataCite Blog")
       expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
 
     it "not found error" do

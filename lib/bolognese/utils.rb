@@ -20,6 +20,14 @@ module Bolognese
       Array(/\A(?:http:\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(orcid)).last
     end
 
+    def validate_url(str)
+      if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(str)
+        "DOI"
+      elsif /\A(http|https):\/\//.match(str)
+        "URL"
+      end
+    end
+
     def parse_attributes(element)
       if element.is_a?(String)
         element
