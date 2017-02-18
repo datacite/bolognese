@@ -1,8 +1,6 @@
 module Bolognese
   class SchemaOrg < Metadata
 
-    attr_reader = :raw
-
     def initialize(id: nil, string: nil)
       id = normalize_url(id) if id.present?
 
@@ -13,6 +11,8 @@ module Bolognese
         @raw = response.body.fetch("data", nil)
       end
     end
+
+    alias_method :as_schema_org, :raw
 
     def metadata
       @metadata ||= begin

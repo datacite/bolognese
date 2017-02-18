@@ -140,7 +140,7 @@ describe Bolognese::Crossref, vcr: true do
   context "get metadata as string" do
     it "DOI with data citation" do
       id = "10.7554/eLife.01567"
-      string = Bolognese::Crossref.new(id: id).raw
+      string = Bolognese::Crossref.new(id: id).as_crossref
 
       subject = Bolognese::Crossref.new(string: string)
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")

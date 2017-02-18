@@ -18,8 +18,6 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
-    attr_reader = :raw
-
     def initialize(id: nil, string: nil)
       id = normalize_doi(id) if id.present?
 
@@ -30,6 +28,8 @@ module Bolognese
         @raw = response.body.fetch("data", nil)
       end
     end
+
+    alias_method :as_datacite, :raw
 
     def metadata
       @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("resource", {}) : {}

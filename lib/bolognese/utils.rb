@@ -1,13 +1,5 @@
 module Bolognese
   module Utils
-    def normalize_orcid(orcid)
-      orcid = validate_orcid(orcid)
-      return nil unless orcid.present?
-
-      # turn ORCID ID into URL
-      "http://orcid.org/" + Addressable::URI.encode(orcid)
-    end
-
     def orcid_from_url(url)
       Array(/\Ahttp:\/\/orcid\.org\/(.+)/.match(url)).last
     end
@@ -52,10 +44,34 @@ module Bolognese
       end
     end
 
+    def find_provider(id)
+      id = normalize_id(id)
+
+      if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
+        get_doi_ra(id).fetch("id", nil)
+      elsif /\A(?:(http|https):\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
+        "orcid"
+      else
+        "schema_org"
+      end
+    end
+
+    def normalize_id(id)
+      normalize_doi(id) || normalize_orcid(id)
+    end
+
     def normalize_url(url)
       return nil unless url.present?
 
       normalize_doi(url) || PostRank::URI.clean(url)
+    end
+
+    def normalize_orcid(orcid)
+      orcid = validate_orcid(orcid)
+      return nil unless orcid.present?
+
+      # turn ORCID ID into URL
+      "http://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
     def normalize_ids(list)

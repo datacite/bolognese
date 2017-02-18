@@ -2,8 +2,14 @@
 
 require "thor"
 
+require_relative 'doi_utils'
+require_relative 'utils'
+
 module Bolognese
   class CLI < Thor
+    include Bolognese::DoiUtils
+    include Bolognese::Utils
+
     def self.exit_on_failure?
       true
     end
@@ -19,23 +25,17 @@ module Bolognese
     desc "read pid", "read metadata for PID"
     method_option :as, default: "schema_org"
     def read(pid)
-      provider = Metadata.new(id: pid).provider
+      id = normalize_id(pid)
+      provider = find_provider(id)
 
-      case
-      when provider == "crossref" && options[:as] == "crossref"
-        puts Crossref.new(id: pid).raw
-      when provider == "crossref" && options[:as] == "datacite"
-        puts Crossref.new(id: pid).as_datacite
-      when provider == "crossref"
-        puts Crossref.new(id: pid).as_schema_org
-      when provider == "datacite" && options[:as] == "datacite"
-        puts Datacite.new(id: pid).raw
-      when provider == "datacite"
-        puts Datacite.new(id: pid).as_schema_org
-      when provider == "schema_org" && options[:as] == "datacite"
-        puts SchemaOrg.new(id: pid).as_datacite
-      when provider == "schema_org"
-        puts SchemaOrg.new(id: pid).as_schema_org
+      if provider.present?
+        p = case provider
+            when "crossref" then Crossref.new(id: id)
+            when "datacite" then Datacite.new(id: id)
+            else SchemaOrg.new(id: id)
+            end
+
+        puts p.send("as_#{options[:as]}")
       else
         puts "not implemented"
       end

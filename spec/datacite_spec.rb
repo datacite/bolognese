@@ -66,7 +66,7 @@ describe Bolognese::Datacite, vcr: true do
   context "get metadata as string" do
     it "Dataset" do
       id = "https://doi.org/10.5061/DRYAD.8515"
-      string = Bolognese::Datacite.new(id: id).raw
+      string = Bolognese::Datacite.new(id: id).as_datacite
 
       subject = Bolognese::Datacite.new(string: string)
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
