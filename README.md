@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/datacite/bolognese.svg?branch=master)](https://travis-ci.org/datacite/bolognese)
 [![Code Climate](https://codeclimate.com/github/datacite/bolognese/badges/gpa.svg)](https://codeclimate.com/github/datacite/bolognese)
+[![Test Coverage](https://codeclimate.com/github/datacite/bolognese/badges/coverage.svg)](https://codeclimate.com/github/datacite/bolognese/coverage)
 
 # Bolognese
 
@@ -39,29 +40,341 @@ line flag sets the format, either `crossref`, `datacite`, or `schema_org` (defau
 
 ## Examples
 
-Convert Crossref XML to schema.org/JSON-LD:
-```
-bolognese read https://doi.org/10.7554/elife.01567
-```
-
 Read Crossref XML:
 ```
 bolognese read https://doi.org/10.7554/elife.01567 --as crossref
 ```
 
+Convert Crossref XML to schema.org/JSON-LD:
+```
+bolognese read https://doi.org/10.7554/elife.01567
+
+{
+    "@context": "http://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://doi.org/10.7554/elife.01567",
+    "additionalType": "JournalArticle",
+    "name": "Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth",
+    "author": [{
+        "@type": "Person",
+        "givenName": "Martial",
+        "familyName": "Sankar"
+    }, {
+        "@type": "Person",
+        "givenName": "Kaisa",
+        "familyName": "Nieminen"
+    }, {
+        "@type": "Person",
+        "givenName": "Laura",
+        "familyName": "Ragni"
+    }, {
+        "@type": "Person",
+        "givenName": "Ioannis",
+        "familyName": "Xenarios"
+    }, {
+        "@type": "Person",
+        "givenName": "Christian S",
+        "familyName": "Hardtke"
+    }],
+    "license": "http://creativecommons.org/licenses/by/3.0/",
+    "datePublished": "2014-02-11",
+    "dateModified": "2015-08-11T05:35:02Z",
+    "isPartOf": {
+        "@type": "Periodical",
+        "name": "eLife",
+        "issn": "2050-084X"
+    },
+    "citation": [{
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1038/nature02100",
+        "position": "1",
+        "datePublished": "2003"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1534/genetics.109.104976",
+        "position": "2",
+        "datePublished": "2009"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1034/j.1399-3054.2002.1140413.x",
+        "position": "3",
+        "datePublished": "2002"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1162/089976601750399335",
+        "position": "4",
+        "datePublished": "2001"
+    }, {
+        "@type": "CreativeWork",
+        "position": "5",
+        "datePublished": "1995"
+    }, {
+        "@type": "CreativeWork",
+        "position": "6",
+        "datePublished": "1993"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1016/j.semcdb.2009.09.009",
+        "position": "7",
+        "datePublished": "2009"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1242/dev.091314",
+        "position": "8",
+        "datePublished": "2013"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1371/journal.pgen.1002997",
+        "position": "9",
+        "datePublished": "2012"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1038/msb.2010.25",
+        "position": "10",
+        "datePublished": "2010"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1016/j.biosystems.2012.07.004",
+        "position": "11",
+        "datePublished": "2012"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1016/j.pbi.2005.11.013",
+        "position": "12",
+        "datePublished": "2006"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1105/tpc.110.076083",
+        "position": "13",
+        "datePublished": "2010"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1073/pnas.0808444105",
+        "position": "14",
+        "datePublished": "2008"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1016/0092-8674(89)90900-8",
+        "position": "15",
+        "datePublished": "1989"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1126/science.1066609",
+        "position": "16",
+        "datePublished": "2002"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1104/pp.104.040212",
+        "position": "17",
+        "datePublished": "2004"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1038/nbt1206-1565",
+        "position": "18",
+        "datePublished": "2006"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1073/pnas.77.3.1516",
+        "position": "19",
+        "datePublished": "1980"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1093/bioinformatics/btq046",
+        "position": "20",
+        "datePublished": "2010"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1105/tpc.111.084020",
+        "position": "21",
+        "datePublished": "2011"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.5061/dryad.b835k",
+        "position": "22",
+        "datePublished": "2014"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1016/j.cub.2008.02.070",
+        "position": "23",
+        "datePublished": "2008"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1111/j.1469-8137.2010.03236.x",
+        "position": "24",
+        "datePublished": "2010"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1007/s00138-011-0345-9",
+        "position": "25",
+        "datePublished": "2012"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1016/j.cell.2012.02.048",
+        "position": "26",
+        "datePublished": "2012"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1038/ncb2764",
+        "position": "27",
+        "datePublished": "2013"
+    }],
+    "provider": {
+        "@type": "Organization",
+        "name": "Crossref"
+    }
+}
+```
+
 Convert Crossref XML to DataCite XML:
 ```
 bolognese read https://doi.org/10.7554/elife.01567 --as datacite
-```
 
-Convert DataCite XML to schema.org/JSON-LD:
-```
-bolognese read 10.5061/DRYAD.8515
+?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.7554/eLife.01567</identifier>
+  <creators>
+    <creator>
+      <creatorName>Sankar, Martial</creatorName>
+      <givenName>Martial</givenName>
+      <familyName>Sankar</familyName>
+    </creator>
+    <creator>
+      <creatorName>Nieminen, Kaisa</creatorName>
+      <givenName>Kaisa</givenName>
+      <familyName>Nieminen</familyName>
+    </creator>
+    <creator>
+      <creatorName>Ragni, Laura</creatorName>
+      <givenName>Laura</givenName>
+      <familyName>Ragni</familyName>
+    </creator>
+    <creator>
+      <creatorName>Xenarios, Ioannis</creatorName>
+      <givenName>Ioannis</givenName>
+      <familyName>Xenarios</familyName>
+    </creator>
+    <creator>
+      <creatorName>Hardtke, Christian S</creatorName>
+      <givenName>Christian S</givenName>
+      <familyName>Hardtke</familyName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth</title>
+  </titles>
+  <publisher>eLife</publisher>
+  <publicationYear>2014</publicationYear>
+  <resourceType resourceTypeGeneral="Text">JournalArticle</resourceType>
+  <dates>
+    <date dateType="Issued">2014-02-11</date>
+    <date dateType="Updated">2015-08-11T05:35:02Z</date>
+  </dates>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1038/nature02100</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1534/genetics.109.104976</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1034/j.1399-3054.2002.1140413.x</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1162/089976601750399335</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1016/j.semcdb.2009.09.009</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1242/dev.091314</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1371/journal.pgen.1002997</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1038/msb.2010.25</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1016/j.biosystems.2012.07.004</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1016/j.pbi.2005.11.013</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1105/tpc.110.076083</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1073/pnas.0808444105</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1016/0092-8674(89)90900-8</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1126/science.1066609</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1104/pp.104.040212</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1038/nbt1206-1565</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1073/pnas.77.3.1516</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1093/bioinformatics/btq046</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1105/tpc.111.084020</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.5061/dryad.b835k</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1016/j.cub.2008.02.070</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1111/j.1469-8137.2010.03236.x</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1007/s00138-011-0345-9</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1016/j.cell.2012.02.048</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.1038/ncb2764</relatedIdentifier>
+  </relatedIdentifiers>
+  <rightsList>
+    <rights rightsURI="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 (CC-BY 3.0)</rights>
+  </rightsList>
+</resource>
 ```
 
 Read DataCite XML:
 ```
 bolognese read 10.5061/DRYAD.8515 --as datacite
+```
+
+Convert DataCite XML to schema.org/JSON-LD:
+```sh
+bolognese read 10.5061/DRYAD.8515
+
+{
+    "@context": "http://schema.org",
+    "@type": "Dataset",
+    "@id": "https://doi.org/10.5061/dryad.8515",
+    "additionalType": "DataPackage",
+    "name": "Data from: A new malaria agent in African hominids.",
+    "alternateName": "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
+    "author": [{
+        "@type": "Person",
+        "givenName": "Benjamin",
+        "familyName": "Ollomo"
+    }, {
+        "@type": "Person",
+        "givenName": "Patrick",
+        "familyName": "Durand"
+    }, {
+        "@type": "Person",
+        "givenName": "Franck",
+        "familyName": "Prugnolle"
+    }, {
+        "@type": "Person",
+        "givenName": "Emmanuel J. P.",
+        "familyName": "Douzery"
+    }, {
+        "@type": "Person",
+        "givenName": "Céline",
+        "familyName": "Arnathau"
+    }, {
+        "@type": "Person",
+        "givenName": "Dieudonné",
+        "familyName": "Nkoghe"
+    }, {
+        "@type": "Person",
+        "givenName": "Eric",
+        "familyName": "Leroy"
+    }, {
+        "@type": "Person",
+        "givenName": "François",
+        "familyName": "Renaud"
+    }],
+    "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "version": "1",
+    "keywords": "Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium",
+    "datePublished": "2011",
+    "hasPart": [{
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.5061/dryad.8515/1"
+    }, {
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.5061/dryad.8515/2"
+    }],
+    "citation": [{
+        "@type": "CreativeWork",
+        "@id": "https://doi.org/10.1371/journal.ppat.1000446"
+    }],
+    "publisher": {
+        "@type": "Organization",
+        "name": "Dryad Digital Repository"
+    },
+    "provider": {
+        "@type": "Organization",
+        "name": "DataCite"
+    }
+}
 ```
 
 ## Development
@@ -73,6 +386,7 @@ bundle exec rspec
 ```
 
 Follow along via [Github Issues](https://github.com/datacite/bolognese/issues).
+Please open an issue if conversion fails or metadata are not properly supported.
 
 ### Note on Patches/Pull Requests
 
