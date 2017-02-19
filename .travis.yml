@@ -4,7 +4,7 @@ rvm:
 
 addons:
   code_climate:
-    repo_token: $CODECLIMATE_TOKEN
+    repo_token: $CODECLIMATE_REPO_TOKEN
 
 before_install:
 - export TZ=Europe/Berlin
