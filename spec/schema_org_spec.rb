@@ -24,9 +24,9 @@ describe Bolognese::SchemaOrg, vcr: true do
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
 
-    it "BlogPosting" do
-      expect(subject.as_schema_org["@id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.schema_org["@id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
+    it "BlogPosting schema.org JSON" do
+      json = JSON.parse(subject.as_schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
     end
 
     it "not found error" do

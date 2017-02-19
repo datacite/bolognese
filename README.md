@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/datacite/bolognese.svg?branch=master)](https://travis-ci.org/datacite/bolognese)
+[![Code Climate](https://codeclimate.com/github/datacite/bolognese/badges/gpa.svg)](https://codeclimate.com/github/datacite/bolognese)
 
-# bolognese
+# Bolognese
 
 Command-line utility for conversion of DOI metadata from and to [schema.org](https://schema.org) in JSON-LD.
 

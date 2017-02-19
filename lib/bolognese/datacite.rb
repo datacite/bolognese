@@ -104,8 +104,8 @@ module Bolognese
     end
 
     def date(date_type)
-      d = dates.find { |d| d["dateType"] == date_type } || {}
-      d.fetch("text", nil)
+      dd = dates.find { |d| d["dateType"] == date_type } || {}
+      dd.fetch("text", nil)
     end
 
     def date_created

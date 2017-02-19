@@ -135,6 +135,11 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to be_nil
       expect(subject.exists?).to be false
     end
+
+    it "Schema.org JSON" do
+      json = JSON.parse(subject.as_schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
+    end
   end
 
   context "get metadata as string" do

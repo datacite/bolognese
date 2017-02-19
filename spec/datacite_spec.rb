@@ -61,6 +61,11 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
+
+    it "Schema.org JSON" do
+      json = JSON.parse(subject.as_schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
+    end
   end
 
   context "get metadata as string" do

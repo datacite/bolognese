@@ -72,7 +72,7 @@ module Bolognese
         "citation" => citation,
         "publisher" => publisher,
         "provider" => provider
-      }.compact
+      }.compact.to_json
     end
   end
 end
