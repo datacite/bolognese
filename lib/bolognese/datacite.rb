@@ -48,9 +48,12 @@ module Bolognese
       normalize_doi(doi)
     end
 
+    def resource_type_general
+      metadata.dig("resourceType", "resourceTypeGeneral")
+    end
+
     def type
-      k = metadata.dig("resourceType", "resourceTypeGeneral")
-      DC_TO_SO_TRANSLATIONS[k.to_s.dasherize] || "CreativeWork"
+      DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
     end
 
     def additional_type
@@ -103,6 +106,8 @@ module Bolognese
       Array.wrap(metadata.dig("dates", "date"))
     end
 
+    #Accepted Available Copyrighted Collected Created Issued Submitted Updated Valid
+
     def date(date_type)
       dd = dates.find { |d| d["dateType"] == date_type } || {}
       dd.fetch("text", nil)
@@ -118,6 +123,14 @@ module Bolognese
 
     def date_modified
       date("Updated")
+    end
+
+    def language
+      metadata.fetch("language", nil)
+    end
+
+    def spatial_coverage
+
     end
 
     def related_identifiers(relation_type)

@@ -48,6 +48,18 @@ module Bolognese
 
     end
 
+    def contributor
+
+    end
+
+    def language
+
+    end
+
+    def spatial_coverage
+
+    end
+
     def as_schema_org
       { "@context" => "http://schema.org",
         "@type" => type,
@@ -62,11 +74,13 @@ module Bolognese
         "license" => license,
         "version" => version,
         "keywords" => keywords,
+        "language" => language,
         "dateCreated" => date_created,
         "datePublished" => date_published,
         "dateModified" => date_modified,
         "pageStart" => page_start,
         "pageEnd" => page_end,
+        "spatialCoverage" => spatial_coverage,
         "isPartOf" => is_part_of,
         "hasPart" => has_part,
         "citation" => citation,

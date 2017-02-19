@@ -28,7 +28,7 @@ module Bolognese
       "http://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
       "http://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
       "http://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
-      "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivaties 4.0 (CC-BY-NC-ND 4.0)"
+      "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivatives 4.0 (CC-BY-NC-ND 4.0)"
     }
 
     SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
@@ -230,4 +230,3 @@ module Bolognese
     end
   end
 end
-

@@ -24,11 +24,11 @@ module Bolognese
       "BookChapter" => "Chapter",
       "StandardSeries" => nil,
       "Monograph" => "Book",
-      "Component" => nil,
+      "Component" => "CreativeWork",
       "ReferenceEntry" => nil,
       "JournalVolume" => "PublicationVolume",
       "BookSet" => nil,
-      "PostedContent" => nil
+      "PostedContent" => "ScholarlyArticle"
     }
 
     def initialize(id: nil, string: nil)
@@ -80,16 +80,20 @@ module Bolognese
       bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || {}
     end
 
+    def resource_type_general
+      SO_TO_DC_TRANSLATIONS[type]
+    end
+
+    def type
+      CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
+    end
+
     def additional_type
       if metadata.dig("crossref", "journal").present?
         metadata.dig("crossref", "journal").keys.last.camelize
       else
         metadata.dig("crossref").keys.last.camelize
       end
-    end
-
-    def type
-      CR_TO_SO_TRANSLATIONS[additional_type] || "CreativeWork"
     end
 
     def name

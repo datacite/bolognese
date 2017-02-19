@@ -35,6 +35,10 @@ module Bolognese
       normalize_id(metadata.fetch("url", nil))
     end
 
+    def resource_type_general
+      SO_TO_DC_TRANSLATIONS[type]
+    end
+
     def type
       metadata.fetch("@type", nil)
     end

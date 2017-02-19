@@ -10,6 +10,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
                                     {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
                                     {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
@@ -31,6 +32,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to eq(id)
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Markus", "familyName"=>"Ralser"},
                                     {"@type"=>"Person", "givenName"=>"Gino", "familyName"=>"Heeren"},
                                     {"@type"=>"Person", "givenName"=>"Michael", "familyName"=>"Breitenbach"},
@@ -50,8 +52,9 @@ describe Bolognese::Crossref, vcr: true do
       id = "https://doi.org/10.1101/097196"
       subject = Bolognese::Crossref.new(id: id)
       expect(subject.id).to eq(id)
-      expect(subject.type).to eq("CreativeWork")
+      expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("PostedContent")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author.count).to eq(10)
       expect(subject.author.last).to eq("@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-4060-7360", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.name).to eq("A Data Citation Roadmap for Scholarly Data Repositories")
@@ -69,6 +72,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"A.", "familyName"=>"Fenton"}, {"@type"=>"Person", "givenName"=>"S. A.", "familyName"=>"Rands"}])
       expect(subject.license).to eq("http://doi.wiley.com/10.1002/tdm_license_1")
       expect(subject.name).to eq("THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES")
@@ -86,6 +90,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Wendy", "familyName"=>"Thanassi"},
                                     {"@type"=>"Person", "givenName"=>"Art", "familyName"=>"Noda"},
                                     {"@type"=>"Person",
@@ -112,6 +117,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to eq(id)
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Sarah E.", "familyName"=>"Beck"},
                                     {"@type"=>"Person", "givenName"=>"Suzanne E.", "familyName"=>"Queen"},
                                     {"@type"=>"Person", "givenName"=>"Kenneth W.", "familyName"=>"Witwer"},
@@ -151,6 +157,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
                                     {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
                                     {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
@@ -171,6 +178,7 @@ describe Bolognese::Crossref, vcr: true do
     it "with data citation" do
       expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(25)
     end
@@ -180,6 +188,7 @@ describe Bolognese::Crossref, vcr: true do
       subject = Bolognese::Crossref.new(id: id)
       expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi")
     end

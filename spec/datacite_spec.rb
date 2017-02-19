@@ -10,6 +10,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
+      expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Benjamin", "familyName"=>"Ollomo"},
                                     {"@type"=>"Person", "givenName"=>"Patrick", "familyName"=>"Durand"},
                                     {"@type"=>"Person", "givenName"=>"Franck", "familyName"=>"Prugnolle"},
@@ -35,6 +36,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.name).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("MS-49-3632-5083")
@@ -54,6 +56,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("ConferencePaper")
+      expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Nathaniel", "familyName"=>"Johnston"}])
       expect(subject.name).to eq("The Minimum Size of Qubit Unextendible Product Bases")
       expect(subject.description).to start_with("We investigate the problem of constructing unextendible product bases in the qubit case")
@@ -77,6 +80,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
+      expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Benjamin", "familyName"=>"Ollomo"},
                                     {"@type"=>"Person", "givenName"=>"Patrick", "familyName"=>"Durand"},
                                     {"@type"=>"Person", "givenName"=>"Franck", "familyName"=>"Prugnolle"},
