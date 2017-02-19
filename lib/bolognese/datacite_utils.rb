@@ -2,16 +2,24 @@ module Bolognese
   module DataciteUtils
 
     SO_TO_DC_TRANSLATIONS = {
-      "VideoObject" => "Audiovisual",
+      "Article" => "Text",
+      "AudioObject" => "Sound",
+      "Blog" => "Text",
+      "BlogPosting" => "Text",
       "Collection" => "Collection",
+      "CreativeWork" => "Other",
+      "DataCatalog" => "Dataset",
       "Dataset" => "Dataset",
       "Event" => "Event",
       "ImageObject" => "Image",
+      "Movie" => "Audiovisual",
+      "PublicationIssue" => "Text",
+      "ScholarlyArticle" => "Text",
       "Service" => "Service",
       "SoftwareSourceCode" => "Software",
-      "AudioObject" => "Sound",
-      "ScholarlyArticle" => "Text",
-      "CreativeWork" => "Other"
+      "VideoObject" => "Audiovisual",
+      "WebPage" => "Text",
+      "WebSite" => "Text"
     }
 
     LICENSE_NAMES = {

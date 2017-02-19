@@ -4,7 +4,7 @@
 
 # Bolognese
 
-Command-line utility for conversion of DOI metadata from and to [schema.org](https://schema.org) in JSON-LD.
+Ruby gem and command-line utility for conversion of DOI metadata from and to [schema.org](https://schema.org) in JSON-LD.
 
 ## Features
 
@@ -35,7 +35,7 @@ gem install bolognese
 
 ## Commands
 
-The bolognese commands understand URLs and DOIs as arguments. The `--as` command
+The `bolognese` commands understand URLs and DOIs as arguments. The `--as` command
 line flag sets the format, either `crossref`, `datacite`, or `schema_org` (default).
 
 ## Examples
