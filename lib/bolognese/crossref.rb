@@ -4,10 +4,10 @@ module Bolognese
     # CrossRef types from https://api.crossref.org/types
     CR_TO_SO_TRANSLATIONS = {
       "Proceedings" => nil,
-      "ReferenceBook" => nil,
-      "JournalIssue" => nil,
+      "ReferenceBook" => "Book",
+      "JournalIssue" => "PublicationIssue",
       "ProceedingsArticle" => nil,
-      "Other" => nil,
+      "Other" => "CreativeWork",
       "Dissertation" => "Thesis",
       "Dataset" => "Dataset",
       "EditedBook" => "Book",
@@ -26,7 +26,7 @@ module Bolognese
       "Monograph" => "Book",
       "Component" => nil,
       "ReferenceEntry" => nil,
-      "JournalVolume" => nil,
+      "JournalVolume" => "PublicationVolume",
       "BookSet" => nil,
       "PostedContent" => nil
     }

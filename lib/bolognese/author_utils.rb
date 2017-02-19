@@ -12,7 +12,7 @@ module Bolognese
       author = cleanup_author(author)
       names = Namae.parse(author)
 
-      if names.blank? || is_personal_name?(author).blank?
+      if names.blank? || !is_personal_name?(author)
         { "@type" => "Agent",
           "@id" => orcid,
           "Name" => author }.compact
@@ -48,17 +48,15 @@ module Bolognese
       Array(authors).map { |author| get_one_author(author) }
     end
 
-    # pase nameIdentifier from DataCite
+    # parse nameIdentifier from DataCite
     def get_name_identifier(author)
       name_identifier = author.dig("nameIdentifier", "text")
       name_identifier = validate_orcid(name_identifier)
-
       name_identifier_scheme = author.dig("nameIdentifier", "nameIdentifierScheme") || "ORCID"
-      if name_identifier.present? && name_identifier_scheme.downcase == "orcid"
-        "http://orcid.org/#{name_identifier}"
-      else
-        nil
-      end
+
+      return nil if name_identifier.blank? || name_identifier_scheme.upcase != "ORCID"
+
+      "http://orcid.org/" + name_identifier
     end
   end
 end
