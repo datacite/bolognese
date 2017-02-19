@@ -22,10 +22,10 @@ module Bolognese
       puts Bolognese::VERSION
     end
 
-    desc "read pid", "read metadata for PID"
+    desc "read id", "read metadata for ID"
     method_option :as, default: "schema_org"
-    def read(pid)
-      id = normalize_id(pid)
+    def read(id)
+      id = normalize_id(id)
       provider = find_provider(id)
       output = options[:as] || "schema_org"
 

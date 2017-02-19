@@ -77,16 +77,16 @@ describe Bolognese::Crossref, vcr: true do
     end
   end
 
-  context "normalize url" do
+  context "normalize id" do
     it "doi" do
       doi = "10.5061/DRYAD.8515"
-      response = subject.normalize_url(doi)
+      response = subject.normalize_id(doi)
       expect(response).to eq("https://doi.org/10.5061/dryad.8515")
     end
 
     it "url" do
       url = "https://blog.datacite.org/eating-your-own-dog-food/"
-      response = subject.normalize_url(url)
+      response = subject.normalize_id(url)
       expect(response).to eq("https://blog.datacite.org/eating-your-own-dog-food")
     end
   end

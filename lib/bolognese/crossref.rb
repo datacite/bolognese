@@ -180,7 +180,7 @@ module Bolognese
        citations = bibliographic_metadata.dig("citation_list", "citation")
        Array.wrap(citations).map do |c|
          { "@type" => "CreativeWork",
-           "@id" => normalize_url(c["doi"]),
+           "@id" => normalize_id(c["doi"]),
            "position" => c["key"],
            "name" => c["article_title"],
            "datePublished" => c["cYear"] }.compact

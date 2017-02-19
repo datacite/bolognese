@@ -2,28 +2,21 @@ module Bolognese
   class SchemaOrg < Metadata
 
     def initialize(id: nil, string: nil)
-      id = normalize_url(id) if id.present?
+      id = normalize_id(id) if id.present?
 
       if string.present?
         @raw = string
       elsif id.present?
         response = Maremma.get(id)
-        @raw = response.body.fetch("data", nil)
+        doc = Nokogiri::XML(response.body.fetch("data", nil))
+        @raw = doc.at_xpath('//script[@type="application/ld+json"]')
       end
     end
 
-    alias_method :schema_org, :raw
+    alias_method :schema_org, :as_schema_org
 
     def metadata
-      @metadata ||= begin
-        if raw.present?
-          doc = Nokogiri::XML(raw)
-          tag = doc.at_xpath('//script[@type="application/ld+json"]')
-          Maremma.from_json(tag)
-        else
-          {}
-        end
-      end
+      @metadata ||= raw.present? ? Maremma.from_json(raw) : {}
     end
 
     def exists?
@@ -35,11 +28,11 @@ module Bolognese
     end
 
     def id
-      normalize_url(metadata.fetch("@id", nil))
+      normalize_id(metadata.fetch("@id", nil))
     end
 
     def url
-      normalize_url(metadata.fetch("url", nil))
+      normalize_id(metadata.fetch("url", nil))
     end
 
     def type

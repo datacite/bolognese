@@ -117,10 +117,16 @@ module Bolognese
       xml.publicationYear(date_published && date_published[0..3])
     end
 
+    def resource_type
+      { "resource_type_general" => SO_TO_DC_TRANSLATIONS[type] || "Other",
+        "text" => additional_type || type }
+    end
+
     def insert_resource_type(xml)
       return xml unless type.present?
 
-      xml.resourceType(additional_type, 'resourceTypeGeneral' => SO_TO_DC_TRANSLATIONS[type])
+      xml.resourceType(resource_type["text"],
+        'resourceTypeGeneral' => resource_type["resource_type_general"])
     end
 
     def insert_alternate_identifiers(xml)

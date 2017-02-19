@@ -57,13 +57,9 @@ module Bolognese
     end
 
     def normalize_id(id)
-      normalize_doi(id) || normalize_orcid(id)
-    end
+      return nil unless id.present?
 
-    def normalize_url(url)
-      return nil unless url.present?
-
-      normalize_doi(url) || PostRank::URI.clean(url)
+      normalize_doi(id) || PostRank::URI.clean(id)
     end
 
     def normalize_orcid(orcid)
@@ -75,7 +71,7 @@ module Bolognese
     end
 
     def normalize_ids(list)
-      Array.wrap(list).map { |url| url.merge("@id" => normalize_url(url["@id"])) }
+      Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
     end
   end
 end

@@ -15,7 +15,6 @@ module Bolognese
     attr_reader :id, :raw, :provider
 
     alias_method :datacite, :as_datacite
-    #alias_method :schema_org, :as_schema_org
 
     def url
 
