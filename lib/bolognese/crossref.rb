@@ -58,6 +58,10 @@ module Bolognese
       bibliographic_metadata.dig("doi_data", "doi")
     end
 
+    def url
+      bibliographic_metadata.dig("doi_data", "resource")
+    end
+
     def id
       normalize_doi(doi)
     end
