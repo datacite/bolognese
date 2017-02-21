@@ -60,6 +60,14 @@ module Bolognese
 
     end
 
+    def content_size
+
+    end
+
+    def schema_version
+
+    end
+
     def as_schema_org
       { "@context" => "http://schema.org",
         "@type" => type,
@@ -75,6 +83,7 @@ module Bolognese
         "version" => version,
         "keywords" => keywords,
         "language" => language,
+        "contentSize" => content_size,
         "dateCreated" => date_created,
         "datePublished" => date_published,
         "dateModified" => date_modified,
@@ -84,6 +93,7 @@ module Bolognese
         "isPartOf" => is_part_of,
         "hasPart" => has_part,
         "citation" => citation,
+        "schemaVersion" => schema_version,
         "publisher" => publisher,
         "provider" => provider
       }.compact.to_json
