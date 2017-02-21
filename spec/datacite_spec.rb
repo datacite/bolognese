@@ -28,6 +28,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Dryad Digital Repository")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
     it "BlogPosting" do
@@ -48,6 +49,7 @@ describe Bolognese::Datacite, vcr: true do
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55e5-t5c0"}])
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "Date" do
@@ -63,6 +65,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.date_published).to eq("2013")
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.1")
     end
 
     it "Schema.org JSON" do

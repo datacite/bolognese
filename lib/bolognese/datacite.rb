@@ -40,6 +40,10 @@ module Bolognese
       metadata.present?
     end
 
+    def schema_version
+      metadata.fetch("schemaLocation", "").split(" ").first
+    end
+
     def doi
       metadata.fetch("identifier", {}).fetch("text", nil)
     end
@@ -131,6 +135,10 @@ module Bolognese
 
     def spatial_coverage
 
+    end
+
+    def content_size
+      metadata.fetch("size", nil)
     end
 
     def related_identifiers(relation_type)
