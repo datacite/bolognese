@@ -12,7 +12,7 @@ module Bolognese
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    attr_reader :id, :raw, :provider
+    attr_reader :id, :raw, :provider, :schema_version
 
     alias_method :datacite, :as_datacite
 

@@ -24,6 +24,7 @@ module Bolognese
 
     desc "read id", "read metadata for ID"
     method_option :as, default: "schema_org"
+    method_option :schema_version
     def read(id)
       id = normalize_id(id)
       provider = find_provider(id)
@@ -32,7 +33,7 @@ module Bolognese
       if provider.present?
         p = case provider
             when "crossref" then Crossref.new(id: id)
-            when "datacite" then Datacite.new(id: id)
+            when "datacite" then Datacite.new(id: id, schema_version: options[:schema_version])
             else SchemaOrg.new(id: id)
             end
 

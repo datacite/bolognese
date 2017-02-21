@@ -18,7 +18,7 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
-    def initialize(id: nil, string: nil)
+    def initialize(id: nil, string: nil, schema_version: nil)
       id = normalize_doi(id) if id.present?
 
       if string.present?
@@ -27,10 +27,25 @@ module Bolognese
         response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
         @raw = response.body.fetch("data", nil)
       end
+
+      @schema_version = schema_version
     end
 
-    alias_method :datacite, :raw
     alias_method :schema_org, :as_schema_org
+
+    def schema_version
+      @schema_version ||= metadata.fetch("schemaLocation", "").split(" ").first
+    end
+
+    # show DataCite XML in different version if schema_version option is provided
+    # currently only supports 4.0
+    def datacite
+      if schema_version != metadata.fetch("schemaLocation", "").split(" ").first
+        as_datacite
+      else
+        raw
+      end
+    end
 
     def metadata
       @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("resource", {}) : {}
@@ -38,10 +53,6 @@ module Bolognese
 
     def exists?
       metadata.present?
-    end
-
-    def schema_version
-      metadata.fetch("schemaLocation", "").split(" ").first
     end
 
     def doi
