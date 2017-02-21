@@ -68,6 +68,44 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.1")
     end
 
+    it "Funding schema version 3" do
+      id = "https://doi.org/10.5281/ZENODO.1239"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1239")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Najko", "familyName"=>"Jahn"},
+                                    {"@type"=>"Person", "givenName"=>"Martin", "familyName"=>"Fenner"},
+                                    {"@type"=>"Person", "givenName"=>"Harry", "familyName"=>"Dimitropoulos"},
+                                    {"@type"=>"Person", "givenName"=>"Jochen", "familyName"=>"Schirrwagen"}])
+      expect(subject.name).to eq("Publication FP7 Funding Acknowledgment - PLOS OpenAIRE")
+      expect(subject.description).to start_with("The dataset contains a sample of metadata describing papers")
+      expect(subject.date_published).to eq("2013-04-03")
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"OpenAIRE Orphan Record Repository")
+      expect(subject.funder).to eq("@type"=>"Organization", "name"=>"European Commission")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "Funding schema version 4" do
+      id = "https://doi.org/10.5438/6423"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.id).to eq("https://doi.org/10.5438/6423")
+      expect(subject.type).to eq("Collection")
+      expect(subject.additional_type).to eq("Project")
+      expect(subject.resource_type_general).to eq("Collection")
+      expect(subject.author.length).to eq(24)
+      expect(subject.author.first).to eq("@type"=>"Person", "@id"=>"http://orcid.org/0000-0001-5331-6592", "givenName"=>"Adam", "familyName"=>"Farquhar")
+      expect(subject.name).to eq("Technical and Human Infrastructure for Open Research (THOR)")
+      expect(subject.description).to start_with("<p>Five years ago, a global infrastructure")
+      expect(subject.date_published).to eq("2015")
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.funder).to eq("@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
     it "Schema.org JSON" do
       json = JSON.parse(subject.as_schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
@@ -131,7 +169,17 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
-      expect(datacite.fetch("schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+      expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "Funding" do
+      id = "https://doi.org/10.5438/6423"
+      subject = Bolognese::Datacite.new(id: id, schema_version: "http://datacite.org/schema/kernel-4")
+      expect(subject.id).to eq("https://doi.org/10.5438/6423")
+
+      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+      expect(datacite.fetch("fundingReferences")).to eq("fundingReference"=>{"funderName"=>"European Commission", "funderIdentifier"=>{"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100000780"}})
     end
   end
 end

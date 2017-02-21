@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.5.2)
+    bolognese (0.5.3)
       activesupport (~> 4.2, >= 4.2.5)
       builder (~> 3.2, >= 3.2.2)
       dotenv (~> 2.1, >= 2.1.1)
@@ -39,7 +39,7 @@ GEM
     hashdiff (0.3.2)
     i18n (0.8.0)
     json (1.8.6)
-    maremma (3.5)
+    maremma (3.5.1)
       activesupport (~> 4.2, >= 4.2.5)
       addressable (>= 2.3.6)
       builder (~> 3.2, >= 3.2.2)

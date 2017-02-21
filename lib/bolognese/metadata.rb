@@ -68,6 +68,10 @@ module Bolognese
 
     end
 
+    def funder
+
+    end
+
     def as_schema_org
       { "@context" => "http://schema.org",
         "@type" => type,
@@ -95,6 +99,7 @@ module Bolognese
         "citation" => citation,
         "schemaVersion" => schema_version,
         "publisher" => publisher,
+        "funder" => funder,
         "provider" => provider
       }.compact.to_json
     end

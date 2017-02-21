@@ -33,13 +33,13 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "hash" do
-      element = { "text" => "10.5061/DRYAD.8515" }
+      element = { "__content__" => "10.5061/DRYAD.8515" }
       response = subject.parse_attributes(element)
       expect(response).to eq("10.5061/DRYAD.8515")
     end
 
     it "array" do
-      element = [{ "text" => "10.5061/DRYAD.8515" }]
+      element = [{ "__content__" => "10.5061/DRYAD.8515" }]
       response = subject.parse_attributes(element)
       expect(response).to eq(["10.5061/DRYAD.8515"])
     end
@@ -59,13 +59,13 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "hash" do
-      element = { "text" => "10.5061/DRYAD.8515" }
+      element = { "__content__" => "10.5061/DRYAD.8515" }
       response = subject.parse_attribute(element)
       expect(response).to eq("10.5061/DRYAD.8515")
     end
 
     it "array" do
-      element = [{ "text" => "10.5061/DRYAD.8515" }]
+      element = [{ "__content__" => "10.5061/DRYAD.8515" }]
       response = subject.parse_attribute(element)
       expect(response).to eq("10.5061/DRYAD.8515")
     end

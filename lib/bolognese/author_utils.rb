@@ -50,7 +50,7 @@ module Bolognese
 
     # parse nameIdentifier from DataCite
     def get_name_identifier(author)
-      name_identifier = author.dig("nameIdentifier", "text")
+      name_identifier = author.dig("nameIdentifier", "__content__")
       name_identifier = validate_orcid(name_identifier)
       name_identifier_scheme = author.dig("nameIdentifier", "nameIdentifierScheme") || "ORCID"
 

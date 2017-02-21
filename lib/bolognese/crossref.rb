@@ -148,6 +148,15 @@ module Bolognese
       end.presence
     end
 
+    def funder
+      f = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
+      Array.wrap(f.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
+        { "@type" => "Organization",
+          "@id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
+          "name" => f.dig("assertion", "__content__").strip }.compact
+      end
+    end
+
     def date_published
       pub_date = bibliographic_metadata.fetch("publication_date", nil) ||
         bibliographic_metadata.fetch("acceptance_date", nil)

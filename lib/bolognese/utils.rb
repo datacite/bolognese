@@ -24,9 +24,9 @@ module Bolognese
       if element.is_a?(String)
         element
       elsif element.is_a?(Hash)
-        element.fetch("text", nil)
+        element.fetch("__content__", nil)
       elsif element.is_a?(Array)
-        element.map { |e| e.fetch("text", nil) }
+        element.map { |e| e.fetch("__content__", nil) }
       else
         nil
       end
@@ -36,9 +36,9 @@ module Bolognese
       if element.is_a?(String)
         element
       elsif element.is_a?(Hash)
-        element.fetch("text", nil)
+        element.fetch("__content__", nil)
       elsif element.is_a?(Array)
-        element.first.fetch("text", nil)
+        element.first.fetch("__content__", nil)
       else
         nil
       end

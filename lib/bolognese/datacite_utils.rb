@@ -65,6 +65,7 @@ module Bolognese
       insert_alternate_identifiers(xml)
       insert_subjects(xml)
       insert_contributors(xml)
+      insert_funding_references(xml)
       insert_dates(xml)
       insert_related_identifiers(xml)
       insert_version(xml)
@@ -127,13 +128,13 @@ module Bolognese
 
     def resource_type
       { "resource_type_general" => SO_TO_DC_TRANSLATIONS[type] || "Other",
-        "text" => additional_type || type }
+        "__content__" => additional_type || type }
     end
 
     def insert_resource_type(xml)
       return xml unless type.present?
 
-      xml.resourceType(resource_type["text"],
+      xml.resourceType(resource_type["__content__"],
         'resourceTypeGeneral' => resource_type["resource_type_general"])
     end
 
@@ -155,6 +156,23 @@ module Bolognese
 
     def insert_date(xml, date, date_type)
       xml.date(date, 'dateType' => date_type)
+    end
+
+    def insert_funding_references(xml)
+      return xml unless Array.wrap(funder).present?
+
+      xml.fundingReferences do
+        Array.wrap(funder).each do |funding_reference|
+          xml.fundingReference do
+            insert_funding_reference(xml, funding_reference)
+          end
+        end
+      end
+    end
+
+    def insert_funding_reference(xml, funding_reference)
+      xml.funderName(funding_reference["name"]) if funding_reference["name"].present?
+      xml.funderIdentifier(funding_reference["@id"], "funderIdentifierType" => "Crossref Funder ID") if funding_reference["@id"].present?
     end
 
     def insert_subjects(xml)
@@ -181,7 +199,7 @@ module Bolognese
 
     def rel_identifier(rel_ids: nil, relation_type: nil)
       Array.wrap(rel_ids).map do |i|
-        { "text" => i["@id"],
+        { "__content__" => i["@id"],
           "related_identifier_type" => validate_url(i["@id"]),
           "relation_type" => relation_type }
       end.select { |i| i["related_identifier_type"].present? }
@@ -192,7 +210,7 @@ module Bolognese
 
       xml.relatedIdentifiers do
         rel_identifiers.each do |related_identifier|
-          xml.relatedIdentifier(related_identifier["text"], 'relatedIdentifierType' => related_identifier["related_identifier_type"], 'relationType' => related_identifier["relation_type"])
+          xml.relatedIdentifier(related_identifier["__content__"], 'relatedIdentifierType' => related_identifier["related_identifier_type"], 'relationType' => related_identifier["relation_type"])
         end
       end
     end

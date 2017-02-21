@@ -34,13 +34,13 @@ module Bolognese
     alias_method :schema_org, :as_schema_org
 
     def schema_version
-      @schema_version ||= metadata.fetch("schemaLocation", "").split(" ").first
+      @schema_version ||= metadata.fetch("xsi:schemaLocation", "").split(" ").first
     end
 
     # show DataCite XML in different version if schema_version option is provided
     # currently only supports 4.0
     def datacite
-      if schema_version != metadata.fetch("schemaLocation", "").split(" ").first
+      if schema_version != metadata.fetch("xsi:schemaLocation", "").split(" ").first
         as_datacite
       else
         raw
@@ -56,7 +56,7 @@ module Bolognese
     end
 
     def doi
-      metadata.fetch("identifier", {}).fetch("text", nil)
+      metadata.fetch("identifier", {}).fetch("__content__", nil)
     end
 
     def id
@@ -72,7 +72,7 @@ module Bolognese
     end
 
     def additional_type
-      metadata.fetch("resourceType", {}).fetch("text", nil) ||
+      metadata.fetch("resourceType", {}).fetch("__content__", nil) ||
       metadata.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil)
     end
 
@@ -81,11 +81,11 @@ module Bolognese
     end
 
     def alternate_name
-      metadata.dig("alternateIdentifiers", "alternateIdentifier", "text")
+      metadata.dig("alternateIdentifiers", "alternateIdentifier", "__content__")
     end
 
     def description
-      des = metadata.dig("descriptions", "description", "text")
+      des = metadata.dig("descriptions", "description", "__content__")
       if des.is_a?(Hash)
         des.to_xml
       elsif des.is_a?(String)
@@ -113,6 +113,30 @@ module Bolognese
       get_authors(editors).presence
     end
 
+    def funder
+      f = funder_contributor + funding_reference
+      f.length > 1 ? f : f.first
+    end
+
+    def funder_contributor
+      Array.wrap(metadata.dig("contributors", "contributor")).reduce([]) do |sum, f|
+        if f["contributorType"] == "Funder"
+          sum << { "@type" => "Organization", "name" => f["contributorName"] }
+        else
+          sum
+        end
+      end
+    end
+
+    def funding_reference
+      Array.wrap(metadata.dig("fundingReferences", "fundingReference")).map do |f|
+        funder_id = parse_attribute(f["funderIdentifier"])
+        { "@type" => "Organization",
+          "@id" => normalize_id(funder_id),
+          "name" => f["funderName"] }.compact
+      end.uniq
+    end
+
     def version
       metadata.fetch("version", nil)
     end
@@ -125,7 +149,7 @@ module Bolognese
 
     def date(date_type)
       dd = dates.find { |d| d["dateType"] == date_type } || {}
-      dd.fetch("text", nil)
+      dd.fetch("__content__", nil)
     end
 
     def date_created
@@ -156,9 +180,8 @@ module Bolognese
       Array(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
         .select { |r| relation_type.split(" ").include?(r["relationType"]) && %w(DOI URL).include?(r["relatedIdentifierType"]) }
         .map do |work|
-          work_id = work["relatedIdentifierType"] == "DOI" ? normalize_doi(work["text"]) : work["text"]
           { "@type" => "CreativeWork",
-            "@id" => work_id }
+            "@id" => normalize_id(work["__content__"]) }
         end
     end
 

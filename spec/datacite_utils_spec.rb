@@ -9,7 +9,7 @@ describe Bolognese::Datacite, vcr: true do
     it "doi" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_identifier(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response["identifier"]).to eq("identifierType"=>"DOI", "text"=>"10.5061/DRYAD.8515")
+      expect(response["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.5061/DRYAD.8515")
     end
   end
 
@@ -75,7 +75,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_resource_type(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response["resourceType"]).to eq("resourceTypeGeneral"=>"Dataset", "text"=>"DataPackage")
+      expect(response["resourceType"]).to eq("resourceTypeGeneral"=>"Dataset", "__content__"=>"DataPackage")
     end
   end
 
@@ -83,7 +83,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_alternate_identifiers(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("alternateIdentifiers", "alternateIdentifier")).to eq("alternateIdentifierType"=>"Local accession number", "text"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
+      expect(response.dig("alternateIdentifiers", "alternateIdentifier")).to eq("alternateIdentifierType"=>"Local accession number", "__content__"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
     end
   end
 
@@ -91,7 +91,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_dates(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("dates", "date")).to eq("dateType"=>"Issued", "text"=>"2011")
+      expect(response.dig("dates", "date")).to eq("dateType"=>"Issued", "__content__"=>"2011")
     end
   end
 
@@ -113,13 +113,13 @@ describe Bolognese::Datacite, vcr: true do
 
   context "insert_related_identifiers" do
     it "rel_identifiers" do
-      expect(subject.rel_identifiers).to eq([{"text"=>"https://doi.org/10.5061/dryad.8515/1",
+      expect(subject.rel_identifiers).to eq([{"__content__"=>"https://doi.org/10.5061/dryad.8515/1",
                                               "related_identifier_type"=>"DOI",
                                               "relation_type"=>"HasPart"},
-                                             {"text"=>"https://doi.org/10.5061/dryad.8515/2",
+                                             {"__content__"=>"https://doi.org/10.5061/dryad.8515/2",
                                               "related_identifier_type"=>"DOI",
                                               "relation_type"=>"HasPart"},
-                                             {"text"=>"https://doi.org/10.1371/journal.ppat.1000446",
+                                             {"__content__"=>"https://doi.org/10.1371/journal.ppat.1000446",
                                               "related_identifier_type"=>"DOI",
                                               "relation_type"=>"References"}])
     end
@@ -129,13 +129,13 @@ describe Bolognese::Datacite, vcr: true do
       response = Maremma.from_xml(xml)
       expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq([{"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"HasPart",
-                                                                              "text"=>"https://doi.org/10.5061/dryad.8515/1"},
+                                                                              "__content__"=>"https://doi.org/10.5061/dryad.8515/1"},
                                                                              {"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"HasPart",
-                                                                              "text"=>"https://doi.org/10.5061/dryad.8515/2"},
+                                                                              "__content__"=>"https://doi.org/10.5061/dryad.8515/2"},
                                                                              {"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"References",
-                                                                              "text"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
+                                                                              "__content__"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
     end
   end
 
@@ -143,7 +143,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_rights_list(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0/", "text"=>"Public Domain (CC0 1.0)")
+      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0/", "__content__"=>"Public Domain (CC0 1.0)")
     end
   end
 
@@ -153,7 +153,7 @@ describe Bolognese::Datacite, vcr: true do
       subject = Bolognese::Datacite.new(id: id)
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_descriptions(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("descriptions", "description")).to eq("descriptionType" => "Abstract", "text" => "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(response.dig("descriptions", "description")).to eq("descriptionType" => "Abstract", "__content__" => "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
     end
   end
 end

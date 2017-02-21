@@ -801,6 +801,22 @@ bolognese read https://doi.org/10.7554/elife.01567
         "position": "27",
         "datePublished": "2013"
     }],
+    "funder": [{
+        "@type": "Organization",
+        "name": "SystemsX"
+    }, {
+        "@type": "Organization",
+        "@id": "https://doi.org/10.13039/501100003043",
+        "name": "EMBO"
+    }, {
+        "@type": "Organization",
+        "@id": "https://doi.org/10.13039/501100001711",
+        "name": "Swiss National Science Foundation"
+    }, {
+        "@type": "Organization",
+        "@id": "https://doi.org/10.13039/501100006390",
+        "name": "University of Lausanne"
+    }],
     "provider": {
         "@type": "Organization",
         "name": "Crossref"
@@ -848,6 +864,23 @@ bolognese read https://doi.org/10.7554/elife.01567 --as datacite
   <publisher>eLife</publisher>
   <publicationYear>2014</publicationYear>
   <resourceType resourceTypeGeneral="Text">JournalArticle</resourceType>
+  <fundingReferences>
+    <fundingReference>
+      <funderName>SystemsX</funderName>
+    </fundingReference>
+    <fundingReference>
+      <funderName>EMBO</funderName>
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">https://doi.org/10.13039/501100003043</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>Swiss National Science Foundation</funderName>
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">https://doi.org/10.13039/501100001711</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>University of Lausanne</funderName>
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">https://doi.org/10.13039/501100006390</funderIdentifier>
+    </fundingReference>
+  </fundingReferences>
   <dates>
     <date dateType="Issued">2014-02-11</date>
     <date dateType="Updated">2015-08-11T05:35:02Z</date>
