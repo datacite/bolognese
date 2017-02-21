@@ -1142,6 +1142,57 @@ bolognese read 10.5061/DRYAD.8515 --as datacite --schema_version http://datacite
 </resource>
 ```
 
+Convert schema.org/JSON-LD to DataCite XML:
+
+```
+bolognese read https://blog.datacite.org/eating-your-own-dog-food --as datacite
+
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.5438/4k3m-nyvg</identifier>
+  <creators>
+    <creator>
+      <creatorName>Fenner, Martin</creatorName>
+      <givenName>Martin</givenName>
+      <familyName>Fenner</familyName>
+      <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">http://orcid.org/0000-0003-1419-2405</nameIdentifier>
+    </creator>
+  </creators>
+  <titles>
+    <title>Eating your own Dog Food</title>
+  </titles>
+  <publisher>DataCite</publisher>
+  <publicationYear>2016</publicationYear>
+  <resourceType resourceTypeGeneral="Text">BlogPosting</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="Local accession number">MS-49-3632-5083</alternateIdentifier>
+  </alternateIdentifiers>
+  <subjects>
+    <subject>datacite</subject>
+    <subject>doi</subject>
+    <subject>metadata</subject>
+    <subject>featured</subject>
+  </subjects>
+  <dates>
+    <date dateType="Created">2016-12-20</date>
+    <date dateType="Issued">2016-12-20</date>
+    <date dateType="Updated">2016-12-20</date>
+  </dates>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsPartOf">https://doi.org/10.5438/0000-00ss</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.5438/0012</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="References">https://doi.org/10.5438/55e5-t5c0</relatedIdentifier>
+  </relatedIdentifiers>
+  <version>1.0</version>
+  <rightsList>
+    <rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
+  </descriptions>
+</resource>
+```
+
 ## Development
 
 We use rspec for unit testing:
