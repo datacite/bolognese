@@ -12,32 +12,23 @@ module Bolognese
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    attr_reader :id, :raw, :provider, :schema_version
+    attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
+      :additional_type, :alternate_name, :url, :version, :keywords, :editor,
+      :page_start, :page_end, :date_modified, :language, :spatial_coverage,
+      :content_size, :funder, :journal, :bibtex_type
 
     alias_method :datacite, :as_datacite
 
-    def url
-
-    end
-
-    def version
-
-    end
-
-    def keywords
-
+    def publication_year
+      date_published && date_published[0..3]
     end
 
     def date_created
 
     end
 
-    def page_start
-
-    end
-
-    def page_end
-
+    def pagination
+      [page_start, page_end].compact.join("-").presence
     end
 
     def has_part
@@ -52,28 +43,21 @@ module Bolognese
 
     end
 
-    def language
-
-    end
-
-    def spatial_coverage
-
-    end
-
-    def content_size
-
-    end
-
     def schema_version
 
     end
 
-    def funder
+    def author_string
+      author.map { |a| [a["familyName"], a["givenName"]].join(", ") }
+            .join(" and ").presence
+    end
 
+    def publisher_string
+      publisher.to_h.fetch("name", nil)
     end
 
     def as_schema_org
-      { "@context" => "http://schema.org",
+      { "@context" => id.present? ? "http://schema.org" : nil,
         "@type" => type,
         "@id" => id,
         "url" => url,
@@ -102,6 +86,24 @@ module Bolognese
         "funder" => funder,
         "provider" => provider
       }.compact.to_json
+    end
+
+    def as_bibtex
+      bib = {
+        bibtex_type: bibtex_type.to_sym,
+        bibtex_key: id,
+        doi: doi,
+        url: url,
+        author: author_string,
+        keywords: keywords,
+        title: name,
+        journal: journal,
+        pages: pagination,
+        publisher: publisher_string,
+        year: publication_year
+      }.compact
+
+      BibTeX::Entry.new(bib).to_s
     end
   end
 end

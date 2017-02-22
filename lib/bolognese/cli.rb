@@ -10,6 +10,8 @@ module Bolognese
     include Bolognese::DoiUtils
     include Bolognese::Utils
 
+    default_task :open
+
     def self.exit_on_failure?
       true
     end
@@ -34,6 +36,33 @@ module Bolognese
         p = case provider
             when "crossref" then Crossref.new(id: id)
             when "datacite" then Datacite.new(id: id, schema_version: options[:schema_version])
+            else SchemaOrg.new(id: id)
+            end
+
+        puts p.send(output)
+      else
+        puts "not implemented"
+      end
+    end
+
+    desc "open file", "read metadata from file"
+    method_option :as, default: "schema_org"
+    method_option :schema_version
+    def open(file)
+      ext = File.extname(file)
+      unless %w(.bib).include? ext
+        $stderr.puts "File type #{ext} not supported"
+        exit 1
+      end
+      string = IO.read(file)
+      provider = "bibtex"
+      output = options[:as] || "schema_org"
+
+      if provider.present?
+        p = case provider
+            when "crossref" then Crossref.new(id: id)
+            when "datacite" then Datacite.new(id: id, schema_version: options[:schema_version])
+            when "bibtex" then Bibtex.new(string: string)
             else SchemaOrg.new(id: id)
             end
 

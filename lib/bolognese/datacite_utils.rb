@@ -123,7 +123,7 @@ module Bolognese
     end
 
     def insert_publication_year(xml)
-      xml.publicationYear(date_published && date_published[0..3])
+      xml.publicationYear(publication_year)
     end
 
     def resource_type

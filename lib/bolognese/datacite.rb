@@ -32,6 +32,7 @@ module Bolognese
     end
 
     alias_method :schema_org, :as_schema_org
+    alias_method :bibtex, :as_bibtex
 
     def schema_version
       @schema_version ||= metadata.fetch("xsi:schemaLocation", "").split(" ").first
@@ -74,6 +75,10 @@ module Bolognese
     def additional_type
       metadata.fetch("resourceType", {}).fetch("__content__", nil) ||
       metadata.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil)
+    end
+
+    def bibtex_type
+      Bolognese::Bibtex::SO_TO_BIB_TRANSLATIONS[type] || "misc"
     end
 
     def name
@@ -157,11 +162,15 @@ module Bolognese
     end
 
     def date_published
-      date("Issued") || metadata.fetch("publicationYear")
+      date("Issued") || publication_year
     end
 
     def date_modified
       date("Updated")
+    end
+
+    def publication_year
+      metadata.fetch("publicationYear")
     end
 
     def language

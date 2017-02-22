@@ -14,6 +14,7 @@ module Bolognese
     end
 
     alias_method :schema_org, :as_schema_org
+    alias_method :bibtex, :as_bibtex
 
     def metadata
       @metadata ||= raw.present? ? Maremma.from_json(raw) : {}
@@ -45,6 +46,10 @@ module Bolognese
 
     def additional_type
       metadata.fetch("additionalType", nil)
+    end
+
+    def bibtex_type
+      Bolognese::Bibtex::SO_TO_BIB_TRANSLATIONS[type] || "misc"
     end
 
     def name

@@ -31,6 +31,35 @@ module Bolognese
       "PostedContent" => "ScholarlyArticle"
     }
 
+    CR_TO_BIB_TRANSLATIONS = {
+      "Proceedings" => "proceedings",
+      "ReferenceBook" => "book",
+      "JournalIssue" => nil,
+      "ProceedingsArticle" => nil,
+      "Other" => nil,
+      "Dissertation" => "phdthesis",
+      "Dataset" => nil,
+      "EditedBook" => "book",
+      "JournalArticle" => "article",
+      "Journal" => nil,
+      "Report" => nil,
+      "BookSeries" => nil,
+      "ReportSeries" => nil,
+      "BookTrack" => nil,
+      "Standard" => nil,
+      "BookSection" => "inbook",
+      "BookPart" => nil,
+      "Book" => "book",
+      "BookChapter" => "inbook",
+      "StandardSeries" => nil,
+      "Monograph" => "book",
+      "Component" => nil,
+      "ReferenceEntry" => nil,
+      "JournalVolume" => nil,
+      "BookSet" => nil,
+      "PostedContent" => "article"
+    }
+
     def initialize(id: nil, string: nil)
       id = normalize_doi(id) if id.present?
 
@@ -45,6 +74,7 @@ module Bolognese
     alias_method :crossref, :raw
     alias_method :as_crossref, :raw
     alias_method :schema_org, :as_schema_org
+    alias_method :bibtex, :as_bibtex
 
     def metadata
       @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("doi_records", {}).fetch("doi_record", {}) : {}
@@ -98,6 +128,10 @@ module Bolognese
       else
         metadata.dig("crossref").keys.last.camelize
       end
+    end
+
+    def bibtex_type
+      CR_TO_BIB_TRANSLATIONS[additional_type] || "misc"
     end
 
     def name
@@ -190,8 +224,10 @@ module Bolognese
     end
 
     def container_title
-      is_part_of.fetch("name", nil)
+      is_part_of.to_h.fetch("name", nil)
     end
+
+    alias_method :journal, :container_title
 
     def citation
        citations = bibliographic_metadata.dig("citation_list", "citation")

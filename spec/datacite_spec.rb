@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe Bolognese::Datacite, vcr: true do
+  let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
+
+  subject { Bolognese::Datacite.new(id: id) }
+
   context "get metadata" do
-    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
-
-    subject { Bolognese::Datacite.new(id: id) }
-
     it "Dataset" do
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
@@ -180,6 +180,32 @@ describe Bolognese::Datacite, vcr: true do
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
       expect(datacite.fetch("fundingReferences")).to eq("fundingReference"=>{"funderName"=>"European Commission", "funderIdentifier"=>{"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100000780"}})
+    end
+  end
+
+  context "get metadata as bibtex" do
+    it "Dataset" do
+      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(bibtex[:doi]).to eq("10.5061/DRYAD.8515")
+      expect(bibtex[:title]).to eq("Data from: A new malaria agent in African hominids.")
+      expect(bibtex[:author]).to eq("Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François")
+      expect(bibtex[:publisher]).to eq("Dryad Digital Repository")
+      expect(bibtex[:year]).to eq("2011")
+    end
+
+    it "BlogPosting" do
+      id = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Datacite.new(id: id)
+      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("article")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(bibtex[:doi]).to eq("10.5438/4K3M-NYVG")
+      expect(bibtex[:title]).to eq("Eating your own Dog Food")
+      expect(bibtex[:author]).to eq("Fenner, Martin")
+      expect(bibtex[:publisher]).to eq("DataCite")
+      expect(bibtex[:year]).to eq("2016")
     end
   end
 end

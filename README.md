@@ -13,6 +13,8 @@ Ruby gem and command-line utility for conversion of DOI metadata from and to [sc
 * fetch schema.org/JSON-LD from a URL
 * convert schema.org/JSON-LD to [DataCite XML](http://schema.datacite.org/)
 * convert Crossref XML to [DataCite XML](http://schema.datacite.org/)
+* convert Crossref XML, DataCite XML or schema.org/JSON-LD to BibTeX
+* convert BibTeX to DataCite XML or schema.org/JSON-LD
 
 Conversion to Crossref XML is not yet supported.
 
