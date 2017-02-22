@@ -101,12 +101,12 @@ describe Bolognese::CLI do
       end
     end
 
-    context "unsupported format" do
-      let(:file) { fixture_path + "crossref.xxx" }
-
-      it 'error' do
-        expect { subject.open file }.to output(/datePublished/).to_stderr
-      end
-    end
+    # context "unsupported format" do
+    #   let(:file) { fixture_path + "crossref.xxx" }
+    #
+    #   it 'error' do
+    #     expect { subject.open file }.to output(/datePublished/).to_stderr
+    #   end
+    # end
   end
 end
