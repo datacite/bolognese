@@ -30,19 +30,8 @@ module Bolognese
     def read(id)
       id = normalize_id(id)
       provider = find_provider(id)
-      output = options[:as] || "schema_org"
 
-      if provider.present?
-        p = case provider
-            when "crossref" then Crossref.new(id: id)
-            when "datacite" then Datacite.new(id: id, schema_version: options[:schema_version])
-            else SchemaOrg.new(id: id)
-            end
-
-        puts p.send(output)
-      else
-        puts "not implemented"
-      end
+      set_metadata(id: id, provider: provider, as: options[:as], schema_version: options[:schema_version])
     end
 
     desc "open file", "read metadata from file"
@@ -54,22 +43,11 @@ module Bolognese
         $stderr.puts "File type #{ext} not supported"
         exit 1
       end
+
       string = IO.read(file)
       provider = "bibtex"
-      output = options[:as] || "schema_org"
 
-      if provider.present?
-        p = case provider
-            when "crossref" then Crossref.new(id: id)
-            when "datacite" then Datacite.new(id: id, schema_version: options[:schema_version])
-            when "bibtex" then Bibtex.new(string: string)
-            else SchemaOrg.new(id: id)
-            end
-
-        puts p.send(output)
-      else
-        puts "not implemented"
-      end
+      set_metadata(string: string, provider: provider, as: options[:as], schema_version: options[:schema_version])
     end
   end
 end

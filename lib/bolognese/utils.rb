@@ -1,5 +1,22 @@
 module Bolognese
   module Utils
+    def set_metadata(id: nil, string: nil, provider: nil, **options)
+      output = options[:as] || "schema_org"
+
+      if provider.present?
+        p = case provider
+            when "crossref" then Crossref.new(id: id)
+            when "datacite" then Datacite.new(id: id, schema_version: options[:schema_version])
+            when "bibtex" then Bibtex.new(string: string)
+            else SchemaOrg.new(id: id)
+            end
+
+        puts p.send(output)
+      else
+        puts "not implemented"
+      end
+    end
+    
     def orcid_from_url(url)
       Array(/\Ahttp:\/\/orcid\.org\/(.+)/.match(url)).last
     end
