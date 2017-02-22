@@ -132,14 +132,14 @@ module Bolognese
     end
 
     def name
-      parse_attribute(bibliographic_metadata.dig("titles", "title"))
+      parse_attributes(bibliographic_metadata.dig("titles", "title"))
     end
 
     def alternate_name
       if bibliographic_metadata.fetch("publisher_item", nil).present?
-        parse_attribute(bibliographic_metadata.dig("publisher_item", "item_number"))
+        parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number"))
       else
-        parse_attribute(bibliographic_metadata.fetch("item_number", nil))
+        parse_attributes(bibliographic_metadata.fetch("item_number", nil))
       end
     end
 
@@ -155,7 +155,7 @@ module Bolognese
     def license
       access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
       if access_indicator.present?
-        parse_attribute(access_indicator["license_ref"])
+        parse_attributes(access_indicator["license_ref"])
       else
         nil
       end
@@ -173,7 +173,7 @@ module Bolognese
       person = bibliographic_metadata.dig("contributors", "person_name")
       Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
         { "@type" => "Person",
-          "@id" => parse_attribute(a["ORCID"]),
+          "@id" => parse_attributes(a["ORCID"]),
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
       end.presence
@@ -214,7 +214,7 @@ module Bolognese
       if journal_metadata.present?
         { "@type" => "Periodical",
           "name" => journal_metadata["full_title"],
-          "issn" => parse_attribute(journal_metadata.fetch("issn", nil)) }.compact
+          "issn" => parse_attributes(journal_metadata.fetch("issn", nil)) }.compact
       else
         nil
       end

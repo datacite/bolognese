@@ -86,7 +86,7 @@ module Bolognese
     end
 
     def alternate_name
-      metadata.dig("alternateIdentifiers", "alternateIdentifier", "__content__")
+      parse_attributes(metadata.dig("alternateIdentifiers", "alternateIdentifier"))
     end
 
     def description
@@ -99,7 +99,7 @@ module Bolognese
     end
 
     def license
-      metadata.dig("rightsList", "rights", "rightsURI")
+      parse_attributes(Array.wrap(metadata.dig("rightsList", "rights")), content: "rightsURI")
     end
 
     def keywords
@@ -113,8 +113,8 @@ module Bolognese
     end
 
     def editor
-      editors = metadata.dig("contributors", "contributor")
-      editors = [editors] if editors.is_a?(Hash)
+      editors = Array.wrap(metadata.dig("contributors", "contributor"))
+                     .select { |r| r["contributorType"] == "Editor" }
       get_authors(editors).presence
     end
 
@@ -135,7 +135,7 @@ module Bolognese
 
     def funding_reference
       Array.wrap(metadata.dig("fundingReferences", "fundingReference")).map do |f|
-        funder_id = parse_attribute(f["funderIdentifier"])
+        funder_id = parse_attributes(f["funderIdentifier"])
         { "@type" => "Organization",
           "@id" => normalize_id(funder_id),
           "name" => f["funderName"] }.compact

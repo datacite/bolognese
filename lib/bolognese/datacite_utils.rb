@@ -46,13 +46,14 @@ module Bolognese
     end
 
     def as_datacite
-      if schema.validate(Nokogiri::XML(datacite_xml))
+      if validation_errors.blank?
         datacite_xml
       end
     end
 
     def validation_errors
       @validation_errors ||= schema.validate(Nokogiri::XML(datacite_xml))
+                                   .map { |error| error.to_s }
     end
 
     def insert_work(xml)
@@ -219,7 +220,9 @@ module Bolognese
       return xml unless license.present?
 
       xml.rightsList do
-        xml.rights(LICENSE_NAMES[license], 'rightsURI' => license)
+        Array.wrap(license).each do |lic|
+          xml.rights(LICENSE_NAMES[lic], 'rightsURI' => lic)
+        end
       end
     end
 

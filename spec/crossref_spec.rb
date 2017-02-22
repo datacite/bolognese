@@ -122,7 +122,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.date_modified).to eq("2016-08-02T12:42:41Z")
       expect(subject.page_start).to eq("1")
       expect(subject.page_end).to eq("7")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>"2090-1836")
+      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
     end
 

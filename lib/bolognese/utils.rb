@@ -66,25 +66,16 @@ module Bolognese
       end
     end
 
-    def parse_attributes(element)
-      if element.is_a?(String)
-        element
-      elsif element.is_a?(Hash)
-        element.fetch("__content__", nil)
-      elsif element.is_a?(Array)
-        element.map { |e| e.fetch("__content__", nil) }
-      else
-        nil
-      end
-    end
+    def parse_attributes(element, options={})
+      content = options[:content] || "__content__"
 
-    def parse_attribute(element)
       if element.is_a?(String)
         element
       elsif element.is_a?(Hash)
-        element.fetch("__content__", nil)
+        element.fetch(content, nil)
       elsif element.is_a?(Array)
-        element.first.fetch("__content__", nil)
+        a = element.map { |e| e.fetch(content, nil) }.uniq
+        a.length == 1 ? a.first : a
       else
         nil
       end

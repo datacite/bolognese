@@ -52,7 +52,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
-    it "Date" do
+    it "date" do
       id = "https://doi.org/10.4230/lipics.tqc.2013.93"
       subject = Bolognese::Datacite.new(id: id)
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
@@ -68,7 +68,24 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.1")
     end
 
-    it "Funding schema version 3" do
+    it "multiple licenses" do
+      id = "https://doi.org/10.5281/ZENODO.48440"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
+      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.additional_type).to eq("Software")
+      expect(subject.resource_type_general).to eq("Software")
+      expect(subject.author).to eq([{"@type"=>"Agent", "Name"=>"Kristian Garza"}])
+      expect(subject.name).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
+      expect(subject.description).to start_with("<p>&nbsp;</p>\n\n<p>This tools are used to analyse the data produced by the Crosssover Experiment")
+      expect(subject.license).to eq(["info:eu-repo/semantics/openAccess", "https://creativecommons.org/licenses/by-nc-sa/4.0/"])
+      expect(subject.date_published).to eq("2016-03-27")
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Zenodo")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "funding schema version 3" do
       id = "https://doi.org/10.5281/ZENODO.1239"
       subject = Bolognese::Datacite.new(id: id)
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1239")
@@ -139,6 +156,13 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
+
+    it "missing creator" do
+      string = IO.read(fixture_path + "datacite_missing_creator.xml")
+      subject = Bolognese::Datacite.new(string: string)
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.validation_errors).to eq(["Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator )."])
+    end
   end
 
   context "get metadata as datacite xml 4.0" do
@@ -176,7 +200,7 @@ describe Bolognese::Datacite, vcr: true do
       id = "https://doi.org/10.5438/6423"
       subject = Bolognese::Datacite.new(id: id, schema_version: "http://datacite.org/schema/kernel-4")
       expect(subject.id).to eq("https://doi.org/10.5438/6423")
-
+      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
       expect(datacite.fetch("fundingReferences")).to eq("fundingReference"=>{"funderName"=>"European Commission", "funderIdentifier"=>{"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100000780"}})
