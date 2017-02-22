@@ -188,7 +188,7 @@ module Bolognese
         { "@type" => "Organization",
           "@id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
           "name" => f.dig("assertion", "__content__").strip }.compact
-      end
+      end.presence
     end
 
     def date_published
