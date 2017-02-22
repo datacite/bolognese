@@ -147,480 +147,16 @@ bolognese read https://doi.org/10.7554/elife.01567 --as crossref
             <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567</resource>
           </doi_data>
           <citation_list>
-            <citation key="1">
-              <journal_title>Nature</journal_title>
-              <author>Bonke</author>
-              <volume>426</volume>
-              <first_page>181</first_page>
-              <cYear>2003</cYear>
-              <doi>10.1038/nature02100</doi>
-            </citation>
-            <citation key="2">
-              <journal_title>Genetics</journal_title>
-              <author>Brenner</author>
-              <volume>182</volume>
-              <first_page>413</first_page>
-              <cYear>2009</cYear>
-              <doi>10.1534/genetics.109.104976</doi>
-            </citation>
-            <citation key="3">
-              <journal_title>Physiologia Plantarum</journal_title>
-              <author>Chaffey</author>
-              <volume>114</volume>
-              <first_page>594</first_page>
-              <cYear>2002</cYear>
-              <doi>10.1034/j.1399-3054.2002.1140413.x</doi>
-            </citation>
-            <citation key="4">
-              <journal_title>Neural computation</journal_title>
-              <author>Chang</author>
-              <volume>13</volume>
-              <first_page>2119</first_page>
-              <cYear>2001</cYear>
-              <doi>10.1162/089976601750399335</doi>
-            </citation>
-            <citation key="5">
-              <journal_title>Machine Learning</journal_title>
-              <author>Cortes</author>
-              <volume>20</volume>
-              <first_page>273</first_page>
-              <cYear>1995</cYear>
-            </citation>
-            <citation key="6">
-              <journal_title>Development</journal_title>
-              <author>Dolan</author>
-              <volume>119</volume>
-              <first_page>71</first_page>
-              <cYear>1993</cYear>
-            </citation>
-            <citation key="7">
-              <journal_title>Seminars in Cell &amp; Developmental Biology</journal_title>
-              <author>Elo</author>
-              <volume>20</volume>
-              <first_page>1097</first_page>
-              <cYear>2009</cYear>
-              <doi>10.1016/j.semcdb.2009.09.009</doi>
-            </citation>
-            <citation key="8">
-              <journal_title>Development</journal_title>
-              <author>Etchells</author>
-              <volume>140</volume>
-              <first_page>2224</first_page>
-              <cYear>2013</cYear>
-              <doi>10.1242/dev.091314</doi>
-            </citation>
-            <citation key="9">
-              <journal_title>PLOS Genetics</journal_title>
-              <author>Etchells</author>
-              <volume>8</volume>
-              <first_page>e1002997</first_page>
-              <cYear>2012</cYear>
-              <doi>10.1371/journal.pgen.1002997</doi>
-            </citation>
-            <citation key="10">
-              <journal_title>Molecular Systems Biology</journal_title>
-              <author>Fuchs</author>
-              <volume>6</volume>
-              <first_page>370</first_page>
-              <cYear>2010</cYear>
-              <doi>10.1038/msb.2010.25</doi>
-            </citation>
-            <citation key="11">
-              <journal_title>Bio Systems</journal_title>
-              <author>Granqvist</author>
-              <volume>110</volume>
-              <first_page>60</first_page>
-              <cYear>2012</cYear>
-              <doi>10.1016/j.biosystems.2012.07.004</doi>
-            </citation>
-            <citation key="12">
-              <journal_title>Current Opinion in Plant Biology</journal_title>
-              <author>Groover</author>
-              <volume>9</volume>
-              <first_page>55</first_page>
-              <cYear>2006</cYear>
-              <doi>10.1016/j.pbi.2005.11.013</doi>
-            </citation>
-            <citation key="13">
-              <journal_title>Plant Cell</journal_title>
-              <author>Hirakawa</author>
-              <volume>22</volume>
-              <first_page>2618</first_page>
-              <cYear>2010</cYear>
-              <doi>10.1105/tpc.110.076083</doi>
-            </citation>
-            <citation key="14">
-              <journal_title>Proceedings of the National Academy of Sciences of the United States of America</journal_title>
-              <author>Hirakawa</author>
-              <volume>105</volume>
-              <first_page>15208</first_page>
-              <cYear>2008</cYear>
-              <doi>10.1073/pnas.0808444105</doi>
-            </citation>
-            <citation key="15">
-              <journal_title>Cell</journal_title>
-              <author>Meyerowitz</author>
-              <volume>56</volume>
-              <first_page>263</first_page>
-              <cYear>1989</cYear>
-              <doi>10.1016/0092-8674(89)90900-8</doi>
-            </citation>
-            <citation key="16">
-              <journal_title>Science</journal_title>
-              <author>Meyerowitz</author>
-              <volume>295</volume>
-              <first_page>1482</first_page>
-              <cYear>2002</cYear>
-              <doi>10.1126/science.1066609</doi>
-            </citation>
-            <citation key="17">
-              <journal_title>Plant Physiol</journal_title>
-              <author>Nieminen</author>
-              <volume>135</volume>
-              <first_page>653</first_page>
-              <cYear>2004</cYear>
-              <doi>10.1104/pp.104.040212</doi>
-            </citation>
-            <citation key="18">
-              <journal_title>Nature Biotechnology</journal_title>
-              <author>Noble</author>
-              <volume>24</volume>
-              <first_page>1565</first_page>
-              <cYear>2006</cYear>
-              <doi>10.1038/nbt1206-1565</doi>
-            </citation>
-            <citation key="19">
-              <journal_title>Proceedings of the National Academy of Sciences of the United States of America</journal_title>
-              <author>Olson</author>
-              <volume>77</volume>
-              <first_page>1516</first_page>
-              <cYear>1980</cYear>
-              <doi>10.1073/pnas.77.3.1516</doi>
-            </citation>
-            <citation key="20">
-              <journal_title>Bioinformatics</journal_title>
-              <author>Pau</author>
-              <volume>26</volume>
-              <first_page>979</first_page>
-              <cYear>2010</cYear>
-              <doi>10.1093/bioinformatics/btq046</doi>
-            </citation>
-            <citation key="21">
-              <journal_title>Plant Cell</journal_title>
-              <author>Ragni</author>
-              <volume>23</volume>
-              <first_page>1322</first_page>
-              <cYear>2011</cYear>
-              <doi>10.1105/tpc.111.084020</doi>
-            </citation>
+            ...
             <citation key="22">
               <author>Sankar</author>
               <cYear>2014</cYear>
               <doi>10.5061/dryad.b835k</doi>
             </citation>
-            <citation key="23">
-              <journal_title>Current Biology</journal_title>
-              <author>Sibout</author>
-              <volume>18</volume>
-              <first_page>458</first_page>
-              <cYear>2008</cYear>
-              <doi>10.1016/j.cub.2008.02.070</doi>
-            </citation>
-            <citation key="24">
-              <journal_title>The New Phytologist</journal_title>
-              <author>Spicer</author>
-              <volume>186</volume>
-              <first_page>577</first_page>
-              <cYear>2010</cYear>
-              <doi>10.1111/j.1469-8137.2010.03236.x</doi>
-            </citation>
-            <citation key="25">
-              <journal_title>Machine Vision and Applications</journal_title>
-              <author>Theriault</author>
-              <volume>23</volume>
-              <first_page>659</first_page>
-              <cYear>2012</cYear>
-              <doi>10.1007/s00138-011-0345-9</doi>
-            </citation>
-            <citation key="26">
-              <journal_title>Cell</journal_title>
-              <author>Uyttewaal</author>
-              <volume>149</volume>
-              <first_page>439</first_page>
-              <cYear>2012</cYear>
-              <doi>10.1016/j.cell.2012.02.048</doi>
-            </citation>
-            <citation key="27">
-              <journal_title>Nature Cell Biology</journal_title>
-              <author>Yin</author>
-              <volume>15</volume>
-              <first_page>860</first_page>
-              <cYear>2013</cYear>
-              <doi>10.1038/ncb2764</doi>
-            </citation>
+            ...
           </citation_list>
           <component_list>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>
-                  <b>Abstract</b>
-                </title>
-              </titles>
-              <format mime_type="text/plain" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.001</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.001</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>
-                  <b>eLife digest</b>
-                </title>
-              </titles>
-              <format mime_type="text/plain" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.002</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.002</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 1. Cellular level analysis of Arabidopsis hypocotyl secondary growth.</title>
-                <subtitle>
-                  (
-                  <b>A</b>
-                  ) Light microscopy of cross sections obtained from Arabidopsis hypocotyls (organ position illustrated for a 9-day-old seedling, lower left) at 9 dag (upper left) and 35 dag (right). Size bars are 100 μm. Blue GUS staining due to the presence of an
-                  <i>APL::GUS</i>
-                  reporter gene in this Col-0 background line marks phloem bundles. (
-                  <b>B</b>
-                  ) Overview of the developmental series (time points and distinct samples per genotype) analyzed in this study. (
-                  <b>C</b>
-                  ) Example of a high-resolution hypocotyl section image assembled from 11 × 11 tiles. (
-                  <b>D</b>
-                  ) The same image after pre-processing and binarization, and (
-                  <b>E</b>
-                  ) subsequent segmentation using a watershed algorithm. (
-                  <b>F</b>
-                  ) Number of mis-segmented cells as determined by careful visual inspection in 12 sections, plotted against the total number of cells per section (log scale).
-                </subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.003</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.003</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 2. The ‘Quantitative Histology’ approach.</title>
-                <subtitle>
-                  (
-                  <b>A</b>
-                  ) Overview of the computational pipeline from image acquisition to analysis. (
-                  <b>B</b>
-                  ) ‘Phenoprints’ for the different genotypes and developmental stages.
-                </subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.004</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.004</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 2—figure supplement 1. An example of classifier selection through V-fold cross validation.</title>
-                <subtitle>The green arrow points out the selected feature combination according to the criteria of minimum number of features with the highest performance and the lowest variation (the radiusV feature was excluded due to its putative variation in tissue location).</subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.005</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.005</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 3. Progression of tissue proliferation.</title>
-                <subtitle>
-                  (
-                  <b>A</b>
-                  ) Principal component analysis (PCA) of the phenoprints shown in Figure 2B, performed with normalized values (Supplementary file 4). The inlay screeplot displays the proportion of total variation explained by each principal component. (
-                  <b>B–E</b>
-                  ) Comparative plots of parameter progression in the two genotypes. In (
-                  <b>D</b>
-                  ), xylem represents combined vessel, parenchyma, and fiber cells, phloem represents combined phloem parenchyma and bundle cells. Error bars indicate standard error.
-                </subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.006</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.006</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 4. Bimodal distribution of incline angle according to position.</title>
-                <subtitle>
-                  (
-                  <b>A</b>
-                  and
-                  <b>B</b>
-                  ) Spatial distribution of cell incline angle illustrates the vascular organization in Ler (
-                  <b>B</b>
-                  ) as compared to Col-0 (
-                  <b>A</b>
-                  ) at later stages of development, for example 30 dag. The size of the disc increases with the area of the cell. Blue color indicates radial cell orientation, red orthoradial. (
-                  <b>C</b>
-                  and
-                  <b>D</b>
-                  ) Violin plots of incline angle distribution, illustrating increasingly bimodal distribution coincident with refined vascular organization and different dynamics of the process in the two genotypes.
-                </subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.007</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.007</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 4—figure supplement 1. An illustration of the incline angle.</title>
-                <subtitle>The incline is the angle between the section radius through the center of an ellipse fit to a cell and the major axis of that ellipse extended towards the x axis.</subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.008</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.008</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 5. Distinct local organization of incline angle during hypocotyl secondary growth progression.</title>
-                <subtitle>
-                  (
-                  <b>A</b>
-                  –
-                  <b>J</b>
-                  ) Density plots of cell incline angle vs radial position for the two genotypes at the indicated developmental stages, representing all cells across all sections for a given time point. The red lines represent the fit of these cloud distributions with locally weighted linear regression (i.e., lowess), revealing the essential data trends. All sections were normalized from 0.0 (the manually defined center) to 1.0 (the average radius in a set of sections as determined by the average distance of the outermost cells from the center for individual sections). Box plots indicate the quartiles of the radian distribution for each cell-type class and are placed at the average position of the cell type with respect to the y axis. Outliers are shown as circles.
-                </subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.009</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.009</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 5—figure supplement 1. Analysis of cell number in defined xylem regions of different size.</title>
-                <subtitle>Cell number in a circle of 200–500 pixels around the section centers for Col-0. Cell count in a constant area of xylem over time across all averaged across all sections.</subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.010</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.010</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>Figure 6. Mapping of phloem pole patterning.</title>
-                <subtitle>
-                  (
-                  <b>A</b>
-                  ) Example of Gaussian kernel density estimate of the location of predicted phloem bundles cells in a 30 dag Col-0 section. High density represents phloem poles. (
-                  <b>B</b>
-                  ) Example of an analysis of emerging phloem pole position in a 30 dag Col-0 section. The plot represents a pixel intensity map after noise reduction along a circular region of interest across the emerging phloem poles. Intensity peaks are due to GUS staining conferred to phloem bundles by an
-                  <i>APL::GUS</i>
-                  reporter construct. (
-                  <b>C</b>
-                  ) Probability density function of the data shown in (
-                  <b>B</b>
-                  ) obtained from an automated Bayesian model. The dominant single peak indicates a constant arc distance of ca. 62 pixel between the phloem poles.
-                </subtitle>
-              </titles>
-              <format mime_type="image/tiff" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.011</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.011</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isReferencedBy">
-              <titles>
-                <title>
-                  Supplementary file 1. (
-                  <b>A</b>
-                  ) An explanation of the extracted parameters that describe the cellular features. (
-                  <b>B</b>
-                  ) Summary information of the hand-labeled training set for supervised machine learning. (
-                  <b>C</b>
-                  ) Definition of the classifiers selected for analysis. (
-                  <b>D</b>
-                  ) Summary of the classifier parameters for supervised machine learning. (
-                  <b>E</b>
-                  ) Overview of the cell type classes recognized by the supervised machine learning approach and their assignment codes used in Data Files 3 and 4.
-                </title>
-              </titles>
-              <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.012</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.012</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isReferencedBy">
-              <titles>
-                <title>Supplementary file 2. Quality control files for the Col-0 sections.</title>
-              </titles>
-              <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.013</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.013</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isReferencedBy">
-              <titles>
-                <title>Supplementary file 3. Quality control files for the Ler sections.</title>
-              </titles>
-              <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.014</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.014</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isReferencedBy">
-              <titles>
-                <title>Supplementary file 4. The normalized values of the phenoprints (Figure 2B) used for PCA.</title>
-              </titles>
-              <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.015</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.015</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>
-                  <b>Decision letter</b>
-                </title>
-              </titles>
-              <format mime_type="text/plain" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.016</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.016</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <titles>
-                <title>
-                  <b>Author response</b>
-                </title>
-              </titles>
-              <format mime_type="text/plain" />
-              <doi_data>
-                <doi>10.7554/eLife.01567.017</doi>
-                <resource>http://elifesciences.org/lookup/doi/10.7554/eLife.01567.017</resource>
-              </doi_data>
-            </component>
+           ...
           </component_list>
         </journal_article>
       </journal>
@@ -919,6 +455,20 @@ bolognese read https://doi.org/10.7554/elife.01567 --as datacite
   </rightsList>
 </resource>
 ```
+Convert Crossref XML to BibTeX:
+
+```
+bolognese read https://doi.org/10.7554/elife.01567 --as bibtex
+
+@article{https://doi.org/10.7554/elife.01567,
+  doi = {10.7554/eLife.01567},
+  url = {http://elifesciences.org/lookup/doi/10.7554/eLife.01567},
+  author = {Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S},
+  title = {Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth},
+  journal = {eLife},
+  year = {2014}
+}
+```
 
 Read DataCite XML:
 ```
@@ -1144,6 +694,20 @@ bolognese read 10.5061/DRYAD.8515 --as datacite --schema_version http://datacite
 </resource>
 ```
 
+Convert DataCite XML to BibTeX:
+
+```
+bolognese read 10.5061/DRYAD.8515 --as bibtex
+@misc{https://doi.org/10.5061/dryad.8515,
+  doi = {10.5061/DRYAD.8515},
+  author = {Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François},
+  keywords = {Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium},
+  title = {Data from: A new malaria agent in African hominids.},
+  publisher = {Dryad Digital Repository},
+  year = {2011}
+}
+```
+
 Convert schema.org/JSON-LD to DataCite XML:
 
 ```
@@ -1193,6 +757,22 @@ bolognese read https://blog.datacite.org/eating-your-own-dog-food --as datacite
     <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
   </descriptions>
 </resource>
+```
+
+Convert schema.org/JSON-LD to BibTeX:
+
+```
+bolognese read https://blog.datacite.org/eating-your-own-dog-food --as bibtex
+
+@article{https://doi.org/10.5438/4k3m-nyvg,
+  doi = {10.5438/4k3m-nyvg},
+  url = {https://blog.datacite.org/eating-your-own-dog-food},
+  author = {Fenner, Martin},
+  keywords = {datacite, doi, metadata, featured},
+  title = {Eating your own Dog Food},
+  publisher = {DataCite},
+  year = {2016}
+}
 ```
 
 ## Development
