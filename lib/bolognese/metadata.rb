@@ -15,7 +15,8 @@ module Bolognese
     attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
-      :content_size, :funder, :journal, :bibtex_type
+      :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
+      :publisher, :contributor, :schema_version
 
     alias_method :datacite, :as_datacite
 
@@ -23,28 +24,8 @@ module Bolognese
       date_published && date_published[0..3]
     end
 
-    def date_created
-
-    end
-
     def pagination
       [page_start, page_end].compact.join("-").presence
-    end
-
-    def has_part
-
-    end
-
-    def publisher
-
-    end
-
-    def contributor
-
-    end
-
-    def schema_version
-
     end
 
     def author_string
@@ -96,6 +77,7 @@ module Bolognese
         url: url,
         author: author_string,
         keywords: keywords,
+        language: language,
         title: name,
         journal: journal,
         pages: pagination,

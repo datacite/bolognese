@@ -4,19 +4,48 @@
 
 # Bolognese
 
-Ruby gem and command-line utility for conversion of DOI metadata from and to [schema.org](https://schema.org) in JSON-LD.
+Ruby gem and command-line utility for conversion of DOI metadata from and to different metadata formats, including [schema.org](https://schema.org).
 
 ## Features
 
-* convert [Crossref XML](https://support.crossref.org/hc/en-us/articles/214936283-UNIXREF-query-output-format) to schema.org/JSON-LD
-* convert [DataCite XML](http://schema.datacite.org/) to schema.org/JSON-LD
-* fetch schema.org/JSON-LD from a URL
-* convert schema.org/JSON-LD to [DataCite XML](http://schema.datacite.org/)
-* convert Crossref XML to [DataCite XML](http://schema.datacite.org/)
-* convert Crossref XML, DataCite XML or schema.org/JSON-LD to BibTeX
-* convert BibTeX to DataCite XML or schema.org/JSON-LD
+Bolognese reads and writes these metadata formats.
 
-Conversion to Crossref XML is not yet supported.
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table table-bordered table-striped">
+  <thead>
+      <tr>
+          <th scope="col">Format</th>
+          <th scope="col">Content Type</th>
+          <th scope="col">Read</th>
+          <th scope="col">Write</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='https://www.crossref.org/schema/documentation/unixref1.1/unixref1.1.html'>CrossRef Unixref XML</a></td>
+      <td>application/vnd.crossref.unixref+xml</td>
+      <td>Yes</span></td>
+      <td>No</span></td>
+   </tr>
+    <tr>
+      <td><a href='https://schema.datacite.org/'>DataCite XML</a></td>
+      <td>application/vnd.datacite.datacite+xml</td>
+      <td>Yes</span></td>
+      <td>Yes</span></td>
+  </tr>
+    <tr>
+        <td><a href='http://schema.org/'>Schema.org in JSON-LD</a></td>
+        <td>application/vnd.schemaorg.ld+json</td>
+        <td>Yes</span></td>
+        <td>Yes</span></td>
+    </tr>
+    <tr>
+        <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
+        <td>application/x-bibtex</td>
+        <td>Yes</span></td>
+        <td>Yes</span></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Installation
 
@@ -37,8 +66,23 @@ gem install bolognese
 
 ## Commands
 
-The `bolognese` commands understand URLs and DOIs as arguments. The `--as` command
-line flag sets the format, either `crossref`, `datacite`, or `schema_org` (default).
+Show all commands with `bolognese help`:
+
+```
+Commands:
+  bolognese --version, -v   # print the version
+  bolognese help [COMMAND]  # Describe available commands or one specific command
+  bolognese open file       # read metadata from file
+  bolognese read id         # read metadata for ID
+```
+
+### Open
+
+Opens a file.
+
+### Read
+
+Fetch metadata for a given ID. Bolognese understands URLs and DOIs. 
 
 ## Examples
 

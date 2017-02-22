@@ -27,7 +27,7 @@ http_interactions:
       Content-Length:
       - '56'
       Date:
-      - Sat, 18 Feb 2017 20:52:42 GMT
+      - Wed, 22 Feb 2017 17:20:01 GMT
       Connection:
       - close
     body:
@@ -40,7 +40,7 @@ http_interactions:
         }
         ]
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 20:52:42 GMT
+  recorded_at: Wed, 22 Feb 2017 17:20:01 GMT
 - request:
     method: get
     uri: https://doi.org/10.5061/dryad.8515
@@ -64,20 +64,20 @@ http_interactions:
       Location:
       - http://data.datacite.org/10.5061%2Fdryad.8515
       Expires:
-      - Sat, 18 Feb 2017 21:29:01 GMT
+      - Wed, 22 Feb 2017 17:30:51 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '175'
       Date:
-      - Sat, 18 Feb 2017 20:52:41 GMT
+      - Wed, 22 Feb 2017 17:20:09 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.datacite.org/10.5061%2Fdryad.8515">http://data.datacite.org/10.5061%2Fdryad.8515</a></body></html>
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 20:52:42 GMT
+  recorded_at: Wed, 22 Feb 2017 17:20:10 GMT
 - request:
     method: get
     uri: http://data.datacite.org/10.5061%2Fdryad.8515
@@ -97,7 +97,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Sat, 18 Feb 2017 20:52:42 GMT
+      - Wed, 22 Feb 2017 17:20:10 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -111,7 +111,7 @@ http_interactions:
       string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
         bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 20:52:42 GMT
+  recorded_at: Wed, 22 Feb 2017 17:20:10 GMT
 - request:
     method: get
     uri: https://data.datacite.org/10.5061%2Fdryad.8515
@@ -131,7 +131,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Sat, 18 Feb 2017 20:52:42 GMT
+      - Wed, 22 Feb 2017 17:20:10 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Content-Length:
@@ -210,5 +210,5 @@ http_interactions:
         ST0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvcHVibGljZG9tYWluL3pl
         cm8vMS4wLyIvPiAgPC9yaWdodHNMaXN0PjwvcmVzb3VyY2U+
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 20:52:42 GMT
+  recorded_at: Wed, 22 Feb 2017 17:20:10 GMT
 recorded_with: VCR 3.0.3

@@ -10,10 +10,10 @@ module Bolognese
     include Bolognese::DoiUtils
     include Bolognese::Utils
 
-    default_task :open
+    default_task :convert
 
     def self.exit_on_failure?
-      true
+      false
     end
 
     # from http://stackoverflow.com/questions/22809972/adding-a-version-option-to-a-ruby-thor-cli
@@ -24,30 +24,29 @@ module Bolognese
       puts Bolognese::VERSION
     end
 
-    desc "read id", "read metadata for ID"
-    method_option :as, default: "schema_org"
+    desc "convert", "convert metadata"
+    method_option :from, aliases: "-f"
+    method_option :to, aliases: "-t", default: "schema_org"
     method_option :schema_version
-    def read(id)
-      id = normalize_id(id)
-      provider = find_provider(id)
+    def convert(input)
+      id = normalize_id(input)
 
-      set_metadata(id: id, provider: provider, as: options[:as], schema_version: options[:schema_version])
-    end
-
-    desc "open file", "read metadata from file"
-    method_option :as, default: "schema_org"
-    method_option :schema_version
-    def open(file)
-      ext = File.extname(file)
-      unless %w(.bib).include? ext
-        $stderr.puts "File type #{ext} not supported"
-        exit 1
+      if id.present?
+        from = options[:from] || find_from_format(id: id)
+      else
+        ext = File.extname(input)
+        if %w(.bib .xml).include? ext
+          string = IO.read(input)
+        else
+          $stderr.puts "File type #{ext} not supported"
+          exit 1
+        end
+        from = options[:from] || find_from_format(string: string, ext: ext)
       end
 
-      string = IO.read(file)
-      provider = "bibtex"
+      to = options[:to] || "schema_org"
 
-      set_metadata(string: string, provider: provider, as: options[:as], schema_version: options[:schema_version])
+      write(id: id, string: string, from: from, to: to, schema_version: options[:schema_version])
     end
   end
 end

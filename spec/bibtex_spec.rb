@@ -17,6 +17,8 @@ describe Bolognese::Bibtex, vcr: true do
                                     {"@type"=>"Person", "givenName"=>"Ioannis", "familyName"=>"Xenarios"},
                                     {"@type"=>"Person", "givenName"=>"Christian S", "familyName"=>"Hardtke"}])
       expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(subject.description).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
+      expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
       expect(subject.date_published).to eq("2014")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
     end
@@ -28,6 +30,7 @@ describe Bolognese::Bibtex, vcr: true do
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(datacite.dig("descriptions", "description", "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.dig("creators", "creator").count).to eq(5)
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
     end

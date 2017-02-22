@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Wed, 22 Feb 2017 11:49:46 GMT
+      - Wed, 22 Feb 2017 17:21:28 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
@@ -31,9 +31,9 @@ http_interactions:
       X-Amz-Error-Message:
       - Resource Found
       X-Amz-Request-Id:
-      - C9A4A695CBAD65CD
+      - 0E9697C95FAB34EA
       X-Amz-Id-2:
-      - j3pMmvLkQKkYb4DggCHmFKvDAizobO1A2mS5MVbmGmsXN7YntIdSv6lFv88aRZe9jtyj2EABAAg=
+      - PjCZM2rfqzkvwi58jVOq0FfgJE5wUbp013T7zGPUZawP2bhvQGnDuwRi40egYjXMlDOMv1YmjhY=
       Location:
       - "/eating-your-own-dog-food/"
       Access-Control-Allow-Origin:
@@ -50,14 +50,14 @@ http_interactions:
         <ul>
         <li>Code: Found</li>
         <li>Message: Resource Found</li>
-        <li>RequestId: C9A4A695CBAD65CD</li>
-        <li>HostId: j3pMmvLkQKkYb4DggCHmFKvDAizobO1A2mS5MVbmGmsXN7YntIdSv6lFv88aRZe9jtyj2EABAAg=</li>
+        <li>RequestId: 0E9697C95FAB34EA</li>
+        <li>HostId: PjCZM2rfqzkvwi58jVOq0FfgJE5wUbp013T7zGPUZawP2bhvQGnDuwRi40egYjXMlDOMv1YmjhY=</li>
         </ul>
         <hr/>
         </body>
         </html>
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 11:49:46 GMT
+  recorded_at: Wed, 22 Feb 2017 17:21:28 GMT
 - request:
     method: get
     uri: https://blog.datacite.org/eating-your-own-dog-food/
@@ -77,7 +77,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Wed, 22 Feb 2017 11:49:46 GMT
+      - Wed, 22 Feb 2017 17:21:28 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -85,9 +85,9 @@ http_interactions:
       Connection:
       - keep-alive
       X-Amz-Id-2:
-      - bdKFeMzA28xmiVSvkGdruYWkTi0WRmmmI8USToc604eODkQSsAbzIlDnQeo+AMsecArPypg3yQk=
+      - urXaKDj3vx2mZAVzVQ5Ma9CbjlkD5l2oN1RnQswmC+3U80I5oTkm3eDGVCs4dgYkUI8v32reYjk=
       X-Amz-Request-Id:
-      - 8D915E8EF22F2F40
+      - A6737C76EC626061
       Cache-Control:
       - max-age=31536000
       Last-Modified:
@@ -649,5 +649,5 @@ http_interactions:
         CiAgZ2EoJ3NlbmQnLCAncGFnZXZpZXcnKTsKCjwvc2NyaXB0PgoKICA8L2Jv
         ZHk+CjwvaHRtbD4K
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 11:49:46 GMT
+  recorded_at: Wed, 22 Feb 2017 17:21:28 GMT
 recorded_with: VCR 3.0.3

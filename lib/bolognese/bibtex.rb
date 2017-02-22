@@ -95,7 +95,11 @@ module Bolognese
     end
 
     def description
-      metadata.note.to_s.presence
+      metadata.field?(:abstract) && metadata.abstract.to_s.presence
+    end
+
+    def license
+      metadata.field?(:copyright) && metadata.copyright.to_s.presence
     end
   end
 end
