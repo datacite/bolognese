@@ -101,12 +101,9 @@ module Bolognese
     end
 
     def bibliographic_metadata
-      if metadata.dig("crossref", "journal", "journal_article").present?
-        metadata.dig("crossref", "journal", "journal_article")
-      else
-        k = metadata.fetch("crossref", {}).keys.last
-        metadata.dig("crossref", k).presence || {}
-      end
+      metadata.dig("crossref", "journal", "journal_article").presence ||
+      metadata.dig("crossref", "conference", "conference_paper").presence ||
+      metadata.dig("crossref", metadata.fetch("crossref", {}).keys.last).presence || {}
     end
 
     def program_metadata
@@ -174,7 +171,7 @@ module Bolognese
 
     def people(contributor_role)
       person = bibliographic_metadata.dig("contributors", "person_name")
-      Array(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
+      Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
         { "@type" => "Person",
           "@id" => parse_attribute(a["ORCID"]),
           "givenName" => a["given_name"],
@@ -192,10 +189,10 @@ module Bolognese
     end
 
     def date_published
-      pub_date = bibliographic_metadata.fetch("publication_date", nil) ||
-        bibliographic_metadata.fetch("acceptance_date", nil)
+      pub_date = Array.wrap(bibliographic_metadata.fetch("publication_date", nil)).presence ||
+        Array.wrap(bibliographic_metadata.fetch("acceptance_date", nil))
       if pub_date.present?
-        get_date_from_parts(pub_date["year"], pub_date["month"], pub_date["day"])
+        get_date_from_parts(pub_date.first["year"], pub_date.first["month"], pub_date.first["day"])
       else
         nil
       end
