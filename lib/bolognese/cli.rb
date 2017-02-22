@@ -10,8 +10,6 @@ module Bolognese
     include Bolognese::DoiUtils
     include Bolognese::Utils
 
-    default_task :convert
-
     def self.exit_on_failure?
       false
     end
@@ -48,5 +46,7 @@ module Bolognese
 
       write(id: id, string: string, from: from, to: to, schema_version: options[:schema_version])
     end
+
+    default_task :convert
   end
 end
