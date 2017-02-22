@@ -10,7 +10,7 @@ Ruby gem and command-line utility for conversion of DOI metadata from and to dif
 
 Bolognese reads and writes these metadata formats.
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table table-bordered table-striped">
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Format</th>
@@ -94,10 +94,9 @@ Show all commands with `bolognese help`:
 
 ```
 Commands:
+  bolognese                 # convert metadata
   bolognese --version, -v   # print the version
   bolognese help [COMMAND]  # Describe available commands or one specific command
-  bolognese open file       # read metadata from file
-  bolognese read id         # read metadata for ID
 ```
 
 ## Examples
