@@ -698,6 +698,7 @@ Convert DataCite XML to BibTeX:
 
 ```
 bolognese read 10.5061/DRYAD.8515 --as bibtex
+
 @misc{https://doi.org/10.5061/dryad.8515,
   doi = {10.5061/DRYAD.8515},
   author = {Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François},
