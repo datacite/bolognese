@@ -22,7 +22,7 @@ module Bolognese
       puts Bolognese::VERSION
     end
 
-    desc "convert", "convert metadata"
+    desc "", "convert metadata"
     method_option :from, aliases: "-f"
     method_option :to, aliases: "-t", default: "schema_org"
     method_option :schema_version

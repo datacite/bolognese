@@ -12,45 +12,50 @@ Bolognese reads and writes these metadata formats.
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="table table-bordered table-striped">
   <thead>
-      <tr>
-          <th scope="col">Format</th>
-          <th scope="col">Content Type</th>
-          <th scope="col">Read</th>
-          <th scope="col">Write</th>
-      </tr>
+    <tr>
+      <th>Format</th>
+      <th>Name</th>
+      <th>Content Type</th>
+      <th>Read</th>
+      <th>Write</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
       <td><a href='https://www.crossref.org/schema/documentation/unixref1.1/unixref1.1.html'>CrossRef Unixref XML</a></td>
+      <td>crossref</td>
       <td>application/vnd.crossref.unixref+xml</td>
-      <td>Yes</span></td>
-      <td>No</span></td>
+      <td>Yes</td>
+      <td>No</td>
    </tr>
     <tr>
       <td><a href='https://schema.datacite.org/'>DataCite XML</a></td>
+      <td>datacite</td>
       <td>application/vnd.datacite.datacite+xml</td>
-      <td>Yes</span></td>
-      <td>Yes</span></td>
+      <td>Yes</td>
+      <td>Yes</td>
   </tr>
     <tr>
         <td><a href='http://schema.org/'>Schema.org in JSON-LD</a></td>
+        <td>schema_org</td>
         <td>application/vnd.schemaorg.ld+json</td>
-        <td>Yes</span></td>
-        <td>Yes</span></td>
+        <td>Yes</td>
+        <td>Yes</td>
     </tr>
     <tr>
         <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
+        <td>bibtex</td>
         <td>application/x-bibtex</td>
-        <td>Yes</span></td>
-        <td>Yes</span></td>
+        <td>Yes</td>
+        <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
 ## Installation
 
-The usual way with Bundler: add the following to your `Gemfile` to install the
-current version of the gem:
+Requires Ruby 2.2 or later. Then add the following to your `Gemfile` to install the
+latest version:
 
 ```ruby
 gem 'bolognese'
@@ -66,6 +71,25 @@ gem install bolognese
 
 ## Commands
 
+Run the `bolognese` command with either an identifier (DOI or URL) or filename:
+
+```
+bolognese https://doi.org/10.7554/elife.01567
+```
+
+```
+bolognese example.xml
+```
+
+Bolognese can read BibTeX files (file extension `.bib`) and Crossref or DataCite
+XML files (file extension `.xml`).
+
+The input format (e.g. Crossref XML or BibteX) is automatically detected, but
+you can also provide the format with the `--from` or `-f` flag. The supported
+input formats are listed in the table above.
+
+The output format is determined by the `--to` or `-t` flag, and defaults to `schema_org`.
+
 Show all commands with `bolognese help`:
 
 ```
@@ -76,19 +100,12 @@ Commands:
   bolognese read id         # read metadata for ID
 ```
 
-### Open
-
-Opens a file.
-
-### Read
-
-Fetch metadata for a given ID. Bolognese understands URLs and DOIs. 
-
 ## Examples
 
 Read Crossref XML:
+
 ```
-bolognese read https://doi.org/10.7554/elife.01567 --as crossref
+bolognese https://doi.org/10.7554/elife.01567 -t crossref
 
 <?xml version="1.0" encoding="UTF-8"?>
 <doi_records>
@@ -211,7 +228,7 @@ bolognese read https://doi.org/10.7554/elife.01567 --as crossref
 
 Convert Crossref XML to schema.org/JSON-LD:
 ```
-bolognese read https://doi.org/10.7554/elife.01567
+bolognese https://doi.org/10.7554/elife.01567
 
 {
     "@context": "http://schema.org",
@@ -408,7 +425,7 @@ bolognese read https://doi.org/10.7554/elife.01567
 
 Convert Crossref XML to DataCite XML:
 ```
-bolognese read https://doi.org/10.7554/elife.01567 --as datacite
+bolognese https://doi.org/10.7554/elife.01567 -t datacite
 
 <?xml version="1.0" encoding="UTF-8"?>
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
@@ -502,7 +519,7 @@ bolognese read https://doi.org/10.7554/elife.01567 --as datacite
 Convert Crossref XML to BibTeX:
 
 ```
-bolognese read https://doi.org/10.7554/elife.01567 --as bibtex
+bolognese https://doi.org/10.7554/elife.01567 -t bibtex
 
 @article{https://doi.org/10.7554/elife.01567,
   doi = {10.7554/eLife.01567},
@@ -516,7 +533,7 @@ bolognese read https://doi.org/10.7554/elife.01567 --as bibtex
 
 Read DataCite XML:
 ```
-bolognese read 10.5061/DRYAD.8515 --as datacite
+bolognese 10.5061/DRYAD.8515 -t datacite
 
 <?xml version="1.0" encoding="UTF-8"?>
 <resource
@@ -587,7 +604,7 @@ bolognese read 10.5061/DRYAD.8515 --as datacite
 
 Convert DataCite XML to schema.org/JSON-LD:
 ```sh
-bolognese read 10.5061/DRYAD.8515
+bolognese 10.5061/DRYAD.8515
 
 {
     "@context": "http://schema.org",
@@ -658,7 +675,7 @@ bolognese read 10.5061/DRYAD.8515
 
 Convert DataCite XML to schema version 4.0:
 ```
-bolognese read 10.5061/DRYAD.8515 --as datacite --schema_version http://datacite.org/schema/kernel-4
+bolognese 10.5061/DRYAD.8515 -t datacite --schema_version http://datacite.org/schema/kernel-4
 
 <?xml version="1.0" encoding="UTF-8"?>
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
@@ -741,7 +758,7 @@ bolognese read 10.5061/DRYAD.8515 --as datacite --schema_version http://datacite
 Convert DataCite XML to BibTeX:
 
 ```
-bolognese read 10.5061/DRYAD.8515 --as bibtex
+bolognese 10.5061/DRYAD.8515 -t bibtex
 
 @misc{https://doi.org/10.5061/dryad.8515,
   doi = {10.5061/DRYAD.8515},
@@ -756,7 +773,7 @@ bolognese read 10.5061/DRYAD.8515 --as bibtex
 Convert schema.org/JSON-LD to DataCite XML:
 
 ```
-bolognese read https://blog.datacite.org/eating-your-own-dog-food --as datacite
+bolognese https://blog.datacite.org/eating-your-own-dog-food -t datacite
 
 <?xml version="1.0" encoding="UTF-8"?>
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
@@ -807,7 +824,7 @@ bolognese read https://blog.datacite.org/eating-your-own-dog-food --as datacite
 Convert schema.org/JSON-LD to BibTeX:
 
 ```
-bolognese read https://blog.datacite.org/eating-your-own-dog-food --as bibtex
+bolognese https://blog.datacite.org/eating-your-own-dog-food -t bibtex
 
 @article{https://doi.org/10.5438/4k3m-nyvg,
   doi = {10.5438/4k3m-nyvg},
