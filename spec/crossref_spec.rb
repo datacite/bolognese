@@ -50,7 +50,7 @@ describe Bolognese::Crossref, vcr: true do
                                     {"@type"=>"Person", "givenName"=>"Michael", "familyName"=>"Breitenbach"},
                                     {"@type"=>"Person", "givenName"=>"Hans", "familyName"=>"Lehrach"},
                                     {"@type"=>"Person", "givenName"=>"Sylvia", "familyName"=>"Krobitsch"}])
-      expect(subject.editor).to eq([{"@type"=>"Person", "givenName"=>"Guilhem", "familyName"=>"Janbon"}])
+      expect(subject.editor).to eq("@type"=>"Person", "givenName"=>"Guilhem", "familyName"=>"Janbon")
       expect(subject.name).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/4.0/")
       expect(subject.date_published).to eq("2006-12-20")

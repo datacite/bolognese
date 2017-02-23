@@ -16,7 +16,7 @@ module Bolognese
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
-      :publisher, :contributor, :schema_version
+      :publisher, :contributor, :schema_version, :same_as, :predecessor_of, :successor_of
 
     alias_method :datacite, :as_datacite
 
@@ -29,8 +29,8 @@ module Bolognese
     end
 
     def author_string
-      author.map { |a| [a["familyName"], a["givenName"]].join(", ") }
-            .join(" and ").presence
+      Array.wrap(author).map { |a| [a["familyName"], a["givenName"]].join(", ") }
+                        .join(" and ").presence
     end
 
     def publisher_string
@@ -59,8 +59,11 @@ module Bolognese
         "pageStart" => page_start,
         "pageEnd" => page_end,
         "spatialCoverage" => spatial_coverage,
+        "sameAs" => same_as,
         "isPartOf" => is_part_of,
         "hasPart" => has_part,
+        "predecessor_of" => predecessor_of,
+        "successor_of" => successor_of,
         "citation" => citation,
         "schemaVersion" => schema_version,
         "publisher" => publisher,

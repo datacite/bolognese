@@ -100,16 +100,20 @@ module Bolognese
       normalize_ids(metadata.fetch(relation_type, nil))
     end
 
+    def same_as
+      related_identifiers("isIdenticalTo")
+    end
+
     def is_part_of
-      related_identifiers("isPartOf").first
+      related_identifiers("isPartOf")
     end
 
     def has_part
-      related_identifiers("hasPart").presence
+      related_identifiers("hasPart")
     end
 
     def citation
-      related_identifiers("citation").presence
+      related_identifiers("citation")
     end
 
     def publisher

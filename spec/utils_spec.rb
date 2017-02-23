@@ -75,7 +75,7 @@ describe Bolognese::Crossref, vcr: true do
     it "url" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food/"}]
       response = subject.normalize_ids(ids)
-      expect(response).to eq([{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food"}])
+      expect(response).to eq("@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food")
     end
   end
 end

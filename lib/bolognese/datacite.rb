@@ -109,13 +109,13 @@ module Bolognese
     def author
       authors = metadata.dig("creators", "creator")
       authors = [authors] if authors.is_a?(Hash)
-      get_authors(authors).presence
+      array_unwrap(get_authors(authors))
     end
 
     def editor
       editors = Array.wrap(metadata.dig("contributors", "contributor"))
                      .select { |r| r["contributorType"] == "Editor" }
-      get_authors(editors).presence
+      array_unwrap(get_authors(editors))
     end
 
     def funder
@@ -186,20 +186,33 @@ module Bolognese
     end
 
     def related_identifiers(relation_type)
-      Array(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
+      a = Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
         .select { |r| relation_type.split(" ").include?(r["relationType"]) && %w(DOI URL).include?(r["relatedIdentifierType"]) }
         .map do |work|
           { "@type" => "CreativeWork",
             "@id" => normalize_id(work["__content__"]) }
         end
+      array_unwrap(a)
+    end
+
+    def same_as
+      related_identifiers("IsIdenticalTo")
     end
 
     def is_part_of
-      related_identifiers("IsPartOf").first
+      related_identifiers("IsPartOf")
     end
 
     def has_part
-      related_identifiers("HasPart").presence
+      related_identifiers("HasPart")
+    end
+
+    def predecessor_of
+      related_identifiers("IsPreviousVersionOf")
+    end
+
+    def successor_of
+      related_identifiers("IsNewVersionOf")
     end
 
     def citation

@@ -25,7 +25,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/1"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
+      expect(subject.citation).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Dryad Digital Repository")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -38,7 +38,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.author).to eq("@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.name).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("MS-49-3632-5083")
       expect(subject.description).to start_with("Eating your own dog food")
@@ -59,7 +59,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("ConferencePaper")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Nathaniel", "familyName"=>"Johnston"}])
+      expect(subject.author).to eq("@type"=>"Person", "givenName"=>"Nathaniel", "familyName"=>"Johnston")
       expect(subject.name).to eq("The Minimum Size of Qubit Unextendible Product Bases")
       expect(subject.description).to start_with("We investigate the problem of constructing unextendible product bases in the qubit case")
       expect(subject.date_published).to eq("2013")
@@ -75,12 +75,32 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Software")
       expect(subject.resource_type_general).to eq("Software")
-      expect(subject.author).to eq([{"@type"=>"Agent", "Name"=>"Kristian Garza"}])
+      expect(subject.author).to eq("@type"=>"Agent", "name"=>"Kristian Garza")
       expect(subject.name).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
       expect(subject.description).to start_with("<p>&nbsp;</p>\n\n<p>This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.license).to eq(["info:eu-repo/semantics/openAccess", "https://creativecommons.org/licenses/by-nc-sa/4.0/"])
       expect(subject.date_published).to eq("2016-03-27")
+      expect(subject.citation).to eq("@type"=>"CreativeWork", "@id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0")
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Zenodo")
+      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "is identical to" do
+      id = "10.6084/M9.FIGSHARE.4234751.V1"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.id).to eq("https://doi.org/10.6084/m9.figshare.4234751.v1")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author.count).to eq(11)
+      expect(subject.author.first).to eq("@type"=>"Agent", "@id"=>"http://orcid.org/0000-0002-2410-9671", "name"=>"Alexander Junge")
+      expect(subject.name).to eq("RAIN v1")
+      expect(subject.description).to start_with("<div><b>RAIN: RNA–protein Association and Interaction Networks")
+      expect(subject.license).to eq("https://creativecommons.org/licenses/by/4.0/")
+      expect(subject.date_published).to eq("2016")
+      expect(subject.same_as).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.6084/m9.figshare.4234751")
+      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Figshare")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
@@ -153,7 +173,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/1"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
+      expect(subject.citation).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
 
@@ -187,7 +207,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/1"},
                                       {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.citation).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
+      expect(subject.citation).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Dryad Digital Repository")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")

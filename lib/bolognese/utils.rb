@@ -75,9 +75,17 @@ module Bolognese
         element.fetch(content, nil)
       elsif element.is_a?(Array)
         a = element.map { |e| e.fetch(content, nil) }.uniq
-        a.length == 1 ? a.first : a
+        array_unwrap(a)
       else
         nil
+      end
+    end
+
+    def array_unwrap(element)
+      case element.length
+      when 0 then nil
+      when 1 then element.first
+      else element
       end
     end
 
@@ -96,7 +104,8 @@ module Bolognese
     end
 
     def normalize_ids(list)
-      Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
+      a = Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
+      array_unwrap(a)
     end
   end
 end

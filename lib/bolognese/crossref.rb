@@ -171,21 +171,23 @@ module Bolognese
 
     def people(contributor_role)
       person = bibliographic_metadata.dig("contributors", "person_name")
-      Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
+      a = Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
         { "@type" => "Person",
           "@id" => parse_attributes(a["ORCID"]),
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
-      end.presence
+      end
+      array_unwrap(a)
     end
 
     def funder
       fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
-      Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
+      a = Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
         { "@type" => "Organization",
           "@id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
           "name" => f.dig("assertion", "__content__").strip }.compact
-      end.presence
+      end
+      array_unwrap(a)
     end
 
     def date_published

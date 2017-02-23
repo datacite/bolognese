@@ -7,7 +7,7 @@ module Bolognese
       orcid = get_name_identifier(author)
       author = author.fetch("creatorName", nil)
 
-      return { "Name" => "" } if author.to_s.strip.blank?
+      return { "name" => "" } if author.to_s.strip.blank?
 
       author = cleanup_author(author)
       names = Namae.parse(author)
@@ -15,7 +15,7 @@ module Bolognese
       if names.blank? || !is_personal_name?(author)
         { "@type" => "Agent",
           "@id" => orcid,
-          "Name" => author }.compact
+          "name" => author }.compact
       else
         name = names.first
 

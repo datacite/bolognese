@@ -1,0 +1,176 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/10.6084/m9.figshare.4234751.v1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/vnd.datacite.datacite+xml
+  response:
+    status:
+      code: 303
+      message: ''
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Vary:
+      - Accept
+      Location:
+      - http://data.datacite.org/10.6084%2Fm9.figshare.4234751.v1
+      Expires:
+      - Thu, 23 Feb 2017 08:31:06 GMT
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '199'
+      Date:
+      - Thu, 23 Feb 2017 07:48:39 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        <html><head><title>Handle Redirect</title></head>
+        <body><a href="http://data.datacite.org/10.6084%2Fm9.figshare.4234751.v1">http://data.datacite.org/10.6084%2Fm9.figshare.4234751.v1</a></body></html>
+    http_version: 
+  recorded_at: Thu, 23 Feb 2017 07:48:39 GMT
+- request:
+    method: get
+    uri: http://data.datacite.org/10.6084%2Fm9.figshare.4234751.v1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/vnd.datacite.datacite+xml
+  response:
+    status:
+      code: 301
+      message: ''
+    headers:
+      Server:
+      - openresty/1.11.2.2
+      Date:
+      - Thu, 23 Feb 2017 07:48:39 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '191'
+      Connection:
+      - keep-alive
+      Location:
+      - https://data.datacite.org/10.6084%2Fm9.figshare.4234751.v1
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Thu, 23 Feb 2017 07:48:39 GMT
+- request:
+    method: get
+    uri: https://data.datacite.org/10.6084%2Fm9.figshare.4234751.v1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/vnd.datacite.datacite+xml
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - openresty/1.11.2.2
+      Date:
+      - Thu, 23 Feb 2017 07:48:40 GMT
+      Content-Type:
+      - application/vnd.datacite.datacite+xml
+      Content-Length:
+      - '2704'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-transform, max-age=3600
+      Last-Modified:
+      - Wed, 16 Nov 2016 10:49:12 GMT
+      Vary:
+      - Accept
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9r
+        ZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hN
+        TFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8v
+        ZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRh
+        dGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50
+        aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9tOS5maWdzaGFy
+        ZS40MjM0NzUxLnYxPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48
+        Y3JlYXRvck5hbWU+QWxleGFuZGVyIEp1bmdlPC9jcmVhdG9yTmFtZT48bmFt
+        ZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hl
+        bWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmciPjAwMDAtMDAwMi0yNDEwLTk2NzE8
+        L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5h
+        bWU+SmFuIEMuIFJlZnNnYWFyZDwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxj
+        cmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gR2FyZGU8L2NyZWF0b3JO
+        YW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+WGlhb3lvbmcg
+        UGFuPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JO
+        YW1lPkFsYmVydG8gU2FudG9zPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNy
+        ZWF0b3I+PGNyZWF0b3JOYW1lPkZlcmhhdCBBbGthbjwvY3JlYXRvck5hbWU+
+        PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gQW50
+        aG9uPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JO
+        YW1lPkNocmlzdGlhbiB2b24gTWVyaW5nPC9jcmVhdG9yTmFtZT48L2NyZWF0
+        b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdG9waGVyIFQuIFdvcmtt
+        YW48L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5h
+        bWU+TGFycyBKdWhsIEplbnNlbjwvY3JlYXRvck5hbWU+PG5hbWVJZGVudGlm
+        aWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJo
+        dHRwOi8vb3JjaWQub3JnIj4wMDAwLTAwMDEtNzg4NS03MTVYPC9uYW1lSWRl
+        bnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkphbiBH
+        b3JvZGtpbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjwvY3JlYXRvcnM+PHRp
+        dGxlcz48dGl0bGU+UkFJTiB2MTwvdGl0bGU+PC90aXRsZXM+PGRlc2NyaXB0
+        aW9ucz48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+
+        Jmx0O2RpdiZndDsmbHQ7YiZndDtSQUlOOiBSTkHigJNwcm90ZWluIEFzc29j
+        aWF0aW9uIGFuZCBJbnRlcmFjdGlvbiBOZXR3b3JrcyZsdDsvYiZndDsmbHQ7
+        L2RpdiZndDsmbHQ7ZGl2Jmd0OyZsdDticiZndDsmbHQ7L2RpdiZndDsmbHQ7
+        ZGl2Jmd0O1JBSU4gaW50ZWdyYXRlcyBub24tY29kaW5nIFJOQSAobmNSTkEp
+        IGFuZCBwcm90ZWluIGludGVyYWN0aW9uIG5ldHdvcmtzIGluIGFuIGVhc2ls
+        eSBhY2Nlc3NpYmxlIHdlYiBpbnRlcmZhY2UuwqAmbHQ7L2RpdiZndDsmbHQ7
+        ZGl2Jmd0O0l0IGNvbnRhaW5zIHRocmVlIHR5cGVzIG9mIG5jUk5BIGFzc29j
+        aWF0aW9uczogbWljcm9STkEtdGFyZ2V0LCBuY1JOQS1wcm90ZWluIGFuZCBu
+        Y1JOQS1uY1JOQSBpbnRlcmFjdGlvbnMgYW5kIGNvbWJpbmVzIHRoZW0gd2l0
+        aCBwcm90ZWluLXByb3RlaW4gaW50ZXJhY3Rpb24gYXZhaWxhYmxlIGluIHRo
+        ZSBTVFJJTkcgZGF0YWJhc2UuIG5jUk5BIGFzc29jaWF0aW9ucyBjb3ZlciBm
+        b3VyIG1vZGVsIG9yZ2FuaXNtcyBhbmQgYXJlIGV4dHJhY3RlZCBmcm9tIGV4
+        cGVyaW1lbnRhbCBkYXRhLCBhdXRvbWF0aWMgbGl0ZXJhdHVyZSBtaW5pbmcg
+        YW5kIGN1cmF0ZWQgZXhhbXBsZXMuIEZvciBtaVJOQXMsIHdlIGZ1cnRoZXIg
+        aW5jbHVkZSBwcmVjb21wdXRlZCB0YXJnZXQgcHJlZGljdGlvbnMuwqAmbHQ7
+        L2RpdiZndDs8L2Rlc2NyaXB0aW9uPjwvZGVzY3JpcHRpb25zPjxzdWJqZWN0
+        cz48c3ViamVjdD5CaW9pbmZvcm1hdGljczwvc3ViamVjdD48c3ViamVjdD5D
+        b21wdXRhdGlvbmFsICBCaW9sb2d5PC9zdWJqZWN0PjxzdWJqZWN0PlN5c3Rl
+        bXMgQmlvbG9neTwvc3ViamVjdD48L3N1YmplY3RzPjxwdWJsaXNoZXI+Rmln
+        c2hhcmU8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1Ymxp
+        Y2F0aW9uWWVhcj48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkNyZWF0ZWQiPjIw
+        MTYtMTEtMTY8L2RhdGU+PGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjIwMTYt
+        MTEtMTY8L2RhdGU+PC9kYXRlcz48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlw
+        ZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQ8L3Jlc291cmNlVHlwZT48c2l6
+        ZXM+PHNpemU+MTEyMDMzNTUxMiBCeXRlczwvc2l6ZT48L3NpemVzPjxyZWxh
+        dGVkSWRlbnRpZmllcnM+PHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVu
+        dGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8i
+        PjEwLjYwODQvbTkuZmlnc2hhcmUuNDIzNDc1MTwvcmVsYXRlZElkZW50aWZp
+        ZXI+PC9yZWxhdGVkSWRlbnRpZmllcnM+PHJpZ2h0c0xpc3Q+PHJpZ2h0cyBy
+        aWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNl
+        cy9ieS80LjAvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48L3Jlc291
+        cmNlPg==
+    http_version: 
+  recorded_at: Thu, 23 Feb 2017 07:48:40 GMT
+recorded_with: VCR 3.0.3
