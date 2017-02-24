@@ -65,7 +65,7 @@ describe Bolognese::SchemaOrg, vcr: true do
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(3)
-       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
     end
   end
 

@@ -868,6 +868,12 @@ bolognese https://blog.datacite.org/eating-your-own-dog-food -t bibtex
 }
 ```
 
+Convert Codemeta to DataCite XML:
+
+```
+bolognese https://doi.org/10.5063/f1m61h5x -t codemeta
+
+
 ## Development
 
 We use rspec for unit testing:

@@ -7,7 +7,7 @@ module Bolognese
       if string.present?
         @raw = string
       elsif id.present?
-        response = Maremma.get(id, accept: "application/ld+json", raw: true)
+        response = Maremma.get(github_as_codemeta_url(id), raw: true)
         @raw = response.body.fetch("data", nil)
       end
     end

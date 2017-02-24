@@ -1,0 +1,36 @@
+{
+	"@context": "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+	"@type": "SoftwareSourceCode",
+	"@id": "https://doi.org/10.5438/QEG0-3GM3",
+	"agents": {
+		"@id": "http://orcid.org/0000-0003-0077-4738",
+		"@type": "person",
+		"name": "Martin Fenner",
+		"affiliation": "DataCite",
+		"mustBeCited": true,
+		"isMaintainer": true,
+		"isRightsHolder": true
+	},
+	"identifier": "https://doi.org/10.5438/QEG0-3GM3",
+	"codeRepository": "https://github.com/datacite/maremma",
+	"controlledTem": "software",
+	"dateCreated": "2015-11-28",
+	"datePublished": "2017-02-24",
+	"dateModified": "2017-02-24",
+	"description": "Simplifies network calls, including json/xml parsing and error handling. Based on Faraday.",
+	"isAutomatedBuild": true,
+	"licenseId": "MIT",
+	"publisher": "DataCite",
+	"tags": [
+		"faraday",
+		"excon",
+		"net/http"
+	],
+	"title": "Maremma: a Ruby library for simplified network calls",
+	"programmingLanguage": {
+		"name": "Ruby",
+		"version": "≥ 2.3.3",
+		"URL": "https://www.ruby-lang.org"
+	},
+	"readme": "https://github.com/datacite/maremma/blob/master/README.md"
+}

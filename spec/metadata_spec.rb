@@ -30,6 +30,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.find_from_format(id: id)).to eq("orcid")
     end
 
+    it "github" do
+      id = "https://github.com/datacite/maremma"
+      expect(subject.find_from_format(id: id)).to eq("codemeta")
+    end
+
     it "schema_org" do
       id = "https://blog.datacite.org/eating-your-own-dog-food"
       expect(subject.find_from_format(id: id)).to eq("schema_org")

@@ -16,6 +16,8 @@ module Bolognese
         get_doi_ra(id).fetch("id", nil)
       elsif /\A(?:(http|https):\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
         "orcid"
+      elsif /\A(http|https):\/\/github\.com\/(.+)\z/.match(id)
+        "codemeta"
       else
         "schema_org"
       end
@@ -38,7 +40,7 @@ module Bolognese
         p = case from
             when "crossref" then Crossref.new(id: id, string: string)
             when "datacite" then Datacite.new(id: id, string: string, schema_version: options[:schema_version])
-            when "codemeta" then Codemeta.new(string: string)
+            when "codemeta" then Codemeta.new(id: id, string: string)
             when "bibtex" then Bibtex.new(string: string)
             else SchemaOrg.new(id: id)
             end
@@ -109,6 +111,47 @@ module Bolognese
     def normalize_ids(list)
       arr = Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
       array_unwrap(arr)
+    end
+
+    def github_from_url(url)
+      return {} unless /\Ahttps:\/\/github\.com\/(.+)(?:\/)?(.+)?(?:\/tree\/)?(.*)\z/.match(url)
+      words = URI.parse(url).path[1..-1].split('/')
+
+      { owner: words[0],
+        repo: words[1],
+        release: words[3] }.compact
+    end
+
+    def github_repo_from_url(url)
+      github_from_url(url).fetch(:repo, nil)
+    end
+
+    def github_release_from_url(url)
+      github_from_url(url).fetch(:release, nil)
+    end
+
+    def github_owner_from_url(url)
+      github_from_url(url).fetch(:owner, nil)
+    end
+
+    def github_as_owner_url(url)
+      github_hash = github_from_url(url)
+      "https://github.com/#{github_hash[:owner]}" if github_hash[:owner].present?
+    end
+
+    def github_as_repo_url(url)
+      github_hash = github_from_url(url)
+      "https://github.com/#{github_hash[:owner]}/#{github_hash[:repo]}" if github_hash[:repo].present?
+    end
+
+    def github_as_release_url(url)
+      github_hash = github_from_url(url)
+      "https://github.com/#{github_hash[:owner]}/#{github_hash[:repo]}/tree/#{github_hash[:release]}" if github_hash[:release].present?
+    end
+
+    def github_as_codemeta_url(url)
+      github_hash = github_from_url(url)
+      "https://raw.githubusercontent.com/#{github_hash[:owner]}/#{github_hash[:repo]}/master/codemeta.json" if github_hash[:owner].present?
     end
   end
 end
