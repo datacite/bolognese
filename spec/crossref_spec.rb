@@ -193,7 +193,6 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as datacite xml" do
     it "with data citation" do
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
@@ -205,7 +204,6 @@ describe Bolognese::Crossref, vcr: true do
     it "with ORCID ID" do
       id = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Crossref.new(id: id)
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)
@@ -215,7 +213,6 @@ describe Bolognese::Crossref, vcr: true do
     it "with editor" do
       id = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Crossref.new(id: id)
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Janbon, Guilhem", "givenName"=>"Guilhem", "familyName"=>"Janbon")
     end

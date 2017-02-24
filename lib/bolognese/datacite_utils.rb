@@ -38,7 +38,7 @@ module Bolognese
     end
 
     def datacite_xml
-      Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
+      @datacite_xml ||= Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
         xml.resource(root_attributes) do
           insert_work(xml)
         end
@@ -52,8 +52,7 @@ module Bolognese
     end
 
     def validation_errors
-      @validation_errors ||= schema.validate(Nokogiri::XML(datacite_xml))
-                                   .map { |error| error.to_s }
+      schema.validate(Nokogiri::XML(datacite_xml)).map { |error| error.to_s }
     end
 
     def insert_work(xml)

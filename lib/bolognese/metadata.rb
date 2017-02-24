@@ -16,7 +16,8 @@ module Bolognese
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
-      :publisher, :contributor, :schema_version, :same_as, :predecessor_of, :successor_of
+      :publisher, :contributor, :schema_version, :same_as, :predecessor_of,
+      :successor_of
 
     alias_method :datacite, :as_datacite
 

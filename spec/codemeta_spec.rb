@@ -91,7 +91,6 @@ describe Bolognese::Codemeta, vcr: true do
     it "rdataone" do
       string = IO.read(fixture_path + 'codemeta.json')
       subject = Bolognese::Codemeta.new(string: string)
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
       expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>"Matt Jones",
@@ -109,7 +108,6 @@ describe Bolognese::Codemeta, vcr: true do
     end
 
     it "maremma" do
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
       expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Martin Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})

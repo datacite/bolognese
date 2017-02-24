@@ -39,14 +39,19 @@ module Bolognese
       @schema_version ||= metadata.fetch("xsi:schemaLocation", "").split(" ").first
     end
 
+    # raise error if XML validateion fails
     # show DataCite XML in different version if schema_version option is provided
     # currently only supports 4.0
     def datacite
+      raise Thor::Error, validation_errors.join("\n") if validation_errors.present?
+
       if schema_version != metadata.fetch("xsi:schemaLocation", "").split(" ").first
         as_datacite
       else
         raw
       end
+    rescue => e
+      $stderr.puts e.message
     end
 
     def metadata

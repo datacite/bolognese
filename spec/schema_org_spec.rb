@@ -61,7 +61,6 @@ describe Bolognese::SchemaOrg, vcr: true do
 
   context "get metadata as datacite xml" do
     it "with data citation" do
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(3)

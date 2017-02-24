@@ -154,7 +154,8 @@ describe Bolognese::CLI do
       it 'to datacite invalid' do
         file = fixture_path + "datacite_missing_creator.xml"
         subject.options = { to: "datacite" }
-        expect { subject.convert file }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
+        expect { subject.convert file }.to output("\n").to_stdout
+        expect { subject.convert file }.to output("Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).\n").to_stderr
       end
     end
 

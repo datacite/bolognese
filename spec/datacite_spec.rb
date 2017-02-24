@@ -181,6 +181,7 @@ describe Bolognese::Datacite, vcr: true do
       string = IO.read(fixture_path + "datacite_missing_creator.xml")
       subject = Bolognese::Datacite.new(string: string)
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.as_datacite).to be_nil
       expect(subject.validation_errors).to eq(["Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator )."])
     end
   end
@@ -220,7 +221,6 @@ describe Bolognese::Datacite, vcr: true do
       id = "https://doi.org/10.5438/6423"
       subject = Bolognese::Datacite.new(id: id, schema_version: "http://datacite.org/schema/kernel-4")
       expect(subject.id).to eq("https://doi.org/10.5438/6423")
-      expect(subject.validation_errors).to be_empty
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
       expect(datacite.fetch("fundingReferences")).to eq("fundingReference"=>{"funderName"=>"European Commission", "funderIdentifier"=>{"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100000780"}})
