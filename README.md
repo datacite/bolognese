@@ -761,6 +761,31 @@ bolognese 10.5061/DRYAD.8515 -t datacite --schema_version http://datacite.org/sc
 </resource>
 ```
 
+
+Convert DataCite XML to Codemeta:
+
+```
+bolognese https://doi.org/10.5063/f1m61h5x -t codemeta
+
+{  
+   "@context":"https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld",
+   "@type":"SoftwareSourceCode",
+   "@id":"https://doi.org/10.5063/f1m61h5x",
+   "identifier":"https://doi.org/10.5063/f1m61h5x",
+   "title":"dataone: R interface to the DataONE network of data repositories",
+   "agents":{  
+      "@type":"Person",
+      "givenName":"Matthew B.",
+      "familyName":"Jones"
+   },
+   "datePublished":"2016",
+   "publisher":{  
+      "@type":"Organization",
+      "name":"KNB Data Repository"
+   }
+}
+```
+
 Convert DataCite XML to BibTeX:
 
 ```
