@@ -31,7 +31,6 @@
 			"roleCode": "contributor"
 		}
 	}, {
-		"@id": "http://orcid.org/0000-0002-3957-2474",
 		"@type": "organization",
 		"email": "info@ucop.edu",
 		"name": "University of California, Santa Barbara",

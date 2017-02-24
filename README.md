@@ -868,11 +868,69 @@ bolognese https://blog.datacite.org/eating-your-own-dog-food -t bibtex
 }
 ```
 
+Convert Codemeta to schema.org/JSON-LD:
+
+```
+bolognese https://github.com/datacite/maremma
+
+{  
+  "@context":"http://schema.org",
+  "@type":"SoftwareSourceCode",
+  "@id":"https://doi.org/10.5438/qeg0-3gm3",
+  "url":"https://github.com/datacite/maremma",
+  "name":"Maremma: a Ruby library for simplified network calls",
+  "author":{  
+    "@type":"person",
+    "@id":"http://orcid.org/0000-0003-0077-4738",
+    "name":"Martin Fenner"
+  },
+  "description":"Simplifies network calls, including json/xml parsing and error handling. Based on Faraday.",
+  "keywords":"faraday, excon, net/http",
+  "dateCreated":"2015-11-28",
+  "datePublished":"2017-02-24",
+  "dateModified":"2017-02-24",
+  "publisher":{  
+    "@type":"Organization",
+    "name":"DataCite"
+  }
+}
+```
+
 Convert Codemeta to DataCite XML:
 
 ```
-bolognese https://doi.org/10.5063/f1m61h5x -t codemeta
+bolognese https://github.com/datacite/maremma -t datacite
 
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.5438/qeg0-3gm3</identifier>
+  <creators>
+    <creator>
+      <creatorName>Martin Fenner</creatorName>
+      <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">http://orcid.org/0000-0003-0077-4738</nameIdentifier>
+    </creator>
+  </creators>
+  <titles>
+    <title>Maremma: a Ruby library for simplified network calls</title>
+  </titles>
+  <publisher>DataCite</publisher>
+  <publicationYear>2017</publicationYear>
+  <resourceType resourceTypeGeneral="Software">SoftwareSourceCode</resourceType>
+  <subjects>
+    <subject>faraday</subject>
+    <subject>excon</subject>
+    <subject>net/http</subject>
+  </subjects>
+  <dates>
+    <date dateType="Created">2015-11-28</date>
+    <date dateType="Issued">2017-02-24</date>
+    <date dateType="Updated">2017-02-24</date>
+  </dates>
+  <descriptions>
+    <description descriptionType="Abstract">Simplifies network calls, including json/xml parsing and error handling. Based on Faraday.</description>
+  </descriptions>
+</resource>
+```
 
 ## Development
 
