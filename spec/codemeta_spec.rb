@@ -1,10 +1,8 @@
 require 'spec_helper'
 
 describe Bolognese::Codemeta, vcr: true do
-  # let(:id) { "https://blog.datacite.org/eating-your-own-dog-food" }
   let(:fixture_path) { "spec/fixtures/" }
-  #
-  # subject { Bolognese::SchemaOrg.new(id: id) }
+
 
   # context "get metadata" do
   #   it "BlogPosting" do
@@ -76,6 +74,48 @@ describe Bolognese::Codemeta, vcr: true do
       datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
       expect(datacite.fetch("version")).to eq("2.0.0")
+    end
+  end
+
+  context "get metadata as schema.org JSON" do
+    let(:string) { IO.read(fixture_path + 'codemeta.json') }
+
+    subject { Bolognese::Codemeta.new(string: string) }
+
+    it "SoftwareSourceCode" do
+      json = JSON.parse(subject.as_schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
+      expect(json["@type"]).to eq("SoftwareSourceCode")
+      expect(json["name"]).to eq("R Interface to the DataONE REST API")
+      expect(json["author"]).to eq([{"@type"=>"person",
+                                     "@id"=>"http://orcid.org/0000-0003-0077-4738",
+                                     "name"=>"Matt Jones"},
+                                    {"@type"=>"person",
+                                     "@id"=>"http://orcid.org/0000-0002-2192-403X",
+                                     "name"=>"Peter Slaughter"},
+                                    {"@type"=>"organization",
+                                     "@id"=>"http://orcid.org/0000-0002-3957-2474",
+                                     "name"=>"University of California, Santa Barbara"}])
+      expect(json["version"]).to eq("2.0.0")
+    end
+  end
+
+  context "get metadata as bibtex" do
+    let(:string) { IO.read(fixture_path + 'codemeta.json') }
+
+    subject { Bolognese::Codemeta.new(string: string) }
+
+    it "SoftwareSourceCode" do
+      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5063/f1m61h5x")
+      expect(bibtex[:doi]).to eq("10.5063/f1m61h5x")
+      expect(bibtex[:url]).to eq("https://github.com/DataONEorg/rdataone")
+      expect(bibtex[:title]).to eq("R Interface to the DataONE REST API")
+      expect(bibtex[:author]).to eq("Jones, Matt and Slaughter, Peter and {University of California, Santa Barbara}")
+      expect(bibtex[:publisher]).to eq("https://cran.r-project.org")
+      expect(bibtex[:keywords]).to eq("data sharing, data repository, DataONE")
+      expect(bibtex[:year]).to eq("2016")
     end
   end
 end

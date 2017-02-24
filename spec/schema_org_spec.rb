@@ -68,4 +68,18 @@ describe Bolognese::SchemaOrg, vcr: true do
        expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
     end
   end
+
+  context "get metadata as bibtex" do
+    it "with data citation" do
+      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("article")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(bibtex[:doi]).to eq("10.5438/4k3m-nyvg")
+      expect(bibtex[:title]).to eq("Eating your own Dog Food")
+      expect(bibtex[:author]).to eq("Fenner, Martin")
+      expect(bibtex[:publisher]).to eq("DataCite")
+      expect(bibtex[:keywords]).to eq("datacite, doi, metadata, featured")
+      expect(bibtex[:year]).to eq("2016")
+    end
+  end
 end

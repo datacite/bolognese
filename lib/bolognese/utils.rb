@@ -1,11 +1,11 @@
 module Bolognese
   module Utils
 
-    def find_from_format(id: nil, string: nil, ext: nil)
+    def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
       if id.present?
         find_from_format_by_id(id)
       elsif string.present?
-        find_from_format_by_string(string, ext: ext)
+        find_from_format_by_string(string, ext: ext, filename: filename)
       end
     end
 
@@ -24,10 +24,12 @@ module Bolognese
     def find_from_format_by_string(string, options={})
       if options[:ext] == ".bib"
         "bibtex"
-      elsif Maremma.from_xml(string).dig("doi_records", "doi_record", "crossref")
+      elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("doi_records", "doi_record", "crossref")
         "crossref"
-      elsif Maremma.from_xml(string).dig("resource", "xmlns") == "http://datacite.org/schema/kernel-4"
+      elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("resource", "xmlns") == "http://datacite.org/schema/kernel-4"
         "datacite"
+      elsif options[:filename] == "codemeta.json"
+        "codemeta"
       end
     end
 
@@ -36,6 +38,7 @@ module Bolognese
         p = case from
             when "crossref" then Crossref.new(id: id, string: string)
             when "datacite" then Datacite.new(id: id, string: string, schema_version: options[:schema_version])
+            when "codemeta" then Codemeta.new(string: string)
             when "bibtex" then Bibtex.new(string: string)
             else SchemaOrg.new(id: id)
             end

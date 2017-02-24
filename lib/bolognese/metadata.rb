@@ -28,11 +28,6 @@ module Bolognese
       [page_start, page_end].compact.join("-").presence
     end
 
-    def author_string
-      Array.wrap(author).map { |a| [a["familyName"], a["givenName"]].join(", ") }
-                        .join(" and ").presence
-    end
-
     def publisher_string
       publisher.to_h.fetch("name", nil)
     end
@@ -96,7 +91,7 @@ module Bolognese
         bibtex_key: id,
         doi: doi,
         url: url,
-        author: author_string,
+        author: authors_as_string(author),
         keywords: keywords,
         language: language,
         title: name,

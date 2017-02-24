@@ -47,12 +47,17 @@ describe Bolognese::Metadata, vcr: true do
 
     it "crossref" do
       string = IO.read(fixture_path + "crossref.xml")
-      expect(subject.find_from_format(string: string)).to eq("crossref")
+      expect(subject.find_from_format(string: string, ext: ".xml")).to eq("crossref")
     end
 
     it "datacite" do
       string = IO.read(fixture_path + "datacite.xml")
-      expect(subject.find_from_format(string: string)).to eq("datacite")
+      expect(subject.find_from_format(string: string, ext: ".xml")).to eq("datacite")
+    end
+
+    it "codemeta" do
+      string = IO.read(fixture_path + "codemeta.json")
+      expect(subject.find_from_format(string: string, filename: "codemeta.json")).to eq("codemeta")
     end
   end
 end

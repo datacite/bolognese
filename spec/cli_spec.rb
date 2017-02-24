@@ -158,6 +158,29 @@ describe Bolognese::CLI do
       end
     end
 
+    context "codemeta" do
+      let(:file) { fixture_path + "codemeta.json" }
+
+      it 'default' do
+        expect { subject.convert file }.to output(/datePublished/).to_stdout
+      end
+
+      it 'to schema_org' do
+        subject.options = { to: "schema_org" }
+        expect { subject.convert file }.to output(/datePublished/).to_stdout
+      end
+
+      it 'to datacite' do
+        subject.options = { to: "datacite" }
+        expect { subject.convert file }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
+      end
+
+      it 'to bibtex' do
+        subject.options = { to: "bibtex" }
+        expect { subject.convert file }.to output(/@misc{https:\/\/doi.org\/10.5063\/f1m61h5x/).to_stdout
+      end
+    end
+
     # context "unsupported format" do
     #   let(:file) { fixture_path + "crossref.xxx" }
     #

@@ -58,5 +58,17 @@ module Bolognese
 
       "http://orcid.org/" + name_identifier
     end
+
+    def authors_as_string(authors)
+      Array.wrap(authors).map do |a|
+        if a["@type"] == "organization"
+          "{" + a["name"] + "}"
+        elsif a["familyName"].present?
+          [a["familyName"], a["givenName"]].join(", ")
+        else
+          a["name"]
+        end
+      end.join(" and ").presence
+    end
   end
 end
