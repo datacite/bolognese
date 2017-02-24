@@ -24,6 +24,10 @@ module Bolognese
       date_published && date_published[0..3]
     end
 
+    def descriptions
+      Array.wrap(description)
+    end
+
     def pagination
       [page_start, page_end].compact.join("-").presence
     end

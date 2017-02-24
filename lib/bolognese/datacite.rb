@@ -90,13 +90,19 @@ module Bolognese
       parse_attributes(metadata.dig("alternateIdentifiers", "alternateIdentifier"))
     end
 
+    def descriptions
+      Array.wrap(metadata.dig("descriptions", "description"))
+      # .map do |des|
+      #   if des.is_a?(Hash)
+      #     des.to_xml
+      #   elsif des.is_a?(String)
+      #     des.strip
+      #   end
+      # end
+    end
+
     def description
-      des = metadata.dig("descriptions", "description", "__content__")
-      if des.is_a?(Hash)
-        des.to_xml
-      elsif des.is_a?(String)
-        des.strip
-      end
+      parse_attributes(descriptions)
     end
 
     def license

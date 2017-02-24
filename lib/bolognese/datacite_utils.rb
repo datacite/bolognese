@@ -227,10 +227,20 @@ module Bolognese
     end
 
     def insert_descriptions(xml)
-      return xml unless description.present?
+      return xml unless descriptions.present?
 
       xml.descriptions do
-        xml.description(description, 'descriptionType' => "Abstract")
+        Array.wrap(description).each do |des|
+          insert_description(xml, des)
+        end
+      end
+    end
+
+    def insert_description(xml, des)
+      if des.is_a?(String)
+        xml.description(des.strip, 'descriptionType' => "Abstract")
+      elsif des.is_a?(Hash)
+        xml.description(des["__content__"].strip, 'descriptionType' => des["descriptionType"],)
       end
     end
 
