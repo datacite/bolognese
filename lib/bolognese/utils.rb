@@ -104,8 +104,8 @@ module Bolognese
     end
 
     def normalize_ids(list)
-      a = Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
-      array_unwrap(a)
+      arr = Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
+      array_unwrap(arr)
     end
   end
 end

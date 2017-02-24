@@ -62,13 +62,13 @@ module Bolognese
     end
 
     def author
-      a = Array.wrap(metadata.fetch("author", nil)).map { |a| a.except("name") }
-      array_unwrap(a)
+      arr = Array.wrap(metadata.fetch("author", nil)).map { |a| a.except("name") }
+      array_unwrap(arr)
     end
 
     def editor
-      a = Array.wrap(metadata.fetch("editor", nil)).map { |a| a.except("name") }
-      array_unwrap(a)
+      arr = Array.wrap(metadata.fetch("editor", nil)).map { |a| a.except("name") }
+      array_unwrap(arr)
     end
 
     def description

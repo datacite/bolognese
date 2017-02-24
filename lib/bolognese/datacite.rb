@@ -187,13 +187,13 @@ module Bolognese
     end
 
     def related_identifiers(relation_type)
-      a = Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
+      arr = Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
         .select { |r| relation_type.split(" ").include?(r["relationType"]) && %w(DOI URL).include?(r["relatedIdentifierType"]) }
         .map do |work|
           { "@type" => "CreativeWork",
             "@id" => normalize_id(work["__content__"]) }
         end
-      array_unwrap(a)
+      array_unwrap(arr)
     end
 
     def same_as

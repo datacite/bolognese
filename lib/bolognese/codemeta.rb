@@ -64,8 +64,8 @@ module Bolognese
     end
 
     def author
-      a = Array.wrap(metadata.fetch("agents", nil)).map { |a| a.extract!("@type", "@id", "name") }
-      array_unwrap(a)
+      arr = Array.wrap(metadata.fetch("agents", nil)).map { |a| a.extract!("@type", "@id", "name") }
+      array_unwrap(arr)
     end
 
     def editor
