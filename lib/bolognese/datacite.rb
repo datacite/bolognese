@@ -32,6 +32,7 @@ module Bolognese
     end
 
     alias_method :schema_org, :as_schema_org
+    alias_method :codemeta, :as_codemeta
     alias_method :bibtex, :as_bibtex
 
     def schema_version

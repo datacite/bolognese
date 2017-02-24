@@ -227,6 +227,22 @@ describe Bolognese::Datacite, vcr: true do
     end
   end
 
+  context "get metadata as codemeta" do
+    it "SoftwareSourceCode" do
+      id = "https://doi.org/10.5063/f1m61h5x"
+      subject = Bolognese::Datacite.new(id: id)
+      json = JSON.parse(subject.as_codemeta)
+      expect(json["@context"]).to eq("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
+      expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
+      expect(json["@type"]).to eq("SoftwareSourceCode")
+      expect(json["identifier"]).to eq("https://doi.org/10.5063/f1m61h5x")
+      expect(json["agents"]).to eq("@type"=>"Person", "givenName"=>"Matthew B.", "familyName"=>"Jones")
+      expect(json["title"]).to eq("dataone: R interface to the DataONE network of data repositories")
+      expect(json["datePublished"]).to eq("2016")
+      expect(json["publisher"]).to eq("@type"=>"Organization", "name"=>"KNB Data Repository")
+    end
+  end
+
   context "get metadata as bibtex" do
     it "Dataset" do
       bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first

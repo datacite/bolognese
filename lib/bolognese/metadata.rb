@@ -72,6 +72,24 @@ module Bolognese
       }.compact.to_json
     end
 
+    def as_codemeta
+      { "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
+        "@type" => type,
+        "@id" => id,
+        "identifier" => id,
+        "codeRepository" => url,
+        "title" => name,
+        "agents" => author,
+        "description" => description,
+        "version" => version,
+        "tags" => keywords.to_s.split(", ").presence,
+        "dateCreated" => date_created,
+        "datePublished" => date_published,
+        "dateModified" => date_modified,
+        "publisher" => publisher
+      }.compact.to_json
+    end
+
     def as_bibtex
       bib = {
         bibtex_type: bibtex_type.to_sym,

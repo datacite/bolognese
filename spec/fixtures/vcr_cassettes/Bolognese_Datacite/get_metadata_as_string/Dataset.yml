@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.datacite.org/10.5061%2Fdryad.8515
       Expires:
-      - Sat, 18 Feb 2017 09:28:49 GMT
+      - Fri, 24 Feb 2017 00:31:22 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '175'
       Date:
-      - Sat, 18 Feb 2017 08:44:05 GMT
+      - Thu, 23 Feb 2017 23:43:44 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.datacite.org/10.5061%2Fdryad.8515">http://data.datacite.org/10.5061%2Fdryad.8515</a></body></html>
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:44:05 GMT
+  recorded_at: Thu, 23 Feb 2017 23:43:44 GMT
 - request:
     method: get
     uri: http://data.datacite.org/10.5061%2Fdryad.8515
@@ -56,7 +56,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Sat, 18 Feb 2017 08:44:05 GMT
+      - Thu, 23 Feb 2017 23:43:44 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -70,7 +70,7 @@ http_interactions:
       string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
         bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:44:05 GMT
+  recorded_at: Thu, 23 Feb 2017 23:43:44 GMT
 - request:
     method: get
     uri: https://data.datacite.org/10.5061%2Fdryad.8515
@@ -90,7 +90,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Sat, 18 Feb 2017 08:44:05 GMT
+      - Thu, 23 Feb 2017 23:43:44 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Content-Length:
@@ -169,5 +169,5 @@ http_interactions:
         ST0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvcHVibGljZG9tYWluL3pl
         cm8vMS4wLyIvPiAgPC9yaWdodHNMaXN0PjwvcmVzb3VyY2U+
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:44:05 GMT
+  recorded_at: Thu, 23 Feb 2017 23:43:44 GMT
 recorded_with: VCR 3.0.3

@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.datacite.org/10.5438%2F6423
       Expires:
-      - Tue, 21 Feb 2017 14:30:12 GMT
+      - Fri, 24 Feb 2017 00:31:22 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '163'
       Date:
-      - Tue, 21 Feb 2017 14:27:32 GMT
+      - Thu, 23 Feb 2017 23:43:25 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.datacite.org/10.5438%2F6423">http://data.datacite.org/10.5438%2F6423</a></body></html>
     http_version: 
-  recorded_at: Tue, 21 Feb 2017 14:27:32 GMT
+  recorded_at: Thu, 23 Feb 2017 23:43:26 GMT
 - request:
     method: get
     uri: http://data.datacite.org/10.5438%2F6423
@@ -56,7 +56,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Tue, 21 Feb 2017 14:27:32 GMT
+      - Thu, 23 Feb 2017 23:43:26 GMT
       Content-Type:
       - text/html
       Content-Length:
@@ -70,7 +70,7 @@ http_interactions:
       string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
         bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
     http_version: 
-  recorded_at: Tue, 21 Feb 2017 14:27:32 GMT
+  recorded_at: Thu, 23 Feb 2017 23:43:26 GMT
 - request:
     method: get
     uri: https://data.datacite.org/10.5438%2F6423
@@ -90,7 +90,7 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       Date:
-      - Tue, 21 Feb 2017 14:27:33 GMT
+      - Thu, 23 Feb 2017 23:43:26 GMT
       Content-Type:
       - application/vnd.datacite.datacite+xml
       Content-Length:
@@ -470,5 +470,5 @@ http_interactions:
         YXJjaDwvYXdhcmRUaXRsZT4KICAgIDwvZnVuZGluZ1JlZmVyZW5jZT4KICA8
         L2Z1bmRpbmdSZWZlcmVuY2VzPgo8L3Jlc291cmNlPgo=
     http_version: 
-  recorded_at: Tue, 21 Feb 2017 14:27:33 GMT
+  recorded_at: Thu, 23 Feb 2017 23:43:26 GMT
 recorded_with: VCR 3.0.3

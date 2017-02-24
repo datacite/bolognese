@@ -34,11 +34,18 @@ Bolognese reads and/or writes these metadata formats:
       <td>application/vnd.datacite.datacite+xml</td>
       <td>Yes</td>
       <td>Yes</td>
-  </tr>
+    </tr>
     <tr>
         <td><a href='http://schema.org/'>Schema.org in JSON-LD</a></td>
         <td>schema_org</td>
         <td>application/vnd.schemaorg.ld+json</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><a href='https://codemeta.github.io/'>Codemeta</a></td>
+        <td>codemeta</td>
+        <td>application/ld+json</td>
         <td>Yes</td>
         <td>Yes</td>
     </tr>

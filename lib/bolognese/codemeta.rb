@@ -1,5 +1,5 @@
 module Bolognese
-  class SchemaOrg < Metadata
+  class Codemeta < Metadata
 
     def initialize(id: nil, string: nil)
       id = normalize_id(id) if id.present?
@@ -7,14 +7,12 @@ module Bolognese
       if string.present?
         @raw = string
       elsif id.present?
-        response = Maremma.get(id)
-        doc = Nokogiri::XML(response.body.fetch("data", nil))
-        @raw = doc.at_xpath('//script[@type="application/ld+json"]')
+        response = Maremma.get(id, accept: "application/ld+json", raw: true)
+        @raw = response.body.fetch("data", nil)
       end
     end
 
     alias_method :schema_org, :as_schema_org
-    alias_method :codemeta, :as_codemeta
     alias_method :bibtex, :as_bibtex
 
     def metadata
@@ -30,11 +28,15 @@ module Bolognese
     end
 
     def id
-      normalize_id(metadata.fetch("@id", nil))
+      normalize_id(metadata.fetch("@id", nil) || identifier)
+    end
+
+    def identifier
+      metadata.fetch("identifier", nil)
     end
 
     def url
-      normalize_id(metadata.fetch("url", nil))
+      normalize_id(metadata.fetch("codeRepository", nil))
     end
 
     def resource_type_general
@@ -54,7 +56,7 @@ module Bolognese
     end
 
     def name
-      metadata.fetch("name", nil)
+      metadata.fetch("title", nil)
     end
 
     def alternate_name
@@ -62,13 +64,12 @@ module Bolognese
     end
 
     def author
-      a = Array.wrap(metadata.fetch("author", nil)).map { |a| a.except("name") }
+      a = Array.wrap(metadata.fetch("agents", nil)).map { |a| a.extract!("@type", "@id", "name") }
       array_unwrap(a)
     end
 
     def editor
-      a = Array.wrap(metadata.fetch("editor", nil)).map { |a| a.except("name") }
-      array_unwrap(a)
+      Array(metadata.fetch("editor", nil)).map { |a| a.except("name") }.presence
     end
 
     def description
@@ -84,7 +85,7 @@ module Bolognese
     end
 
     def keywords
-      metadata.fetch("keywords", nil)
+      Array(metadata.fetch("tags", nil)).join(", ").presence
     end
 
     def date_created
@@ -120,7 +121,13 @@ module Bolognese
     end
 
     def publisher
-      metadata.fetch("publisher", nil)
+      p = metadata.fetch("publisher", nil)
+      if p.is_a?(Hash)
+        p
+      elsif p.is_a?(String)
+        { "@type" => "Organization",
+          "name" => p }
+      end
     end
 
     def container_title
