@@ -11,7 +11,7 @@ module Bolognese
     include Bolognese::Utils
 
     def self.exit_on_failure?
-      false
+      true
     end
 
     # from http://stackoverflow.com/questions/22809972/adding-a-version-option-to-a-ruby-thor-cli
