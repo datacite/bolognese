@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.homepage      = "https://github.com/datacite/bolognese"
   s.summary       = "Ruby client library for conversion of DOI Metadata"
   s.date          = Date.today
-  s.description   = "Convert DOI metadata to and from Crossref and DataCite XML, as well as schema.org/JSON-LD"
+  s.description   = "Ruby gem and command-line utility for conversion of DOI metadata from and to different metadata formats, including schema.org."
   s.require_paths = ["lib"]
   s.version       = Bolognese::VERSION
   s.extra_rdoc_files = ["README.md"]
