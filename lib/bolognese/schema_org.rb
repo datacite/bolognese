@@ -21,6 +21,10 @@ module Bolognese
       metadata.present?
     end
 
+    def valid?
+      true
+    end
+
     def doi
       doi_from_url(id)
     end

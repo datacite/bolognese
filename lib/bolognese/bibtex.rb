@@ -38,6 +38,10 @@ module Bolognese
       metadata.present?
     end
 
+    def valid?
+      true
+    end
+
     def type
       BIB_TO_SO_TRANSLATIONS[metadata.type.to_s] || "ScholarlyArticle"
     end

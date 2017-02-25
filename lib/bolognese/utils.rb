@@ -39,16 +39,16 @@ module Bolognese
       if from.present?
         p = case from
             when "crossref" then Crossref.new(id: id, string: string)
-            when "datacite" then Datacite.new(id: id, string: string, schema_version: options[:schema_version])
+            when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
             when "codemeta" then Codemeta.new(id: id, string: string)
             when "bibtex" then Bibtex.new(string: string)
             else SchemaOrg.new(id: id)
             end
 
-        if p.errors.present?
-          puts p.errors.join("\n")
-        else
+        if p.valid?
           puts p.send(to)
+        else
+          $stderr.puts p.errors
         end
       else
         puts "not implemented"

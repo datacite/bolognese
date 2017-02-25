@@ -18,7 +18,9 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
-    def initialize(id: nil, string: nil, schema_version: nil)
+    SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
+
+    def initialize(id: nil, string: nil, regenerate: false)
       id = normalize_doi(id) if id.present?
 
       if string.present?
@@ -28,15 +30,12 @@ module Bolognese
         @raw = response.body.fetch("data", nil)
       end
 
-      @schema_version = schema_version
+      @should_passthru = !regenerate
     end
 
-    def schema_location
-      metadata.fetch("xsi:schemaLocation", "").split(" ").first
-    end
-
-    def schema_version
-      @schema_version ||= schema_location
+    # generate new DataCite XML version 4.0 if regenerate (!should_passthru) option is provided
+    def datacite
+      should_passthru ? raw : datacite_xml
     end
 
     def metadata
@@ -45,6 +44,25 @@ module Bolognese
 
     def exists?
       metadata.present?
+    end
+
+    def valid?
+      errors.blank?
+    end
+
+    def errors
+      arr = schema.validate(Nokogiri::XML(raw)).map { |error| error.to_s }
+      array_unwrap(arr)
+    end
+
+    def schema_version
+      metadata.fetch("xmlns", nil)
+    end
+
+    def schema
+      kernel = schema_version.split("/").last
+      filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
+      Nokogiri::XML::Schema(open(filepath))
     end
 
     def doi
@@ -82,13 +100,6 @@ module Bolognese
 
     def descriptions
       Array.wrap(metadata.dig("descriptions", "description"))
-      # .map do |des|
-      #   if des.is_a?(Hash)
-      #     des.to_xml
-      #   elsif des.is_a?(String)
-      #     des.strip
-      #   end
-      # end
     end
 
     def description

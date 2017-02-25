@@ -25,7 +25,7 @@ module Bolognese
     desc "", "convert metadata"
     method_option :from, aliases: "-f"
     method_option :to, aliases: "-t", default: "schema_org"
-    method_option :schema_version
+    method_option :regenerate, :type => :boolean, :force => false
     def convert(input)
       id = normalize_id(input)
 
@@ -45,7 +45,7 @@ module Bolognese
 
       to = options[:to] || "schema_org"
 
-      write(id: id, string: string, from: from, to: to, schema_version: options[:schema_version])
+      write(id: id, string: string, from: from, to: to, regenerate: options[:regenerate])
     end
 
     default_task :convert

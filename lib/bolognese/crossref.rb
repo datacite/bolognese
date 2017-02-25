@@ -81,6 +81,10 @@ module Bolognese
       metadata.present?
     end
 
+    def valid?
+      true
+    end
+
     def doi
       bibliographic_metadata.dig("doi_data", "doi")
     end

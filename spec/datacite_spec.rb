@@ -7,6 +7,7 @@ describe Bolognese::Datacite, vcr: true do
 
   context "get metadata" do
     it "Dataset" do
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
@@ -34,6 +35,7 @@ describe Bolognese::Datacite, vcr: true do
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
@@ -55,6 +57,7 @@ describe Bolognese::Datacite, vcr: true do
     it "date" do
       id = "https://doi.org/10.4230/lipics.tqc.2013.93"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("ConferencePaper")
@@ -71,6 +74,7 @@ describe Bolognese::Datacite, vcr: true do
     it "multiple licenses" do
       id = "https://doi.org/10.5281/ZENODO.48440"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Software")
@@ -89,6 +93,7 @@ describe Bolognese::Datacite, vcr: true do
     it "is identical to" do
       id = "10.6084/M9.FIGSHARE.4234751.V1"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.6084/m9.figshare.4234751.v1")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
@@ -108,6 +113,7 @@ describe Bolognese::Datacite, vcr: true do
     it "funding schema version 3" do
       id = "https://doi.org/10.5281/ZENODO.1239"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
@@ -128,6 +134,7 @@ describe Bolognese::Datacite, vcr: true do
     it "Funding schema version 4" do
       id = "https://doi.org/10.5438/6423"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/6423")
       expect(subject.type).to eq("Collection")
       expect(subject.additional_type).to eq("Project")
@@ -141,6 +148,12 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.funder).to eq("@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("fundingReferences", "fundingReference")).to eq("awardNumber" => {"awardURI"=>"http://cordis.europa.eu/project/rcn/194927_en.html", "__content__"=>"654039"},
+                                                                          "awardTitle" => "THOR – Technical and Human Infrastructure for Open Research",
+                                                                          "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"http://dx.doi.org/10.13039/501100000780"},
+                                                                          "funderName" => "European Commission")
     end
 
     it "Schema.org JSON" do
@@ -153,6 +166,7 @@ describe Bolognese::Datacite, vcr: true do
     it "BlogPosting" do
       string = IO.read(fixture_path + "datacite.xml")
       subject = Bolognese::Datacite.new(string: string)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
@@ -169,15 +183,17 @@ describe Bolognese::Datacite, vcr: true do
     it "missing creator" do
       string = IO.read(fixture_path + "datacite_missing_creator.xml")
       subject = Bolognese::Datacite.new(string: string)
+      expect(subject.valid?).to be false
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.errors).to eq(["Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator )."])
+      expect(subject.errors).to eq("Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).")
     end
   end
 
   context "get metadata as datacite xml 4.0" do
     it "Dataset" do
       id = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Datacite.new(id: id, schema_version: "http://datacite.org/schema/kernel-4")
+      subject = Bolognese::Datacite.new(id: id, regenerate: true)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
@@ -199,22 +215,10 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.citation).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"Dryad Digital Repository")
       expect(subject.provider).to eq("@type"=>"Organization", "name"=>"DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
-    end
-
-    it "Funding" do
-      id = "https://doi.org/10.5438/6423"
-      subject = Bolognese::Datacite.new(id: id, schema_version: "http://datacite.org/schema/kernel-4")
-      expect(subject.id).to eq("https://doi.org/10.5438/6423")
-      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
-      expect(datacite.dig("fundingReferences", "fundingReference")).to eq("awardNumber" => {"awardURI"=>"http://cordis.europa.eu/project/rcn/194927_en.html", "__content__"=>"654039"},
-                                                                          "awardTitle" => "THOR – Technical and Human Infrastructure for Open Research",
-                                                                          "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"http://dx.doi.org/10.13039/501100000780"},
-                                                                          "funderName" => "European Commission")
     end
   end
 
@@ -222,6 +226,7 @@ describe Bolognese::Datacite, vcr: true do
     it "SoftwareSourceCode" do
       id = "https://doi.org/10.5063/f1m61h5x"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       json = JSON.parse(subject.codemeta)
       expect(json["@context"]).to eq("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
