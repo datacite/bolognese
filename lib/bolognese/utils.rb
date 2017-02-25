@@ -28,7 +28,7 @@ module Bolognese
         "bibtex"
       elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("doi_records", "doi_record", "crossref")
         "crossref"
-      elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("resource", "xmlns") == "http://datacite.org/schema/kernel-4"
+      elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("resource", "xmlns").start_with?("http://datacite.org/schema/kernel")
         "datacite"
       elsif options[:filename] == "codemeta.json"
         "codemeta"
@@ -48,7 +48,7 @@ module Bolognese
         if p.valid?
           puts p.send(to)
         else
-          $stderr.puts p.errors
+          $stderr.puts p.errors.colorize(:red)
         end
       else
         puts "not implemented"

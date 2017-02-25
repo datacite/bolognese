@@ -5,6 +5,7 @@ PATH
       activesupport (~> 4.2, >= 4.2.5)
       bibtex-ruby (~> 4.1)
       builder (~> 3.2, >= 3.2.2)
+      colorize (~> 0.8.1)
       maremma (~> 3.5)
       namae (~> 0.10.2)
       nokogiri (~> 1.6, >= 1.6.8)
@@ -23,8 +24,9 @@ GEM
     bibtex-ruby (4.4.3)
       latex-decode (~> 0.0)
     builder (3.2.3)
-    codeclimate-test-reporter (1.0.5)
+    codeclimate-test-reporter (1.0.6)
       simplecov
+    colorize (0.8.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)

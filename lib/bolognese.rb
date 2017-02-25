@@ -3,6 +3,7 @@ require 'nokogiri'
 require 'maremma'
 require 'postrank-uri'
 require 'bibtex'
+require 'colorize'
 
 require "bolognese/version"
 require "bolognese/metadata"

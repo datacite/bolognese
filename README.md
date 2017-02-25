@@ -105,6 +105,11 @@ Commands:
   bolognese --version, -v   # print the version
   bolognese help [COMMAND]  # Describe available commands or one specific command
 ```
+## Errors
+
+Errors are returned to STDOUT.
+
+All DataCite XML input is validated against the corresponding schema version (kernel 2.1, 2.2, 3, or 4).
 
 ## Examples
 
