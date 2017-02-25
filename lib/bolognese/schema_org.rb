@@ -13,10 +13,6 @@ module Bolognese
       end
     end
 
-    alias_method :schema_org, :as_schema_org
-    alias_method :codemeta, :as_codemeta
-    alias_method :bibtex, :as_bibtex
-
     def metadata
       @metadata ||= raw.present? ? Maremma.from_json(raw) : {}
     end

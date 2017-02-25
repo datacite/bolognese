@@ -72,10 +72,6 @@ module Bolognese
     end
 
     alias_method :crossref, :raw
-    alias_method :as_crossref, :raw
-    alias_method :schema_org, :as_schema_org
-    alias_method :codemeta, :as_codemeta
-    alias_method :bibtex, :as_bibtex
 
     def metadata
       @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("doi_records", {}).fetch("doi_record", {}) : {}

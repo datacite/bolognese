@@ -31,27 +31,12 @@ module Bolognese
       @schema_version = schema_version
     end
 
-    alias_method :schema_org, :as_schema_org
-    alias_method :codemeta, :as_codemeta
-    alias_method :bibtex, :as_bibtex
-
-    def schema_version
-      @schema_version ||= metadata.fetch("xsi:schemaLocation", "").split(" ").first
+    def schema_location
+      metadata.fetch("xsi:schemaLocation", "").split(" ").first
     end
 
-    # raise error if XML validateion fails
-    # show DataCite XML in different version if schema_version option is provided
-    # currently only supports 4.0
-    def datacite
-      raise Thor::Error, validation_errors.join("\n") if validation_errors.present?
-
-      if schema_version != metadata.fetch("xsi:schemaLocation", "").split(" ").first
-        as_datacite
-      else
-        raw
-      end
-    rescue => e
-      $stderr.puts e.message
+    def schema_version
+      @schema_version ||= schema_location
     end
 
     def metadata

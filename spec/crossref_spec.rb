@@ -159,7 +159,7 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "Schema.org JSON" do
-      json = JSON.parse(subject.as_schema_org)
+      json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
     end
   end
@@ -167,7 +167,7 @@ describe Bolognese::Crossref, vcr: true do
   context "get metadata as string" do
     it "DOI with data citation" do
       id = "10.7554/eLife.01567"
-      string = Bolognese::Crossref.new(id: id).as_crossref
+      string = Bolognese::Crossref.new(id: id).crossref
 
       subject = Bolognese::Crossref.new(string: string)
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
@@ -193,7 +193,7 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as datacite xml" do
     it "with data citation" do
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(25)
@@ -204,7 +204,7 @@ describe Bolognese::Crossref, vcr: true do
     it "with ORCID ID" do
       id = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Crossref.new(id: id)
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi")
@@ -213,14 +213,14 @@ describe Bolognese::Crossref, vcr: true do
     it "with editor" do
       id = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Crossref.new(id: id)
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Janbon, Guilhem", "givenName"=>"Guilhem", "familyName"=>"Janbon")
     end
   end
 
   context "get metadata as bibtex" do
     it "with data citation" do
-      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")
       expect(bibtex[:doi]).to eq("10.7554/eLife.01567")
@@ -234,7 +234,7 @@ describe Bolognese::Crossref, vcr: true do
     it "with pages" do
       id = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Crossref.new(id: id)
-      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1155/2012/291294")
       expect(bibtex[:doi]).to eq("10.1155/2012/291294")

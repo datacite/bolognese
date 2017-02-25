@@ -17,9 +17,7 @@ module Bolognese
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
       :publisher, :contributor, :schema_version, :same_as, :predecessor_of,
-      :successor_of
-
-    alias_method :datacite, :as_datacite
+      :successor_of, :errors
 
     def publication_year
       date_published && date_published[0..3]
@@ -37,7 +35,7 @@ module Bolognese
       publisher.to_h.fetch("name", nil)
     end
 
-    def as_schema_org
+    def schema_org
       { "@context" => id.present? ? "http://schema.org" : nil,
         "@type" => type,
         "@id" => id,
@@ -72,7 +70,7 @@ module Bolognese
       }.compact.to_json
     end
 
-    def as_codemeta
+    def codemeta
       { "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
         "@type" => type,
         "@id" => id,
@@ -90,7 +88,7 @@ module Bolognese
       }.compact.to_json
     end
 
-    def as_bibtex
+    def bibtex
       bib = {
         bibtex_type: bibtex_type.to_sym,
         bibtex_key: id,
@@ -105,7 +103,6 @@ module Bolognese
         publisher: publisher_string,
         year: publication_year
       }.compact
-
       BibTeX::Entry.new(bib).to_s
     end
   end

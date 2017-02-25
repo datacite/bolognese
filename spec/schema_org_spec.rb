@@ -25,7 +25,7 @@ describe Bolognese::SchemaOrg, vcr: true do
     end
 
     it "BlogPosting schema.org JSON" do
-      json = JSON.parse(subject.as_schema_org)
+      json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
     end
 
@@ -61,7 +61,7 @@ describe Bolognese::SchemaOrg, vcr: true do
 
   context "get metadata as datacite xml" do
     it "with data citation" do
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(3)
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
@@ -70,7 +70,7 @@ describe Bolognese::SchemaOrg, vcr: true do
 
   context "get metadata as bibtex" do
     it "with data citation" do
-      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(bibtex[:doi]).to eq("10.5438/4k3m-nyvg")

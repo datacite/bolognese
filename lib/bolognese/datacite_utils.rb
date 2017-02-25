@@ -45,14 +45,14 @@ module Bolognese
       end.to_xml
     end
 
-    def as_datacite
-      if validation_errors.blank?
-        datacite_xml
-      end
+    # show DataCite XML in different version if schema_version option is provided
+    # currently only supports 4.0
+    def datacite
+      schema_version && schema_version == schema_location ? raw : datacite_xml 
     end
 
-    def validation_errors
-      schema.validate(Nokogiri::XML(datacite_xml)).map { |error| error.to_s }
+    def errors
+      schema.validate(Nokogiri::XML(datacite)).map { |error| error.to_s }
     end
 
     def insert_work(xml)

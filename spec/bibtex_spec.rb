@@ -26,7 +26,7 @@ describe Bolognese::Bibtex, vcr: true do
 
   context "get metadata as datacite xml" do
     it "Crossref DOI" do
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("descriptions", "description", "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")

@@ -22,7 +22,7 @@ describe Bolognese::Codemeta, vcr: true do
     end
 
     it "maremma schema.org JSON" do
-      json = JSON.parse(subject.as_schema_org)
+      json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["name"]).to eq("Maremma: a Ruby library for simplified network calls")
       expect(json["author"]).to eq("@type"=>"person", "@id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner")
@@ -91,7 +91,7 @@ describe Bolognese::Codemeta, vcr: true do
     it "rdataone" do
       string = IO.read(fixture_path + 'codemeta.json')
       subject = Bolognese::Codemeta.new(string: string)
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
       expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>"Matt Jones",
                                                           "nameIdentifier"=>
@@ -108,7 +108,7 @@ describe Bolognese::Codemeta, vcr: true do
     end
 
     it "maremma" do
-      datacite = Maremma.from_xml(subject.as_datacite).fetch("resource", {})
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
       expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Martin Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
     end
@@ -118,7 +118,7 @@ describe Bolognese::Codemeta, vcr: true do
     it "rdataone" do
       string = IO.read(fixture_path + 'codemeta.json')
       subject = Bolognese::Codemeta.new(string: string)
-      json = JSON.parse(subject.as_schema_org)
+      json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["name"]).to eq("R Interface to the DataONE REST API")
@@ -134,7 +134,7 @@ describe Bolognese::Codemeta, vcr: true do
     end
 
     it "maremma" do
-      json = JSON.parse(subject.as_schema_org)
+      json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["name"]).to eq("Maremma: a Ruby library for simplified network calls")
@@ -144,7 +144,7 @@ describe Bolognese::Codemeta, vcr: true do
 
   context "get metadata as bibtex" do
     it "maremma" do
-      bibtex = BibTeX.parse(subject.as_bibtex).to_a(quotes: '').first
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(bibtex[:doi]).to eq("10.5438/qeg0-3gm3")

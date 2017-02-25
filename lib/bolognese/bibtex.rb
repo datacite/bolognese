@@ -30,8 +30,6 @@ module Bolognese
       @raw = string
     end
 
-    alias_method :schema_org, :as_schema_org
-
     def metadata
       @metadata ||= raw.present? ? BibTeX.parse(raw).first : {}
     end
