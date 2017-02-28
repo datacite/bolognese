@@ -182,25 +182,19 @@ module Bolognese
       xml.version(version)
     end
 
-    def rel_identifiers
-      rel_identifier(rel_ids: is_part_of, relation_type: "IsPartOf") +
-      rel_identifier(rel_ids: has_part, relation_type: "HasPart") +
-      rel_identifier(rel_ids: citation, relation_type: "References")
-    end
-
-    def rel_identifier(rel_ids: nil, relation_type: nil)
-      Array.wrap(rel_ids).map do |i|
-        { "__content__" => i["@id"],
-          "related_identifier_type" => validate_url(i["@id"]),
-          "relation_type" => relation_type }
-      end.select { |i| i["related_identifier_type"].present? }
+    def rel_identifier
+      Array.wrap(related_identifier).map do |r|
+        { "__content__" => r["id"],
+          "related_identifier_type" => validate_url(r["id"]),
+          "relation_type" => r["relationType"] }
+      end
     end
 
     def insert_related_identifiers(xml)
-      return xml unless rel_identifiers.present?
+      return xml unless rel_identifier.present?
 
       xml.relatedIdentifiers do
-        rel_identifiers.each do |related_identifier|
+        rel_identifier.each do |related_identifier|
           xml.relatedIdentifier(related_identifier["__content__"], 'relatedIdentifierType' => related_identifier["related_identifier_type"], 'relationType' => related_identifier["relation_type"])
         end
       end

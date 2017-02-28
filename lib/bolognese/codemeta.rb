@@ -65,13 +65,12 @@ module Bolognese
     end
 
     def author
-      authors = author_from_schema_org(Array.wrap(metadata.fetch("agents", nil)))
-      puts authors
+      authors = from_schema_org(Array.wrap(metadata.fetch("agents", nil)))
       get_authors(authors)
     end
 
     def editor
-      editors = author_from_schema_org(Array.wrap(metadata.fetch("editor", nil)))
+      editors = from_schema_org(Array.wrap(metadata.fetch("editor", nil)))
       get_authors(editors)
     end
 

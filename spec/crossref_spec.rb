@@ -19,8 +19,8 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
-      expect(subject.citation.count).to eq(27)
-      expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
+      expect(subject.references.count).to eq(27)
+      expect(subject.references[21]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "relationType"=>"Cites", "position"=>"22", "datePublished"=>"2014")
       expect(subject.funder).to eq([{"@type"=>"Organization", "name"=>"SystemsX"},
                                     {"@type"=>"Organization",
                                      "@id"=>"https://doi.org/10.13039/501100003043",
@@ -160,8 +160,8 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
-      expect(subject.citation.count).to eq(27)
-      expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
+      expect(subject.references.count).to eq(27)
+      expect(subject.references[21]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "relationType"=>"Cites", "position"=>"22", "datePublished"=>"2014")
       expect(subject.provider).to eq("Crossref")
     end
   end
@@ -171,7 +171,7 @@ describe Bolognese::Crossref, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(25)
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(27)
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier"=>{"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
     end

@@ -59,7 +59,7 @@ describe Bolognese::CLI do
 
       it 'to datacite_json' do
         subject.options = { to: "datacite_json" }
-        expect { subject.convert id }.to output(/xxx/).to_stdout
+        expect { subject.convert id }.to output(/François Renaud/).to_stdout
       end
     end
 

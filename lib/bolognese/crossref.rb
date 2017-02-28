@@ -228,15 +228,19 @@ module Bolognese
 
     alias_method :journal, :container_title
 
-    def citation
-       citations = bibliographic_metadata.dig("citation_list", "citation")
-       Array.wrap(citations).map do |c|
-         { "@type" => "CreativeWork",
-           "@id" => normalize_id(c["doi"]),
+    def related_identifier(relation_type: nil)
+      references
+    end
+
+    def references
+       refs = bibliographic_metadata.dig("citation_list", "citation")
+       Array.wrap(refs).map do |c|
+         { "id" => normalize_id(c["doi"]),
+           "relationType" => "Cites",
            "position" => c["key"],
            "name" => c["article_title"],
            "datePublished" => c["cYear"] }.compact
-       end.presence
+       end.unwrap
     end
 
     def provider

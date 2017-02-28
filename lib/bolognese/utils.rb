@@ -114,8 +114,13 @@ module Bolognese
       "http://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
-    def normalize_ids(list)
-      Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }.unwrap
+    def normalize_ids(list, relation_type = "References")
+      Array.wrap(list).map do |url|
+        { "id" => normalize_id(url["@id"]),
+          "type" => url["@type"],
+          "name" => url["name"],
+          "relationType" => relation_type }.compact
+      end.unwrap
     end
 
     # find Creative Commons or OSI license in licenses array, normalize url and name
@@ -155,16 +160,16 @@ module Bolognese
       nil
     end
 
-    def author_to_schema_org(author)
-      Array.wrap(author).map do |a|
+    def to_schema_org(element)
+      Array.wrap(element).map do |a|
         a["@type"] = a["type"]
         a["@id"] = a["id"]
         a.except("type", "id").compact
       end.unwrap
     end
 
-    def author_from_schema_org(author)
-      Array.wrap(author).map do |a|
+    def from_schema_org(element)
+      Array.wrap(element).map do |a|
         a["type"] = a["@type"]
         a["id"] = a["@id"]
         a.except("@type", "@id").compact

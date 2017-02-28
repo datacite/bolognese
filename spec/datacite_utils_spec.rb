@@ -112,16 +112,11 @@ describe Bolognese::Datacite, vcr: true do
   end
 
   context "insert_related_identifiers" do
-    it "rel_identifiers" do
-      expect(subject.rel_identifiers).to eq([{"__content__"=>"https://doi.org/10.5061/dryad.8515/1",
-                                              "related_identifier_type"=>"DOI",
-                                              "relation_type"=>"HasPart"},
-                                             {"__content__"=>"https://doi.org/10.5061/dryad.8515/2",
-                                              "related_identifier_type"=>"DOI",
-                                              "relation_type"=>"HasPart"},
-                                             {"__content__"=>"https://doi.org/10.1371/journal.ppat.1000446",
-                                              "related_identifier_type"=>"DOI",
-                                              "relation_type"=>"References"}])
+    it "related_identifier" do
+      expect(subject.related_identifier).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"},
+                                                {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"},
+                                                {"id"=>"https://doi.org/10.1371/journal.ppat.1000446",
+                                                 "relationType"=>"IsReferencedBy"}])
     end
 
     it "insert" do
@@ -134,7 +129,7 @@ describe Bolognese::Datacite, vcr: true do
                                                                               "relationType"=>"HasPart",
                                                                               "__content__"=>"https://doi.org/10.5061/dryad.8515/2"},
                                                                              {"relatedIdentifierType"=>"DOI",
-                                                                              "relationType"=>"References",
+                                                                              "relationType"=>"IsReferencedBy",
                                                                               "__content__"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
     end
   end

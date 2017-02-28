@@ -1,6 +1,15 @@
 module Bolognese
   class SchemaOrg < Metadata
 
+    SO_TO_DC_RELATION_TYPES = {
+      "citation" => "References",
+      "sameAs" => "IsIdenticalTo",
+      "isPartOf" => "IsPartOf",
+      "hasPart" => "HasPart",
+      "isPredecessor" => "IsPreviousVersionOf",
+      "isSuccessor" => "IsNewVersionOf"
+    }
+
     def initialize(id: nil, string: nil)
       id = normalize_id(id) if id.present?
 
@@ -62,12 +71,12 @@ module Bolognese
     end
 
     def author
-      authors = author_from_schema_org(Array.wrap(metadata.fetch("author", nil)))
+      authors = from_schema_org(Array.wrap(metadata.fetch("author", nil)))
       get_authors(authors)
     end
 
     def editor
-      editors = author_from_schema_org(Array.wrap(metadata.fetch("editor", nil)))
+      editors = from_schema_org(Array.wrap(metadata.fetch("editor", nil)))
       get_authors(editors)
     end
 
@@ -99,24 +108,41 @@ module Bolognese
       metadata.fetch("dateModified", nil)
     end
 
-    def related_identifiers(relation_type)
-      normalize_ids(metadata.fetch(relation_type, nil))
+    def related_identifier
+      Array.wrap(is_identical_to) +
+      Array.wrap(is_part_of) +
+      Array.wrap(has_part) +
+      Array.wrap(is_previous_version_of) +
+      Array.wrap(is_new_version_of) +
+      Array.wrap(references)
     end
 
-    def same_as
-      related_identifiers("isIdenticalTo")
+    def get_related_identifier(relation_type: nil)
+      normalize_ids(metadata.fetch(relation_type, nil), SO_TO_DC_RELATION_TYPES[relation_type])
+    end
+
+    def is_identical_to
+      get_related_identifier(relation_type: "sameAs")
     end
 
     def is_part_of
-      related_identifiers("isPartOf")
+      get_related_identifier(relation_type: "isPartOf")
     end
 
     def has_part
-      related_identifiers("hasPart")
+      get_related_identifier(relation_type: "hasPart")
     end
 
-    def citation
-      related_identifiers("citation")
+    def is_previous_version_of
+      get_related_identifier(relation_type: "isPredecessor")
+    end
+
+    def is_new_version_of
+      get_related_identifier(relation_type: "isSuccessor")
+    end
+
+    def references
+      get_related_identifier(relation_type: "citation")
     end
 
     def publisher

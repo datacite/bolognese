@@ -69,28 +69,28 @@ describe Bolognese::Crossref, vcr: true do
     it "doi" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"}, {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55E5-T5C0"}]
       response = subject.normalize_ids(ids)
-      expect(response).to eq([{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"}, {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork", "relationType"=>"References"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork", "relationType"=>"References"}])
     end
 
     it "url" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food/"}]
       response = subject.normalize_ids(ids)
-      expect(response).to eq("@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food")
+      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "type"=>"CreativeWork", "relationType"=>"References")
     end
   end
 
-  context "author_to_schema_org" do
+  context "to_schema_org" do
     it "with id" do
       author = {"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }
-      response = subject.author_to_schema_org(author)
+      response = subject.to_schema_org(author)
       expect(response).to eq("givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner", "@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405")
     end
   end
 
-  context "author_from_schema_org" do
+  context "from_schema_org" do
     it "with @id" do
       author = {"@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }
-      response = subject.author_from_schema_org(author)
+      response = subject.from_schema_org(author)
       expect(response).to eq("givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner", "type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405")
     end
   end

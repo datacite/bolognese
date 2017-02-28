@@ -218,33 +218,35 @@ module Bolognese
       metadata.fetch("size", nil)
     end
 
-    def related_identifiers(relation_type: nil)
-      Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
-        .select { |r| relation_type.split(" ").include?(r["relationType"]) && %w(DOI URL).include?(r["relatedIdentifierType"]) }
-        .map do |work|
-          { "@type" => "CreativeWork",
-            "@id" => normalize_id(work["__content__"]) }
-        end.unwrap
+    def related_identifier(relation_type: nil)
+      arr = Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
+      arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
+
+      arr.map { |work| { "id" => normalize_id(work["__content__"]), "relationType" => work["relationType"] } }.unwrap
     end
 
-    def same_as
-      related_identifiers(relation_type: "IsIdenticalTo")
+    def is_identical_to
+      related_identifier(relation_type: "IsIdenticalTo")
     end
 
     def is_part_of
-      related_identifiers(relation_type: "IsPartOf")
+      related_identifier(relation_type: "IsPartOf")
     end
 
     def has_part
-      related_identifiers(relation_type: "HasPart")
+      related_identifier(relation_type: "HasPart")
     end
 
-    def predecessor_of
-      related_identifiers(relation_type: "IsPreviousVersionOf")
+    def is_previous_version_of
+      related_identifier(relation_type: "IsPreviousVersionOf")
     end
 
-    def citation
-      related_identifiers(relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
+    def is_new_version_of
+      related_identifier(relation_type: "IsNewVersionOf")
+    end
+
+    def references
+      related_identifier(relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
     end
 
     def publisher
