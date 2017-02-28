@@ -56,6 +56,11 @@ describe Bolognese::CLI do
         subject.options = { to: "datacite" }
         expect { subject.convert id }.to output(/http:\/\/datacite.org\/schema\/kernel-3/).to_stdout
       end
+
+      it 'to datacite_json' do
+        subject.options = { to: "datacite_json" }
+        expect { subject.convert id }.to output(/xxx/).to_stdout
+      end
     end
 
     context "schema_org" do

@@ -1,0 +1,155 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/10.5438/4k3m-nyvg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/vnd.datacite.datacite+xml
+  response:
+    status:
+      code: 303
+      message: ''
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Vary:
+      - Accept
+      Location:
+      - http://data.datacite.org/10.5438%2F4k3m-nyvg
+      Expires:
+      - Tue, 28 Feb 2017 08:33:29 GMT
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '173'
+      Date:
+      - Tue, 28 Feb 2017 07:49:56 GMT
+    body:
+      encoding: UTF-8
+      string: |-
+        <html><head><title>Handle Redirect</title></head>
+        <body><a href="http://data.datacite.org/10.5438%2F4k3m-nyvg">http://data.datacite.org/10.5438%2F4k3m-nyvg</a></body></html>
+    http_version: 
+  recorded_at: Tue, 28 Feb 2017 07:49:56 GMT
+- request:
+    method: get
+    uri: http://data.datacite.org/10.5438%2F4k3m-nyvg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/vnd.datacite.datacite+xml
+  response:
+    status:
+      code: 301
+      message: ''
+    headers:
+      Server:
+      - openresty/1.11.2.2
+      Date:
+      - Tue, 28 Feb 2017 07:49:56 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '191'
+      Connection:
+      - keep-alive
+      Location:
+      - https://data.datacite.org/10.5438%2F4k3m-nyvg
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>openresty/1.11.2.2</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Tue, 28 Feb 2017 07:49:56 GMT
+- request:
+    method: get
+    uri: https://data.datacite.org/10.5438%2F4k3m-nyvg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/vnd.datacite.datacite+xml
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - openresty/1.11.2.2
+      Date:
+      - Tue, 28 Feb 2017 07:49:56 GMT
+      Content-Type:
+      - application/vnd.datacite.datacite+xml
+      Content-Length:
+      - '2045'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-transform, max-age=3600
+      Last-Modified:
+      - Mon, 09 Jan 2017 13:53:11 GMT
+      Vary:
+      - Accept
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+          <identifier identifierType="DOI">10.5438/4K3M-NYVG</identifier>
+          <creators>
+            <creator>
+              <creatorName>Fenner, Martin</creatorName>
+              <givenName>Martin</givenName>
+              <familyName>Fenner</familyName>
+              <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">0000-0003-1419-2405</nameIdentifier>
+            </creator>
+          </creators>
+          <titles>
+            <title>Eating your own Dog Food</title>
+          </titles>
+          <publisher>DataCite</publisher>
+          <publicationYear>2016</publicationYear>
+          <resourceType resourceTypeGeneral="Text">BlogPosting</resourceType>
+          <alternateIdentifiers>
+            <alternateIdentifier alternateIdentifierType="Local accession number">MS-49-3632-5083</alternateIdentifier>
+          </alternateIdentifiers>
+          <subjects>
+            <subject>datacite</subject>
+            <subject>doi</subject>
+            <subject>metadata</subject>
+          </subjects>
+          <dates>
+            <date dateType="Created">2016-12-20</date>
+            <date dateType="Issued">2016-12-20</date>
+            <date dateType="Updated">2016-12-20</date>
+          </dates>
+          <relatedIdentifiers>
+            <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.5438/0012</relatedIdentifier>
+            <relatedIdentifier relatedIdentifierType="DOI" relationType="References">10.5438/55E5-T5C0</relatedIdentifier>
+            <relatedIdentifier relatedIdentifierType="DOI" relationType="IsPartOf">10.5438/0000-00SS</relatedIdentifier>
+          </relatedIdentifiers>
+          <version>1.0</version>
+          <descriptions>
+            <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
+          </descriptions>
+        </resource>
+    http_version: 
+  recorded_at: Tue, 28 Feb 2017 07:49:56 GMT
+recorded_with: VCR 3.0.3

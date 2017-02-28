@@ -65,12 +65,13 @@ module Bolognese
     end
 
     def author
-      arr = Array.wrap(metadata.fetch("agents", nil)).map { |a| a.slice("@type", "@id", "name") }
-      array_unwrap(arr)
+      authors = author_from_schema_org(Array.wrap(metadata.fetch("agents", nil)))
+      get_authors(authors)
     end
 
     def editor
-      Array(metadata.fetch("editor", nil)).map { |a| a.except("name") }.presence
+      editors = author_from_schema_org(Array.wrap(metadata.fetch("editor", nil)))
+      get_authors(editors)
     end
 
     def description
@@ -122,13 +123,7 @@ module Bolognese
     end
 
     def publisher
-      p = metadata.fetch("publisher", nil)
-      if p.is_a?(Hash)
-        p
-      elsif p.is_a?(String)
-        { "@type" => "Organization",
-          "name" => p }
-      end
+      metadata.fetch("publisher", nil)
     end
 
     def container_title

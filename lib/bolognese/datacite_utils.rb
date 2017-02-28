@@ -22,15 +22,6 @@ module Bolognese
       "WebSite" => "Text"
     }
 
-    LICENSE_NAMES = {
-      "http://creativecommons.org/publicdomain/zero/1.0/" => "Public Domain (CC0 1.0)",
-      "http://creativecommons.org/licenses/by/3.0/" => "Creative Commons Attribution 3.0 (CC-BY 3.0)",
-      "http://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
-      "http://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
-      "http://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
-      "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivatives 4.0 (CC-BY-NC-ND 4.0)"
-    }
-
     SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
 
     def schema
@@ -103,7 +94,7 @@ module Bolognese
       xml.send(type + "Name", person_name)
       xml.givenName(person["givenName"]) if person["givenName"].present?
       xml.familyName(person["familyName"]) if person["familyName"].present?
-      xml.nameIdentifier(person["@id"], 'schemeURI' => 'http://orcid.org/', 'nameIdentifierScheme' => 'ORCID') if person["@id"].present?
+      xml.nameIdentifier(person["id"], 'schemeURI' => 'http://orcid.org/', 'nameIdentifierScheme' => 'ORCID') if person["id"].present?
     end
 
     def insert_titles(xml)
@@ -140,7 +131,9 @@ module Bolognese
       return xml unless alternate_name.present?
 
       xml.alternateIdentifiers do
-        xml.alternateIdentifier(alternate_name, 'alternateIdentifierType' => "Local accession number")
+        Array.wrap(alternate_name).each do |alt|
+          xml.alternateIdentifier(alt["name"], 'alternateIdentifierType' => alt["type"])
+        end
       end
     end
 
@@ -218,7 +211,7 @@ module Bolognese
 
       xml.rightsList do
         Array.wrap(license).each do |lic|
-          xml.rights(LICENSE_NAMES[lic], 'rightsURI' => lic)
+          xml.rights(lic["name"], 'rightsURI' => lic["url"])
         end
       end
     end

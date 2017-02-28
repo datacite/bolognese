@@ -38,25 +38,32 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
-        <td><a href='http://schema.org/'>Schema.org in JSON-LD</a></td>
-        <td>schema_org</td>
-        <td>application/vnd.schemaorg.ld+json</td>
-        <td>Yes</td>
-        <td>Yes</td>
+      <td><a href='https://api.datacite.org/'>DataCite JSON</a></td>
+      <td>datacite</td>
+      <td>application/vnd.datacite+json</td>
+      <td>Yes</td>
+      <td>Yes</td>
     </tr>
     <tr>
-        <td><a href='https://codemeta.github.io/'>Codemeta</a></td>
-        <td>codemeta</td>
-        <td>application/ld+json</td>
-        <td>Yes</td>
-        <td>Yes</td>
+      <td><a href='http://schema.org/'>Schema.org in JSON-LD</a></td>
+      <td>schema_org</td>
+      <td>application/vnd.schemaorg.ld+json</td>
+      <td>Yes</td>
+      <td>Yes</td>
     </tr>
     <tr>
-        <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
-        <td>bibtex</td>
-        <td>application/x-bibtex</td>
-        <td>Yes</td>
-        <td>Yes</td>
+      <td><a href='https://codemeta.github.io/'>Codemeta</a></td>
+      <td>codemeta</td>
+      <td>application/ld+json</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
+      <td>bibtex</td>
+      <td>application/x-bibtex</td>
+      <td>Yes</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>

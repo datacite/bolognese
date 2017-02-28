@@ -62,13 +62,13 @@ module Bolognese
     end
 
     def author
-      arr = Array.wrap(metadata.fetch("author", nil)).map { |a| a.except("name") }
-      array_unwrap(arr)
+      authors = author_from_schema_org(Array.wrap(metadata.fetch("author", nil)))
+      get_authors(authors)
     end
 
     def editor
-      arr = Array.wrap(metadata.fetch("editor", nil)).map { |a| a.except("name") }
-      array_unwrap(arr)
+      editors = author_from_schema_org(Array.wrap(metadata.fetch("editor", nil)))
+      get_authors(editors)
     end
 
     def description
@@ -120,7 +120,7 @@ module Bolognese
     end
 
     def publisher
-      metadata.fetch("publisher", nil)
+      metadata.dig("publisher", "name")
     end
 
     def container_title

@@ -172,23 +172,22 @@ module Bolognese
 
     def people(contributor_role)
       person = bibliographic_metadata.dig("contributors", "person_name")
-      arr = Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
-        { "@type" => "Person",
-          "@id" => parse_attributes(a["ORCID"]),
+      Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
+        { "type" => "Person",
+          "id" => parse_attributes(a["ORCID"]),
+          "name" => [a["given_name"], a["surname"]].join(" "),
           "givenName" => a["given_name"],
           "familyName" => a["surname"] }.compact
-      end
-      array_unwrap(arr)
+      end.unwrap
     end
 
     def funder
       fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
-      arr = Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
+      Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
         { "@type" => "Organization",
           "@id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
           "name" => f.dig("assertion", "__content__").strip }.compact
-      end
-      array_unwrap(arr)
+      end.unwrap
     end
 
     def date_published
@@ -241,8 +240,7 @@ module Bolognese
     end
 
     def provider
-      { "@type" => "Organization",
-        "name" => "Crossref" }
+      "Crossref"
     end
   end
 end

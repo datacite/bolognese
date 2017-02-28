@@ -12,11 +12,8 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
-                                    {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
-                                    {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
-                                    {"@type"=>"Person", "givenName"=>"Ioannis", "familyName"=>"Xenarios"},
-                                    {"@type"=>"Person", "givenName"=>"Christian S", "familyName"=>"Hardtke"}])
+      expect(subject.author.length).to eq(5)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Martial Sankar", "givenName"=>"Martial", "familyName"=>"Sankar")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
       expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.date_published).to eq("2014-02-11")
@@ -34,7 +31,7 @@ describe Bolognese::Crossref, vcr: true do
                                     {"@type"=>"Organization",
                                      "@id"=>"https://doi.org/10.13039/501100006390",
                                      "name"=>"University of Lausanne"}])
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
 
     it "journal article" do
@@ -45,19 +42,16 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Markus", "familyName"=>"Ralser"},
-                                    {"@type"=>"Person", "givenName"=>"Gino", "familyName"=>"Heeren"},
-                                    {"@type"=>"Person", "givenName"=>"Michael", "familyName"=>"Breitenbach"},
-                                    {"@type"=>"Person", "givenName"=>"Hans", "familyName"=>"Lehrach"},
-                                    {"@type"=>"Person", "givenName"=>"Sylvia", "familyName"=>"Krobitsch"}])
-      expect(subject.editor).to eq("@type"=>"Person", "givenName"=>"Guilhem", "familyName"=>"Janbon")
+      expect(subject.author.length).to eq(5)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Markus Ralser", "givenName"=>"Markus", "familyName"=>"Ralser")
+      expect(subject.editor).to eq("type"=>"Person", "name"=>"Guilhem Janbon", "givenName"=>"Guilhem", "familyName"=>"Janbon")
       expect(subject.name).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/4.0/")
       expect(subject.date_published).to eq("2006-12-20")
       expect(subject.date_modified).to eq("2016-12-31T21:37:08Z")
       expect(subject.page_start).to eq("e30")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"PLoS ONE", "issn"=>"1932-6203")
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
 
     it "posted_content" do
@@ -69,14 +63,14 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.additional_type).to eq("PostedContent")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author.count).to eq(10)
-      expect(subject.author.last).to eq("@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-4060-7360", "givenName"=>"Timothy", "familyName"=>"Clark")
+      expect(subject.author.last).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4060-7360", "name"=>"Timothy Clark", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.name).to eq("A Data Citation Roadmap for Scholarly Data Repositories")
       expect(subject.alternate_name).to eq("biorxiv;097196v1")
       expect(subject.description).to start_with("This article presents a practical roadmap")
       expect(subject.date_published).to eq("2016-12-28")
       expect(subject.date_modified).to eq("2016-12-29T00:10:20Z")
       expect(subject.is_part_of).to be_nil
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
 
     it "DOI with SICI DOI" do
@@ -87,7 +81,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"A.", "familyName"=>"Fenton"}, {"@type"=>"Person", "givenName"=>"S. A.", "familyName"=>"Rands"}])
+      expect(subject.author).to eq([{"type"=>"Person", "name"=>"A. Fenton", "givenName"=>"A.", "familyName"=>"Fenton"}, {"type"=>"Person", "name"=>"S. A. Rands", "givenName"=>"S. A.", "familyName"=>"Rands"}])
       expect(subject.license).to eq("http://doi.wiley.com/10.1002/tdm_license_1")
       expect(subject.name).to eq("THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES")
       expect(subject.date_published).to eq("2006-11")
@@ -95,7 +89,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.page_start).to eq("2832")
       expect(subject.page_end).to eq("2841")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Ecology", "issn"=>"0012-9658")
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
 
     it "DOI with ORCID ID" do
@@ -106,16 +100,8 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Wendy", "familyName"=>"Thanassi"},
-                                    {"@type"=>"Person", "givenName"=>"Art", "familyName"=>"Noda"},
-                                    {"@type"=>"Person",
-                                     "@id"=>"http://orcid.org/0000-0003-2043-4925",
-                                     "givenName"=>"Beatriz",
-                                     "familyName"=>"Hernandez"},
-                                    {"@type"=>"Person", "givenName"=>"Jeffery", "familyName"=>"Newell"},
-                                    {"@type"=>"Person", "givenName"=>"Paul", "familyName"=>"Terpeluk"},
-                                    {"@type"=>"Person", "givenName"=>"David", "familyName"=>"Marder"},
-                                    {"@type"=>"Person", "givenName"=>"Jerome A.", "familyName"=>"Yesavage"}])
+      expect(subject.author.length).to eq(7)
+      expect(subject.author[2]).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-2043-4925", "name"=>"Beatriz Hernandez", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
       expect(subject.name).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
       expect(subject.date_published).to eq("2012")
@@ -123,7 +109,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.page_start).to eq("1")
       expect(subject.page_end).to eq("7")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
 
     it "date in future" do
@@ -134,21 +120,13 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Sarah E.", "familyName"=>"Beck"},
-                                    {"@type"=>"Person", "givenName"=>"Suzanne E.", "familyName"=>"Queen"},
-                                    {"@type"=>"Person", "givenName"=>"Kenneth W.", "familyName"=>"Witwer"},
-                                    {"@type"=>"Person", "givenName"=>"Kelly A.", "familyName"=>"Metcalf Pate"},
-                                    {"@type"=>"Person", "givenName"=>"Lisa M.", "familyName"=>"Mangus"},
-                                    {"@type"=>"Person", "givenName"=>"Lucio", "familyName"=>"Gama"},
-                                    {"@type"=>"Person", "givenName"=>"Robert J.", "familyName"=>"Adams"},
-                                    {"@type"=>"Person", "givenName"=>"Janice E.", "familyName"=>"Clements"},
-                                    {"@type"=>"Person", "givenName"=>"M.", "familyName"=>"Christine Zink"},
-                                    {"@type"=>"Person", "givenName"=>"Joseph L.", "familyName"=>"Mankowski"}])
+      expect(subject.author.length).to eq(10)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Sarah E. Beck", "givenName"=>"Sarah E.", "familyName"=>"Beck")
       expect(subject.name).to eq("Paving the path to HIV neurotherapy: Predicting SIV CNS disease")
       expect(subject.date_published).to eq("2015-07")
       expect(subject.date_modified).to eq("2016-08-20T02:19:38Z")
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"European Journal of Pharmacology", "issn"=>"00142999")
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
 
     it "not found error" do
@@ -175,11 +153,8 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"@type"=>"Person", "givenName"=>"Martial", "familyName"=>"Sankar"},
-                                    {"@type"=>"Person", "givenName"=>"Kaisa", "familyName"=>"Nieminen"},
-                                    {"@type"=>"Person", "givenName"=>"Laura", "familyName"=>"Ragni"},
-                                    {"@type"=>"Person", "givenName"=>"Ioannis", "familyName"=>"Xenarios"},
-                                    {"@type"=>"Person", "givenName"=>"Christian S", "familyName"=>"Hardtke"}])
+      expect(subject.author.length).to eq(5)
+      expect(subject.author.last).to eq("type"=>"Person", "name"=>"Christian S Hardtke", "givenName"=>"Christian S", "familyName"=>"Hardtke")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
       expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.date_published).to eq("2014-02-11")
@@ -187,7 +162,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
       expect(subject.citation.count).to eq(27)
       expect(subject.citation[21]).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5061/dryad.b835k", "position"=>"22", "datePublished"=>"2014")
-      expect(subject.provider).to eq("@type"=>"Organization", "name"=>"Crossref")
+      expect(subject.provider).to eq("Crossref")
     end
   end
 
@@ -207,14 +182,17 @@ describe Bolognese::Crossref, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)
-      expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi")
+      expect(datacite.dig("creators", "creator")[2]).to eq("creatorName" => "Beatriz Hernandez",
+       +"familyName" => "Hernandez",
+       +"givenName" => "Beatriz",
+        "nameIdentifier" => {"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-2043-4925"})
     end
 
     it "with editor" do
       id = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Crossref.new(id: id)
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Janbon, Guilhem", "givenName"=>"Guilhem", "familyName"=>"Janbon")
+      expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Guilhem Janbon", "givenName"=>"Guilhem", "familyName"=>"Janbon")
     end
   end
 

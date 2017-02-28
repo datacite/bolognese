@@ -1,5 +1,13 @@
 module Bolognese
   module Utils
+    LICENSE_NAMES = {
+      "http://creativecommons.org/publicdomain/zero/1.0/" => "Public Domain (CC0 1.0)",
+      "http://creativecommons.org/licenses/by/3.0/" => "Creative Commons Attribution 3.0 (CC-BY 3.0)",
+      "http://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
+      "http://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
+      "http://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
+      "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivatives 4.0 (CC-BY-NC-ND 4.0)"
+    }
 
     def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
       if id.present?
@@ -30,6 +38,8 @@ module Bolognese
         "crossref"
       elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("resource", "xmlns").start_with?("http://datacite.org/schema/kernel")
         "datacite"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+        "datacite_json"
       elsif options[:filename] == "codemeta.json"
         "codemeta"
       end
@@ -41,6 +51,7 @@ module Bolognese
             when "crossref" then Crossref.new(id: id, string: string)
             when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
             when "codemeta" then Codemeta.new(id: id, string: string)
+            when "datacite_json" then DataciteJson.new(string: string)
             when "bibtex" then Bibtex.new(string: string)
             else SchemaOrg.new(id: id)
             end
@@ -83,18 +94,9 @@ module Bolognese
       elsif element.is_a?(Hash)
         element.fetch(content, nil)
       elsif element.is_a?(Array)
-        a = element.map { |e| e.fetch(content, nil) }.uniq
-        array_unwrap(a)
+        a = element.map { |e| e.fetch(content, nil) }.uniq.unwrap
       else
         nil
-      end
-    end
-
-    def array_unwrap(element)
-      case element.length
-      when 0 then nil
-      when 1 then element.first
-      else element
       end
     end
 
@@ -113,8 +115,60 @@ module Bolognese
     end
 
     def normalize_ids(list)
-      arr = Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }
-      array_unwrap(arr)
+      Array.wrap(list).map { |url| url.merge("@id" => normalize_id(url["@id"])) }.unwrap
+    end
+
+    # find Creative Commons or OSI license in licenses array, normalize url and name
+    def normalize_licenses(licenses)
+      standard_licenses = Array.wrap(licenses).map { |l| URI.parse(l["url"]) }.select { |li| li.host && li.host[/(creativecommons.org|opensource.org)$/] }
+      return licenses unless standard_licenses.present?
+
+      # use HTTPS
+      uri.scheme = "https"
+
+      # use host name without subdomain
+      uri.host = Array(/(creativecommons.org|opensource.org)/.match uri.host).last
+
+      # normalize URLs
+      if uri.host == "creativecommons.org"
+        uri.path = uri.path.split('/')[0..-2].join("/") if uri.path.split('/').last == "legalcode"
+        uri.path << '/' unless uri.path.end_with?('/')
+      else
+        uri.path = uri.path.gsub(/(-license|\.php|\.html)/, '')
+        uri.path = uri.path.sub(/(mit|afl|apl|osl|gpl|ecl)/) { |match| match.upcase }
+        uri.path = uri.path.sub(/(artistic|apache)/) { |match| match.titleize }
+        uri.path = uri.path.sub(/([^0-9\-]+)(-)?([1-9])?(\.)?([0-9])?$/) do
+          m = Regexp.last_match
+          text = m[1]
+
+          if m[3].present?
+            version = [m[3], m[5].presence || "0"].join(".")
+            [text, version].join("-")
+          else
+            text
+          end
+        end
+      end
+
+      uri.to_s
+    rescue URI::InvalidURIError
+      nil
+    end
+
+    def author_to_schema_org(author)
+      Array.wrap(author).map do |a|
+        a["@type"] = a["type"]
+        a["@id"] = a["id"]
+        a.except("type", "id").compact
+      end.unwrap
+    end
+
+    def author_from_schema_org(author)
+      Array.wrap(author).map do |a|
+        a["type"] = a["@type"]
+        a["id"] = a["@id"]
+        a.except("@type", "@id").compact
+      end.unwrap
     end
 
     def github_from_url(url)

@@ -1,5 +1,5 @@
 module Bolognese
-  class Datacite < Metadata
+  class DataciteJson < Metadata
 
     DC_TO_SO_TRANSLATIONS = {
       "Audiovisual" => "VideoObject",
@@ -20,26 +20,14 @@ module Bolognese
 
     SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
 
-    def initialize(id: nil, string: nil, regenerate: false)
-      id = normalize_doi(id) if id.present?
-
+    def initialize(string: nil, regenerate: false)
       if string.present?
         @raw = string
-      elsif id.present?
-        response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
-        @raw = response.body.fetch("data", nil)
       end
-
-      @should_passthru = !regenerate
-    end
-
-    # generate new DataCite XML version 4.0 if regenerate (!should_passthru) option is provided
-    def datacite
-      should_passthru ? raw : datacite_xml
     end
 
     def metadata
-      @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("resource", {}) : {}
+      @metadata ||= raw.present? ? Maremma.from_json(raw).fetch("resource", {}) : {}
     end
 
     def exists?
@@ -50,18 +38,8 @@ module Bolognese
       errors.blank?
     end
 
-    def errors
-      schema.validate(Nokogiri::XML(raw)).map { |error| error.to_s }.unwrap
-    end
-
     def schema_version
       metadata.fetch("xmlns", nil)
-    end
-
-    def schema
-      kernel = schema_version.split("/").last
-      filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
-      Nokogiri::XML::Schema(open(filepath))
     end
 
     def doi
@@ -94,9 +72,7 @@ module Bolognese
     end
 
     def alternate_name
-      Array.wrap(metadata.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-        { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }.compact
-      end.unwrap
+      parse_attributes(metadata.dig("alternateIdentifiers", "alternateIdentifier"))
     end
 
     def descriptions
@@ -108,9 +84,7 @@ module Bolognese
     end
 
     def license
-      Array.wrap(metadata.dig("rightsList", "rights")).map do |r|
-        { "url" => r["rightsURI"], "name" => r["__content__"] }.compact
-      end.unwrap
+      parse_attributes(Array.wrap(metadata.dig("rightsList", "rights")), content: "rightsURI")
     end
 
     def keywords
@@ -122,8 +96,9 @@ module Bolognese
     end
 
     def editor
-      get_authors(Array.wrap(metadata.dig("contributors", "contributor"))
-                          .select { |r| r["contributorType"] == "Editor" })
+      editors = Array.wrap(metadata.dig("contributors", "contributor"))
+                     .select { |r| r["contributorType"] == "Editor" }
+      get_authors(editors))
     end
 
     def funder
@@ -134,7 +109,7 @@ module Bolognese
     def funder_contributor
       Array.wrap(metadata.dig("contributors", "contributor")).reduce([]) do |sum, f|
         if f["contributorType"] == "Funder"
-          sum << { "name" => f["contributorName"] }
+          sum << { "@type" => "Organization", "name" => f["contributorName"] }
         else
           sum
         end
@@ -144,7 +119,8 @@ module Bolognese
     def funding_reference
       Array.wrap(metadata.dig("fundingReferences", "fundingReference")).map do |f|
         funder_id = parse_attributes(f["funderIdentifier"])
-        { "identifier" => normalize_id(funder_id),
+        { "@type" => "Organization",
+          "@id" => normalize_id(funder_id),
           "name" => f["funderName"] }.compact
       end.uniq
     end
@@ -164,42 +140,16 @@ module Bolognese
       dd.fetch("__content__", nil)
     end
 
-    def date_accepted
-      date("Accepted")
-    end
-
-    def date_available
-      date("Available")
-    end
-
-    def date_copyrighted
-      date("Copyrighted")
-    end
-
-    def date_collected
-      date("Collected")
-    end
-
     def date_created
       date("Created")
     end
 
-    # use datePublished for date issued
     def date_published
       date("Issued") || publication_year
     end
 
-    def date_submitted
-      date("Submitted")
-    end
-
-    # use dateModified for date updated
     def date_modified
       date("Updated")
-    end
-
-    def date_valid
-      date("Valid")
     end
 
     def publication_year
@@ -218,43 +168,51 @@ module Bolognese
       metadata.fetch("size", nil)
     end
 
-    def related_identifiers(relation_type: nil)
+    def related_identifiers(relation_type)
       Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier"))
         .select { |r| relation_type.split(" ").include?(r["relationType"]) && %w(DOI URL).include?(r["relatedIdentifierType"]) }
         .map do |work|
           { "@type" => "CreativeWork",
             "@id" => normalize_id(work["__content__"]) }
-        end.unwrap
+      end.unwrap
     end
 
     def same_as
-      related_identifiers(relation_type: "IsIdenticalTo")
+      related_identifiers("IsIdenticalTo")
     end
 
     def is_part_of
-      related_identifiers(relation_type: "IsPartOf")
+      related_identifiers("IsPartOf")
     end
 
     def has_part
-      related_identifiers(relation_type: "HasPart")
+      related_identifiers("HasPart")
     end
 
     def predecessor_of
-      related_identifiers(relation_type: "IsPreviousVersionOf")
+      related_identifiers("IsPreviousVersionOf")
+    end
+
+    def successor_of
+      related_identifiers("IsNewVersionOf")
     end
 
     def citation
-      related_identifiers(relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
+      related_identifiers("Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
     end
 
     def publisher
-      metadata.fetch("publisher")
+      { "@type" => "Organization",
+        "name" => metadata.fetch("publisher") }
     end
 
-    alias_method :container_title, :publisher
+    def container_title
+      publisher.fetch("name", nil)
+    end
 
     def provider
-      "DataCite"
+      { "@type" => "Organization",
+        "name" => "DataCite" }
     end
   end
 end

@@ -78,4 +78,20 @@ describe Bolognese::Crossref, vcr: true do
       expect(response).to eq("@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food")
     end
   end
+
+  context "author_to_schema_org" do
+    it "with id" do
+      author = {"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }
+      response = subject.author_to_schema_org(author)
+      expect(response).to eq("givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner", "@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405")
+    end
+  end
+
+  context "author_from_schema_org" do
+    it "with @id" do
+      author = {"@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }
+      response = subject.author_from_schema_org(author)
+      expect(response).to eq("givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner", "type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405")
+    end
+  end
 end

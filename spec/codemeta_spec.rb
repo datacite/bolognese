@@ -11,21 +11,21 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
-      expect(subject.author).to eq("@id"=>"http://orcid.org/0000-0003-0077-4738", "@type"=>"person", "name"=>"Martin Fenner")
+      expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.name).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description).to start_with("Simplifies network calls")
       expect(subject.keywords).to eq("faraday, excon, net/http")
       expect(subject.date_created).to eq("2015-11-28")
       expect(subject.date_published).to eq("2017-02-24")
       expect(subject.date_modified).to eq("2017-02-24")
-      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.publisher).to eq("DataCite")
     end
 
     it "maremma schema.org JSON" do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["name"]).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(json["author"]).to eq("@type"=>"person", "@id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner")
+      expect(json["author"]).to eq("name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-0077-4738")
     end
 
     it "no codemeta.json" do
@@ -52,13 +52,13 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.type).to eq("SoftwareSourceCode")
-      expect(subject.author).to eq([{"@type"=>"person",
-                                     "@id"=>"http://orcid.org/0000-0003-0077-4738",
+      expect(subject.author).to eq([{"type"=>"person",
+                                     "id"=>"http://orcid.org/0000-0003-0077-4738",
                                      "name"=>"Matt Jones"},
-                                    {"@type"=>"person",
-                                     "@id"=>"http://orcid.org/0000-0002-2192-403X",
+                                    {"type"=>"person",
+                                     "id"=>"http://orcid.org/0000-0002-2192-403X",
                                      "name"=>"Peter Slaughter"},
-                                    {"@type"=>"organization",
+                                    {"type"=>"organization",
                                      "name"=>"University of California, Santa Barbara"}])
       expect(subject.name).to eq("R Interface to the DataONE REST API")
       expect(subject.description).to start_with("Provides read and write access to data and metadata")
@@ -67,7 +67,7 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.date_created).to eq("2016-05-27")
       expect(subject.date_published).to eq("2016-05-27")
       expect(subject.date_modified).to eq("2016-05-27")
-      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"https://cran.r-project.org")
+      expect(subject.publisher).to eq("https://cran.r-project.org")
     end
 
     it "maremma" do
@@ -76,14 +76,14 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
-      expect(subject.author).to eq("@id"=>"http://orcid.org/0000-0003-0077-4738", "@type"=>"person", "name"=>"Martin Fenner")
+      expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.name).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description).to start_with("Simplifies network calls")
       expect(subject.keywords).to eq("faraday, excon, net/http")
       expect(subject.date_created).to eq("2015-11-28")
       expect(subject.date_published).to eq("2017-02-24")
       expect(subject.date_modified).to eq("2017-02-24")
-      expect(subject.publisher).to eq("@type"=>"Organization", "name"=>"DataCite")
+      expect(subject.publisher).to eq("DataCite")
     end
   end
 
@@ -110,7 +110,7 @@ describe Bolognese::Codemeta, vcr: true do
     it "maremma" do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Martin Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
+      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
     end
   end
 
@@ -138,7 +138,7 @@ describe Bolognese::Codemeta, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["name"]).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(json["author"]).to eq("@type"=>"person", "@id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner")
+      expect(json["author"]).to eq("name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-0077-4738")
     end
   end
 

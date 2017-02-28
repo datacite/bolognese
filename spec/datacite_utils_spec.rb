@@ -17,7 +17,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_creators(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("creators", "creator").first).to eq("creatorName"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(response.dig("creators", "creator").first).to eq("creatorName"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
     end
   end
 
@@ -83,7 +83,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_alternate_identifiers(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("alternateIdentifiers", "alternateIdentifier")).to eq("alternateIdentifierType"=>"Local accession number", "__content__"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
+      expect(response.dig("alternateIdentifiers", "alternateIdentifier")).to eq("alternateIdentifierType"=>"citation", "__content__"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
     end
   end
 
@@ -143,7 +143,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_rights_list(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0/", "__content__"=>"Public Domain (CC0 1.0)")
+      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0/")
     end
   end
 

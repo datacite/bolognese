@@ -4,25 +4,33 @@ module Bolognese
   module AuthorUtils
     # only assume personal name when using sort-order: "Turing, Alan"
     def get_one_author(author)
-      orcid = get_name_identifier(author)
-      author = author.fetch("creatorName", nil)
+      id = author.fetch("id", nil).presence || get_name_identifier(author)
+      name = author.fetch("creatorName", nil) ||
+             author.fetch("contributorName", nil) ||
+             author.fetch("name", nil)
+      name = cleanup_author(name)
+      given_name = author.fetch("givenName", nil)
+      family_name = author.fetch("familyName", nil)
 
-      return { "name" => "" } if author.to_s.strip.blank?
+      author = { "type" => "Person",
+                 "id" => id,
+                 "name" => name,
+                 "givenName" => given_name,
+                 "familyName" => family_name }.compact
 
-      author = cleanup_author(author)
-      names = Namae.parse(author)
+      return author if family_name.present?
 
-      if names.blank? || !is_personal_name?(author)
-        { "@type" => "Agent",
-          "@id" => orcid,
-          "name" => author }.compact
+      if is_personal_name?(author)
+        names = Namae.parse(name)
+        parsed_name = names.first
+
+        { "type" => "Person",
+          "id" => id,
+          "name" => [parsed_name.given, parsed_name.family].join(" "),
+          "givenName" => parsed_name.given,
+          "familyName" => parsed_name.family }.compact
       else
-        name = names.first
-
-        { "@type" => "Person",
-          "@id" => orcid,
-          "givenName" => name.given,
-          "familyName" => name.family }.compact
+        { "name" => name }.compact
       end
     end
 
@@ -37,15 +45,20 @@ module Bolognese
     end
 
     def is_personal_name?(author)
-      return true if author.include?(",")
+      return false if author.fetch("type", "").downcase == "organization"
+      return true if author.fetch("type", "").downcase == "person" ||
+                     author.fetch("id", "").start_with?("http://orcid.org") ||
+                     author.fetch("familyName", "").present? ||
+                     author.fetch("name", "").include?(",")
 
       # lookup given name
       #::NameDetector.name_exists?(author.split.first)
+      false
     end
 
     # parse array of author strings into CSL format
     def get_authors(authors)
-      Array(authors).map { |author| get_one_author(author) }
+      Array.wrap(authors).map { |author| get_one_author(author) }.unwrap
     end
 
     # parse nameIdentifier from DataCite
@@ -61,12 +74,12 @@ module Bolognese
 
     def authors_as_string(authors)
       Array.wrap(authors).map do |a|
-        if a["@type"] == "organization"
-          "{" + a["name"] + "}"
-        elsif a["familyName"].present?
+        if a["familyName"].present?
           [a["familyName"], a["givenName"]].join(", ")
-        else
+        elsif a["type"] == "Person"
           a["name"]
+        elsif a["name"].present?
+          "{" + a["name"] + "}"
         end
       end.join(" and ").presence
     end
