@@ -12,7 +12,7 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "has type organization" do
-      author = {"type"=>"Organization", "name"=>"University of California, Santa Barbara"}
+      author = {"email"=>"info@ucop.edu", "name"=>"University of California, Santa Barbara", "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"}, "type"=>"organization" }
       expect(subject.is_personal_name?(author)).to be false
     end
 
@@ -64,6 +64,12 @@ describe Bolognese::Crossref, vcr: true do
       subject = Bolognese::Datacite.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
+    end
+
+    it "is organization" do
+      author = {"email"=>"info@ucop.edu", "name"=>"University of California, Santa Barbara", "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"}, "type"=>"organization" }
+      response = subject.get_one_author(author)
+      expect(response).to eq("type"=>"Organization", "name"=>"University Of California, Santa Barbara")
     end
   end
 

@@ -52,14 +52,17 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.type).to eq("SoftwareSourceCode")
-      expect(subject.author).to eq([{"type"=>"person",
-                                     "id"=>"http://orcid.org/0000-0003-0077-4738",
-                                     "name"=>"Matt Jones"},
-                                    {"type"=>"person",
-                                     "id"=>"http://orcid.org/0000-0002-2192-403X",
-                                     "name"=>"Peter Slaughter"},
-                                    {"type"=>"organization",
-                                     "name"=>"University of California, Santa Barbara"}])
+      expect(subject.author).to eq( [{"type"=>"Person",
+                                      "id"=>"http://orcid.org/0000-0003-0077-4738",
+                                      "name"=>"Matt Jones",
+                                      "givenName"=>"Matt",
+                                      "familyName"=>"Jones"},
+                                     {"type"=>"Person",
+                                      "id"=>"http://orcid.org/0000-0002-2192-403X",
+                                      "name"=>"Peter Slaughter",
+                                      "givenName"=>"Peter",
+                                      "familyName"=>"Slaughter"},
+                                     {"type"=>"Organization", "name"=>"University Of California, Santa Barbara"}])
       expect(subject.name).to eq("R Interface to the DataONE REST API")
       expect(subject.description).to start_with("Provides read and write access to data and metadata")
       expect(subject.keywords).to eq("data sharing, data repository, DataONE")
@@ -94,16 +97,20 @@ describe Bolognese::Codemeta, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
       expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>"Matt Jones",
+                                                          "givenName"=>"Matt",
+                                                          "familyName"=>"Jones",
                                                           "nameIdentifier"=>
                                                          {"schemeURI"=>"http://orcid.org/",
                                                           "nameIdentifierScheme"=>"ORCID",
                                                           "__content__"=>"http://orcid.org/0000-0003-0077-4738"}},
                                                          {"creatorName"=>"Peter Slaughter",
+                                                           "givenName"=>"Peter",
+                                                           "familyName"=>"Slaughter",
                                                           "nameIdentifier"=>
                                                          {"schemeURI"=>"http://orcid.org/",
                                                           "nameIdentifierScheme"=>"ORCID",
                                                           "__content__"=>"http://orcid.org/0000-0002-2192-403X"}},
-                                                         {"creatorName"=>"University of California, Santa Barbara"}])
+                                                         {"creatorName"=>"University Of California, Santa Barbara"}])
       expect(datacite.fetch("version")).to eq("2.0.0")
     end
 
@@ -122,14 +129,17 @@ describe Bolognese::Codemeta, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["name"]).to eq("R Interface to the DataONE REST API")
-      expect(json["author"]).to eq([{"@type"=>"person",
-                                     "@id"=>"http://orcid.org/0000-0003-0077-4738",
-                                     "name"=>"Matt Jones"},
-                                    {"@type"=>"person",
-                                     "@id"=>"http://orcid.org/0000-0002-2192-403X",
-                                     "name"=>"Peter Slaughter"},
-                                    {"@type"=>"organization",
-                                     "name"=>"University of California, Santa Barbara"}])
+      expect(json["author"]).to eq([{"name"=>"Matt Jones",
+                                     "givenName"=>"Matt",
+                                     "familyName"=>"Jones",
+                                     "@type"=>"Person",
+                                     "@id"=>"http://orcid.org/0000-0003-0077-4738"},
+                                    {"name"=>"Peter Slaughter",
+                                     "givenName"=>"Peter",
+                                     "familyName"=>"Slaughter",
+                                     "@type"=>"Person",
+                                     "@id"=>"http://orcid.org/0000-0002-2192-403X"},
+                                    {"name"=>"University Of California, Santa Barbara", "@type"=>"Organization"}])
       expect(json["version"]).to eq("2.0.0")
     end
 

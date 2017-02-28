@@ -66,6 +66,7 @@ module Bolognese
 
     def author
       authors = author_from_schema_org(Array.wrap(metadata.fetch("agents", nil)))
+      puts authors
       get_authors(authors)
     end
 

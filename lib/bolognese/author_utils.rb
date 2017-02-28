@@ -4,6 +4,7 @@ module Bolognese
   module AuthorUtils
     # only assume personal name when using sort-order: "Turing, Alan"
     def get_one_author(author)
+      type = author.fetch("type", nil) && author.fetch("type").titleize
       id = author.fetch("id", nil).presence || get_name_identifier(author)
       name = author.fetch("creatorName", nil) ||
              author.fetch("contributorName", nil) ||
@@ -12,7 +13,7 @@ module Bolognese
       given_name = author.fetch("givenName", nil)
       family_name = author.fetch("familyName", nil)
 
-      author = { "type" => "Person",
+      author = { "type" => type || "Person",
                  "id" => id,
                  "name" => name,
                  "givenName" => given_name,
@@ -30,7 +31,7 @@ module Bolognese
           "givenName" => parsed_name.given,
           "familyName" => parsed_name.family }.compact
       else
-        { "name" => name }.compact
+        { "type" => type, "name" => name }.compact
       end
     end
 
