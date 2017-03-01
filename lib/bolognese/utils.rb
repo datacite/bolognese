@@ -176,6 +176,13 @@ module Bolognese
       end.unwrap
     end
 
+    def sanitize(text, options={})
+      options[:tags] ||= Set.new(%w(strong em b i code pre sub sup br))
+      custom_scrubber = Bolognese::WhitelistScrubber.new(options)
+
+      Loofah.scrub_fragment(text, custom_scrubber).to_s.gsub(/\u00a0/, ' ').strip
+    end
+
     def github_from_url(url)
       return {} unless /\Ahttps:\/\/github\.com\/(.+)(?:\/)?(.+)?(?:\/tree\/)?(.*)\z/.match(url)
       words = URI.parse(url).path[1..-1].split('/')

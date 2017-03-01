@@ -1,11 +1,12 @@
 PATH
   remote: .
   specs:
-    bolognese (0.7.2)
+    bolognese (0.8)
       activesupport (~> 4.2, >= 4.2.5)
       bibtex-ruby (~> 4.1)
       builder (~> 3.2, >= 3.2.2)
       colorize (~> 0.8.1)
+      loofah (~> 2.0, >= 2.0.3)
       maremma (~> 3.5)
       namae (~> 0.10.2)
       nokogiri (~> 1.6, >= 1.6.8)
@@ -43,6 +44,8 @@ GEM
     json (2.0.3)
     latex-decode (0.2.2)
       unicode (~> 0.4)
+    loofah (2.0.3)
+      nokogiri (>= 1.5.9)
     maremma (3.5.1)
       activesupport (~> 4.2, >= 4.2.5)
       addressable (>= 2.3.6)

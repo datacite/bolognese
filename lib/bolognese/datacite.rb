@@ -28,6 +28,7 @@ module Bolognese
       elsif id.present?
         response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
         @raw = response.body.fetch("data", nil)
+        @raw = Nokogiri::XML(@raw, &:noblanks).to_s if @raw.present?
       end
 
       @should_passthru = !regenerate
@@ -99,12 +100,10 @@ module Bolognese
       end.unwrap
     end
 
-    def descriptions
-      Array.wrap(metadata.dig("descriptions", "description"))
-    end
-
     def description
-      parse_attributes(descriptions)
+      Array.wrap(metadata.dig("descriptions", "description")).map do |r|
+        { "type" => r["descriptionType"], "text" => sanitize(r["__content__"]) }.compact
+      end.unwrap
     end
 
     def license

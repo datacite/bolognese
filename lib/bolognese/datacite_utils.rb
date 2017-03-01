@@ -211,31 +211,13 @@ module Bolognese
     end
 
     def insert_descriptions(xml)
-      return xml unless descriptions.present?
+      return xml unless description.present?
 
       xml.descriptions do
         Array.wrap(description).each do |des|
-          insert_description(xml, des)
+          xml.description(des["text"], 'descriptionType' => des["type"] || "Abstract")
         end
       end
-    end
-
-    def insert_description(xml, des)
-      if des.is_a?(String)
-        xml.description(des.strip, 'descriptionType' => "Abstract")
-      elsif des.is_a?(Hash)
-        xml.description(des["__content__"].strip, 'descriptionType' => des["descriptionType"],)
-      end
-    end
-
-    def without_control(s)
-      r = ''
-      s.each_codepoint do |c|
-        if c >= 32
-          r << c
-        end
-      end
-      r
     end
 
     def root_attributes

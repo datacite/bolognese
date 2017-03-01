@@ -97,11 +97,11 @@ module Bolognese
     end
 
     def description
-      metadata.field?(:abstract) && metadata.abstract.to_s.presence
+      { "text" => metadata.field?(:abstract) && metadata.abstract.to_s.presence }
     end
 
     def license
-      metadata.field?(:copyright) && metadata.copyright.to_s.presence
+      { "id" => metadata.field?(:copyright) && metadata.copyright.to_s.presence }
     end
   end
 end

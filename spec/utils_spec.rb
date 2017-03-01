@@ -94,4 +94,18 @@ describe Bolognese::Crossref, vcr: true do
       expect(response).to eq("givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner", "type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405")
     end
   end
+
+  context "sanitize" do
+    it 'should remove a tags' do
+      text = "In 1998 <strong>Tim Berners-Lee</strong> coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>"
+      content = subject.sanitize(text)
+      expect(content).to eq("In 1998 <strong>Tim Berners-Lee</strong> coined the term cool URIs")
+    end
+
+    it 'should only keep specific tags' do
+      text = "In 1998 <strong>Tim Berners-Lee</strong> coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>"
+      content = subject.sanitize(text, tags: ["a"])
+      expect(content).to eq("In 1998 Tim Berners-Lee coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>")
+    end
+  end
 end

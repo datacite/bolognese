@@ -75,11 +75,11 @@ module Bolognese
     end
 
     def description
-      metadata.fetch("description", nil)
+      { "text" => metadata.fetch("description", nil) }
     end
 
     def license
-      metadata.fetch("license", nil)
+      { "id" => metadata.fetch("license", nil) }
     end
 
     def version
