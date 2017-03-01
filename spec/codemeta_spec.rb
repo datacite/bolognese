@@ -12,7 +12,7 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
-      expect(subject.name).to eq("Maremma: a Ruby library for simplified network calls")
+      expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description).to start_with("Simplifies network calls")
       expect(subject.keywords).to eq("faraday, excon, net/http")
       expect(subject.date_created).to eq("2015-11-28")
@@ -63,7 +63,7 @@ describe Bolognese::Codemeta, vcr: true do
                                       "givenName"=>"Peter",
                                       "familyName"=>"Slaughter"},
                                      {"type"=>"Organization", "name"=>"University Of California, Santa Barbara"}])
-      expect(subject.name).to eq("R Interface to the DataONE REST API")
+      expect(subject.title).to eq("R Interface to the DataONE REST API")
       expect(subject.description).to start_with("Provides read and write access to data and metadata")
       expect(subject.keywords).to eq("data sharing, data repository, DataONE")
       expect(subject.version).to eq("2.0.0")
@@ -80,7 +80,7 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
-      expect(subject.name).to eq("Maremma: a Ruby library for simplified network calls")
+      expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description).to start_with("Simplifies network calls")
       expect(subject.keywords).to eq("faraday, excon, net/http")
       expect(subject.date_created).to eq("2015-11-28")

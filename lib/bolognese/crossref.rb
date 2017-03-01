@@ -132,7 +132,7 @@ module Bolognese
       CR_TO_BIB_TRANSLATIONS[additional_type] || "misc"
     end
 
-    def name
+    def title
       parse_attributes(bibliographic_metadata.dig("titles", "title"))
     end
 
@@ -184,8 +184,7 @@ module Bolognese
     def funder
       fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
       Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
-        { "@type" => "Organization",
-          "@id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
+        { "id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
           "name" => f.dig("assertion", "__content__").strip }.compact
       end.unwrap
     end
@@ -214,7 +213,7 @@ module Bolognese
 
     def is_part_of
       if journal_metadata.present?
-        { "@type" => "Periodical",
+        { "type" => "Periodical",
           "name" => journal_metadata["full_title"],
           "issn" => parse_attributes(journal_metadata.fetch("issn", nil)) }.compact
       else

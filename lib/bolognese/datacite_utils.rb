@@ -104,7 +104,7 @@ module Bolognese
     end
 
     def insert_title(xml)
-      xml.title(name)
+      xml.title(title)
     end
 
     def insert_publisher(xml)
@@ -163,7 +163,7 @@ module Bolognese
 
     def insert_funding_reference(xml, funding_reference)
       xml.funderName(funding_reference["name"]) if funding_reference["name"].present?
-      xml.funderIdentifier(funding_reference["@id"], "funderIdentifierType" => "Crossref Funder ID") if funding_reference["@id"].present?
+      xml.funderIdentifier(funding_reference["id"], "funderIdentifierType" => "Crossref Funder ID") if funding_reference["id"].present?
     end
 
     def insert_subjects(xml)

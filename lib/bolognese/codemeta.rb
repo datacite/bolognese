@@ -56,7 +56,7 @@ module Bolognese
       Bolognese::Bibtex::SO_TO_BIB_TRANSLATIONS[type] || "misc"
     end
 
-    def name
+    def title
       metadata.fetch("title", nil)
     end
 

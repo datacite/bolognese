@@ -39,12 +39,13 @@ module Bolognese
     end
 
     def schema_org
-      { "@context" => id.present? ? "http://schema.org" : nil,
+      hsh = {
+        "@context" => id.present? ? "http://schema.org" : nil,
         "@type" => type,
         "@id" => id,
         "url" => url,
         "additionalType" => additional_type,
-        "name" => name,
+        "name" => title,
         "alternateName" => alternate_name,
         "author" => to_schema_org(author),
         "editor" => editor,
@@ -70,14 +71,16 @@ module Bolognese
         "publisher" => { "@type" => "Organization", "name" => publisher },
         "funder" => funder,
         "provider" => { "@type" => "Organization", "name" => provider }
-      }.compact.to_json
+      }.compact
+      JSON.pretty_generate hsh
     end
 
     def datacite_json
-      { "id" => id,
+      hsh = {
+        "id" => id,
         "doi" => doi,
         "creator" => author,
-        "title" => name,
+        "title" => title,
         "publisher" => publisher,
         "publication-year" => publication_year,
         "resource-type-general" => resource_type_general,
@@ -105,16 +108,18 @@ module Bolognese
         "funding-reference" => funder,
         "schemaVersion" => schema_version,
         "provider" => provider
-      }.compact.to_json
+      }.compact
+      JSON.pretty_generate hsh
     end
 
     def codemeta
-      { "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
+      hsh = {
+        "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
         "@type" => type,
         "@id" => id,
         "identifier" => id,
         "codeRepository" => url,
-        "title" => name,
+        "title" => title,
         "agents" => author,
         "description" => description,
         "version" => version,
@@ -123,7 +128,8 @@ module Bolognese
         "datePublished" => date_published,
         "dateModified" => date_modified,
         "publisher" => publisher
-      }.compact.to_json
+      }.compact
+      JSON.pretty_generate hsh
     end
 
     def bibtex
@@ -135,7 +141,7 @@ module Bolognese
         author: authors_as_string(author),
         keywords: keywords,
         language: language,
-        title: name,
+        title: title,
         journal: journal,
         pages: pagination,
         publisher: publisher,

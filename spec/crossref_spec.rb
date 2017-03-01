@@ -15,21 +15,18 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.author.length).to eq(5)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Martial Sankar", "givenName"=>"Martial", "familyName"=>"Sankar")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
-      expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
       expect(subject.references.count).to eq(27)
       expect(subject.references[21]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "relationType"=>"Cites", "position"=>"22", "datePublished"=>"2014")
-      expect(subject.funder).to eq([{"@type"=>"Organization", "name"=>"SystemsX"},
-                                    {"@type"=>"Organization",
-                                     "@id"=>"https://doi.org/10.13039/501100003043",
+      expect(subject.funder).to eq([{"name"=>"SystemsX"},
+                                    {"id"=>"https://doi.org/10.13039/501100003043",
                                      "name"=>"EMBO"},
-                                    {"@type"=>"Organization",
-                                     "@id"=>"https://doi.org/10.13039/501100001711",
+                                    {"id"=>"https://doi.org/10.13039/501100001711",
                                      "name"=>"Swiss National Science Foundation"},
-                                    {"@type"=>"Organization",
-                                     "@id"=>"https://doi.org/10.13039/501100006390",
+                                    {"id"=>"https://doi.org/10.13039/501100006390",
                                      "name"=>"University of Lausanne"}])
       expect(subject.provider).to eq("Crossref")
     end
@@ -45,12 +42,12 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.author.length).to eq(5)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Markus Ralser", "givenName"=>"Markus", "familyName"=>"Ralser")
       expect(subject.editor).to eq("type"=>"Person", "name"=>"Guilhem Janbon", "givenName"=>"Guilhem", "familyName"=>"Janbon")
-      expect(subject.name).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
+      expect(subject.title).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/4.0/")
       expect(subject.date_published).to eq("2006-12-20")
       expect(subject.date_modified).to eq("2016-12-31T21:37:08Z")
       expect(subject.page_start).to eq("e30")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"PLoS ONE", "issn"=>"1932-6203")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"PLoS ONE", "issn"=>"1932-6203")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -64,7 +61,7 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author.count).to eq(10)
       expect(subject.author.last).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4060-7360", "name"=>"Timothy Clark", "givenName"=>"Timothy", "familyName"=>"Clark")
-      expect(subject.name).to eq("A Data Citation Roadmap for Scholarly Data Repositories")
+      expect(subject.title).to eq("A Data Citation Roadmap for Scholarly Data Repositories")
       expect(subject.alternate_name).to eq("biorxiv;097196v1")
       expect(subject.description).to start_with("This article presents a practical roadmap")
       expect(subject.date_published).to eq("2016-12-28")
@@ -83,12 +80,12 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"A. Fenton", "givenName"=>"A.", "familyName"=>"Fenton"}, {"type"=>"Person", "name"=>"S. A. Rands", "givenName"=>"S. A.", "familyName"=>"Rands"}])
       expect(subject.license).to eq("http://doi.wiley.com/10.1002/tdm_license_1")
-      expect(subject.name).to eq("THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES")
+      expect(subject.title).to eq("THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES")
       expect(subject.date_published).to eq("2006-11")
       expect(subject.date_modified).to eq("2016-10-04T17:20:17Z")
       expect(subject.page_start).to eq("2832")
       expect(subject.page_end).to eq("2841")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Ecology", "issn"=>"0012-9658")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"Ecology", "issn"=>"0012-9658")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -103,12 +100,12 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.author.length).to eq(7)
       expect(subject.author[2]).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-2043-4925", "name"=>"Beatriz Hernandez", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
-      expect(subject.name).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
+      expect(subject.title).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
       expect(subject.date_published).to eq("2012")
       expect(subject.date_modified).to eq("2016-08-02T12:42:41Z")
       expect(subject.page_start).to eq("1")
       expect(subject.page_end).to eq("7")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -122,10 +119,10 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author.length).to eq(10)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Sarah E. Beck", "givenName"=>"Sarah E.", "familyName"=>"Beck")
-      expect(subject.name).to eq("Paving the path to HIV neurotherapy: Predicting SIV CNS disease")
+      expect(subject.title).to eq("Paving the path to HIV neurotherapy: Predicting SIV CNS disease")
       expect(subject.date_published).to eq("2015-07")
       expect(subject.date_modified).to eq("2016-08-20T02:19:38Z")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"European Journal of Pharmacology", "issn"=>"00142999")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"European Journal of Pharmacology", "issn"=>"00142999")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -156,10 +153,10 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.author.length).to eq(5)
       expect(subject.author.last).to eq("type"=>"Person", "name"=>"Christian S Hardtke", "givenName"=>"Christian S", "familyName"=>"Hardtke")
       expect(subject.license).to eq("http://creativecommons.org/licenses/by/3.0/")
-      expect(subject.name).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
-      expect(subject.is_part_of).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
       expect(subject.references.count).to eq(27)
       expect(subject.references[21]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "relationType"=>"Cites", "position"=>"22", "datePublished"=>"2014")
       expect(subject.provider).to eq("Crossref")

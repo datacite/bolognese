@@ -70,7 +70,7 @@ module Bolognese
       end
     end
 
-    def name
+    def title
       metadata.title
     end
 
@@ -88,7 +88,7 @@ module Bolognese
 
     def is_part_of
       if metadata.journal.present?
-        { "@type" => "Periodical",
+        { "type" => "Periodical",
           "name" => metadata.journal.to_s,
           "issn" => metadata.issn.to_s.presence }.compact
       else

@@ -89,7 +89,7 @@ module Bolognese
       Bolognese::Bibtex::SO_TO_BIB_TRANSLATIONS[type] || "misc"
     end
 
-    def name
+    def title
       metadata.dig("titles", "title")
     end
 
