@@ -1,23 +1,6 @@
 module Bolognese
   class Datacite < Metadata
 
-    DC_TO_SO_TRANSLATIONS = {
-      "Audiovisual" => "VideoObject",
-      "Collection" => "Collection",
-      "Dataset" => "Dataset",
-      "Event" => "Event",
-      "Image" => "ImageObject",
-      "InteractiveResource" => nil,
-      "Model" => nil,
-      "PhysicalObject" => nil,
-      "Service" => "Service",
-      "Software" => "SoftwareSourceCode",
-      "Sound" => "AudioObject",
-      "Text" => "ScholarlyArticle",
-      "Workflow" => nil,
-      "Other" => "CreativeWork"
-    }
-
     SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
 
     def initialize(id: nil, string: nil, regenerate: false)

@@ -12,6 +12,23 @@ module Bolognese
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
+    DC_TO_SO_TRANSLATIONS = {
+      "Audiovisual" => "VideoObject",
+      "Collection" => "Collection",
+      "Dataset" => "Dataset",
+      "Event" => "Event",
+      "Image" => "ImageObject",
+      "InteractiveResource" => nil,
+      "Model" => nil,
+      "PhysicalObject" => nil,
+      "Service" => "Service",
+      "Software" => "SoftwareSourceCode",
+      "Sound" => "AudioObject",
+      "Text" => "ScholarlyArticle",
+      "Workflow" => nil,
+      "Other" => "CreativeWork"
+    }
+
     attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
@@ -49,8 +66,8 @@ module Bolognese
         "alternateName" => alternate_name,
         "author" => to_schema_org(author),
         "editor" => editor,
-        "description" => description,
-        "license" => license,
+        "description" => description.present? ? description["text"] : nil,
+        "license" => license.present? ? license["id"] : nil,
         "version" => version,
         "keywords" => keywords,
         "language" => language,
@@ -85,7 +102,7 @@ module Bolognese
         "publication-year" => publication_year,
         "resource-type-general" => resource_type_general,
         "resource-type" => additional_type,
-        "subject" => keywords.split(", ").presence,
+        "subject" => keywords.present? ? keywords.split(", ") : nil,
         "contributor" => contributor,
         "date-accepted" => date_accepted,
         "date-available" => date_available,
@@ -121,7 +138,7 @@ module Bolognese
         "codeRepository" => url,
         "title" => title,
         "agents" => author,
-        "description" => description,
+        "description" => description.present? ? description["text"] : nil,
         "version" => version,
         "tags" => keywords.to_s.split(", ").presence,
         "dateCreated" => date_created,
