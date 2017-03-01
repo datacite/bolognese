@@ -41,7 +41,7 @@ module Bolognese
       :is_referenced_by, :references, :is_documented_by, :documents,
       :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
       :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
-      :related_identifier
+      :related_identifier, :reverse
 
     def publication_year
       date_published && date_published[0..3]
@@ -55,6 +55,11 @@ module Bolognese
       [page_start, page_end].compact.join("-").presence
     end
 
+    def reverse
+      { "citation" => Array.wrap(is_referenced_by).map { |r| { "@id" => r["id"] }}.unwrap,
+        "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
+    end
+
     def schema_org
       hsh = {
         "@context" => id.present? ? "http://schema.org" : nil,
@@ -66,7 +71,7 @@ module Bolognese
         "alternateName" => alternate_name,
         "author" => to_schema_org(author),
         "editor" => editor,
-        "description" => description.present? ? description["text"] : nil,
+        "description" => Array.wrap(description).map { |d| d["text"] }.unwrap,
         "license" => license.present? ? license["id"] : nil,
         "version" => version,
         "keywords" => keywords,
@@ -84,6 +89,7 @@ module Bolognese
         "predecessor_of" => is_previous_version_of,
         "successor_of" => is_new_version_of,
         "citation" => references,
+        "@reverse" => reverse,
         "schemaVersion" => schema_version,
         "publisher" => { "@type" => "Organization", "name" => publisher },
         "funder" => funder,

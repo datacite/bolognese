@@ -229,8 +229,36 @@ module Bolognese
       related_identifier(relation_type: "IsNewVersionOf")
     end
 
+    def is_variant_form_of
+      related_identifier(relation_type: "IsVariantFormOf")
+    end
+
+    def is_original_form_of
+      related_identifier(relation_type: "IsOriginalFormOf")
+    end
+
     def references
-      related_identifier(relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
+      related_identifier(relation_type: "References Cites").presence
+    end
+
+    def is_referenced_by
+      related_identifier(relation_type: "IsCitedBy IsReferencedBy").presence
+    end
+
+    def is_supplement_to
+      related_identifier(relation_type: "IsSupplementTo")
+    end
+
+    def is_supplemented_by
+      get_related_identifier(relation_type: "isSupplementedBy")
+    end
+
+    def reviews
+      related_identifier(relation_type: "Reviews").presence
+    end
+
+    def is_reviewed_by
+      related_identifier(relation_type: "IsReviewedBy").presence
     end
 
     def publisher

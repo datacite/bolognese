@@ -114,11 +114,16 @@ module Bolognese
       Array.wrap(has_part) +
       Array.wrap(is_previous_version_of) +
       Array.wrap(is_new_version_of) +
-      Array.wrap(references)
+      Array.wrap(references) +
+      Array.wrap(is_supplemented_by)
     end
 
     def get_related_identifier(relation_type: nil)
       normalize_ids(metadata.fetch(relation_type, nil), SO_TO_DC_RELATION_TYPES[relation_type])
+    end
+
+    def get_reverse_related_identifier(relation_type: nil)
+      normalize_ids(metadata.dig("@reverse", relation_type), SO_TO_DC_RELATION_TYPES[relation_type])
     end
 
     def is_identical_to
@@ -143,6 +148,18 @@ module Bolognese
 
     def references
       get_related_identifier(relation_type: "citation")
+    end
+
+    def is_referenced_by
+      get_reverse_related_identifier(relation_type: "citation")
+    end
+
+    def is_supplement_to
+      get_reverse_related_identifier(relation_type: "isBasedOn")
+    end
+
+    def is_supplemented_by
+      get_related_identifier(relation_type: "isBasedOn")
     end
 
     def publisher

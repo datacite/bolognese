@@ -19,7 +19,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.license).to eq("url"=>"http://creativecommons.org/publicdomain/zero/1.0/")
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"}, {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"}])
-      expect(subject.references).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446", "relationType"=>"IsReferencedBy")
+      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446", "relationType"=>"IsReferencedBy")
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -76,7 +76,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.license).to eq([{"url"=>"info:eu-repo/semantics/openAccess", "name"=>"Open Access"}, {"url"=>"https://creativecommons.org/licenses/by-nc-sa/4.0/", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}])
       expect(subject.date_published).to eq("2016-03-27")
-      expect(subject.references).to eq("id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0", "relationType"=>"IsSupplementTo")
+      expect(subject.is_supplement_to).to eq("id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0", "relationType"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -146,9 +146,18 @@ describe Bolognese::Datacite, vcr: true do
                                                                           "funderName" => "European Commission")
     end
 
-    it "Schema.org JSON" do
+    it "Schema.org JSON isReferencedBy" do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(json["@reverse"]).to eq("citation"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446"})
+    end
+
+    it "Schema.org JSON IsSupplementTo" do
+      id = "https://doi.org/10.5517/CC8H01S"
+      subject = Bolognese::Datacite.new(id: id)
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154"})
     end
   end
 
@@ -196,7 +205,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"},
                                       {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"}])
-      expect(subject.references).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446", "relationType"=>"IsReferencedBy")
+      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446", "relationType"=>"IsReferencedBy")
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
