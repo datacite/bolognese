@@ -39,7 +39,7 @@ module Bolognese
     end
 
     def valid?
-      true
+      bibtex.present?
     end
 
     def type

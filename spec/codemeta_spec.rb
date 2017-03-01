@@ -8,6 +8,7 @@ describe Bolognese::Codemeta, vcr: true do
 
   context "get metadata" do
     it "maremma" do
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
@@ -76,6 +77,7 @@ describe Bolognese::Codemeta, vcr: true do
     it "maremma" do
       string = IO.read(fixture_path + 'maremma/codemeta.json')
       subject = Bolognese::Codemeta.new(string: string)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")

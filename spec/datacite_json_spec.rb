@@ -7,6 +7,7 @@ describe Bolognese::DataciteJson, vcr: true do
 
   context "get metadata as string" do
     it "BlogPosting" do
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
@@ -25,6 +26,7 @@ describe Bolognese::DataciteJson, vcr: true do
     it "SoftwareSourceCode" do
       string = IO.read(fixture_path + "datacite_software.json")
       subject = Bolognese::DataciteJson.new(string: string)
+      expect(subject.valid?).to be true
       json = JSON.parse(subject.codemeta)
       expect(json["@context"]).to eq("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
@@ -52,6 +54,7 @@ describe Bolognese::DataciteJson, vcr: true do
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
       subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")

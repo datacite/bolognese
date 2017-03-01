@@ -31,11 +31,13 @@ module Bolognese
     end
 
     def valid?
-      errors.blank?
+      datacite.present? && errors.blank?
     end
 
     def errors
       schema.validate(Nokogiri::XML(raw)).map { |error| error.to_s }.unwrap
+    rescue Nokogiri::XML::SyntaxError => e
+      e.message
     end
 
     def schema_version

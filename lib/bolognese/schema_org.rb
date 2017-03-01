@@ -31,7 +31,7 @@ module Bolognese
     end
 
     def valid?
-      true
+      schema_org.present?
     end
 
     def doi

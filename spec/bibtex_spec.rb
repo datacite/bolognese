@@ -7,6 +7,7 @@ describe Bolognese::Bibtex, vcr: true do
 
   context "get metadata" do
     it "Crossref DOI" do
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")

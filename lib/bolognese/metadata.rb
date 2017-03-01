@@ -151,7 +151,7 @@ module Bolognese
 
     def bibtex
       bib = {
-        bibtex_type: bibtex_type.to_sym,
+        bibtex_type: bibtex_type.present? ? bibtex_type.to_sym : "misc",
         bibtex_key: id,
         doi: doi,
         url: url,

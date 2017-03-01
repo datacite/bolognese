@@ -12,7 +12,7 @@ module Bolognese
     end
 
     def valid?
-      true
+      datacite_json.present?
     end
 
     def datacite

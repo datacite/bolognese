@@ -83,7 +83,7 @@ module Bolognese
     end
 
     def valid?
-      true
+      crossref.present?
     end
 
     def doi

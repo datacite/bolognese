@@ -21,7 +21,7 @@ module Bolognese
     end
 
     def valid?
-      true
+      codemeta.present?
     end
 
     def doi
