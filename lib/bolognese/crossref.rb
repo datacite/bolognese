@@ -157,7 +157,7 @@ module Bolognese
     def license
       access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
       if access_indicator.present?
-        parse_attributes(access_indicator["license_ref"])
+        { "url" => parse_attributes(access_indicator["license_ref"]) }
       else
         nil
       end

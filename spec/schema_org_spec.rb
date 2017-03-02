@@ -18,8 +18,15 @@ describe Bolognese::SchemaOrg, vcr: true do
       expect(subject.keywords).to eq("datacite, doi, metadata, featured")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog", "relationType"=>"IsPartOf")
-      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork", "relationType"=>"References"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork", "relationType"=>"References"}])
+      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog", "relationType"=>"IsPartOf", "resourceTypeGeneral" => "Text")
+      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012",
+                                         "type"=>"CreativeWork",
+                                         "relationType"=>"References",
+                                         "resourceTypeGeneral"=>"Other"},
+                                        {"id"=>"https://doi.org/10.5438/55e5-t5c0",
+                                         "type"=>"CreativeWork",
+                                         "relationType"=>"References",
+                                         "resourceTypeGeneral"=>"Other"}])
       expect(subject.publisher).to eq("DataCite")
     end
 
@@ -51,13 +58,15 @@ describe Bolognese::SchemaOrg, vcr: true do
       expect(subject.keywords).to eq("datacite, doi, metadata, featured")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog", "relationType"=>"IsPartOf")
+      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
       expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012",
                                          "type"=>"CreativeWork",
-                                         "relationType"=>"References"},
+                                         "relationType"=>"References",
+                                         "resourceTypeGeneral"=>"Other"},
                                         {"id"=>"https://doi.org/10.5438/55e5-t5c0",
-                                         "type"=>"CreativeWork",
-                                         "relationType"=>"References"}])
+                                          "type"=>"CreativeWork",
+                                          "relationType"=>"References",
+                                          "resourceTypeGeneral"=>"Other"}])
       expect(subject.publisher).to eq("DataCite")
     end
   end
@@ -67,7 +76,7 @@ describe Bolognese::SchemaOrg, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(3)
-      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text", "__content__"=>"https://doi.org/10.5438/0000-00ss")
     end
   end
 

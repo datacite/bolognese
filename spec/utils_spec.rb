@@ -68,14 +68,14 @@ describe Bolognese::Crossref, vcr: true do
   context "normalize ids" do
     it "doi" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"}, {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55E5-T5C0"}]
-      response = subject.normalize_ids(ids)
-      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork", "relationType"=>"References"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork", "relationType"=>"References"}])
+      response = subject.normalize_ids(ids: ids)
+      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork", "relationType"=>"References", "resourceTypeGeneral" => "Other"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork", "relationType"=>"References", "resourceTypeGeneral" => "Other"}])
     end
 
     it "url" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food/"}]
-      response = subject.normalize_ids(ids)
-      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "type"=>"CreativeWork", "relationType"=>"References")
+      response = subject.normalize_ids(ids: ids)
+      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "resourceTypeGeneral" => "Other", "type"=>"CreativeWork", "relationType"=>"References")
     end
   end
 

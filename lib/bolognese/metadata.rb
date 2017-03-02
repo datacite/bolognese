@@ -29,6 +29,27 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
+    SO_TO_DC_TRANSLATIONS = {
+      "Article" => "Text",
+      "AudioObject" => "Sound",
+      "Blog" => "Text",
+      "BlogPosting" => "Text",
+      "Collection" => "Collection",
+      "CreativeWork" => "Other",
+      "DataCatalog" => "Dataset",
+      "Dataset" => "Dataset",
+      "Event" => "Event",
+      "ImageObject" => "Image",
+      "Movie" => "Audiovisual",
+      "PublicationIssue" => "Text",
+      "ScholarlyArticle" => "Text",
+      "Service" => "Service",
+      "SoftwareSourceCode" => "Software",
+      "VideoObject" => "Audiovisual",
+      "WebPage" => "Text",
+      "WebSite" => "Text"
+    }
+
     attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
@@ -88,7 +109,7 @@ module Bolognese
         "hasPart" => has_part,
         "predecessor_of" => is_previous_version_of,
         "successor_of" => is_new_version_of,
-        "citation" => references,
+        "citation" => Array.wrap(references).map { |r| r.except("relationType").merge("@type" => "CreativeWork") }.unwrap,
         "@reverse" => reverse,
         "schemaVersion" => schema_version,
         "publisher" => { "@type" => "Organization", "name" => publisher },

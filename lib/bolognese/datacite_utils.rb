@@ -1,27 +1,5 @@
 module Bolognese
   module DataciteUtils
-
-    SO_TO_DC_TRANSLATIONS = {
-      "Article" => "Text",
-      "AudioObject" => "Sound",
-      "Blog" => "Text",
-      "BlogPosting" => "Text",
-      "Collection" => "Collection",
-      "CreativeWork" => "Other",
-      "DataCatalog" => "Dataset",
-      "Dataset" => "Dataset",
-      "Event" => "Event",
-      "ImageObject" => "Image",
-      "Movie" => "Audiovisual",
-      "PublicationIssue" => "Text",
-      "ScholarlyArticle" => "Text",
-      "Service" => "Service",
-      "SoftwareSourceCode" => "Software",
-      "VideoObject" => "Audiovisual",
-      "WebPage" => "Text",
-      "WebSite" => "Text"
-    }
-
     SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
 
     def schema
@@ -116,7 +94,7 @@ module Bolognese
     end
 
     def resource_type
-      { "resource_type_general" => SO_TO_DC_TRANSLATIONS[type] || "Other",
+      { "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type] || "Other",
         "__content__" => additional_type || type }
     end
 
@@ -186,7 +164,8 @@ module Bolognese
       Array.wrap(related_identifier).map do |r|
         { "__content__" => r["id"],
           "related_identifier_type" => validate_url(r["id"]),
-          "relation_type" => r["relationType"] }
+          "relation_type" => r["relationType"],
+          "resource_type_general" => r["resourceTypeGeneral"] }
       end
     end
 
@@ -195,7 +174,11 @@ module Bolognese
 
       xml.relatedIdentifiers do
         rel_identifier.each do |related_identifier|
-          xml.relatedIdentifier(related_identifier["__content__"], 'relatedIdentifierType' => related_identifier["related_identifier_type"], 'relationType' => related_identifier["relation_type"])
+          attributes = {
+            'relatedIdentifierType' => related_identifier["related_identifier_type"],
+            'relationType' => related_identifier["relation_type"],
+            'resourceTypeGeneral' => related_identifier["resource_type_general"] }.compact
+          xml.relatedIdentifier(related_identifier["__content__"], attributes)
         end
       end
     end

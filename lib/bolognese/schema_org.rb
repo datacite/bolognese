@@ -119,11 +119,13 @@ module Bolognese
     end
 
     def get_related_identifier(relation_type: nil)
-      normalize_ids(metadata.fetch(relation_type, nil), SO_TO_DC_RELATION_TYPES[relation_type])
+      normalize_ids(ids: metadata.fetch(relation_type, nil),
+                    relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
     end
 
     def get_reverse_related_identifier(relation_type: nil)
-      normalize_ids(metadata.dig("@reverse", relation_type), SO_TO_DC_RELATION_TYPES[relation_type])
+      normalize_ids(ids: metadata.dig("@reverse", relation_type),
+                    relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
     end
 
     def is_identical_to

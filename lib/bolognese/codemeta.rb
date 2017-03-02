@@ -103,7 +103,7 @@ module Bolognese
     end
 
     def related_identifiers(relation_type)
-      normalize_ids(metadata.fetch(relation_type, nil))
+      normalize_ids(ids: metadata.fetch(relation_type, nil), relation_type: relation_type)
     end
 
     def same_as

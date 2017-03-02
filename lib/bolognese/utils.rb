@@ -114,12 +114,13 @@ module Bolognese
       "http://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
-    def normalize_ids(list, relation_type = "References")
-      Array.wrap(list).map do |url|
-        { "id" => normalize_id(url["@id"]),
-          "type" => url["@type"],
-          "name" => url["name"],
-          "relationType" => relation_type }.compact
+    def normalize_ids(ids: nil, relation_type: "References")
+      Array.wrap(ids).map do |id|
+        { "id" => normalize_id(id["@id"]),
+          "type" => id["@type"],
+          "name" => id["name"],
+          "relationType" => relation_type,
+          "resourceTypeGeneral" => id["resourceTypeGeneral"] || Metadata::SO_TO_DC_TRANSLATIONS[id["@type"]] }.compact
       end.unwrap
     end
 
