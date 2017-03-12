@@ -1,11 +1,11 @@
 module Bolognese
   module DoiUtils
     def validate_doi(doi)
-      Array(/\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
+      Array(/\A(?:(http|https):\/(\/)?(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
     end
 
     def validate_prefix(doi)
-      Array(/\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5})\/.+\z/.match(doi)).last
+      Array(/\A(?:(http|https):\/(\/)?(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5})\/.+\z/.match(doi)).last
     end
 
     def normalize_doi(doi)

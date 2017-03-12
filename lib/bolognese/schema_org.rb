@@ -35,7 +35,7 @@ module Bolognese
     end
 
     def doi
-      doi_from_url(id)
+      validate_doi(id)
     end
 
     def id

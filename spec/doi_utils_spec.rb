@@ -58,6 +58,12 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.normalize_doi(doi)
       expect(response).to be_nil
     end
+
+    it "url with one slash" do
+      doi = "https:/doi.org/10.5061/dryad.8515"
+      response = subject.normalize_doi(doi)
+      expect(response).to eq("https://doi.org/10.5061/dryad.8515")
+    end
   end
 
   context "doi registration agency" do

@@ -20,12 +20,12 @@ module Bolognese
     def find_from_format_by_id(id)
       id = normalize_id(id)
 
-      if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
+      if /\A(?:(http|https):\/(\/)?(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
         ra = get_doi_ra(id)
         ra.present? ? ra.downcase : nil
-      elsif /\A(?:(http|https):\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
+      elsif /\A(?:(http|https):\/(\/)?orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
         "orcid"
-      elsif /\A(http|https):\/\/github\.com\/(.+)\z/.match(id)
+      elsif /\A(http|https):\/(\/)?github\.com\/(.+)\z/.match(id)
         "codemeta"
       else
         "schema_org"
