@@ -4,6 +4,10 @@ module Bolognese
       Array(/\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
     end
 
+    def validate_prefix(doi)
+      Array(/\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5})\/.+\z/.match(doi)).last
+    end
+
     def normalize_doi(doi)
       doi = validate_doi(doi)
       return nil unless doi.present?
@@ -26,20 +30,15 @@ module Bolognese
       "https://doi.org/#{clean_doi(doi)}" if doi.present?
     end
 
-    # get DOI registration agency, assume a normalized DOI
+    # get DOI registration agency
     def get_doi_ra(doi)
-      return {} if doi.blank?
+      prefix = validate_prefix(doi)
+      return nil if prefix.blank?
 
-      url = "https://doi.crossref.org/doiRA/#{doi_from_url(doi)}"
-      response = Maremma.get(url, host: true, timeout: 120)
+      url = "https://api.datacite.org/prefixes/#{prefix}"
+      result = Maremma.get(url)
 
-      ra = response.body.fetch("data", {}).first.fetch("RA", nil)
-      if ra.present?
-        { "id" => ra.downcase,
-          "name" => ra }
-      else
-        { "errors" => response.body.fetch("errors", nil) || response.body.fetch("data", nil) }
-      end
+      result.body.fetch("data", {}).fetch('attributes', {}).fetch('registration-agency', nil)
     end
   end
 end

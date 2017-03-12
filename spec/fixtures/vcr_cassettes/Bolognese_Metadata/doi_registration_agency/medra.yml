@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5438
+    uri: https://api.datacite.org/prefixes/10.1392
     body:
       encoding: US-ASCII
       string: ''
@@ -31,9 +31,9 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sun, 12 Mar 2017 08:48:45 GMT
+      - Sun, 12 Mar 2017 09:03:18 GMT
       Etag:
-      - W/"b9f2d79281c542db437c42a5bac25ac8"
+      - W/"f8c9b097aad19d4351c99fa3da69edd0"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -47,26 +47,26 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '2'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '556'
+      - '568'
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Ratelimit-Limit-Hour:
       - '10000'
       X-Ratelimit-Remaining-Hour:
-      - '9996'
+      - '9997'
       X-Request-Id:
-      - 67d849ab-7e9f-4d72-8d06-72921647f7e6
+      - 67d89447-f3f4-4cc3-bef6-dbee8c474a4c
       X-Runtime:
-      - '0.551858'
+      - '0.566509'
       X-Xss-Protection:
       - 1; mode=block
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
+      string: '{"data":{"id":"10.1392","type":"prefixes","attributes":{"registration-agency":"mEDRA","updated":"2016-09-21T20:02:33Z"}}}'
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 08:48:45 GMT
+  recorded_at: Sun, 12 Mar 2017 09:03:19 GMT
 recorded_with: VCR 3.0.3

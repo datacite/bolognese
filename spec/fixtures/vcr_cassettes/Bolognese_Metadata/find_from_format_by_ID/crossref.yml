@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.crossref.org/doiRA/10.1371/journal.pone.0000030
+    uri: https://api.datacite.org/prefixes/10.1371
     body:
       encoding: US-ASCII
       string: ''
@@ -16,29 +16,59 @@ http_interactions:
       code: 200
       message: ''
     headers:
-      Server:
-      - Apache-Coyote/1.1
-      Crossref-Deployment-Name:
-      - svc1-1
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
-      Content-Language:
-      - en-US
-      Content-Length:
-      - '66'
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 22 Feb 2017 17:15:32 GMT
+      - Sun, 12 Mar 2017 08:48:43 GMT
+      Etag:
+      - W/"a078870f021fe1686525a8135b0e29b8"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.0rc3
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Kong-Proxy-Latency:
+      - '19'
+      X-Kong-Upstream-Latency:
+      - '514'
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Ratelimit-Limit-Hour:
+      - '10000'
+      X-Ratelimit-Remaining-Hour:
+      - '9998'
+      X-Request-Id:
+      - a8bc01a5-52cf-4f2b-8db4-7c736c8d71ba
+      X-Runtime:
+      - '0.513586'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
-      - close
+      - keep-alive
     body:
       encoding: UTF-8
-      string: |-
-        [
-         {
-         "DOI": "10.1371/journal.pone.0000030",
-         "RA": "Crossref"
-        }
-        ]
+      string: '{"data":{"id":"10.1371","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:47:32Z"}}}'
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 17:15:32 GMT
+  recorded_at: Sun, 12 Mar 2017 08:48:43 GMT
 recorded_with: VCR 3.0.3

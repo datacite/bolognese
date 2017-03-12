@@ -21,7 +21,8 @@ module Bolognese
       id = normalize_id(id)
 
       if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
-        get_doi_ra(id).fetch("id", nil)
+        ra = get_doi_ra(id)
+        ra.present? ? ra.downcase : nil
       elsif /\A(?:(http|https):\/\/orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
         "orcid"
       elsif /\A(http|https):\/\/github\.com\/(.+)\z/.match(id)

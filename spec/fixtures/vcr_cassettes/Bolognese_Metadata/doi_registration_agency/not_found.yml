@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5438
+    uri: https://api.datacite.org/prefixes/10.99999
     body:
       encoding: US-ASCII
       string: ''
@@ -13,31 +13,25 @@ http_interactions:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
     status:
-      code: 200
+      code: 404
       message: ''
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Headers:
       - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
-      Access-Control-Allow-Methods:
-      - POST, GET, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
-      Access-Control-Max-Age:
-      - '1728000'
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Date:
-      - Sun, 12 Mar 2017 08:48:45 GMT
-      Etag:
-      - W/"b9f2d79281c542db437c42a5bac25ac8"
+      - Sun, 12 Mar 2017 09:03:19 GMT
       Server:
       - openresty/1.11.2.2
       Status:
-      - 200 OK
+      - 404 Not Found
       Vary:
       - Accept-Encoding
       Via:
@@ -47,9 +41,9 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '2'
+      - '6'
       X-Kong-Upstream-Latency:
-      - '556'
+      - '611'
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Ratelimit-Limit-Hour:
@@ -57,16 +51,17 @@ http_interactions:
       X-Ratelimit-Remaining-Hour:
       - '9996'
       X-Request-Id:
-      - 67d849ab-7e9f-4d72-8d06-72921647f7e6
+      - 1ca09f30-05be-4547-8113-c9a8870284e4
       X-Runtime:
-      - '0.551858'
+      - '0.609896'
       X-Xss-Protection:
       - 1; mode=block
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 08:48:45 GMT
+  recorded_at: Sun, 12 Mar 2017 09:03:19 GMT
 recorded_with: VCR 3.0.3

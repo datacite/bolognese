@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.crossref.org/doiRA/10.7554/elife.01567
+    uri: https://api.datacite.org/prefixes/10.7554
     body:
       encoding: US-ASCII
       string: ''
@@ -16,31 +16,61 @@ http_interactions:
       code: 200
       message: ''
     headers:
-      Server:
-      - Apache-Coyote/1.1
-      Crossref-Deployment-Name:
-      - svc1-1
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
-      Content-Language:
-      - en-US
-      Content-Length:
-      - '57'
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 22 Feb 2017 17:30:20 GMT
+      - Sun, 12 Mar 2017 09:09:16 GMT
+      Etag:
+      - W/"daf85afdb45f3c2713bc7e75916ba82a"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.0rc3
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Kong-Proxy-Latency:
+      - '26'
+      X-Kong-Upstream-Latency:
+      - '237'
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Ratelimit-Limit-Hour:
+      - '10000'
+      X-Ratelimit-Remaining-Hour:
+      - '9991'
+      X-Request-Id:
+      - 2ceda84e-d266-4ed3-9f8a-df8675fd0106
+      X-Runtime:
+      - '0.236229'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
-      - close
+      - keep-alive
     body:
       encoding: UTF-8
-      string: |-
-        [
-         {
-         "DOI": "10.7554/elife.01567",
-         "RA": "Crossref"
-        }
-        ]
+      string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T21:07:27Z"}}}'
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 17:30:21 GMT
+  recorded_at: Sun, 12 Mar 2017 09:09:16 GMT
 - request:
     method: get
     uri: https://doi.org/10.7554/elife.01567
@@ -64,20 +94,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.7554%2Felife.01567
       Expires:
-      - Wed, 22 Feb 2017 17:45:01 GMT
+      - Sun, 12 Mar 2017 09:59:19 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '177'
       Date:
-      - Wed, 22 Feb 2017 17:30:20 GMT
+      - Sun, 12 Mar 2017 09:09:23 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.7554%2Felife.01567">http://data.crossref.org/10.7554%2Felife.01567</a></body></html>
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 17:30:21 GMT
+  recorded_at: Sun, 12 Mar 2017 09:09:24 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.7554%2Felife.01567
@@ -113,7 +143,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Wed, 22 Feb 2017 17:30:21 GMT
+      - Sun, 12 Mar 2017 09:09:24 GMT
       Connection:
       - close
     body:
@@ -756,5 +786,5 @@ http_interactions:
         aWNsZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8
         L2RvaV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 17:30:21 GMT
+  recorded_at: Sun, 12 Mar 2017 09:09:25 GMT
 recorded_with: VCR 3.0.3

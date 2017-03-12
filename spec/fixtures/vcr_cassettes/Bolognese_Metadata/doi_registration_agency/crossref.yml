@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5438
+    uri: https://api.datacite.org/prefixes/10.1371
     body:
       encoding: US-ASCII
       string: ''
@@ -31,9 +31,9 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sun, 12 Mar 2017 08:48:45 GMT
+      - Sun, 12 Mar 2017 09:03:18 GMT
       Etag:
-      - W/"b9f2d79281c542db437c42a5bac25ac8"
+      - W/"a078870f021fe1686525a8135b0e29b8"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -47,26 +47,28 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '2'
+      - '1'
       X-Kong-Upstream-Latency:
-      - '556'
+      - '473'
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Ratelimit-Limit-Hour:
       - '10000'
       X-Ratelimit-Remaining-Hour:
-      - '9996'
+      - '9998'
       X-Request-Id:
-      - 67d849ab-7e9f-4d72-8d06-72921647f7e6
+      - 56485efe-d66a-4061-8620-9f61b46aec2e
       X-Runtime:
-      - '0.551858'
+      - '0.472139'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
+      string: '{"data":{"id":"10.1371","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:47:32Z"}}}'
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 08:48:45 GMT
+  recorded_at: Sun, 12 Mar 2017 09:03:18 GMT
 recorded_with: VCR 3.0.3

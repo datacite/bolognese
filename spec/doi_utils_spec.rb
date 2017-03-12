@@ -1,9 +1,8 @@
 require 'spec_helper'
 
-describe Bolognese::Crossref, vcr: true do
-  let(:id) { "https://doi.org/10.1371/journal.pone.0000030" }
+describe Bolognese::Metadata, vcr: true do
 
-  subject { Bolognese::Crossref.new(id: id) }
+  subject { Bolognese::Metadata.new }
 
   context "normalize doi" do
     it "doi" do
@@ -65,25 +64,31 @@ describe Bolognese::Crossref, vcr: true do
     it "datacite" do
       doi = "https://doi.org/10.5061/dryad.8515"
       response = subject.get_doi_ra(doi)
-      expect(response["name"]).to eq("DataCite")
+      expect(response).to eq("DataCite")
     end
 
     it "crossref" do
-      doi = "https://doi.org/10.1371/journal.pone.0000030"
+      doi = "10.1371/journal.pone.0000030"
       response = subject.get_doi_ra(doi)
-      expect(response["name"]).to eq("Crossref")
+      expect(response).to eq("Crossref")
     end
 
     it "medra" do
       doi = "https://doi.org/10.1392/roma081203"
       response = subject.get_doi_ra(doi)
-      expect(response["name"]).to eq("mEDRA")
+      expect(response).to eq("mEDRA")
+    end
+
+    it "not a valid prefix" do
+      doi = "https://doi.org/10.a/dryad.8515x"
+      response = subject.get_doi_ra(doi)
+      expect(response).to be_nil
     end
 
     it "not found" do
-      doi = "https://doi.org/10.5061/dryad.8515x"
+      doi = "https://doi.org/10.99999/dryad.8515x"
       response = subject.get_doi_ra(doi)
-      expect(response["errors"]).to eq([{"DOI"=>"10.5061/dryad.8515x", "status"=>"Invalid DOI"}])
+      expect(response).to be_nil
     end
   end
 end

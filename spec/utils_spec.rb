@@ -1,9 +1,8 @@
 require 'spec_helper'
 
-describe Bolognese::Crossref, vcr: true do
-  let(:id) { "https://doi.org/10.1371/journal.pone.0000030" }
+describe Bolognese::Metadata, vcr: true do
 
-  subject { Bolognese::Crossref.new(id: id) }
+  subject { Bolognese::Metadata.new }
 
   context "validate url" do
     it "DOI" do

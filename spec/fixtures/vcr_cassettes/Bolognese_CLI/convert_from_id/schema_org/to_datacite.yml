@@ -16,30 +16,32 @@ http_interactions:
       code: 302
       message: ''
     headers:
-      Server:
-      - openresty/1.11.2.2
-      Date:
-      - Wed, 22 Feb 2017 17:30:08 GMT
       Content-Type:
       - text/html; charset=utf-8
-      Content-Length:
-      - '313'
-      Connection:
-      - keep-alive
+      Date:
+      - Sun, 12 Mar 2017 09:09:26 GMT
+      Location:
+      - "/eating-your-own-dog-food/"
+      Server:
+      - openresty/1.11.2.2
+      Via:
+      - kong/0.10.0rc3
       X-Amz-Error-Code:
       - Found
       X-Amz-Error-Message:
       - Resource Found
-      X-Amz-Request-Id:
-      - 3E08FFE3939CC12F
       X-Amz-Id-2:
-      - aOOhkkWaX18Fd4A6LeGnBMjeLgbu9LIYywR6Y2UxIC/dOebSfd8CCygVU7rVtUw5/lGX1vRmopc=
-      Location:
-      - "/eating-your-own-dog-food/"
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - VA7pjiuymkvPwKBpV8BV/JUPR/Q8yqIfRh16iCNbls/ex/VL7ATEa/m26VFPd9grgECGZi1M1wQ=
+      X-Amz-Request-Id:
+      - 335EDE8A4275890B
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '6'
+      Content-Length:
+      - '313'
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
       string: |
@@ -50,14 +52,14 @@ http_interactions:
         <ul>
         <li>Code: Found</li>
         <li>Message: Resource Found</li>
-        <li>RequestId: 3E08FFE3939CC12F</li>
-        <li>HostId: aOOhkkWaX18Fd4A6LeGnBMjeLgbu9LIYywR6Y2UxIC/dOebSfd8CCygVU7rVtUw5/lGX1vRmopc=</li>
+        <li>RequestId: 335EDE8A4275890B</li>
+        <li>HostId: VA7pjiuymkvPwKBpV8BV/JUPR/Q8yqIfRh16iCNbls/ex/VL7ATEa/m26VFPd9grgECGZi1M1wQ=</li>
         </ul>
         <hr/>
         </body>
         </html>
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 17:30:08 GMT
+  recorded_at: Sun, 12 Mar 2017 09:09:26 GMT
 - request:
     method: get
     uri: https://blog.datacite.org/eating-your-own-dog-food/
@@ -74,32 +76,34 @@ http_interactions:
       code: 200
       message: ''
     headers:
-      Server:
-      - openresty/1.11.2.2
-      Date:
-      - Wed, 22 Feb 2017 17:30:08 GMT
-      Content-Type:
-      - text/html
-      Content-Length:
-      - '24492'
-      Connection:
-      - keep-alive
-      X-Amz-Id-2:
-      - 0VK57vrqfkzEXYFw2UKqXXIdrdGHQxL4a0TSAn7kaJdQ3qsjo42N1E33DI6rN4yPWH4icUb/eTw=
-      X-Amz-Request-Id:
-      - 99BB0F1ADEE3E777
       Cache-Control:
       - max-age=31536000
-      Last-Modified:
-      - Tue, 17 Jan 2017 11:38:17 GMT
-      X-Amz-Version-Id:
-      - EzciZoWvrAjlf20yy3iZwuejZmA67F0d
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 12 Mar 2017 09:09:26 GMT
       Etag:
-      - '"7b74efae0346df7609adc5535ec2259d"'
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - '"310417d9f61ee203489a9dc00d91e347"'
+      Last-Modified:
+      - Thu, 02 Mar 2017 17:22:04 GMT
+      Server:
+      - openresty/1.11.2.2
+      Via:
+      - kong/0.10.0rc3
+      X-Amz-Id-2:
+      - xhXhdIqTR07GM9qVN7h2f2r0XYU3k7X5EoXw0YNpGReZB3IinouAQnwwTAB83E/yygRPH3w2PQU=
+      X-Amz-Request-Id:
+      - 941D33712CF27615
+      X-Amz-Version-Id:
+      - wv1VlqcPGRvO2ygnBw0tDdqE4NIBpPjE
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '9'
+      Content-Length:
+      - '24743'
+      Connection:
+      - keep-alive
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -637,17 +641,22 @@ http_interactions:
         cmM9Ii9qYXZhc2NyaXB0cy9pbmRleC5qcyI+PC9zY3JpcHQ+CjxzY3JpcHQg
         c3JjPSIvamF2YXNjcmlwdHMvc2VhcmNoLmpzIj48L3NjcmlwdD4KPHNjcmlw
         dCBpZD0iZHNxLWNvdW50LXNjciIgc3JjPSIvL2RhdGFjaXRlLmRpc3F1cy5j
-        b20vY291bnQuanMiIGFzeW5jPjwvc2NyaXB0PgoKICAgIDxzY3JpcHQ+CiAg
-        KGZ1bmN0aW9uKGkscyxvLGcscixhLG0pe2lbJ0dvb2dsZUFuYWx5dGljc09i
-        amVjdCddPXI7aVtyXT1pW3JdfHxmdW5jdGlvbigpewogIChpW3JdLnE9aVty
-        XS5xfHxbXSkucHVzaChhcmd1bWVudHMpfSxpW3JdLmw9MSpuZXcgRGF0ZSgp
-        O2E9cy5jcmVhdGVFbGVtZW50KG8pLAogIG09cy5nZXRFbGVtZW50c0J5VGFn
-        TmFtZShvKVswXTthLmFzeW5jPTE7YS5zcmM9ZzttLnBhcmVudE5vZGUuaW5z
-        ZXJ0QmVmb3JlKGEsbSkKICB9KSh3aW5kb3csZG9jdW1lbnQsJ3NjcmlwdCcs
-        Jy8vd3d3Lmdvb2dsZS1hbmFseXRpY3MuY29tL2FuYWx5dGljcy5qcycsJ2dh
-        Jyk7CgogIGdhKCdjcmVhdGUnLCAnVUEtMjI4MDYxOTYtNicsICdhdXRvJyk7
-        CiAgZ2EoJ3NlbmQnLCAncGFnZXZpZXcnKTsKCjwvc2NyaXB0PgoKICA8L2Jv
-        ZHk+CjwvaHRtbD4K
+        b20vY291bnQuanMiIGFzeW5jPjwvc2NyaXB0Pgo8c2NyaXB0PgogICQuZ2V0
+        SlNPTignaHR0cHM6Ly9kYXRhLmRhdGFjaXRlLm9yZy9jb250ZW50LXJlc29s
+        dmVyL2FwcGxpY2F0aW9uL3ZuZC5zY2hlbWFvcmcubGQranNvbi8xMC41NDM4
+        L1ROSFgtNTRDRycsIGZ1bmN0aW9uKCBkYXRhICkgewogICAgJCgiI3NjaGVt
+        YV9vcmciKS5odG1sKCBkYXRhICk7CiAgfSk7Cjwvc2NyaXB0Pgo8c2NyaXB0
+        IHR5cGU9ImFwcGxpY2F0aW9uL2xkK2pzb24iIGlkPSJzY2hlbWFfb3JnIj4K
+        PC9zY3JpcHQ+CgogICAgPHNjcmlwdD4KICAoZnVuY3Rpb24oaSxzLG8sZyxy
+        LGEsbSl7aVsnR29vZ2xlQW5hbHl0aWNzT2JqZWN0J109cjtpW3JdPWlbcl18
+        fGZ1bmN0aW9uKCl7CiAgKGlbcl0ucT1pW3JdLnF8fFtdKS5wdXNoKGFyZ3Vt
+        ZW50cyl9LGlbcl0ubD0xKm5ldyBEYXRlKCk7YT1zLmNyZWF0ZUVsZW1lbnQo
+        byksCiAgbT1zLmdldEVsZW1lbnRzQnlUYWdOYW1lKG8pWzBdO2EuYXN5bmM9
+        MTthLnNyYz1nO20ucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUoYSxtKQogIH0p
+        KHdpbmRvdyxkb2N1bWVudCwnc2NyaXB0JywnLy93d3cuZ29vZ2xlLWFuYWx5
+        dGljcy5jb20vYW5hbHl0aWNzLmpzJywnZ2EnKTsKCiAgZ2EoJ2NyZWF0ZScs
+        ICdVQS0yMjgwNjE5Ni02JywgJ2F1dG8nKTsKICBnYSgnc2VuZCcsICdwYWdl
+        dmlldycpOwoKPC9zY3JpcHQ+CgogIDwvYm9keT4KPC9odG1sPgo=
     http_version: 
-  recorded_at: Wed, 22 Feb 2017 17:30:08 GMT
+  recorded_at: Sun, 12 Mar 2017 09:09:26 GMT
 recorded_with: VCR 3.0.3
