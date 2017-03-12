@@ -103,7 +103,18 @@ module Bolognese
     def normalize_id(id)
       return nil unless id.present?
 
-      normalize_doi(id) || Addressable::URI.parse(id).host && PostRank::URI.clean(id)
+      # check for valid DOI
+      doi = normalize_doi(id)
+      return doi if doi.present?
+
+      # check for valid HTTP uri
+      uri = Addressable::URI.parse(id)
+      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
+
+      # clean up URL
+      PostRank::URI.clean(id)
+    rescue Addressable::URI::InvalidURIError
+      nil
     end
 
     def normalize_orcid(orcid)

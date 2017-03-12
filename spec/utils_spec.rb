@@ -58,10 +58,40 @@ describe Bolognese::Crossref, vcr: true do
       expect(response).to eq("https://doi.org/10.5061/dryad.8515")
     end
 
+    it "doi as url" do
+      doi = "http://dx.doi.org/10.5061/DRYAD.8515"
+      response = subject.normalize_id(doi)
+      expect(response).to eq("https://doi.org/10.5061/dryad.8515")
+    end
+
     it "url" do
       url = "https://blog.datacite.org/eating-your-own-dog-food/"
       response = subject.normalize_id(url)
       expect(response).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+    end
+
+    it "url with utf-8" do
+      url = "http://www.詹姆斯.com/eating-your-own-dog-food/"
+      response = subject.normalize_id(url)
+      expect(response).to eq("http://www.xn--8ws00zhy3a.com/eating-your-own-dog-food")
+    end
+
+    it "ftp" do
+      url = "ftp://blog.datacite.org/eating-your-own-dog-food/"
+      response = subject.normalize_id(url)
+      expect(response).to be_nil
+    end
+
+    it "invalid url" do
+      url = "http://"
+      response = subject.normalize_id(url)
+      expect(response).to be_nil
+    end
+
+    it "string" do
+      url = "eating-your-own-dog-food"
+      response = subject.normalize_id(url)
+      expect(response).to be_nil
     end
   end
 
