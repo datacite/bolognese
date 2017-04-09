@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.8.6)
+    bolognese (0.8.10)
       activesupport (~> 4.2, >= 4.2.5)
       bibtex-ruby (~> 4.1)
       builder (~> 3.2, >= 3.2.2)
@@ -9,7 +9,7 @@ PATH
       loofah (~> 2.0, >= 2.0.3)
       maremma (~> 3.5)
       namae (~> 0.10.2)
-      nokogiri (~> 1.6, >= 1.6.8)
+      nokogiri (~> 1.7, >= 1.7.1)
       postrank-uri (~> 1.0, >= 1.0.18)
       thor (~> 0.19)
 
@@ -47,7 +47,7 @@ GEM
       unicode (~> 0.4)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    maremma (3.5.1)
+    maremma (3.5.4)
       activesupport (~> 4.2, >= 4.2.5)
       addressable (>= 2.3.6)
       builder (~> 3.2, >= 3.2.2)
@@ -56,14 +56,14 @@ GEM
       faraday-encoding (~> 0.0.1)
       faraday_middleware (~> 0.10.0)
       multi_json (~> 1.11.2)
-      nokogiri (~> 1.6.7)
+      nokogiri (~> 1.7, >= 1.7.1)
       oj (~> 2.18, >= 2.18.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.11.3)
     multipart-post (2.0.0)
     namae (0.10.2)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     oj (2.18.5)
     postrank-uri (1.0.22)
