@@ -58,6 +58,10 @@ module Bolognese
       Bolognese::Bibtex::SO_TO_BIB_TRANSLATIONS[type] || "misc"
     end
 
+    def ris_type
+      CP_TO_RIS_TRANSLATIONS[type] || "GEN"
+    end
+
     def title
       metadata.fetch("title", nil)
     end

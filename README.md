@@ -72,6 +72,13 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
       <td>Yes</td>
     </tr>
+    <tr>
+      <td><a href='http://en.wikipedia.org/wiki/RIS_(file_format)'>RIS</a></td>
+      <td>ris</td>
+      <td>application/x-research-info-systems</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
   </tbody>
 </table>
 

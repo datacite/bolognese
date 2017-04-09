@@ -39,6 +39,10 @@ module Bolognese
       DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other"
     end
 
+    def ris_type
+      SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
+    end
+
     def additional_type
       metadata.fetch("resource-type", nil)
     end
@@ -64,7 +68,7 @@ module Bolognese
     end
 
     def keywords
-      metadata.fetch("subject", nil)
+      Array.wrap(metadata.fetch("subject", nil)).join(", ").presence
     end
 
     def author

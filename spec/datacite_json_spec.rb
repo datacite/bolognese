@@ -64,4 +64,21 @@ describe Bolognese::DataciteJson, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2016, 12, 20]])
     end
   end
+
+  context "get metadata as ris" do
+    it "BlogPosting" do
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - GEN")
+      expect(ris[1]).to eq("T1 - Eating your own Dog Food")
+      expect(ris[2]).to eq("T2 - DataCite")
+      expect(ris[3]).to eq("AU - Fenner, Martin")
+      expect(ris[4]).to eq("DO - 10.5438/4K3M-NYVG")
+      expect(ris[5]).to eq("AB - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(ris[6]).to eq("KW - datacite")
+      expect(ris[9]).to eq("PY - 2016")
+      expect(ris[10]).to eq("PB - DataCite")
+      expect(ris[11]).to eq("AN - MS-49-3632-5083")
+      expect(ris[12]).to eq("ER - ")
+    end
+  end
 end

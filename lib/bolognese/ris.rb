@@ -1,5 +1,5 @@
 module Bolognese
-  class Bibtex < Metadata
+  class Ris < Metadata
 
     BIB_TO_SO_TRANSLATIONS = {
       "article" => "ScholarlyArticle"
@@ -30,40 +30,6 @@ module Bolognese
       "article" => "article-journal"
     }
 
-    BIB_TO_RIS_TRANSLATIONS = {
-      "article" => "JOUR",
-      "book" => "BOOK",
-      "inbook" => "CHAP",
-      "inproceedings" => "CPAPER",
-      "manual" => nil,
-      "misc" => "GEN",
-      "phdthesis" => "THES",
-      "proceedings" => "CONF",
-      "techreport" => "RPRT",
-      "unpublished" => "UNPD"
-    }
-
-    SO_TO_RIS_TRANSLATIONS = {
-      "Article" => "",
-      "AudioObject" => "song",
-      "Blog" => nil,
-      "BlogPosting" => "BLOG",
-      "Collection" => nil,
-      "CreativeWork" => "GEN",
-      "DataCatalog" => "CTLG",
-      "Dataset" => "DATA",
-      "Event" => nil,
-      "ImageObject" => "FIGURE",
-      "Movie" => "MPCT",
-      "PublicationIssue" => nil,
-      "ScholarlyArticle" => "JOUR",
-      "Service" => nil,
-      "SoftwareSourceCode" => "COMP",
-      "VideoObject" => "VIDEO",
-      "WebPage" => "ELEC",
-      "WebSite" => nil
-    }
-
     def initialize(string: nil)
       @raw = string
     end
@@ -86,10 +52,6 @@ module Bolognese
 
     def citeproc_type
       BIB_TO_CP_TRANSLATIONS[metadata.type.to_s] || "misc"
-    end
-
-    def ris_type
-      BIB_TO_RIS_TRANSLATIONS[metadata.type.to_s] || "GEN"
     end
 
     def resource_type_general
@@ -132,14 +94,6 @@ module Bolognese
 
     def publication_year
       metadata.year.to_s.presence
-    end
-
-    def volume
-      metadata.volume.to_s.presence
-    end
-
-    def pagination
-      metadata.pages.to_s.presence
     end
 
     def is_part_of

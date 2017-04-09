@@ -58,6 +58,10 @@ module Bolognese
       SO_TO_CP_TRANSLATIONS[type] || "article-journal"
     end
 
+    def ris_type
+      SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
+    end
+    
     def additional_type
       metadata.fetch("additionalType", nil)
     end

@@ -53,4 +53,20 @@ describe Bolognese::Bibtex, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2014]])
     end
   end
+
+  context "get metadata as ris" do
+    it "Crossref DOI" do
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - JOUR")
+      expect(ris[1]).to eq("T1 - Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(ris[2]).to eq("T2 - eLife")
+      expect(ris[3]).to eq("AU - Sankar, Martial")
+      expect(ris[8]).to eq("DO - 10.7554/elife.01567")
+      expect(ris[9]).to eq("UR - http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(ris[10]).to eq("AB - Among various advantages, their small size makes model organisms preferred subjects of investigation. Yet, even in model systems detailed analysis of numerous developmental processes at cellular level is severely hampered by their scale.")
+      expect(ris[11]).to eq("PY - 2014")
+      expect(ris[12]).to eq("VL - 3")
+      expect(ris[13]).to eq("ER - ")
+    end
+  end
 end

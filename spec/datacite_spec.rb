@@ -293,4 +293,40 @@ describe Bolognese::Datacite, vcr: true do
       expect(json["issued"]).to eq("date-parts"=>[[2016, 12, 20]])
     end
   end
+
+  context "get metadata as ris" do
+    it "Dataset" do
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - DATA")
+      expect(ris[1]).to eq("T1 - Data from: A new malaria agent in African hominids.")
+      expect(ris[2]).to eq("T2 - Dryad Digital Repository")
+      expect(ris[3]).to eq("AU - Ollomo, Benjamin")
+      expect(ris[11]).to eq("DO - 10.5061/DRYAD.8515")
+      expect(ris[13]).to eq("KW - Malaria")
+      expect(ris[19]).to eq("PY - 2011")
+      expect(ris[20]).to eq("PB - Dryad Digital Repository")
+      expect(ris[21]).to eq("AN - Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
+      expect(ris[22]).to eq("ER - ")
+    end
+
+    it "BlogPosting" do
+      id = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - GEN")
+      expect(ris[1]).to eq("T1 - Eating your own Dog Food")
+      expect(ris[2]).to eq("T2 - DataCite")
+      expect(ris[3]).to eq("AU - Fenner, Martin")
+      expect(ris[4]).to eq("DO - 10.5438/4K3M-NYVG")
+      expect(ris[5]).to eq("AB - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(ris[6]).to eq("KW - datacite")
+      expect(ris[9]).to eq("PY - 2016")
+      expect(ris[10]).to eq("PB - DataCite")
+      expect(ris[11]).to eq("AN - MS-49-3632-5083")
+      expect(ris[12]).to eq("ER - ")
+    end
+  end
 end

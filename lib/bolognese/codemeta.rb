@@ -52,6 +52,10 @@ module Bolognese
       "computer_program"
     end
 
+    def ris_type
+      SO_TO_RIS_TRANSLATIONS[type] || "GEN"
+    end
+
     def additional_type
       metadata.fetch("additionalType", nil)
     end
@@ -91,7 +95,7 @@ module Bolognese
     end
 
     def keywords
-      Array(metadata.fetch("tags", nil)).join(", ").presence
+      Array.wrap(metadata.fetch("tags", nil)).join(", ").presence
     end
 
     def date_created

@@ -43,6 +43,8 @@ module Bolognese
         "datacite_json"
       elsif options[:ext] == ".json" && Maremma.from_json(string).dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
         "citeproc"
+      elsif options[:ext] == ".ris"
+        "ris"
       elsif options[:filename] == "codemeta.json"
         "codemeta"
       end
@@ -61,6 +63,7 @@ module Bolognese
           when "datacite_json" then DataciteJson.new(string: string)
           when "citeproc" then Citeproc.new(id: id, string: string)
           when "bibtex" then Bibtex.new(string: string)
+          when "ris" then Ris.new(string: string)
           else SchemaOrg.new(id: id)
           end
 
@@ -221,6 +224,16 @@ module Bolognese
         a["given"] = a["givenName"]
         a["literal"] = a["name"] unless a["familyName"].present?
         a.except("type", "@type", "id", "@id", "name", "familyName", "givenName").compact
+      end.unwrap
+    end
+
+    def to_ris(element)
+      Array.wrap(element).map do |a|
+        if a["familyName"].present?
+          [a["familyName"], a["givenName"]].join(", ")
+        else
+          a["name"]
+        end
       end.unwrap
     end
 

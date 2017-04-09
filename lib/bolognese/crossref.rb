@@ -129,6 +129,10 @@ module Bolognese
       CR_TO_CP_TRANSLATIONS[additional_type] || "article-journal"
     end
 
+    def ris_type
+      CR_TO_RIS_TRANSLATIONS[additional_type] || "JOUR"
+    end
+
     def additional_type
       if metadata.dig("crossref", "journal").present?
         metadata.dig("crossref", "journal").keys.last.camelize

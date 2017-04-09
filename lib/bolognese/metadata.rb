@@ -128,6 +128,67 @@ module Bolognese
       "webpage" => "WebPage"
     }
 
+    SO_TO_RIS_TRANSLATIONS = {
+      "Article" => nil,
+      "AudioObject" => nil,
+      "Blog" => nil,
+      "BlogPosting" => "BLOG",
+      "Collection" => nil,
+      "CreativeWork" => "GEN",
+      "DataCatalog" => "CTLG",
+      "Dataset" => "DATA",
+      "Event" => nil,
+      "ImageObject" => "FIGURE",
+      "Movie" => "MPCT",
+      "PublicationIssue" => nil,
+      "ScholarlyArticle" => "JOUR",
+      "Service" => nil,
+      "SoftwareSourceCode" => "COMP",
+      "VideoObject" => "VIDEO",
+      "WebPage" => "ELEC",
+      "WebSite" => nil
+    }
+
+    CR_TO_RIS_TRANSLATIONS = {
+      "proceedings" => "CONF",
+      "reference-book" => "BOOK",
+      "journal-issue" => nil,
+      "proceedings-article" => "CPAPER",
+      "other" => "GEN",
+      "dissertation" => "THES",
+      "dataset" => "DATA",
+      "edited-book" => "BOOK",
+      "journal-article" => "JOUR",
+      "journal" => nil,
+      "report" => nil,
+      "book-series" => nil,
+      "report-series" => nil,
+      "book-track" => nil,
+      "standard" => nil,
+      "book-section" => "CHAP",
+      "book-part" => "CHAP",
+      "book" => "BOOK",
+      "book-chapter" => "CHAP",
+      "standard-series" => nil,
+      "monograph" => "BOOK",
+      "component" => nil,
+      "reference-entry" => "DICT",
+      "journal-volume" => nil,
+      "book-set" => nil
+    }
+
+    CP_TO_RIS_TRANSLATIONS = {
+      "post-weblog" => "BLOG",
+      "dataset" => "DATA",
+      "graphic" => "FIGURE",
+      "book" => "BOOK",
+      "motion_picture" => "MPCT",
+      "article-journal" => "JOUR",
+      "computer_program" => "COMP",
+      "broadcast" => "MPCT",
+      "webpage" => "ELEC"
+    }
+
     attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
@@ -140,7 +201,7 @@ module Bolognese
       :is_referenced_by, :references, :is_documented_by, :documents,
       :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
       :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
-      :related_identifier, :reverse, :citeproc_type, :volume, :issue
+      :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue
 
     def publication_year
       date_published && date_published[0..3]
@@ -294,6 +355,27 @@ module Bolognese
         year: publication_year
       }.compact
       BibTeX::Entry.new(bib).to_s
+    end
+
+    def ris
+      {
+        "TY" => ris_type,
+        "T1" => title,
+        "T2" => container_title,
+        "AU" => to_ris(author),
+        "DO" => doi,
+        "UR" => url,
+        "AB" => description.present? ? description["text"] : nil,
+        "KW" => keywords.to_s.split(", ").presence,
+        "PY" => publication_year,
+        "PB" => publisher,
+        "AN" => alternate_name.present? ? alternate_name["name"] : nil,
+        "LA" => language,
+        "VL" => volume,
+        "IS" => issue,
+        "SP" => pagination,
+        "ER" => ""
+      }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k} - #{vi}" }.join("\r\n") : "#{k} - #{v}" }.join("\r\n")
     end
   end
 end

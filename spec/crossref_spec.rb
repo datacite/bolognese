@@ -266,4 +266,39 @@ describe Bolognese::Crossref, vcr: true do
       expect(json["issued"]).to eq("date-parts"=>[[2012]])
     end
   end
+
+  context "get metadata as ris" do
+    it "journal article" do
+      id = "10.7554/eLife.01567"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - JOUR")
+      expect(ris[1]).to eq("T1 - Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(ris[2]).to eq("T2 - eLife")
+      expect(ris[3]).to eq("AU - Sankar, Martial")
+      expect(ris[8]).to eq("DO - 10.7554/eLife.01567")
+      expect(ris[9]).to eq("UR - http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(ris[10]).to eq("PY - 2014")
+      expect(ris[11]).to eq("VL - 3")
+      expect(ris[12]).to eq("ER - ")
+    end
+
+    it "with pages" do
+      id = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - JOUR")
+      expect(ris[1]).to eq("T1 - Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
+      expect(ris[2]).to eq("T2 - Pulmonary Medicine")
+      expect(ris[3]).to eq("AU - Thanassi, Wendy")
+      expect(ris[10]).to eq("DO - 10.1155/2012/291294")
+      expect(ris[11]).to eq("UR - http://www.hindawi.com/journals/pm/2012/291294/")
+      expect(ris[12]).to eq("PY - 2012")
+      expect(ris[13]).to eq("VL - 2012")
+      expect(ris[14]).to eq("SP - 1-7")
+      expect(ris[15]).to eq("ER - ")
+    end
+  end
 end

@@ -181,4 +181,21 @@ describe Bolognese::Codemeta, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2017, 2, 24]])
     end
   end
+
+  context "get metadata as ris" do
+    it "maremma" do
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - COMP")
+      expect(ris[1]).to eq("T1 - Maremma: a Ruby library for simplified network calls")
+      expect(ris[2]).to eq("T2 - DataCite")
+      expect(ris[3]).to eq("AU - Fenner, Martin")
+      expect(ris[4]).to eq("DO - 10.5438/qeg0-3gm3")
+      expect(ris[5]).to eq("UR - https://github.com/datacite/maremma")
+      expect(ris[6]).to eq("AB - Ruby utility library for network requests. Based on Faraday and Excon, provides a wrapper for XML/JSON parsing and error handling. All successful responses are returned as hash with key data, all errors in a JSONAPI-friendly hash with key errors.")
+      expect(ris[7]).to eq("KW - faraday")
+      expect(ris[10]).to eq("PY - 2017")
+      expect(ris[11]).to eq("PB - DataCite")
+      expect(ris[12]).to eq("ER - ")
+    end
+  end
 end

@@ -70,6 +70,10 @@ module Bolognese
       DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other"
     end
 
+    def ris_type
+      SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
+    end
+
     def additional_type
       metadata.fetch("resourceType", {}).fetch("__content__", nil) ||
       metadata.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil)
