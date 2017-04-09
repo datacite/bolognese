@@ -177,6 +177,23 @@ module Bolognese
       "book-set" => nil
     }
 
+    DC_TO_RIS_TRANSLATIONS = {
+      "Audiovisual" => "MPCT",
+      "Collection" => nil,
+      "Dataset" => "DATA",
+      "Event" => nil,
+      "Image" => "FIGURE",
+      "InteractiveResource" => nil,
+      "Model" => nil,
+      "PhysicalObject" => nil,
+      "Service" => nil,
+      "Software" => "COMP",
+      "Sound" => "SOUND",
+      "Text" => "RPRT",
+      "Workflow" => nil,
+      "Other" => nil
+    }
+
     CP_TO_RIS_TRANSLATIONS = {
       "post-weblog" => "BLOG",
       "dataset" => "DATA",

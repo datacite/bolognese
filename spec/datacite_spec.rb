@@ -316,7 +316,7 @@ describe Bolognese::Datacite, vcr: true do
       subject = Bolognese::Datacite.new(id: id)
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
-      expect(ris[0]).to eq("TY - GEN")
+      expect(ris[0]).to eq("TY - RPRT")
       expect(ris[1]).to eq("T1 - Eating your own Dog Food")
       expect(ris[2]).to eq("T2 - DataCite")
       expect(ris[3]).to eq("AU - Fenner, Martin")

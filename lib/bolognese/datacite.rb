@@ -71,7 +71,7 @@ module Bolognese
     end
 
     def ris_type
-      SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
+      DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
     end
 
     def additional_type
