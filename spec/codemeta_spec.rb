@@ -98,14 +98,14 @@ describe Bolognese::Codemeta, vcr: true do
       subject = Bolognese::Codemeta.new(string: string)
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
-      expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>"Matt Jones",
+      expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>"Jones, Matt",
                                                           "givenName"=>"Matt",
                                                           "familyName"=>"Jones",
                                                           "nameIdentifier"=>
                                                          {"schemeURI"=>"http://orcid.org/",
                                                           "nameIdentifierScheme"=>"ORCID",
                                                           "__content__"=>"http://orcid.org/0000-0003-0077-4738"}},
-                                                         {"creatorName"=>"Peter Slaughter",
+                                                         {"creatorName"=>"Slaughter, Peter",
                                                            "givenName"=>"Peter",
                                                            "familyName"=>"Slaughter",
                                                           "nameIdentifier"=>
@@ -119,7 +119,7 @@ describe Bolognese::Codemeta, vcr: true do
     it "maremma" do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
+      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
     end
   end
 
@@ -166,6 +166,19 @@ describe Bolognese::Codemeta, vcr: true do
       expect(bibtex[:publisher]).to eq("DataCite")
       expect(bibtex[:keywords]).to eq("faraday, excon, net/http")
       expect(bibtex[:year]).to eq("2017")
+    end
+  end
+
+  context "get metadata as citeproc" do
+    it "maremma" do
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("computer_program")
+      expect(json["id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
+      expect(json["DOI"]).to eq("10.5438/qeg0-3gm3")
+      expect(json["title"]).to eq("Maremma: a Ruby library for simplified network calls")
+      expect(json["author"]).to eq("family" => "Fenner", "given" => "Martin")
+      expect(json["publisher"]).to eq("DataCite")
+      expect(json["issued"]).to eq("date-parts" => [[2017, 2, 24]])
     end
   end
 end

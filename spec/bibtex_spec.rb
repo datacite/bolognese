@@ -35,4 +35,22 @@ describe Bolognese::Bibtex, vcr: true do
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
     end
   end
+
+  context "get metadata as citeproc" do
+    it "Crossref DOI" do
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article-journal")
+      expect(json["id"]).to eq("https://doi.org/10.7554/elife.01567")
+      expect(json["DOI"]).to eq("10.7554/elife.01567")
+      expect(json["URL"]).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(json["title"]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(json["author"]).to eq([{"family"=>"Sankar", "given"=>"Martial"},
+                                    {"family"=>"Nieminen", "given"=>"Kaisa"},
+                                    {"family"=>"Ragni", "given"=>"Laura"},
+                                    {"family"=>"Xenarios", "given"=>"Ioannis"},
+                                    {"family"=>"Hardtke", "given"=>"Christian S"}])
+      expect(json["container-title"]).to eq("eLife")
+      expect(json["issued"]).to eq("date-parts" => [[2014]])
+    end
+  end
 end

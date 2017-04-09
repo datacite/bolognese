@@ -93,4 +93,17 @@ describe Bolognese::SchemaOrg, vcr: true do
       expect(bibtex[:year]).to eq("2016")
     end
   end
+
+  context "get metadata as citeproc" do
+    it "BlogPosting" do
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("post-weblog")
+      expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
+      expect(json["title"]).to eq("Eating your own Dog Food")
+      expect(json["author"]).to eq("family" => "Fenner","given" => "Martin")
+      expect(json["publisher"]).to eq("DataCite")
+      expect(json["issued"]).to eq("date-parts" => [[2016, 12, 20]])
+    end
+  end
 end

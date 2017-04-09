@@ -137,4 +137,54 @@ describe Bolognese::Metadata, vcr: true do
       expect(content).to eq("In 1998 Tim Berners-Lee coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>")
     end
   end
+
+  context "read" do
+    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
+    let(:from) { "datacite" }
+
+    it "datacite" do
+      response = subject.read(id: id, from: from)
+      expect(response.id).to eq("https://doi.org/10.5061/dryad.8515")
+    end
+  end
+
+  context "get_date_parts" do
+    it "date" do
+      date = "2016-12-20"
+      response = subject.get_date_parts(date)
+      expect(response).to eq("date-parts"=>[[2016, 12, 20]])
+    end
+
+    it "year-month" do
+      date = "2016-12"
+      response = subject.get_date_parts(date)
+      expect(response).to eq("date-parts"=>[[2016, 12]])
+    end
+
+    it "year" do
+      date = "2016"
+      response = subject.get_date_parts(date)
+      expect(response).to eq("date-parts"=>[[2016]])
+    end
+  end
+
+  context "get_date_from_date_parts" do
+    it "date" do
+      date_as_parts = { "date-parts"=>[[2016, 12, 20]] }
+      response = subject.get_date_from_date_parts(date_as_parts)
+      expect(response).to eq("2016-12-20")
+    end
+
+    it "year-month" do
+      date_as_parts = { "date-parts"=>[[2016, 12]] }
+      response = subject.get_date_from_date_parts(date_as_parts)
+      expect(response).to eq("2016-12")
+    end
+
+    it "year" do
+      date_as_parts = { "date-parts"=>[[2016]] }
+      response = subject.get_date_from_date_parts(date_as_parts)
+      expect(response).to eq("2016")
+    end
+  end
 end

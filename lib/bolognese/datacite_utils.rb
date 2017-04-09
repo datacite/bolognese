@@ -67,7 +67,7 @@ module Bolognese
     end
 
     def insert_person(xml, person, type)
-      person_name = person["name"].presence || [person["familyName"], person["givenName"]].compact.join(", ")
+      person_name = person["familyName"].present? ? [person["familyName"], person["givenName"]].compact.join(", ") : person["name"]
 
       xml.send(type + "Name", person_name)
       xml.givenName(person["givenName"]) if person["givenName"].present?

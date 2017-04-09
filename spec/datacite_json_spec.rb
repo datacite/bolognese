@@ -40,7 +40,7 @@ describe Bolognese::DataciteJson, vcr: true do
   end
 
   context "get metadata as bibtex" do
-    it "Dataset" do
+    it "BlogPosting" do
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -50,19 +50,18 @@ describe Bolognese::DataciteJson, vcr: true do
       expect(bibtex[:publisher]).to eq("DataCite")
       expect(bibtex[:year]).to eq("2016")
     end
+  end
 
+  context "get metadata as citeproc" do
     it "BlogPosting" do
-      id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Datacite.new(id: id)
-      expect(subject.valid?).to be true
-      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(bibtex[:doi]).to eq("10.5438/4K3M-NYVG")
-      expect(bibtex[:title]).to eq("Eating your own Dog Food")
-      expect(bibtex[:author]).to eq("Fenner, Martin")
-      expect(bibtex[:publisher]).to eq("DataCite")
-      expect(bibtex[:year]).to eq("2016")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("report")
+      expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(json["DOI"]).to eq("10.5438/4K3M-NYVG")
+      expect(json["title"]).to eq("Eating your own Dog Food")
+      expect(json["author"]).to eq("family" => "Fenner","given" => "Martin")
+      expect(json["publisher"]).to eq("DataCite")
+      expect(json["issued"]).to eq("date-parts" => [[2016, 12, 20]])
     end
   end
 end

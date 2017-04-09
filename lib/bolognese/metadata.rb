@@ -29,6 +29,51 @@ module Bolognese
       "Other" => "CreativeWork"
     }
 
+    DC_TO_CP_TRANSLATIONS = {
+      "Audiovisual" => "motion_picture",
+      "Collection" => nil,
+      "Dataset" => "dataset",
+      "Event" => nil,
+      "Image" => "graphic",
+      "InteractiveResource" => nil,
+      "Model" => nil,
+      "PhysicalObject" => nil,
+      "Service" => nil,
+      "Software" => "computer_program",
+      "Sound" => "song",
+      "Text" => "report",
+      "Workflow" => nil,
+      "Other" => nil
+    }
+
+    CR_TO_CP_TRANSLATIONS = {
+      "proceedings" => nil,
+      "reference-book" => nil,
+      "journal-issue" => nil,
+      "proceedings-article" => "paper-conference",
+      "other" => nil,
+      "dissertation" => "thesis",
+      "dataset" => "dataset",
+      "edited-book" => "book",
+      "journal-article" => "article-journal",
+      "journal" => nil,
+      "report" => "report",
+      "book-series" => nil,
+      "report-series" => nil,
+      "book-track" => nil,
+      "standard" => nil,
+      "book-section" => "chapter",
+      "book-part" => nil,
+      "book" => "book",
+      "book-chapter" => "chapter",
+      "standard-series" => nil,
+      "monograph" => "book",
+      "component" => nil,
+      "reference-entry" => "entry-dictionary",
+      "journal-volume" => nil,
+      "book-set" => nil
+    }
+
     SO_TO_DC_TRANSLATIONS = {
       "Article" => "Text",
       "AudioObject" => "Sound",
@@ -50,6 +95,39 @@ module Bolognese
       "WebSite" => "Text"
     }
 
+    SO_TO_CP_TRANSLATIONS = {
+      "Article" => "",
+      "AudioObject" => "song",
+      "Blog" => "report",
+      "BlogPosting" => "post-weblog",
+      "Collection" => nil,
+      "CreativeWork" => nil,
+      "DataCatalog" => "dataset",
+      "Dataset" => "dataset",
+      "Event" => nil,
+      "ImageObject" => "graphic",
+      "Movie" => "motion_picture",
+      "PublicationIssue" => nil,
+      "ScholarlyArticle" => "article-journal",
+      "Service" => nil,
+      "SoftwareSourceCode" => "computer_program",
+      "VideoObject" => "broadcast",
+      "WebPage" => "webpage",
+      "WebSite" => "webpage"
+    }
+
+    CP_TO_SO_TRANSLATIONS = {
+      "song" => "AudioObject",
+      "post-weblog" => "BlogPosting",
+      "dataset" => "Dataset",
+      "graphic" => "ImageObject",
+      "motion_picture" => "Movie",
+      "article-journal" => "ScholarlyArticle",
+      "computer_program" => "SoftwareSourceCode",
+      "broadcast" => "VideoObject",
+      "webpage" => "WebPage"
+    }
+
     attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
@@ -62,7 +140,7 @@ module Bolognese
       :is_referenced_by, :references, :is_documented_by, :documents,
       :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
       :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
-      :related_identifier, :reverse
+      :related_identifier, :reverse, :citeproc_type, :volume, :issue
 
     def publication_year
       date_published && date_published[0..3]
@@ -152,6 +230,30 @@ module Bolognese
         "funding-reference" => funder,
         "schemaVersion" => schema_version,
         "provider" => provider
+      }.compact
+      JSON.pretty_generate hsh
+    end
+
+    def citeproc
+      hsh = {
+        "type" => citeproc_type,
+        "id" => id,
+        "categories" => keywords.present? ? keywords.split(", ") : nil,
+        "language" => language,
+        "author" => to_citeproc(author),
+        "editor" => to_citeproc(editor),
+        "issued" => get_date_parts(date_published),
+        "submitted" => get_date_parts(date_submitted),
+        "abstract" => description.is_a?(Hash) ? description.fetch("text", nil) : description,
+        "container-title" => journal,
+        "DOI" => doi,
+        "issue" => issue,
+        "page" => pagination,
+        "publisher" => publisher,
+        "title" => title,
+        "URL" => url,
+        "version" => version,
+        "volume" => volume
       }.compact
       JSON.pretty_generate hsh
     end

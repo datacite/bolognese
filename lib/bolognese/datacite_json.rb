@@ -35,6 +35,10 @@ module Bolognese
       DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
     end
 
+    def citeproc_type
+      DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other"
+    end
+
     def additional_type
       metadata.fetch("resource-type", nil)
     end

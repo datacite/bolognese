@@ -41,30 +41,41 @@ module Bolognese
         "datacite"
       elsif options[:ext] == ".json" && Maremma.from_json(string).dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+        "citeproc"
       elsif options[:filename] == "codemeta.json"
         "codemeta"
       end
     end
 
-    def write(id: nil, string: nil, from: nil, to: nil, **options)
-      if from.present?
-        p = case from
-            when "crossref" then Crossref.new(id: id, string: string)
-            when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
-            when "codemeta" then Codemeta.new(id: id, string: string)
-            when "datacite_json" then DataciteJson.new(string: string)
-            when "bibtex" then Bibtex.new(string: string)
-            else SchemaOrg.new(id: id)
-            end
-
-        if p.valid?
-          puts p.send(to)
-        else
-          $stderr.puts p.errors.colorize(:red)
-        end
-      else
+    def read(id: nil, string: nil, from: nil, **options)
+      if from.nil?
         puts "not implemented"
+        return nil
       end
+
+      p = case from
+          when "crossref" then Crossref.new(id: id, string: string)
+          when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
+          when "codemeta" then Codemeta.new(id: id, string: string)
+          when "datacite_json" then DataciteJson.new(string: string)
+          when "citeproc" then Citeproc.new(id: id, string: string)
+          when "bibtex" then Bibtex.new(string: string)
+          else SchemaOrg.new(id: id)
+          end
+
+      unless p.valid?
+        $stderr.puts p.errors.colorize(:red)
+      end
+
+      p
+    end
+
+    def write(id: nil, string: nil, from: nil, to: nil, **options)
+      metadata = read(id: id, string: string, from: from, **options)
+      return nil if metadata.nil?
+
+      puts metadata.send(to)
     end
 
     def orcid_from_url(url)
@@ -189,6 +200,30 @@ module Bolognese
       end.unwrap
     end
 
+    def from_citeproc(element)
+      Array.wrap(element).map do |a|
+        if a["literal"].present?
+          a["@type"] = "Organization"
+          a["name"] = a["literal"]
+        else
+          a["@type"] = "Person"
+          a["name"] = [a["given"], a["family"]].compact.join(" ")
+        end
+        a["givenName"] = a["given"]
+        a["familyName"] = a["family"]
+        a.except("given", "family", "literal").compact
+      end.unwrap
+    end
+
+    def to_citeproc(element)
+      Array.wrap(element).map do |a|
+        a["family"] = a["familyName"]
+        a["given"] = a["givenName"]
+        a["literal"] = a["name"] unless a["familyName"].present?
+        a.except("type", "@type", "id", "@id", "name", "familyName", "givenName").compact
+      end.unwrap
+    end
+
     def sanitize(text, options={})
       options[:tags] ||= Set.new(%w(strong em b i code pre sub sup br))
       custom_scrubber = Bolognese::WhitelistScrubber.new(options)
@@ -235,6 +270,25 @@ module Bolognese
     def github_as_codemeta_url(url)
       github_hash = github_from_url(url)
       "https://raw.githubusercontent.com/#{github_hash[:owner]}/#{github_hash[:repo]}/master/codemeta.json" if github_hash[:owner].present?
+    end
+
+    def get_date_parts(iso8601_time)
+      return nil if iso8601_time.nil?
+
+      year = iso8601_time[0..3].to_i
+      month = iso8601_time[5..6].to_i
+      day = iso8601_time[8..9].to_i
+      { 'date-parts' => [[year, month, day].reject { |part| part == 0 }] }
+    end
+
+    def get_date_from_date_parts(date_as_parts)
+      date_parts = date_as_parts.fetch("date-parts", []).first
+      year, month, day = date_parts[0], date_parts[1], date_parts[2]
+      get_date_from_parts(year, month, day)
+    end
+
+    def get_date_from_parts(year, month = nil, day = nil)
+      [year.to_s.rjust(4, '0'), month.to_s.rjust(2, '0'), day.to_s.rjust(2, '0')].reject { |part| part == "00" }.join("-")
     end
   end
 end

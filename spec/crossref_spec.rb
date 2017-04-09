@@ -181,7 +181,7 @@ describe Bolognese::Crossref, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)
-      expect(datacite.dig("creators", "creator")[2]).to eq("creatorName" => "Beatriz Hernandez",
+      expect(datacite.dig("creators", "creator")[2]).to eq("creatorName" => "Hernandez, Beatriz",
        +"familyName" => "Hernandez",
        +"givenName" => "Beatriz",
         "nameIdentifier" => {"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-2043-4925"})
@@ -191,7 +191,7 @@ describe Bolognese::Crossref, vcr: true do
       id = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Crossref.new(id: id)
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Guilhem Janbon", "givenName"=>"Guilhem", "familyName"=>"Janbon")
+      expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Janbon, Guilhem", "givenName"=>"Guilhem", "familyName"=>"Janbon")
     end
   end
 
@@ -221,6 +221,49 @@ describe Bolognese::Crossref, vcr: true do
       expect(bibtex[:journal]).to eq("Pulmonary Medicine")
       expect(bibtex[:pages]).to eq("1-7")
       expect(bibtex[:year]).to eq("2012")
+    end
+  end
+
+  context "get metadata as citeproc" do
+    it "journal article" do
+      id = "10.7554/eLife.01567"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article-journal")
+      expect(json["id"]).to eq("https://doi.org/10.7554/elife.01567")
+      expect(json["DOI"]).to eq("10.7554/eLife.01567")
+      expect(json["title"]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(json["author"]).to eq([{"family"=>"Sankar", "given"=>"Martial"},
+                                    {"family"=>"Nieminen", "given"=>"Kaisa"},
+                                    {"family"=>"Ragni", "given"=>"Laura"},
+                                    {"family"=>"Xenarios", "given"=>"Ioannis"},
+                                    {"family"=>"Hardtke", "given"=>"Christian S"}])
+      expect(json["container-title"]).to eq("eLife")
+      expect(json["volume"]).to eq("3")
+      expect(json["issued"]).to eq("date-parts" => [[2014, 2, 11]])
+    end
+
+    it "with pages" do
+      id = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article-journal")
+      expect(json["id"]).to eq("https://doi.org/10.1155/2012/291294")
+      expect(json["DOI"]).to eq("10.1155/2012/291294")
+      expect(json["title"]).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
+      expect(json["author"]).to eq([{"family"=>"Thanassi", "given"=>"Wendy"},
+                                    {"family"=>"Noda", "given"=>"Art"},
+                                    {"family"=>"Hernandez", "given"=>"Beatriz"},
+                                    {"family"=>"Newell", "given"=>"Jeffery"},
+                                    {"family"=>"Terpeluk", "given"=>"Paul"},
+                                    {"family"=>"Marder", "given"=>"David"},
+                                    {"family"=>"Yesavage", "given"=>"Jerome A."}])
+      expect(json["container-title"]).to eq("Pulmonary Medicine")
+      expect(json["volume"]).to eq("2012")
+      expect(json["page"]).to eq("1-7")
+      expect(json["issued"]).to eq("date-parts"=>[[2012]])
     end
   end
 end

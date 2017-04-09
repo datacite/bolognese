@@ -26,6 +26,10 @@ module Bolognese
       "WebSite" => "misc"
     }
 
+    BIB_TO_CP_TRANSLATIONS = {
+      "article" => "article-journal"
+    }
+
     def initialize(string: nil)
       @raw = string
     end
@@ -44,6 +48,10 @@ module Bolognese
 
     def type
       BIB_TO_SO_TRANSLATIONS[metadata.type.to_s] || "ScholarlyArticle"
+    end
+
+    def citeproc_type
+      BIB_TO_CP_TRANSLATIONS[metadata.type.to_s] || "misc"
     end
 
     def resource_type_general
@@ -75,8 +83,10 @@ module Bolognese
     end
 
     def container_title
-      metadata.journal.to_s.presence || metadata.pubisher.to_s
+      metadata.journal.to_s.presence || metadata.publisher.to_s
     end
+
+    alias_method :journal, :container_title
 
     def date_published
       metadata.date.to_s.presence

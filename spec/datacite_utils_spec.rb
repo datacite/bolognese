@@ -17,7 +17,7 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new { |xml| subject.insert_creators(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("creators", "creator").first).to eq("creatorName"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(response.dig("creators", "creator").first).to eq("creatorName"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
     end
   end
 

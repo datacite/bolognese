@@ -54,6 +54,10 @@ module Bolognese
       metadata.fetch("@type", nil)
     end
 
+    def citeproc_type
+      SO_TO_CP_TRANSLATIONS[type] || "article-journal"
+    end
+
     def additional_type
       metadata.fetch("additionalType", nil)
     end

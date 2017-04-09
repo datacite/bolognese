@@ -257,4 +257,40 @@ describe Bolognese::Datacite, vcr: true do
       expect(bibtex[:year]).to eq("2016")
     end
   end
+
+  context "get metadata as citeproc" do
+    it "Dataset" do
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("dataset")
+      expect(json["id"]).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(json["DOI"]).to eq("10.5061/DRYAD.8515")
+      expect(json["title"]).to eq("Data from: A new malaria agent in African hominids.")
+      expect(json["author"]).to eq([{"family"=>"Ollomo", "given"=>"Benjamin"},
+                                    {"family"=>"Durand", "given"=>"Patrick"},
+                                    {"family"=>"Prugnolle", "given"=>"Franck"},
+                                    {"family"=>"Douzery", "given"=>"Emmanuel J. P."},
+                                    {"family"=>"Arnathau", "given"=>"Céline"},
+                                    {"family"=>"Nkoghe", "given"=>"Dieudonné"},
+                                    {"family"=>"Leroy", "given"=>"Eric"},
+                                    {"family"=>"Renaud", "given"=>"François"}])
+      expect(json["publisher"]).to eq("Dryad Digital Repository")
+      expect(json["issued"]).to eq("date-parts" => [[2011]])
+    end
+
+    it "BlogPosting" do
+      id = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("report")
+      expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(json["DOI"]).to eq("10.5438/4K3M-NYVG")
+      expect(json["title"]).to eq("Eating your own Dog Food")
+      expect(json["author"]).to eq("family"=>"Fenner", "given"=>"Martin")
+      expect(json["publisher"]).to eq("DataCite")
+      expect(json["issued"]).to eq("date-parts"=>[[2016, 12, 20]])
+    end
+  end
 end

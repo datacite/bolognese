@@ -66,6 +66,10 @@ module Bolognese
       DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
     end
 
+    def citeproc_type
+      DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other"
+    end
+
     def additional_type
       metadata.fetch("resourceType", {}).fetch("__content__", nil) ||
       metadata.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil)
@@ -187,7 +191,7 @@ module Bolognese
     end
 
     def publication_year
-      metadata.fetch("publicationYear")
+      metadata.fetch("publicationYear", nil)
     end
 
     def language

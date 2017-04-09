@@ -52,6 +52,13 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
+      <td><a href='http://gsl-nagoya-u.net/http/pub/citeproc-doc.html'>Citeproc JSON</a></td>
+      <td>citeproc</td>
+      <td>application/vnd.citationstyles.csl+json</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
       <td><a href='https://codemeta.github.io/'>Codemeta</a></td>
       <td>codemeta</td>
       <td>application/ld+json</td>

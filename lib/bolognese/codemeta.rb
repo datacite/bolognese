@@ -48,6 +48,10 @@ module Bolognese
       metadata.fetch("@type", nil)
     end
 
+    def citeproc_type
+      "computer_program"
+    end
+
     def additional_type
       metadata.fetch("additionalType", nil)
     end

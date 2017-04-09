@@ -102,6 +102,10 @@ module Bolognese
       metadata.dig("crossref", "journal", "journal_metadata").presence || {}
     end
 
+    def journal_issue
+      metadata.dig("crossref", "journal", "journal_issue").presence || {}
+    end
+
     def bibliographic_metadata
       metadata.dig("crossref", "journal", "journal_article").presence ||
       metadata.dig("crossref", "conference", "conference_paper").presence ||
@@ -119,6 +123,10 @@ module Bolognese
 
     def type
       CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
+    end
+
+    def citeproc_type
+      CR_TO_CP_TRANSLATIONS[additional_type] || "article-journal"
     end
 
     def additional_type
@@ -202,6 +210,14 @@ module Bolognese
 
     def date_modified
       Time.parse(metadata.fetch("timestamp", "")).utc.iso8601
+    end
+
+    def volume
+      journal_issue.dig("journal_volume", "volume")
+    end
+
+    def issue
+      journal_issue.dig("issue")
     end
 
     def page_start
