@@ -39,7 +39,7 @@ Bolognese reads and/or writes these metadata formats:
     </tr>
     <tr>
       <td><a href='https://api.datacite.org/'>DataCite JSON</a></td>
-      <td>datacite</td>
+      <td>datacite_json</td>
       <td>application/vnd.datacite+json</td>
       <td>Yes</td>
       <td>Yes</td>
