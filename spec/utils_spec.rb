@@ -148,6 +148,18 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "generate" do
+    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
+    let(:from) { "datacite" }
+    let(:to) { "schema_org" }
+
+    it "datacite" do
+      response = subject.generate(id: id, from: from, to: to)
+      json = JSON.parse(response)
+      expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
+    end
+  end
+
   context "get_date_parts" do
     it "date" do
       date = "2016-12-20"

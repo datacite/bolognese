@@ -51,12 +51,10 @@ module Bolognese
     end
 
     def read(id: nil, string: nil, from: nil, **options)
-      if from.nil?
-        puts "not implemented"
-        return nil
-      end
-
       p = case from
+          when nil
+            puts "not implemented"
+            return nil
           when "crossref" then Crossref.new(id: id, string: string)
           when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
           when "codemeta" then Codemeta.new(id: id, string: string)
@@ -79,6 +77,13 @@ module Bolognese
       return nil if metadata.nil?
 
       puts metadata.send(to)
+    end
+
+    def generate(id: nil, string: nil, from: nil, to: nil, **options)
+      metadata = read(id: id, string: string, from: from, **options)
+      return nil if metadata.nil?
+
+      metadata.send(to)
     end
 
     def orcid_from_url(url)
