@@ -66,6 +66,23 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "doi_from_url" do
+    it "url" do
+      doi = subject.doi_from_url("https://doi.org/10.5061/dryad.8515")
+      expect(doi).to eq("10.5061/dryad.8515")
+    end
+
+    it "doi" do
+      doi = subject.doi_from_url("10.5061/dryad.8515")
+      expect(doi).to eq("10.5061/dryad.8515")
+    end
+
+    it "not a doi" do
+      doi = subject.doi_from_url("https://doi.org/10.5061")
+      expect(doi).to be nil
+    end
+  end
+
   context "doi registration agency" do
     it "datacite" do
       doi = "https://doi.org/10.5061/dryad.8515"

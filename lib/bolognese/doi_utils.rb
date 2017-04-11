@@ -22,7 +22,7 @@ module Bolognese
     def doi_from_url(url)
       if /\A(?:(http|https):\/\/(dx\.)?doi.org\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(url)
         uri = Addressable::URI.parse(url)
-        uri.path[1..-1].downcase
+        uri.path.gsub(/^\//, '').downcase
       end
     end
 
