@@ -68,7 +68,7 @@ module Bolognese
       elsif id.present?
         response = Maremma.get(id, accept: "application/vnd.crossref.unixref+xml", host: true, raw: true)
         @raw = response.body.fetch("data", nil)
-        @raw = Nokogiri::XML(@raw, &:noblanks).to_s if @raw.present?
+        @raw = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks).to_s if @raw.present?
       end
     end
 

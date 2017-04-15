@@ -11,7 +11,7 @@ module Bolognese
       elsif id.present?
         response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
         @raw = response.body.fetch("data", nil)
-        @raw = Nokogiri::XML(@raw, &:noblanks).to_s if @raw.present?
+        @raw = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks).to_s if @raw.present?
       end
 
       @should_passthru = !regenerate
@@ -35,7 +35,7 @@ module Bolognese
     end
 
     def errors
-      schema.validate(Nokogiri::XML(raw)).map { |error| error.to_s }.unwrap
+      schema.validate(Nokogiri::XML(raw, nil, 'UTF-8')).map { |error| error.to_s }.unwrap
     rescue Nokogiri::XML::SyntaxError => e
       e.message
     end

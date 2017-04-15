@@ -17,7 +17,7 @@ module Bolognese
         @raw = string
       elsif id.present?
         response = Maremma.get(id)
-        doc = Nokogiri::XML(response.body.fetch("data", nil))
+        doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
         @raw = doc.at_xpath('//script[@type="application/ld+json"]')
       end
     end
@@ -61,7 +61,7 @@ module Bolognese
     def ris_type
       SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
     end
-    
+
     def additional_type
       metadata.fetch("additionalType", nil)
     end

@@ -19,7 +19,7 @@ module Bolognese
     end
 
     def datacite_errors
-      @datacite_errors ||= schema.validate(Nokogiri::XML(datacite)).map { |error| error.to_s }
+      @datacite_errors ||= schema.validate(Nokogiri::XML(datacite, nil, 'UTF-8')).map { |error| error.to_s }
     end
 
     def insert_work(xml)
