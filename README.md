@@ -53,7 +53,7 @@ Bolognese reads and/or writes these metadata formats:
     </tr>
     <tr>
       <td><a href='http://www.w3.org/TR/rdf-syntax-grammar/'>RDF XML</a></td>
-      <td>rdf</td>
+      <td>rdf_xml</td>
       <td>application/rdf+xml</td>
       <td>No</td>
       <td>Yes</td>
@@ -77,6 +77,13 @@ Bolognese reads and/or writes these metadata formats:
       <td>codemeta</td>
       <td>application/vnd.codemeta.ld+json</td>
       <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><a href='https://github.com/scholix/schema'>Scholix</a></td>
+      <td>scholix</td>
+      <td>application/vnd.scholix+json</td>
+      <td>No</td>
       <td>Yes</td>
     </tr>
     <tr>

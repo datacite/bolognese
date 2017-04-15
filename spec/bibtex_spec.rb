@@ -72,12 +72,19 @@ describe Bolognese::Bibtex, vcr: true do
 
   context "get metadata as turtle" do
     it "Crossref DOI" do
-      id = "10.7554/eLife.01567"
-      subject = Bolognese::Crossref.new(id: id)
-      expect(subject.valid?).to be true
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.7554/elife.01567> a schema:ScholarlyArticle;")
+    end
+  end
+
+  context "get metadata as rdf_xml" do
+    it "Crossref DOI" do
+      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+      expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
+      expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014")
+      expect(rdf_xml.dig("ScholarlyArticle", "isPartOf", "Periodical", "name")).to eq("eLife")
     end
   end
 end

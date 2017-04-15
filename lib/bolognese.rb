@@ -7,6 +7,9 @@ require 'colorize'
 require 'loofah'
 require 'json/ld'
 require 'rdf/turtle'
+require 'rdf/rdfxml'
+require 'logger'
+require 'jsonlint'
 
 require "bolognese/version"
 require "bolognese/metadata"

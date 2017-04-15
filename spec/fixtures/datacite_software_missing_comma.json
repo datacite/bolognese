@@ -1,0 +1,18 @@
+{
+  "id": "https://doi.org/10.5063/f1m61h5x",
+  "doi": "10.5063/F1M61H5X"
+  "creator": {
+    "type": "Person",
+    "name": "Matthew B. Jones",
+    "givenName": "Matthew B.",
+    "familyName": "Jones"
+  },
+  "title": "dataone: R interface to the DataONE network of data repositories",
+  "publisher": "KNB Data Repository",
+  "publication-year": "2016",
+  "resource-type-general": "Software",
+  "resource-type": "Software",
+  "date-published": "2016",
+  "schemaVersion": "http://datacite.org/schema/kernel-3",
+  "provider": "DataCite"
+}

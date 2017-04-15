@@ -8,11 +8,15 @@ module Bolognese
     end
 
     def metadata
-      @metadata ||= raw.present? ? Maremma.from_json(raw) : {}
+      @metadata ||= raw.present? && valid? ? Maremma.from_json(raw) : {}
+    end
+
+    def errors
+      jsonlint(raw)
     end
 
     def valid?
-      datacite_json.present?
+      errors.empty?
     end
 
     def datacite
@@ -32,11 +36,11 @@ module Bolognese
     end
 
     def type
-      DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
+      DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || valid?.presence && "CreativeWork"
     end
 
     def citeproc_type
-      DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other"
+      DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || valid?.presence && "other"
     end
 
     def ris_type
@@ -204,7 +208,7 @@ module Bolognese
     end
 
     def publisher
-      metadata.fetch("publisher")
+      metadata.fetch("publisher", nil)
     end
 
     alias_method :container_title, :publisher

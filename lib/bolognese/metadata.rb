@@ -237,8 +237,8 @@ module Bolognese
         "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
     end
 
-    def schema_org
-      hsh = {
+    def schema_hsh
+      {
         "@context" => id.present? ? "http://schema.org" : nil,
         "@type" => type,
         "@id" => id,
@@ -268,20 +268,26 @@ module Bolognese
         "citation" => Array.wrap(references).map { |r| r.except("relationType").merge("@type" => "CreativeWork") }.unwrap,
         "@reverse" => reverse.presence,
         "schemaVersion" => schema_version,
-        "publisher" => { "@type" => "Organization", "name" => publisher },
+        "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
         "funder" => funder,
-        "provider" => { "@type" => "Organization", "name" => provider }
-      }.compact
-      JSON.pretty_generate hsh
+        "provider" => provider.present? ? { "@type" => "Organization", "name" => provider } : nil
+      }.compact.presence
+    end
+
+    def schema_org
+      JSON.pretty_generate schema_hsh
     end
 
     def graph
-      input = JSON.parse(schema_org)
-      RDF::Graph.new << JSON::LD::API.toRdf(input)
+      RDF::Graph.new << JSON::LD::API.toRdf(schema_hsh)
     end
 
     def turtle
       graph.dump(:ttl, prefixes: { schema: "http://schema.org/" })
+    end
+
+    def rdf_xml
+      graph.dump(:rdfxml, prefixes: { schema: "http://schema.org/" })
     end
 
     def datacite_json
@@ -318,7 +324,7 @@ module Bolognese
         "schemaVersion" => schema_version,
         "provider" => provider
       }.compact
-      JSON.pretty_generate hsh
+      JSON.pretty_generate hsh.presence
     end
 
     def citeproc
@@ -342,7 +348,7 @@ module Bolognese
         "version" => version,
         "volume" => volume
       }.compact
-      JSON.pretty_generate hsh
+      JSON.pretty_generate hsh.presence
     end
 
     def codemeta
@@ -362,7 +368,7 @@ module Bolognese
         "dateModified" => date_modified,
         "publisher" => publisher
       }.compact
-      JSON.pretty_generate hsh
+      JSON.pretty_generate hsh.presence
     end
 
     def bibtex
@@ -402,6 +408,13 @@ module Bolognese
         "SP" => pagination,
         "ER" => ""
       }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k} - #{vi}" }.join("\r\n") : "#{k} - #{v}" }.join("\r\n")
+    end
+
+    def jsonlint(json)
+      error_array = []
+      linter = JsonLint::Linter.new
+      linter.send(:check_data, json, error_array)
+      error_array
     end
   end
 end

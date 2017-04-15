@@ -349,4 +349,19 @@ describe Bolognese::Datacite, vcr: true do
       expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:ScholarlyArticle;")
     end
   end
+
+  context "get metadata as rdf_xml" do
+    it "BlogPosting" do
+      id = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+      expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-1419-2405")
+      expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "name")).to eq("Fenner, Martin")
+      expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
+      expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata")
+      expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
+    end
+  end
 end

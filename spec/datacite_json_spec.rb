@@ -37,6 +37,24 @@ describe Bolognese::DataciteJson, vcr: true do
       expect(json["datePublished"]).to eq("2016")
       expect(json["publisher"]).to eq("KNB Data Repository")
     end
+
+    it "SoftwareSourceCode missing_comma" do
+      string = IO.read(fixture_path + "datacite_software_missing_comma.json")
+      subject = Bolognese::DataciteJson.new(string: string)
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq(["expected comma, not a string at line 4, column 11 [parse.c:381]"])
+      json = JSON.parse(subject.codemeta)
+      expect(json).to be_nil
+    end
+
+    it "SoftwareSourceCode overlapping_keys" do
+      string = IO.read(fixture_path + "datacite_software_overlapping_keys.json")
+      subject = Bolognese::DataciteJson.new(string: string)
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq(["The same key is defined more than once: id"])
+      json = JSON.parse(subject.codemeta)
+      expect(json).to be_nil
+    end
   end
 
   context "get metadata as bibtex" do
@@ -87,6 +105,21 @@ describe Bolognese::DataciteJson, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:ScholarlyArticle;")
+    end
+  end
+
+  context "get metadata as rdf_xml" do
+    it "BlogPosting" do
+      id = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      rdfxml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+      expect(rdfxml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(rdfxml.dig("ScholarlyArticle", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-1419-2405")
+      expect(rdfxml.dig("ScholarlyArticle", "author", "Person", "name")).to eq("Fenner, Martin")
+      expect(rdfxml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
+      expect(rdfxml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata")
+      expect(rdfxml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
     end
   end
 end

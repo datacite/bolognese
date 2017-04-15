@@ -15,15 +15,19 @@ module Bolognese
     end
 
     def metadata
-      @metadata ||= raw.present? ? Maremma.from_json(raw) : {}
+      @metadata ||= raw.present? && valid? ? Maremma.from_json(raw) : {}
     end
 
     def exists?
       metadata.present?
     end
 
+    def errors
+      jsonlint(raw)
+    end
+
     def valid?
-      citeproc.present?
+      errors.empty?
     end
 
     def doi

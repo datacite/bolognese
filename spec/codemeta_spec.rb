@@ -206,4 +206,16 @@ describe Bolognese::Codemeta, vcr: true do
       expect(ttl[2]).to eq("<https://doi.org/10.5438/qeg0-3gm3> a schema:SoftwareSourceCode;")
     end
   end
+
+  context "get metadata as rdf_xml" do
+    it "maremma" do
+      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+      expect(rdf_xml.dig("SoftwareSourceCode", "rdf:about")).to eq("https://doi.org/10.5438/qeg0-3gm3")
+      expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-0077-4738")
+      expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "name")).to eq("Martin Fenner")
+      expect(rdf_xml.dig("SoftwareSourceCode", "name")).to eq("Maremma: a Ruby library for simplified network calls")
+      expect(rdf_xml.dig("SoftwareSourceCode", "keywords")).to eq("faraday, excon, net/http")
+      expect(rdf_xml.dig("SoftwareSourceCode", "datePublished", "__content__")).to eq("2017-02-24")
+    end
+  end
 end

@@ -65,4 +65,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.find_from_format(string: string, filename: "codemeta.json")).to eq("codemeta")
     end
   end
+
+  context "jsonlint" do
+    it "valid" do
+      json = IO.read(fixture_path + "datacite_software.json")
+      response = subject.jsonlint(json)
+      expect(response).to be_empty
+    end
+
+    it "missing_comma" do
+      json = IO.read(fixture_path + "datacite_software_missing_comma.json")
+      response = subject.jsonlint(json)
+      expect(response).to eq(["expected comma, not a string at line 4, column 11 [parse.c:381]"])
+    end
+
+    it "overlapping_keys" do
+      json = IO.read(fixture_path + "datacite_software_overlapping_keys.json")
+      response = subject.jsonlint(json)
+      expect(response).to eq(["The same key is defined more than once: id"])
+    end
+  end
 end

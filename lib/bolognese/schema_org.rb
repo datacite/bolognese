@@ -19,19 +19,24 @@ module Bolognese
         response = Maremma.get(id)
         doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
         @raw = doc.at_xpath('//script[@type="application/ld+json"]')
+        @raw = @raw.text if @raw.present?
       end
     end
 
     def metadata
-      @metadata ||= raw.present? ? Maremma.from_json(raw) : {}
+      @metadata ||= raw.present? && valid? ? Maremma.from_json(raw) : {}
     end
 
     def exists?
       metadata.present?
     end
 
+    def errors
+      jsonlint(raw)
+    end
+
     def valid?
-      schema_org.present?
+      errors.empty?
     end
 
     def doi
