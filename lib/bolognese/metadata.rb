@@ -266,13 +266,22 @@ module Bolognese
         "predecessor_of" => is_previous_version_of,
         "successor_of" => is_new_version_of,
         "citation" => Array.wrap(references).map { |r| r.except("relationType").merge("@type" => "CreativeWork") }.unwrap,
-        "@reverse" => reverse,
+        "@reverse" => reverse.presence,
         "schemaVersion" => schema_version,
         "publisher" => { "@type" => "Organization", "name" => publisher },
         "funder" => funder,
         "provider" => { "@type" => "Organization", "name" => provider }
       }.compact
       JSON.pretty_generate hsh
+    end
+
+    def graph
+      input = JSON.parse(schema_org)
+      RDF::Graph.new << JSON::LD::API.toRdf(input)
+    end
+
+    def turtle
+      graph.dump(:ttl, prefixes: { schema: "http://schema.org/" })
     end
 
     def datacite_json

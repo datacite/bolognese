@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   # Declary dependencies here, rather than in the Gemfile
   s.add_dependency 'maremma', '~> 3.5'
-  s.add_dependency 'nokogiri', '~> 1.7', '>= 1.7.1'
+  s.add_dependency 'nokogiri', '~> 1.6', '>= 1.6.8'
   s.add_dependency 'loofah', '~> 2.0', '>= 2.0.3'
   s.add_dependency 'builder', '~> 3.2', '>= 3.2.2'
   s.add_dependency 'activesupport', '~> 4.2', '>= 4.2.5'
@@ -25,6 +25,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'colorize', '~> 0.8.1'
   s.add_dependency 'namae', '~> 0.10.2'
   s.add_dependency 'postrank-uri', '~> 1.0', '>= 1.0.18'
+  s.add_dependency 'json-ld', '~> 2.1', '>= 2.1.2'
+  s.add_dependency 'rdf-turtle', '~> 2.2'
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 3.4'
   s.add_development_dependency 'rspec-xsd', '~> 0.1.0'

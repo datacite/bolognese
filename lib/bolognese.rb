@@ -5,6 +5,8 @@ require 'postrank-uri'
 require 'bibtex'
 require 'colorize'
 require 'loofah'
+require 'json/ld'
+require 'rdf/turtle'
 
 require "bolognese/version"
 require "bolognese/metadata"

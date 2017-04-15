@@ -301,4 +301,24 @@ describe Bolognese::Crossref, vcr: true do
       expect(ris[15]).to eq("ER - ")
     end
   end
+
+  context "get metadata as turtle" do
+    it "journal article" do
+      id = "10.7554/eLife.01567"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      ttl = subject.turtle.split("\n")
+      expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
+      expect(ttl[2]).to eq("<https://doi.org/10.7554/elife.01567> a schema:ScholarlyArticle;")
+    end
+
+    it "with pages" do
+      id = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      ttl = subject.turtle.split("\n")
+      expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
+      expect(ttl[2]).to eq("<https://doi.org/10.1155/2012/291294> a schema:ScholarlyArticle;")
+    end
+  end
 end

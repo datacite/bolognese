@@ -45,4 +45,12 @@ describe Bolognese::Citeproc, vcr: true do
       expect(ris[9]).to eq("ER - ")
     end
   end
+
+  context "get metadata as turtle" do
+    it "BlogPosting" do
+      ttl = subject.turtle.split("\n")
+      expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
+      expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:BlogPosting;")
+    end
+  end
 end

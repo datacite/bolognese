@@ -69,4 +69,15 @@ describe Bolognese::Bibtex, vcr: true do
       expect(ris[13]).to eq("ER - ")
     end
   end
+
+  context "get metadata as turtle" do
+    it "Crossref DOI" do
+      id = "10.7554/eLife.01567"
+      subject = Bolognese::Crossref.new(id: id)
+      expect(subject.valid?).to be true
+      ttl = subject.turtle.split("\n")
+      expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
+      expect(ttl[2]).to eq("<https://doi.org/10.7554/elife.01567> a schema:ScholarlyArticle;")
+    end
+  end
 end

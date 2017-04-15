@@ -198,4 +198,12 @@ describe Bolognese::Codemeta, vcr: true do
       expect(ris[12]).to eq("ER - ")
     end
   end
+
+  context "get metadata as turtle" do
+    it "maremma" do
+      ttl = subject.turtle.split("\n")
+      expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
+      expect(ttl[2]).to eq("<https://doi.org/10.5438/qeg0-3gm3> a schema:SoftwareSourceCode;")
+    end
+  end
 end

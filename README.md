@@ -52,6 +52,20 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
+      <td><a href='http://www.w3.org/TR/rdf-syntax-grammar/'>RDF XML</a></td>
+      <td>rdf</td>
+      <td>application/rdf+xml</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><a href='http://www.w3.org/TeamSubmission/turtle/'>RDF Turtle</a></td>
+      <td>turtle</td>
+      <td>text/turtle</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
       <td><a href='http://gsl-nagoya-u.net/http/pub/citeproc-doc.html'>Citeproc JSON</a></td>
       <td>citeproc</td>
       <td>application/vnd.citationstyles.csl+json</td>
@@ -61,7 +75,7 @@ Bolognese reads and/or writes these metadata formats:
     <tr>
       <td><a href='https://codemeta.github.io/'>Codemeta</a></td>
       <td>codemeta</td>
-      <td>application/ld+json</td>
+      <td>application/vnd.codemeta.ld+json</td>
       <td>Yes</td>
       <td>Yes</td>
     </tr>
