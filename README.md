@@ -80,13 +80,6 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
-      <td><a href='https://github.com/scholix/schema'>Scholix</a></td>
-      <td>scholix</td>
-      <td>application/vnd.scholix+json</td>
-      <td>No</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
       <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
       <td>bibtex</td>
       <td>application/x-bibtex</td>
