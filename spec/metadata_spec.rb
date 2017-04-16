@@ -42,27 +42,60 @@ describe Bolognese::Metadata, vcr: true do
   end
 
   context "find from format from file" do
-    let(:file) { fixture_path + "crossref.bib" }
-
     it "bibtex" do
+      file = fixture_path + "crossref.bib"
       string = IO.read(file)
       ext = File.extname(file)
       expect(subject.find_from_format(string: string, ext: ext)).to eq("bibtex")
     end
 
+    it "ris" do
+      file = fixture_path + "crossref.ris"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("ris")
+    end
+
     it "crossref" do
-      string = IO.read(fixture_path + "crossref.xml")
-      expect(subject.find_from_format(string: string, ext: ".xml")).to eq("crossref")
+      file = fixture_path + "crossref.xml"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("crossref")
     end
 
     it "datacite" do
-      string = IO.read(fixture_path + "datacite.xml")
-      expect(subject.find_from_format(string: string, ext: ".xml")).to eq("datacite")
+      file = fixture_path + "datacite.xml"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("datacite")
+    end
+
+    it "datacite_json" do
+      file = fixture_path + "datacite.json"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("datacite_json")
+    end
+
+    it "schema_org" do
+      file = fixture_path + "schema_org.json"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("schema_org")
+    end
+
+    it "citeproc" do
+      file = fixture_path + "citeproc.json"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("citeproc")
     end
 
     it "codemeta" do
-      string = IO.read(fixture_path + "codemeta.json")
-      expect(subject.find_from_format(string: string, filename: "codemeta.json")).to eq("codemeta")
+      file = fixture_path + "codemeta.json"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("codemeta")
     end
   end
 

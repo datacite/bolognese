@@ -33,14 +33,13 @@ module Bolognese
         from = options[:from] || find_from_format(id: id)
       else
         ext = File.extname(input)
-        filename = File.basename(input)
-        if %w(.bib .xml).include?(ext) || filename == "codemeta.json"
+        if %w(.bib .ris .xml .json).include?(ext)
           string = IO.read(input)
         else
           $stderr.puts "File type #{ext} not supported"
           exit 1
         end
-        from = options[:from] || find_from_format(string: string, ext: ext, filename: filename)
+        from = options[:from] || find_from_format(string: string, ext: ext)
       end
 
       to = options[:to] || "schema_org"

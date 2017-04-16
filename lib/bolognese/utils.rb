@@ -35,17 +35,19 @@ module Bolognese
     def find_from_format_by_string(string, options={})
       if options[:ext] == ".bib"
         "bibtex"
+      elsif options[:ext] == ".ris"
+        "ris"
       elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("doi_records", "doi_record", "crossref")
         "crossref"
       elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("resource", "xmlns").start_with?("http://datacite.org/schema/kernel")
         "datacite"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("issued", "date-parts").present?
         "citeproc"
-      elsif options[:ext] == ".ris"
-        "ris"
-      elsif options[:filename] == "codemeta.json"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("@context").to_s.start_with?("http://schema.org")
+        "schema_org"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
       end
     end
