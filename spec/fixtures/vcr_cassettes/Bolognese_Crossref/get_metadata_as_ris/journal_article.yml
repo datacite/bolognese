@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.7554%2Felife.01567
       Expires:
-      - Sun, 09 Apr 2017 15:50:16 GMT
+      - Tue, 18 Apr 2017 18:39:23 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '177'
       Date:
-      - Sun, 09 Apr 2017 14:50:45 GMT
+      - Tue, 18 Apr 2017 18:28:27 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.7554%2Felife.01567">http://data.crossref.org/10.7554%2Felife.01567</a></body></html>
     http_version: 
-  recorded_at: Sun, 09 Apr 2017 14:50:45 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:28 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.7554%2Felife.01567
@@ -72,7 +72,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 09 Apr 2017 14:50:46 GMT
+      - Tue, 18 Apr 2017 18:28:28 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -719,5 +719,5 @@ http_interactions:
         aWNsZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8
         L2RvaV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Sun, 09 Apr 2017 14:50:46 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:28 GMT
 recorded_with: VCR 3.0.3

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.9.2)
+    bolognese (0.9.3)
       activesupport (>= 4.2.5)
       bibtex-ruby (~> 4.1)
       builder (~> 3.2, >= 3.2.2)
@@ -100,12 +100,12 @@ GEM
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.0)
       rdf (~> 2.0)
-    rdf-rdfa (2.1.1)
+    rdf-rdfa (2.2.0)
       haml (~> 4.0)
       htmlentities (~> 4.3)
-      rdf (~> 2.0)
-      rdf-aggregate-repo (~> 2.0)
-      rdf-xsd (~> 2.0)
+      rdf (~> 2.2)
+      rdf-aggregate-repo (~> 2.2)
+      rdf-xsd (~> 2.1)
     rdf-rdfxml (2.0.0)
       htmlentities (~> 4.3)
       rdf (~> 2.0)

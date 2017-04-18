@@ -16,12 +16,10 @@ http_interactions:
       code: 200
       message: ''
     headers:
-      Access-Control-Allow-Credentials:
-      - 'true'
       Access-Control-Allow-Headers:
       - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
       Access-Control-Allow-Methods:
-      - POST, GET, OPTIONS
+      - GET, POST, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Max-Age:
@@ -31,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sun, 12 Mar 2017 09:03:18 GMT
+      - Tue, 18 Apr 2017 18:28:54 GMT
       Etag:
       - W/"a078870f021fe1686525a8135b0e29b8"
       Server:
@@ -40,26 +38,16 @@ http_interactions:
       - 200 OK
       Vary:
       - Accept-Encoding
-      Via:
-      - kong/0.10.0rc3
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '473'
       X-Powered-By:
       - Phusion Passenger 5.1.2
-      X-Ratelimit-Limit-Hour:
-      - '10000'
-      X-Ratelimit-Remaining-Hour:
-      - '9998'
       X-Request-Id:
-      - 56485efe-d66a-4061-8620-9f61b46aec2e
+      - fc1a9a73-c207-4d65-b9a3-bc2bf868075c
       X-Runtime:
-      - '0.472139'
+      - '0.681197'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -70,5 +58,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1371","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:47:32Z"}}}'
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 09:03:18 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:54 GMT
 recorded_with: VCR 3.0.3

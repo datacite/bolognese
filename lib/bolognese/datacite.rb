@@ -9,8 +9,12 @@ module Bolognese
       if string.present?
         @raw = string
       elsif id.present?
-        response = Maremma.get(id, accept: "application/vnd.datacite.datacite+xml", raw: true)
-        @raw = response.body.fetch("data", nil)
+        doi = doi_from_url(id)
+        url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
+        response = Maremma.get url
+        attributes = response.body.dig("data", "response", "docs").first
+        @raw = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
+        @raw = Base64.decode64(@raw)
         @raw = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks).to_s if @raw.present?
       end
 

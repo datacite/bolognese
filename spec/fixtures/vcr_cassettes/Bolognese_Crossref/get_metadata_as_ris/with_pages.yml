@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1155%2F2012%2F291294
       Expires:
-      - Sun, 09 Apr 2017 17:41:29 GMT
+      - Tue, 18 Apr 2017 18:39:23 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '181'
       Date:
-      - Sun, 09 Apr 2017 16:55:32 GMT
+      - Tue, 18 Apr 2017 18:28:27 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1155%2F2012%2F291294">http://data.crossref.org/10.1155%2F2012%2F291294</a></body></html>
     http_version: 
-  recorded_at: Sun, 09 Apr 2017 16:55:33 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:27 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1155%2F2012%2F291294
@@ -73,7 +73,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 09 Apr 2017 16:55:33 GMT
+      - Tue, 18 Apr 2017 18:28:27 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -366,5 +366,5 @@ http_interactions:
         ZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Sun, 09 Apr 2017 16:55:34 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:27 GMT
 recorded_with: VCR 3.0.3

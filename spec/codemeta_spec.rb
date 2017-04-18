@@ -14,7 +14,7 @@ describe Bolognese::Codemeta, vcr: true do
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(subject.description["text"]).to start_with("Simplifies network calls")
+      expect(subject.description["text"]).to start_with("Ruby utility library for network requests")
       expect(subject.keywords).to eq("faraday, excon, net/http")
       expect(subject.date_created).to eq("2015-11-28")
       expect(subject.date_published).to eq("2017-02-24")

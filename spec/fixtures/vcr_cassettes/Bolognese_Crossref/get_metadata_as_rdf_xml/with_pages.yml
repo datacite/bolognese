@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1155%2F2012%2F291294
       Expires:
-      - Sat, 15 Apr 2017 14:39:17 GMT
+      - Tue, 18 Apr 2017 18:39:23 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '181'
       Date:
-      - Sat, 15 Apr 2017 14:15:52 GMT
+      - Tue, 18 Apr 2017 18:28:42 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1155%2F2012%2F291294">http://data.crossref.org/10.1155%2F2012%2F291294</a></body></html>
     http_version: 
-  recorded_at: Sat, 15 Apr 2017 14:15:52 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:43 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1155%2F2012%2F291294
@@ -73,7 +73,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sat, 15 Apr 2017 14:15:53 GMT
+      - Tue, 18 Apr 2017 18:28:43 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -366,7 +366,7 @@ http_interactions:
         ZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Sat, 15 Apr 2017 14:15:53 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:43 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -396,9 +396,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - c8902190e4a0011c9472769ecb9671dc
+      - 0371dba3a587fc055c7cbed8011bb60b
       Date:
-      - Sat, 15 Apr 2017 14:15:53 GMT
+      - Tue, 18 Apr 2017 18:28:44 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -409,7 +409,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 15 Apr 2017 14:15:53 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:44 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -437,13 +437,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170415113145a2048647386json
+      - 24751170418182029a2048647386json
       Last-Modified:
-      - Sat, 15 Apr 2017 11:31:45 UTC
+      - Tue, 18 Apr 2017 18:20:29 UTC
       X-Cloud-Trace-Context:
-      - 3baf8f2498d4077261fa347002e308df
+      - 0007ac336212fea7cc0ce3c26fe1d332
       Date:
-      - Sat, 15 Apr 2017 14:15:54 GMT
+      - Tue, 18 Apr 2017 18:28:45 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -451,7 +451,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Sat, 15 Apr 2017 14:15:54 GMT
+      - Tue, 18 Apr 2017 18:28:45 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2656,7 +2656,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 15 Apr 2017 14:15:54 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:45 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2686,9 +2686,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - b1e5e02ca2e70e8ebbbfc17b3c2c10e9
+      - 821b8f3a8c1a0c95bb79361d7286f275
       Date:
-      - Sat, 15 Apr 2017 14:15:56 GMT
+      - Tue, 18 Apr 2017 18:28:46 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2699,7 +2699,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 15 Apr 2017 14:15:56 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:46 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2727,13 +2727,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170415113145a2048647386json
+      - 24751170418182029a2048647386json
       Last-Modified:
-      - Sat, 15 Apr 2017 11:31:45 UTC
+      - Tue, 18 Apr 2017 18:20:29 UTC
       X-Cloud-Trace-Context:
-      - 639100dcc527fca79f4fd965b4d7b1ff
+      - 3566fba1caa811bb0073ec027f0f2a0f
       Date:
-      - Sat, 15 Apr 2017 14:15:56 GMT
+      - Tue, 18 Apr 2017 18:28:46 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2741,7 +2741,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Sat, 15 Apr 2017 14:15:56 GMT
+      - Tue, 18 Apr 2017 18:28:46 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4946,5 +4946,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 15 Apr 2017 14:15:56 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:46 GMT
 recorded_with: VCR 3.0.3

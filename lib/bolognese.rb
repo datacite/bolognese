@@ -10,6 +10,7 @@ require 'rdf/turtle'
 require 'rdf/rdfxml'
 require 'logger'
 require 'jsonlint'
+require 'benchmark'
 
 require "bolognese/version"
 require "bolognese/metadata"

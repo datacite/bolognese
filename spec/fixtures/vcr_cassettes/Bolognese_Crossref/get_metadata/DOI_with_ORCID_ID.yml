@@ -23,20 +23,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1155%2F2012%2F291294
       Expires:
-      - Sat, 18 Feb 2017 08:46:37 GMT
+      - Tue, 18 Apr 2017 18:39:23 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '181'
       Date:
-      - Sat, 18 Feb 2017 07:59:51 GMT
+      - Tue, 18 Apr 2017 18:28:46 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1155%2F2012%2F291294">http://data.crossref.org/10.1155%2F2012%2F291294</a></body></html>
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 07:59:51 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:46 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1155%2F2012%2F291294
@@ -73,7 +73,11 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sat, 18 Feb 2017 07:59:51 GMT
+      - Tue, 18 Apr 2017 18:28:47 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
       Connection:
       - close
     body:
@@ -362,145 +366,5 @@ http_interactions:
         ZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 07:59:51 GMT
-- request:
-    method: get
-    uri: https://doi.org/10.1155/2012/291294
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: ''
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - http://www.hindawi.com/journals/pm/2012/291294/
-      Expires:
-      - Sat, 18 Feb 2017 08:46:37 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '179'
-      Date:
-      - Sat, 18 Feb 2017 07:59:59 GMT
-    body:
-      encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="http://www.hindawi.com/journals/pm/2012/291294/">http://www.hindawi.com/journals/pm/2012/291294/</a></body></html>
-    http_version: 
-  recorded_at: Sat, 18 Feb 2017 07:59:59 GMT
-- request:
-    method: get
-    uri: http://www.hindawi.com/journals/pm/2012/291294/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 404
-      message: ''
-    headers:
-      Content-Type:
-      - text/html; charset=us-ascii
-      Date:
-      - Sat, 18 Feb 2017 08:00:11 GMT
-      Server:
-      - Microsoft-HTTPAPI/2.0
-      Content-Length:
-      - '315'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"\"http://www.w3.org/TR/html4/strict.dtd\">\r\n<HTML><HEAD><TITLE>Not
-        Found</TITLE>\r\n<META HTTP-EQUIV=\"Content-Type\" Content=\"text/html; charset=us-ascii\"></HEAD>\r\n<BODY><h2>Not
-        Found</h2>\r\n<hr><p>HTTP Error 404. The requested resource is not found.</p>\r\n</BODY></HTML>\r\n"
-    http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:00:00 GMT
-- request:
-    method: get
-    uri: https://doi.org/10.1155/2012/291294
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: ''
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - http://www.hindawi.com/journals/pm/2012/291294/
-      Expires:
-      - Sat, 18 Feb 2017 08:46:37 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '179'
-      Date:
-      - Sat, 18 Feb 2017 08:00:09 GMT
-    body:
-      encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="http://www.hindawi.com/journals/pm/2012/291294/">http://www.hindawi.com/journals/pm/2012/291294/</a></body></html>
-    http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:00:09 GMT
-- request:
-    method: get
-    uri: http://www.hindawi.com/journals/pm/2012/291294/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 404
-      message: ''
-    headers:
-      Content-Type:
-      - text/html; charset=us-ascii
-      Date:
-      - Sat, 18 Feb 2017 08:00:20 GMT
-      Server:
-      - Microsoft-HTTPAPI/2.0
-      Content-Length:
-      - '315'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\"\"http://www.w3.org/TR/html4/strict.dtd\">\r\n<HTML><HEAD><TITLE>Not
-        Found</TITLE>\r\n<META HTTP-EQUIV=\"Content-Type\" Content=\"text/html; charset=us-ascii\"></HEAD>\r\n<BODY><h2>Not
-        Found</h2>\r\n<hr><p>HTTP Error 404. The requested resource is not found.</p>\r\n</BODY></HTML>\r\n"
-    http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:00:09 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:47 GMT
 recorded_with: VCR 3.0.3

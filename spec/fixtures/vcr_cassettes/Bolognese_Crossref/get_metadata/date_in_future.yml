@@ -23,7 +23,7 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018
       Expires:
-      - Sat, 18 Feb 2017 08:46:37 GMT
+      - Tue, 18 Apr 2017 18:39:23 GMT
       Link:
       - <https://api.elsevier.com/content/usage/doi/>; rel="dul"
       Content-Type:
@@ -31,14 +31,14 @@ http_interactions:
       Content-Length:
       - '195'
       Date:
-      - Sat, 18 Feb 2017 08:01:23 GMT
+      - Tue, 18 Apr 2017 18:28:51 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018">http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018</a></body></html>
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:01:23 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:52 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.1016%2Fj.ejphar.2015.03.018
@@ -74,7 +74,11 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sat, 18 Feb 2017 08:01:24 GMT
+      - Tue, 18 Apr 2017 18:28:52 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
       Connection:
       - close
     body:
@@ -223,83 +227,5 @@ http_interactions:
         ICAgIDwvam91cm5hbF9hcnRpY2xlPg0KICAgICAgPC9qb3VybmFsPg0KICAg
         IDwvY3Jvc3NyZWY+DQogIDwvZG9pX3JlY29yZD4NCjwvZG9pX3JlY29yZHM+
     http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:01:24 GMT
-- request:
-    method: get
-    uri: https://doi.org/10.1016/j.ejphar.2015.03.018
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: ''
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332
-      Expires:
-      - Sat, 18 Feb 2017 08:46:37 GMT
-      Link:
-      - <https://api.elsevier.com/content/usage/doi/>; rel="dul"
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '207'
-      Date:
-      - Sat, 18 Feb 2017 08:01:23 GMT
-    body:
-      encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332">http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332</a></body></html>
-    http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:01:24 GMT
-- request:
-    method: get
-    uri: https://doi.org/10.1016/j.ejphar.2015.03.018
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: ''
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332
-      Expires:
-      - Sat, 18 Feb 2017 08:46:37 GMT
-      Link:
-      - <https://api.elsevier.com/content/usage/doi/>; rel="dul"
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '207'
-      Date:
-      - Sat, 18 Feb 2017 08:02:24 GMT
-    body:
-      encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332">http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332</a></body></html>
-    http_version: 
-  recorded_at: Sat, 18 Feb 2017 08:02:24 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:52 GMT
 recorded_with: VCR 3.0.3

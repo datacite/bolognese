@@ -16,12 +16,10 @@ http_interactions:
       code: 200
       message: ''
     headers:
-      Access-Control-Allow-Credentials:
-      - 'true'
       Access-Control-Allow-Headers:
       - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
       Access-Control-Allow-Methods:
-      - POST, GET, OPTIONS
+      - GET, POST, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Max-Age:
@@ -31,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sun, 12 Mar 2017 09:08:47 GMT
+      - Tue, 18 Apr 2017 18:28:00 GMT
       Etag:
       - W/"daf85afdb45f3c2713bc7e75916ba82a"
       Server:
@@ -40,26 +38,16 @@ http_interactions:
       - 200 OK
       Vary:
       - Accept-Encoding
-      Via:
-      - kong/0.10.0rc3
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
-      X-Kong-Proxy-Latency:
-      - '1'
-      X-Kong-Upstream-Latency:
-      - '489'
       X-Powered-By:
       - Phusion Passenger 5.1.2
-      X-Ratelimit-Limit-Hour:
-      - '10000'
-      X-Ratelimit-Remaining-Hour:
-      - '9994'
       X-Request-Id:
-      - 62732ae3-9068-4d9c-ade4-36f6523afc7e
+      - 8e173f08-f41f-4142-bb07-9ab28e17bc47
       X-Runtime:
-      - '0.487711'
+      - '0.329946'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -70,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T21:07:27Z"}}}'
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 09:08:48 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:00 GMT
 - request:
     method: get
     uri: https://doi.org/10.7554/elife.01567
@@ -94,20 +82,20 @@ http_interactions:
       Location:
       - http://data.crossref.org/10.7554%2Felife.01567
       Expires:
-      - Sun, 12 Mar 2017 09:59:19 GMT
+      - Tue, 18 Apr 2017 18:39:23 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '177'
       Date:
-      - Sun, 12 Mar 2017 09:08:55 GMT
+      - Tue, 18 Apr 2017 18:27:59 GMT
     body:
       encoding: UTF-8
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://data.crossref.org/10.7554%2Felife.01567">http://data.crossref.org/10.7554%2Felife.01567</a></body></html>
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 09:08:56 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:00 GMT
 - request:
     method: get
     uri: http://data.crossref.org/10.7554%2Felife.01567
@@ -143,7 +131,11 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 12 Mar 2017 09:08:56 GMT
+      - Tue, 18 Apr 2017 18:28:00 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
       Connection:
       - close
     body:
@@ -786,5 +778,5 @@ http_interactions:
         aWNsZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8
         L2RvaV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Sun, 12 Mar 2017 09:08:56 GMT
+  recorded_at: Tue, 18 Apr 2017 18:28:01 GMT
 recorded_with: VCR 3.0.3
