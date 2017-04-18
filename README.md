@@ -40,7 +40,7 @@ Bolognese reads and/or writes these metadata formats:
     <tr>
       <td><a href='https://api.datacite.org/'>DataCite JSON</a></td>
       <td>datacite_json</td>
-      <td>application/vnd.datacite+json</td>
+      <td>application/vnd.datacite.datacite+json</td>
       <td>Yes</td>
       <td>Yes</td>
     </tr>
@@ -125,8 +125,7 @@ bolognese https://doi.org/10.7554/elife.01567
 bolognese example.xml
 ```
 
-Bolognese can read BibTeX files (file extension `.bib`) and Crossref or DataCite
-XML files (file extension `.xml`).
+Bolognese can read BibTeX files (file extension `.bib`), RIS files (file extension `.ris`), Crossref or DataCite XML files (file extension `.xml`), DataCite JSON files (file extension `Citeproc JSON files ().
 
 The input format (e.g. Crossref XML or BibteX) is automatically detected, but
 you can also provide the format with the `--from` or `-f` flag. The supported
