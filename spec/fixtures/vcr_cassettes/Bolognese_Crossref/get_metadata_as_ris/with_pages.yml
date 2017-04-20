@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.org/10.1155/2012/291294
+    uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1155/2012/291294&noredirect=true&pid=tech@datacite.org
     body:
       encoding: US-ASCII
       string: ''
@@ -10,74 +10,22 @@ http_interactions:
       User-Agent:
       - Maremma - https://github.com/datacite/maremma
       Accept:
-      - application/vnd.crossref.unixref+xml
-  response:
-    status:
-      code: 303
-      message: ''
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - http://data.crossref.org/10.1155%2F2012%2F291294
-      Expires:
-      - Tue, 18 Apr 2017 18:39:23 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '181'
-      Date:
-      - Tue, 18 Apr 2017 18:28:27 GMT
-    body:
-      encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="http://data.crossref.org/10.1155%2F2012%2F291294">http://data.crossref.org/10.1155%2F2012%2F291294</a></body></html>
-    http_version: 
-  recorded_at: Tue, 18 Apr 2017 18:28:27 GMT
-- request:
-    method: get
-    uri: http://data.crossref.org/10.1155%2F2012%2F291294
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - application/vnd.crossref.unixref+xml
+      - text/xml
   response:
     status:
       code: 200
       message: ''
     headers:
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
-        Accept-Ranges, Cache-Control
-      Access-Control-Expose-Headers:
-      - Link
-      Link:
-      - <http://dx.doi.org/10.1155/2012/291294>; rel="canonical", <http://downloads.hindawi.com/journals/pm/2012/291294.pdf>;
-        version="vor"; type="application/pdf"; rel="item", <http://downloads.hindawi.com/journals/pm/2012/291294.xml>;
-        version="vor"; type="application/xml"; rel="item", <http://creativecommons.org/licenses/by/3.0/>;
-        version="vor"; rel="license", <http://orcid.org/0000-0003-2043-4925>; title="Beatriz
-        Hernandez"; rel="author"
-      Content-Type:
-      - application/vnd.crossref.unixref+xml
-      Content-Length:
-      - '12670'
       Server:
-      - http-kit
+      - Apache-Coyote/1.1
+      Crossref-Deployment-Name:
+      - cr7-1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
       Date:
-      - Tue, 18 Apr 2017 18:28:27 GMT
-      X-Rate-Limit-Limit:
-      - '50'
-      X-Rate-Limit-Interval:
-      - 1s
+      - Thu, 20 Apr 2017 20:22:29 GMT
       Connection:
       - close
     body:
@@ -366,5 +314,5 @@ http_interactions:
         ZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Tue, 18 Apr 2017 18:28:27 GMT
+  recorded_at: Thu, 20 Apr 2017 20:22:30 GMT
 recorded_with: VCR 3.0.3

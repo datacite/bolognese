@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://doi.org/10.1371/journal.pone.0000030
+    uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1371/journal.pone.0000030&noredirect=true&pid=tech@datacite.org
     body:
       encoding: US-ASCII
       string: ''
@@ -10,71 +10,22 @@ http_interactions:
       User-Agent:
       - Maremma - https://github.com/datacite/maremma
       Accept:
-      - application/vnd.crossref.unixref+xml
-  response:
-    status:
-      code: 303
-      message: ''
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - http://data.crossref.org/10.1371%2Fjournal.pone.0000030
-      Expires:
-      - Tue, 18 Apr 2017 18:39:23 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '195'
-      Date:
-      - Tue, 18 Apr 2017 18:28:22 GMT
-    body:
-      encoding: UTF-8
-      string: |-
-        <html><head><title>Handle Redirect</title></head>
-        <body><a href="http://data.crossref.org/10.1371%2Fjournal.pone.0000030">http://data.crossref.org/10.1371%2Fjournal.pone.0000030</a></body></html>
-    http_version: 
-  recorded_at: Tue, 18 Apr 2017 18:28:22 GMT
-- request:
-    method: get
-    uri: http://data.crossref.org/10.1371%2Fjournal.pone.0000030
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - application/vnd.crossref.unixref+xml
+      - text/xml
   response:
     status:
       code: 200
       message: ''
     headers:
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - X-Requested-With, Accept, Accept-Encoding, Accept-Charset, Accept-Language,
-        Accept-Ranges, Cache-Control
-      Access-Control-Expose-Headers:
-      - Link
-      Link:
-      - <http://dx.doi.org/10.1371/journal.pone.0000030>; rel="canonical", <http://creativecommons.org/licenses/by/4.0/>;
-        version="vor"; rel="license"
-      Content-Type:
-      - application/vnd.crossref.unixref+xml
-      Content-Length:
-      - '38186'
       Server:
-      - http-kit
+      - Apache-Coyote/1.1
+      Crossref-Deployment-Name:
+      - qs2-2
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
       Date:
-      - Tue, 18 Apr 2017 18:28:22 GMT
-      X-Rate-Limit-Limit:
-      - '50'
-      X-Rate-Limit-Interval:
-      - 1s
+      - Thu, 20 Apr 2017 20:22:25 GMT
       Connection:
       - close
     body:
@@ -930,5 +881,5 @@ http_interactions:
         bGU+DQogICAgICA8L2pvdXJuYWw+DQogICAgPC9jcm9zc3JlZj4NCiAgPC9k
         b2lfcmVjb3JkPg0KPC9kb2lfcmVjb3Jkcz4=
     http_version: 
-  recorded_at: Tue, 18 Apr 2017 18:28:23 GMT
+  recorded_at: Thu, 20 Apr 2017 20:22:26 GMT
 recorded_with: VCR 3.0.3

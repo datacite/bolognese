@@ -60,13 +60,17 @@ module Bolognese
       "PostedContent" => "article"
     }
 
+    CONTACT_EMAIL = "tech@datacite.org"
+
     def initialize(id: nil, string: nil)
       id = normalize_doi(id) if id.present?
 
       if string.present?
         @raw = string
       elsif id.present?
-        response = Maremma.get(id, accept: "application/vnd.crossref.unixref+xml", host: true, raw: true)
+        doi = doi_from_url(id)
+        url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
+        response = Maremma.get(url, accept: "text/xml", raw: true)
         @raw = response.body.fetch("data", nil)
         @raw = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks).to_s if @raw.present?
       end
@@ -75,7 +79,12 @@ module Bolognese
     alias_method :crossref, :raw
 
     def metadata
-      @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("doi_records", {}).fetch("doi_record", {}) : {}
+      @metadata ||= if raw.present?
+        m = Maremma.from_xml(raw).fetch("doi_records", {}).fetch("doi_record", {})
+        m.dig("crossref", "error").nil? ? m : {}
+      else
+        {}
+      end
     end
 
     def exists?

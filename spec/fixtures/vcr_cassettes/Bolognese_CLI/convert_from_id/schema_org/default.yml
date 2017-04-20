@@ -23,7 +23,7 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Tue, 18 Apr 2017 18:28:11 GMT
+      - Thu, 20 Apr 2017 20:22:07 GMT
       Location:
       - "/eating-your-own-dog-food/"
       Server:
@@ -33,9 +33,9 @@ http_interactions:
       X-Amz-Error-Message:
       - Resource Found
       X-Amz-Id-2:
-      - X7r9wqymxuhJkFuXIQYPzwOmsS9fpMP1SxLb9bN9ycrsyplBJTKercHqlm0aHEWrGeU4S07j8u4=
+      - 92cPfjWJze1wm2LqKAP2Ua4hYC0fZdM8kiR9y+86FR2dVaLhyASqdd1NwrFS/lxMXGTejZ4VovI=
       X-Amz-Request-Id:
-      - F0180AA9E6BBE137
+      - 6FF7A8CB6203B29E
       Content-Length:
       - '313'
       Connection:
@@ -50,14 +50,14 @@ http_interactions:
         <ul>
         <li>Code: Found</li>
         <li>Message: Resource Found</li>
-        <li>RequestId: F0180AA9E6BBE137</li>
-        <li>HostId: X7r9wqymxuhJkFuXIQYPzwOmsS9fpMP1SxLb9bN9ycrsyplBJTKercHqlm0aHEWrGeU4S07j8u4=</li>
+        <li>RequestId: 6FF7A8CB6203B29E</li>
+        <li>HostId: 92cPfjWJze1wm2LqKAP2Ua4hYC0fZdM8kiR9y+86FR2dVaLhyASqdd1NwrFS/lxMXGTejZ4VovI=</li>
         </ul>
         <hr/>
         </body>
         </html>
     http_version: 
-  recorded_at: Tue, 18 Apr 2017 18:28:11 GMT
+  recorded_at: Thu, 20 Apr 2017 20:22:07 GMT
 - request:
     method: get
     uri: https://blog.datacite.org/eating-your-own-dog-food/
@@ -83,19 +83,19 @@ http_interactions:
       Content-Type:
       - text/html
       Date:
-      - Tue, 18 Apr 2017 18:28:11 GMT
+      - Thu, 20 Apr 2017 20:22:07 GMT
       Etag:
       - '"5f0de0766275e8bf89b6df026c7a55f1"'
       Last-Modified:
-      - Mon, 17 Apr 2017 13:50:05 GMT
+      - Thu, 20 Apr 2017 15:58:28 GMT
       Server:
       - openresty/1.11.2.2
       X-Amz-Id-2:
-      - rRy/iiKju80KZwb/IF+bo3rj6OzuvosbRF86BWCw9hEawMQ4EeSVAi6EVNLYpDsUIn1j/k/w8OQ=
+      - iPbQR3lG92llPXyl07yrTMpwSGpqxs52VlXH21ttpEWRSBBTjKq3h07EcV5lAWeHSAPLWelTnfk=
       X-Amz-Request-Id:
-      - 60D1FF77936681A8
+      - DBC9B30F33FEAC07
       X-Amz-Version-Id:
-      - 4KKrWLTIAj.F2cdCDx3rPdtX_jp_HjBR
+      - 7Gyya0U0fQkfUrEEs2DOOQiosamUM1kc
       Content-Length:
       - '24517'
       Connection:
@@ -649,5 +649,5 @@ http_interactions:
         ODA2MTk2LTYnLCAnYXV0bycpOwogICAgICBnYSgnc2VuZCcsICdwYWdldmll
         dycpOwogICAgPC9zY3JpcHQ+CiAgPC9ib2R5Pgo8L2h0bWw+Cg==
     http_version: 
-  recorded_at: Tue, 18 Apr 2017 18:28:11 GMT
+  recorded_at: Thu, 20 Apr 2017 20:22:07 GMT
 recorded_with: VCR 3.0.3

@@ -88,7 +88,13 @@ module Bolognese
     end
 
     def title
-      metadata.dig("titles", "title")
+      Array.wrap(metadata.dig("titles", "title")).map do |r|
+        if r.is_a?(String)
+          sanitize(r)
+        else
+          { "title_type" => r["titleType"], "lang" => r["xml:lang"], "text" => sanitize(r["__content__"]) }.compact
+        end
+      end.unwrap
     end
 
     def alternate_name
