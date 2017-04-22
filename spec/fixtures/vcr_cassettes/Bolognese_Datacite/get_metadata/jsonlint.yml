@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.5169/seals-517428&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sat, 22 Apr 2017 05:12:59 GMT
+      Server:
+      - openresty/1.11.2.2
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48cmVzb3VyY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj48aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MTY5L3NlYWxzLTUxNzQyODwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkt1cno8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48L2NyZWF0b3JzPjx0aXRsZXM+PHRpdGxlPlZvbiBNb25hdCB6dSBNb25hdCA6IGRpZSBEb2t1bWVudGUgdm9uIExhIENoYXJpdMOpPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkJ1Y2hkcnVja2VyZWkgUm9iZXJ0IE3DvGxsZXIgQUc8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjE5NjE8L3B1YmxpY2F0aW9uWWVhcj48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MTk2MS0wNi0wMTwvZGF0ZT48L2RhdGVzPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Sm91cm5hbCBBcnRpY2xlPC9yZXNvdXJjZVR5cGU+PGZvcm1hdHM+PGZvcm1hdD50ZXh0L2h0bWw8L2Zvcm1hdD48Zm9ybWF0PmFwcGxpY2F0aW9uL3BkZjwvZm9ybWF0PjwvZm9ybWF0cz48L3Jlc291cmNlPg==","minted":"2017-03-23T00:21:40Z","updated":"2017-03-23T00:21:40Z","doi":"10.5169/SEALS-517428"}]}}
+
+'
+    http_version: 
+  recorded_at: Sat, 22 Apr 2017 05:12:59 GMT
+recorded_with: VCR 3.0.3

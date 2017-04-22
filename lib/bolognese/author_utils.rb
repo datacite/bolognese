@@ -9,6 +9,7 @@ module Bolognese
       name = author.fetch("creatorName", nil) ||
              author.fetch("contributorName", nil) ||
              author.fetch("name", nil)
+
       name = cleanup_author(name)
       given_name = author.fetch("givenName", nil)
       family_name = author.fetch("familyName", nil)
@@ -39,6 +40,9 @@ module Bolognese
       # detect pattern "Smith J.", but not "Smith, John K."
       author = author.gsub(/[[:space:]]([A-Z]\.)?(-?[A-Z]\.)$/, ', \1\2') unless author.include?(",")
 
+      # remove spaces around hyphens
+      author = author.gsub(" - ", "-")
+
       # titleize strings
       # remove non-standard space characters
       author.my_titleize
@@ -47,13 +51,14 @@ module Bolognese
 
     def is_personal_name?(author)
       return false if author.fetch("type", "").downcase == "organization"
-      return true if author.fetch("type", "").downcase == "person" ||
-                     author.fetch("id", "").start_with?("http://orcid.org") ||
+      return true if author.fetch("id", "").start_with?("http://orcid.org") ||
                      author.fetch("familyName", "").present? ||
-                     author.fetch("name", "").include?(",")
+                     author.fetch("name", "").include?(",") &&
+                     author.fetch("name", "").exclude?(";")
 
-      # lookup given name
-      #::NameDetector.name_exists?(author.split.first)
+      # lookup given name if NameDetector gem is loaded (needs caching)
+      ::NameDetector.name_exists?(author.split.first) if defined? ::NameDetector
+
       false
     end
 

@@ -6,11 +6,6 @@ describe Bolognese::Crossref, vcr: true do
   subject { Bolognese::Crossref.new(id: id) }
 
   context "is_personal_name?" do
-    it "has type person" do
-      author = {"type"=>"Person", "name"=>"Martin Fenner" }
-      expect(subject.is_personal_name?(author)).to be true
-    end
-
     it "has type organization" do
       author = {"email"=>"info@ucop.edu", "name"=>"University of California, Santa Barbara", "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"}, "type"=>"organization" }
       expect(subject.is_personal_name?(author)).to be false
@@ -56,7 +51,7 @@ describe Bolognese::Crossref, vcr: true do
       id = "https://doi.org/10.5281/ZENODO.48440"
       subject = Bolognese::Datacite.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
+      expect(response).to eq("name"=>"Kristian Garza")
     end
 
     it "has name in display-order with ORCID" do
@@ -64,6 +59,28 @@ describe Bolognese::Crossref, vcr: true do
       subject = Bolognese::Datacite.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
+    end
+
+    it "has name in Thai" do
+      id = "https://doi.org/10.14457/KMITL.res.2006.17"
+      subject = Bolognese::Datacite.new(id: id)
+      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
+      expect(response).to eq("name"=>"กัญจนา แซ่เตียว")
+    end
+
+    it "multiple author names in one field" do
+      id = "https://doi.org/10.7910/dvn/eqtqyo"
+      subject = Bolognese::Datacite.new(id: id)
+      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
+      expect(response).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
+    end
+
+    it "hyper-authorship" do
+      id = "https://doi.org/10.17182/HEPDATA.77274.V1"
+      subject = Bolognese::Datacite.new(id: id)
+      response = subject.get_authors(subject.metadata.dig("creators", "creator"))
+      expect(response.length).to eq(1000)
+      expect(response.first).to eq("type"=>"Person", "name"=>"Jaroslav Adam", "givenName"=>"Jaroslav", "familyName"=>"Adam")
     end
 
     it "is organization" do

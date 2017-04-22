@@ -71,7 +71,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Software")
       expect(subject.resource_type_general).to eq("Software")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
+      expect(subject.author).to eq("name" => "Kristian Garza")
       expect(subject.title).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.license).to eq([{"url"=>"info:eu-repo/semantics/openAccess", "name"=>"Open Access"}, {"url"=>"https://creativecommons.org/licenses/by-nc-sa/4.0/", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}])
@@ -119,6 +119,36 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.funder).to eq("name" => "European Commission")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "author only full name" do
+      id = "https://doi.org/10.14457/KMITL.RES.2006.17"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.14457/kmitl.res.2006.17")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.author.length).to eq(1)
+      expect(subject.author.first).to eq(["name", "กัญจนา แซ่เตียว"])
+    end
+
+    it "multiple author names in one creatorName" do
+      id = "https://doi.org/10.7910/DVN/EQTQYO"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.7910/dvn/eqtqyo")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.author.length).to eq(1)
+      expect(subject.author.first).to eq(["name", "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)"])
+    end
+
+    it "author with scheme" do
+      id = "https://doi.org/10.18429/JACOW-IPAC2016-TUPMY003"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.18429/jacow-ipac2016-tupmy003")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.author.length).to eq(12)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
     end
 
     it "Funding schema version 4" do
@@ -225,7 +255,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["identifier"]).to eq("https://doi.org/10.5063/f1m61h5x")
-      expect(json["agents"]).to eq("type"=>"Person", "name"=>"Matthew B. Jones", "givenName"=>"Matthew B.", "familyName"=>"Jones")
+      expect(json["agents"]).to eq("name" => "Jones, Matthew B.; Slaughter, Peter; Nahf, Rob; Boettiger, Carl ; Jones, Chris; Read, Jordan; Walker, Lauren; Hart, Edmund; Chamberlain, Scott")
       expect(json["title"]).to eq("dataone: R interface to the DataONE network of data repositories")
       expect(json["datePublished"]).to eq("2016")
       expect(json["publisher"]).to eq("KNB Data Repository")
