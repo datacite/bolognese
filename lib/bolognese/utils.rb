@@ -9,6 +9,200 @@ module Bolognese
       "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivatives 4.0 (CC-BY-NC-ND 4.0)"
     }
 
+    DC_TO_SO_TRANSLATIONS = {
+      "Audiovisual" => "VideoObject",
+      "Collection" => "Collection",
+      "Dataset" => "Dataset",
+      "Event" => "Event",
+      "Image" => "ImageObject",
+      "InteractiveResource" => nil,
+      "Model" => nil,
+      "PhysicalObject" => nil,
+      "Service" => "Service",
+      "Software" => "SoftwareSourceCode",
+      "Sound" => "AudioObject",
+      "Text" => "ScholarlyArticle",
+      "Workflow" => nil,
+      "Other" => "CreativeWork"
+    }
+
+    DC_TO_CP_TRANSLATIONS = {
+      "Audiovisual" => "motion_picture",
+      "Collection" => nil,
+      "Dataset" => "dataset",
+      "Event" => nil,
+      "Image" => "graphic",
+      "InteractiveResource" => nil,
+      "Model" => nil,
+      "PhysicalObject" => nil,
+      "Service" => nil,
+      "Software" => "computer_program",
+      "Sound" => "song",
+      "Text" => "report",
+      "Workflow" => nil,
+      "Other" => nil
+    }
+
+    CR_TO_CP_TRANSLATIONS = {
+      "proceedings" => nil,
+      "reference-book" => nil,
+      "journal-issue" => nil,
+      "proceedings-article" => "paper-conference",
+      "other" => nil,
+      "dissertation" => "thesis",
+      "dataset" => "dataset",
+      "edited-book" => "book",
+      "journal-article" => "article-journal",
+      "journal" => nil,
+      "report" => "report",
+      "book-series" => nil,
+      "report-series" => nil,
+      "book-track" => nil,
+      "standard" => nil,
+      "book-section" => "chapter",
+      "book-part" => nil,
+      "book" => "book",
+      "book-chapter" => "chapter",
+      "standard-series" => nil,
+      "monograph" => "book",
+      "component" => nil,
+      "reference-entry" => "entry-dictionary",
+      "journal-volume" => nil,
+      "book-set" => nil
+    }
+
+    SO_TO_DC_TRANSLATIONS = {
+      "Article" => "Text",
+      "AudioObject" => "Sound",
+      "Blog" => "Text",
+      "BlogPosting" => "Text",
+      "Collection" => "Collection",
+      "CreativeWork" => "Other",
+      "DataCatalog" => "Dataset",
+      "Dataset" => "Dataset",
+      "Event" => "Event",
+      "ImageObject" => "Image",
+      "Movie" => "Audiovisual",
+      "PublicationIssue" => "Text",
+      "ScholarlyArticle" => "Text",
+      "Service" => "Service",
+      "SoftwareSourceCode" => "Software",
+      "VideoObject" => "Audiovisual",
+      "WebPage" => "Text",
+      "WebSite" => "Text"
+    }
+
+    SO_TO_CP_TRANSLATIONS = {
+      "Article" => "",
+      "AudioObject" => "song",
+      "Blog" => "report",
+      "BlogPosting" => "post-weblog",
+      "Collection" => nil,
+      "CreativeWork" => nil,
+      "DataCatalog" => "dataset",
+      "Dataset" => "dataset",
+      "Event" => nil,
+      "ImageObject" => "graphic",
+      "Movie" => "motion_picture",
+      "PublicationIssue" => nil,
+      "ScholarlyArticle" => "article-journal",
+      "Service" => nil,
+      "SoftwareSourceCode" => "computer_program",
+      "VideoObject" => "broadcast",
+      "WebPage" => "webpage",
+      "WebSite" => "webpage"
+    }
+
+    CP_TO_SO_TRANSLATIONS = {
+      "song" => "AudioObject",
+      "post-weblog" => "BlogPosting",
+      "dataset" => "Dataset",
+      "graphic" => "ImageObject",
+      "motion_picture" => "Movie",
+      "article-journal" => "ScholarlyArticle",
+      "computer_program" => "SoftwareSourceCode",
+      "broadcast" => "VideoObject",
+      "webpage" => "WebPage"
+    }
+
+    SO_TO_RIS_TRANSLATIONS = {
+      "Article" => nil,
+      "AudioObject" => nil,
+      "Blog" => nil,
+      "BlogPosting" => "BLOG",
+      "Collection" => nil,
+      "CreativeWork" => "GEN",
+      "DataCatalog" => "CTLG",
+      "Dataset" => "DATA",
+      "Event" => nil,
+      "ImageObject" => "FIGURE",
+      "Movie" => "MPCT",
+      "PublicationIssue" => nil,
+      "ScholarlyArticle" => "JOUR",
+      "Service" => nil,
+      "SoftwareSourceCode" => "COMP",
+      "VideoObject" => "VIDEO",
+      "WebPage" => "ELEC",
+      "WebSite" => nil
+    }
+
+    CR_TO_RIS_TRANSLATIONS = {
+      "proceedings" => "CONF",
+      "reference-book" => "BOOK",
+      "journal-issue" => nil,
+      "proceedings-article" => "CPAPER",
+      "other" => "GEN",
+      "dissertation" => "THES",
+      "dataset" => "DATA",
+      "edited-book" => "BOOK",
+      "journal-article" => "JOUR",
+      "journal" => nil,
+      "report" => nil,
+      "book-series" => nil,
+      "report-series" => nil,
+      "book-track" => nil,
+      "standard" => nil,
+      "book-section" => "CHAP",
+      "book-part" => "CHAP",
+      "book" => "BOOK",
+      "book-chapter" => "CHAP",
+      "standard-series" => nil,
+      "monograph" => "BOOK",
+      "component" => nil,
+      "reference-entry" => "DICT",
+      "journal-volume" => nil,
+      "book-set" => nil
+    }
+
+    DC_TO_RIS_TRANSLATIONS = {
+      "Audiovisual" => "MPCT",
+      "Collection" => nil,
+      "Dataset" => "DATA",
+      "Event" => nil,
+      "Image" => "FIGURE",
+      "InteractiveResource" => nil,
+      "Model" => nil,
+      "PhysicalObject" => nil,
+      "Service" => nil,
+      "Software" => "COMP",
+      "Sound" => "SOUND",
+      "Text" => "RPRT",
+      "Workflow" => nil,
+      "Other" => nil
+    }
+
+    CP_TO_RIS_TRANSLATIONS = {
+      "post-weblog" => "BLOG",
+      "dataset" => "DATA",
+      "graphic" => "FIGURE",
+      "book" => "BOOK",
+      "motion_picture" => "MPCT",
+      "article-journal" => "JOUR",
+      "computer_program" => "COMP",
+      "broadcast" => "MPCT",
+      "webpage" => "ELEC"
+    }
+
     def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
       if id.present?
         find_from_format_by_id(id)
@@ -309,6 +503,13 @@ module Bolognese
 
     def get_date_from_parts(year, month = nil, day = nil)
       [year.to_s.rjust(4, '0'), month.to_s.rjust(2, '0'), day.to_s.rjust(2, '0')].reject { |part| part == "00" }.join("-")
+    end
+
+    def jsonlint(json)
+      error_array = []
+      linter = JsonLint::Linter.new
+      linter.send(:check_data, json, error_array)
+      error_array
     end
   end
 end
