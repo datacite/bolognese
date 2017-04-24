@@ -44,6 +44,14 @@ module Bolognese
         "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
     end
 
+    def name
+      if title.is_a?(Hash)
+        title["text"]
+      else
+        title
+      end
+    end
+
     def schema_hsh
       {
         "@context" => id.present? ? "http://schema.org" : nil,
@@ -51,7 +59,7 @@ module Bolognese
         "@id" => id,
         "url" => url,
         "additionalType" => additional_type,
-        "name" => title,
+        "name" => name,
         "alternateName" => alternate_name,
         "author" => to_schema_org(author),
         "editor" => editor,
@@ -59,7 +67,7 @@ module Bolognese
         "license" => license.present? ? license["id"] : nil,
         "version" => version,
         "keywords" => keywords,
-        "language" => language,
+        "inLanguage" => language,
         "contentSize" => content_size,
         "dateCreated" => date_created,
         "datePublished" => date_published,

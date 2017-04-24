@@ -106,7 +106,13 @@ module Bolognese
     end
 
     def keywords
-      Array.wrap(metadata.dig("subjects", "subject")).join(", ").presence
+      Array.wrap(metadata.dig("subjects", "subject")).map do |k|
+        if k.is_a?(String)
+          sanitize(k)
+        else
+          k.fetch("__content__", nil)
+        end
+      end.compact.join(", ").presence
     end
 
     def author

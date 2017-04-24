@@ -151,6 +151,14 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
     end
 
+    it "keywords with attributes" do
+      id = "https://doi.org/10.21233/n34n5q"
+      subject = Bolognese::Datacite.new(id: id)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.21233/n34n5q")
+      expect(subject.keywords).to eq("Paleoecology")
+    end
+
     it "Funding schema version 4" do
       id = "https://doi.org/10.5438/6423"
       subject = Bolognese::Datacite.new(id: id)
