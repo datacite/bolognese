@@ -261,7 +261,7 @@ module Bolognese
           else SchemaOrg.new(id: id)
           end
 
-      unless p.valid?
+      if p.errors.present?
         $stderr.puts p.errors.colorize(:red)
       end
 
@@ -272,7 +272,11 @@ module Bolognese
       metadata = read(id: id, string: string, from: from, **options)
       return nil if metadata.nil?
 
-      puts metadata.send(to)
+      if to == "datacite" && metadata.datacite_errors.present?
+        $stderr.puts metadata.datacite_errors.colorize(:red)
+      else
+        puts metadata.send(to)
+      end
     end
 
     def generate(id: nil, string: nil, from: nil, to: nil, **options)

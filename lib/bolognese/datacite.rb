@@ -1,8 +1,5 @@
 module Bolognese
   class Datacite < Metadata
-
-    SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
-
     def initialize(id: nil, string: nil, regenerate: false)
       id = normalize_doi(id) if id.present?
 
@@ -15,7 +12,8 @@ module Bolognese
         attributes = response.body.dig("data", "response", "docs").first
         @raw = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
         @raw = Base64.decode64(@raw)
-        @raw = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks).to_s if @raw.present?
+        @doc = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks) if @raw.present?
+        @raw = @doc.to_s if @raw.present?
       end
 
       @should_passthru = !regenerate
@@ -39,19 +37,11 @@ module Bolognese
     end
 
     def errors
-      schema.validate(Nokogiri::XML(raw, nil, 'UTF-8')).map { |error| error.to_s }.unwrap
-    rescue Nokogiri::XML::SyntaxError => e
-      e.message
+      doc && doc.errors.map { |error| error.to_s }.unwrap
     end
 
     def schema_version
       metadata.fetch("xmlns", nil)
-    end
-
-    def schema
-      kernel = schema_version.split("/").last
-      filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
-      Nokogiri::XML::Schema(open(filepath))
     end
 
     def doi

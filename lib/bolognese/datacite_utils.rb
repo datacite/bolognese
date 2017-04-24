@@ -1,9 +1,9 @@
 module Bolognese
   module DataciteUtils
-    SCHEMA = File.expand_path("../../../resources/kernel-4.0/metadata.xsd", __FILE__)
-
     def schema
-      Nokogiri::XML::Schema(open(SCHEMA))
+      kernel = schema_version.split("/").last || "kernel-4.0"
+      filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
+      Nokogiri::XML::Schema(open(filepath))
     end
 
     def datacite_xml
@@ -19,7 +19,9 @@ module Bolognese
     end
 
     def datacite_errors
-      @datacite_errors ||= schema.validate(Nokogiri::XML(datacite, nil, 'UTF-8')).map { |error| error.to_s }
+      schema.validate(Nokogiri::XML(datacite, nil, 'UTF-8')).map { |error| error.to_s }.unwrap
+    rescue Nokogiri::XML::SyntaxError => e
+      e.message
     end
 
     def insert_work(xml)

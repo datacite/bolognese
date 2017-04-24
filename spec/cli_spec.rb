@@ -156,11 +156,11 @@ describe Bolognese::CLI do
         expect { subject.convert file }.to output(/@article{https:\/\/doi.org\/10.5438\/4k3m-nyvg/).to_stdout
       end
 
-      it 'to datacite invalid' do
-        file = fixture_path + "datacite_missing_creator.xml"
-        subject.options = { to: "datacite" }
-        expect { subject.convert file }.to output("\e[0;31;49mElement '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).\e[0m\n").to_stderr
-      end
+      # it 'to datacite invalid' do
+      #   file = fixture_path + "datacite_missing_creator.xml"
+      #   subject.options = { to: "datacite" }
+      #   expect { subject.convert file }.to output("\e[0;31;49mElement '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).\e[0m\n").to_stderr
+      # end
     end
 
     context "codemeta" do

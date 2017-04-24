@@ -1,6 +1,5 @@
 module Bolognese
   class Crossref < Metadata
-
     # CrossRef types from https://api.crossref.org/types
     CR_TO_SO_TRANSLATIONS = {
       "Proceedings" => nil,
@@ -108,6 +107,7 @@ module Bolognese
     end
 
     def journal_metadata
+      @journal_metadata ||=
       metadata.dig("crossref", "journal", "journal_metadata").presence || {}
     end
 
@@ -116,12 +116,14 @@ module Bolognese
     end
 
     def bibliographic_metadata
+      @bibliographic_metadata ||=
       metadata.dig("crossref", "journal", "journal_article").presence ||
       metadata.dig("crossref", "conference", "conference_paper").presence ||
       metadata.dig("crossref", metadata.fetch("crossref", {}).keys.last).presence || {}
     end
 
     def program_metadata
+      @program_metadata ||=
       bibliographic_metadata.dig("program") ||
       bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || {}
     end

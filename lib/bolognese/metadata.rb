@@ -6,18 +6,19 @@ require_relative 'utils'
 
 module Bolognese
   class Metadata
+    # include BenchmarkMethods
     include Bolognese::DoiUtils
     include Bolognese::AuthorUtils
     include Bolognese::DateUtils
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    attr_reader :id, :raw, :provider, :schema_version, :license, :citation,
+    attr_reader :id, :raw, :doc, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
       :publisher, :contributor, :same_as, :is_previous_version_of, :is_new_version_of,
-      :should_passthru, :datacite_errors, :date_accepted, :date_available,
+      :should_passthru, :errors, :datacite_errors, :date_accepted, :date_available,
       :date_copyrighted, :date_collected, :date_submitted, :date_valid,
       :is_cited_by, :cites, :is_supplement_to, :is_supplemented_by,
       :is_continued_by, :continues, :has_metadata, :is_metadata_for,
