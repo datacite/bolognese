@@ -11,6 +11,7 @@ require 'rdf/rdfxml'
 require 'logger'
 require 'jsonlint'
 require 'benchmark_methods'
+require 'gender_detector'
 
 require "bolognese/version"
 require "bolognese/metadata"

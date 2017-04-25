@@ -71,7 +71,7 @@ describe Bolognese::Datacite, vcr: true do
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Software")
       expect(subject.resource_type_general).to eq("Software")
-      expect(subject.author).to eq("name" => "Kristian Garza")
+      expect(subject.author).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
       expect(subject.title).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.license).to eq([{"url"=>"info:eu-repo/semantics/openAccess", "name"=>"Open Access"}, {"url"=>"https://creativecommons.org/licenses/by-nc-sa/4.0/", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}])

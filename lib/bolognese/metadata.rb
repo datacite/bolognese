@@ -25,7 +25,13 @@ module Bolognese
       :is_referenced_by, :references, :is_documented_by, :documents,
       :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
       :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
-      :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue
+      :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
+      :name_detector
+
+    # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
+    def name_detector
+      @name_detector ||= defined?(::NameDetector) ? ::NameDetector : GenderDetector.new
+    end
 
     def publication_year
       date_published && date_published[0..3]

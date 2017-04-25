@@ -53,12 +53,9 @@ module Bolognese
       return false if author.fetch("type", "").downcase == "organization"
       return true if author.fetch("id", "").start_with?("http://orcid.org") ||
                      author.fetch("familyName", "").present? ||
-                     author.fetch("name", "").include?(",") &&
-                     author.fetch("name", "").exclude?(";")
-
-      # lookup given name if NameDetector gem is loaded (needs caching)
-      ::NameDetector.name_exists?(author.split.first) if defined? ::NameDetector
-
+                     (author.fetch("name", "").include?(",") &&
+                     author.fetch("name", "").exclude?(";")) ||
+                     name_detector.name_exists?(author.fetch("name", "").split(" ").first)
       false
     end
 

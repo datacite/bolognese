@@ -26,8 +26,13 @@ describe Bolognese::Crossref, vcr: true do
       expect(subject.is_personal_name?(author)).to be true
     end
 
-    it "has no info" do
+    it "has known given name" do
       author = {"name"=>"Martin Fenner" }
+      expect(subject.is_personal_name?(author)).to be true
+    end
+
+    it "has no info" do
+      author = {"name"=>"M Fenner" }
       expect(subject.is_personal_name?(author)).to be false
     end
   end
@@ -51,7 +56,15 @@ describe Bolognese::Crossref, vcr: true do
       id = "https://doi.org/10.5281/ZENODO.48440"
       subject = Bolognese::Datacite.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
-      expect(response).to eq("name"=>"Kristian Garza")
+      expect(response).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
+    end
+
+    it "has multiple names in display-order" do
+      id = "https://doi.org/10.6084/M9.FIGSHARE.3479141 "
+      subject = Bolognese::Datacite.new(id: id)
+      response = subject.get_authors(subject.metadata.dig("creators", "creator"))
+      expect(response.count).to eq(9)
+      expect(response.last).to eq("type"=>"Person", "name"=>"Ed Pentz", "givenName"=>"Ed", "familyName"=>"Pentz")
     end
 
     it "has name in display-order with ORCID" do
