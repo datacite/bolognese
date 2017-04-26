@@ -3,9 +3,15 @@ require_relative 'author_utils'
 require_relative 'date_utils'
 require_relative 'datacite_utils'
 require_relative 'utils'
+
+require_relative 'readers/bibtex_reader'
+require_relative 'readers/crossref_reader'
+require_relative 'readers/datacite_reader'
+
 require_relative 'writers/bibtex_writer'
 require_relative 'writers/citeproc_writer'
 require_relative 'writers/codemeta_writer'
+require_relative 'writers/datacite_writer'
 require_relative 'writers/datacite_json_writer'
 require_relative 'writers/rdf_xml_writer'
 require_relative 'writers/ris_writer'
@@ -20,16 +26,22 @@ module Bolognese
     include Bolognese::DateUtils
     include Bolognese::DataciteUtils
     include Bolognese::Utils
+
+    include Bolognese::Readers::BibtexReader
+    include Bolognese::Readers::CrossrefReader
+    include Bolognese::Readers::DataciteReader
+
     include Bolognese::Writers::BibtexWriter
     include Bolognese::Writers::CiteprocWriter
     include Bolognese::Writers::CodemetaWriter
+    include Bolognese::Writers::DataciteWriter
     include Bolognese::Writers::DataciteJsonWriter
     include Bolognese::Writers::RdfXmlWriter
     include Bolognese::Writers::RisWriter
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_reader :id, :raw, :doc, :provider, :schema_version, :license, :citation,
+    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
@@ -44,32 +56,42 @@ module Bolognese
       :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
       :name_detector
 
-    def initialize(id: nil, string: nil, regenerate: false)
-      id = normalize_doi(id) if id.present?
+    def initialize(input: nil, from: nil, to: nil, regenerate: false)
+      id = normalize_id(input)
 
-      if string.present?
-        @raw = string
-      elsif id.present?
-        doi = doi_from_url(id)
-        url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
-        response = Maremma.get url
-        attributes = response.body.dig("data", "response", "docs").first
-        @raw = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
-        @raw = Base64.decode64(@raw)
-        @doc = Nokogiri::XML(@raw, nil, 'UTF-8', &:noblanks) if @raw.present?
-        @raw = @doc.to_s if @raw.present?
+      if id.present?
+        from ||= find_from_format(id: id)
+      else
+        ext = File.extname(input)
+        if %w(.bib .ris .xml .json).include?(ext)
+          string = IO.read(input)
+        else
+          $stderr.puts "File type #{ext} not supported"
+          exit 1
+        end
+        from ||= find_from_format(string: string, ext: ext)
       end
 
+      to ||= "schema_org"
+
+      id = normalize_doi(id) if id.present?
+
+      @metadata = case from
+          when nil
+            puts "not implemented"
+            return nil
+          when "crossref" then read_crossref(id: id, string: string)
+          when "datacite" then read_datacite(id: id, string: string)
+
+          when "codemeta" then Codemeta.new(id: id, string: string)
+          when "datacite_json" then DataciteJson.new(string: string)
+          when "citeproc" then Citeproc.new(id: id, string: string)
+          when "bibtex" then read_bibtex(string: string)
+          when "ris" then Ris.new(string: string)
+          else SchemaOrg.new(id: id)
+          end
+
       @should_passthru = !regenerate
-    end
-
-    # generate new DataCite XML version 4.0 if regenerate (!should_passthru) option is provided
-    def datacite
-      should_passthru ? raw : datacite_xml
-    end
-
-    def metadata
-      @metadata ||= raw.present? ? Maremma.from_xml(raw).fetch("resource", {}) : {}
     end
 
     def exists?

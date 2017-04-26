@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
 
-  subject { Bolognese::Metadata.new(id: id) }
+  subject { Bolognese::Metadata.new(input: id) }
 
   context "get metadata" do
     it "Dataset" do
@@ -27,7 +27,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -48,7 +48,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "date" do
       id = "https://doi.org/10.4230/lipics.tqc.2013.93"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -65,7 +65,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "multiple licenses" do
       id = "https://doi.org/10.5281/ZENODO.48440"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.type).to eq("SoftwareSourceCode")
@@ -84,7 +84,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "is identical to" do
       id = "10.6084/M9.FIGSHARE.4234751.V1"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.6084/m9.figshare.4234751.v1")
       expect(subject.type).to eq("Dataset")
@@ -104,7 +104,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "funding schema version 3" do
       id = "https://doi.org/10.5281/ZENODO.1239"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.type).to eq("Dataset")
@@ -123,7 +123,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author only full name" do
       id = "https://doi.org/10.14457/KMITL.RES.2006.17"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.14457/kmitl.res.2006.17")
       expect(subject.type).to eq("Dataset")
@@ -133,7 +133,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "multiple author names in one creatorName" do
       id = "https://doi.org/10.7910/DVN/EQTQYO"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7910/dvn/eqtqyo")
       expect(subject.type).to eq("Dataset")
@@ -143,7 +143,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author with scheme" do
       id = "https://doi.org/10.18429/JACOW-IPAC2016-TUPMY003"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.18429/jacow-ipac2016-tupmy003")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -153,7 +153,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "keywords with attributes" do
       id = "https://doi.org/10.21233/n34n5q"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.21233/n34n5q")
       expect(subject.keywords).to eq("Paleoecology")
@@ -161,7 +161,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Funding schema version 4" do
       id = "https://doi.org/10.5438/6423"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/6423")
       expect(subject.type).to eq("Collection")
@@ -192,7 +192,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema.org JSON IsSupplementTo" do
       id = "https://doi.org/10.5517/CC8H01S"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
       expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154"})
@@ -202,7 +202,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get metadata as string" do
     it "BlogPosting" do
       string = IO.read(fixture_path + "datacite.xml")
-      subject = Bolognese::Metadata.new(string: string)
+      subject = Bolognese::Metadata.new(input: string)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -230,7 +230,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get metadata as datacite xml 4.0" do
     it "Dataset" do
       id = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(id: id, regenerate: true)
+      subject = Bolognese::Metadata.new(input: id, regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
@@ -257,7 +257,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get metadata as codemeta" do
     it "SoftwareSourceCode" do
       id = "https://doi.org/10.5063/f1m61h5x"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       json = JSON.parse(subject.codemeta)
       expect(json["@context"]).to eq("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
@@ -285,7 +285,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -299,7 +299,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get metadata as citeproc" do
     it "Dataset" do
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("dataset")
@@ -320,7 +320,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("report")
@@ -335,7 +335,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get metadata as ris" do
     it "Dataset" do
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY - DATA")
@@ -352,7 +352,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY - RPRT")
@@ -371,7 +371,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get metadata as turtle" do
     it "Dataset" do
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
@@ -381,7 +381,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
@@ -392,7 +392,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get metadata as rdf_xml" do
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      subject = Bolognese::Metadata.new(input: id)
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")

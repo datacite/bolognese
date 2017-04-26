@@ -27,24 +27,8 @@ module Bolognese
     method_option :to, aliases: "-t", default: "schema_org"
     method_option :regenerate, :type => :boolean, :force => false
     def convert(input)
-      id = normalize_id(input)
-
-      if id.present?
-        from = options[:from] || find_from_format(id: id)
-      else
-        ext = File.extname(input)
-        if %w(.bib .ris .xml .json).include?(ext)
-          string = IO.read(input)
-        else
-          $stderr.puts "File type #{ext} not supported"
-          exit 1
-        end
-        from = options[:from] || find_from_format(string: string, ext: ext)
-      end
-
-      to = options[:to] || "schema_org"
-
-      write(id: id, string: string, from: from, to: to, regenerate: options[:regenerate])
+      metadata = Metadata.new(input: input, from: options[:from], to: options[:to], regenerate: options[:regenerate])
+      puts metadata.send(options[:to])
     end
 
     default_task :convert

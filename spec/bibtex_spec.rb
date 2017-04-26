@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Bolognese::Bibtex, vcr: true do
-  let(:string) { IO.read(fixture_path + "crossref.bib") }
+  let(:input) { fixture_path + "crossref.bib" }
 
-  subject { Bolognese::Bibtex.new(string: string) }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "get metadata" do
     it "Crossref DOI" do

@@ -2,6 +2,65 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.datacite.org/prefixes/10.4230
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Wed, 26 Apr 2017 18:18:47 GMT
+      Etag:
+      - W/"fc35139557b80fc826444633f7020734"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Request-Id:
+      - 722f9589-6d10-4f0a-85d7-81db9e38cbe5
+      X-Runtime:
+      - '0.640118'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.4230","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:06Z"}}}'
+    http_version: 
+  recorded_at: Wed, 26 Apr 2017 18:18:47 GMT
+- request:
+    method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
     body:
       encoding: US-ASCII
@@ -23,11 +82,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 26 Apr 2017 17:53:49 GMT
+      - Wed, 26 Apr 2017 18:18:48 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '2758'
       Connection:
       - keep-alive
     body:
@@ -36,5 +93,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 26 Apr 2017 17:53:49 GMT
+  recorded_at: Wed, 26 Apr 2017 18:18:47 GMT
 recorded_with: VCR 3.0.3
