@@ -111,7 +111,7 @@ describe Bolognese::DataciteJson, vcr: true do
   context "get metadata as rdf_xml" do
     it "BlogPosting" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       expect(subject.valid?).to be true
       rdfxml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdfxml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")

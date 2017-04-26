@@ -16,7 +16,6 @@ require 'gender_detector'
 require "bolognese/version"
 require "bolognese/metadata"
 require "bolognese/crossref"
-require "bolognese/datacite"
 require "bolognese/datacite_json"
 require "bolognese/schema_org"
 require "bolognese/codemeta"

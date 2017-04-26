@@ -40,28 +40,28 @@ describe Bolognese::Crossref, vcr: true do
   context "get_one_author" do
     it "has familyName" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
     end
 
     it "has name in sort-order" do
       id = "https://doi.org/10.5061/dryad.8515"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator").first)
       expect(response).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
     end
 
     it "has name in display-order" do
       id = "https://doi.org/10.5281/ZENODO.48440"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
     end
 
     it "has multiple names in display-order" do
       id = "https://doi.org/10.6084/M9.FIGSHARE.3479141 "
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_authors(subject.metadata.dig("creators", "creator"))
       expect(response.count).to eq(9)
       expect(response.last).to eq("type"=>"Person", "name"=>"Ed Pentz", "givenName"=>"Ed", "familyName"=>"Pentz")
@@ -69,28 +69,28 @@ describe Bolognese::Crossref, vcr: true do
 
     it "has name in display-order with ORCID" do
       id = "https://doi.org/10.6084/M9.FIGSHARE.4700788"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
     end
 
     it "has name in Thai" do
       id = "https://doi.org/10.14457/KMITL.res.2006.17"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("name"=>"กัญจนา แซ่เตียว")
     end
 
     it "multiple author names in one field" do
       id = "https://doi.org/10.7910/dvn/eqtqyo"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
     end
 
     it "hyper-authorship" do
       id = "https://doi.org/10.17182/HEPDATA.77274.V1"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_authors(subject.metadata.dig("creators", "creator"))
       expect(response.length).to eq(1000)
       expect(response.first).to eq("type"=>"Person", "name"=>"Jaroslav Adam", "givenName"=>"Jaroslav", "familyName"=>"Adam")
@@ -106,14 +106,14 @@ describe Bolognese::Crossref, vcr: true do
   context "get_name_identifier" do
     it "has ORCID" do
       id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_name_identifier(subject.metadata.dig("creators", "creator"))
       expect(response).to eq("http://orcid.org/0000-0003-1419-2405")
     end
 
     it "has no ORCID" do
       id = "https://doi.org/10.4230/lipics.tqc.2013.93"
-      subject = Bolognese::Datacite.new(id: id)
+      subject = Bolognese::Metadata.new(id: id)
       response = subject.get_name_identifier(subject.metadata.dig("creators", "creator"))
       expect(response).to be_nil
     end

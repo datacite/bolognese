@@ -252,7 +252,7 @@ module Bolognese
             puts "not implemented"
             return nil
           when "crossref" then Crossref.new(id: id, string: string)
-          when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
+          when "datacite" then Metadata.new(id: id, string: string, regenerate: options[:regenerate])
           when "codemeta" then Codemeta.new(id: id, string: string)
           when "datacite_json" then DataciteJson.new(string: string)
           when "citeproc" then Citeproc.new(id: id, string: string)
