@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
+  let(:input) { "https://doi.org/10.1101/097196" }
 
-  subject { Bolognese::Metadata.new }
+  subject { Bolognese::Metadata.new(input: input, from: "crossref") }
 
   context "validate url" do
     it "DOI" do
@@ -135,28 +136,6 @@ describe Bolognese::Metadata, vcr: true do
       text = "In 1998 <strong>Tim Berners-Lee</strong> coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>"
       content = subject.sanitize(text, tags: ["a"])
       expect(content).to eq("In 1998 Tim Berners-Lee coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>")
-    end
-  end
-
-  context "read" do
-    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
-    let(:from) { "datacite" }
-
-    it "datacite" do
-      response = subject.read(id: id, from: from)
-      expect(response.id).to eq("https://doi.org/10.5061/dryad.8515")
-    end
-  end
-
-  context "generate" do
-    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
-    let(:from) { "datacite" }
-    let(:to) { "schema_org" }
-
-    it "datacite" do
-      response = subject.generate(id: id, from: from, to: to)
-      json = JSON.parse(response)
-      expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
     end
   end
 

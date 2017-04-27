@@ -95,7 +95,7 @@ module Bolognese
         type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
         doi = bibliographic_metadata.dig("doi_data", "doi")
 
-        hsh = { "id" => normalize_doi(doi),
+        { "id" => normalize_doi(doi),
           "type" => type,
           "additional_type" => additional_type,
           "citeproc_type" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[additional_type] || "article-journal",
@@ -127,8 +127,6 @@ module Bolognese
           "content_size" => nil,
           "schema_version" => nil
         }
-        puts hsh
-        hsh
       end
 
       def crossref_alternate_name(bibliographic_metadata)

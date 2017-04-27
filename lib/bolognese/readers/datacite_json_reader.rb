@@ -10,7 +10,7 @@ module Bolognese
         resource_type_general = meta.fetch("resource-type-general", nil)
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
 
-        hsh = { "id" => meta.fetch("id", nil),
+        { "id" => meta.fetch("id", nil),
           "type" => type,
           "additional_type" => meta.fetch("resource-type", nil),
           "citeproc_type" => Bolognese::Utils::DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other",
@@ -47,8 +47,6 @@ module Bolognese
           "content_size" => meta.fetch("size", nil),
           "schema_version" => meta.fetch("schema-version", nil)
         }
-        puts hsh
-        hsh
       end
 
       # def funder

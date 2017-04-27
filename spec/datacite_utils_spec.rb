@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
-  let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
+  let(:input) { "https://doi.org/10.5061/DRYAD.8515" }
 
-  subject { Bolognese::Metadata.new(id: id) }
+  subject { Bolognese::Metadata.new(input: input, from: "datacite") }
 
   context "insert_identifier" do
     it "doi" do
@@ -144,8 +144,8 @@ describe Bolognese::Metadata, vcr: true do
 
   context "insert_descriptions" do
     it "insert" do
-      id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(id: id)
+      input = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_descriptions(xml) }.to_xml
       response = Maremma.from_xml(xml)
       expect(response.dig("descriptions", "description")).to eq("descriptionType" => "Abstract", "__content__" => "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")

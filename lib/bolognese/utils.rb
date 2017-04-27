@@ -243,46 +243,6 @@ module Bolognese
       end
     end
 
-    def read(id: nil, string: nil, from: nil, **options)
-      p = case from
-          when nil
-            puts "not implemented"
-            return nil
-          when "crossref" then Crossref.new(id: id, string: string)
-          when "datacite" then Metadata.new(id: id, string: string, regenerate: options[:regenerate])
-          when "codemeta" then Codemeta.new(id: id, string: string)
-          when "datacite_json" then DataciteJson.new(string: string)
-          when "citeproc" then Citeproc.new(id: id, string: string)
-          when "bibtex" then Bibtex.new(string: string)
-          when "ris" then Ris.new(string: string)
-          else SchemaOrg.new(id: id)
-          end
-
-      if p.errors.present?
-        $stderr.puts p.errors.colorize(:red)
-      end
-
-      p
-    end
-
-    def write(id: nil, string: nil, from: nil, to: nil, **options)
-      metadata = read(id: id, string: string, from: from, **options)
-      return nil if metadata.nil?
-
-      if to == "datacite" && metadata.datacite_errors.present?
-        $stderr.puts metadata.datacite_errors.colorize(:red)
-      else
-        puts metadata.send(to)
-      end
-    end
-
-    def generate(id: nil, string: nil, from: nil, to: nil, **options)
-      metadata = read(id: id, string: string, from: from, **options)
-      return nil if metadata.nil?
-
-      metadata.send(to)
-    end
-
     def orcid_from_url(url)
       Array(/\Ahttp:\/\/orcid\.org\/(.+)/.match(url)).last
     end

@@ -35,7 +35,7 @@ module Bolognese
                           end
         date_published = meta.fetch("datePublished", nil)
 
-        hsh = { "id" => id,
+        { "id" => id,
           "type" => type,
           "additional_type" => meta.fetch("additionalType", nil),
           "citeproc_type" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
@@ -62,8 +62,6 @@ module Bolognese
           "version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("keywords", nil)
         }
-        puts hsh
-        hsh
       end
 
       # def related_identifier
