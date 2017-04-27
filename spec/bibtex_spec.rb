@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bolognese::Bibtex, vcr: true do
+describe Bolognese::Metadata, vcr: true do
   let(:input) { fixture_path + "crossref.bib" }
 
   subject { Bolognese::Metadata.new(input: input) }

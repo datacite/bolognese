@@ -113,18 +113,6 @@ module Bolognese
       "WebSite" => "webpage"
     }
 
-    CP_TO_SO_TRANSLATIONS = {
-      "song" => "AudioObject",
-      "post-weblog" => "BlogPosting",
-      "dataset" => "Dataset",
-      "graphic" => "ImageObject",
-      "motion_picture" => "Movie",
-      "article-journal" => "ScholarlyArticle",
-      "computer_program" => "SoftwareSourceCode",
-      "broadcast" => "VideoObject",
-      "webpage" => "WebPage"
-    }
-
     SO_TO_RIS_TRANSLATIONS = {
       "Article" => nil,
       "AudioObject" => nil,
@@ -191,16 +179,25 @@ module Bolognese
       "Other" => nil
     }
 
-    CP_TO_RIS_TRANSLATIONS = {
-      "post-weblog" => "BLOG",
-      "dataset" => "DATA",
-      "graphic" => "FIGURE",
-      "book" => "BOOK",
-      "motion_picture" => "MPCT",
-      "article-journal" => "JOUR",
-      "computer_program" => "COMP",
-      "broadcast" => "MPCT",
-      "webpage" => "ELEC"
+    SO_TO_BIB_TRANSLATIONS = {
+      "Article" => "article",
+      "AudioObject" => "misc",
+      "Blog" => "misc",
+      "BlogPosting" => "article",
+      "Collection" => "misc",
+      "CreativeWork" => "misc",
+      "DataCatalog" => "misc",
+      "Dataset" => "misc",
+      "Event" => "misc",
+      "ImageObject" => "misc",
+      "Movie" => "misc",
+      "PublicationIssue" => "misc",
+      "ScholarlyArticle" => "article",
+      "Service" => "misc",
+      "SoftwareSourceCode" => "misc",
+      "VideoObject" => "misc",
+      "WebPage" => "misc",
+      "WebSite" => "misc"
     }
 
     def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
@@ -510,6 +507,8 @@ module Bolognese
     end
 
     def jsonlint(json)
+      return ["No JSON provided"] unless json.present?
+
       error_array = []
       linter = JsonLint::Linter.new
       linter.send(:check_data, json, error_array)

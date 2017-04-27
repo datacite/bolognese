@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
-
-  subject { Bolognese::Metadata.new }
+  let(:input) { "http://doi.org/10.5438/4K3M-NYVG" }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "find from format by ID" do
     it "crossref" do
@@ -104,6 +104,12 @@ describe Bolognese::Metadata, vcr: true do
       json = IO.read(fixture_path + "datacite_software.json")
       response = subject.jsonlint(json)
       expect(response).to be_empty
+    end
+
+    it "nil" do
+      json = nil
+      response = subject.jsonlint(json)
+      expect(response).to eq(["No JSON provided"])
     end
 
     it "missing_comma" do

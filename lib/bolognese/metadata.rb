@@ -5,8 +5,12 @@ require_relative 'datacite_utils'
 require_relative 'utils'
 
 require_relative 'readers/bibtex_reader'
+require_relative 'readers/citeproc_reader'
+require_relative 'readers/codemeta_reader'
 require_relative 'readers/crossref_reader'
 require_relative 'readers/datacite_reader'
+require_relative 'readers/datacite_json_reader'
+require_relative 'readers/schema_org_reader'
 
 require_relative 'writers/bibtex_writer'
 require_relative 'writers/citeproc_writer'
@@ -28,8 +32,12 @@ module Bolognese
     include Bolognese::Utils
 
     include Bolognese::Readers::BibtexReader
+    include Bolognese::Readers::CiteprocReader
+    include Bolognese::Readers::CodemetaReader
     include Bolognese::Readers::CrossrefReader
     include Bolognese::Readers::DataciteReader
+    include Bolognese::Readers::DataciteJsonReader
+    include Bolognese::Readers::SchemaOrgReader
 
     include Bolognese::Writers::BibtexWriter
     include Bolognese::Writers::CiteprocWriter
@@ -77,18 +85,15 @@ module Bolognese
       id = normalize_doi(id) if id.present?
 
       @metadata = case from
-          when nil
-            puts "not implemented"
-            return nil
           when "crossref" then read_crossref(id: id, string: string)
           when "datacite" then read_datacite(id: id, string: string)
 
-          when "codemeta" then Codemeta.new(id: id, string: string)
-          when "datacite_json" then DataciteJson.new(string: string)
-          when "citeproc" then Citeproc.new(id: id, string: string)
+          when "codemeta" then read_codemeta(id: id, string: string)
+          when "datacite_json" then read_datacite_json(string: string)
+          when "citeproc" then read_citeproc(string: string)
           when "bibtex" then read_bibtex(string: string)
-          when "ris" then Ris.new(string: string)
-          else SchemaOrg.new(id: id)
+          when "ris" then read_ris(string: string)
+          else read_schema_org(id: id)
           end
 
       @should_passthru = !regenerate
@@ -98,9 +103,9 @@ module Bolognese
       metadata.present?
     end
 
-    def valid?
-      datacite.present? && errors.blank?
-    end
+    # def valid?
+    #   datacite.present? && errors.blank?
+    # end
 
     def errors
       doc && doc.errors.map { |error| error.to_s }.unwrap
@@ -140,7 +145,7 @@ module Bolognese
     end
 
     def bibtex_type
-      Bolognese::Bibtex::SO_TO_BIB_TRANSLATIONS[type] || "misc"
+      Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc"
     end
 
     def title
@@ -342,7 +347,7 @@ module Bolognese
     end
 
     def publisher
-      metadata.fetch("publisher")
+      metadata.fetch("publisher", nil)
     end
 
     alias_method :container_title, :publisher
