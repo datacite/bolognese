@@ -15,7 +15,6 @@ require 'gender_detector'
 
 require "bolognese/version"
 require "bolognese/metadata"
-require "bolognese/crossref"
 require "bolognese/orcid"
 require "bolognese/cli"
 require "bolognese/string"

@@ -1,7 +1,9 @@
 module Bolognese
   module Writers
     module CrossrefWriter
-      alias_method :crossref, :raw
+      def crossref
+
+      end
     end
   end
 end

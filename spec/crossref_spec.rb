@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Bolognese::Crossref, vcr: true do
-  let(:id) { "10.7554/eLife.01567" }
+describe Bolognese::Metadata, vcr: true do
+  let(:input) { "10.7554/eLife.01567" }
 
-  subject { Bolognese::Crossref.new(id: id) }
+  subject { Bolognese::Metadata.new(input: input, from: "crossref") }
 
   context "get metadata" do
     it "DOI with data citation" do
@@ -32,9 +32,9 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "journal article" do
-      id = "https://doi.org/10.1371/journal.pone.0000030"
-      subject = Bolognese::Crossref.new(id: id)
-      expect(subject.id).to eq(id)
+      input = "https://doi.org/10.1371/journal.pone.0000030"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -52,9 +52,9 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "posted_content" do
-      id = "https://doi.org/10.1101/097196"
-      subject = Bolognese::Crossref.new(id: id)
-      expect(subject.id).to eq(id)
+      input = "https://doi.org/10.1101/097196"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("PostedContent")
@@ -71,8 +71,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "DOI with SICI DOI" do
-      id = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.id).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
       expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -90,8 +90,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "DOI with ORCID ID" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -110,9 +110,9 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "date in future" do
-      id = "https://doi.org/10.1016/j.ejphar.2015.03.018"
-      subject = Bolognese::Crossref.new(id: id)
-      expect(subject.id).to eq(id)
+      input = "https://doi.org/10.1016/j.ejphar.2015.03.018"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
@@ -127,8 +127,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "not found error" do
-      id = "https://doi.org/10.7554/elife.01567x"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.7554/elife.01567x"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.id).to be_nil
       expect(subject.exists?).to be false
     end
@@ -141,10 +141,10 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as string" do
     it "DOI with data citation" do
-      id = "10.7554/eLife.01567"
-      string = Bolognese::Crossref.new(id: id).crossref
+      input = "10.7554/eLife.01567"
+      string = Bolognese::Metadata.new(input: input, from: "crossref").crossref
 
-      subject = Bolognese::Crossref.new(string: string)
+      subject = Bolognese::Metadata.new(input: string, from: "crossref")
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -176,8 +176,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with ORCID ID" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)
@@ -188,8 +188,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with editor" do
-      id = "https://doi.org/10.1371/journal.pone.0000030"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1371/journal.pone.0000030"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("contributors", "contributor")).to eq("contributorType"=>"Editor", "contributorName"=>"Janbon, Guilhem", "givenName"=>"Guilhem", "familyName"=>"Janbon")
     end
@@ -209,8 +209,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with pages" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1155/2012/291294")
@@ -226,8 +226,8 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as citeproc" do
     it "journal article" do
-      id = "10.7554/eLife.01567"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -245,8 +245,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with pages" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -269,8 +269,8 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as ris" do
     it "journal article" do
-      id = "10.7554/eLife.01567"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY - JOUR")
@@ -285,8 +285,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with pages" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY - JOUR")
@@ -304,8 +304,8 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as turtle" do
     it "journal article" do
-      id = "10.7554/eLife.01567"
-      subject = Bolognese::Crossref.new(id: id)
+      inputs = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
@@ -313,8 +313,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with pages" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
@@ -324,8 +324,8 @@ describe Bolognese::Crossref, vcr: true do
 
   context "get metadata as rdf_xml" do
     it "journal article" do
-      id = "10.7554/eLife.01567"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
@@ -334,8 +334,8 @@ describe Bolognese::Crossref, vcr: true do
     end
 
     it "with pages" do
-      id = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Crossref.new(id: id)
+      input = "https://doi.org/10.1155/2012/291294"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.1155/2012/291294")

@@ -65,8 +65,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[9]).to eq("UR - http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(ris[10]).to eq("AB - Among various advantages, their small size makes model organisms preferred subjects of investigation. Yet, even in model systems detailed analysis of numerous developmental processes at cellular level is severely hampered by their scale.")
       expect(ris[11]).to eq("PY - 2014")
-      expect(ris[12]).to eq("VL - 3")
-      expect(ris[13]).to eq("ER - ")
+      expect(ris[12]).to eq("PB - {eLife} Sciences Organisation, Ltd.")
+      expect(ris[13]).to eq("VL - 3")
+      expect(ris[14]).to eq("ER - ")
     end
   end
 

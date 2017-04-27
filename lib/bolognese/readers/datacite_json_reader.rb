@@ -3,13 +3,15 @@ module Bolognese
     module DataciteJsonReader
       def read_datacite_json(string: nil)
         errors = jsonlint(string)
+        return { "errors" => errors } if errors.present?
 
         meta = string.present? && errors.empty? ? Maremma.from_json(string) : {}
 
         resource_type_general = meta.fetch("resource-type-general", nil)
+        type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
 
         hsh = { "id" => meta.fetch("id", nil),
-          "type" => Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork",
+          "type" => type,
           "additional_type" => meta.fetch("resource-type", nil),
           "citeproc_type" => Bolognese::Utils::DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "other",
           "bibtex_type" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
@@ -34,7 +36,7 @@ module Bolognese
           "date_valid" => meta.fetch("date-valid", nil),
           "date_published" => meta.fetch("date-published", nil),
           "date_modified" => meta.fetch("date-modified", nil),
-          "publication_year" => meta.fetch("publication-year"),
+          "publication_year" => meta.fetch("publication-year", nil),
           #{}"volume" => meta.volume.to_s.presence,
           #{}"pagination" => meta.pages.to_s.presence,
           "description" => meta.fetch("description", nil),
@@ -42,7 +44,8 @@ module Bolognese
           "version" => meta.fetch("version", nil),
           "keywords" => Array.wrap(meta.fetch("subject", nil)).join(", ").presence,
           "language" => meta.fetch("language", nil),
-          "content_size" => meta.fetch("size", nil)
+          "content_size" => meta.fetch("size", nil),
+          "schema_version" => meta.fetch("schema-version", nil)
         }
         puts hsh
         hsh
