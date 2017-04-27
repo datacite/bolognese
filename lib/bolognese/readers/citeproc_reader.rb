@@ -27,8 +27,9 @@ module Bolognese
 
       def read_citeproc(string: nil)
         errors = jsonlint(string)
+        return { "errors" => errors } if errors.present?
 
-        meta = string.present? && errors.empty? ? Maremma.from_json(string) : {}
+        meta = string.present? ? Maremma.from_json(string) : {}
 
         citeproc_type = meta.fetch("type", nil)
         type = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"

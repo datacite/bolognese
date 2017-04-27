@@ -9,7 +9,9 @@ module Bolognese
         end
 
         errors = jsonlint(string)
-        meta = string.present? && errors.empty? ? Maremma.from_json(string) : {}
+        return { "errors" => errors } if errors.present?
+
+        meta = string.present? ? Maremma.from_json(string) : {}
 
         identifier = meta.fetch("identifier", nil)
         id = normalize_id(meta.fetch("@id", nil) || identifier)

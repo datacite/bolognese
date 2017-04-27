@@ -5,7 +5,7 @@ module Bolognese
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 
-        meta = string.present? && errors.empty? ? Maremma.from_json(string) : {}
+        meta = string.present? ? Maremma.from_json(string) : {}
 
         resource_type_general = meta.fetch("resource-type-general", nil)
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
