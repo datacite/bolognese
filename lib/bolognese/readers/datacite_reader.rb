@@ -2,18 +2,7 @@ module Bolognese
   module Readers
     module DataciteReader
       def read_datacite(id: nil, string: nil)
-        if id.present?
-          doi = doi_from_url(id)
-          url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
-          response = Maremma.get url
-          attributes = response.body.dig("data", "response", "docs").first
-          string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
-          string = Base64.decode64(string)
-          doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks) if string.present?
-          string = doc.to_s if string.present?
-        end
-
-        meta = string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
+        meta = datacite_meta(id: id, string: string)
 
         doi = meta.dig("identifier", "__content__")
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
@@ -65,7 +54,13 @@ module Bolognese
           "container_title" => meta.fetch("publisher", nil),
           "publisher" => meta.fetch("publisher", nil),
           "provider" => "DataCite",
-          #{}"is_part_of" => is_part_of,
+          "is_identical_to" => datacite_is_identical_to(meta),
+          "is_part_of" => datacite_is_part_of(meta),
+          "has_part" => datacite_has_part(meta),
+          "references" => datacite_references(meta),
+          "is_referenced_by" => datacite_is_referenced_by(meta),
+          "is_supplement_to" => datacite_is_supplement_to(meta),
+          "is_supplemented_by" => datacite_is_supplemented_by(meta),
           "date_created" => datacite_date(dates, "Created"),
           "date_accepted" => datacite_date(dates, "Accepted"),
           "date_available" => datacite_date(dates, "Available"),
@@ -76,8 +71,6 @@ module Bolognese
           "date_published" => datacite_date(dates, "Issued") || meta.fetch("publicationYear", nil),
           "date_modified" => datacite_date(dates, "Updated"),
           "publication_year" => meta.fetch("publicationYear", nil),
-          #{}"volume" => meta.volume.to_s.presence,
-          #{}"pagination" => meta.pages.to_s.presence,
           "description" => description,
           "license" => license,
           "version" => meta.fetch("version", nil),
@@ -86,6 +79,93 @@ module Bolognese
           "content_size" => meta.fetch("size", nil),
           "schema_version" => meta.fetch("xmlns", nil)
         }
+      end
+
+      def datacite_meta(id: nil, string: nil)
+        if id.present?
+          doi = doi_from_url(id)
+          url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
+          response = Maremma.get url
+          attributes = response.body.dig("data", "response", "docs").first
+          string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
+          string = Base64.decode64(string)
+          doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks) if string.present?
+          string = doc.to_s if string.present?
+        end
+
+        string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
+      end
+
+      def datacite_date(dates, date_type)
+        dd = dates.find { |d| d["dateType"] == date_type } || {}
+        dd.fetch("__content__", nil)
+      end
+
+      def datacite_funding_reference(meta)
+        Array.wrap(meta.dig("fundingReferences", "fundingReference")).map do |f|
+          funder_id = parse_attributes(f["funderIdentifier"])
+          { "identifier" => normalize_id(funder_id),
+            "name" => f["funderName"] }.compact
+        end.uniq
+      end
+
+      def datacite_related_identifier(meta, relation_type: nil)
+        arr = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
+        arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
+
+        arr.map { |work| { "id" => normalize_id(work["__content__"]), "relationType" => work["relationType"] } }.unwrap
+      end
+
+      def datacite_is_identical_to(meta)
+        datacite_related_identifier(meta, relation_type: "IsIdenticalTo")
+      end
+
+      def datacite_is_part_of(meta)
+        datacite_related_identifier(meta, relation_type: "IsPartOf")
+      end
+
+      def datacite_has_part(meta)
+        datacite_related_identifier(meta, relation_type: "HasPart")
+      end
+
+      def datacite_is_previous_version_of(meta)
+        datacite_related_identifier(meta, relation_type: "IsPreviousVersionOf")
+      end
+
+      def datacite_is_new_version_of(meta)
+        datacite_related_identifier(meta, relation_type: "IsNewVersionOf")
+      end
+
+      def datacite_is_variant_form_of(meta)
+        datacite_related_identifier(meta, relation_type: "IsVariantFormOf")
+      end
+
+      def datacite_is_original_form_of(meta)
+        datacite_related_identifier(meta, relation_type: "IsOriginalFormOf")
+      end
+
+      def datacite_references(meta)
+        datacite_related_identifier(meta, relation_type: "References Cites").presence
+      end
+
+      def datacite_is_referenced_by(meta)
+        datacite_related_identifier(meta, relation_type: "IsCitedBy IsReferencedBy").presence
+      end
+
+      def datacite_is_supplement_to(meta)
+        datacite_related_identifier(meta, relation_type: "IsSupplementTo")
+      end
+
+      def datacite_is_supplemented_by(meta)
+        datacite_related_identifier(meta, relation_type: "isSupplementedBy")
+      end
+
+      def datacite_reviews(meta)
+        datacite_related_identifier(meta, relation_type: "Reviews").presence
+      end
+
+      def datacite_is_reviewed_by(meta)
+        datacite_related_identifier(meta, relation_type: "IsReviewedBy").presence
       end
 
       def datacite_funder_contributor(meta)
@@ -97,78 +177,6 @@ module Bolognese
           end
         end
       end
-
-      def datacite_funding_reference(meta)
-        Array.wrap(meta.dig("fundingReferences", "fundingReference")).map do |f|
-          funder_id = parse_attributes(f["funderIdentifier"])
-          { "identifier" => normalize_id(funder_id),
-            "name" => f["funderName"] }.compact
-        end.uniq
-      end
-
-      def datacite_date(dates, date_type)
-        dd = dates.find { |d| d["dateType"] == date_type } || {}
-        dd.fetch("__content__", nil)
-      end
-
-      # def related_identifier(relation_type: nil)
-      #   arr = Array.wrap(metadata.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
-      #   arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
-      #
-      #   arr.map { |work| { "id" => normalize_id(work["__content__"]), "relationType" => work["relationType"] } }.unwrap
-      # end
-      #
-      # def is_identical_to
-      #   related_identifier(relation_type: "IsIdenticalTo")
-      # end
-      #
-      # def is_part_of
-      #   related_identifier(relation_type: "IsPartOf")
-      # end
-      #
-      # def has_part
-      #   related_identifier(relation_type: "HasPart")
-      # end
-      #
-      # def is_previous_version_of
-      #   related_identifier(relation_type: "IsPreviousVersionOf")
-      # end
-      #
-      # def is_new_version_of
-      #   related_identifier(relation_type: "IsNewVersionOf")
-      # end
-      #
-      # def is_variant_form_of
-      #   related_identifier(relation_type: "IsVariantFormOf")
-      # end
-      #
-      # def is_original_form_of
-      #   related_identifier(relation_type: "IsOriginalFormOf")
-      # end
-      #
-      # def references
-      #   related_identifier(relation_type: "References Cites").presence
-      # end
-      #
-      # def is_referenced_by
-      #   related_identifier(relation_type: "IsCitedBy IsReferencedBy").presence
-      # end
-      #
-      # def is_supplement_to
-      #   related_identifier(relation_type: "IsSupplementTo")
-      # end
-      #
-      # def is_supplemented_by
-      #   get_related_identifier(relation_type: "isSupplementedBy")
-      # end
-      #
-      # def reviews
-      #   related_identifier(relation_type: "Reviews").presence
-      # end
-      #
-      # def is_reviewed_by
-      #   related_identifier(relation_type: "IsReviewedBy").presence
-      # end
     end
   end
 end

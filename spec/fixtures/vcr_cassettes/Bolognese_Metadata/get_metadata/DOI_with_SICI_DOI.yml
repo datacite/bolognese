@@ -19,13 +19,19 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr7-1
+      - qs2-2
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Thu, 27 Apr 2017 08:36:20 GMT
+      - Sat, 29 Apr 2017 08:37:36 GMT
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
       Connection:
       - close
     body:
@@ -34,5 +40,5 @@ http_interactions:
         \   <crossref>\r\n      <error>doi:10.1890/0012-9658(2006)87%5b2832:tiopma%5d2.0.co;2</error>\r\n
         \   </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:36:21 GMT
+  recorded_at: Sat, 29 Apr 2017 08:37:37 GMT
 recorded_with: VCR 3.0.3

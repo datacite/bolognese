@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
-  let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
+  let(:input) { "https://doi.org/10.5061/DRYAD.8515" }
 
-  subject { Bolognese::Metadata.new(input: id, from: "datacite") }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "get metadata" do
     it "Dataset" do
@@ -26,8 +26,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "BlogPosting" do
-      id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -47,8 +47,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "date" do
-      id = "https://doi.org/10.4230/lipics.tqc.2013.93"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.4230/lipics.tqc.2013.93"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -64,8 +64,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "multiple licenses" do
-      id = "https://doi.org/10.5281/ZENODO.48440"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.5281/ZENODO.48440"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.type).to eq("SoftwareSourceCode")
@@ -83,8 +83,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "is identical to" do
-      id = "10.6084/M9.FIGSHARE.4234751.V1"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "10.6084/M9.FIGSHARE.4234751.V1"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.6084/m9.figshare.4234751.v1")
       expect(subject.type).to eq("Dataset")
@@ -103,8 +103,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "funding schema version 3" do
-      id = "https://doi.org/10.5281/ZENODO.1239"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.5281/ZENODO.1239"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.type).to eq("Dataset")
@@ -122,8 +122,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "author only full name" do
-      id = "https://doi.org/10.14457/KMITL.RES.2006.17"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.14457/KMITL.RES.2006.17"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.14457/kmitl.res.2006.17")
       expect(subject.type).to eq("Dataset")
@@ -132,36 +132,36 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "multiple author names in one creatorName" do
-      id = "https://doi.org/10.7910/DVN/EQTQYO"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.7910/DVN/EQTQYO"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7910/dvn/eqtqyo")
       expect(subject.type).to eq("Dataset")
-      expect(subject.author.length).to eq(1)
-      expect(subject.author.first).to eq(["name", "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)"])
+      expect(subject.author.length).to eq(3)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Ryan Enos", "givenName"=>"Ryan", "familyName"=>"Enos")
     end
 
     it "author with scheme" do
-      id = "https://doi.org/10.18429/JACOW-IPAC2016-TUPMY003"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.18429/JACOW-IPAC2016-TUPMY003"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.18429/jacow-ipac2016-tupmy003")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.author.length).to eq(12)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://jacow.org/JACoW-00077389", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
     end
 
     it "keywords with attributes" do
-      id = "https://doi.org/10.21233/n34n5q"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.21233/n34n5q"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.21233/n34n5q")
       expect(subject.keywords).to eq("Paleoecology")
     end
 
     it "Funding schema version 4" do
-      id = "https://doi.org/10.5438/6423"
-      subject = Bolognese::Metadata.new(input: id, from: "datacite")
+      input = "https://doi.org/10.5438/6423"
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/6423")
       expect(subject.type).to eq("Collection")
@@ -176,12 +176,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.funder).to eq("identifier"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
-
-      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("fundingReferences", "fundingReference")).to eq("awardNumber" => {"awardURI"=>"http://cordis.europa.eu/project/rcn/194927_en.html", "__content__"=>"654039"},
-                                                                          "awardTitle" => "THOR – Technical and Human Infrastructure for Open Research",
-                                                                          "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"http://dx.doi.org/10.13039/501100000780"},
-                                                                          "funderName" => "European Commission")
     end
   end
 end

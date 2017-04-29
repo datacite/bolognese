@@ -2,10 +2,8 @@ module Bolognese
   module Readers
     module DataciteJsonReader
       def read_datacite_json(string: nil)
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
-
-        meta = string.present? ? Maremma.from_json(string) : {}
+        meta = datacite_json_meta(string: string)
+        return { "errors" => meta["errors"] } if meta["errors"].present?
 
         resource_type_general = meta.fetch("resource-type-general", nil)
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
@@ -26,7 +24,8 @@ module Bolognese
           "container_title" => meta.fetch("publisher", nil),
           "publisher" => meta.fetch("publisher", nil),
           "provider" => "DataCite",
-          #{}"is_part_of" => is_part_of,
+          "is_part_of" => datacite_json_is_part_of(meta),
+          "references" => datacite_json_references(meta),
           "date_created" => meta.fetch("date-created", nil),
           "date_accepted" => meta.fetch("date-accepted", nil),
           "date_available" => meta.fetch("date-available", nil),
@@ -37,8 +36,6 @@ module Bolognese
           "date_published" => meta.fetch("date-published", nil),
           "date_modified" => meta.fetch("date-modified", nil),
           "publication_year" => meta.fetch("publication-year", nil),
-          #{}"volume" => meta.volume.to_s.presence,
-          #{}"pagination" => meta.pages.to_s.presence,
           "description" => meta.fetch("description", nil),
           "license" => meta.fetch("license", nil),
           "version" => meta.fetch("version", nil),
@@ -47,6 +44,13 @@ module Bolognese
           "content_size" => meta.fetch("size", nil),
           "schema_version" => meta.fetch("schema-version", nil)
         }
+      end
+
+      def datacite_json_meta(id: nil, string: nil)
+        errors = jsonlint(string)
+        return { "errors" => errors } if errors.present?
+
+        meta = string.present? ? Maremma.from_json(string) : {}
       end
 
       # def funder
@@ -83,37 +87,34 @@ module Bolognese
       #   dd.fetch("__content__", nil)
       # end
 
-      # def related_identifier
-      #   metadata.fetch("related_identifier", nil)
-      # end
-      #
-      # def get_related_identifier(relation_type: nil)
-      #   Array.wrap(related_identifier).select { |r| relation_type.split(" ").include?(r["relationType"]) }.unwrap
-      # end
-      #
-      # def is_identical_to
-      #   get_related_identifier(relation_type: "IsIdenticalTo")
-      # end
-      #
-      # def is_part_of
-      #   get_related_identifier(relation_type: "IsPartOf")
-      # end
-      #
-      # def has_part
-      #   get_related_identifier(relation_type: "HasPart")
-      # end
-      #
-      # def is_previous_version_of
-      #   get_related_identifier(relation_type: "IsPreviousVersionOf")
-      # end
-      #
-      # def is_new_version_of
-      #   get_related_identifier(relation_type: "IsNewVersionOf")
-      # end
-      #
-      # def references
-      #   get_related_identifier(relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
-      # end
+      def datacite_json_get_related_identifier(meta, relation_type: nil)
+        related_identifier = meta.fetch("related_identifier", nil)
+        Array.wrap(related_identifier).select { |r| relation_type.split(" ").include?(r["relationType"]) }.unwrap
+      end
+
+      def datacite_json_is_identical_to(meta)
+        datacite_json_get_related_identifier(meta, relation_type: "IsIdenticalTo")
+      end
+
+      def datacite_json_is_part_of(meta)
+        datacite_json_get_related_identifier(meta, relation_type: "IsPartOf")
+      end
+
+      def datacite_json_has_part(meta)
+        datacite_json_get_related_identifier(meta, relation_type: "HasPart")
+      end
+
+      def datacite_json_is_previous_version_of(meta)
+        datacite_json_get_related_identifier(meta, relation_type: "IsPreviousVersionOf")
+      end
+
+      def datacite_json_is_new_version_of(meta)
+        datacite_json_get_related_identifier(meta, relation_type: "IsNewVersionOf")
+      end
+
+      def datacite_json_references(meta)
+        datacite_json_get_related_identifier(meta, relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
+      end
     end
   end
 end

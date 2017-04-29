@@ -2,6 +2,43 @@
 http_interactions:
 - request:
     method: get
+    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Thu, 27 Apr 2017 11:15:00 GMT
+      Server:
+      - openresty/1.11.2.2
+      Content-Length:
+      - '3025'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC80SzNNLU5ZVkc8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5GZW5uZXIsIE1hcnRpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TWFydGluPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZlbm5lcjwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZy8iIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCI+MDAwMC0wMDAzLTE0MTktMjQwNTwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkVhdGluZyB5b3VyIG93biBEb2cgRm9vZDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5EYXRhQ2l0ZTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iTG9jYWwgYWNjZXNzaW9uIG51bWJlciI+TVMtNDktMzYzMi01MDgzPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+ZGF0YWNpdGU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5kb2k8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5tZXRhZGF0YTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJDcmVhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzAwMTI8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvNTVFNS1UNUMwPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1BhcnRPZiI+MTAuNTQzOC8wMDAwLTAwU1M8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkVhdGluZyB5b3VyIG93biBkb2cgZm9vZCBpcyBhIHNsYW5nIHRlcm0gdG8gZGVzY3JpYmUgdGhhdCBhbiBvcmdhbml6YXRpb24gc2hvdWxkIGl0c2VsZiB1c2UgdGhlIHByb2R1Y3RzIGFuZCBzZXJ2aWNlcyBpdCBwcm92aWRlcy4gRm9yIERhdGFDaXRlIHRoaXMgbWVhbnMgdGhhdCB3ZSBzaG91bGQgdXNlIERPSXMgd2l0aCBhcHByb3ByaWF0ZSBtZXRhZGF0YSBhbmQgc3RyYXRlZ2llcyBmb3IgbG9uZy10ZXJtIHByZXNlcnZhdGlvbiBmb3IuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","minted":"2016-12-19T20:49:21Z","updated":"2017-01-09T13:53:12Z","doi":"10.5438/4K3M-NYVG","media":["application/xml:https://blog.datacite.org/eating-your-own-dog-food/eating-your-own-dog-food.xml"]}]}}
+
+'
+    http_version: 
+  recorded_at: Thu, 27 Apr 2017 11:15:00 GMT
+- request:
+    method: get
     uri: http://schema.org/
     body:
       encoding: US-ASCII
@@ -29,9 +66,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - 97352be546fd0daf349ee92fe4c0333f
+      - d39bb5157a58ce3254a7406bbd48b4a2
       Date:
-      - Thu, 27 Apr 2017 08:36:00 GMT
+      - Thu, 27 Apr 2017 11:15:00 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -42,7 +79,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:36:00 GMT
+  recorded_at: Thu, 27 Apr 2017 11:15:00 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -70,13 +107,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170427083447a2048647386json
+      - 24751170427111446a2048647386json
       Last-Modified:
-      - Thu, 27 Apr 2017 08:34:47 UTC
+      - Thu, 27 Apr 2017 11:14:46 UTC
       X-Cloud-Trace-Context:
-      - 7c86bfc60aa8fe00a047ccb826ae0021
+      - 41a3e84abd6a93573b8c0fe5844198cd
       Date:
-      - Thu, 27 Apr 2017 08:36:01 GMT
+      - Thu, 27 Apr 2017 11:15:05 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -84,7 +121,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Thu, 27 Apr 2017 08:36:01 GMT
+      - Thu, 27 Apr 2017 11:15:05 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2289,7 +2326,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:36:01 GMT
+  recorded_at: Thu, 27 Apr 2017 11:15:05 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2319,9 +2356,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - 48744bc78538875afeb64ba0fc26ebbe
+      - 99b90611a3735066759a858efe18b076
       Date:
-      - Thu, 27 Apr 2017 08:36:04 GMT
+      - Thu, 27 Apr 2017 11:15:05 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2332,7 +2369,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:36:04 GMT
+  recorded_at: Thu, 27 Apr 2017 11:15:05 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2360,13 +2397,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170427083447a2048647386json
+      - 24751170427111446a2048647386json
       Last-Modified:
-      - Thu, 27 Apr 2017 08:34:47 UTC
+      - Thu, 27 Apr 2017 11:14:46 UTC
       X-Cloud-Trace-Context:
-      - e1b81e6ca24a277ce8ec2727219fcf33
+      - 497ac401c614155588010636be9c215c
       Date:
-      - Thu, 27 Apr 2017 08:36:04 GMT
+      - Thu, 27 Apr 2017 11:15:06 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2374,7 +2411,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Thu, 27 Apr 2017 08:36:04 GMT
+      - Thu, 27 Apr 2017 11:15:06 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4579,5 +4616,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:36:04 GMT
+  recorded_at: Thu, 27 Apr 2017 11:15:06 GMT
 recorded_with: VCR 3.0.3

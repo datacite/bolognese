@@ -19,13 +19,19 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs2-2
+      - qs4-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Thu, 27 Apr 2017 08:36:19 GMT
+      - Sat, 29 Apr 2017 09:04:56 GMT
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
       Connection:
       - close
     body:
@@ -174,5 +180,5 @@ http_interactions:
         ICAgIDwvam91cm5hbF9hcnRpY2xlPg0KICAgICAgPC9qb3VybmFsPg0KICAg
         IDwvY3Jvc3NyZWY+DQogIDwvZG9pX3JlY29yZD4NCjwvZG9pX3JlY29yZHM+
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:36:20 GMT
+  recorded_at: Sat, 29 Apr 2017 08:37:35 GMT
 recorded_with: VCR 3.0.3

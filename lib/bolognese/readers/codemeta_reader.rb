@@ -12,7 +12,6 @@ module Bolognese
         return { "errors" => errors } if errors.present?
 
         meta = string.present? ? Maremma.from_json(string) : {}
-
         identifier = meta.fetch("identifier", nil)
         id = normalize_id(meta.fetch("@id", nil) || identifier)
         type = meta.fetch("@type", nil)
@@ -28,7 +27,7 @@ module Bolognese
                             nil
                           end
 
-        { "id" => normalize_id(meta.fetch("id", nil)),
+        { "id" => id,
           "type" => type,
           "additional_type" => meta.fetch("additionalType", nil),
           "citeproc_type" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
@@ -45,11 +44,10 @@ module Bolognese
           "container_title" => container_title,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
+          "date_created" => meta.fetch("dateCreated", nil),
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
           "publication_year" => date_published.present? ? date_published[0..3].to_i.presence : nil,
-          #{}"volume" => meta.volume.to_s.presence,
-          #{}"pagination" => meta.pages.to_s.presence,
           "description" => { "text" => meta.fetch("description", nil) },
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),

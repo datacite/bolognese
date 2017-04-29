@@ -8,8 +8,9 @@ require_relative 'readers/bibtex_reader'
 require_relative 'readers/citeproc_reader'
 require_relative 'readers/codemeta_reader'
 require_relative 'readers/crossref_reader'
-require_relative 'readers/datacite_reader'
 require_relative 'readers/datacite_json_reader'
+require_relative 'readers/datacite_reader'
+require_relative 'readers/ris_reader'
 require_relative 'readers/schema_org_reader'
 
 require_relative 'writers/bibtex_writer'
@@ -38,6 +39,7 @@ module Bolognese
     include Bolognese::Readers::CrossrefReader
     include Bolognese::Readers::DataciteReader
     include Bolognese::Readers::DataciteJsonReader
+    include Bolognese::Readers::RisReader
     include Bolognese::Readers::SchemaOrgReader
 
     include Bolognese::Writers::BibtexWriter
@@ -259,8 +261,56 @@ module Bolognese
       metadata.fetch("schema_version", nil)
     end
 
+    def is_identical_to
+      metadata.fetch("is_identical_to", nil)
+    end
+
     def is_part_of
       metadata.fetch("is_part_of", nil)
+    end
+
+    def has_part
+      metadata.fetch("has_part", nil)
+    end
+
+    def is_previous_version_of
+      metadata.fetch("is_previous_of", nil)
+    end
+
+    def is_new_version_of
+      metadata.fetch("is_new_version_of", nil)
+    end
+
+    def is_variant_form_of
+      metadata.fetch("is_variant_form_of", nil)
+    end
+
+    def is_original_form_of
+      metadata.fetch("is_original_form_of", nil)
+    end
+
+    def references
+      metadata.fetch("references", nil)
+    end
+
+    def is_referenced_by
+      metadata.fetch("is_referenced_by", nil)
+    end
+
+    def is_supplement_to
+      metadata.fetch("is_supplement_to", nil)
+    end
+
+    def is_supplemented_by
+      metadata.fetch("is_supplemented_by", nil)
+    end
+
+    def reviews
+      metadata.fetch("reviews", nil)
+    end
+
+    def is_reviewed_by
+      metadata.fetch("is_reviewed_by", nil)
     end
 
     # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
