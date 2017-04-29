@@ -2,13 +2,21 @@ require 'namae'
 
 module Bolognese
   module AuthorUtils
-    # only assume personal name when using sort-order: "Turing, Alan"
     def get_one_author(author)
       type = author.fetch("type", nil) && author.fetch("type").titleize
       id = author.fetch("id", nil).presence || get_name_identifier(author)
       name = author.fetch("creatorName", nil) ||
              author.fetch("contributorName", nil) ||
              author.fetch("name", nil)
+
+      if name.include?("; ")
+        authors = name.split("; ").map do |name|
+          { "type" => author.fetch("type", nil),
+            "id" => author.fetch("id", nil),
+            "name" => name }.compact
+        end
+        return get_authors(authors)
+      end
 
       name = cleanup_author(name)
       given_name = author.fetch("givenName", nil)
@@ -43,6 +51,9 @@ module Bolognese
       # remove spaces around hyphens
       author = author.gsub(" - ", "-")
 
+      # remove text in parentheses
+      author = author.sub(/\s*\(.+\)$/, '')
+
       # titleize strings
       # remove non-standard space characters
       author.my_titleize
@@ -66,13 +77,14 @@ module Bolognese
 
     # parse nameIdentifier from DataCite
     def get_name_identifier(author)
+      name_identifier_scheme_uri = author.dig("nameIdentifier", "schemeURI") || "http://orcid.org/"
+      name_identifier_scheme_uri << '/' unless name_identifier_scheme_uri.end_with?('/')
+
       name_identifier = author.dig("nameIdentifier", "__content__")
-      name_identifier = validate_orcid(name_identifier)
-      name_identifier_scheme = author.dig("nameIdentifier", "nameIdentifierScheme") || "ORCID"
+      name_identifier = validate_orcid(name_identifier) if name_identifier_scheme_uri == "http://orcid.org/"
+      return nil if name_identifier.blank? || name_identifier_scheme_uri.blank?
 
-      return nil if name_identifier.blank? || name_identifier_scheme.upcase != "ORCID"
-
-      "http://orcid.org/" + name_identifier
+      name_identifier_scheme_uri + name_identifier
     end
 
     def authors_as_string(authors)

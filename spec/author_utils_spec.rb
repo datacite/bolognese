@@ -41,28 +41,32 @@ describe Bolognese::Metadata, vcr: true do
     it "has familyName" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
     end
 
     it "has name in sort-order" do
       input = "https://doi.org/10.5061/dryad.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_one_author(subject.metadata.dig("creators", "creator").first)
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_one_author(meta.dig("creators", "creator").first)
       expect(response).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
     end
 
     it "has name in display-order" do
       input = "https://doi.org/10.5281/ZENODO.48440"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
     end
 
     it "has multiple names in display-order" do
       input = "https://doi.org/10.6084/M9.FIGSHARE.3479141 "
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_authors(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_authors(meta.dig("creators", "creator"))
       expect(response.count).to eq(9)
       expect(response.last).to eq("type"=>"Person", "name"=>"Ed Pentz", "givenName"=>"Ed", "familyName"=>"Pentz")
     end
@@ -70,28 +74,43 @@ describe Bolognese::Metadata, vcr: true do
     it "has name in display-order with ORCID" do
       input = "https://doi.org/10.6084/M9.FIGSHARE.4700788"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
     end
 
     it "has name in Thai" do
       input = "https://doi.org/10.14457/KMITL.res.2006.17"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("name"=>"กัญจนา แซ่เตียว")
     end
 
     it "multiple author names in one field" do
       input = "https://doi.org/10.7910/dvn/eqtqyo"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_one_author(subject.metadata.dig("creators", "creator"))
-      expect(response).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_authors(meta.dig("creators", "creator"))
+      expect(response).to eq([{"type"=>"Person",
+                               "name"=>"Ryan Enos",
+                               "givenName"=>"Ryan",
+                               "familyName"=>"Enos"},
+                              {"type"=>"Person",
+                               "name"=>"Anthony Fowler",
+                               "givenName"=>"Anthony",
+                               "familyName"=>"Fowler"},
+                              {"type"=>"Person",
+                               "name"=>"Lynn Vavreck",
+                               "givenName"=>"Lynn",
+                               "familyName"=>"Vavreck"}])
     end
 
     it "hyper-authorship" do
       input = "https://doi.org/10.17182/HEPDATA.77274.V1"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_authors(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_authors(meta.dig("creators", "creator"))
       expect(response.length).to eq(1000)
       expect(response.first).to eq("type"=>"Person", "name"=>"Jaroslav Adam", "givenName"=>"Jaroslav", "familyName"=>"Adam")
     end
@@ -107,15 +126,25 @@ describe Bolognese::Metadata, vcr: true do
     it "has ORCID" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_name_identifier(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_name_identifier(meta.dig("creators", "creator"))
       expect(response).to eq("http://orcid.org/0000-0003-1419-2405")
     end
 
     it "has no ORCID" do
       input = "https://doi.org/10.4230/lipics.tqc.2013.93"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      response = subject.get_name_identifier(subject.metadata.dig("creators", "creator"))
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_name_identifier(meta.dig("creators", "creator"))
       expect(response).to be_nil
+    end
+
+    it "has jacow.org scheme" do
+      input = "https://doi.org/10.18429/JACOW-IPAC2016-TUPMY003"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      meta = subject.datacite_meta(id: input)
+      response = subject.get_name_identifier(meta.dig("creators", "creator").first)
+      expect(response).to eq("http://jacow.org/JACoW-00077389")
     end
   end
 
