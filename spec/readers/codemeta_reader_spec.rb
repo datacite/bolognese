@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
-  context "get metadata" do
+  context "get codemeta metadata" do
     it "maremma" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")

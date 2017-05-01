@@ -2,6 +2,65 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.datacite.org/prefixes/10.1371
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Mon, 01 May 2017 06:10:11 GMT
+      Etag:
+      - W/"a078870f021fe1686525a8135b0e29b8"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Request-Id:
+      - 13f91d9c-d8c9-4978-b2fd-c973d1aa2d6f
+      X-Runtime:
+      - '0.209666'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.1371","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:47:32Z"}}}'
+    http_version: 
+  recorded_at: Mon, 01 May 2017 06:10:11 GMT
+- request:
+    method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1371/journal.pone.0000030&noredirect=true&pid=tech@datacite.org
     body:
       encoding: US-ASCII
@@ -19,21 +78,19 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs3-1
+      - qs2-2
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sat, 29 Apr 2017 08:37:38 GMT
+      - Mon, 01 May 2017 06:10:11 GMT
       X-Cache:
-      - MISS from IMP-cache
+      - MISS from hotspot.internet-for-guests.com
       X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
+      - MISS from hotspot.internet-for-guests.com:8080
       Connection:
-      - close
+      - keep-alive
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -887,5 +944,5 @@ http_interactions:
         bGU+DQogICAgICA8L2pvdXJuYWw+DQogICAgPC9jcm9zc3JlZj4NCiAgPC9k
         b2lfcmVjb3JkPg0KPC9kb2lfcmVjb3Jkcz4=
     http_version: 
-  recorded_at: Sat, 29 Apr 2017 08:37:40 GMT
+  recorded_at: Mon, 01 May 2017 06:10:12 GMT
 recorded_with: VCR 3.0.3

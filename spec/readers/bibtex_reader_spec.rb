@@ -5,7 +5,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
-  context "get metadata" do
+  context "get bibtex metadata" do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")

@@ -5,7 +5,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input, from: "datacite_json") }
 
-  context "get metadata as string" do
+  context "get datacite_json metadata as string" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")

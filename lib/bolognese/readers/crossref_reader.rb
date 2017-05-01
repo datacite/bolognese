@@ -64,6 +64,7 @@ module Bolognese
 
       def read_crossref(id: nil, string: nil)
         meta = crossref_meta(id: id, string: string)
+        return meta unless meta["crossref"].present?
 
         journal_metadata = meta.dig("crossref", "journal", "journal_metadata").presence || {}
         bibliographic_metadata = meta.dig("crossref", "journal", "journal_article").presence ||
@@ -99,6 +100,7 @@ module Bolognese
           "publisher" => nil,
           "provider" => "Crossref",
           "is_part_of" => crossref_is_part_of(journal_metadata),
+          "references" => crossref_references(bibliographic_metadata),
           "date_published" => crossref_date_published(bibliographic_metadata),
           "date_modified" => Time.parse(meta.fetch("timestamp", "")).utc.iso8601,
           "publication_year" => meta.fetch("publicationYear", nil),
@@ -117,7 +119,6 @@ module Bolognese
 
       def crossref_meta(id: nil, string: nil)
         if id.present?
-          id = normalize_doi(id)
           doi = doi_from_url(id)
           url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
           response = Maremma.get(url, accept: "text/xml", raw: true)
@@ -173,8 +174,9 @@ module Bolognese
       def crossref_funder(program_metadata)
         fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
         Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
-          { "id" => normalize_id(f.dig("assertion", "assertion", "__content__")),
-            "name" => f.dig("assertion", "__content__").strip }.compact
+          f = Array.wrap(f.fetch("assertion", nil)).first
+          { "id" => normalize_id(f.dig("assertion", "__content__")),
+            "name" => f.dig("__content__").strip }.compact
         end.unwrap
       end
 
@@ -198,20 +200,16 @@ module Bolognese
         end
       end
 
-      # def related_identifier(relation_type: nil)
-      #   references
-      # end
-      #
-      # def references
-      #    refs = bibliographic_metadata.dig("citation_list", "citation")
-      #    Array.wrap(refs).map do |c|
-      #      { "id" => normalize_id(c["doi"]),
-      #        "relationType" => "Cites",
-      #        "position" => c["key"],
-      #        "name" => c["article_title"],
-      #        "datePublished" => c["cYear"] }.compact
-      #    end.unwrap
-      # end
+      def crossref_references(bibliographic_metadata)
+         refs = bibliographic_metadata.dig("citation_list", "citation")
+         Array.wrap(refs).map do |c|
+           { "id" => normalize_id(c["doi"]),
+             "relationType" => "Cites",
+             "position" => c["key"],
+             "name" => c["article_title"],
+             "datePublished" => c["cYear"] }.compact
+         end.unwrap
+      end
     end
   end
 end

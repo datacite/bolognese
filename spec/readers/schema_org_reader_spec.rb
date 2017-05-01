@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
-  context "get metadata" do
+  context "get schema_org metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -33,13 +33,13 @@ describe Bolognese::Metadata, vcr: true do
 
     it "not found error" do
       input = "https://doi.org/10.5438/4K3M-NYVGx"
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.id).to be_nil
       expect(subject.exists?).to be false
     end
   end
 
-  context "get metadata as string" do
+  context "get schema_org metadata as string" do
     it "BlogPosting" do
       input = fixture_path + 'schema_org.json'
       subject = Bolognese::Metadata.new(input: input)

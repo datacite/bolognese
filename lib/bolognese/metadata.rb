@@ -95,14 +95,14 @@ module Bolognese
           when "citeproc" then read_citeproc(string: string)
           when "bibtex" then read_bibtex(string: string)
           when "ris" then read_ris(string: string)
-          else read_schema_org(id: id)
+          else read_schema_org(id: id, string: string)
           end
 
       @should_passthru = !regenerate
     end
 
     def exists?
-      metadata.present?
+      metadata.fetch("id", nil).present?
     end
 
     # def valid?

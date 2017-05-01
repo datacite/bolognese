@@ -11,18 +11,8 @@ module Bolognese
       }
 
       def read_schema_org(id: nil, string: nil)
-        if id.present?
-          id = normalize_id(id)
-          response = Maremma.get(id)
-          doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
-          string = doc.at_xpath('//script[@type="application/ld+json"]')
-          string = string.text if string.present?
-        end
-
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
-
-        meta = string.present? ? Maremma.from_json(string) : {}
+        meta = schema_org_meta(id: id, string: string)
+        return { "errors" => meta["errors"] } if meta["errors"].present?
 
         id = normalize_id(meta.fetch("@id", nil))
         type = meta.fetch("@type", nil)
@@ -52,13 +42,17 @@ module Bolognese
           "container_title" => container_title,
           "publisher" => meta.dig("publisher", "name"),
           "provider" => meta.fetch("provider", nil),
-          #{}"is_part_of" => is_part_of,
+          "is_identical_to" => schema_org_is_identical_to(meta),
+          "is_part_of" => schema_org_is_part_of(meta),
+          "has_part" => schema_org_has_part(meta),
+          "references" => schema_org_references(meta),
+          "is_referenced_by" => schema_org_is_referenced_by(meta),
+          "is_supplement_to" => schema_org_is_supplement_to(meta),
+          "is_supplemented_by" => schema_org_is_supplemented_by(meta),
           "date_created" => meta.fetch("dateCreated", nil),
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
           "publication_year" => date_published.present? ? date_published[0..3].to_i.presence : nil,
-          #{}"volume" => meta.volume.to_s.presence,
-          #{}"pagination" => meta.pages.to_s.presence,
           "description" => { "text" => meta.fetch("description", nil) },
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),
@@ -66,62 +60,66 @@ module Bolognese
         }
       end
 
-      # def related_identifier
-      #   Array.wrap(is_identical_to) +
-      #   Array.wrap(is_part_of) +
-      #   Array.wrap(has_part) +
-      #   Array.wrap(is_previous_version_of) +
-      #   Array.wrap(is_new_version_of) +
-      #   Array.wrap(references) +
-      #   Array.wrap(is_supplemented_by)
-      # end
-      #
-      # def get_related_identifier(relation_type: nil)
-      #   normalize_ids(ids: metadata.fetch(relation_type, nil),
-      #                 relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
-      # end
-      #
-      # def get_reverse_related_identifier(relation_type: nil)
-      #   normalize_ids(ids: metadata.dig("@reverse", relation_type),
-      #                 relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
-      # end
-      #
-      # def is_identical_to
-      #   get_related_identifier(relation_type: "sameAs")
-      # end
-      #
-      # def is_part_of
-      #   get_related_identifier(relation_type: "isPartOf")
-      # end
-      #
-      # def has_part
-      #   get_related_identifier(relation_type: "hasPart")
-      # end
-      #
-      # def is_previous_version_of
-      #   get_related_identifier(relation_type: "isPredecessor")
-      # end
-      #
-      # def is_new_version_of
-      #   get_related_identifier(relation_type: "isSuccessor")
-      # end
-      #
-      # def references
-      #   get_related_identifier(relation_type: "citation")
-      # end
-      #
-      # def is_referenced_by
-      #   get_reverse_related_identifier(relation_type: "citation")
-      # end
-      #
-      # def is_supplement_to
-      #   get_reverse_related_identifier(relation_type: "isBasedOn")
-      # end
-      #
-      # def is_supplemented_by
-      #   get_related_identifier(relation_type: "isBasedOn")
-      # end
+      def schema_org_meta(id: nil, string: nil)
+        if id.present?
+          id = normalize_id(id)
+          response = Maremma.get(id)
+          doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
+          string = doc.at_xpath('//script[@type="application/ld+json"]')
+          string = string.text if string.present?
+        end
 
+        errors = jsonlint(string)
+        return { "errors" => errors } if errors.present?
+
+        string.present? ? Maremma.from_json(string) : {}
+      end
+
+      def schema_org_related_identifier(meta, relation_type: nil)
+        normalize_ids(ids: meta.fetch(relation_type, nil),
+                      relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
+      end
+
+      def schema_org_reverse_related_identifier(meta, relation_type: nil)
+        normalize_ids(ids: meta.dig("@reverse", relation_type),
+                      relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
+      end
+
+      def schema_org_is_identical_to(meta)
+        schema_org_related_identifier(meta, relation_type: "sameAs")
+      end
+
+      def schema_org_is_part_of(meta)
+        schema_org_related_identifier(meta, relation_type: "isPartOf")
+      end
+
+      def schema_org_has_part(meta)
+        schema_org_related_identifier(meta, relation_type: "hasPart")
+      end
+
+      def schema_org_is_previous_version_of(meta)
+        schema_org_related_identifier(meta, relation_type: "isPredecessor")
+      end
+
+      def schema_org_is_new_version_of(meta)
+        schema_org_related_identifier(meta, relation_type: "isSuccessor")
+      end
+
+      def schema_org_references(meta)
+        schema_org_related_identifier(meta, relation_type: "citation")
+      end
+
+      def schema_org_is_referenced_by(meta)
+        schema_org_reverse_related_identifier(meta, relation_type: "citation")
+      end
+
+      def schema_org_is_supplement_to(meta)
+        schema_org_reverse_related_identifier(meta, relation_type: "isBasedOn")
+      end
+
+      def schema_org_is_supplemented_by(meta)
+        schema_org_related_identifier(meta, relation_type: "isBasedOn")
+      end
     end
   end
 end
