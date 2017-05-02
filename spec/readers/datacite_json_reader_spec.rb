@@ -5,7 +5,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input, from: "datacite_json") }
 
-  context "get datacite_json metadata as string" do
+  context "get datacite_json metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -19,6 +19,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "relationType"=>"IsPartOf")
       expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012", "relationType"=>"References"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "relationType"=>"References"}])
       expect(subject.provider).to eq("DataCite")
+    end
+
+    it "SoftwareSourceCode missing_comma" do
+      input = fixture_path + "datacite_software_missing_comma.json"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq(["expected comma, not a string at line 4, column 11 [parse.c:381]"])
+      json = JSON.parse(subject.codemeta)
+      expect(json).to be_nil
+    end
+
+    it "SoftwareSourceCode overlapping_keys" do
+      input = fixture_path + "datacite_software_overlapping_keys.json"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq(["The same key is defined more than once: id"])
+      json = JSON.parse(subject.codemeta)
+      expect(json).to be_nil
     end
   end
 end
