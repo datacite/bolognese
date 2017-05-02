@@ -47,7 +47,6 @@ module Bolognese
           "date_created" => meta.fetch("dateCreated", nil),
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
-          "publication_year" => date_published.present? ? date_published[0..3].to_i.presence : nil,
           "description" => { "text" => meta.fetch("description", nil) },
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),

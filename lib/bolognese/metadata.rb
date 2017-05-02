@@ -221,10 +221,6 @@ module Bolognese
       metadata.fetch("date_modified", nil)
     end
 
-    def publication_year
-      metadata.fetch("publication_year", nil)
-    end
-
     def volume
       metadata.fetch("volume", nil)
     end
@@ -318,6 +314,9 @@ module Bolognese
       @name_detector ||= defined?(::NameDetector) ? ::NameDetector : GenderDetector.new
     end
 
+    def publication_year
+      date_published.present? ? date_published[0..3].to_i.presence : nil
+    end
 
     def descriptions
       Array.wrap(description)

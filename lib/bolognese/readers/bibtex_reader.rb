@@ -29,7 +29,8 @@ module Bolognese
         doi = meta.doi.to_s
 
         author = Array(meta.author).map do |a|
-                  { "@type" => "Person",
+                  { "type" => "Person",
+                    "name" => [a.first, a.last].join(" "),
                     "givenName" => a.first,
                     "familyName" => a.last }.compact
                 end

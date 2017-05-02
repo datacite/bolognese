@@ -68,35 +68,6 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
-  context "get metadata as bibtex" do
-    it "with data citation" do
-      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")
-      expect(bibtex[:doi]).to eq("10.7554/eLife.01567")
-      expect(bibtex[:url]).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
-      expect(bibtex[:title]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(bibtex[:author]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
-      expect(bibtex[:journal]).to eq("eLife")
-      expect(bibtex[:year]).to eq("2014")
-    end
-
-    it "with pages" do
-      input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
-      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1155/2012/291294")
-      expect(bibtex[:doi]).to eq("10.1155/2012/291294")
-      expect(bibtex[:url]).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(bibtex[:title]).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
-      expect(bibtex[:author]).to eq("Thanassi, Wendy and Noda, Art and Hernandez, Beatriz and Newell, Jeffery and Terpeluk, Paul and Marder, David and Yesavage, Jerome A.")
-      expect(bibtex[:journal]).to eq("Pulmonary Medicine")
-      expect(bibtex[:pages]).to eq("1-7")
-      expect(bibtex[:year]).to eq("2012")
-    end
-  end
-
   context "get metadata as citeproc" do
     it "journal article" do
       input = "10.7554/eLife.01567"

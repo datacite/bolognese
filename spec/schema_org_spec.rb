@@ -51,20 +51,6 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
-  context "get metadata as bibtex" do
-    it "with data citation" do
-      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(bibtex[:doi]).to eq("10.5438/4k3m-nyvg")
-      expect(bibtex[:title]).to eq("Eating your own Dog Food")
-      expect(bibtex[:author]).to eq("Fenner, Martin")
-      expect(bibtex[:publisher]).to eq("DataCite")
-      expect(bibtex[:keywords]).to eq("datacite, doi, metadata, featured")
-      expect(bibtex[:year]).to eq("2016")
-    end
-  end
-
   context "get metadata as citeproc" do
     it "BlogPosting" do
       json = JSON.parse(subject.citeproc)

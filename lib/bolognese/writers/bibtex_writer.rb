@@ -11,7 +11,7 @@ module Bolognese
           keywords: keywords,
           language: language,
           title: title,
-          journal: journal,
+          journal: container_title,
           pages: pagination,
           publisher: publisher,
           year: publication_year

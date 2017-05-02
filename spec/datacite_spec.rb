@@ -93,32 +93,6 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
-  context "get metadata as bibtex" do
-    it "Dataset" do
-      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("misc")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(bibtex[:doi]).to eq("10.5061/DRYAD.8515")
-      expect(bibtex[:title]).to eq("Data from: A new malaria agent in African hominids.")
-      expect(bibtex[:author]).to eq("Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François")
-      expect(bibtex[:publisher]).to eq("Dryad Digital Repository")
-      expect(bibtex[:year]).to eq("2011")
-    end
-
-    it "BlogPosting" do
-      id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input: id)
-      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(bibtex[:doi]).to eq("10.5438/4K3M-NYVG")
-      expect(bibtex[:title]).to eq("Eating your own Dog Food")
-      expect(bibtex[:author]).to eq("Fenner, Martin")
-      expect(bibtex[:publisher]).to eq("DataCite")
-      expect(bibtex[:year]).to eq("2016")
-    end
-  end
-
   context "get metadata as citeproc" do
     it "Dataset" do
       subject = Bolognese::Metadata.new(input: id, from: "datacite")
