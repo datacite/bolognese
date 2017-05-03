@@ -5,6 +5,14 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
+  context "get crossref raw" do
+    it "journal article" do
+      input = fixture_path + 'crossref.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.raw).to eq(IO.read(input))
+    end
+  end
+
   context "get crossref metadata" do
     it "DOI with data citation" do
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")

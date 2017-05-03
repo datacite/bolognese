@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "Schema.org JSON IsSupplementTo" do
-      id = "https://doi.org/10.5517/CC8H01S"
+      input = "https://doi.org/10.5517/CC8H01S"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
@@ -36,7 +36,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "rdataone" do
-      string = fixture_path + 'codemeta.json'
+      input = fixture_path + 'codemeta.json'
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")

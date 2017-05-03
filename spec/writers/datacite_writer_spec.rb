@@ -18,6 +18,7 @@ describe Bolognese::Metadata, vcr: true do
     it "with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      puts subject.datacite
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("creators", "creator").count).to eq(7)

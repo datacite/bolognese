@@ -1,8 +1,26 @@
 module Bolognese
   module Readers
     module DataciteReader
-      def read_datacite(id: nil, string: nil)
-        meta = datacite_meta(id: id, string: string)
+      def datacite_meta(id: nil, string: nil)
+        string = get_datacite(id: id) if id.present?
+        read_datacite(string: string)
+      end
+
+      def get_datacite(id: nil)
+        return nil unless id.present?
+
+        doi = doi_from_url(id)
+        url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
+        response = Maremma.get url
+        attributes = response.body.dig("data", "response", "docs").first
+        string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
+        string = Base64.decode64(string)
+        doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks) if string.present?
+        doc.to_s if string.present?
+      end
+
+      def read_datacite(string: nil)
+        meta = string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
 
         doi = meta.dig("identifier", "__content__")
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
@@ -79,21 +97,6 @@ module Bolognese
           "content_size" => meta.fetch("size", nil),
           "schema_version" => meta.fetch("xmlns", nil)
         }
-      end
-
-      def datacite_meta(id: nil, string: nil)
-        if id.present?
-          doi = doi_from_url(id)
-          url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
-          response = Maremma.get url
-          attributes = response.body.dig("data", "response", "docs").first
-          string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
-          string = Base64.decode64(string)
-          doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks) if string.present?
-          string = doc.to_s if string.present?
-        end
-
-        string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
       end
 
       def datacite_date(dates, date_type)

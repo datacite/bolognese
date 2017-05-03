@@ -19,13 +19,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs3-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Tue, 02 May 2017 20:06:47 GMT
+      - Tue, 02 May 2017 20:29:12 GMT
       Connection:
       - close
     body:
@@ -881,5 +881,5 @@ http_interactions:
         bGU+DQogICAgICA8L2pvdXJuYWw+DQogICAgPC9jcm9zc3JlZj4NCiAgPC9k
         b2lfcmVjb3JkPg0KPC9kb2lfcmVjb3Jkcz4=
     http_version: 
-  recorded_at: Tue, 02 May 2017 20:06:47 GMT
+  recorded_at: Tue, 02 May 2017 20:29:13 GMT
 recorded_with: VCR 3.0.3

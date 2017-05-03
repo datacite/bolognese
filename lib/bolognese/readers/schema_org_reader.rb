@@ -10,9 +10,11 @@ module Bolognese
         "isSuccessor" => "IsNewVersionOf"
       }
 
-      def read_schema_org(id: nil, string: nil)
-        meta = schema_org_meta(id: id, string: string)
-        return { "errors" => meta["errors"] } if meta["errors"].present?
+      def read_schema_org(string: nil)
+        errors = jsonlint(string)
+        return { "errors" => errors } if errors.present?
+
+        meta = string.present? ? Maremma.from_json(string) : {}
 
         id = normalize_id(meta.fetch("@id", nil))
         type = meta.fetch("@type", nil)
@@ -59,19 +61,14 @@ module Bolognese
         }
       end
 
-      def schema_org_meta(id: nil, string: nil)
-        if id.present?
-          id = normalize_id(id)
-          response = Maremma.get(id)
-          doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
-          string = doc.at_xpath('//script[@type="application/ld+json"]')
-          string = string.text if string.present?
-        end
+      def get_schema_org(id: nil)
+        return nil unless id.present?
 
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
-
-        string.present? ? Maremma.from_json(string) : {}
+        id = normalize_id(id)
+        response = Maremma.get(id)
+        doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
+        string = doc.at_xpath('//script[@type="application/ld+json"]')
+        string.text if string.present?
       end
 
       def schema_org_related_identifier(meta, relation_type: nil)

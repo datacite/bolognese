@@ -2,8 +2,10 @@ module Bolognese
   module Readers
     module DataciteJsonReader
       def read_datacite_json(string: nil)
-        meta = datacite_json_meta(string: string)
-        return { "errors" => meta["errors"] } if meta["errors"].present?
+        errors = jsonlint(string)
+        return { "errors" => errors } if errors.present?
+
+        meta = string.present? ? Maremma.from_json(string) : {}
 
         resource_type_general = meta.fetch("resource-type-general", nil)
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
@@ -44,13 +46,6 @@ module Bolognese
           "content_size" => meta.fetch("size", nil),
           "schema_version" => meta.fetch("schema-version", nil)
         }
-      end
-
-      def datacite_json_meta(id: nil, string: nil)
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
-
-        meta = string.present? ? Maremma.from_json(string) : {}
       end
 
       # def funder

@@ -5,6 +5,12 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
+  context "get ris raw" do
+    it "Crossref DOI" do
+      expect(subject.raw).to eq(IO.read(input))
+    end
+  end
+
   context "get ris metadata" do
     it "Crossref DOI" do
       expect(subject.valid?).to be true

@@ -62,8 +62,24 @@ module Bolognese
 
       CONTACT_EMAIL = "tech@datacite.org"
 
-      def read_crossref(id: nil, string: nil)
-        meta = crossref_meta(id: id, string: string)
+      def get_crossref(id: nil)
+        return nil unless id.present?
+
+        doi = doi_from_url(id)
+        url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
+        response = Maremma.get(url, accept: "text/xml", raw: true)
+        string = response.body.fetch("data", nil)
+        Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
+      end
+
+      def read_crossref(string: nil)
+        if string.present?
+          m = Maremma.from_xml(string).fetch("doi_records", {}).fetch("doi_record", {})
+          meta = m.dig("crossref", "error").nil? ? m : {}
+        else
+          meta = {}
+        end
+
         return meta unless meta["crossref"].present?
 
         journal_metadata = meta.dig("crossref", "journal", "journal_metadata").presence || {}
@@ -115,23 +131,6 @@ module Bolognese
           "content_size" => nil,
           "schema_version" => nil
         }
-      end
-
-      def crossref_meta(id: nil, string: nil)
-        if id.present?
-          doi = doi_from_url(id)
-          url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
-          response = Maremma.get(url, accept: "text/xml", raw: true)
-          string = response.body.fetch("data", nil)
-          string = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
-        end
-
-        if string.present?
-          m = Maremma.from_xml(string).fetch("doi_records", {}).fetch("doi_record", {})
-          m.dig("crossref", "error").nil? ? m : {}
-        else
-          {}
-        end
       end
 
       def crossref_alternate_name(bibliographic_metadata)

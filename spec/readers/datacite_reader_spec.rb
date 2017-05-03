@@ -5,6 +5,14 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
+  context "get datacite raw" do
+    it "BlogPosting" do
+      input = fixture_path + 'datacite.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.raw).to eq(IO.read(input))
+    end
+  end
+
   context "get datacite metadata" do
     it "Dataset" do
       expect(subject.valid?).to be true

@@ -53,7 +53,7 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
+    attr_reader :id, :from, :to, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
@@ -87,17 +87,29 @@ module Bolognese
       to ||= "schema_org"
 
       @metadata = case from
-          when "crossref" then read_crossref(id: id, string: string)
-          when "datacite" then read_datacite(id: id, string: string)
-
-          when "codemeta" then read_codemeta(id: id, string: string)
-          when "datacite_json" then read_datacite_json(string: string)
-          when "citeproc" then read_citeproc(string: string)
-          when "bibtex" then read_bibtex(string: string)
-          when "ris" then read_ris(string: string)
-          else read_schema_org(id: id, string: string)
+          when "crossref"
+            string = get_crossref(id: id) if id.present?
+            read_crossref(string: string)
+          when "datacite"
+            string = get_datacite(id: id) if id.present?
+            read_datacite(string: string)
+          when "codemeta"
+            string = get_codemeta(id: id) if id.present?
+            read_codemeta(string: string)
+          when "datacite_json"
+            read_datacite_json(string: string)
+          when "citeproc"
+            read_citeproc(string: string)
+          when "bibtex"
+            read_bibtex(string: string)
+          when "ris"
+            read_ris(string: string)
+          else
+            string = get_schema_org(id: id) if id.present?
+            read_schema_org(string: string)
           end
 
+      @raw = string
       @should_passthru = !regenerate
     end
 

@@ -14,9 +14,9 @@ module Bolognese
       end.to_xml
     end
 
-    def datacite
-      datacite_xml
-    end
+    # def datacite
+    #   datacite_xml
+    # end
 
     def datacite_errors
       schema.validate(Nokogiri::XML(datacite, nil, 'UTF-8')).map { |error| error.to_s }.unwrap

@@ -6,6 +6,14 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
+  context "get codemeta raw" do
+    it "rdataone" do
+      input = fixture_path + 'codemeta.json'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.raw).to eq(IO.read(input))
+    end
+  end
+
   context "get codemeta metadata" do
     it "maremma" do
       expect(subject.valid?).to be true

@@ -3,7 +3,13 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { fixture_path + "datacite.json" }
 
-  subject { Bolognese::Metadata.new(input: input, from: "datacite_json") }
+  subject { Bolognese::Metadata.new(input: input) }
+
+  context "get datacite_json raw" do
+    it "BlogPosting" do
+      expect(subject.raw).to eq(IO.read(input))
+    end
+  end
 
   context "get datacite_json metadata" do
     it "BlogPosting" do

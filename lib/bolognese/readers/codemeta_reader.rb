@@ -1,13 +1,14 @@
 module Bolognese
   module Readers
     module CodemetaReader
-      def read_codemeta(id: nil, string: nil)
-        if id.present?
-          id = normalize_id(id)
-          response = Maremma.get(github_as_codemeta_url(id), raw: true)
-          string = response.body.fetch("data", nil)
-        end
+      def get_codemeta(id: nil)
+        return nil unless id.present?
+        id = normalize_id(id)
+        response = Maremma.get(github_as_codemeta_url(id), raw: true)
+        response.body.fetch("data", nil)
+      end
 
+      def read_codemeta(string: nil)
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 
