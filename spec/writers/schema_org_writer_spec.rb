@@ -19,6 +19,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"]).to eq("name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-0077-4738")
     end
 
+    it "Schema.org JSON" do
+      input = "https://doi.org/10.5281/ZENODO.48440"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.48440")
+      expect(json["name"]).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
+      expect(json["license"]).to eq("https://creativecommons.org/licenses/by-nc-sa/4.0")
+    end
+
     it "Schema.org JSON isReferencedBy" do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
