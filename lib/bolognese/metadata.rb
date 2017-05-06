@@ -7,6 +7,7 @@ require_relative 'utils'
 require_relative 'readers/bibtex_reader'
 require_relative 'readers/citeproc_reader'
 require_relative 'readers/codemeta_reader'
+require_relative 'readers/crosscite_reader'
 require_relative 'readers/crossref_reader'
 require_relative 'readers/datacite_json_reader'
 require_relative 'readers/datacite_reader'
@@ -16,6 +17,7 @@ require_relative 'readers/schema_org_reader'
 require_relative 'writers/bibtex_writer'
 require_relative 'writers/citeproc_writer'
 require_relative 'writers/codemeta_writer'
+require_relative 'writers/crosscite_writer'
 require_relative 'writers/crossref_writer'
 require_relative 'writers/datacite_writer'
 require_relative 'writers/datacite_json_writer'
@@ -36,6 +38,7 @@ module Bolognese
     include Bolognese::Readers::BibtexReader
     include Bolognese::Readers::CiteprocReader
     include Bolognese::Readers::CodemetaReader
+    include Bolognese::Readers::CrossciteReader
     include Bolognese::Readers::CrossrefReader
     include Bolognese::Readers::DataciteReader
     include Bolognese::Readers::DataciteJsonReader
@@ -45,6 +48,7 @@ module Bolognese
     include Bolognese::Writers::BibtexWriter
     include Bolognese::Writers::CiteprocWriter
     include Bolognese::Writers::CodemetaWriter
+    include Bolognese::Writers::CrossciteWriter
     include Bolognese::Writers::CrossrefWriter
     include Bolognese::Writers::DataciteWriter
     include Bolognese::Writers::DataciteJsonWriter
