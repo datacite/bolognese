@@ -164,9 +164,8 @@ module Bolognese
 
     def rel_identifier
       Array.wrap(related_identifier).map do |r|
-        related_identifier_type = r["issn"].present? ? "ISSN" : validate_url(r["id"])
-        { "__content__" => r["id"],
-          "related_identifier_type" => related_identifier_type,
+        { "__content__" => r["id"] || r["issn"],
+          "related_identifier_type" => r["issn"].present? ? "ISSN" : validate_url(r["id"]),
           "relation_type" => r["relationType"],
           "resource_type_general" => r["resourceTypeGeneral"] }.compact
       end

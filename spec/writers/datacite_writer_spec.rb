@@ -9,6 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(26)
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "__content__"=>"2050-084X")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")[1]).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"References", "__content__"=>"https://doi.org/10.1038/nature02100")
       expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0"})
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
