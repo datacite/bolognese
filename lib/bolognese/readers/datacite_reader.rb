@@ -37,7 +37,7 @@ module Bolognese
           { "type" => r["descriptionType"], "text" => sanitize(r["__content__"]) }.compact
         end.unwrap
         license = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
-          { "url" => r["rightsURI"], "name" => r["__content__"] }.compact
+          { "id" => normalize_url(r["rightsURI"]), "name" => r["__content__"] }.compact
         end.unwrap
         keywords = Array.wrap(meta.dig("subjects", "subject")).map do |k|
           if k.is_a?(String)
@@ -67,7 +67,6 @@ module Bolognese
           "author" => get_authors(meta.dig("creators", "creator")),
           "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
           "funder" => funder,
-          "container_title" => meta.fetch("publisher", nil),
           "publisher" => meta.fetch("publisher", nil),
           "provider" => "DataCite",
           "is_identical_to" => datacite_is_identical_to(meta),

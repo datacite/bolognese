@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:50:47 GMT
+      - Sat, 06 May 2017 11:41:20 GMT
       Etag:
       - W/"e293d7296daee535f3b06dd6574fe402"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - b9b0d85b-3c19-45e2-8b6c-e00f10f8f32c
+      - 39f12980-bfb6-4526-ab59-9f23de98e9bc
       X-Runtime:
-      - '0.712907'
+      - '0.109470'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1101","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:45:32Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:50:47 GMT
+  recorded_at: Sat, 06 May 2017 11:41:20 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1101/097196&noredirect=true&pid=tech@datacite.org
@@ -78,13 +78,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr6-1
+      - cr7-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Wed, 03 May 2017 06:50:46 GMT
+      - Sat, 06 May 2017 11:41:20 GMT
       Connection:
       - close
     body:
@@ -199,5 +199,5 @@ http_interactions:
         ICAgPC9wb3N0ZWRfY29udGVudD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:50:47 GMT
+  recorded_at: Sat, 06 May 2017 11:41:20 GMT
 recorded_with: VCR 3.0.3

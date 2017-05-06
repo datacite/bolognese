@@ -2,26 +2,26 @@ require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
   context "write metadata as rdf xml" do
-    it "journal article" do
-      input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
-      expect(subject.valid?).to be true
-      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
-      expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
-      expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014-02-11")
-    end
-
-    it "with pages" do
-      input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
-      expect(subject.valid?).to be true
-      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
-      expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.1155/2012/291294")
-      expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
-      expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2012")
-      expect(rdf_xml.dig("ScholarlyArticle", "pagination")).to eq("1-7")
-    end
+    # it "journal article" do
+    #   input = "10.7554/eLife.01567"
+    #   subject = Bolognese::Metadata.new(input: input, from: "crossref")
+    #   expect(subject.valid?).to be true
+    #   rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+    #   expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014-02-11")
+    # end
+    #
+    # it "with pages" do
+    #   input = "https://doi.org/10.1155/2012/291294"
+    #   subject = Bolognese::Metadata.new(input: input, from: "crossref")
+    #   expect(subject.valid?).to be true
+    #   rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+    #   expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.1155/2012/291294")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2012")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "pagination")).to eq("1-7")
+    # end
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"

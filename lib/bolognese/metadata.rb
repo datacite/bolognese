@@ -76,7 +76,7 @@ module Bolognese
       id = normalize_id(input)
 
       if id.present?
-        @from ||= find_from_format(id: id)
+        @from = from || find_from_format(id: id)
 
         # generate name for method to call dynamically
         string = send("get_" + @from, id: id)
@@ -84,7 +84,7 @@ module Bolognese
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
           string = IO.read(input)
-          @from ||= find_from_format(string: string, ext: ext)
+          @from = from || find_from_format(string: string, ext: ext)
         else
           $stderr.puts "File type #{ext} not supported"
           exit 1
@@ -94,7 +94,7 @@ module Bolognese
       # generate name for method to call dynamically
       @metadata = @from.present? ? send("read_" + @from, string: string) : {}
       @raw = string
-      #@should_passthru = !regenerate
+      @should_passthru = (@from == "datacite") && !regenerate
     end
 
     def exists?
@@ -167,10 +167,6 @@ module Bolognese
 
     def funder
       metadata.fetch("funder", nil)
-    end
-
-    def container_title
-      metadata.fetch("container_title", nil)
     end
 
     def publisher
@@ -305,6 +301,15 @@ module Bolognese
       metadata.fetch("is_reviewed_by", nil)
     end
 
+    def related_identifier_hsh(relation_type)
+      Array.wrap(send(relation_type)).map { |r| r.merge("relationType" => relation_type.camelize) }
+    end
+
+    def related_identifier
+      relation_types = %w(is_part_of has_part references is_referenced_by is_supplement_to is_supplemented_by)
+      relation_types.reduce([]) { |sum, r| sum += related_identifier_hsh(r) }
+    end
+
     # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
     def name_detector
       @name_detector ||= defined?(::NameDetector) ? ::NameDetector : GenderDetector.new
@@ -312,6 +317,10 @@ module Bolognese
 
     def publication_year
       date_published.present? ? date_published[0..3].to_i.presence : nil
+    end
+
+    def container_title
+      is_part_of.to_h.fetch("name", nil)
     end
 
     def descriptions

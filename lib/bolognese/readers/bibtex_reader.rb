@@ -52,7 +52,6 @@ module Bolognese
           "url" => meta.url.to_s,
           "title" => meta.title.to_s,
           "author" => author,
-          "container_title" => meta.journal.to_s.presence,
           "publisher" => meta.publisher.to_s.presence,
           "is_part_of" => is_part_of,
           "date_published" => meta.date.to_s.presence,

@@ -5,7 +5,6 @@ describe Bolognese::Metadata, vcr: true do
     it "with data citation" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
-      puts subject.metadata
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")

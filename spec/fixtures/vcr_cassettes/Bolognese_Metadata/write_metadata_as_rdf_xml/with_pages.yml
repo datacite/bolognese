@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:51:01 GMT
+      - Sat, 06 May 2017 11:42:21 GMT
       Etag:
       - W/"325be65c21373447eaaa6dcd9f27719d"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 35aa5018-1a49-49b1-a731-c6bff5717dda
+      - 05d2d1a2-4fdc-4848-aee5-e98742161905
       X-Runtime:
-      - '0.556173'
+      - '0.612718'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1155","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:45:51Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:51:01 GMT
+  recorded_at: Sat, 06 May 2017 11:42:21 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1155/2012/291294&noredirect=true&pid=tech@datacite.org
@@ -78,13 +78,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr7-1
+      - qs4-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Wed, 03 May 2017 06:51:00 GMT
+      - Sat, 06 May 2017 12:14:39 GMT
       Connection:
       - close
     body:
@@ -373,7 +373,7 @@ http_interactions:
         ZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:51:01 GMT
+  recorded_at: Sat, 06 May 2017 11:42:21 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -403,9 +403,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - b8fdaa8ee0c87af039e15233a663f670
+      - 379be7164cf9e9009ee0b38f610960c3
       Date:
-      - Wed, 03 May 2017 06:51:01 GMT
+      - Sat, 06 May 2017 11:42:22 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -416,7 +416,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:51:01 GMT
+  recorded_at: Sat, 06 May 2017 11:42:22 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -444,13 +444,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170503064637a2048647386json
+      - 24751170506112659a2048647386json
       Last-Modified:
-      - Wed, 03 May 2017 06:46:37 UTC
+      - Sat, 06 May 2017 11:26:59 UTC
       X-Cloud-Trace-Context:
-      - 9d00c14cb8936e8e82b7852e5c46d496
+      - 1f17175913669f8981ca64cde8c6fa3a
       Date:
-      - Wed, 03 May 2017 06:51:02 GMT
+      - Sat, 06 May 2017 11:42:25 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -458,7 +458,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Wed, 03 May 2017 06:51:02 GMT
+      - Sat, 06 May 2017 11:42:25 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2666,7 +2666,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:51:02 GMT
+  recorded_at: Sat, 06 May 2017 11:42:25 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2696,9 +2696,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - 2d28f995ec03edb7c5472ba7c3f3c603
+      - 3f3f0b5c8f714addee746b940ec7dfac
       Date:
-      - Wed, 03 May 2017 06:51:02 GMT
+      - Sat, 06 May 2017 11:42:29 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2709,7 +2709,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:51:02 GMT
+  recorded_at: Sat, 06 May 2017 11:42:29 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2737,13 +2737,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170503064637a2048647386json
+      - 24751170506112659a2048647386json
       Last-Modified:
-      - Wed, 03 May 2017 06:46:37 UTC
+      - Sat, 06 May 2017 11:26:59 UTC
       X-Cloud-Trace-Context:
-      - b1bf06bdb752e91b0834de2496116dc1
+      - d8b4832f5a72d9b501adf8a9b211d142
       Date:
-      - Wed, 03 May 2017 06:51:02 GMT
+      - Sat, 06 May 2017 11:42:29 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2751,7 +2751,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Wed, 03 May 2017 06:51:02 GMT
+      - Sat, 06 May 2017 11:42:29 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4959,5 +4959,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:51:02 GMT
+  recorded_at: Sat, 06 May 2017 11:42:29 GMT
 recorded_with: VCR 3.0.3

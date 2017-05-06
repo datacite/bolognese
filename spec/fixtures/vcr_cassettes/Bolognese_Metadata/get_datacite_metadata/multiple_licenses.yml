@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:53:05 GMT
+      - Sat, 06 May 2017 11:42:03 GMT
       Etag:
       - W/"0411b3916b13b0c38e2c133d6e9905e2"
       Server:
@@ -45,18 +45,20 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - a16b19a4-94ad-470f-b443-434d22728322
+      - e76d52e1-5ac9-4b92-bb34-188d429ce151
       X-Runtime:
-      - '0.329997'
+      - '0.715301'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5281","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:13Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:05 GMT
+  recorded_at: Sat, 06 May 2017 11:42:03 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
@@ -80,7 +82,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 03 May 2017 06:53:05 GMT
+      - Sat, 06 May 2017 11:42:03 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -93,5 +95,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:05 GMT
+  recorded_at: Sat, 06 May 2017 11:42:03 GMT
 recorded_with: VCR 3.0.3

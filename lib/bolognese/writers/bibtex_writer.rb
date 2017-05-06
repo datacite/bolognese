@@ -12,6 +12,8 @@ module Bolognese
           language: language,
           title: title,
           journal: container_title,
+          volume: volume,
+          issue: issue,
           pages: pagination,
           publisher: publisher,
           year: publication_year

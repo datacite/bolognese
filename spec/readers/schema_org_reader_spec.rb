@@ -27,15 +27,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.keywords).to eq("datacite, doi, metadata, featured")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog", "relationType"=>"IsPartOf", "resourceTypeGeneral" => "Text")
-      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012",
-                                         "type"=>"CreativeWork",
-                                         "relationType"=>"References",
-                                         "resourceTypeGeneral"=>"Other"},
-                                        {"id"=>"https://doi.org/10.5438/55e5-t5c0",
-                                         "type"=>"CreativeWork",
-                                         "relationType"=>"References",
-                                         "resourceTypeGeneral"=>"Other"}])
+      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog")
+      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork"}])
       expect(subject.publisher).to eq("DataCite")
     end
 
@@ -62,15 +55,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.keywords).to eq("datacite, doi, metadata, featured")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
-      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012",
-                                         "type"=>"CreativeWork",
-                                         "relationType"=>"References",
-                                         "resourceTypeGeneral"=>"Other"},
-                                        {"id"=>"https://doi.org/10.5438/55e5-t5c0",
-                                          "type"=>"CreativeWork",
-                                          "relationType"=>"References",
-                                          "resourceTypeGeneral"=>"Other"}])
+      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "name"=>"DataCite Blog")
+      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork"}])
       expect(subject.publisher).to eq("DataCite")
     end
   end

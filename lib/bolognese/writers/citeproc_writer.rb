@@ -12,7 +12,7 @@ module Bolognese
           "issued" => get_date_parts(date_published),
           "submitted" => get_date_parts(date_submitted),
           "abstract" => description.is_a?(Hash) ? description.fetch("text", nil) : description,
-          "container-title" => is_part_of.present? ? is_part_of.fetch("name", nil) : nil,
+          "container-title" => container_title,
           "DOI" => doi,
           "issue" => issue,
           "page" => pagination,

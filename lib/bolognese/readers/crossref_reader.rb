@@ -112,7 +112,6 @@ module Bolognese
           "author" => crossref_people(bibliographic_metadata, "author"),
           "editor" => crossref_people(bibliographic_metadata, "editor"),
           "funder" => crossref_funder(program_metadata),
-          "container_title" => crossref_is_part_of(journal_metadata).to_h.fetch("name", nil),
           "publisher" => nil,
           "provider" => "Crossref",
           "is_part_of" => crossref_is_part_of(journal_metadata),
@@ -152,7 +151,7 @@ module Bolognese
       def crossref_license(program_metadata)
         access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
         if access_indicator.present?
-          { "url" => parse_attributes(access_indicator["license_ref"]) }
+          { "id" => normalize_url(parse_attributes(access_indicator["license_ref"])) }
         else
           nil
         end
@@ -200,12 +199,9 @@ module Bolognese
 
       def crossref_references(bibliographic_metadata)
          refs = bibliographic_metadata.dig("citation_list", "citation")
-         Array.wrap(refs).map do |c|
+         Array.wrap(refs).select { |a| a["doi"].present? }.map do |c|
            { "id" => normalize_id(c["doi"]),
-             "relationType" => "Cites",
-             "position" => c["key"],
-             "name" => c["article_title"],
-             "datePublished" => c["cYear"] }.compact
+             "type" => "CreativeWork" }.compact
          end.unwrap
       end
     end

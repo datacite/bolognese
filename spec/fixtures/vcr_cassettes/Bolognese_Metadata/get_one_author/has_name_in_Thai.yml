@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:53:44 GMT
+      - Sat, 06 May 2017 11:41:36 GMT
       Etag:
       - W/"10249c47c189ca0856d1384fa7b25bc6"
       Server:
@@ -45,20 +45,18 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 5355854e-e1cf-4d97-861d-a2ba6fdbab6f
+      - 43bd114d-acdb-4305-a12a-859ddc184b37
       X-Runtime:
-      - '0.646253'
+      - '0.664559'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '125'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.14457","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:24:21Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:44 GMT
+  recorded_at: Sat, 06 May 2017 11:41:36 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.14457/kmitl.res.2006.17&wt=json
@@ -82,7 +80,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 03 May 2017 06:53:44 GMT
+      - Sat, 06 May 2017 11:41:36 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -95,7 +93,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:44 GMT
+  recorded_at: Sat, 06 May 2017 11:41:36 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.14457/kmitl.res.2006.17&wt=json
@@ -119,9 +117,11 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 03 May 2017 06:53:45 GMT
+      - Sat, 06 May 2017 11:41:37 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '2374'
       Connection:
       - keep-alive
     body:
@@ -130,5 +130,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:45 GMT
+  recorded_at: Sat, 06 May 2017 11:41:37 GMT
 recorded_with: VCR 3.0.3

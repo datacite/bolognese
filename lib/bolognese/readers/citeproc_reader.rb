@@ -33,6 +33,7 @@ module Bolognese
 
         citeproc_type = meta.fetch("type", nil)
         type = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"
+        doi = normalize_doi(meta.fetch("DOI", nil))
         author = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
         editor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
         date_published = get_date_from_date_parts(meta.fetch("issued", nil))
@@ -52,7 +53,7 @@ module Bolognese
           "bibtex_type" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
           "ris_type" => CP_TO_RIS_TRANSLATIONS[type] || "GEN",
           "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
-          "doi" => meta.fetch("DOI", nil),
+          "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("URL", nil)),
           "title" => meta.fetch("title", nil),
           "author" => author,

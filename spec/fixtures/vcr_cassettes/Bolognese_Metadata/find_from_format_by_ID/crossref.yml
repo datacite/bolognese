@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:49:27 GMT
+      - Sat, 06 May 2017 11:43:02 GMT
       Etag:
       - W/"b9f2d79281c542db437c42a5bac25ac8"
       Server:
@@ -45,18 +45,20 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - c051d90b-9e3f-4f1f-a51a-6f8442bfbb5e
+      - c25f2b01-73b5-4528-ac23-c5d9e63f1d97
       X-Runtime:
-      - '0.117263'
+      - '0.560879'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:49:27 GMT
+  recorded_at: Sat, 06 May 2017 11:43:02 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
@@ -80,7 +82,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 03 May 2017 06:49:27 GMT
+      - Sat, 06 May 2017 11:43:02 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -93,7 +95,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:49:27 GMT
+  recorded_at: Sat, 06 May 2017 11:43:02 GMT
 - request:
     method: get
     uri: https://api.datacite.org/prefixes/10.1371
@@ -123,7 +125,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:49:27 GMT
+      - Sat, 06 May 2017 11:43:03 GMT
       Etag:
       - W/"a078870f021fe1686525a8135b0e29b8"
       Server:
@@ -139,16 +141,18 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - a8cd0148-0366-4216-9a3d-11502efbfab7
+      - 86ca08ed-46a0-4eff-8c82-464c405da990
       X-Runtime:
-      - '0.510937'
+      - '0.111070'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.1371","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:47:32Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:49:27 GMT
+  recorded_at: Sat, 06 May 2017 11:43:03 GMT
 recorded_with: VCR 3.0.3

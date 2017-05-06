@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:50:58 GMT
+      - Sat, 06 May 2017 11:44:04 GMT
       Etag:
       - W/"daf85afdb45f3c2713bc7e75916ba82a"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - b976b0e8-6299-4fa7-99e6-c0833ad2ea85
+      - 5e258e6a-e29b-4ef8-abe0-a934bdf5dcc2
       X-Runtime:
-      - '0.493126'
+      - '0.717789'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T21:07:27Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:50:58 GMT
+  recorded_at: Sat, 06 May 2017 11:44:04 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -78,13 +78,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr7-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Wed, 03 May 2017 06:50:57 GMT
+      - Sat, 06 May 2017 11:44:04 GMT
       Connection:
       - close
     body:
@@ -93,5 +93,5 @@ http_interactions:
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:50:58 GMT
+  recorded_at: Sat, 06 May 2017 11:44:05 GMT
 recorded_with: VCR 3.0.3

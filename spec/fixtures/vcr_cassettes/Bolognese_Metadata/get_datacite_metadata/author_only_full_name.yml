@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:53:00 GMT
+      - Sat, 06 May 2017 11:41:59 GMT
       Etag:
       - W/"10249c47c189ca0856d1384fa7b25bc6"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 986cf2ef-6574-490f-a65f-366629dcfcc6
+      - b7518252-76a1-4b8e-8143-e392b218d6db
       X-Runtime:
-      - '0.556594'
+      - '0.332773'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.14457","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:24:21Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:00 GMT
+  recorded_at: Sat, 06 May 2017 11:41:59 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.14457/kmitl.res.2006.17&wt=json
@@ -82,7 +82,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 03 May 2017 06:53:01 GMT
+      - Sat, 06 May 2017 11:41:59 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -95,5 +95,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:53:01 GMT
+  recorded_at: Sat, 06 May 2017 11:41:59 GMT
 recorded_with: VCR 3.0.3

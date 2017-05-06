@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:52:53 GMT
+      - Sat, 06 May 2017 11:40:59 GMT
       Etag:
       - W/"e293d7296daee535f3b06dd6574fe402"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 8f33acac-0d4a-45eb-9868-6ce1e6c49aa7
+      - 6949e839-e112-451d-a566-f053503eab57
       X-Runtime:
-      - '0.376229'
+      - '0.545406'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1101","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:45:32Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:52:53 GMT
+  recorded_at: Sat, 06 May 2017 11:40:59 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1101/097196&noredirect=true&pid=tech@datacite.org
@@ -84,7 +84,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Wed, 03 May 2017 06:52:52 GMT
+      - Sat, 06 May 2017 11:40:59 GMT
       Connection:
       - close
     body:
@@ -199,7 +199,7 @@ http_interactions:
         ICAgPC9wb3N0ZWRfY29udGVudD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:52:53 GMT
+  recorded_at: Sat, 06 May 2017 11:40:59 GMT
 - request:
     method: get
     uri: https://api.datacite.org/prefixes/10.1392
@@ -229,7 +229,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 03 May 2017 06:52:53 GMT
+      - Sat, 06 May 2017 11:41:00 GMT
       Etag:
       - W/"f8c9b097aad19d4351c99fa3da69edd0"
       Server:
@@ -245,9 +245,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 6678d96b-7131-4d5f-9249-1f854c19f644
+      - d13e66bb-5f15-4b54-88c7-5010f87a78e4
       X-Runtime:
-      - '0.542389'
+      - '0.215552'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -258,5 +258,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1392","type":"prefixes","attributes":{"registration-agency":"mEDRA","updated":"2016-09-21T20:02:33Z"}}}'
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:52:54 GMT
+  recorded_at: Sat, 06 May 2017 11:41:00 GMT
 recorded_with: VCR 3.0.3

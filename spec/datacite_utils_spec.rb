@@ -137,7 +137,7 @@ describe Bolognese::Metadata, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_rights_list(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0/")
+      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0")
     end
   end
 

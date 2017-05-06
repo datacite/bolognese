@@ -20,13 +20,6 @@ module Bolognese
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         date_published = meta.fetch("datePublished", nil)
         publisher = meta.fetch("publisher", nil)
-        container_title = if publisher.is_a?(Hash)
-                            publisher.fetch("name", nil)
-                          elsif publisher.is_a?(String)
-                            publisher
-                          else
-                            nil
-                          end
 
         { "id" => id,
           "type" => type,
@@ -42,7 +35,6 @@ module Bolognese
           "alternate_name" => meta.fetch("alternateName", nil),
           "author" => author,
           "editor" => editor,
-          "container_title" => container_title,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
           "date_created" => meta.fetch("dateCreated", nil),

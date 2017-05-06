@@ -5,7 +5,6 @@ module Bolognese
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 
-        puts string
         meta = string.present? ? Maremma.from_json(string) : {}
 
         resource_type_general = meta.fetch("resource-type-general", nil)
@@ -24,11 +23,12 @@ module Bolognese
           "alternate_name" => meta.fetch("alternate-identifier", nil),
           "author" => meta.fetch("creator", nil),
           "editor" => meta.fetch("contributor", nil),
-          "container_title" => meta.fetch("publisher", nil),
           "publisher" => meta.fetch("publisher", nil),
           "provider" => "DataCite",
-          "is_part_of" => datacite_json_is_part_of(meta),
-          "references" => datacite_json_references(meta),
+          "is_part_of" => meta.fetch("is_part_of", nil),
+          "has_part" => meta.fetch("has_part", nil),
+          "references" => meta.fetch("references", nil),
+          "is_referenced_by" => meta.fetch("is_referenced_by", nil),
           "date_created" => meta.fetch("date-created", nil),
           "date_accepted" => meta.fetch("date-accepted", nil),
           "date_available" => meta.fetch("date-available", nil),
@@ -70,46 +70,6 @@ module Bolognese
       #       "name" => f["funderName"] }.compact
       #   end.uniq
       # end
-
-      # def dates
-      #   Array.wrap(metadata.dig("dates", "date"))
-      # end
-      #
-      # #Accepted Available Copyrighted Collected Created Issued Submitted Updated Valid
-      #
-      # def date(date_type)
-      #   dd = dates.find { |d| d["dateType"] == date_type } || {}
-      #   dd.fetch("__content__", nil)
-      # end
-
-      def datacite_json_get_related_identifier(meta, relation_type: nil)
-        related_identifier = meta.fetch("related_identifier", nil)
-        Array.wrap(related_identifier).select { |r| relation_type.split(" ").include?(r["relationType"]) }.unwrap
-      end
-
-      def datacite_json_is_identical_to(meta)
-        datacite_json_get_related_identifier(meta, relation_type: "IsIdenticalTo")
-      end
-
-      def datacite_json_is_part_of(meta)
-        datacite_json_get_related_identifier(meta, relation_type: "IsPartOf")
-      end
-
-      def datacite_json_has_part(meta)
-        datacite_json_get_related_identifier(meta, relation_type: "HasPart")
-      end
-
-      def datacite_json_is_previous_version_of(meta)
-        datacite_json_get_related_identifier(meta, relation_type: "IsPreviousVersionOf")
-      end
-
-      def datacite_json_is_new_version_of(meta)
-        datacite_json_get_related_identifier(meta, relation_type: "IsNewVersionOf")
-      end
-
-      def datacite_json_references(meta)
-        datacite_json_get_related_identifier(meta, relation_type: "Cites IsCitedBy Supplements IsSupplementTo References IsReferencedBy").presence
-      end
     end
   end
 end

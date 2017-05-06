@@ -23,7 +23,7 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Sat, 06 May 2017 05:56:16 GMT
+      - Sat, 06 May 2017 11:43:13 GMT
       Location:
       - "/eating-your-own-dog-food/"
       Server:
@@ -33,9 +33,9 @@ http_interactions:
       X-Amz-Error-Message:
       - Resource Found
       X-Amz-Id-2:
-      - EphAywF2t6OtDTRo1ahZS5m2x1L/2ctgyq3z2z7XsCP9MeWrV04RmZ5hIE+XLGRUb7npKOSLxBI=
+      - 1EEbb0pq/Tz1ne3FXpIAd5mJ84PEPrVBwDzY5sc+6ljMDxXj47fqdf2DvBAqiwRz8lrvJ1JShu4=
       X-Amz-Request-Id:
-      - D6A0575A404E7A57
+      - BACE5136CF52D405
       Content-Length:
       - '313'
       Connection:
@@ -50,14 +50,14 @@ http_interactions:
         <ul>
         <li>Code: Found</li>
         <li>Message: Resource Found</li>
-        <li>RequestId: D6A0575A404E7A57</li>
-        <li>HostId: EphAywF2t6OtDTRo1ahZS5m2x1L/2ctgyq3z2z7XsCP9MeWrV04RmZ5hIE+XLGRUb7npKOSLxBI=</li>
+        <li>RequestId: BACE5136CF52D405</li>
+        <li>HostId: 1EEbb0pq/Tz1ne3FXpIAd5mJ84PEPrVBwDzY5sc+6ljMDxXj47fqdf2DvBAqiwRz8lrvJ1JShu4=</li>
         </ul>
         <hr/>
         </body>
         </html>
     http_version: 
-  recorded_at: Sat, 06 May 2017 05:56:17 GMT
+  recorded_at: Sat, 06 May 2017 11:43:13 GMT
 - request:
     method: get
     uri: https://blog.datacite.org/eating-your-own-dog-food/
@@ -83,7 +83,7 @@ http_interactions:
       Content-Type:
       - text/html
       Date:
-      - Sat, 06 May 2017 05:56:17 GMT
+      - Sat, 06 May 2017 11:43:13 GMT
       Etag:
       - '"6f798d13febc480346db026fa3d3447c"'
       Last-Modified:
@@ -91,9 +91,9 @@ http_interactions:
       Server:
       - openresty/1.11.2.2
       X-Amz-Id-2:
-      - YdpcqT+yZPoJl+Mvl6oETp3L1179AosY4jTQqMvaIKQESPhM9gfp2s+9mUnx6PM4W8o9/hmI+Lk=
+      - P7VgZQ3VT4NnL8EXZzpbNPFx71K6qqIG4FFdXEfjFVwoWbBLmtllnOQECiGlOqAlBak9Z4liRQU=
       X-Amz-Request-Id:
-      - 9D148D17DF7AF6ED
+      - 251D0738366377C3
       X-Amz-Version-Id:
       - Pqw.4RIOReYkVMWnMWLh04nvOLhyBrIn
       Content-Length:
@@ -650,5 +650,5 @@ http_interactions:
         bmQnLCAncGFnZXZpZXcnKTsKICAgIDwvc2NyaXB0PgogIDwvYm9keT4KPC9o
         dG1sPgo=
     http_version: 
-  recorded_at: Sat, 06 May 2017 05:56:17 GMT
+  recorded_at: Sat, 06 May 2017 11:43:14 GMT
 recorded_with: VCR 3.0.3

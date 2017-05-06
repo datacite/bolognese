@@ -35,35 +35,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 9584:21AF1:1B8554:1CB1AD:59097D6F
+      - 8268:21AF2:1728673:1817383:590DB63B
       Content-Length:
       - '1260'
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 03 May 2017 06:50:13 GMT
+      - Sat, 06 May 2017 11:44:06 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1535-HHN
+      - cache-hhn1546-HHN
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1493794213.032950,VS0,VE0
+      - S1494071047.614435,VS0,VE0
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - c4fe8e1ff6d72eaa721876a2e5975e63be3171b2
+      - 289aa728cc132563d22175dd874874208c682abb
       Expires:
-      - Wed, 03 May 2017 06:55:13 GMT
+      - Sat, 06 May 2017 11:49:06 GMT
       Source-Age:
-      - '53'
+      - '202'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -96,5 +96,5 @@ http_interactions:
         YnktbGFuZy5vcmciCgl9LAoJInJlYWRtZSI6ICJodHRwczovL2dpdGh1Yi5j
         b20vZGF0YWNpdGUvbWFyZW1tYS9ibG9iL21hc3Rlci9SRUFETUUubWQiCn0K
     http_version: 
-  recorded_at: Wed, 03 May 2017 06:50:13 GMT
+  recorded_at: Sat, 06 May 2017 11:44:06 GMT
 recorded_with: VCR 3.0.3

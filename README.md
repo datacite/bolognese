@@ -93,8 +93,17 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
       <td>Yes</td>
     </tr>
+    <tr>
+      <td><a href='https://citation.crosscite.org/'>Crosscite</a></td>
+      <td>crosscite</td>
+      <td>application/vnd.crosscite.crosscite+json</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
   </tbody>
 </table>
+
+**Crosscite** is the format used internally by bolognese.
 
 ## Installation
 

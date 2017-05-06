@@ -25,20 +25,17 @@
     "type": "Local accession number",
     "name": "MS-49-3632-5083"
   },
-  "related_identifier": [
+  "references": [
     {
-      "id": "https://doi.org/10.5438/0012",
-      "relationType": "References"
+      "id": "https://doi.org/10.5438/0012"
     },
     {
-      "id": "https://doi.org/10.5438/55e5-t5c0",
-      "relationType": "References"
-    },
-    {
-      "id": "https://doi.org/10.5438/0000-00ss",
-      "relationType": "IsPartOf"
+      "id": "https://doi.org/10.5438/55e5-t5c0"
     }
   ],
+  "is_part_of": {
+    "id": "https://doi.org/10.5438/0000-00ss"
+  },
   "version": "1.0",
   "description": {
     "type": "Abstract",

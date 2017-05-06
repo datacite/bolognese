@@ -72,13 +72,11 @@ module Bolognese
       end
 
       def schema_org_related_identifier(meta, relation_type: nil)
-        normalize_ids(ids: meta.fetch(relation_type, nil),
-                      relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
+        normalize_ids(ids: meta.fetch(relation_type, nil))
       end
 
       def schema_org_reverse_related_identifier(meta, relation_type: nil)
-        normalize_ids(ids: meta.dig("@reverse", relation_type),
-                      relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
+        normalize_ids(ids: meta.dig("@reverse", relation_type))
       end
 
       def schema_org_is_identical_to(meta)

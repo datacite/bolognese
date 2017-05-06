@@ -298,6 +298,19 @@ module Bolognese
       nil
     end
 
+    def normalize_url(id)
+      return nil unless id.present?
+
+      # check for valid HTTP uri
+      uri = Addressable::URI.parse(id)
+      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
+
+      # clean up URL
+      PostRank::URI.clean(id)
+    rescue Addressable::URI::InvalidURIError
+      nil
+    end
+
     def normalize_orcid(orcid)
       orcid = validate_orcid(orcid)
       return nil unless orcid.present?
@@ -306,13 +319,11 @@ module Bolognese
       "http://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
-    def normalize_ids(ids: nil, relation_type: "References")
+    def normalize_ids(ids: nil)
       Array.wrap(ids).map do |id|
         { "id" => normalize_id(id["@id"]),
-          "type" => id["@type"],
-          "name" => id["name"],
-          "relationType" => relation_type,
-          "resourceTypeGeneral" => id["resourceTypeGeneral"] || Metadata::SO_TO_DC_TRANSLATIONS[id["@type"]] }.compact
+          "type" => id["@type"] || Metadata::DC_TO_SO_TRANSLATIONS[id["resourceTypeGeneral"]] || "CreativeWork",
+          "name" => id["name"] }.compact
       end.unwrap
     end
 

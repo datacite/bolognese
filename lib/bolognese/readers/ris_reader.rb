@@ -57,7 +57,6 @@ module Bolognese
           "title" => meta.fetch("T1", nil),
           "alternate_name" => meta.fetch("AN", nil),
           "author" => get_authors(author),
-          "container_title" => container_title,
           "publisher" => meta.fetch("PB", nil),
           "is_part_of" => is_part_of,
           "date_created" => meta.fetch("Y1", nil),

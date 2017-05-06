@@ -105,13 +105,27 @@ describe Bolognese::Metadata, vcr: true do
     it "doi" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"}, {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55E5-T5C0"}]
       response = subject.normalize_ids(ids: ids)
-      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork", "relationType"=>"References", "resourceTypeGeneral" => "Other"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork", "relationType"=>"References", "resourceTypeGeneral" => "Other"}])
+      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork"}])
     end
 
     it "url" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food/"}]
       response = subject.normalize_ids(ids: ids)
-      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "resourceTypeGeneral" => "Other", "type"=>"CreativeWork", "relationType"=>"References")
+      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "type" => "CreativeWork")
+    end
+  end
+
+  context "normalize url" do
+    it "with trailing slash" do
+      url = "http://creativecommons.org/publicdomain/zero/1.0/"
+      response = subject.normalize_url(url)
+      expect(response).to eq("http://creativecommons.org/publicdomain/zero/1.0")
+    end
+
+    it "uri" do
+      url = "info:eu-repo/semantics/openAccess"
+      response = subject.normalize_url(url)
+      expect(response).to be_nil
     end
   end
 

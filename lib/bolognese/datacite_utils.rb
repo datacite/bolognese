@@ -88,7 +88,7 @@ module Bolognese
     end
 
     def insert_publisher(xml)
-      xml.publisher(container_title)
+      xml.publisher(publisher)
     end
 
     def insert_publication_year(xml)
@@ -162,15 +162,8 @@ module Bolognese
       xml.version(version)
     end
 
-    def related_identifier_hsh(relation_type)
-      Array.wrap(send(relation_type)).map { |r| r.merge("relationType" => relation_type.camelize) }
-    end
-
     def rel_identifier
-      relation_types = %w(is_part_of has_part references is_referenced_by is_supplement_to is_supplemented_by)
-      ri = relation_types.reduce([]) { |sum, r| sum += related_identifier_hsh(r) }
-
-      Array.wrap(ri).map do |r|
+      Array.wrap(related_identifier).map do |r|
         related_identifier_type = r["issn"].present? ? "ISSN" : validate_url(r["id"])
         { "__content__" => r["id"],
           "related_identifier_type" => related_identifier_type,
@@ -198,7 +191,7 @@ module Bolognese
 
       xml.rightsList do
         Array.wrap(license).each do |lic|
-          xml.rights(lic["name"], 'rightsURI' => lic["url"])
+          xml.rights(lic["name"], 'rightsURI' => lic["id"])
         end
       end
     end

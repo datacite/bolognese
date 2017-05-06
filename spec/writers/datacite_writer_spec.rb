@@ -8,9 +8,9 @@ describe Bolognese::Metadata, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(28)
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(26)
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")[1]).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"References", "__content__"=>"https://doi.org/10.1038/nature02100")
-      expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0/"})
+      expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0"})
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier"=>{"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
     end
@@ -98,7 +98,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
       expect(subject.alternate_name).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
-      expect(subject.license).to eq("url"=>"http://creativecommons.org/publicdomain/zero/1.0/")
+      expect(subject.license).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1"},
                                       {"id"=>"https://doi.org/10.5061/dryad.8515/2"}])
@@ -118,7 +118,7 @@ describe Bolognese::Metadata, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(3)
-      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text", "__content__"=>"https://doi.org/10.5438/0000-00ss")
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
     end
   end
 end
