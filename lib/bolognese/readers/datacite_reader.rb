@@ -113,7 +113,7 @@ module Bolognese
         arr = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
         arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
 
-        arr.map { |work| { "id" => normalize_id(work["__content__"]), "relationType" => work["relationType"] } }.unwrap
+        arr.map { |work| { "id" => normalize_id(work["__content__"]) } }.unwrap
       end
 
       def datacite_is_identical_to(meta)

@@ -100,9 +100,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.alternate_name).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
       expect(subject.license).to eq("url"=>"http://creativecommons.org/publicdomain/zero/1.0/")
       expect(subject.date_published).to eq("2011")
-      expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"},
-                                      {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"}])
-      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446", "relationType"=>"IsReferencedBy")
+      expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1"},
+                                      {"id"=>"https://doi.org/10.5061/dryad.8515/2"}])
+      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
