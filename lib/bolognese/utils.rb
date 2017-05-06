@@ -36,7 +36,6 @@ module Bolognese
       "Model" => nil,
       "PhysicalObject" => nil,
       "Service" => nil,
-      "Software" => "computer_program",
       "Sound" => "song",
       "Text" => "report",
       "Workflow" => nil,
@@ -107,7 +106,6 @@ module Bolognese
       "PublicationIssue" => nil,
       "ScholarlyArticle" => "article-journal",
       "Service" => nil,
-      "SoftwareSourceCode" => "computer_program",
       "VideoObject" => "broadcast",
       "WebPage" => "webpage",
       "WebSite" => "webpage"

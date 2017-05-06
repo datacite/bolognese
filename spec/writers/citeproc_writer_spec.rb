@@ -126,7 +126,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("computer_program")
+      expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["DOI"]).to eq("10.5438/qeg0-3gm3")
       expect(json["title"]).to eq("Maremma: a Ruby library for simplified network calls")

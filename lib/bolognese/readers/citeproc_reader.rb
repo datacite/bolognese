@@ -8,7 +8,6 @@ module Bolognese
         "graphic" => "ImageObject",
         "motion_picture" => "Movie",
         "article-journal" => "ScholarlyArticle",
-        "computer_program" => "SoftwareSourceCode",
         "broadcast" => "VideoObject",
         "webpage" => "WebPage"
       }
@@ -20,7 +19,6 @@ module Bolognese
         "book" => "BOOK",
         "motion_picture" => "MPCT",
         "article-journal" => "JOUR",
-        "computer_program" => "COMP",
         "broadcast" => "MPCT",
         "webpage" => "ELEC"
       }
