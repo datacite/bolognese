@@ -16,7 +16,7 @@ http_interactions:
   response:
     status:
       code: 302
-      message: Moved Temporarily
+      message: Found
     headers:
       Content-Type:
       - text/html; charset=utf-8
@@ -29,28 +29,20 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - e85453b17588b0122a205a55ca72a4cc
+      - 9f5fb8b669b69e1078b0161ccfc90d76
       Date:
-      - Tue, 02 May 2017 17:02:52 GMT
+      - Wed, 03 May 2017 06:53:16 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 02 May 2017 17:02:52 GMT
+  recorded_at: Wed, 03 May 2017 06:53:16 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -78,13 +70,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170502114317a2048647386json
+      - 24751170503064637a2048647386json
       Last-Modified:
-      - Tue, 02 May 2017 11:43:17 UTC
+      - Wed, 03 May 2017 06:46:37 UTC
       X-Cloud-Trace-Context:
-      - e02b696603d45922ac2614a055a128ad
+      - 18c256c0fe2a38d8140f2f8143c3003a
       Date:
-      - Tue, 02 May 2017 17:02:53 GMT
+      - Wed, 03 May 2017 06:53:17 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -92,15 +84,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Tue, 02 May 2017 17:02:53 GMT
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
+      - Wed, 03 May 2017 06:53:17 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2308,7 +2292,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Tue, 02 May 2017 17:02:56 GMT
+  recorded_at: Wed, 03 May 2017 06:53:17 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2325,7 +2309,7 @@ http_interactions:
   response:
     status:
       code: 302
-      message: Moved Temporarily
+      message: Found
     headers:
       Content-Type:
       - text/html; charset=utf-8
@@ -2338,28 +2322,20 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
-      - f39f0e10b867cf0865ba7c6628286f17
+      - 3a55e07dc41ce4cb11c93e09bad5a214
       Date:
-      - Tue, 02 May 2017 17:03:02 GMT
+      - Wed, 03 May 2017 06:53:17 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 02 May 2017 17:03:02 GMT
+  recorded_at: Wed, 03 May 2017 06:53:17 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2387,13 +2363,13 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170502114317a2048647386json
+      - 24751170503064637a2048647386json
       Last-Modified:
-      - Tue, 02 May 2017 11:43:17 UTC
+      - Wed, 03 May 2017 06:46:37 UTC
       X-Cloud-Trace-Context:
-      - 21523f2609f1b394aca1271a3e1ecf51
+      - 2d32524b872d60d63d5f42ce187dfd95
       Date:
-      - Tue, 02 May 2017 17:03:06 GMT
+      - Wed, 03 May 2017 06:53:17 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2401,15 +2377,7 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2e; Path=/
       Expires:
-      - Tue, 02 May 2017 17:03:06 GMT
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
+      - Wed, 03 May 2017 06:53:17 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4617,5 +4585,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Tue, 02 May 2017 17:03:08 GMT
+  recorded_at: Wed, 03 May 2017 06:53:17 GMT
 recorded_with: VCR 3.0.3

@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Mon, 01 May 2017 06:10:09 GMT
+      - Wed, 03 May 2017 06:50:58 GMT
       Etag:
       - W/"daf85afdb45f3c2713bc7e75916ba82a"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 831218f2-357f-481e-97a0-502879f9ecee
+      - b976b0e8-6299-4fa7-99e6-c0833ad2ea85
       X-Runtime:
-      - '0.666589'
+      - '0.493126'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T21:07:27Z"}}}'
     http_version: 
-  recorded_at: Mon, 01 May 2017 06:10:09 GMT
+  recorded_at: Wed, 03 May 2017 06:50:58 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -78,24 +78,20 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr6-1
+      - cr7-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Mon, 01 May 2017 06:10:08 GMT
-      X-Cache:
-      - MISS from hotspot.internet-for-guests.com
-      X-Cache-Lookup:
-      - MISS from hotspot.internet-for-guests.com:8080
+      - Wed, 03 May 2017 06:50:57 GMT
       Connection:
-      - keep-alive
+      - close
     body:
       encoding: UTF-8
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record>\r\n
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Mon, 01 May 2017 06:10:09 GMT
+  recorded_at: Wed, 03 May 2017 06:50:58 GMT
 recorded_with: VCR 3.0.3

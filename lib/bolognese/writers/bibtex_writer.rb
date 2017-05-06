@@ -3,7 +3,7 @@ module Bolognese
     module BibtexWriter
       def bibtex
         bib = {
-          bibtex_type: bibtex_type.present? ? bibtex_type.to_sym : "misc",
+          bibtex_type: bibtex_type.presence || "misc",
           bibtex_key: id,
           doi: doi,
           url: url,

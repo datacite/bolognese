@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
-  let(:fixture_path) { "spec/fixtures/" }
   let(:input) { "https://github.com/datacite/maremma" }
 
   subject { Bolognese::Metadata.new(input: input) }

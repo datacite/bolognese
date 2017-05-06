@@ -1,11 +1,6 @@
 module Bolognese
   module Readers
     module DataciteReader
-      def datacite_meta(id: nil, string: nil)
-        string = get_datacite(id: id) if id.present?
-        read_datacite(string: string)
-      end
-
       def get_datacite(id: nil)
         return nil unless id.present?
 
@@ -15,14 +10,17 @@ module Bolognese
         attributes = response.body.dig("data", "response", "docs").first
         string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
         string = Base64.decode64(string)
-        doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks) if string.present?
-        doc.to_s if string.present?
+        if string.present?
+          doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
+          doc.to_s
+        end
       end
 
       def read_datacite(string: nil)
         meta = string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
 
-        doi = meta.dig("identifier", "__content__")
+        id = normalize_doi(meta.dig("identifier", "__content__"))
+        doi = doi_from_url(id)
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
         title = Array.wrap(meta.dig("titles", "title")).map do |r|
@@ -54,7 +52,7 @@ module Bolognese
           f.length > 1 ? f : f.first
         end
 
-        { "id" => normalize_doi(doi),
+        { "id" => id,
           "type" => type,
           "additional_type" => meta.fetch("resourceType", {}).fetch("__content__", nil) ||
             meta.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil),
@@ -88,7 +86,6 @@ module Bolognese
           "date_valid" => datacite_date(dates, "Valid"),
           "date_published" => datacite_date(dates, "Issued") || meta.fetch("publicationYear", nil),
           "date_modified" => datacite_date(dates, "Updated"),
-          "publication_year" => meta.fetch("publicationYear", nil),
           "description" => description,
           "license" => license,
           "version" => meta.fetch("version", nil),

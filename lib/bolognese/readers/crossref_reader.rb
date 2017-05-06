@@ -74,7 +74,7 @@ module Bolognese
 
       def read_crossref(string: nil)
         if string.present?
-          m = Maremma.from_xml(string).fetch("doi_records", {}).fetch("doi_record", {})
+          m = Maremma.from_xml(string).dig("doi_records", "doi_record") || {}
           meta = m.dig("crossref", "error").nil? ? m : {}
         else
           meta = {}
@@ -119,7 +119,6 @@ module Bolognese
           "references" => crossref_references(bibliographic_metadata),
           "date_published" => crossref_date_published(bibliographic_metadata),
           "date_modified" => Time.parse(meta.fetch("timestamp", "")).utc.iso8601,
-          "publication_year" => meta.fetch("publicationYear", nil),
           "volume" => journal_issue.dig("journal_volume", "volume"),
           "issue" => journal_issue.dig("issue"),
           "pagination" => [bibliographic_metadata.dig("pages", "first_page"), bibliographic_metadata.dig("pages", "last_page")].compact.join("-").presence,

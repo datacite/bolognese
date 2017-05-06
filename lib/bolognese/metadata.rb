@@ -53,7 +53,7 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_reader :id, :from, :to, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
+    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
@@ -68,66 +68,46 @@ module Bolognese
       :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
       :name_detector
 
-    def initialize(input: nil, from: nil, to: nil, regenerate: false)
+    def initialize(input: nil, from: nil, regenerate: false)
       id = normalize_id(input)
 
       if id.present?
-        from ||= find_from_format(id: id)
+        @from ||= find_from_format(id: id)
+
+        # generate name for method to call dynamically
+        string = send("get_" + @from, id: id)
       else
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
           string = IO.read(input)
+          @from ||= find_from_format(string: string, ext: ext)
         else
           $stderr.puts "File type #{ext} not supported"
           exit 1
         end
-        from ||= find_from_format(string: string, ext: ext)
       end
 
-      to ||= "schema_org"
-
-      @metadata = case from
-          when "crossref"
-            string = get_crossref(id: id) if id.present?
-            read_crossref(string: string)
-          when "datacite"
-            string = get_datacite(id: id) if id.present?
-            read_datacite(string: string)
-          when "codemeta"
-            string = get_codemeta(id: id) if id.present?
-            read_codemeta(string: string)
-          when "datacite_json"
-            read_datacite_json(string: string)
-          when "citeproc"
-            read_citeproc(string: string)
-          when "bibtex"
-            read_bibtex(string: string)
-          when "ris"
-            read_ris(string: string)
-          else
-            string = get_schema_org(id: id) if id.present?
-            read_schema_org(string: string)
-          end
-
+      # generate name for method to call dynamically
+      @metadata = @from.present? ? send("read_" + @from, string: string) : {}
       @raw = string
-      @should_passthru = !regenerate
+      #@should_passthru = !regenerate
     end
 
     def exists?
       metadata.fetch("id", nil).present?
     end
 
-    # def valid?
-    #   datacite.present? && errors.blank?
-    # end
-
     def valid?
-      metadata.fetch("errors", nil).nil?
+      errors.nil?
     end
 
     def errors
-      doc && doc.errors.map { |error| error.to_s }.unwrap
+      metadata.fetch("errors", nil)
     end
+
+    # def errors
+    #   doc && doc.errors.map { |error| error.to_s }.unwrap
+    # end
 
     def id
       metadata.fetch("id", nil)

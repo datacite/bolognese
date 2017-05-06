@@ -241,6 +241,8 @@ module Bolognese
       elsif options[:ext] == ".json" && Maremma.from_json(string).dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
       end
+    rescue
+      nil
     end
 
     def orcid_from_url(url)
@@ -260,6 +262,8 @@ module Bolognese
         "DOI"
       elsif /\A(http|https):\/\//.match(str)
         "URL"
+      elsif /\A(ISSN|eISSN) (\d{4}-\d{3}[0-9X]+)\z/.match(str)
+        "ISSN"
       end
     end
 
@@ -474,5 +478,6 @@ module Bolognese
       linter.send(:check_data, json, error_array)
       error_array
     end
+
   end
 end

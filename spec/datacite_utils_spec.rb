@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
     it "doi" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_identifier(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.5061/DRYAD.8515")
+      expect(response["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.5061/dryad.8515")
     end
   end
 
@@ -113,10 +113,10 @@ describe Bolognese::Metadata, vcr: true do
 
   context "insert_related_identifiers" do
     it "related_identifier" do
-      expect(subject.related_identifier).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"},
-                                                {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"},
-                                                {"id"=>"https://doi.org/10.1371/journal.ppat.1000446",
-                                                 "relationType"=>"IsReferencedBy"}])
+      expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"},
+                                      {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"}])
+      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446",
+                                             "relationType"=>"IsReferencedBy")
     end
 
     it "insert" do

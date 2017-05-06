@@ -5,6 +5,7 @@ module Bolognese
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 
+        puts string
         meta = string.present? ? Maremma.from_json(string) : {}
 
         resource_type_general = meta.fetch("resource-type-general", nil)
@@ -37,7 +38,6 @@ module Bolognese
           "date_valid" => meta.fetch("date-valid", nil),
           "date_published" => meta.fetch("date-published", nil),
           "date_modified" => meta.fetch("date-modified", nil),
-          "publication_year" => meta.fetch("publication-year", nil),
           "description" => meta.fetch("description", nil),
           "license" => meta.fetch("license", nil),
           "version" => meta.fetch("version", nil),

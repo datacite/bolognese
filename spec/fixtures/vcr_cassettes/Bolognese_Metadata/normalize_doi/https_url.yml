@@ -2,6 +2,65 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.datacite.org/prefixes/10.1101
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Fri, 05 May 2017 18:08:52 GMT
+      Etag:
+      - W/"e293d7296daee535f3b06dd6574fe402"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Request-Id:
+      - edddba37-467a-4e3f-9368-0d891ecbb201
+      X-Runtime:
+      - '0.756188'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.1101","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:45:32Z"}}}'
+    http_version: 
+  recorded_at: Fri, 05 May 2017 18:08:52 GMT
+- request:
+    method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1101/097196&noredirect=true&pid=tech@datacite.org
     body:
       encoding: US-ASCII
@@ -19,13 +78,19 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr6-1
+      - qs2-2
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Thu, 27 Apr 2017 08:41:32 GMT
+      - Fri, 05 May 2017 18:08:52 GMT
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
       Connection:
       - close
     body:
@@ -140,5 +205,5 @@ http_interactions:
         ICAgPC9wb3N0ZWRfY29udGVudD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Thu, 27 Apr 2017 08:41:32 GMT
+  recorded_at: Fri, 05 May 2017 18:08:52 GMT
 recorded_with: VCR 3.0.3

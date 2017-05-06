@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("dataset")
       expect(json["id"]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(json["DOI"]).to eq("10.5061/DRYAD.8515")
+      expect(json["DOI"]).to eq("10.5061/dryad.8515")
       expect(json["title"]).to eq("Data from: A new malaria agent in African hominids.")
       expect(json["author"]).to eq([{"family"=>"Ollomo", "given"=>"Benjamin"},
                                     {"family"=>"Durand", "given"=>"Patrick"},
@@ -30,7 +30,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("report")
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(json["DOI"]).to eq("10.5438/4K3M-NYVG")
+      expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
       expect(json["title"]).to eq("Eating your own Dog Food")
       expect(json["author"]).to eq("family"=>"Fenner", "given"=>"Martin")
       expect(json["publisher"]).to eq("DataCite")

@@ -2,6 +2,65 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.datacite.org/prefixes/10.1155
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Sat, 06 May 2017 00:11:42 GMT
+      Etag:
+      - W/"325be65c21373447eaaa6dcd9f27719d"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Request-Id:
+      - a15b8978-fef3-43d4-bd1f-a5e0df51fe08
+      X-Runtime:
+      - '0.641294'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.1155","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:45:51Z"}}}'
+    http_version: 
+  recorded_at: Sat, 06 May 2017 00:11:41 GMT
+- request:
+    method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1155/2012/291294&noredirect=true&pid=tech@datacite.org
     body:
       encoding: US-ASCII
@@ -25,7 +84,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Tue, 02 May 2017 20:29:13 GMT
+      - Sat, 06 May 2017 00:11:41 GMT
       Connection:
       - close
     body:
@@ -314,5 +373,5 @@ http_interactions:
         ZT4NCiAgICAgIDwvam91cm5hbD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Tue, 02 May 2017 20:29:13 GMT
+  recorded_at: Sat, 06 May 2017 00:11:41 GMT
 recorded_with: VCR 3.0.3

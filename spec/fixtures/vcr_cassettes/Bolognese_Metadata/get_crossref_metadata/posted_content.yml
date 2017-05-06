@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Mon, 01 May 2017 06:10:06 GMT
+      - Wed, 03 May 2017 06:51:00 GMT
       Etag:
       - W/"e293d7296daee535f3b06dd6574fe402"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 769ec036-b6f3-4e2e-90c4-812b71600905
+      - 204148fb-2f97-4d77-867c-722a8fa5fd3d
       X-Runtime:
-      - '0.610718'
+      - '0.582224'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,7 +58,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1101","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:45:32Z"}}}'
     http_version: 
-  recorded_at: Mon, 01 May 2017 06:10:06 GMT
+  recorded_at: Wed, 03 May 2017 06:51:00 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1101/097196&noredirect=true&pid=tech@datacite.org
@@ -78,19 +78,15 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs3-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Mon, 01 May 2017 06:10:05 GMT
-      X-Cache:
-      - MISS from hotspot.internet-for-guests.com
-      X-Cache-Lookup:
-      - MISS from hotspot.internet-for-guests.com:8080
+      - Wed, 03 May 2017 06:50:59 GMT
       Connection:
-      - keep-alive
+      - close
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -203,5 +199,5 @@ http_interactions:
         ICAgPC9wb3N0ZWRfY29udGVudD4NCiAgICA8L2Nyb3NzcmVmPg0KICA8L2Rv
         aV9yZWNvcmQ+DQo8L2RvaV9yZWNvcmRzPg==
     http_version: 
-  recorded_at: Mon, 01 May 2017 06:10:06 GMT
+  recorded_at: Wed, 03 May 2017 06:51:00 GMT
 recorded_with: VCR 3.0.3

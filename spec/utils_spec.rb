@@ -18,6 +18,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("URL")
     end
 
+    it "ISSN" do
+      str = "ISSN 2050-084X"
+      response = subject.validate_url(str)
+      expect(response).to eq("ISSN")
+    end
+
     it "string" do
       str = "eating-your-own-dog-food"
       response = subject.validate_url(str)

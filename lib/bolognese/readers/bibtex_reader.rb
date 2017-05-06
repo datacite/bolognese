@@ -56,7 +56,6 @@ module Bolognese
           "publisher" => meta.publisher.to_s.presence,
           "is_part_of" => is_part_of,
           "date_published" => meta.date.to_s.presence,
-          "publication_year" => meta.year.to_s.presence,
           "volume" => meta.volume.to_s.presence,
           "pagination" => meta.pages.to_s.presence,
           "description" => { "text" => meta.field?(:abstract) && meta.abstract.to_s.presence },

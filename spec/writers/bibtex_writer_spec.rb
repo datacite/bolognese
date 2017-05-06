@@ -5,6 +5,7 @@ describe Bolognese::Metadata, vcr: true do
     it "with data citation" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      puts subject.metadata
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")
@@ -65,7 +66,7 @@ describe Bolognese::Metadata, vcr: true do
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(bibtex[:doi]).to eq("10.5438/4K3M-NYVG")
+      expect(bibtex[:doi]).to eq("10.5438/4k3m-nyvg")
       expect(bibtex[:title]).to eq("Eating your own Dog Food")
       expect(bibtex[:author]).to eq("Fenner, Martin")
       expect(bibtex[:publisher]).to eq("DataCite")
@@ -78,7 +79,7 @@ describe Bolognese::Metadata, vcr: true do
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(bibtex[:doi]).to eq("10.5061/DRYAD.8515")
+      expect(bibtex[:doi]).to eq("10.5061/dryad.8515")
       expect(bibtex[:title]).to eq("Data from: A new malaria agent in African hominids.")
       expect(bibtex[:author]).to eq("Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François")
       expect(bibtex[:publisher]).to eq("Dryad Digital Repository")

@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Mon, 01 May 2017 06:10:23 GMT
+      - Wed, 03 May 2017 06:53:07 GMT
       Etag:
       - W/"d880b497700d66fa1a98e348c33f19ad"
       Server:
@@ -45,9 +45,9 @@ http_interactions:
       X-Powered-By:
       - Phusion Passenger 5.1.2
       X-Request-Id:
-      - 52d942fc-8452-4088-b2ce-78c95c886f5c
+      - 547b43f5-cf31-457c-b467-3d8d653ac8d0
       X-Runtime:
-      - '0.208759'
+      - '0.575773'
       X-Xss-Protection:
       - 1; mode=block
       Connection:
@@ -56,7 +56,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.18429","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:25:39Z"}}}'
     http_version: 
-  recorded_at: Mon, 01 May 2017 06:10:23 GMT
+  recorded_at: Wed, 03 May 2017 06:53:07 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.18429/jacow-ipac2016-tupmy003&wt=json
@@ -80,11 +80,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Mon, 01 May 2017 06:10:23 GMT
+      - Wed, 03 May 2017 06:53:07 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '9808'
       Connection:
       - keep-alive
     body:
@@ -93,5 +91,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Mon, 01 May 2017 06:10:23 GMT
+  recorded_at: Wed, 03 May 2017 06:53:07 GMT
 recorded_with: VCR 3.0.3

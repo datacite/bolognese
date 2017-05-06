@@ -4,7 +4,7 @@ module Bolognese
       def get_codemeta(id: nil)
         return nil unless id.present?
         id = normalize_id(id)
-        response = Maremma.get(github_as_codemeta_url(id), raw: true)
+        response = Maremma.get(github_as_codemeta_url(id), accept: "json", raw: true)
         response.body.fetch("data", nil)
       end
 

@@ -162,12 +162,20 @@ module Bolognese
       xml.version(version)
     end
 
+    def related_identifier_hsh(relation_type)
+      Array.wrap(send(relation_type)).map { |r| r.merge("relationType" => relation_type.camelize) }
+    end
+
     def rel_identifier
-      Array.wrap(related_identifier).map do |r|
+      relation_types = %w(is_part_of has_part references is_referenced_by is_supplement_to is_supplemented_by)
+      ri = relation_types.reduce([]) { |sum, r| sum += related_identifier_hsh(r) }
+
+      Array.wrap(ri).map do |r|
+        related_identifier_type = r["issn"].present? ? "ISSN" : validate_url(r["id"])
         { "__content__" => r["id"],
-          "related_identifier_type" => validate_url(r["id"]),
+          "related_identifier_type" => related_identifier_type,
           "relation_type" => r["relationType"],
-          "resource_type_general" => r["resourceTypeGeneral"] }
+          "resource_type_general" => r["resourceTypeGeneral"] }.compact
       end
     end
 

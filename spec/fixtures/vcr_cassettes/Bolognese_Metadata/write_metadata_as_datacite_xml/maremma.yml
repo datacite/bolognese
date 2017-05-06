@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Maremma - https://github.com/datacite/maremma
       Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      - application/json
   response:
     status:
       code: 200
@@ -35,33 +35,33 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 1A3E:21AF2:27D99:292D8:5908EC16
+      - 763A:21AF1:CE176F:D666ED:590D14B9
       Content-Length:
       - '1260'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 02 May 2017 20:29:14 GMT
+      - Sat, 06 May 2017 00:11:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1545-HHN
+      - cache-hhn1539-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1493756955.527613,VS0,VE117
+      - S1494029498.254873,VS0,VE121
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - b17bcaa2c1cce81cde5aca4bfdd69f0c3ce387c1
+      - b7fcf5f93020bbb0e5c6bbd17efe04b840792118
       Expires:
-      - Tue, 02 May 2017 20:34:14 GMT
+      - Sat, 06 May 2017 00:16:38 GMT
       Source-Age:
       - '0'
     body:
@@ -96,5 +96,5 @@ http_interactions:
         YnktbGFuZy5vcmciCgl9LAoJInJlYWRtZSI6ICJodHRwczovL2dpdGh1Yi5j
         b20vZGF0YWNpdGUvbWFyZW1tYS9ibG9iL21hc3Rlci9SRUFETUUubWQiCn0K
     http_version: 
-  recorded_at: Tue, 02 May 2017 20:29:14 GMT
+  recorded_at: Sat, 06 May 2017 00:11:37 GMT
 recorded_with: VCR 3.0.3

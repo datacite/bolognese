@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Maremma - https://github.com/datacite/maremma
       Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      - application/json
   response:
     status:
       code: 404
@@ -27,33 +27,33 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - 3EA6:4FC3:6FDF:73E4:5908E6F9
+      - 1800:4FC1:38FFE:3C16E:59097D86
       Content-Length:
       - '15'
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 02 May 2017 20:07:21 GMT
+      - Wed, 03 May 2017 06:49:42 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1551-HHN
+      - cache-hhn1539-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1493755642.730529,VS0,VE105
+      - S1493794182.411448,VS0,VE104
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 31478bec46a9fd74185797f3c8cbbcf2bcc81d40
+      - 6ed7e38759bd55122419d806ea597a82027fb86b
       Expires:
-      - Tue, 02 May 2017 20:12:21 GMT
+      - Wed, 03 May 2017 06:54:42 GMT
       Source-Age:
       - '0'
     body:
@@ -62,5 +62,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Tue, 02 May 2017 20:07:21 GMT
+  recorded_at: Wed, 03 May 2017 06:49:42 GMT
 recorded_with: VCR 3.0.3
