@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/datacite/homepage/master/codemeta.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Github-Request-Id:
+      - DC9A:260D:DC1E51:E5147D:590DB6F3
+      Content-Length:
+      - '15'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sat, 06 May 2017 11:43:47 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-hhn1536-HHN
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1494071028.540127,VS0,VE114
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - 66d834a479c39e805887cd5d02d9b14dd86f1c4f
+      Expires:
+      - Sat, 06 May 2017 11:48:47 GMT
+      Source-Age:
+      - '0'
+    body:
+      encoding: UTF-8
+      string: '404: Not Found
+
+'
+    http_version: 
+  recorded_at: Sat, 06 May 2017 11:43:47 GMT
+recorded_with: VCR 3.0.3

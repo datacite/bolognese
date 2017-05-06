@@ -14,9 +14,9 @@ module Bolognese
       end.to_xml
     end
 
-    def datacite
-      datacite_xml
-    end
+    # def datacite
+    #   datacite_xml
+    # end
 
     def datacite_errors
       schema.validate(Nokogiri::XML(datacite, nil, 'UTF-8')).map { |error| error.to_s }.unwrap
@@ -88,7 +88,7 @@ module Bolognese
     end
 
     def insert_publisher(xml)
-      xml.publisher(container_title)
+      xml.publisher(publisher)
     end
 
     def insert_publication_year(xml)
@@ -164,10 +164,11 @@ module Bolognese
 
     def rel_identifier
       Array.wrap(related_identifier).map do |r|
+        related_identifier_type = r["issn"].present? ? "ISSN" : validate_url(r["id"])
         { "__content__" => r["id"],
-          "related_identifier_type" => validate_url(r["id"]),
+          "related_identifier_type" => related_identifier_type,
           "relation_type" => r["relationType"],
-          "resource_type_general" => r["resourceTypeGeneral"] }
+          "resource_type_general" => r["resourceTypeGeneral"] }.compact
       end
     end
 
@@ -190,7 +191,7 @@ module Bolognese
 
       xml.rightsList do
         Array.wrap(license).each do |lic|
-          xml.rights(lic["name"], 'rightsURI' => lic["url"])
+          xml.rights(lic["name"], 'rightsURI' => lic["id"])
         end
       end
     end

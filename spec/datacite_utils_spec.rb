@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Bolognese::Datacite, vcr: true do
-  let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
+describe Bolognese::Metadata, vcr: true do
+  let(:input) { "https://doi.org/10.5061/DRYAD.8515" }
 
-  subject { Bolognese::Datacite.new(id: id) }
+  subject { Bolognese::Metadata.new(input: input, from: "datacite") }
 
   context "insert_identifier" do
     it "doi" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_identifier(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.5061/DRYAD.8515")
+      expect(response["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.5061/dryad.8515")
     end
   end
 
@@ -113,10 +113,9 @@ describe Bolognese::Datacite, vcr: true do
 
   context "insert_related_identifiers" do
     it "related_identifier" do
-      expect(subject.related_identifier).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1", "relationType"=>"HasPart"},
-                                                {"id"=>"https://doi.org/10.5061/dryad.8515/2", "relationType"=>"HasPart"},
-                                                {"id"=>"https://doi.org/10.1371/journal.ppat.1000446",
-                                                 "relationType"=>"IsReferencedBy"}])
+      expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1"},
+                                      {"id"=>"https://doi.org/10.5061/dryad.8515/2"}])
+      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446")
     end
 
     it "insert" do
@@ -138,14 +137,14 @@ describe Bolognese::Datacite, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_rights_list(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0/")
+      expect(response.dig("rightsList", "rights")).to eq("rightsURI"=>"http://creativecommons.org/publicdomain/zero/1.0")
     end
   end
 
   context "insert_descriptions" do
     it "insert" do
-      id = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Datacite.new(id: id)
+      input = "https://doi.org/10.5438/4K3M-NYVG"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_descriptions(xml) }.to_xml
       response = Maremma.from_xml(xml)
       expect(response.dig("descriptions", "description")).to eq("descriptionType" => "Abstract", "__content__" => "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")

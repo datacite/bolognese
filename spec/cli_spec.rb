@@ -8,30 +8,30 @@ describe Bolognese::CLI do
 
   describe "convert from id", vcr: true do
     context "crossref" do
-      let(:id) { "10.7554/eLife.01567" }
+      let(:input) { "10.7554/eLife.01567" }
 
       it 'default' do
-        expect { subject.convert id }.to output(/additionalType/).to_stdout
+        expect { subject.convert input }.to output(/additionalType/).to_stdout
       end
 
       it 'to schema_org' do
         subject.options = { to: "schema_org" }
-        expect { subject.convert id }.to output(/additionalType/).to_stdout
+        expect { subject.convert input }.to output(/additionalType/).to_stdout
       end
 
       it 'to crossref' do
         subject.options = { to: "crossref" }
-        expect { subject.convert id }.to output(/journal_metadata/).to_stdout
+        expect { subject.convert input }.to output(/journal_metadata/).to_stdout
       end
 
       it 'to datacite' do
         subject.options = { to: "datacite" }
-        expect { subject.convert id }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
+        expect { subject.convert input }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
       end
 
       it 'to bibtex' do
         subject.options = { to: "bibtex" }
-        expect { subject.convert id }.to output(/@article{https:\/\/doi.org\/10.7554\/elife.01567/).to_stdout
+        expect { subject.convert input }.to output(/@article{https:\/\/doi.org\/10.7554\/elife.01567/).to_stdout
       end
     end
 

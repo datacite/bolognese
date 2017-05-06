@@ -4,6 +4,28 @@ require_relative 'date_utils'
 require_relative 'datacite_utils'
 require_relative 'utils'
 
+require_relative 'readers/bibtex_reader'
+require_relative 'readers/citeproc_reader'
+require_relative 'readers/codemeta_reader'
+require_relative 'readers/crosscite_reader'
+require_relative 'readers/crossref_reader'
+require_relative 'readers/datacite_json_reader'
+require_relative 'readers/datacite_reader'
+require_relative 'readers/ris_reader'
+require_relative 'readers/schema_org_reader'
+
+require_relative 'writers/bibtex_writer'
+require_relative 'writers/citeproc_writer'
+require_relative 'writers/codemeta_writer'
+require_relative 'writers/crosscite_writer'
+require_relative 'writers/crossref_writer'
+require_relative 'writers/datacite_writer'
+require_relative 'writers/datacite_json_writer'
+require_relative 'writers/rdf_xml_writer'
+require_relative 'writers/ris_writer'
+require_relative 'writers/schema_org_writer'
+require_relative 'writers/turtle_writer'
+
 module Bolognese
   class Metadata
     # include BenchmarkMethods
@@ -13,7 +35,29 @@ module Bolognese
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    attr_reader :id, :raw, :doc, :provider, :schema_version, :license, :citation,
+    include Bolognese::Readers::BibtexReader
+    include Bolognese::Readers::CiteprocReader
+    include Bolognese::Readers::CodemetaReader
+    include Bolognese::Readers::CrossciteReader
+    include Bolognese::Readers::CrossrefReader
+    include Bolognese::Readers::DataciteReader
+    include Bolognese::Readers::DataciteJsonReader
+    include Bolognese::Readers::RisReader
+    include Bolognese::Readers::SchemaOrgReader
+
+    include Bolognese::Writers::BibtexWriter
+    include Bolognese::Writers::CiteprocWriter
+    include Bolognese::Writers::CodemetaWriter
+    include Bolognese::Writers::CrossciteWriter
+    include Bolognese::Writers::CrossrefWriter
+    include Bolognese::Writers::DataciteWriter
+    include Bolognese::Writers::DataciteJsonWriter
+    include Bolognese::Writers::RdfXmlWriter
+    include Bolognese::Writers::RisWriter
+    include Bolognese::Writers::SchemaOrgWriter
+    include Bolognese::Writers::TurtleWriter
+
+    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
       :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
@@ -28,26 +72,259 @@ module Bolognese
       :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
       :name_detector
 
+    def initialize(input: nil, from: nil, regenerate: false)
+      id = normalize_id(input)
+
+      if id.present?
+        @from = from || find_from_format(id: id)
+
+        # generate name for method to call dynamically
+        string = send("get_" + @from, id: id)
+      else
+        ext = File.extname(input)
+        if %w(.bib .ris .xml .json).include?(ext)
+          string = IO.read(input)
+          @from = from || find_from_format(string: string, ext: ext)
+        else
+          $stderr.puts "File type #{ext} not supported"
+          exit 1
+        end
+      end
+
+      # generate name for method to call dynamically
+      @metadata = @from.present? ? send("read_" + @from, string: string) : {}
+      @raw = string
+      @should_passthru = (@from == "datacite") && !regenerate
+    end
+
+    def exists?
+      metadata.fetch("id", nil).present?
+    end
+
+    def valid?
+      errors.nil?
+    end
+
+    def errors
+      metadata.fetch("errors", nil)
+    end
+
+    # def errors
+    #   doc && doc.errors.map { |error| error.to_s }.unwrap
+    # end
+
+    def id
+      metadata.fetch("id", nil)
+    end
+
+    def type
+      metadata.fetch("type", nil)
+    end
+
+    def additional_type
+      metadata.fetch("additional_type", nil)
+    end
+
+    def citeproc_type
+      metadata.fetch("citeproc_type", nil)
+    end
+
+    def bibtex_type
+      metadata.fetch("bibtex_type", nil)
+    end
+
+    def ris_type
+      metadata.fetch("ris_type", nil)
+    end
+
+    def resource_type_general
+      metadata.fetch("resource_type_general", nil)
+    end
+
+    def doi
+      metadata.fetch("doi", nil)
+    end
+
+    def url
+      metadata.fetch("url", nil)
+    end
+
+    def title
+      metadata.fetch("title", nil)
+    end
+
+    def alternate_name
+      metadata.fetch("alternate_name", nil)
+    end
+
+    def author
+      metadata.fetch("author", nil)
+    end
+
+    def editor
+      metadata.fetch("editor", nil)
+    end
+
+    def funder
+      metadata.fetch("funder", nil)
+    end
+
+    def publisher
+      metadata.fetch("publisher", nil)
+    end
+
+    def provider
+      metadata.fetch("provider", nil)
+    end
+
+    def date_created
+      metadata.fetch("date_created", nil)
+    end
+
+    def date_accepted
+      metadata.fetch("date_accepted", nil)
+    end
+
+    def date_available
+      metadata.fetch("date_available", nil)
+    end
+
+    def date_copyrighted
+      metadata.fetch("date_copyrighted", nil)
+    end
+
+    def date_collected
+      metadata.fetch("date_collected", nil)
+    end
+
+    def date_submitted
+      metadata.fetch("date_submitted", nil)
+    end
+
+    def date_valid
+      metadata.fetch("date_valid", nil)
+    end
+
+    def date_published
+      metadata.fetch("date_published", nil)
+    end
+
+    def date_modified
+      metadata.fetch("date_modified", nil)
+    end
+
+    def volume
+      metadata.fetch("volume", nil)
+    end
+
+    def pagination
+      metadata.fetch("pagination", nil)
+    end
+
+    def description
+      metadata.fetch("description", nil)
+    end
+
+    def license
+      metadata.fetch("license", nil)
+    end
+
+    def version
+      metadata.fetch("version", nil)
+    end
+
+    def keywords
+      metadata.fetch("keywords", nil)
+    end
+
+    def language
+      metadata.fetch("language", nil)
+    end
+
+    def content_size
+      metadata.fetch("content_size", nil)
+    end
+
+    def schema_version
+      metadata.fetch("schema_version", nil)
+    end
+
+    def is_identical_to
+      metadata.fetch("is_identical_to", nil)
+    end
+
+    def is_part_of
+      metadata.fetch("is_part_of", nil)
+    end
+
+    def has_part
+      metadata.fetch("has_part", nil)
+    end
+
+    def is_previous_version_of
+      metadata.fetch("is_previous_of", nil)
+    end
+
+    def is_new_version_of
+      metadata.fetch("is_new_version_of", nil)
+    end
+
+    def is_variant_form_of
+      metadata.fetch("is_variant_form_of", nil)
+    end
+
+    def is_original_form_of
+      metadata.fetch("is_original_form_of", nil)
+    end
+
+    def references
+      metadata.fetch("references", nil)
+    end
+
+    def is_referenced_by
+      metadata.fetch("is_referenced_by", nil)
+    end
+
+    def is_supplement_to
+      metadata.fetch("is_supplement_to", nil)
+    end
+
+    def is_supplemented_by
+      metadata.fetch("is_supplemented_by", nil)
+    end
+
+    def reviews
+      metadata.fetch("reviews", nil)
+    end
+
+    def is_reviewed_by
+      metadata.fetch("is_reviewed_by", nil)
+    end
+
+    def related_identifier_hsh(relation_type)
+      Array.wrap(send(relation_type)).map { |r| r.merge("relationType" => relation_type.camelize) }
+    end
+
+    def related_identifier
+      relation_types = %w(is_part_of has_part references is_referenced_by is_supplement_to is_supplemented_by)
+      relation_types.reduce([]) { |sum, r| sum += related_identifier_hsh(r) }
+    end
+
     # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
     def name_detector
       @name_detector ||= defined?(::NameDetector) ? ::NameDetector : GenderDetector.new
     end
 
     def publication_year
-      date_published && date_published[0..3]
+      date_published.present? ? date_published[0..3].to_i.presence : nil
+    end
+
+    def container_title
+      is_part_of.to_h.fetch("name", nil)
     end
 
     def descriptions
       Array.wrap(description)
-    end
-
-    def pagination
-      [page_start, page_end].compact.join("-").presence
-    end
-
-    def reverse
-      { "citation" => Array.wrap(is_referenced_by).map { |r| { "@id" => r["id"] }}.unwrap,
-        "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
     end
 
     def name
@@ -58,177 +335,13 @@ module Bolognese
       end
     end
 
-    def schema_hsh
-      {
-        "@context" => id.present? ? "http://schema.org" : nil,
-        "@type" => type,
-        "@id" => id,
-        "url" => url,
-        "additionalType" => additional_type,
-        "name" => name,
-        "alternateName" => alternate_name,
-        "author" => to_schema_org(author),
-        "editor" => editor,
-        "description" => Array.wrap(description).map { |d| d["text"] }.unwrap,
-        "license" => license.present? ? license["id"] : nil,
-        "version" => version,
-        "keywords" => keywords,
-        "inLanguage" => language,
-        "contentSize" => content_size,
-        "dateCreated" => date_created,
-        "datePublished" => date_published,
-        "dateModified" => date_modified,
-        "pageStart" => page_start,
-        "pageEnd" => page_end,
-        "spatialCoverage" => spatial_coverage,
-        "sameAs" => same_as,
-        "isPartOf" => is_part_of,
-        "hasPart" => has_part,
-        "predecessor_of" => is_previous_version_of,
-        "successor_of" => is_new_version_of,
-        "citation" => Array.wrap(references).map { |r| r.except("relationType").merge("@type" => "CreativeWork") }.unwrap,
-        "@reverse" => reverse.presence,
-        "schemaVersion" => schema_version,
-        "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
-        "funder" => funder,
-        "provider" => provider.present? ? { "@type" => "Organization", "name" => provider } : nil
-      }.compact.presence
-    end
-
-    def schema_org
-      JSON.pretty_generate schema_hsh
+    def reverse
+      { "citation" => Array.wrap(is_referenced_by).map { |r| { "@id" => r["id"] }}.unwrap,
+        "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
     end
 
     def graph
       RDF::Graph.new << JSON::LD::API.toRdf(schema_hsh)
-    end
-
-    def turtle
-      graph.dump(:ttl, prefixes: { schema: "http://schema.org/" })
-    end
-
-    def rdf_xml
-      graph.dump(:rdfxml, prefixes: { schema: "http://schema.org/" })
-    end
-
-    def datacite_json
-      hsh = {
-        "id" => id,
-        "doi" => doi,
-        "creator" => author,
-        "title" => title,
-        "publisher" => publisher,
-        "publication-year" => publication_year,
-        "resource-type-general" => resource_type_general,
-        "resource-type" => additional_type,
-        "subject" => keywords.present? ? keywords.split(", ") : nil,
-        "contributor" => contributor,
-        "date-accepted" => date_accepted,
-        "date-available" => date_available,
-        "date-copyrighted" => date_copyrighted,
-        "date-collected" => date_collected,
-        "date-created" => date_created,
-        "date-published" => date_published,
-        "date-modified" => date_modified,
-        "date-submitted" => date_submitted,
-        "date-valid" => date_valid,
-        "language" => language,
-        "alternate-identifier" => alternate_name,
-        "related_identifier" => related_identifier,
-        "size" => content_size,
-        "format" => format,
-        "version" => version,
-        "rights" => license,
-        "description" => description,
-        "geo-location" => spatial_coverage,
-        "funding-reference" => funder,
-        "schemaVersion" => schema_version,
-        "provider" => provider
-      }.compact
-      JSON.pretty_generate hsh.presence
-    end
-
-    def citeproc
-      hsh = {
-        "type" => citeproc_type,
-        "id" => id,
-        "categories" => keywords.present? ? keywords.split(", ") : nil,
-        "language" => language,
-        "author" => to_citeproc(author),
-        "editor" => to_citeproc(editor),
-        "issued" => get_date_parts(date_published),
-        "submitted" => get_date_parts(date_submitted),
-        "abstract" => description.is_a?(Hash) ? description.fetch("text", nil) : description,
-        "container-title" => journal,
-        "DOI" => doi,
-        "issue" => issue,
-        "page" => pagination,
-        "publisher" => publisher,
-        "title" => title,
-        "URL" => url,
-        "version" => version,
-        "volume" => volume
-      }.compact
-      JSON.pretty_generate hsh.presence
-    end
-
-    def codemeta
-      hsh = {
-        "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
-        "@type" => type,
-        "@id" => id,
-        "identifier" => id,
-        "codeRepository" => url,
-        "title" => title,
-        "agents" => author,
-        "description" => description.present? ? description["text"] : nil,
-        "version" => version,
-        "tags" => keywords.to_s.split(", ").presence,
-        "dateCreated" => date_created,
-        "datePublished" => date_published,
-        "dateModified" => date_modified,
-        "publisher" => publisher
-      }.compact
-      JSON.pretty_generate hsh.presence
-    end
-
-    def bibtex
-      bib = {
-        bibtex_type: bibtex_type.present? ? bibtex_type.to_sym : "misc",
-        bibtex_key: id,
-        doi: doi,
-        url: url,
-        author: authors_as_string(author),
-        keywords: keywords,
-        language: language,
-        title: title,
-        journal: journal,
-        pages: pagination,
-        publisher: publisher,
-        year: publication_year
-      }.compact
-      BibTeX::Entry.new(bib).to_s
-    end
-
-    def ris
-      {
-        "TY" => ris_type,
-        "T1" => title,
-        "T2" => container_title,
-        "AU" => to_ris(author),
-        "DO" => doi,
-        "UR" => url,
-        "AB" => description.present? ? description["text"] : nil,
-        "KW" => keywords.to_s.split(", ").presence,
-        "PY" => publication_year,
-        "PB" => publisher,
-        "AN" => alternate_name.present? ? alternate_name["name"] : nil,
-        "LA" => language,
-        "VL" => volume,
-        "IS" => issue,
-        "SP" => pagination,
-        "ER" => ""
-      }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k} - #{vi}" }.join("\r\n") : "#{k} - #{v}" }.join("\r\n")
     end
   end
 end

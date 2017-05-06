@@ -1,5 +1,5 @@
-# turn array into hash or nil, depending on array size. Reverses Array.wrap,
-# but uses self to allow chaining with Array.wrap
+# turn array into hash or nil, depending on array size.
+# Reverses Array.wrap, but uses self to allow chaining with Array.wrap
 class Array
   def unwrap
     case self.length

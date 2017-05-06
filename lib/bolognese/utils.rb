@@ -113,18 +113,6 @@ module Bolognese
       "WebSite" => "webpage"
     }
 
-    CP_TO_SO_TRANSLATIONS = {
-      "song" => "AudioObject",
-      "post-weblog" => "BlogPosting",
-      "dataset" => "Dataset",
-      "graphic" => "ImageObject",
-      "motion_picture" => "Movie",
-      "article-journal" => "ScholarlyArticle",
-      "computer_program" => "SoftwareSourceCode",
-      "broadcast" => "VideoObject",
-      "webpage" => "WebPage"
-    }
-
     SO_TO_RIS_TRANSLATIONS = {
       "Article" => nil,
       "AudioObject" => nil,
@@ -191,16 +179,25 @@ module Bolognese
       "Other" => nil
     }
 
-    CP_TO_RIS_TRANSLATIONS = {
-      "post-weblog" => "BLOG",
-      "dataset" => "DATA",
-      "graphic" => "FIGURE",
-      "book" => "BOOK",
-      "motion_picture" => "MPCT",
-      "article-journal" => "JOUR",
-      "computer_program" => "COMP",
-      "broadcast" => "MPCT",
-      "webpage" => "ELEC"
+    SO_TO_BIB_TRANSLATIONS = {
+      "Article" => "article",
+      "AudioObject" => "misc",
+      "Blog" => "misc",
+      "BlogPosting" => "article",
+      "Collection" => "misc",
+      "CreativeWork" => "misc",
+      "DataCatalog" => "misc",
+      "Dataset" => "misc",
+      "Event" => "misc",
+      "ImageObject" => "misc",
+      "Movie" => "misc",
+      "PublicationIssue" => "misc",
+      "ScholarlyArticle" => "article",
+      "Service" => "misc",
+      "SoftwareSourceCode" => "misc",
+      "VideoObject" => "misc",
+      "WebPage" => "misc",
+      "WebSite" => "misc"
     }
 
     def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
@@ -244,46 +241,8 @@ module Bolognese
       elsif options[:ext] == ".json" && Maremma.from_json(string).dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
       end
-    end
-
-    def read(id: nil, string: nil, from: nil, **options)
-      p = case from
-          when nil
-            puts "not implemented"
-            return nil
-          when "crossref" then Crossref.new(id: id, string: string)
-          when "datacite" then Datacite.new(id: id, string: string, regenerate: options[:regenerate])
-          when "codemeta" then Codemeta.new(id: id, string: string)
-          when "datacite_json" then DataciteJson.new(string: string)
-          when "citeproc" then Citeproc.new(id: id, string: string)
-          when "bibtex" then Bibtex.new(string: string)
-          when "ris" then Ris.new(string: string)
-          else SchemaOrg.new(id: id)
-          end
-
-      if p.errors.present?
-        $stderr.puts p.errors.colorize(:red)
-      end
-
-      p
-    end
-
-    def write(id: nil, string: nil, from: nil, to: nil, **options)
-      metadata = read(id: id, string: string, from: from, **options)
-      return nil if metadata.nil?
-
-      if to == "datacite" && metadata.datacite_errors.present?
-        $stderr.puts metadata.datacite_errors.colorize(:red)
-      else
-        puts metadata.send(to)
-      end
-    end
-
-    def generate(id: nil, string: nil, from: nil, to: nil, **options)
-      metadata = read(id: id, string: string, from: from, **options)
-      return nil if metadata.nil?
-
-      metadata.send(to)
+    rescue
+      nil
     end
 
     def orcid_from_url(url)
@@ -303,6 +262,8 @@ module Bolognese
         "DOI"
       elsif /\A(http|https):\/\//.match(str)
         "URL"
+      elsif /\A(ISSN|eISSN) (\d{4}-\d{3}[0-9X]+)\z/.match(str)
+        "ISSN"
       end
     end
 
@@ -337,6 +298,19 @@ module Bolognese
       nil
     end
 
+    def normalize_url(id)
+      return nil unless id.present?
+
+      # check for valid HTTP uri
+      uri = Addressable::URI.parse(id)
+      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
+
+      # clean up URL
+      PostRank::URI.clean(id)
+    rescue Addressable::URI::InvalidURIError
+      nil
+    end
+
     def normalize_orcid(orcid)
       orcid = validate_orcid(orcid)
       return nil unless orcid.present?
@@ -345,13 +319,11 @@ module Bolognese
       "http://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
-    def normalize_ids(ids: nil, relation_type: "References")
+    def normalize_ids(ids: nil)
       Array.wrap(ids).map do |id|
         { "id" => normalize_id(id["@id"]),
-          "type" => id["@type"],
-          "name" => id["name"],
-          "relationType" => relation_type,
-          "resourceTypeGeneral" => id["resourceTypeGeneral"] || Metadata::SO_TO_DC_TRANSLATIONS[id["@type"]] }.compact
+          "type" => id["@type"] || Metadata::DC_TO_SO_TRANSLATIONS[id["resourceTypeGeneral"]] || "CreativeWork",
+          "name" => id["name"] }.compact
       end.unwrap
     end
 
@@ -510,10 +482,13 @@ module Bolognese
     end
 
     def jsonlint(json)
+      return ["No JSON provided"] unless json.present?
+
       error_array = []
       linter = JsonLint::Linter.new
       linter.send(:check_data, json, error_array)
       error_array
     end
+
   end
 end

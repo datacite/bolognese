@@ -1,0 +1,136 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.datacite.org/prefixes/10.5281
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Sat, 06 May 2017 11:41:45 GMT
+      Etag:
+      - W/"0411b3916b13b0c38e2c133d6e9905e2"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Powered-By:
+      - Phusion Passenger 5.1.2
+      X-Request-Id:
+      - 75a8ede8-d9d5-4267-9e17-04a17b68f419
+      X-Runtime:
+      - '0.531391'
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '124'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.5281","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:13Z"}}}'
+    http_version: 
+  recorded_at: Sat, 06 May 2017 11:41:45 GMT
+- request:
+    method: get
+    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sat, 06 May 2017 11:41:45 GMT
+      Server:
+      - openresty/1.11.2.2
+      Content-Length:
+      - '3892'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTI4MS96ZW5vZG8uNDg0NDA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5LcmlzdGlhbiBHYXJ6YTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkFuYWx5c2lzIFRvb2xzIGZvciBDcm9zc292ZXIgRXhwZXJpbWVudCBvZiBVSSB1c2luZyBDaG9pY2UgQXJjaGl0ZWN0dXJlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlplbm9kbzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PmNob2ljZSBhcmNoaXRlY3R1cmU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5jcm9zc292ZXIgZXhwZXJpbWVudDwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmhjaTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMDMtMjc8L2RhdGU+CiAgPC9kYXRlcz4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlNvZnR3YXJlIi8+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9IlVSTCI+aHR0cDovL3plbm9kby5vcmcvcmVjb3JkLzQ4NDQwPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGlvblR5cGU9IklzU3VwcGxlbWVudFRvIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9ImluZm86ZXUtcmVwby9zZW1hbnRpY3Mvb3BlbkFjY2VzcyI+T3BlbiBBY2Nlc3M8L3JpZ2h0cz4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnktbmMtc2EvNC4wLyI+Q3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbi1Ob25Db21tZXJjaWFsLVNoYXJlQWxpa2U8L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4mbHQ7cCZndDsmYW1wO25ic3A7Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7VGhpcyB0b29scyBhcmUgdXNlZCB0byBhbmFseXNlIHRoZSBkYXRhIHByb2R1Y2VkIGJ5IHRoZSBDcm9zc3NvdmVyIEV4cGVyaW1lbnQgSSBkZXNpZ25lZCB0byB0ZXN0IENob2ljZSBBcmNoaXRlY3R1cmUgdGVjaG5pcXVlcyBhcyBVSSBpbnRlcnZlbnRpb25zIGluIGEgU0VFazRTY2llbmNlIGRhdGEgY2F0YWxvZ3VlLiBJdCBjb250YWluczombHQ7L3AmZ3Q7CgombHQ7cCZndDstIERhdGEgc3RydWN0dXJlcyBmb3IgdGhlIGV4cGVyaW1lbnRhbCBkYXRhLiZsdDticiAvJmd0OwotIFZpc3VhbGlzYXRpb24gZnVuY3Rpb25zJmx0O2JyIC8mZ3Q7Ci0gQW5hbHlzaXMgZnVuY3Rpb25zJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7IyMgSW5zdGFsbGF0aW9uJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7LSBSJmx0O2JyIC8mZ3Q7Ci0gcHl0aG9uJmx0O2JyIC8mZ3Q7Ci0gaXB5dGhvbiA0Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Q2xvbmUgYW5kIHVzZS4mbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBVc2FnZSZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwpgYGBweXRob24mbHQ7YnIgLyZndDsKc291cmNlKCZhbXA7IzM5O3BhcmFsbGVsX3Bsb3QuciZhbXA7IzM5OykmbHQ7YnIgLyZndDsKd2l0aCh6LCBwYXJhbGxlbHNldCh0cnQscmVzcG9uc2UsIGZyZXE9Y291bnQsIGFscGhhPTAuMikpJmx0O2JyIC8mZ3Q7CmBgYCZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwojIyBDb250cmlidXRpbmcmbHQ7L3AmZ3Q7CgombHQ7cCZndDsxLiBGb3JrIGl0ISZsdDticiAvJmd0OwoyLiBDcmVhdGUgeW91ciBmZWF0dXJlIGJyYW5jaDogYGdpdCBjaGVja291dCAtYiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKMy4gQ29tbWl0IHlvdXIgY2hhbmdlczogYGdpdCBjb21taXQgLWFtICZhbXA7IzM5O0FkZCBzb21lIGZlYXR1cmUmYW1wOyMzOTtgJmx0O2JyIC8mZ3Q7CjQuIFB1c2ggdG8gdGhlIGJyYW5jaDogYGdpdCBwdXNoIG9yaWdpbiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKNS4gU3VibWl0IGEgcHVsbCByZXF1ZXN0IDpEJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIExpY2Vuc2UmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHdvcmsgc3VwcG9ydHMgbXkgUGhEIFRoZXNpcyBhdCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+Cg==","minted":"2016-03-27T22:18:38Z","updated":"2016-04-04T15:04:33Z","doi":"10.5281/ZENODO.48440"}]}}
+
+'
+    http_version: 
+  recorded_at: Sat, 06 May 2017 11:41:45 GMT
+- request:
+    method: get
+    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sat, 06 May 2017 11:41:46 GMT
+      Server:
+      - openresty/1.11.2.2
+      Content-Length:
+      - '3892'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTI4MS96ZW5vZG8uNDg0NDA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5LcmlzdGlhbiBHYXJ6YTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkFuYWx5c2lzIFRvb2xzIGZvciBDcm9zc292ZXIgRXhwZXJpbWVudCBvZiBVSSB1c2luZyBDaG9pY2UgQXJjaGl0ZWN0dXJlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlplbm9kbzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PmNob2ljZSBhcmNoaXRlY3R1cmU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5jcm9zc292ZXIgZXhwZXJpbWVudDwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmhjaTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMDMtMjc8L2RhdGU+CiAgPC9kYXRlcz4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlNvZnR3YXJlIi8+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9IlVSTCI+aHR0cDovL3plbm9kby5vcmcvcmVjb3JkLzQ4NDQwPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGlvblR5cGU9IklzU3VwcGxlbWVudFRvIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9ImluZm86ZXUtcmVwby9zZW1hbnRpY3Mvb3BlbkFjY2VzcyI+T3BlbiBBY2Nlc3M8L3JpZ2h0cz4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnktbmMtc2EvNC4wLyI+Q3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbi1Ob25Db21tZXJjaWFsLVNoYXJlQWxpa2U8L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4mbHQ7cCZndDsmYW1wO25ic3A7Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7VGhpcyB0b29scyBhcmUgdXNlZCB0byBhbmFseXNlIHRoZSBkYXRhIHByb2R1Y2VkIGJ5IHRoZSBDcm9zc3NvdmVyIEV4cGVyaW1lbnQgSSBkZXNpZ25lZCB0byB0ZXN0IENob2ljZSBBcmNoaXRlY3R1cmUgdGVjaG5pcXVlcyBhcyBVSSBpbnRlcnZlbnRpb25zIGluIGEgU0VFazRTY2llbmNlIGRhdGEgY2F0YWxvZ3VlLiBJdCBjb250YWluczombHQ7L3AmZ3Q7CgombHQ7cCZndDstIERhdGEgc3RydWN0dXJlcyBmb3IgdGhlIGV4cGVyaW1lbnRhbCBkYXRhLiZsdDticiAvJmd0OwotIFZpc3VhbGlzYXRpb24gZnVuY3Rpb25zJmx0O2JyIC8mZ3Q7Ci0gQW5hbHlzaXMgZnVuY3Rpb25zJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7IyMgSW5zdGFsbGF0aW9uJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7LSBSJmx0O2JyIC8mZ3Q7Ci0gcHl0aG9uJmx0O2JyIC8mZ3Q7Ci0gaXB5dGhvbiA0Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Q2xvbmUgYW5kIHVzZS4mbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBVc2FnZSZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwpgYGBweXRob24mbHQ7YnIgLyZndDsKc291cmNlKCZhbXA7IzM5O3BhcmFsbGVsX3Bsb3QuciZhbXA7IzM5OykmbHQ7YnIgLyZndDsKd2l0aCh6LCBwYXJhbGxlbHNldCh0cnQscmVzcG9uc2UsIGZyZXE9Y291bnQsIGFscGhhPTAuMikpJmx0O2JyIC8mZ3Q7CmBgYCZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwojIyBDb250cmlidXRpbmcmbHQ7L3AmZ3Q7CgombHQ7cCZndDsxLiBGb3JrIGl0ISZsdDticiAvJmd0OwoyLiBDcmVhdGUgeW91ciBmZWF0dXJlIGJyYW5jaDogYGdpdCBjaGVja291dCAtYiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKMy4gQ29tbWl0IHlvdXIgY2hhbmdlczogYGdpdCBjb21taXQgLWFtICZhbXA7IzM5O0FkZCBzb21lIGZlYXR1cmUmYW1wOyMzOTtgJmx0O2JyIC8mZ3Q7CjQuIFB1c2ggdG8gdGhlIGJyYW5jaDogYGdpdCBwdXNoIG9yaWdpbiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKNS4gU3VibWl0IGEgcHVsbCByZXF1ZXN0IDpEJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIExpY2Vuc2UmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHdvcmsgc3VwcG9ydHMgbXkgUGhEIFRoZXNpcyBhdCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+Cg==","minted":"2016-03-27T22:18:38Z","updated":"2016-04-04T15:04:33Z","doi":"10.5281/ZENODO.48440"}]}}
+
+'
+    http_version: 
+  recorded_at: Sat, 06 May 2017 11:41:46 GMT
+recorded_with: VCR 3.0.3

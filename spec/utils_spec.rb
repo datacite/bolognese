@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
+  let(:input) { "https://doi.org/10.1101/097196" }
 
-  subject { Bolognese::Metadata.new }
+  subject { Bolognese::Metadata.new(input: input, from: "crossref") }
 
   context "validate url" do
     it "DOI" do
@@ -15,6 +16,12 @@ describe Bolognese::Metadata, vcr: true do
       str = "https://blog.datacite.org/eating-your-own-dog-food"
       response = subject.validate_url(str)
       expect(response).to eq("URL")
+    end
+
+    it "ISSN" do
+      str = "ISSN 2050-084X"
+      response = subject.validate_url(str)
+      expect(response).to eq("ISSN")
     end
 
     it "string" do
@@ -98,13 +105,27 @@ describe Bolognese::Metadata, vcr: true do
     it "doi" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"}, {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55E5-T5C0"}]
       response = subject.normalize_ids(ids: ids)
-      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork", "relationType"=>"References", "resourceTypeGeneral" => "Other"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork", "relationType"=>"References", "resourceTypeGeneral" => "Other"}])
+      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork"}])
     end
 
     it "url" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food/"}]
       response = subject.normalize_ids(ids: ids)
-      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "resourceTypeGeneral" => "Other", "type"=>"CreativeWork", "relationType"=>"References")
+      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "type" => "CreativeWork")
+    end
+  end
+
+  context "normalize url" do
+    it "with trailing slash" do
+      url = "http://creativecommons.org/publicdomain/zero/1.0/"
+      response = subject.normalize_url(url)
+      expect(response).to eq("http://creativecommons.org/publicdomain/zero/1.0")
+    end
+
+    it "uri" do
+      url = "info:eu-repo/semantics/openAccess"
+      response = subject.normalize_url(url)
+      expect(response).to be_nil
     end
   end
 
@@ -135,28 +156,6 @@ describe Bolognese::Metadata, vcr: true do
       text = "In 1998 <strong>Tim Berners-Lee</strong> coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>"
       content = subject.sanitize(text, tags: ["a"])
       expect(content).to eq("In 1998 Tim Berners-Lee coined the term <a href=\"https://www.w3.org/Provider/Style/URI\">cool URIs</a>")
-    end
-  end
-
-  context "read" do
-    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
-    let(:from) { "datacite" }
-
-    it "datacite" do
-      response = subject.read(id: id, from: from)
-      expect(response.id).to eq("https://doi.org/10.5061/dryad.8515")
-    end
-  end
-
-  context "generate" do
-    let(:id) { "https://doi.org/10.5061/DRYAD.8515" }
-    let(:from) { "datacite" }
-    let(:to) { "schema_org" }
-
-    it "datacite" do
-      response = subject.generate(id: id, from: from, to: to)
-      json = JSON.parse(response)
-      expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
     end
   end
 
