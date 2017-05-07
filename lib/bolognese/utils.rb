@@ -386,7 +386,8 @@ module Bolognese
       Array.wrap(element).map do |a|
         a["@type"] = a["type"]
         a["@id"] = a["id"]
-        a.except("type", "id").compact
+        a["name"] = a["title"] if a["title"].present?
+        a.except("type", "id", "title").compact
       end.unwrap
     end
 
