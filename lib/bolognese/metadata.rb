@@ -320,7 +320,7 @@ module Bolognese
     end
 
     def container_title
-      is_part_of.to_h.fetch("name", nil)
+      is_part_of.to_h.fetch("title", nil)
     end
 
     def descriptions

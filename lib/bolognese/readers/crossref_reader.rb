@@ -190,7 +190,7 @@ module Bolognese
       def crossref_is_part_of(journal_metadata)
         if journal_metadata.present?
           { "type" => "Periodical",
-            "name" => journal_metadata["full_title"],
+            "title" => journal_metadata["full_title"],
             "issn" => parse_attributes(journal_metadata.fetch("issn", nil)) }.compact
         else
           nil
@@ -201,7 +201,8 @@ module Bolognese
          refs = bibliographic_metadata.dig("citation_list", "citation")
          Array.wrap(refs).select { |a| a["doi"].present? }.map do |c|
            { "id" => normalize_id(c["doi"]),
-             "type" => "CreativeWork" }.compact
+             "type" => "CreativeWork",
+             "title" => c["article_title"] }.compact
          end.unwrap
       end
     end

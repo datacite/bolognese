@@ -26,7 +26,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.description["text"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.date_published).to eq("2014")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"eLife")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife")
     end
   end
 end

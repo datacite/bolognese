@@ -22,7 +22,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
       expect(subject.date_published).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"DataCite Blog")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"DataCite Blog")
     end
   end
 end

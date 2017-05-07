@@ -24,7 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.license["id"]).to eq("http://creativecommons.org/licenses/by/3.0/")
       expect(subject.date_published).to eq("2014")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife", "issn"=>"2050-084X")
     end
   end
 end

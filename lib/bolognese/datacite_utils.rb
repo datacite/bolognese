@@ -167,7 +167,8 @@ module Bolognese
         { "__content__" => r["id"] || r["issn"],
           "related_identifier_type" => r["issn"].present? ? "ISSN" : validate_url(r["id"]),
           "relation_type" => r["relationType"],
-          "resource_type_general" => r["resourceTypeGeneral"] }.compact
+          "resource_type_general" => r["resourceTypeGeneral"] || "Other",
+          "title" => r["title"] }.compact
       end
     end
 
@@ -179,7 +180,8 @@ module Bolognese
           attributes = {
             'relatedIdentifierType' => related_identifier["related_identifier_type"],
             'relationType' => related_identifier["relation_type"],
-            'resourceTypeGeneral' => related_identifier["resource_type_general"] }.compact
+            'resourceTypeGeneral' => related_identifier["resource_type_general"],
+            'title' => related_identifier["title"] }.compact
           xml.relatedIdentifier(related_identifier["__content__"], attributes)
         end
       end

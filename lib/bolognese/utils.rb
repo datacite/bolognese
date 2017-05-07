@@ -321,7 +321,7 @@ module Bolognese
       Array.wrap(ids).map do |id|
         { "id" => normalize_id(id["@id"]),
           "type" => id["@type"] || Metadata::DC_TO_SO_TRANSLATIONS[id["resourceTypeGeneral"]] || "CreativeWork",
-          "name" => id["name"] }.compact
+          "title" => id["title"] || id["name"] }.compact
       end.unwrap
     end
 

@@ -37,7 +37,7 @@ module Bolognese
 
         is_part_of = if meta.journal.present?
                   { "type" => "Periodical",
-                    "name" => meta.journal.to_s,
+                    "title" => meta.journal.to_s,
                     "issn" => meta.issn.to_s.presence }.compact
                 else
                   nil

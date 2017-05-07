@@ -38,7 +38,7 @@ module Bolognese
         container_title = meta.fetch("container-title", nil)
         is_part_of = if container_title.present?
                        { "type" => "Periodical",
-                         "name" => container_title,
+                         "title" => container_title,
                          "issn" => meta.fetch("ISSN", nil) }.compact
                      else
                        nil

@@ -26,7 +26,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2015-08-11T05:35:02Z")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife", "issn"=>"2050-084X")
       expect(subject.references.count).to eq(25)
       expect(subject.references[19]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "type"=>"CreativeWork")
       expect(subject.funder).to eq([{"name"=>"SystemsX"},
@@ -55,7 +55,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2006-12-20")
       expect(subject.date_modified).to eq("2016-12-31T21:37:08Z")
       expect(subject.pagination).to eq("e30")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"PLoS ONE", "issn"=>"1932-6203")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"PLoS ONE", "issn"=>"1932-6203")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -92,7 +92,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2006-11")
       expect(subject.date_modified).to eq("2017-04-01T00:47:57Z")
       expect(subject.pagination).to eq("2832-2841")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"Ecology", "issn"=>"0012-9658")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Ecology", "issn"=>"0012-9658")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -111,7 +111,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2012")
       expect(subject.date_modified).to eq("2016-08-02T12:42:41Z")
       expect(subject.pagination).to eq("1-7")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -128,7 +128,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Paving the path to HIV neurotherapy: Predicting SIV CNS disease")
       expect(subject.date_published).to eq("2015-07")
       expect(subject.date_modified).to eq("2016-08-20T02:19:38Z")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "name"=>"European Journal of Pharmacology", "issn"=>"00142999")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"European Journal of Pharmacology", "issn"=>"00142999")
       expect(subject.provider).to eq("Crossref")
     end
 

@@ -24,7 +24,7 @@ module Bolognese
           "pagination" => pagination,
           "spatialCoverage" => spatial_coverage,
           "sameAs" => same_as,
-          "isPartOf" => is_part_of,
+          "isPartOf" => is_part_of.present? ? is_part_of.merge("name" => is_part_of["title"]) : nil,
           "hasPart" => has_part,
           "predecessor_of" => is_previous_version_of,
           "successor_of" => is_new_version_of,

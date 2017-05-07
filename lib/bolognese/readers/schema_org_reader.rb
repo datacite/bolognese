@@ -21,12 +21,11 @@ module Bolognese
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("author", nil))))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
-        publisher = meta.dig("publisher", "name")
-        container_title = if publisher.is_a?(Hash)
-                            publisher.fetch("name", nil)
-                          elsif publisher.is_a?(String)
-                            publisher
-                          end
+        publisher = if meta.dig("publisher").is_a?(Hash)
+                      meta.dig("publisher", "name")
+                    elsif publisher.is_a?(String)
+                      meta.dig("publisher")
+                    end
         date_published = meta.fetch("datePublished", nil)
 
         { "id" => id,
@@ -41,7 +40,6 @@ module Bolognese
           "title" => meta.fetch("name", nil),
           "alternate_name" => meta.fetch("alternateName", nil),
           "author" => author,
-          "container_title" => container_title,
           "publisher" => meta.dig("publisher", "name"),
           "provider" => meta.fetch("provider", nil),
           "is_identical_to" => schema_org_is_identical_to(meta),
