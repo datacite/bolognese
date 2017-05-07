@@ -1,0 +1,39 @@
+{
+    "id": "https://doi.org/10.5281/zenodo.48440",
+    "doi": "10.5281/zenodo.48440",
+    "type": "SoftwareSourceCode",
+    "additional_type": "Software",
+    "citeproc_type": "other",
+    "bibtex_type": "misc",
+    "ris_type": "COMP",
+    "resource_type_general": "Software",
+    "resource_type": "Software",
+    "author": {
+        "type": "Person",
+        "name": "Kristian Garza",
+        "givenName": "Kristian",
+        "familyName": "Garza"
+    },
+    "title": "Analysis Tools for Crossover Experiment of UI using Choice Architecture",
+    "publisher": "Zenodo",
+    "keywords": "choice architecture, crossover experiment, hci",
+    "date_published": "2016-03-27",
+    "alternate_name": {
+        "type": "URL",
+        "name": "http://zenodo.org/record/48440"
+    },
+    "license": [{
+            "name": "Open Access"
+        },
+        {
+            "id": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+            "name": "Creative Commons Attribution-NonCommercial-ShareAlike"
+        }
+    ],
+    "description": {
+        "type": "Abstract",
+        "text": "This tools are used to analyse the data produced by the Crosssover Experiment I designed to test Choice Architecture techniques as UI interventions in a SEEk4Science data catalogue. It contains:\n\n- Data structures for the experimental data.<br>\n- Visualisation functions<br>\n- Analysis functions\n\n## Installation\n\n- R<br>\n- python<br>\n- ipython 4\n\nClone and use.\n\n## Usage\n\n<br>\n```python<br>\nsource('parallel_plot.r')<br>\nwith(z, parallelset(trt,response, freq=count, alpha=0.2))<br>\n```\n\n<br>\n## Contributing\n\n1. Fork it!<br>\n2. Create your feature branch: `git checkout -b my-new-feature`<br>\n3. Commit your changes: `git commit -am 'Add some feature'`<br>\n4. Push to the branch: `git push origin my-new-feature`<br>\n5. Submit a pull request :D\n\n<br>\n## License\n\nThis work supports my PhD Thesis at University of Manchester."
+    },
+    "schema_version": "http://datacite.org/schema/kernel-3",
+    "provider": "DataCite"
+}

@@ -91,11 +91,26 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.find_from_format(string: string, ext: ext)).to eq("citeproc")
     end
 
+    it "crosscite" do
+      file = fixture_path + "crosscite.json"
+      string = IO.read(file)
+      ext = File.extname(file)
+      expect(subject.find_from_format(string: string, ext: ext)).to eq("crosscite")
+    end
+
     it "codemeta" do
       file = fixture_path + "codemeta.json"
       string = IO.read(file)
       ext = File.extname(file)
       expect(subject.find_from_format(string: string, ext: ext)).to eq("codemeta")
+    end
+  end
+
+  context "find from format from string" do
+    it "crosscite" do
+      file = fixture_path + "crosscite.json"
+      string = IO.read(file)
+      expect(subject.find_from_format(string: string)).to eq("crosscite")
     end
   end
 

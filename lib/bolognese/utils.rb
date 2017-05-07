@@ -198,11 +198,13 @@ module Bolognese
       "WebSite" => "misc"
     }
 
-    def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
+    def find_from_format(id: nil, string: nil, ext: nil)
       if id.present?
         find_from_format_by_id(id)
+      elsif ext.present?
+        find_from_format_by_ext(string, ext: ext)
       elsif string.present?
-        find_from_format_by_string(string, ext: ext, filename: filename)
+        find_from_format_by_string(string)
       end
     end
 
@@ -221,26 +223,44 @@ module Bolognese
       end
     end
 
-    def find_from_format_by_string(string, options={})
+    def find_from_format_by_ext(string, options={})
       if options[:ext] == ".bib"
         "bibtex"
       elsif options[:ext] == ".ris"
         "ris"
-      elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("doi_records", "doi_record", "crossref")
+      elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref")
         "crossref"
-      elsif options[:ext] == ".xml" && Maremma.from_xml(string).dig("resource", "xmlns").start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("ris_type")
+        "crosscite"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("issued", "date-parts").present?
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("@context").to_s.start_with?("http://schema.org")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org")
         "schema_org"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
       end
-    rescue
-      nil
+    end
+
+    def find_from_format_by_string(string)
+      if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
+        "crossref"
+      elsif Maremma.from_xml(string).to_h.dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+        "datacite"
+      elsif Maremma.from_json(string).to_h.dig("ris_type").present?
+        "crosscite"
+      elsif Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
+        "datacite_json"
+      elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
+        "citeproc"
+      elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org")
+        "schema_org"
+      elsif Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
+        "codemeta"
+      end
     end
 
     def orcid_from_url(url)

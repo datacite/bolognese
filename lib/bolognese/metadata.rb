@@ -80,7 +80,7 @@ module Bolognese
 
         # generate name for method to call dynamically
         string = send("get_" + @from, id: id)
-      else
+      elsif File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
           string = IO.read(input)
@@ -89,6 +89,9 @@ module Bolognese
           $stderr.puts "File type #{ext} not supported"
           exit 1
         end
+      else
+        string = input
+        @from = from || find_from_format(string: string)
       end
 
       # generate name for method to call dynamically
