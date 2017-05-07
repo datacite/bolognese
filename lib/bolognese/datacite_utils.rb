@@ -166,9 +166,7 @@ module Bolognese
       Array.wrap(related_identifier).map do |r|
         { "__content__" => r["id"] || r["issn"],
           "related_identifier_type" => r["issn"].present? ? "ISSN" : validate_url(r["id"]),
-          "relation_type" => r["relationType"],
-          "resource_type_general" => r["resourceTypeGeneral"] || "Other",
-          "title" => r["title"] }.compact
+          "relation_type" => r["relationType"] }.compact
       end
     end
 
@@ -179,9 +177,7 @@ module Bolognese
         rel_identifier.each do |related_identifier|
           attributes = {
             'relatedIdentifierType' => related_identifier["related_identifier_type"],
-            'relationType' => related_identifier["relation_type"],
-            'resourceTypeGeneral' => related_identifier["resource_type_general"],
-            'title' => related_identifier["title"] }.compact
+            'relationType' => related_identifier["relation_type"] }.compact
           xml.relatedIdentifier(related_identifier["__content__"], attributes)
         end
       end

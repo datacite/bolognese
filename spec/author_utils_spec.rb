@@ -128,6 +128,15 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.get_one_author(author)
       expect(response).to eq("type"=>"Organization", "name"=>"University Of California, Santa Barbara")
     end
+
+    it "name with affiliation" do
+      input = "10.11588/DIGLIT.6130"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      string = subject.get_datacite(id: input)
+      meta = Maremma.from_xml(string).fetch("resource", {})
+      response = subject.get_one_author(meta.dig("creators", "creator"))
+      expect(response).to eq("type"=>"Person", "name"=>"Dr. Störi, Kunstsalon")
+    end
   end
 
   context "get_name_identifier" do

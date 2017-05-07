@@ -123,15 +123,12 @@ describe Bolognese::Metadata, vcr: true do
       response = Maremma.from_xml(xml)
       expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq([{"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"HasPart",
-                                                                              "resourceTypeGeneral"=>"Other",
                                                                               "__content__"=>"https://doi.org/10.5061/dryad.8515/1"},
                                                                              {"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"HasPart",
-                                                                              "resourceTypeGeneral"=>"Other",
                                                                               "__content__"=>"https://doi.org/10.5061/dryad.8515/2"},
                                                                              {"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"IsReferencedBy",
-                                                                              "resourceTypeGeneral"=>"Other",
                                                                               "__content__"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
     end
   end

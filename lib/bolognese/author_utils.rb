@@ -34,11 +34,20 @@ module Bolognese
         names = Namae.parse(name)
         parsed_name = names.first
 
+        if parsed_name.present?
+          given_name = parsed_name.given
+          family_name = parsed_name.family
+          name = [given_name, family_name].join(" ")
+        else
+          given_name = nil
+          family_name = nil
+        end
+
         { "type" => "Person",
           "id" => id,
-          "name" => [parsed_name.given, parsed_name.family].join(" "),
-          "givenName" => parsed_name.given,
-          "familyName" => parsed_name.family }.compact
+          "name" => name,
+          "givenName" => given_name,
+          "familyName" => family_name }.compact
       else
         { "type" => type, "name" => name }.compact
       end
