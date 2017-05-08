@@ -52,7 +52,7 @@ module Bolognese
           "date_created" => meta.fetch("dateCreated", nil),
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
-          "description" => { "text" => meta.fetch("description", nil) },
+          "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("keywords", nil)

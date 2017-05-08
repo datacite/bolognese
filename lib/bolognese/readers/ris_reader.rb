@@ -62,7 +62,7 @@ module Bolognese
           "date_created" => meta.fetch("Y1", nil),
           "date_published" => meta.fetch("PY", nil),
           "date_accessed" => meta.fetch("Y2", nil),
-          "description" => meta.fetch("AB", nil).present? ? { "text" => meta.fetch("AB", nil) } : nil,
+          "description" => meta.fetch("AB", nil).present? ? { "text" => sanitize(meta.fetch("AB")) } : nil,
           "volume" => meta.fetch("VL", nil),
           "issue" => meta.fetch("IS", nil),
           "pagination" => [meta.fetch("SP", nil), meta.fetch("EP", nil)].compact.join("-").presence,

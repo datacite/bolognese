@@ -137,6 +137,15 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "name"=>"Dr. Störi, Kunstsalon")
     end
+
+    it "name with role" do
+      input = "10.14463/GBV:873056442"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      string = subject.get_datacite(id: input)
+      meta = Maremma.from_xml(string).fetch("resource", {})
+      response = subject.get_one_author(meta.dig("creators", "creator").first)
+      expect(response).to eq("type"=>"Person", "name"=>"H. C. Schumacher", "givenName"=>"H. C.", "familyName"=>"Schumacher")
+    end
   end
 
   context "get_name_identifier" do

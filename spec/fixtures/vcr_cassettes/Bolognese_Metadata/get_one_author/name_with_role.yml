@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.14463/gbv:873056442&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Mon, 08 May 2017 05:00:01 GMT
+      Server:
+      - openresty/1.11.2.2
+      Content-Length:
+      - '3010'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+CjxyZXNvdXJjZSB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTIuMiIKICAgICAgICAgICAgIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiCiAgICAgICAgICAgICB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjIgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4yL21ldGFkYXRhLnhzZCI+CiAgICAgIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE0NDYzL0dCVjo4NzMwNTY0NDI8L2lkZW50aWZpZXI+CiAgICAgIDxjcmVhdG9ycz4KICAgICAgICAgPGNyZWF0b3I+CiAgICAgICAgICAgIDxjcmVhdG9yTmFtZT5TY2h1bWFjaGVyLCBILiBDLiAoIEhlcmF1c2dlYmVySW4gKSA8L2NyZWF0b3JOYW1lPgogICAgICAgICA8L2NyZWF0b3I+CiAgICAgICAgIDxjcmVhdG9yPgogICAgICAgICAgICA8Y3JlYXRvck5hbWU+V2FybnN0b3JmZiwgRy4gSC4gTC4gKCBIZXJhdXNnZWJlckluICkgPC9jcmVhdG9yTmFtZT4KICAgICAgICAgPC9jcmVhdG9yPgogICAgICA8L2NyZWF0b3JzPgogICAgICA8dGl0bGVzPgogICAgICAgICA8dGl0bGU+U2FtbWx1bmcgdm9uIEjDvGxmc3RhZmVsbjwvdGl0bGU+CiAgICAgIDwvdGl0bGVzPgogICAgICA8cHVibGlzaGVyPlRlY2huaXNjaGUgSW5mb3JtYXRpb25zYmlibGlvdGhlayAoVElCKTwvcHVibGlzaGVyPgogICAgICA8cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj4KICAgICAgPGNvbnRyaWJ1dG9ycz4KICAgICAgICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iSG9zdGluZ0luc3RpdHV0aW9uIj4KICAgICAgICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5USUIgLSBUZWNobmlzY2hlIEluZm9ybWF0aW9uc2JpYmxpb3RoZWsgVW5pdmVyc2l0w6R0c2JpYmxpb3RoZWsgSGFubm92ZXI8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgICAgPC9jb250cmlidXRvcj4KICAgICAgICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YU1hbmFnZXIiPgogICAgICAgICAgICA8Y29udHJpYnV0b3JOYW1lPlRlY2huaXNjaGUgSW5mb3JtYXRpb25zYmlibGlvdGhlayBVbml2ZXJzaXTDpHRzYmlibGlvdGhlayBIYW5ub3ZlcjwvY29udHJpYnV0b3JOYW1lPgogICAgICAgICA8L2NvbnRyaWJ1dG9yPgogICAgICA8L2NvbnRyaWJ1dG9ycz4KICAgICAgPGRhdGVzPgogICAgICAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE2PC9kYXRlPgogICAgICAgICA8ZGF0ZSBkYXRlVHlwZT0iQ29weXJpZ2h0ZWQiPjIwMTY8L2RhdGU+CiAgICAgIDwvZGF0ZXM+CiAgICAgIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgICAgIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Qm9vazwvcmVzb3VyY2VUeXBlPgogICAgICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICAgICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJmaXJzdGlkIj5HQlY6ODczMDU2NDQyPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogICAgICAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0icHBuIj44NzMwNTY0NDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICAgICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJmdHgtaWQiPlRJQktBVDo4NzMwNTY0NDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICAgIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICAgIDxzaXplcz4KICAgICAgICAgPHNpemU+MSBPbmxpbmUtUmVzc291cmNlICgyMjEsIDMxIFNlaXRlbik8L3NpemU+CiAgICAgIDwvc2l6ZXM+CiAgICAgIDxmb3JtYXRzPgogICAgICAgICA8Zm9ybWF0PmFwcGxpY2F0aW9uL3BkZjwvZm9ybWF0PgogICAgICA8L2Zvcm1hdHM+CiAgICAgIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICAgICAgPHJpZ2h0cz5UZWNobmlzY2hlIEluZm9ybWF0aW9uc2JpYmxpb3RoZWsgKFRJQik8L3JpZ2h0cz4KICAgPC9yZXNvdXJjZT4=","minted":"2016-11-24T08:00:30Z","updated":"2017-01-23T08:02:26Z","doi":"10.14463/GBV:873056442"}]}}
+
+'
+    http_version: 
+  recorded_at: Mon, 08 May 2017 05:00:01 GMT
+- request:
+    method: get
+    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.14463/gbv:873056442&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Mon, 08 May 2017 05:00:01 GMT
+      Server:
+      - openresty/1.11.2.2
+      Content-Length:
+      - '3010'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+CjxyZXNvdXJjZSB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTIuMiIKICAgICAgICAgICAgIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiCiAgICAgICAgICAgICB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjIgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4yL21ldGFkYXRhLnhzZCI+CiAgICAgIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE0NDYzL0dCVjo4NzMwNTY0NDI8L2lkZW50aWZpZXI+CiAgICAgIDxjcmVhdG9ycz4KICAgICAgICAgPGNyZWF0b3I+CiAgICAgICAgICAgIDxjcmVhdG9yTmFtZT5TY2h1bWFjaGVyLCBILiBDLiAoIEhlcmF1c2dlYmVySW4gKSA8L2NyZWF0b3JOYW1lPgogICAgICAgICA8L2NyZWF0b3I+CiAgICAgICAgIDxjcmVhdG9yPgogICAgICAgICAgICA8Y3JlYXRvck5hbWU+V2FybnN0b3JmZiwgRy4gSC4gTC4gKCBIZXJhdXNnZWJlckluICkgPC9jcmVhdG9yTmFtZT4KICAgICAgICAgPC9jcmVhdG9yPgogICAgICA8L2NyZWF0b3JzPgogICAgICA8dGl0bGVzPgogICAgICAgICA8dGl0bGU+U2FtbWx1bmcgdm9uIEjDvGxmc3RhZmVsbjwvdGl0bGU+CiAgICAgIDwvdGl0bGVzPgogICAgICA8cHVibGlzaGVyPlRlY2huaXNjaGUgSW5mb3JtYXRpb25zYmlibGlvdGhlayAoVElCKTwvcHVibGlzaGVyPgogICAgICA8cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj4KICAgICAgPGNvbnRyaWJ1dG9ycz4KICAgICAgICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iSG9zdGluZ0luc3RpdHV0aW9uIj4KICAgICAgICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5USUIgLSBUZWNobmlzY2hlIEluZm9ybWF0aW9uc2JpYmxpb3RoZWsgVW5pdmVyc2l0w6R0c2JpYmxpb3RoZWsgSGFubm92ZXI8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgICAgPC9jb250cmlidXRvcj4KICAgICAgICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YU1hbmFnZXIiPgogICAgICAgICAgICA8Y29udHJpYnV0b3JOYW1lPlRlY2huaXNjaGUgSW5mb3JtYXRpb25zYmlibGlvdGhlayBVbml2ZXJzaXTDpHRzYmlibGlvdGhlayBIYW5ub3ZlcjwvY29udHJpYnV0b3JOYW1lPgogICAgICAgICA8L2NvbnRyaWJ1dG9yPgogICAgICA8L2NvbnRyaWJ1dG9ycz4KICAgICAgPGRhdGVzPgogICAgICAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE2PC9kYXRlPgogICAgICAgICA8ZGF0ZSBkYXRlVHlwZT0iQ29weXJpZ2h0ZWQiPjIwMTY8L2RhdGU+CiAgICAgIDwvZGF0ZXM+CiAgICAgIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgICAgIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Qm9vazwvcmVzb3VyY2VUeXBlPgogICAgICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICAgICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJmaXJzdGlkIj5HQlY6ODczMDU2NDQyPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogICAgICAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0icHBuIj44NzMwNTY0NDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICAgICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJmdHgtaWQiPlRJQktBVDo4NzMwNTY0NDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICAgIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICAgIDxzaXplcz4KICAgICAgICAgPHNpemU+MSBPbmxpbmUtUmVzc291cmNlICgyMjEsIDMxIFNlaXRlbik8L3NpemU+CiAgICAgIDwvc2l6ZXM+CiAgICAgIDxmb3JtYXRzPgogICAgICAgICA8Zm9ybWF0PmFwcGxpY2F0aW9uL3BkZjwvZm9ybWF0PgogICAgICA8L2Zvcm1hdHM+CiAgICAgIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICAgICAgPHJpZ2h0cz5UZWNobmlzY2hlIEluZm9ybWF0aW9uc2JpYmxpb3RoZWsgKFRJQik8L3JpZ2h0cz4KICAgPC9yZXNvdXJjZT4=","minted":"2016-11-24T08:00:30Z","updated":"2017-01-23T08:02:26Z","doi":"10.14463/GBV:873056442"}]}}
+
+'
+    http_version: 
+  recorded_at: Mon, 08 May 2017 05:00:01 GMT
+recorded_with: VCR 3.0.3

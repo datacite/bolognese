@@ -144,7 +144,7 @@ module Bolognese
         if des.is_a?(Hash)
           des.to_xml
         elsif des.is_a?(String)
-          des
+          sanitize(des)
         end
       end
 

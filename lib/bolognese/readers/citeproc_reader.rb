@@ -61,7 +61,7 @@ module Bolognese
           "date_published" => date_published,
           "volume" => meta.fetch("volume", nil),
           #{}"pagination" => meta.pages.to_s.presence,
-          "description" => { "text" => meta.fetch("abstract", nil) },
+          "description" => meta.fetch("abstract", nil).present? ? { "text" => sanitize(meta.fetch("abstract")) } : nil,
           #{ }"license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
           "version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("categories", nil)

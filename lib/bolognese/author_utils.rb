@@ -61,7 +61,7 @@ module Bolognese
       author = author.gsub(" - ", "-")
 
       # remove text in parentheses
-      author = author.sub(/\s*\(.+\)$/, '')
+      author = author.sub(/\s*\(.+\)\s*/, '')
 
       # titleize strings
       # remove non-standard space characters
