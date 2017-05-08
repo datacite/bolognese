@@ -43,7 +43,7 @@ module Bolognese
           if k.is_a?(String)
             sanitize(k)
           else
-            k.fetch("__content__", nil)
+            k.to_h.fetch("__content__", nil)
           end
         end.compact.join(", ").presence
         dates = Array.wrap(meta.dig("dates", "date"))

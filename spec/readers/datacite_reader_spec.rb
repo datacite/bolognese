@@ -203,6 +203,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.provider).to eq("DataCite")
     end
 
+    it "empty subject" do
+      input = "https://doi.org/10.18169/PAPDEOTTX00502"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.18169/papdeottx00502")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Disclosure")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author).to eq("name"=>"Anonymous")
+      expect(subject.title).to eq( "Messung der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen")
+      expect(subject.date_published).to eq("2017")
+      expect(subject.publisher).to eq("Siemens AG")
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
     # it "missing creator" do
     #   string = IO.read(fixture_path + "datacite_missing_creator.xml")
     #   subject = Bolognese::Metadata.new(string: string, regenerate: true)
