@@ -32,7 +32,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
       expect(json["title"]).to eq("Eating your own Dog Food")
-      expect(json["author"]).to eq("family"=>"Fenner", "given"=>"Martin")
+      expect(json["author"]).to eq([{"family"=>"Fenner", "given"=>"Martin"}])
       expect(json["publisher"]).to eq("DataCite")
       expect(json["issued"]).to eq("date-parts"=>[[2016, 12, 20]])
     end
@@ -45,7 +45,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(json["DOI"]).to eq("10.5438/4K3M-NYVG")
       expect(json["title"]).to eq("Eating your own Dog Food")
-      expect(json["author"]).to eq("family" => "Fenner","given" => "Martin")
+      expect(json["author"]).to eq([{"family"=>"Fenner", "given"=>"Martin"}])
       expect(json["publisher"]).to eq("DataCite")
       expect(json["issued"]).to eq("date-parts" => [[2016, 12, 20]])
     end
@@ -58,7 +58,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
       expect(json["title"]).to eq("Eating your own Dog Food")
-      expect(json["author"]).to eq("family" => "Fenner","given" => "Martin")
+      expect(json["author"]).to eq([{"family"=>"Fenner", "given"=>"Martin"}])
       expect(json["publisher"]).to eq("DataCite")
       expect(json["issued"]).to eq("date-parts" => [[2016, 12, 20]])
     end
@@ -130,7 +130,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["DOI"]).to eq("10.5438/qeg0-3gm3")
       expect(json["title"]).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(json["author"]).to eq("family" => "Fenner", "given" => "Martin")
+      expect(json["author"]).to eq([{"family"=>"Fenner", "given"=>"Martin"}])
       expect(json["publisher"]).to eq("DataCite")
       expect(json["issued"]).to eq("date-parts" => [[2017, 2, 24]])
     end
