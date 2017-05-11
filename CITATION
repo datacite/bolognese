@@ -7,6 +7,7 @@ A BibTeX entry for bolognese is
 
 @misc{https://doi.org/10.5438/n138-z3mk,
   doi = {10.5438/n138-z3mk},
+  url = {https://github.com/datacite/bolognese},
   author = {Fenner, Martin},
   keywords = {doi, metadata, crossref, datacite, schema.org, bibtex, codemeta},
   title = {Bolognese: a Ruby library for conversion of DOI Metadata},
