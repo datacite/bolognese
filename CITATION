@@ -12,5 +12,6 @@ A BibTeX entry for bolognese is
   keywords = {doi, metadata, crossref, datacite, schema.org, bibtex, codemeta},
   title = {Bolognese: a Ruby library for conversion of DOI Metadata},
   publisher = {DataCite},
+  note = {Ruby gem and command-line utility for conversion of DOI metadata from and to different metadata formats, including schema.org.},
   year = {2017}
 }
