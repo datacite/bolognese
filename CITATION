@@ -1,0 +1,15 @@
+To cite bolognese in publications, please use:
+
+Fenner, M. (2017). Bolognese: a Ruby library for conversion of DOI Metadata.
+DataCite. https://doi.org/10.5438/n138-z3mk
+
+A BibTeX entry for bolognese is
+
+@misc{https://doi.org/10.5438/n138-z3mk,
+  doi = {10.5438/n138-z3mk},
+  author = {Fenner, Martin},
+  keywords = {doi, metadata, crossref, datacite, schema.org, bibtex, codemeta},
+  title = {Bolognese: a Ruby library for conversion of DOI Metadata},
+  publisher = {DataCite},
+  year = {2017}
+}
