@@ -38,7 +38,7 @@ module Bolognese
           "issue" => issue,
           "pagination" => pagination,
           "spatial_coverage" => spatial_coverage,
-          "funding_reference" => funding,
+          "funding" => funding,
           "schema_version" => schema_version,
           "provider" => provider
         }.compact

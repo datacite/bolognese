@@ -383,19 +383,28 @@ module Bolognese
     end
 
     def to_schema_org(element)
-      Array.wrap(element).map do |a|
-        a["@type"] = a["type"]
-        a["@id"] = a["id"]
-        a["name"] = a["title"] if a["title"].present?
-        a.except("type", "id", "title").compact
-      end.unwrap
+      mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
+
+      map_hash_keys(element: element, mapping: mapping)
     end
 
     def from_schema_org(element)
+      mapping = { "@type" => "type", "@id" => "id" }
+
+      map_hash_keys(element: element, mapping: mapping)
+    end
+
+    def map_hash_keys(element: nil, mapping: nil)
       Array.wrap(element).map do |a|
-        a["type"] = a["@type"]
-        a["id"] = a["@id"]
-        a.except("@type", "@id").compact
+        a.map {|k, v| [mapping.fetch(k, k), v] }.reduce({}) do |hsh, (k, v)|
+          if v.is_a?(Hash)
+            hsh[k] = to_schema_org(v)
+            hsh
+          else
+            hsh[k] = v
+            hsh
+          end
+        end
       end.unwrap
     end
 

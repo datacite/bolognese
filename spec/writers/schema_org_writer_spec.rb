@@ -81,7 +81,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
       expect(json["funding"]).to eq("@type" => "Award",
-                                    "funder" => {"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
+                                    "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
                                     "identifier" => "654039",
                                     "name" => "THOR – Technical and Human Infrastructure for Open Research",
                                     "url" => "http://cordis.europa.eu/project/rcn/194927_en.html")
@@ -93,7 +93,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(json["funding"]).to eq("@type" => "Award",
-                                    "funder" => {"type"=>"Organization", "name"=>"European Commission"},
+                                    "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
                                     "identifier" => "246686")
     end
   end

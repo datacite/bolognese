@@ -118,6 +118,28 @@ module Bolognese
         end.uniq
       end
 
+      def datacite_funder_contributor(meta)
+        Array.wrap(meta.dig("contributors", "contributor")).reduce([]) do |sum, f|
+          if f["contributorType"] == "Funder"
+            # handle special case of OpenAIRE metadata
+            id = f.dig("nameIdentifier", "__content__").to_s.start_with?("info:eu-repo/grantAgreement/EC") ? "https://doi.org/10.13039/501100000780" : nil
+
+            funder = { "type" => "Organization",
+                       "id" => id,
+                       "name" => f["contributorName"] }.compact
+            if f.dig("nameIdentifier", "nameIdentifierScheme") == "info"
+              sum << { "type" => "Award",
+                       "identifier" => f.dig("nameIdentifier", "__content__").split("/").last,
+                       "funder" => funder }
+            else
+              sum << funder
+            end
+          else
+            sum
+          end
+        end
+      end
+
       def datacite_related_identifier(meta, relation_type: nil)
         arr = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
         arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
@@ -175,24 +197,6 @@ module Bolognese
 
       def datacite_is_reviewed_by(meta)
         datacite_related_identifier(meta, relation_type: "IsReviewedBy").presence
-      end
-
-      def datacite_funder_contributor(meta)
-        Array.wrap(meta.dig("contributors", "contributor")).reduce([]) do |sum, f|
-          if f["contributorType"] == "Funder"
-            funder = { "type" => "Organization",
-                       "name" => f["contributorName"] }.compact
-            if f.dig("nameIdentifier", "nameIdentifierScheme") == "info"
-              sum << { "type" => "Award",
-                       "identifier" => f.dig("nameIdentifier", "__content__").split("/").last,
-                       "funder" => funder }
-            else
-              sum << funder
-            end
-          else
-            sum
-          end
-        end
       end
     end
   end
