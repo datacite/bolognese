@@ -60,7 +60,7 @@ module Bolognese
     attr_reader :id, :from, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
       :additional_type, :alternate_name, :url, :version, :keywords, :editor,
       :page_start, :page_end, :date_modified, :language, :spatial_coverage,
-      :content_size, :funder, :journal, :bibtex_type, :date_created, :has_part,
+      :content_size, :funding, :journal, :bibtex_type, :date_created, :has_part,
       :publisher, :contributor, :same_as, :is_previous_version_of, :is_new_version_of,
       :should_passthru, :errors, :datacite_errors, :date_accepted, :date_available,
       :date_copyrighted, :date_collected, :date_submitted, :date_valid,
@@ -168,10 +168,6 @@ module Bolognese
       metadata.fetch("editor", nil)
     end
 
-    def funder
-      metadata.fetch("funder", nil)
-    end
-
     def publisher
       metadata.fetch("publisher", nil)
     end
@@ -250,6 +246,10 @@ module Bolognese
 
     def schema_version
       metadata.fetch("schema_version", nil)
+    end
+
+    def funding
+      metadata.fetch("funding", nil)
     end
 
     def is_identical_to

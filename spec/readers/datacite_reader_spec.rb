@@ -124,7 +124,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("The dataset contains a sample of metadata describing papers")
       expect(subject.date_published).to eq("2013-04-03")
       expect(subject.publisher).to eq("OpenAIRE Orphan Record Repository")
-      expect(subject.funder).to eq("name" => "European Commission")
+      expect(subject.funding).to eq("type"=>"Award", "identifier"=>"246686", "funder"=>{"type"=>"Organization", "name"=>"European Commission"})
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
@@ -181,7 +181,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("Five years ago, a global infrastructure")
       expect(subject.date_published).to eq("2015")
       expect(subject.publisher).to eq("DataCite")
-      expect(subject.funder).to eq("identifier"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission")
+      expect(subject.funding).to eq("type"=>"Award",
+                                    "funder" => {"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
+                                    "identifier" => "654039",
+                                    "name" => "THOR – Technical and Human Infrastructure for Open Research",
+                                    "url" => "http://cordis.europa.eu/project/rcn/194927_en.html")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end

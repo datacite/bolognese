@@ -32,7 +32,7 @@ module Bolognese
           "@reverse" => reverse.presence,
           "schemaVersion" => schema_version,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
-          "funder" => funder,
+          "funding" => to_schema_org(funding),
           "provider" => provider.present? ? { "@type" => "Organization", "name" => provider } : nil
         }.compact.presence
       end

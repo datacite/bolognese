@@ -111,7 +111,7 @@ module Bolognese
           "alternate_name" => crossref_alternate_name(bibliographic_metadata),
           "author" => crossref_people(bibliographic_metadata, "author"),
           "editor" => crossref_people(bibliographic_metadata, "editor"),
-          "funder" => crossref_funder(program_metadata),
+          "funding" => crossref_funding_reference(program_metadata),
           "publisher" => nil,
           "provider" => "Crossref",
           "is_part_of" => crossref_is_part_of(journal_metadata),
@@ -168,14 +168,42 @@ module Bolognese
         end.unwrap
       end
 
-      def crossref_funder(program_metadata)
+      def crossref_funding_reference(program_metadata)
         fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
         Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
           f = Array.wrap(f.fetch("assertion", nil)).first
-          { "id" => normalize_id(f.dig("assertion", "__content__")),
-            "name" => f.dig("__content__").strip }.compact
+          funder = { "type" => "Organization",
+                     "id" => normalize_id(f.dig("assertion", "__content__")),
+                     "name" => f.dig("__content__").strip }.compact
+           if f["awardNumber"].present? || f["awardTitle"].present?
+             { "type" => "Award",
+               "name" => f.fetch("awardTitle", nil),
+               "identifier" => f.dig("awardNumber", "__content__"),
+               "url" => f.dig("awardNumber", "awardURI"),
+               "funder" => funder }
+           else
+             funder
+           end
         end.unwrap
       end
+
+      # def datacite_funding_reference(meta)
+      #   Array.wrap(meta.dig("fundingReferences", "fundingReference")).map do |f|
+      #     funder_id = parse_attributes(f["funderIdentifier"])
+      #     funder = { "type" => "Organization",
+      #                "id" => normalize_id(funder_id),
+      #                "name" => f["funderName"] }.compact
+      #     if f["awardNumber"].present? || f["awardTitle"].present?
+      #       { "type" => "Award",
+      #         "name" => f.fetch("awardTitle", nil),
+      #         "identifier" => f.dig("awardNumber", "__content__"),
+      #         "url" => f.dig("awardNumber", "awardURI"),
+      #         "funder" => funder }
+      #     else
+      #       funder
+      #     end
+      #   end.uniq
+      # end
 
       def crossref_date_published(bibliographic_metadata)
         pub_date = Array.wrap(bibliographic_metadata.fetch("publication_date", nil)).presence ||

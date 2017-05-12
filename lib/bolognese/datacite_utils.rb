@@ -130,10 +130,10 @@ module Bolognese
     end
 
     def insert_funding_references(xml)
-      return xml unless Array.wrap(funder).present?
+      return xml unless Array.wrap(funding).present?
 
       xml.fundingReferences do
-        Array.wrap(funder).each do |funding_reference|
+        Array.wrap(funding).each do |funding_reference|
           xml.fundingReference do
             insert_funding_reference(xml, funding_reference)
           end

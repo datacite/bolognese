@@ -7,6 +7,16 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
+      expect(json["funding"]).to eq([{"name"=>"SystemsX", "@type"=>"Organization"},
+                                     {"name"=>"EMBO",
+                                      "@type"=>"Organization",
+                                      "@id"=>"https://doi.org/10.13039/501100003043"},
+                                     {"name"=>"Swiss National Science Foundation",
+                                      "@type"=>"Organization",
+                                      "@id"=>"https://doi.org/10.13039/501100001711"},
+                                     {"name"=>"University of Lausanne",
+                                      "@type"=>"Organization",
+                                      "@id"=>"https://doi.org/10.13039/501100006390"}])
     end
 
     it "maremma schema.org JSON" do
@@ -63,6 +73,28 @@ describe Bolognese::Metadata, vcr: true do
                                      "@id"=>"http://orcid.org/0000-0002-2192-403X"},
                                     {"name"=>"University Of California, Santa Barbara", "@type"=>"Organization"}])
       expect(json["version"]).to eq("2.0.0")
+    end
+
+    it "Funding" do
+      input = "https://doi.org/10.5438/6423"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
+      expect(json["funding"]).to eq("@type" => "Award",
+                                    "funder" => {"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
+                                    "identifier" => "654039",
+                                    "name" => "THOR – Technical and Human Infrastructure for Open Research",
+                                    "url" => "http://cordis.europa.eu/project/rcn/194927_en.html")
+    end
+
+    it "Funding OpenAIRE" do
+      input = "https://doi.org/10.5281/ZENODO.1239"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
+      expect(json["funding"]).to eq("@type" => "Award",
+                                    "funder" => {"type"=>"Organization", "name"=>"European Commission"},
+                                    "identifier" => "246686")
     end
   end
 end

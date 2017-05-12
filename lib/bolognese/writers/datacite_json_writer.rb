@@ -34,7 +34,7 @@ module Bolognese
           "rights" => license,
           "description" => description,
           "geo-location" => spatial_coverage,
-          "funding-reference" => funder,
+          "funding-reference" => funding,
           "schemaVersion" => schema_version,
           "provider" => provider
         }.compact

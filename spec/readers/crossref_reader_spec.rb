@@ -29,13 +29,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife", "issn"=>"2050-084X")
       expect(subject.references.count).to eq(25)
       expect(subject.references[19]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "type"=>"CreativeWork")
-      expect(subject.funder).to eq([{"name"=>"SystemsX"},
-                                    {"id"=>"https://doi.org/10.13039/501100003043",
-                                     "name"=>"EMBO"},
-                                    {"id"=>"https://doi.org/10.13039/501100001711",
-                                     "name"=>"Swiss National Science Foundation"},
-                                    {"id"=>"https://doi.org/10.13039/501100006390",
-                                     "name"=>"University of Lausanne"}])
+      expect(subject.funding).to eq([{"type"=>"Organization", "name"=>"SystemsX"},
+                                     {"type"=>"Organization",
+                                      "id"=>"https://doi.org/10.13039/501100003043",
+                                      "name"=>"EMBO"},
+                                     {"type"=>"Organization",
+                                      "id"=>"https://doi.org/10.13039/501100001711",
+                                      "name"=>"Swiss National Science Foundation"},
+                                     {"type"=>"Organization",
+                                      "id"=>"https://doi.org/10.13039/501100006390",
+                                      "name"=>"University of Lausanne"}])
       expect(subject.provider).to eq("Crossref")
     end
 

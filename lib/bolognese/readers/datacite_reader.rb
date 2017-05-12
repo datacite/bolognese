@@ -47,7 +47,7 @@ module Bolognese
           end
         end.compact.join(", ").presence
         dates = Array.wrap(meta.dig("dates", "date"))
-        funder = begin
+        funding = begin
           f = datacite_funder_contributor(meta) + datacite_funding_reference(meta)
           f.length > 1 ? f : f.first
         end
@@ -66,9 +66,9 @@ module Bolognese
           "alternate_name" => alternate_name,
           "author" => get_authors(meta.dig("creators", "creator")),
           "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
-          "funder" => funder,
           "publisher" => meta.fetch("publisher", nil),
           "provider" => "DataCite",
+          "funding" => funding,
           "is_identical_to" => datacite_is_identical_to(meta),
           "is_part_of" => datacite_is_part_of(meta),
           "has_part" => datacite_has_part(meta),
@@ -103,8 +103,18 @@ module Bolognese
       def datacite_funding_reference(meta)
         Array.wrap(meta.dig("fundingReferences", "fundingReference")).map do |f|
           funder_id = parse_attributes(f["funderIdentifier"])
-          { "identifier" => normalize_id(funder_id),
-            "name" => f["funderName"] }.compact
+          funder = { "type" => "Organization",
+                     "id" => normalize_id(funder_id),
+                     "name" => f["funderName"] }.compact
+          if f["awardNumber"].present? || f["awardTitle"].present?
+            { "type" => "Award",
+              "name" => f.fetch("awardTitle", nil),
+              "identifier" => f.dig("awardNumber", "__content__"),
+              "url" => f.dig("awardNumber", "awardURI"),
+              "funder" => funder }
+          else
+            funder
+          end
         end.uniq
       end
 
@@ -170,7 +180,15 @@ module Bolognese
       def datacite_funder_contributor(meta)
         Array.wrap(meta.dig("contributors", "contributor")).reduce([]) do |sum, f|
           if f["contributorType"] == "Funder"
-            sum << { "name" => f["contributorName"] }
+            funder = { "type" => "Organization",
+                       "name" => f["contributorName"] }.compact
+            if f.dig("nameIdentifier", "nameIdentifierScheme") == "info"
+              sum << { "type" => "Award",
+                       "identifier" => f.dig("nameIdentifier", "__content__").split("/").last,
+                       "funder" => funder }
+            else
+              sum << funder
+            end
           else
             sum
           end
