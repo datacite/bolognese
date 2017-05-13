@@ -2,8 +2,9 @@ module Bolognese
   module Writers
     module SchemaOrgWriter
       def schema_hsh
-        {
-          "@context" => id.present? ? "http://schema.org" : nil,
+        return nil unless valid?
+
+        { "@context" => id.present? ? "http://schema.org" : nil,
           "@type" => type,
           "@id" => id,
           "url" => url,
@@ -24,11 +25,11 @@ module Bolognese
           "pagination" => pagination,
           "spatialCoverage" => spatial_coverage,
           "sameAs" => same_as,
-          "isPartOf" => is_part_of.present? ? to_schema_org(is_part_of) : nil,
-          "hasPart" => has_part,
-          "predecessor_of" => is_previous_version_of,
-          "successor_of" => is_new_version_of,
-          "citation" => Array.wrap(references).map { |r| r.except("relationType").merge("@type" => "CreativeWork") }.unwrap,
+          "isPartOf" => to_schema_org(is_part_of),
+          "hasPart" => to_schema_org(has_part),
+          "predecessor_of" => to_schema_org(is_previous_version_of),
+          "successor_of" => to_schema_org(is_new_version_of),
+          "citation" => to_schema_org(references),
           "@reverse" => reverse.presence,
           "schemaVersion" => schema_version,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,

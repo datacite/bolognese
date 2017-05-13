@@ -2,6 +2,8 @@ module Bolognese
   module Writers
     module DataciteJsonWriter
       def datacite_json
+        return nil unless valid?
+        
         hsh = {
           "id" => id,
           "doi" => doi,

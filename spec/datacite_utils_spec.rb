@@ -113,9 +113,8 @@ describe Bolognese::Metadata, vcr: true do
 
   context "insert_related_identifiers" do
     it "related_identifier" do
-      expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1"},
-                                      {"id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446")
+      expect(subject.has_part).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/1"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/2"}])
+      expect(subject.is_referenced_by).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1371/journal.ppat.1000446")
     end
 
     it "insert" do

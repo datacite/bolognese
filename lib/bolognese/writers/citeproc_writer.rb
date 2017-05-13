@@ -2,6 +2,8 @@ module Bolognese
   module Writers
     module CiteprocWriter
       def citeproc
+        return nil unless valid?
+        
         hsh = {
           "type" => citeproc_type,
           "id" => id,

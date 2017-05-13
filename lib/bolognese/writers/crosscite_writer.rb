@@ -2,6 +2,8 @@ module Bolognese
   module Writers
     module CrossciteWriter
       def crosscite
+        return nil unless valid?
+        
         hsh = {
           "id" => id,
           "doi" => doi,

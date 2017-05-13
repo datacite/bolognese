@@ -2,6 +2,8 @@ module Bolognese
   module Writers
     module RisWriter
       def ris
+        return nil unless valid?
+        
         {
           "TY" => ris_type,
           "T1" => title,

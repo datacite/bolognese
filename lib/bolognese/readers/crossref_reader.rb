@@ -228,8 +228,8 @@ module Bolognese
       def crossref_references(bibliographic_metadata)
          refs = bibliographic_metadata.dig("citation_list", "citation")
          Array.wrap(refs).select { |a| a["doi"].present? }.map do |c|
-           { "id" => normalize_id(c["doi"]),
-             "type" => "CreativeWork",
+           { "type" => "CreativeWork",
+             "id" => normalize_id(c["doi"]),
              "title" => c["article_title"] }.compact
          end.unwrap
       end

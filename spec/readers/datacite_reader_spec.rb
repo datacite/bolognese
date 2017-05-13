@@ -26,8 +26,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.alternate_name).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
       expect(subject.license).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
       expect(subject.date_published).to eq("2011")
-      expect(subject.has_part).to eq([{"id"=>"https://doi.org/10.5061/dryad.8515/1"}, {"id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.is_referenced_by).to eq("id"=>"https://doi.org/10.1371/journal.ppat.1000446")
+      expect(subject.has_part).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/1"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/2"}])
+      expect(subject.is_referenced_by).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -47,8 +47,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("Eating your own dog food")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss")
-      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0000-00ss")
+      expect(subject.references).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0012"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/55e5-t5c0"}])
       expect(subject.publisher).to eq("DataCite")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -84,7 +84,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.license).to eq([{"name"=>"Open Access"}, {"id"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}])
       expect(subject.date_published).to eq("2016-03-27")
-      expect(subject.is_supplement_to).to eq("id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0")
+      expect(subject.is_supplement_to).to eq("type"=>"CreativeWork", "id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0")
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -104,7 +104,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("<b>RAIN: RNA–protein Association and Interaction Networks")
       expect(subject.license).to eq("id"=>"https://creativecommons.org/licenses/by/4.0", "name"=>"CC-BY")
       expect(subject.date_published).to eq("2016")
-      expect(subject.is_identical_to).to eq("id"=>"https://doi.org/10.6084/m9.figshare.4234751")
+      expect(subject.is_identical_to).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.6084/m9.figshare.4234751")
       expect(subject.publisher).to eq("Figshare")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -202,8 +202,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.date_published).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss")
-      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0000-00ss")
+      expect(subject.references).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0012"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/55e5-t5c0"}])
       expect(subject.provider).to eq("DataCite")
     end
 
@@ -221,6 +221,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Siemens AG")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "DOI not found" do
+      input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be false
     end
 
     # it "missing creator" do

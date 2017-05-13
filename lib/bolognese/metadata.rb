@@ -79,7 +79,7 @@ module Bolognese
         @from = from || find_from_format(id: id)
 
         # generate name for method to call dynamically
-        string = send("get_" + @from, id: id)
+        string = @from.present? ? send("get_" + @from, id: id) : nil
       elsif File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
@@ -105,7 +105,7 @@ module Bolognese
     end
 
     def valid?
-      errors.nil?
+      exists? && errors.nil?
     end
 
     def errors

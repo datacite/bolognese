@@ -2,6 +2,8 @@ module Bolognese
   module Writers
     module BibtexWriter
       def bibtex
+        return nil unless valid?
+        
         bib = {
           bibtex_type: bibtex_type.presence || "misc",
           bibtex_key: id,

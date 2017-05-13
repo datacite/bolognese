@@ -138,8 +138,7 @@ describe Bolognese::Metadata, vcr: true do
     it "not found error" do
       input = "https://doi.org/10.7554/elife.01567x"
       subject = Bolognese::Metadata.new(input: input)
-      expect(subject.id).to be_nil
-      expect(subject.exists?).to be false
+      expect(subject.valid?).to be false
     end
   end
 end

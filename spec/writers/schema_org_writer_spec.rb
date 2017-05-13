@@ -7,6 +7,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
+      expect(json["citation"].length).to eq(25)
+      expect(json["citation"].first).to eq("@id"=>"https://doi.org/10.1038/nature02100", "@type"=>"CreativeWork")
       expect(json["funding"]).to eq([{"name"=>"SystemsX", "@type"=>"Organization"},
                                      {"name"=>"EMBO",
                                       "@type"=>"Organization",
@@ -80,6 +82,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
+      expect(json["hasPart"].length).to eq(25)
+      expect(json["hasPart"].first).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5281/zenodo.30799")
       expect(json["funding"]).to eq("@type" => "Award",
                                     "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
                                     "identifier" => "654039",

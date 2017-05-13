@@ -4,6 +4,22 @@ describe Bolognese::Metadata, vcr: true do
   let(:input) { "http://doi.org/10.5438/4K3M-NYVG" }
   subject { Bolognese::Metadata.new(input: input) }
 
+  context "handle input" do
+    it "unknown DOI prefix" do
+      input = "http://doi.org/10.0137/14802"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be false
+      expect(subject.bibtex).to be_nil
+    end
+
+    it "DOI RA not Crossref or DataCite" do
+      input = "http://doi.org/10.3980/j.issn.2222-3959.2015.03.07"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be false
+      expect(subject.bibtex).to be_nil
+    end
+  end
+
   context "find from format by ID" do
     it "crossref" do
       id = "https://doi.org/10.1371/journal.pone.0000030"
@@ -23,6 +39,11 @@ describe Bolognese::Metadata, vcr: true do
     it "datacite doi http" do
       id = "http://doi.org/10.5438/4K3M-NYVG"
       expect(subject.find_from_format(id: id)).to eq("datacite")
+    end
+
+    it "unknown DOI registration agency" do
+      id = "http://doi.org/10.0137/14802"
+      expect(subject.find_from_format(id: id)).to be_nil
     end
 
     it "orcid" do

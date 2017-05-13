@@ -32,8 +32,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       expect(subject.valid?).to be false
       expect(subject.errors).to eq(["expected comma, not a string at line 4, column 11 [parse.c:381]"])
-      json = JSON.parse(subject.codemeta)
-      expect(json).to be_nil
+      expect(subject.codemeta).to be_nil
     end
 
     it "SoftwareSourceCode overlapping_keys" do
@@ -41,8 +40,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       expect(subject.valid?).to be false
       expect(subject.errors).to eq(["The same key is defined more than once: id"])
-      json = JSON.parse(subject.codemeta)
-      expect(json).to be_nil
+      expect(subject.codemeta).to be_nil
     end
   end
 end

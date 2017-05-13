@@ -8,6 +8,8 @@ module Bolognese
         url = "https://search.datacite.org/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
         response = Maremma.get url
         attributes = response.body.dig("data", "response", "docs").first
+        return nil unless attributes.present?
+
         string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
         string = Base64.decode64(string)
         if string.present?
@@ -144,7 +146,7 @@ module Bolognese
         arr = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
         arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
 
-        arr.map { |work| { "id" => normalize_id(work["__content__"]) } }.unwrap
+        arr.map { |work| { "type" => "CreativeWork", "id" => normalize_id(work["__content__"]) } }.unwrap
       end
 
       def datacite_is_identical_to(meta)
