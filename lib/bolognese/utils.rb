@@ -293,7 +293,8 @@ module Bolognese
       elsif element.is_a?(Hash)
         element.fetch(content, nil)
       elsif element.is_a?(Array)
-        a = element.map { |e| e.fetch(content, nil) }.uniq.unwrap
+        a = element.map { |e| e.fetch(content, nil) }.uniq
+        a = options[:first] ? a.first : a.unwrap
       else
         nil
       end

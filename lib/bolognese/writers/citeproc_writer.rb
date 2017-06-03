@@ -4,14 +4,6 @@ module Bolognese
       def citeproc
         return nil unless valid?
 
-        abstract = if description.is_a?(Hash)
-          description.fetch("text", nil)
-        elsif description.is_a?(Array)
-          description.first.fetch("text", nil)
-        else
-          description
-        end
-
         hsh = {
           "type" => citeproc_type,
           "id" => id,
@@ -21,13 +13,13 @@ module Bolognese
           "editor" => to_citeproc(editor),
           "issued" => get_date_parts(date_published),
           "submitted" => get_date_parts(date_submitted),
-          "abstract" => abstract,
+          "abstract" => parse_attributes(description, content: "text", first: true),
           "container-title" => container_title,
           "DOI" => doi,
           "issue" => issue,
           "page" => pagination,
           "publisher" => publisher,
-          "title" => title,
+          "title" => parse_attributes(title, content: "text", first: true),
           "URL" => url,
           "version" => version,
           "volume" => volume

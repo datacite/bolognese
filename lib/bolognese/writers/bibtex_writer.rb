@@ -3,7 +3,7 @@ module Bolognese
     module BibtexWriter
       def bibtex
         return nil unless valid?
-        
+
         bib = {
           bibtex_type: bibtex_type.presence || "misc",
           bibtex_key: id,
@@ -12,7 +12,7 @@ module Bolognese
           author: authors_as_string(author),
           keywords: keywords,
           language: language,
-          title: title,
+          title: parse_attributes(title, content: "text", first: true),
           journal: container_title,
           volume: volume,
           issue: issue,

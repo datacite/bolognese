@@ -55,6 +55,12 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.parse_attributes(element)
       expect(response).to be_nil
     end
+
+    it "first" do
+      element = [{ "__content__" => "10.5061/DRYAD.8515/1" }, { "__content__" => "10.5061/DRYAD.8515/2" }]
+      response = subject.parse_attributes(element, first: true)
+      expect(response).to eq("10.5061/DRYAD.8515/1")
+    end
   end
 
   context "normalize id" do

@@ -31,6 +31,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:year]).to eq("2012")
     end
 
+    it "text" do
+      input = "https://doi.org/10.17173/PRETEST8"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("article")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.17173/pretest8")
+      expect(bibtex[:doi]).to eq("10.17173/pretest8")
+      expect(bibtex[:title]).to eq("PIAAC-Longitudinal (PIAAC-L) 2015")
+    end
+
     it "maremma" do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
