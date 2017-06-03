@@ -330,14 +330,6 @@ module Bolognese
       Array.wrap(description)
     end
 
-    def name
-      if title.is_a?(Hash)
-        title["text"]
-      else
-        title
-      end
-    end
-
     def reverse
       { "citation" => Array.wrap(is_referenced_by).map { |r| { "@id" => r["id"] }}.unwrap,
         "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
