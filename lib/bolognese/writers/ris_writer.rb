@@ -3,15 +3,15 @@ module Bolognese
     module RisWriter
       def ris
         return nil unless valid?
-        
+
         {
           "TY" => ris_type,
-          "T1" => title,
+          "T1" => parse_attributes(title, content: "text", first: true),
           "T2" => container_title,
           "AU" => to_ris(author),
           "DO" => doi,
           "UR" => url,
-          "AB" => description.present? ? description["text"] : nil,
+          "AB" => parse_attributes(description, content: "text", first: true),
           "KW" => keywords.to_s.split(", ").presence,
           "PY" => publication_year,
           "PB" => publisher,

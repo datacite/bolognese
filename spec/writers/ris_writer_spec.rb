@@ -29,10 +29,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[3]).to eq("AU - Thanassi, Wendy")
       expect(ris[10]).to eq("DO - 10.1155/2012/291294")
       expect(ris[11]).to eq("UR - http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(ris[12]).to eq("PY - 2012")
-      expect(ris[13]).to eq("VL - 2012")
-      expect(ris[14]).to eq("SP - 1-7")
-      expect(ris[15]).to eq("ER - ")
+      expect(ris[12]).to start_with("AB - . To find a statistically significant separation point for the QuantiFERON")
+      expect(ris[13]).to eq("PY - 2012")
+      expect(ris[14]).to eq("VL - 2012")
+      expect(ris[15]).to eq("SP - 1-7")
+      expect(ris[16]).to eq("ER - ")
     end
 
     it "Crossref DOI" do

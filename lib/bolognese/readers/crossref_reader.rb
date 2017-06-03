@@ -142,7 +142,7 @@ module Bolognese
       def crossref_description(bibliographic_metadata)
         des = bibliographic_metadata.fetch("abstract", {}).values.first
         if des.is_a?(Hash)
-          des.to_xml
+          sanitize(des.fetch("__content__", nil))
         elsif des.is_a?(String)
           sanitize(des)
         end
