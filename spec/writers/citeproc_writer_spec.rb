@@ -82,6 +82,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2014, 2, 11]])
     end
 
+    it "multiple abstracts" do
+      input = "https://doi.org/10.12763/ona1045"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("report")
+      expect(json["DOI"]).to eq("10.12763/ona1045")
+      expect(json["abstract"]).to eq("Le code est accompagné de commentaires de F. A. Vogel, qui signe l'épitre dédicatoire")
+    end
+
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")

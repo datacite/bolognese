@@ -3,7 +3,15 @@ module Bolognese
     module CiteprocWriter
       def citeproc
         return nil unless valid?
-        
+
+        abstract = if description.is_a?(Hash)
+          description.fetch("text", nil)
+        elsif description.is_a?(Array)
+          description.first.fetch("text", nil)
+        else
+          description
+        end
+
         hsh = {
           "type" => citeproc_type,
           "id" => id,
@@ -13,7 +21,7 @@ module Bolognese
           "editor" => to_citeproc(editor),
           "issued" => get_date_parts(date_published),
           "submitted" => get_date_parts(date_submitted),
-          "abstract" => description.is_a?(Hash) ? description.fetch("text", nil) : description,
+          "abstract" => abstract,
           "container-title" => container_title,
           "DOI" => doi,
           "issue" => issue,
