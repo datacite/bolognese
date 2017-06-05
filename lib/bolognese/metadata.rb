@@ -323,7 +323,7 @@ module Bolognese
     end
 
     def container_title
-      is_part_of.to_h.fetch("title", nil)
+      Array.wrap(is_part_of).length == 1 ? is_part_of.to_h.fetch("title", nil) : nil
     end
 
     def descriptions

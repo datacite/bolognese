@@ -113,6 +113,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts"=>[[2012]])
     end
 
+    it "container title" do
+      input = "https://doi.org/10.6102/ZIS146"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("report")
+      expect(json["id"]).to eq("https://doi.org/10.6102/zis146")
+      expect(json["DOI"]).to eq("10.6102/zis146")
+      expect(json["title"]).to eq("Deutsche Version der Positive and Negative Affect Schedule (PANAS)")
+      expect(json["author"]).to eq([{"family"=>"Janke", "given"=>"S."},
+                                    {"family"=>"Glöckner-Rist", "given"=>"A."}])
+      expect(json["container-title"]).to be_nil
+      expect(json["issued"]).to eq("date-parts" => [[2012]])
+    end
+
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
