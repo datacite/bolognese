@@ -12,7 +12,7 @@ module Bolognese
           "DO" => doi,
           "UR" => url,
           "AB" => parse_attributes(description, content: "text", first: true),
-          "KW" => keywords.to_s.split(", ").presence,
+          "KW" => parse_attributes(keywords, content: "text").presence,
           "PY" => publication_year,
           "PB" => publisher,
           "AN" => alternate_name.present? ? alternate_name["name"] : nil,

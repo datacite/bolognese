@@ -23,50 +23,51 @@ describe Bolognese::Metadata, vcr: true do
     #   expect(rdf_xml.dig("ScholarlyArticle", "pagination")).to eq("1-7")
     # end
 
-    it "Crossref DOI" do
-      input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
-      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
-      expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
-      expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014")
-      expect(rdf_xml.dig("ScholarlyArticle", "isPartOf", "Periodical", "name")).to eq("eLife")
-    end
-
-    it "BlogPosting" do
-      input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      expect(subject.valid?).to be true
-      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
-      expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-1419-2405")
-      expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "name")).to eq("Fenner, Martin")
-      expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
-      expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata")
-      expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
-    end
-
-    it "BlogPosting Citeproc JSON" do
-      input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
-      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
-      expect(rdf_xml.dig("BlogPosting", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(rdf_xml.dig("BlogPosting", "author", "Person", "name")).to eq("Martin Fenner")
-      expect(rdf_xml.dig("BlogPosting", "name")).to eq("Eating your own Dog Food")
-      expect(rdf_xml.dig("BlogPosting", "datePublished", "__content__")).to eq("2016-12-20")
-    end
-
-    it "maremma" do
-      input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
-      rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
-      expect(rdf_xml.dig("SoftwareSourceCode", "rdf:about")).to eq("https://doi.org/10.5438/qeg0-3gm3")
-      expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-0077-4738")
-      expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "name")).to eq("Martin Fenner")
-      expect(rdf_xml.dig("SoftwareSourceCode", "name")).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(rdf_xml.dig("SoftwareSourceCode", "keywords")).to eq("faraday, excon, net/http")
-      expect(rdf_xml.dig("SoftwareSourceCode", "datePublished", "__content__")).to eq("2017-02-24")
-    end
+    # it "Crossref DOI" do
+    #   input = fixture_path + "crossref.bib"
+    #   subject = Bolognese::Metadata.new(input: input, from: "bibtex")
+    #   expect(subject.valid?).to be true
+    #   rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+    #   expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "isPartOf", "Periodical", "name")).to eq("eLife")
+    # end
+    #
+    # it "BlogPosting" do
+    #   input = "https://doi.org/10.5438/4K3M-NYVG"
+    #   subject = Bolognese::Metadata.new(input: input, from: "datacite")
+    #   expect(subject.valid?).to be true
+    #   rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+    #   expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-1419-2405")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "name")).to eq("Fenner, Martin")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata")
+    #   expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
+    # end
+    #
+    # it "BlogPosting Citeproc JSON" do
+    #   input = fixture_path + "citeproc.json"
+    #   subject = Bolognese::Metadata.new(input: input, from: "citeproc")
+    #   rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+    #   expect(rdf_xml.dig("BlogPosting", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
+    #   expect(rdf_xml.dig("BlogPosting", "author", "Person", "name")).to eq("Martin Fenner")
+    #   expect(rdf_xml.dig("BlogPosting", "name")).to eq("Eating your own Dog Food")
+    #   expect(rdf_xml.dig("BlogPosting", "datePublished", "__content__")).to eq("2016-12-20")
+    # end
+    #
+    # it "maremma" do
+    #   input = "https://github.com/datacite/maremma"
+    #   subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+    #   rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
+    #   expect(rdf_xml.dig("SoftwareSourceCode", "rdf:about")).to eq("https://doi.org/10.5438/qeg0-3gm3")
+    #   expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "rdf:about")).to eq("http://orcid.org/0000-0003-0077-4738")
+    #   expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "name")).to eq("Martin Fenner")
+    #   expect(rdf_xml.dig("SoftwareSourceCode", "name")).to eq("Maremma: a Ruby library for simplified network calls")
+    #   expect(rdf_xml.dig("SoftwareSourceCode", "keywords")).to eq("faraday, excon, net/http")
+    #   expect(rdf_xml.dig("SoftwareSourceCode", "datePublished", "__content__")).to eq("2017-02-24")
+    # end
 
     # it "BlogPosting schema.org" do
     #   input = "https://blog.datacite.org/eating-your-own-dog-food/"

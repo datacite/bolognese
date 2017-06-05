@@ -50,6 +50,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("10.5061/DRYAD.8515")
     end
 
+    it "array of strings" do
+      element = ["datacite", "doi", "metadata", "featured"]
+      response = subject.parse_attributes(element)
+      expect(response).to eq(["datacite", "doi", "metadata", "featured"])
+    end
+
     it "nil" do
       element = nil
       response = subject.parse_attributes(element)

@@ -150,7 +150,7 @@ module Bolognese
       return xml unless keywords.present?
 
       xml.subjects do
-        keywords.split(", ").each do |subject|
+        keywords.each do |subject|
           xml.subject(subject)
         end
       end

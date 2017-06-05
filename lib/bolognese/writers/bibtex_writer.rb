@@ -10,7 +10,7 @@ module Bolognese
           doi: doi,
           url: url,
           author: authors_as_string(author),
-          keywords: keywords,
+          keywords: Array.wrap(parse_attributes(keywords, content: "text")).join(", "),
           language: language,
           title: parse_attributes(title, content: "text", first: true),
           journal: container_title,

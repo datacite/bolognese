@@ -42,12 +42,14 @@ module Bolognese
           { "id" => normalize_url(r["rightsURI"]), "name" => r["__content__"] }.compact
         end.unwrap
         keywords = Array.wrap(meta.dig("subjects", "subject")).map do |k|
-          if k.is_a?(String)
+          if k.nil?
+            nil
+          elsif k.is_a?(String)
             sanitize(k)
           else
-            k.to_h.fetch("__content__", nil)
+            { "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "text" => sanitize(k["__content__"]) }.compact
           end
-        end.compact.join(", ").presence
+        end.compact
         dates = Array.wrap(meta.dig("dates", "date"))
         funding = begin
           f = datacite_funder_contributor(meta) + datacite_funding_reference(meta)

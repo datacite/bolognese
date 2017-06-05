@@ -164,8 +164,10 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.21233/n34n5q")
-      expect(subject.keywords).to eq("Paleoecology")
+      expect(subject.keywords).to eq([{"subject_scheme"=>"Library of Congress", "scheme_uri"=>"http://id.loc.gov/authorities/subjects", "text"=>"Paleoecology"}])
     end
+
+    # https://doi.org/10.7272/Q6KW5CXV
 
     it "Funding schema version 4" do
       input = "https://doi.org/10.5438/6423"

@@ -43,7 +43,7 @@ module Bolognese
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),
-          "keywords" => Array.wrap(meta.fetch("tags", nil)).join(", ").presence
+          "keywords" => meta.fetch("tags", nil)
         }
       end
 

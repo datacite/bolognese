@@ -41,7 +41,7 @@ module Bolognese
           "description" => meta.fetch("description", nil),
           "license" => meta.fetch("license", nil),
           "version" => meta.fetch("version", nil),
-          "keywords" => Array.wrap(meta.fetch("subject", nil)).join(", ").presence,
+          "keywords" => meta.fetch("subject", nil),
           "language" => meta.fetch("language", nil),
           "content_size" => meta.fetch("size", nil),
           "schema_version" => meta.fetch("schema-version", nil)

@@ -55,7 +55,7 @@ module Bolognese
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("keywords", nil)
+          "keywords" => meta.fetch("keywords", nil).to_s.split(", ")
         }
       end
 
