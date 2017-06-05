@@ -15,7 +15,7 @@ module Bolognese
           "KW" => parse_attributes(keywords, content: "text").presence,
           "PY" => publication_year,
           "PB" => publisher,
-          "AN" => alternate_name.present? ? alternate_name["name"] : nil,
+          "AN" => parse_attributes(alternate_name, content: "name").presence,
           "LA" => language,
           "VL" => volume,
           "IS" => issue,

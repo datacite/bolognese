@@ -36,6 +36,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[16]).to eq("ER - ")
     end
 
+    it "alternate name" do
+      input = "https://doi.org/10.3205/ZMA001102"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      expect(subject.valid?).to be true
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - RPRT")
+      expect(ris[1]).to eq("T1 - Visions and reality: the idea of competence-oriented assessment for German medical students is not yet realised in licensing examinations")
+      expect(ris[2]).to eq("AU - Huber-Lang, Markus")
+      expect(ris[8]).to eq("DO - 10.3205/zma001102")
+      expect(ris[9]).to start_with("AB - Objective: Competence orientation")
+      expect(ris[10]).to eq("KW - medical competence")
+      expect(ris[19]).to eq("PY - 2017")
+      expect(ris[20]).to eq("PB - German Medical Science GMS Publishing House")
+      expect(ris[21]).to eq("AN - urn:nbn:de:0183-zma0011024")
+      expect(ris[23]).to eq("LA - en")
+      expect(ris[24]).to eq("ER - ")
+    end
+
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
@@ -116,7 +134,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[7]).to eq("KW - datacite")
       expect(ris[11]).to eq("PY - 2016")
       expect(ris[12]).to eq("PB - DataCite")
-      expect(ris[13]).to eq("ER - ")
+      expect(ris[13]).to eq("AN - MS-49-3632-5083")
+      expect(ris[14]).to eq("ER - ")
     end
 
     it "Dataset" do
