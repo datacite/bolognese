@@ -113,9 +113,9 @@ module Bolognese
           if f["awardNumber"].present? || f["awardTitle"].present?
             { "type" => "Award",
               "name" => f.fetch("awardTitle", nil),
-              "identifier" => f.dig("awardNumber", "__content__"),
-              "url" => f.dig("awardNumber", "awardURI"),
-              "funder" => funder }
+              "identifier" => f["awardNumber"].is_a?(Hash) ? f.dig("awardNumber", "__content__") : f["awardNumber"],
+              "url" => f["awardNumber"].is_a?(Hash) ? f.dig("awardNumber", "awardURI") : nil,
+              "funder" => funder }.compact
           else
             funder
           end

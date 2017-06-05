@@ -167,7 +167,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.keywords).to eq([{"subject_scheme"=>"Library of Congress", "scheme_uri"=>"http://id.loc.gov/authorities/subjects", "text"=>"Paleoecology"}])
     end
 
-    # https://doi.org/10.7272/Q6KW5CXV
+    it "Funding" do
+      input = "https://doi.org/10.15125/BATH-00114"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.15125/bath-00114")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author.length).to eq(2)
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0001-8740-8284", "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
+      expect(subject.title).to eq("Dataset for \"Direct Evidence for Solid-Like Hydrogen in a Nanoporous Carbon Hydrogen Storage Material at Supercritical Temperatures\"")
+      expect(subject.description.first["text"]).to start_with("Dataset for Direct Evidence for Solid-Like Hydrogen")
+      expect(subject.date_published).to eq("2015")
+      expect(subject.publisher).to eq("University of Bath")
+      expect(subject.funding.length).to eq(5)
+      expect(subject.funding.first).to eq("type"=>"Award", "name"=>"SUPERGEN Hub Funding", "identifier"=>"EP/J016454/1", "funder" => {"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000266", "name"=>"Engineering and Physical Sciences Research Council (EPSRC)"})
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
 
     it "Funding schema version 4" do
       input = "https://doi.org/10.5438/6423"
