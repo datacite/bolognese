@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.9.22)
+    bolognese (0.9.23)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -12,7 +12,7 @@ PATH
       jsonlint (~> 0.2.0)
       loofah (~> 2.0, >= 2.0.3)
       maremma (~> 3.5, >= 3.5.7)
-      namae (~> 0.10.2)
+      namae (~> 0.11.3)
       nokogiri (~> 1.6, >= 1.6.8)
       postrank-uri (~> 1.0, >= 1.0.18)
       rdf-rdfxml (~> 2.0)
@@ -73,7 +73,7 @@ GEM
     link_header (0.0.8)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    maremma (3.5.7)
+    maremma (3.5.8)
       activesupport (>= 4.2.5)
       addressable (>= 2.3.6)
       builder (~> 3.2, >= 3.2.2)
@@ -88,7 +88,7 @@ GEM
     minitest (5.10.2)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    namae (0.10.2)
+    namae (0.11.3)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     oj (2.18.5)
