@@ -264,7 +264,7 @@ module Bolognese
     end
 
     def orcid_from_url(url)
-      Array(/\A:(http|https)\/\/orcid\.org\/(.+)/.match(url)).last
+      Array(/\A:(http|https):\/\/orcid\.org\/(.+)/.match(url)).last
     end
 
     def orcid_as_url(orcid)
@@ -274,6 +274,10 @@ module Bolognese
     def validate_orcid(orcid)
       orcid = Array(/\A(?:(http|https):\/\/(www\.)?orcid\.org\/)?(\d{4}[[:space:]-]\d{4}[[:space:]-]\d{4}[[:space:]-]\d{3}[0-9X]+)\z/.match(orcid)).last
       orcid.gsub(/[[:space:]]/, "-") if orcid.present?
+    end
+
+    def validate_orcid_scheme(orcid_scheme)
+      Array(/\A(http|https):\/\/(www\.)?(orcid\.org)/.match(orcid_scheme)).last
     end
 
     def validate_url(str)

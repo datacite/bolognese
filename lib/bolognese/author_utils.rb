@@ -86,11 +86,12 @@ module Bolognese
 
     # parse nameIdentifier from DataCite
     def get_name_identifier(author)
-      name_identifier_scheme_uri = author.dig("nameIdentifier", "schemeURI") || "http://orcid.org/"
+      name_identifier_scheme_uri = author.dig("nameIdentifier", "schemeURI") || "https://orcid.org/"
+      name_identifier_scheme_uri = "https://orcid.org/" if validate_orcid_scheme(name_identifier_scheme_uri)
       name_identifier_scheme_uri << '/' unless name_identifier_scheme_uri.end_with?('/')
 
       name_identifier = author.dig("nameIdentifier", "__content__")
-      name_identifier = validate_orcid(name_identifier) if name_identifier_scheme_uri == "http://orcid.org/"
+      name_identifier = validate_orcid(name_identifier) if name_identifier_scheme_uri == "https://orcid.org/"
       return nil if name_identifier.blank? || name_identifier_scheme_uri.blank?
 
       name_identifier_scheme_uri + name_identifier

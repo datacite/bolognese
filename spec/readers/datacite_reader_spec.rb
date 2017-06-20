@@ -41,7 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
@@ -99,7 +99,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author.count).to eq(11)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0002-2410-9671", "name"=>"Alexander Junge", "givenName"=>"Alexander", "familyName"=>"Junge")
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0002-2410-9671", "name"=>"Alexander Junge", "givenName"=>"Alexander", "familyName"=>"Junge")
       expect(subject.title).to eq("RAIN v1")
       expect(subject.description["text"]).to start_with("<b>RAIN: RNA–protein Association and Interaction Networks")
       expect(subject.license).to eq("id"=>"https://creativecommons.org/licenses/by/4.0", "name"=>"CC-BY")
@@ -159,6 +159,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://jacow.org/JACoW-00077389", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
     end
 
+    it "author with wrong orcid scheme" do
+      input = "https://doi.org/10.2314/COSCV1"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.2314/coscv1")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.author.length).to eq(14)
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-0232-7085", "name"=>"Lambert Heller", "givenName"=>"Lambert", "familyName"=>"Heller")
+    end
+
     it "keywords with attributes" do
       input = "https://doi.org/10.21233/n34n5q"
       subject = Bolognese::Metadata.new(input: input)
@@ -176,7 +186,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author.length).to eq(2)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0001-8740-8284", "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8740-8284", "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
       expect(subject.title).to eq("Dataset for \"Direct Evidence for Solid-Like Hydrogen in a Nanoporous Carbon Hydrogen Storage Material at Supercritical Temperatures\"")
       expect(subject.description.first["text"]).to start_with("Dataset for Direct Evidence for Solid-Like Hydrogen")
       expect(subject.date_published).to eq("2015")
@@ -196,7 +206,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.additional_type).to eq("Project")
       expect(subject.resource_type_general).to eq("Collection")
       expect(subject.author.length).to eq(24)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0001-5331-6592", "name"=>"Farquhar, Adam", "givenName"=>"Adam", "familyName"=>"Farquhar")
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-5331-6592", "name"=>"Farquhar, Adam", "givenName"=>"Adam", "familyName"=>"Farquhar")
       expect(subject.title).to eq("Technical and Human Infrastructure for Open Research (THOR)")
       expect(subject.description["text"]).to start_with("Five years ago, a global infrastructure")
       expect(subject.date_published).to eq("2015")
@@ -218,7 +228,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.alternate_name).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.date_published).to eq("2016-12-20")

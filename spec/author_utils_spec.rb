@@ -44,7 +44,7 @@ describe Bolognese::Metadata, vcr: true do
       string = subject.get_datacite(id: input)
       meta = Maremma.from_xml(string).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
     end
 
     it "has name in sort-order" do
@@ -81,7 +81,7 @@ describe Bolognese::Metadata, vcr: true do
       string = subject.get_datacite(id: input)
       meta = Maremma.from_xml(string).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
+      expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
     end
 
     it "has name in Thai" do
@@ -155,7 +155,7 @@ describe Bolognese::Metadata, vcr: true do
       string = subject.get_datacite(id: input)
       meta = Maremma.from_xml(string).fetch("resource", {})
       response = subject.get_name_identifier(meta.dig("creators", "creator"))
-      expect(response).to eq("http://orcid.org/0000-0003-1419-2405")
+      expect(response).to eq("https://orcid.org/0000-0003-1419-2405")
     end
 
     it "has no ORCID" do

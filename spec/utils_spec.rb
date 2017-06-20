@@ -69,6 +69,32 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "validate_orcid_scheme" do
+    it "validate_orcid_scheme" do
+      orcid = "http://orcid.org"
+      response = subject.validate_orcid_scheme(orcid)
+      expect(response).to eq("orcid.org")
+    end
+
+    it "validate_orcid_scheme trailing slash" do
+      orcid = "http://orcid.org/"
+      response = subject.validate_orcid_scheme(orcid)
+      expect(response).to eq("orcid.org")
+    end
+
+    it "validate_orcid_scheme https" do
+      orcid = "https://orcid.org"
+      response = subject.validate_orcid_scheme(orcid)
+      expect(response).to eq("orcid.org")
+    end
+
+    it "validate_orcid_scheme www" do
+      orcid = "http://www.orcid.org"
+      response = subject.validate_orcid_scheme(orcid)
+      expect(response).to eq("orcid.org")
+    end
+  end
+
   context "parse attributes" do
     it "string" do
       element = "10.5061/DRYAD.8515"
