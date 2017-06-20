@@ -31,6 +31,32 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "validate_orcid" do
+    it "validate_orcid" do
+      orcid = "http://orcid.org/0000-0002-2590-225X"
+      response = subject.validate_orcid(orcid)
+      expect(response).to eq("0000-0002-2590-225X")
+    end
+
+    it "validate_orcid id" do
+      orcid = "0000-0002-2590-225X"
+      response = subject.validate_orcid(orcid)
+      expect(response).to eq("0000-0002-2590-225X")
+    end
+
+    it "validate_orcid with spaces" do
+      orcid = "0000 0002 1394 3097"
+      response = subject.validate_orcid(orcid)
+      expect(response).to eq("0000-0002-1394-3097")
+    end
+
+    it "validate_orcid wrong id" do
+      orcid = "0000-0002-1394-309"
+      response = subject.validate_orcid(orcid)
+      expect(response).to be_nil
+    end
+  end
+
   context "parse attributes" do
     it "string" do
       element = "10.5061/DRYAD.8515"
