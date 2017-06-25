@@ -1,12 +1,12 @@
 module Bolognese
   module Readers
     module DataciteReader
-      def get_datacite(id: nil)
+      def get_datacite(id: nil, **options)
         return nil unless id.present?
 
         doi = doi_from_url(id)
-        url = ENV['SEARCH_URL'].presence || "https://search.datacite.org"
-        url += "/api?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
+        url = options.fetch(:search_url, nil).presence || "https://search.datacite.org/api"
+        url += "?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
 
         response = Maremma.get url
         attributes = response.body.dig("data", "response", "docs").first

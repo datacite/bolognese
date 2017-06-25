@@ -72,14 +72,14 @@ module Bolognese
       :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
       :name_detector
 
-    def initialize(input: nil, from: nil, regenerate: false)
+    def initialize(input: nil, from: nil, regenerate: false, **options)
       id = normalize_id(input)
 
       if id.present?
         @from = from || find_from_format(id: id)
 
         # generate name for method to call dynamically
-        string = @from.present? ? send("get_" + @from, id: id) : nil
+        string = @from.present? ? send("get_" + @from, id: id, search_url: options[:search_url]) : nil
       elsif File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)

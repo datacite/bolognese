@@ -62,7 +62,7 @@ module Bolognese
 
       CONTACT_EMAIL = "tech@datacite.org"
 
-      def get_crossref(id: nil)
+      def get_crossref(id: nil, **options)
         return nil unless id.present?
 
         doi = doi_from_url(id)

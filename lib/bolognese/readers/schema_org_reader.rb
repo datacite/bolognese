@@ -59,7 +59,7 @@ module Bolognese
         }
       end
 
-      def get_schema_org(id: nil)
+      def get_schema_org(id: nil, **options)
         return nil unless id.present?
 
         id = normalize_id(id)

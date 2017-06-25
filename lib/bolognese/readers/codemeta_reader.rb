@@ -1,7 +1,7 @@
 module Bolognese
   module Readers
     module CodemetaReader
-      def get_codemeta(id: nil)
+      def get_codemeta(id: nil, **options)
         return nil unless id.present?
         id = normalize_id(id)
         response = Maremma.get(github_as_codemeta_url(id), accept: "json", raw: true)
