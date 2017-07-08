@@ -2,9 +2,15 @@ require 'namae'
 
 module Bolognese
   module AuthorUtils
+    IDENTIFIER_SCHEME_URIS = {
+      "ORCID" => "http://orcid.org/"
+    }
+
     def get_one_author(author)
       type = author.fetch("type", nil) && author.fetch("type").titleize
-      id = author.fetch("id", nil).presence || get_name_identifier(author)
+      name_identifiers = get_name_identifiers(author)
+      id = author.fetch("id", nil).presence || name_identifiers.first
+      identifier = name_identifiers.length > 1 ? name_identifiers.unwrap : nil
       name = author.fetch("creatorName", nil) ||
              author.fetch("contributorName", nil) ||
              author.fetch("name", nil)
@@ -26,7 +32,8 @@ module Bolognese
                  "id" => id,
                  "name" => name,
                  "givenName" => given_name,
-                 "familyName" => family_name }.compact
+                 "familyName" => family_name,
+                 "identifier" => identifier }.compact
 
       return author if family_name.present?
 
@@ -47,7 +54,8 @@ module Bolognese
           "id" => id,
           "name" => name,
           "givenName" => given_name,
-          "familyName" => family_name }.compact
+          "familyName" => family_name,
+          "identifier" => identifier }.compact
       else
         { "type" => type, "name" => name }.compact
       end
@@ -65,13 +73,12 @@ module Bolognese
 
       # titleize strings
       # remove non-standard space characters
-      author.my_titleize
-            .gsub(/[[:space:]]/, ' ')
+      author.my_titleize.gsub(/[[:space:]]/, ' ')
     end
 
     def is_personal_name?(author)
       return false if author.fetch("type", "").downcase == "organization"
-      return true if author.fetch("id", "").start_with?("http://orcid.org") ||
+      return true if author.fetch("id", "").start_with?("https://orcid.org") ||
                      author.fetch("familyName", "").present? ||
                      (author.fetch("name", "").include?(",") &&
                      author.fetch("name", "").exclude?(";")) ||
@@ -85,16 +92,30 @@ module Bolognese
     end
 
     # parse nameIdentifier from DataCite
-    def get_name_identifier(author)
-      name_identifier_scheme_uri = author.dig("nameIdentifier", "schemeURI") || "https://orcid.org/"
-      name_identifier_scheme_uri = "https://orcid.org/" if validate_orcid_scheme(name_identifier_scheme_uri)
-      name_identifier_scheme_uri << '/' unless name_identifier_scheme_uri.end_with?('/')
+    def get_name_identifiers(author)
+      name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).reduce([]) do |sum, n|
+        scheme = n.fetch("nameIdentifierScheme", nil)
+        scheme_uri = n.fetch("schemeURI", nil) || IDENTIFIER_SCHEME_URIS.fetch(scheme)
+        scheme_uri = "https://orcid.org/" if validate_orcid_scheme(scheme_uri)
+        scheme_uri << '/' unless scheme_uri.present? && scheme_uri.end_with?('/')
 
-      name_identifier = author.dig("nameIdentifier", "__content__")
-      name_identifier = validate_orcid(name_identifier) if name_identifier_scheme_uri == "https://orcid.org/"
-      return nil if name_identifier.blank? || name_identifier_scheme_uri.blank?
+        identifier = n.fetch("__content__", nil)
+        if scheme_uri == "https://orcid.org/"
+          identifier = validate_orcid(identifier)
+        else
+          identifier = identifier.gsub(" ", "-")
+        end
 
-      name_identifier_scheme_uri + name_identifier
+        if identifier.present? || scheme_uri.present?
+          sum << scheme_uri + identifier
+        else
+          sum
+        end
+      end
+
+      # return array of name identifiers, ORCID ID is first element if multiple
+      name_identifiers.select { |n| n.start_with?("https://orcid.org") } +
+      name_identifiers.reject { |n| n.start_with?("https://orcid.org") }
     end
 
     def authors_as_string(authors)

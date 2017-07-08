@@ -146,16 +146,25 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.get_one_author(meta.dig("creators", "creator").first)
       expect(response).to eq("type"=>"Person", "name"=>"H. C. Schumacher", "givenName"=>"H. C.", "familyName"=>"Schumacher")
     end
+
+    it "multiple name_identifier" do
+      input = "10.24350/CIRM.V.19028803"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      string = subject.get_datacite(id: input)
+      meta = Maremma.from_xml(string).fetch("resource", {})
+      response = subject.get_one_author(meta.dig("creators", "creator"))
+      expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4514-4211", "name"=>"Thomas Dubos", "givenName"=>"Thomas", "familyName"=>"Dubos", "identifier"=>["https://orcid.org/0000-0003-4514-4211", "http://isni.org/isni/0000-0003-5752-6882"])
+    end
   end
 
-  context "get_name_identifier" do
+  context "get_name_identifiers" do
     it "has ORCID" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       string = subject.get_datacite(id: input)
       meta = Maremma.from_xml(string).fetch("resource", {})
-      response = subject.get_name_identifier(meta.dig("creators", "creator"))
-      expect(response).to eq("https://orcid.org/0000-0003-1419-2405")
+      response = subject.get_name_identifiers(meta.dig("creators", "creator"))
+      expect(response).to eq(["https://orcid.org/0000-0003-1419-2405"])
     end
 
     it "has no ORCID" do
@@ -163,8 +172,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       string = subject.get_datacite(id: input)
       meta = Maremma.from_xml(string).fetch("resource", {})
-      response = subject.get_name_identifier(meta.dig("creators", "creator"))
-      expect(response).to be_nil
+      response = subject.get_name_identifiers(meta.dig("creators", "creator"))
+      expect(response).to be_empty
     end
 
     it "has jacow.org scheme" do
@@ -172,8 +181,17 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       string = subject.get_datacite(id: input)
       meta = Maremma.from_xml(string).fetch("resource", {})
-      response = subject.get_name_identifier(meta.dig("creators", "creator").first)
-      expect(response).to eq("http://jacow.org/JACoW-00077389")
+      response = subject.get_name_identifiers(meta.dig("creators", "creator").first)
+      expect(response).to eq(["http://jacow.org/JACoW-00077389"])
+    end
+
+    it "has multiple name_identifier" do
+      input = "https://doi.org/10.24350/CIRM.V.19028803"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      string = subject.get_datacite(id: input)
+      meta = Maremma.from_xml(string).fetch("resource", {})
+      response = subject.get_name_identifiers(meta.dig("creators", "creator"))
+      expect(response).to eq(["https://orcid.org/0000-0003-4514-4211", "http://isni.org/isni/0000-0003-5752-6882"])
     end
   end
 
