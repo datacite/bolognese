@@ -94,8 +94,10 @@ module Bolognese
     # parse nameIdentifier from DataCite
     def get_name_identifiers(author)
       name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).reduce([]) do |sum, n|
+        n = { "__content__" => n } if n.is_a?(String)
+
         scheme = n.fetch("nameIdentifierScheme", nil)
-        scheme_uri = n.fetch("schemeURI", nil) || IDENTIFIER_SCHEME_URIS.fetch(scheme)
+        scheme_uri = n.fetch("schemeURI", nil) || IDENTIFIER_SCHEME_URIS.fetch(scheme, "https://orcid.org")
         scheme_uri = "https://orcid.org/" if validate_orcid_scheme(scheme_uri)
         scheme_uri << '/' unless scheme_uri.present? && scheme_uri.end_with?('/')
 
@@ -106,7 +108,7 @@ module Bolognese
           identifier = identifier.gsub(" ", "-")
         end
 
-        if identifier.present? || scheme_uri.present?
+        if identifier.present? && scheme_uri.present?
           sum << scheme_uri + identifier
         else
           sum
