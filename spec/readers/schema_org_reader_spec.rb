@@ -32,6 +32,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("DataCite")
     end
 
+    it "BlogPosting with new DOI" do
+      subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
+      expect(subject.doi).to eq("10.5438/0000-00ss")
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.type).to eq("BlogPosting")
+    end
+
     it "not found error" do
       input = "https://doi.org/10.5438/4K3M-NYVGx"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")

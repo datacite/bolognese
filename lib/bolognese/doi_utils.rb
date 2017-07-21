@@ -27,7 +27,7 @@ module Bolognese
     end
 
     def doi_as_url(doi)
-      "https://doi.org/#{clean_doi(doi)}" if doi.present?
+      "https://doi.org/#{doi}" if doi.present?
     end
 
     # get DOI registration agency

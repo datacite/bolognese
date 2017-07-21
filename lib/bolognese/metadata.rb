@@ -98,6 +98,7 @@ module Bolognese
       @metadata = @from.present? ? send("read_" + @from, string: string) : {}
       @raw = string
       @should_passthru = (@from == "datacite") && !regenerate
+      @doi = options[:doi].presence
     end
 
     def exists?
@@ -117,7 +118,7 @@ module Bolognese
     # end
 
     def id
-      metadata.fetch("id", nil)
+      @doi.present? ? doi_as_url(@doi) : metadata.fetch("id", nil)
     end
 
     def type
@@ -145,7 +146,7 @@ module Bolognese
     end
 
     def doi
-      metadata.fetch("doi", nil)
+      @doi ||= metadata.fetch("doi", nil)
     end
 
     def url
