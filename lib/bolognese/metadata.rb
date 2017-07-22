@@ -70,7 +70,7 @@ module Bolognese
       :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
       :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
       :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
-      :member_id, :data_center_id, :name_detector
+      :member_id, :data_center_id, :date_registered, :date_updated, :name_detector
 
     def initialize(input: nil, from: nil, regenerate: false, **options)
       id = normalize_id(input)
@@ -97,12 +97,14 @@ module Bolognese
 
       # generate name for method to call dynamically
       @metadata = @from.present? ? send("read_" + @from, string: string) : {}
-      @raw = string
+      @raw = string.present? ? string.strip : nil
+
       @should_passthru = (@from == "datacite") && !regenerate
       @doi = options[:doi].presence
 
       @url = hsh.to_h["url"].presence
-      @date_modified = hsh.to_h["date_modified"].presence
+      @date_registered = hsh.to_h["date_registered"].presence
+      @date_updated = hsh.to_h["date_updated"].presence
       @member_id = hsh.to_h["member_id"].presence
       @data_center_id = hsh.to_h["data_center_id"].presence
     end
@@ -216,7 +218,15 @@ module Bolognese
     end
 
     def date_modified
-      metadata.fetch("date_modified", @date_modified) 
+      metadata.fetch("date_modified", nil)
+    end
+
+    def date_registered
+      @date_registered ||= metadata.fetch("date_registered", nil)
+    end
+
+    def date_updated
+      @date_updated ||= metadata.fetch("date_updated", nil)
     end
 
     def volume

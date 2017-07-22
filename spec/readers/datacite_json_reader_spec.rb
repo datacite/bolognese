@@ -7,7 +7,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get datacite_json raw" do
     it "BlogPosting" do
-      expect(subject.raw).to eq(IO.read(input))
+      expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
 

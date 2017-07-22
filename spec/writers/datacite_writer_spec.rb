@@ -87,6 +87,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
     end
 
+    it "Text pass-thru" do
+      input = "https://doi.org/10.23640/07243.5153971"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.23640/07243.5153971")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("Paper")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author.length).to eq(20)
+      expect(subject.author.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
+      expect(subject.title).to eq("Recommendation of: ORCID Works Metadata Working Group")
+      expect(subject.license).to eq("id"=>"https://creativecommons.org/publicdomain/zero/1.0", "name"=>"CC-0")
+      expect(subject.date_published).to eq("2017")
+      expect(subject.publisher).to eq("Figshare")
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.datacite).to end_with("</resource>")
+    end
+
     it "Dataset in schema 4.0" do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)

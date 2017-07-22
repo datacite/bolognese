@@ -6,7 +6,7 @@ module Bolognese
 
         doi = doi_from_url(id)
         url = options.fetch(:search_url, nil).presence || "https://search.datacite.org/api"
-        url += "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&wt=json"
+        url += "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
 
         response = Maremma.get url
         attributes = response.body.dig("data", "response", "docs").first
@@ -20,8 +20,9 @@ module Bolognese
         url = response.headers.present? ? response.headers["location"] : nil
 
         { "string" => string,
-          "date_modified" => attributes.fetch("updated", nil),
-          "allocator_id" => attributes.fetch("allocator_symbol", nil),
+          "date_registered" => attributes.fetch("minted", nil),
+          "date_updated" => attributes.fetch("updated", nil),
+          "member_id" => attributes.fetch("allocator_symbol", nil),
           "data_center_id" => attributes.fetch("datacentre_symbol", nil),
           "url" => url }
       end

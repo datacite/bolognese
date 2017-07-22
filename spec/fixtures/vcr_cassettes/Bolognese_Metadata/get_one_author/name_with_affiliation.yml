@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.11588/diglit.6130&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.11588/diglit.6130&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -23,20 +23,20 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 16:25:11 GMT
+      - Sat, 22 Jul 2017 20:25:15 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
-      - '2368'
+      - '2400'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.UBHD","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTE1ODgvZGlnbGl0LjYxMzA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Eci4gU3TDtnJpLCBLdW5zdHNhbG9uICZsdDtaw7xyaWNoJmd0OzwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9kLW5iLmluZm8vZ25kLzEwMTEzMzAxLTciIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJHTkQiPjEwMTEzMzAxLTc8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZGUiPkF1cyBTY2h3ZWl6ZXIgUHJpdmF0YmVzaXR6OiBHcmFwaGlrc2FtbWx1bmcsIEhvbHpzY2huaXR0ZSwgS3VwZmVyc3RpY2hlLCBSYWRpZXJ1bmdlbiwgWmVpY2hudW5nZW4gdXN3LjwvdGl0bGU+CiAgICA8dGl0bGUgeG1sOmxhbmc9ImRlIiB0aXRsZVR5cGU9IlN1YnRpdGxlIj5TYW1tbHVuZyBXaXR0Z2Vuc3RlaW4gdW5kIGRpdmVyc2VyIEJlc2l0eiwgZnJhbnrDtnNpc2NoZSB1bmQgc2Nod2VpemVyaXNjaGUgTcO2YmVsIGRlcyBYVklJSS4gSmFocmh1bmRlcnRzLCBGYXllbmNlbiwgWmlubmdlcsOkdGUsIFNpbGJlcmFyYmVpdGVuLCBTdG9mZmUsIFRlcHBpY2hlLCBWYXJpYSwgR2Vtw6RsZGUgZXJzdGVyIE1laXN0ZXIsIFNjaHdlaXplciBNZWlzdGVyIGRlcyBYSVguIEphaHJodW5kZXJ0cyA7IDI5LiB1bmQgMzAuIEFwcmlsIDE5MzEgKEthdGFsb2cgTnIuIDI5KTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5aw7xyaWNoOiBOTjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MTkzMTwvcHVibGljYXRpb25ZZWFyPgogIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5Nb25vZ3JhcGg8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJOIj51cm46bmJuOmRlOmJzejoxNi1kaWdsaXQtNjEzMDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4gIAogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS1zYS8zLjAvIj5TdGFuZGFyZCAoQ3JlYXRpdmUgQ29tbW9ucyAtIE5hbWVuc25lbm51bmcgLSBXZWl0ZXJnYWJlIHVudGVyIGdsZWljaGVuIEJlZGluZ3VuZ2VuKTwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"GESIS","updated":"2017-07-11T09:23:58Z","doi":"10.11588/DIGLIT.6130"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.UBHD","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTE1ODgvZGlnbGl0LjYxMzA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Eci4gU3TDtnJpLCBLdW5zdHNhbG9uICZsdDtaw7xyaWNoJmd0OzwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9kLW5iLmluZm8vZ25kLzEwMTEzMzAxLTciIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJHTkQiPjEwMTEzMzAxLTc8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZGUiPkF1cyBTY2h3ZWl6ZXIgUHJpdmF0YmVzaXR6OiBHcmFwaGlrc2FtbWx1bmcsIEhvbHpzY2huaXR0ZSwgS3VwZmVyc3RpY2hlLCBSYWRpZXJ1bmdlbiwgWmVpY2hudW5nZW4gdXN3LjwvdGl0bGU+CiAgICA8dGl0bGUgeG1sOmxhbmc9ImRlIiB0aXRsZVR5cGU9IlN1YnRpdGxlIj5TYW1tbHVuZyBXaXR0Z2Vuc3RlaW4gdW5kIGRpdmVyc2VyIEJlc2l0eiwgZnJhbnrDtnNpc2NoZSB1bmQgc2Nod2VpemVyaXNjaGUgTcO2YmVsIGRlcyBYVklJSS4gSmFocmh1bmRlcnRzLCBGYXllbmNlbiwgWmlubmdlcsOkdGUsIFNpbGJlcmFyYmVpdGVuLCBTdG9mZmUsIFRlcHBpY2hlLCBWYXJpYSwgR2Vtw6RsZGUgZXJzdGVyIE1laXN0ZXIsIFNjaHdlaXplciBNZWlzdGVyIGRlcyBYSVguIEphaHJodW5kZXJ0cyA7IDI5LiB1bmQgMzAuIEFwcmlsIDE5MzEgKEthdGFsb2cgTnIuIDI5KTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5aw7xyaWNoOiBOTjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MTkzMTwvcHVibGljYXRpb25ZZWFyPgogIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5Nb25vZ3JhcGg8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJOIj51cm46bmJuOmRlOmJzejoxNi1kaWdsaXQtNjEzMDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4gIAogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS1zYS8zLjAvIj5TdGFuZGFyZCAoQ3JlYXRpdmUgQ29tbW9ucyAtIE5hbWVuc25lbm51bmcgLSBXZWl0ZXJnYWJlIHVudGVyIGdsZWljaGVuIEJlZGluZ3VuZ2VuKTwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"GESIS","minted":"2016-12-09T12:00:39Z","updated":"2017-07-11T09:23:58Z","doi":"10.11588/DIGLIT.6130"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:25:10 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:14 GMT
 - request:
     method: head
     uri: https://doi.org/10.11588/diglit.6130
@@ -60,21 +60,21 @@ http_interactions:
       Location:
       - http://digi.ub.uni-heidelberg.de/diglit/stoeri1931_04_29
       Expires:
-      - Sat, 22 Jul 2017 17:22:09 GMT
+      - Sat, 22 Jul 2017 20:26:21 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '197'
       Date:
-      - Sat, 22 Jul 2017 16:25:11 GMT
+      - Sat, 22 Jul 2017 20:25:15 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:25:10 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:15 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.11588/diglit.6130&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.11588/diglit.6130&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -95,16 +95,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 16:25:12 GMT
+      - Sat, 22 Jul 2017 20:25:17 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '2400'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.UBHD","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTE1ODgvZGlnbGl0LjYxMzA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Eci4gU3TDtnJpLCBLdW5zdHNhbG9uICZsdDtaw7xyaWNoJmd0OzwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9kLW5iLmluZm8vZ25kLzEwMTEzMzAxLTciIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJHTkQiPjEwMTEzMzAxLTc8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZGUiPkF1cyBTY2h3ZWl6ZXIgUHJpdmF0YmVzaXR6OiBHcmFwaGlrc2FtbWx1bmcsIEhvbHpzY2huaXR0ZSwgS3VwZmVyc3RpY2hlLCBSYWRpZXJ1bmdlbiwgWmVpY2hudW5nZW4gdXN3LjwvdGl0bGU+CiAgICA8dGl0bGUgeG1sOmxhbmc9ImRlIiB0aXRsZVR5cGU9IlN1YnRpdGxlIj5TYW1tbHVuZyBXaXR0Z2Vuc3RlaW4gdW5kIGRpdmVyc2VyIEJlc2l0eiwgZnJhbnrDtnNpc2NoZSB1bmQgc2Nod2VpemVyaXNjaGUgTcO2YmVsIGRlcyBYVklJSS4gSmFocmh1bmRlcnRzLCBGYXllbmNlbiwgWmlubmdlcsOkdGUsIFNpbGJlcmFyYmVpdGVuLCBTdG9mZmUsIFRlcHBpY2hlLCBWYXJpYSwgR2Vtw6RsZGUgZXJzdGVyIE1laXN0ZXIsIFNjaHdlaXplciBNZWlzdGVyIGRlcyBYSVguIEphaHJodW5kZXJ0cyA7IDI5LiB1bmQgMzAuIEFwcmlsIDE5MzEgKEthdGFsb2cgTnIuIDI5KTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5aw7xyaWNoOiBOTjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MTkzMTwvcHVibGljYXRpb25ZZWFyPgogIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5Nb25vZ3JhcGg8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJOIj51cm46bmJuOmRlOmJzejoxNi1kaWdsaXQtNjEzMDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4gIAogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS1zYS8zLjAvIj5TdGFuZGFyZCAoQ3JlYXRpdmUgQ29tbW9ucyAtIE5hbWVuc25lbm51bmcgLSBXZWl0ZXJnYWJlIHVudGVyIGdsZWljaGVuIEJlZGluZ3VuZ2VuKTwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"GESIS","updated":"2017-07-11T09:23:58Z","doi":"10.11588/DIGLIT.6130"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.UBHD","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMTE1ODgvZGlnbGl0LjYxMzA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Eci4gU3TDtnJpLCBLdW5zdHNhbG9uICZsdDtaw7xyaWNoJmd0OzwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9kLW5iLmluZm8vZ25kLzEwMTEzMzAxLTciIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJHTkQiPjEwMTEzMzAxLTc8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0iZGUiPkF1cyBTY2h3ZWl6ZXIgUHJpdmF0YmVzaXR6OiBHcmFwaGlrc2FtbWx1bmcsIEhvbHpzY2huaXR0ZSwgS3VwZmVyc3RpY2hlLCBSYWRpZXJ1bmdlbiwgWmVpY2hudW5nZW4gdXN3LjwvdGl0bGU+CiAgICA8dGl0bGUgeG1sOmxhbmc9ImRlIiB0aXRsZVR5cGU9IlN1YnRpdGxlIj5TYW1tbHVuZyBXaXR0Z2Vuc3RlaW4gdW5kIGRpdmVyc2VyIEJlc2l0eiwgZnJhbnrDtnNpc2NoZSB1bmQgc2Nod2VpemVyaXNjaGUgTcO2YmVsIGRlcyBYVklJSS4gSmFocmh1bmRlcnRzLCBGYXllbmNlbiwgWmlubmdlcsOkdGUsIFNpbGJlcmFyYmVpdGVuLCBTdG9mZmUsIFRlcHBpY2hlLCBWYXJpYSwgR2Vtw6RsZGUgZXJzdGVyIE1laXN0ZXIsIFNjaHdlaXplciBNZWlzdGVyIGRlcyBYSVguIEphaHJodW5kZXJ0cyA7IDI5LiB1bmQgMzAuIEFwcmlsIDE5MzEgKEthdGFsb2cgTnIuIDI5KTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5aw7xyaWNoOiBOTjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MTkzMTwvcHVibGljYXRpb25ZZWFyPgogIDxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJUZXh0Ij5Nb25vZ3JhcGg8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJOIj51cm46bmJuOmRlOmJzejoxNi1kaWdsaXQtNjEzMDI8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4gIAogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS1zYS8zLjAvIj5TdGFuZGFyZCAoQ3JlYXRpdmUgQ29tbW9ucyAtIE5hbWVuc25lbm51bmcgLSBXZWl0ZXJnYWJlIHVudGVyIGdsZWljaGVuIEJlZGluZ3VuZ2VuKTwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"GESIS","minted":"2016-12-09T12:00:39Z","updated":"2017-07-11T09:23:58Z","doi":"10.11588/DIGLIT.6130"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:25:11 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:15 GMT
 recorded_with: VCR 3.0.3

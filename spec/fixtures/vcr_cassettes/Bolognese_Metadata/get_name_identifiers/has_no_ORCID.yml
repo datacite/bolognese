@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -23,20 +23,20 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 16:24:57 GMT
+      - Sat, 22 Jul 2017 20:25:36 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
-      - '2783'
+      - '2815'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DAGST","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"TIB","updated":"2013-11-13T13:42:17Z","doi":"10.4230/LIPICS.TQC.2013.93"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":2},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DAGST","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"TIB","minted":"2013-11-13T13:42:17Z","updated":"2013-11-13T13:42:17Z","doi":"10.4230/LIPICS.TQC.2013.93"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:24:56 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:35 GMT
 - request:
     method: head
     uri: https://doi.org/10.4230/lipics.tqc.2013.93
@@ -60,21 +60,21 @@ http_interactions:
       Location:
       - http://drops.dagstuhl.de/opus/volltexte/2013/4317/
       Expires:
-      - Sat, 22 Jul 2017 17:22:09 GMT
+      - Sat, 22 Jul 2017 20:26:21 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '185'
       Date:
-      - Sat, 22 Jul 2017 16:24:57 GMT
+      - Sat, 22 Jul 2017 20:25:36 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:24:56 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:36 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -95,20 +95,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 16:24:58 GMT
+      - Sat, 22 Jul 2017 20:25:37 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '2783'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DAGST","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"TIB","updated":"2013-11-13T13:42:17Z","doi":"10.4230/LIPICS.TQC.2013.93"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DAGST","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"TIB","minted":"2013-11-13T13:42:17Z","updated":"2013-11-13T13:42:17Z","doi":"10.4230/LIPICS.TQC.2013.93"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:24:57 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:36 GMT
 - request:
     method: head
     uri: https://doi.org/10.4230/lipics.tqc.2013.93
@@ -132,16 +130,16 @@ http_interactions:
       Location:
       - http://drops.dagstuhl.de/opus/volltexte/2013/4317/
       Expires:
-      - Sat, 22 Jul 2017 17:22:09 GMT
+      - Sat, 22 Jul 2017 20:26:21 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '185'
       Date:
-      - Sat, 22 Jul 2017 16:24:58 GMT
+      - Sat, 22 Jul 2017 20:25:38 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 16:24:57 GMT
+  recorded_at: Sat, 22 Jul 2017 20:25:37 GMT
 recorded_with: VCR 3.0.3

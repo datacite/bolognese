@@ -61,6 +61,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite["version"]).to eq("2.0.0")
     end
 
+    it "datacite database attributes" do
+      input = "https://doi.org/10.5061/DRYAD.8515"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      crosscite = JSON.parse(subject.crosscite)
+      expect(crosscite.fetch("url")).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(crosscite.fetch("title")).to eq("Data from: A new malaria agent in African hominids.")
+      expect(crosscite.fetch("author").length).to eq(8)
+      expect(crosscite.fetch("author").first).to eq("type"=>"Person", "familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Benjamin Ollomo")
+      expect(crosscite.fetch("date_registered")).to eq("2011-02-01T17:32:02Z")
+      expect(crosscite.fetch("date_updated")).to eq("2017-07-14T01:32:56Z")
+      expect(crosscite.fetch("member_id")).to eq("CDL")
+      expect(crosscite.fetch("data_center_id")).to eq("CDL.DRYAD")
+    end
+
     it "maremma" do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")

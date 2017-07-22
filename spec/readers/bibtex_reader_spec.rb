@@ -7,7 +7,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get bibtex raw" do
     it "Crossref DOI" do
-      expect(subject.raw).to eq(IO.read(input))
+      expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
 

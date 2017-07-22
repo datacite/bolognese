@@ -10,7 +10,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting" do
       input = fixture_path + 'schema_org.json'
       subject = Bolognese::Metadata.new(input: input)
-      expect(subject.raw).to eq(IO.read(input))
+      expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
 

@@ -23,6 +23,8 @@ module Bolognese
           "date_published" => date_published,
           "date_modified" => date_modified,
           "date_submitted" => date_submitted,
+          "date_registered" => date_registered,
+          "date_updated" => date_updated,
           "date_valid" => date_valid,
           "publication_year" => publication_year,
           "language" => language,

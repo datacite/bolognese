@@ -7,7 +7,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get crosscite raw" do
     it "SoftwareSourceCode" do
-      expect(subject.raw).to eq(IO.read(input))
+      expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
 

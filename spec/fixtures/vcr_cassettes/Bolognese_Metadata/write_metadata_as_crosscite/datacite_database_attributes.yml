@@ -23,7 +23,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 20:28:38 GMT
+      - Sat, 22 Jul 2017 20:26:23 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -36,7 +36,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:37 GMT
+  recorded_at: Sat, 22 Jul 2017 20:26:22 GMT
 - request:
     method: head
     uri: https://doi.org/10.5061/dryad.8515
@@ -66,10 +66,10 @@ http_interactions:
       Content-Length:
       - '189'
       Date:
-      - Sat, 22 Jul 2017 20:28:39 GMT
+      - Sat, 22 Jul 2017 20:26:23 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:38 GMT
+  recorded_at: Sat, 22 Jul 2017 20:26:23 GMT
 recorded_with: VCR 3.0.3
