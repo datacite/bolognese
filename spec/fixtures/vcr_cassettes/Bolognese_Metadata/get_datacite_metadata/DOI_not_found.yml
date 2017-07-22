@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Access-Control-Allow-Headers:
       - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 13 May 2017 06:42:30 GMT
+      - Sat, 22 Jul 2017 16:29:37 GMT
       Etag:
       - W/"fdee1bc1cd6b18e07cc52f94b7b59250"
       Server:
@@ -38,28 +38,40 @@ http_interactions:
       - 200 OK
       Vary:
       - Accept-Encoding
+      Via:
+      - kong/0.10.3
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '229'
       X-Powered-By:
-      - Phusion Passenger 5.1.2
+      - Phusion Passenger 5.1.5
+      X-Ratelimit-Limit-Hour:
+      - '100000'
+      X-Ratelimit-Remaining-Hour:
+      - '99980'
       X-Request-Id:
-      - c42d6b9f-c8c6-4aa2-a72b-fa37be5b4909
+      - 2b13379c-1e71-4f42-a0bc-c1e3483ba3df
       X-Runtime:
-      - '0.857722'
+      - '0.227646'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:04Z"}}}'
     http_version: 
-  recorded_at: Sat, 13 May 2017 06:42:30 GMT
+  recorded_at: Sat, 22 Jul 2017 16:29:36 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -71,7 +83,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Access-Control-Allow-Methods:
       - GET, POST, OPTIONS
@@ -80,7 +92,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 13 May 2017 06:42:30 GMT
+      - Sat, 22 Jul 2017 16:29:37 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -93,5 +105,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 13 May 2017 06:42:30 GMT
+  recorded_at: Sat, 22 Jul 2017 16:29:36 GMT
 recorded_with: VCR 3.0.3

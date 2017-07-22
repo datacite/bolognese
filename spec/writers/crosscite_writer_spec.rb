@@ -6,6 +6,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
+      expect(crosscite.fetch("url")).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(crosscite.fetch("resource_type_general")).to eq("Text")
       expect(crosscite.fetch("title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(crosscite.fetch("references").length).to eq(25)

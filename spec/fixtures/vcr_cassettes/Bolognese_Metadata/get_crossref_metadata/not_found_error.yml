@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Access-Control-Allow-Headers:
       - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 06 May 2017 11:44:04 GMT
+      - Sat, 22 Jul 2017 16:30:54 GMT
       Etag:
       - W/"daf85afdb45f3c2713bc7e75916ba82a"
       Server:
@@ -38,27 +38,35 @@ http_interactions:
       - 200 OK
       Vary:
       - Accept-Encoding
+      Via:
+      - kong/0.10.3
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '541'
       X-Powered-By:
-      - Phusion Passenger 5.1.2
+      - Phusion Passenger 5.1.5
+      X-Ratelimit-Limit-Hour:
+      - '100000'
+      X-Ratelimit-Remaining-Hour:
+      - '99937'
       X-Request-Id:
-      - 5e258e6a-e29b-4ef8-abe0-a934bdf5dcc2
+      - 10f3e54c-d3c4-47ea-9ef4-15a8b43fbc23
       X-Runtime:
-      - '0.717789'
+      - '0.527369'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T21:07:27Z"}}}'
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:44:04 GMT
+  recorded_at: Sat, 22 Jul 2017 16:30:53 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -73,7 +81,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Server:
       - Apache-Coyote/1.1
@@ -84,7 +92,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Sat, 06 May 2017 11:44:04 GMT
+      - Sat, 22 Jul 2017 16:30:54 GMT
       Connection:
       - close
     body:
@@ -93,5 +101,5 @@ http_interactions:
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:44:05 GMT
+  recorded_at: Sat, 22 Jul 2017 16:30:53 GMT
 recorded_with: VCR 3.0.3

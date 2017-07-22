@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Access-Control-Allow-Headers:
       - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 06 May 2017 11:42:05 GMT
+      - Sat, 22 Jul 2017 16:29:45 GMT
       Etag:
       - W/"58c74e33ab541adc084b3eaeb81a81fd"
       Server:
@@ -38,16 +38,26 @@ http_interactions:
       - 200 OK
       Vary:
       - Accept-Encoding
+      Via:
+      - kong/0.10.3
       X-Content-Type-Options:
       - nosniff
       X-Frame-Options:
       - SAMEORIGIN
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '702'
       X-Powered-By:
-      - Phusion Passenger 5.1.2
+      - Phusion Passenger 5.1.5
+      X-Ratelimit-Limit-Hour:
+      - '100000'
+      X-Ratelimit-Remaining-Hour:
+      - '99975'
       X-Request-Id:
-      - 87bdd6fa-55fa-45ad-aa11-89638b3c39fb
+      - 202c3d5d-23f0-4a7c-afbb-01af609d009d
       X-Runtime:
-      - '0.209580'
+      - '0.700177'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -58,10 +68,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.6084","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:26Z"}}}'
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:42:05 GMT
+  recorded_at: Sat, 22 Jul 2017 16:29:44 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.6084/m9.figshare.4234751.v1&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.6084/m9.figshare.4234751.v1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -73,7 +83,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Access-Control-Allow-Methods:
       - GET, POST, OPTIONS
@@ -82,18 +92,51 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 06 May 2017 11:42:05 GMT
+      - Sat, 22 Jul 2017 16:29:45 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '3810'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9tOS5maWdzaGFyZS40MjM0NzUxLnYxPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+QWxleGFuZGVyIEp1bmdlPC9jcmVhdG9yTmFtZT48bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmciPjAwMDAtMDAwMi0yNDEwLTk2NzE8L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+SmFuIEMuIFJlZnNnYWFyZDwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gR2FyZGU8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+WGlhb3lvbmcgUGFuPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkFsYmVydG8gU2FudG9zPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkZlcmhhdCBBbGthbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gQW50aG9uPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdGlhbiB2b24gTWVyaW5nPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdG9waGVyIFQuIFdvcmttYW48L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+TGFycyBKdWhsIEplbnNlbjwvY3JlYXRvck5hbWU+PG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJodHRwOi8vb3JjaWQub3JnIj4wMDAwLTAwMDEtNzg4NS03MTVYPC9uYW1lSWRlbnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkphbiBHb3JvZGtpbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjwvY3JlYXRvcnM+PHRpdGxlcz48dGl0bGU+UkFJTiB2MTwvdGl0bGU+PC90aXRsZXM+PGRlc2NyaXB0aW9ucz48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+Jmx0O2RpdiZndDsmbHQ7YiZndDtSQUlOOiBSTkHigJNwcm90ZWluIEFzc29jaWF0aW9uIGFuZCBJbnRlcmFjdGlvbiBOZXR3b3JrcyZsdDsvYiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0OyZsdDticiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O1JBSU4gaW50ZWdyYXRlcyBub24tY29kaW5nIFJOQSAobmNSTkEpIGFuZCBwcm90ZWluIGludGVyYWN0aW9uIG5ldHdvcmtzIGluIGFuIGVhc2lseSBhY2Nlc3NpYmxlIHdlYiBpbnRlcmZhY2UuwqAmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O0l0IGNvbnRhaW5zIHRocmVlIHR5cGVzIG9mIG5jUk5BIGFzc29jaWF0aW9uczogbWljcm9STkEtdGFyZ2V0LCBuY1JOQS1wcm90ZWluIGFuZCBuY1JOQS1uY1JOQSBpbnRlcmFjdGlvbnMgYW5kIGNvbWJpbmVzIHRoZW0gd2l0aCBwcm90ZWluLXByb3RlaW4gaW50ZXJhY3Rpb24gYXZhaWxhYmxlIGluIHRoZSBTVFJJTkcgZGF0YWJhc2UuIG5jUk5BIGFzc29jaWF0aW9ucyBjb3ZlciBmb3VyIG1vZGVsIG9yZ2FuaXNtcyBhbmQgYXJlIGV4dHJhY3RlZCBmcm9tIGV4cGVyaW1lbnRhbCBkYXRhLCBhdXRvbWF0aWMgbGl0ZXJhdHVyZSBtaW5pbmcgYW5kIGN1cmF0ZWQgZXhhbXBsZXMuIEZvciBtaVJOQXMsIHdlIGZ1cnRoZXIgaW5jbHVkZSBwcmVjb21wdXRlZCB0YXJnZXQgcHJlZGljdGlvbnMuwqAmbHQ7L2RpdiZndDs8L2Rlc2NyaXB0aW9uPjwvZGVzY3JpcHRpb25zPjxzdWJqZWN0cz48c3ViamVjdD5CaW9pbmZvcm1hdGljczwvc3ViamVjdD48c3ViamVjdD5Db21wdXRhdGlvbmFsICBCaW9sb2d5PC9zdWJqZWN0PjxzdWJqZWN0PlN5c3RlbXMgQmlvbG9neTwvc3ViamVjdD48L3N1YmplY3RzPjxwdWJsaXNoZXI+Rmlnc2hhcmU8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkNyZWF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PC9kYXRlcz48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQ8L3Jlc291cmNlVHlwZT48c2l6ZXM+PHNpemU+MTEyMDMzNTUxMiBCeXRlczwvc2l6ZT48L3NpemVzPjxyZWxhdGVkSWRlbnRpZmllcnM+PHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8iPjEwLjYwODQvbTkuZmlnc2hhcmUuNDIzNDc1MTwvcmVsYXRlZElkZW50aWZpZXI+PC9yZWxhdGVkSWRlbnRpZmllcnM+PHJpZ2h0c0xpc3Q+PHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48L3Jlc291cmNlPg==","minted":"2016-11-16T10:49:12Z","updated":"2016-11-16T10:49:12Z","doi":"10.6084/M9.FIGSHARE.4234751.V1"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"FIGSHARE.ARS","xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9tOS5maWdzaGFyZS40MjM0NzUxLnYxPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+QWxleGFuZGVyIEp1bmdlPC9jcmVhdG9yTmFtZT48bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmciPjAwMDAtMDAwMi0yNDEwLTk2NzE8L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+SmFuIEMuIFJlZnNnYWFyZDwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gR2FyZGU8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+WGlhb3lvbmcgUGFuPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkFsYmVydG8gU2FudG9zPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkZlcmhhdCBBbGthbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gQW50aG9uPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdGlhbiB2b24gTWVyaW5nPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdG9waGVyIFQuIFdvcmttYW48L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+TGFycyBKdWhsIEplbnNlbjwvY3JlYXRvck5hbWU+PG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJodHRwOi8vb3JjaWQub3JnIj4wMDAwLTAwMDEtNzg4NS03MTVYPC9uYW1lSWRlbnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkphbiBHb3JvZGtpbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjwvY3JlYXRvcnM+PHRpdGxlcz48dGl0bGU+UkFJTiB2MTwvdGl0bGU+PC90aXRsZXM+PGRlc2NyaXB0aW9ucz48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+Jmx0O2RpdiZndDsmbHQ7YiZndDtSQUlOOiBSTkHigJNwcm90ZWluIEFzc29jaWF0aW9uIGFuZCBJbnRlcmFjdGlvbiBOZXR3b3JrcyZsdDsvYiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0OyZsdDticiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O1JBSU4gaW50ZWdyYXRlcyBub24tY29kaW5nIFJOQSAobmNSTkEpIGFuZCBwcm90ZWluIGludGVyYWN0aW9uIG5ldHdvcmtzIGluIGFuIGVhc2lseSBhY2Nlc3NpYmxlIHdlYiBpbnRlcmZhY2UuwqAmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O0l0IGNvbnRhaW5zIHRocmVlIHR5cGVzIG9mIG5jUk5BIGFzc29jaWF0aW9uczogbWljcm9STkEtdGFyZ2V0LCBuY1JOQS1wcm90ZWluIGFuZCBuY1JOQS1uY1JOQSBpbnRlcmFjdGlvbnMgYW5kIGNvbWJpbmVzIHRoZW0gd2l0aCBwcm90ZWluLXByb3RlaW4gaW50ZXJhY3Rpb24gYXZhaWxhYmxlIGluIHRoZSBTVFJJTkcgZGF0YWJhc2UuIG5jUk5BIGFzc29jaWF0aW9ucyBjb3ZlciBmb3VyIG1vZGVsIG9yZ2FuaXNtcyBhbmQgYXJlIGV4dHJhY3RlZCBmcm9tIGV4cGVyaW1lbnRhbCBkYXRhLCBhdXRvbWF0aWMgbGl0ZXJhdHVyZSBtaW5pbmcgYW5kIGN1cmF0ZWQgZXhhbXBsZXMuIEZvciBtaVJOQXMsIHdlIGZ1cnRoZXIgaW5jbHVkZSBwcmVjb21wdXRlZCB0YXJnZXQgcHJlZGljdGlvbnMuwqAmbHQ7L2RpdiZndDs8L2Rlc2NyaXB0aW9uPjwvZGVzY3JpcHRpb25zPjxzdWJqZWN0cz48c3ViamVjdD5CaW9pbmZvcm1hdGljczwvc3ViamVjdD48c3ViamVjdD5Db21wdXRhdGlvbmFsICBCaW9sb2d5PC9zdWJqZWN0PjxzdWJqZWN0PlN5c3RlbXMgQmlvbG9neTwvc3ViamVjdD48L3N1YmplY3RzPjxwdWJsaXNoZXI+Rmlnc2hhcmU8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkNyZWF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PC9kYXRlcz48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQ8L3Jlc291cmNlVHlwZT48c2l6ZXM+PHNpemU+MTEyMDMzNTUxMiBCeXRlczwvc2l6ZT48L3NpemVzPjxyZWxhdGVkSWRlbnRpZmllcnM+PHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8iPjEwLjYwODQvbTkuZmlnc2hhcmUuNDIzNDc1MTwvcmVsYXRlZElkZW50aWZpZXI+PC9yZWxhdGVkSWRlbnRpZmllcnM+PHJpZ2h0c0xpc3Q+PHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48L3Jlc291cmNlPg==","allocator_symbol":"FIGSHARE","updated":"2016-11-16T10:49:12Z","doi":"10.6084/M9.FIGSHARE.4234751.V1"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:42:05 GMT
+  recorded_at: Sat, 22 Jul 2017 16:29:44 GMT
+- request:
+    method: head
+    uri: https://doi.org/10.6084/m9.figshare.4234751.v1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 303
+      message: See Other
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Vary:
+      - Accept
+      Location:
+      - https://figshare.com/articles/RAIN_v1/4234751/1
+      Expires:
+      - Sat, 22 Jul 2017 17:22:09 GMT
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '179'
+      Date:
+      - Sat, 22 Jul 2017 16:29:46 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sat, 22 Jul 2017 16:29:44 GMT
 recorded_with: VCR 3.0.3

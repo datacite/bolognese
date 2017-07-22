@@ -69,7 +69,9 @@ module Bolognese
         url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
         response = Maremma.get(url, accept: "text/xml", raw: true)
         string = response.body.fetch("data", nil)
-        Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
+        string = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
+
+        { "string" => string }
       end
 
       def read_crossref(string: nil)
@@ -229,7 +231,7 @@ module Bolognese
          refs = bibliographic_metadata.dig("citation_list", "citation")
          Array.wrap(refs).select { |a| a["doi"].present? }.map do |c|
            { "type" => "CreativeWork",
-             "id" => normalize_id(c["doi"]),
+             "id" => normalize_id(parse_attributes(c["doi"])),
              "title" => c["article_title"] }.compact
          end.unwrap
       end

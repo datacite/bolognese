@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 404
-      message: ''
+      message: Not Found
     headers:
       Server:
       - Apache-Coyote/1.1
@@ -23,7 +23,7 @@ http_interactions:
       Content-Length:
       - '4984'
       Date:
-      - Sat, 06 May 2017 12:31:46 GMT
+      - Sat, 22 Jul 2017 16:29:58 GMT
     body:
       encoding: UTF-8
       string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n
@@ -89,5 +89,5 @@ http_interactions:
         super;\">&reg;</span>, and shortDOI<span style=\"vertical-align: super;\">&reg;</span>
         are trademarks of the International DOI Foundation.</span>\n</td>       \n</tr>\n</table>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Sat, 06 May 2017 12:31:47 GMT
+  recorded_at: Sat, 22 Jul 2017 16:29:57 GMT
 recorded_with: VCR 3.0.3

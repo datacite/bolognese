@@ -66,7 +66,9 @@ module Bolognese
         response = Maremma.get(id)
         doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
         string = doc.at_xpath('//script[@type="application/ld+json"]')
-        string.text if string.present?
+        string = string.text if string.present?
+
+        { "string" => string }
       end
 
       def schema_org_related_identifier(meta, relation_type: nil)

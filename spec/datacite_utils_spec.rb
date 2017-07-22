@@ -128,6 +128,9 @@ describe Bolognese::Metadata, vcr: true do
                                                                               "__content__"=>"https://doi.org/10.5061/dryad.8515/2"},
                                                                              {"relatedIdentifierType"=>"DOI",
                                                                               "relationType"=>"IsReferencedBy",
+                                                                              "__content__"=>"https://doi.org/10.1371/journal.ppat.1000446"},
+                                                                             {"relatedIdentifierType"=>"DOI",
+                                                                              "relationType"=>"IsSupplementTo",
                                                                               "__content__"=>"https://doi.org/10.1371/journal.ppat.1000446"}])
     end
   end

@@ -56,7 +56,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by/4.0")
       expect(subject.date_published).to eq("2006-12-20")
-      expect(subject.date_modified).to eq("2016-12-31T21:37:08Z")
+      expect(subject.date_modified).to eq("2017-06-17T06:26:15Z")
       expect(subject.pagination).to eq("e30")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"PLoS ONE", "issn"=>"1932-6203")
       expect(subject.provider).to eq("Crossref")
@@ -130,7 +130,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Sarah E. Beck", "givenName"=>"Sarah E.", "familyName"=>"Beck")
       expect(subject.title).to eq("Paving the path to HIV neurotherapy: Predicting SIV CNS disease")
       expect(subject.date_published).to eq("2015-07")
-      expect(subject.date_modified).to eq("2016-08-20T02:19:38Z")
+      expect(subject.date_modified).to eq("2017-06-23T02:44:48Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"European Journal of Pharmacology", "issn"=>"00142999")
       expect(subject.provider).to eq("Crossref")
     end

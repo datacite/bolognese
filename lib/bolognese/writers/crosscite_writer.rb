@@ -3,10 +3,11 @@ module Bolognese
     module CrossciteWriter
       def crosscite
         return nil unless valid?
-        
+
         hsh = {
           "id" => id,
           "doi" => doi,
+          "url" => url,
           "type" => type,
           "additional_type" => additional_type,
           "citeproc_type" => citeproc_type,
@@ -42,6 +43,8 @@ module Bolognese
           "spatial_coverage" => spatial_coverage,
           "funding" => funding,
           "schema_version" => schema_version,
+          "member_id" => member_id,
+          "data_center_id" => data_center_id,
           "provider" => provider
         }.compact
         JSON.pretty_generate hsh.presence

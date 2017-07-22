@@ -3,10 +3,11 @@ module Bolognese
     module DataciteJsonWriter
       def datacite_json
         return nil unless valid?
-        
+
         hsh = {
           "id" => id,
           "doi" => doi,
+          "url" => url,
           "creator" => author,
           "title" => title,
           "publisher" => publisher,
@@ -38,6 +39,8 @@ module Bolognese
           "geo-location" => spatial_coverage,
           "funding-reference" => funding,
           "schemaVersion" => schema_version,
+          "member_id" => member_id,
+          "data_center_id" => data_center_id,
           "provider" => provider
         }.compact
         JSON.pretty_generate hsh.presence

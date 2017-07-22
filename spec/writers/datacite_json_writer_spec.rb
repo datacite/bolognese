@@ -6,6 +6,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
+      expect(datacite.fetch("url")).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(datacite.fetch("resource_type_general")).to eq("Text")
       expect(datacite.fetch("title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.fetch("references").length).to eq(25)
@@ -17,6 +18,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
+      expect(datacite.fetch("url")).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(datacite.fetch("resource_type_general")).to eq("Text")
       expect(datacite.fetch("creator").length).to eq(7)
       expect(datacite.fetch("creator").first).to eq("type"=>"Person", "name"=>"Wendy Thanassi", "givenName"=>"Wendy", "familyName"=>"Thanassi")

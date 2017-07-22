@@ -17,6 +17,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Dataset" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
       expect(subject.resource_type_general).to eq("Dataset")
@@ -30,7 +31,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.is_referenced_by).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.provider).to eq("DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "BlogPosting" do
@@ -38,6 +39,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food/")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
@@ -59,6 +61,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
+      expect(subject.url).to eq("http://drops.dagstuhl.de/opus/volltexte/2013/4317/")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("ConferencePaper")
       expect(subject.resource_type_general).to eq("Text")
@@ -76,13 +79,14 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
+      expect(subject.url).to eq("https://zenodo.org/record/48440")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Software")
       expect(subject.resource_type_general).to eq("Software")
       expect(subject.author).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
-      expect(subject.title).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
+      expect(subject.title).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.license).to eq([{"name"=>"Open Access"}, {"id"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}])
+      expect(subject.license).to eq("name"=>"Open Access")
       expect(subject.date_published).to eq("2016-03-27")
       expect(subject.is_supplement_to).to eq("type"=>"CreativeWork", "id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0")
       expect(subject.publisher).to eq("Zenodo")
@@ -95,6 +99,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.6084/m9.figshare.4234751.v1")
+      expect(subject.url).to eq("https://figshare.com/articles/RAIN_v1/4234751/1")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")

@@ -36,8 +36,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.48440")
-      expect(json["name"]).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
-      expect(json["license"]).to eq("https://creativecommons.org/licenses/by-nc-sa/4.0")
+      expect(json["url"]).to eq("https://zenodo.org/record/48440")
+      expect(json["name"]).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
     end
 
     it "Schema.org JSON isReferencedBy" do
@@ -45,7 +45,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(json["@reverse"]).to eq("citation"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446"})
+      expect(json["url"]).to eq( "http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(json["@reverse"]).to eq("citation"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}, "isBasedOn"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446"})
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -53,6 +54,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
+      expect(json["url"]).to eq("http://www.ccdc.cam.ac.uk/services/structure_request?id=doi:10.5517/cc8h01s&sid=DataCite")
       expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154"})
     end
 
@@ -82,6 +84,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
+      expect(json["url"]).to eq("https://project-thor.eu")
       expect(json["hasPart"].length).to eq(25)
       expect(json["hasPart"].first).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5281/zenodo.30799")
       expect(json["funding"]).to eq("@type" => "Award",

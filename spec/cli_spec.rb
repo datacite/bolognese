@@ -54,7 +54,7 @@ describe Bolognese::CLI do
 
       it 'to datacite' do
         subject.options = { to: "datacite" }
-        expect { subject.convert id }.to output(/http:\/\/datacite.org\/schema\/kernel-3/).to_stdout
+        expect { subject.convert id }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
       end
 
       it 'to datacite_json' do
@@ -82,7 +82,7 @@ describe Bolognese::CLI do
 
       it 'to bibtex' do
         subject.options = { to: "bibtex" }
-        expect { subject.convert id }.to output(/@article{https:\/\/doi.org\/10.5438\/4k3m-nyvg/).to_stdout
+        expect { subject.convert id }.to output(/@article{https:\/\/doi.org\/10.5438\/0000-01hc/).to_stdout
       end
     end
   end

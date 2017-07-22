@@ -28,21 +28,21 @@ http_interactions:
       - private, max-age=600
       Vary:
       - Accept, Accept-Encoding
+      Set-Cookie:
+      - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - ed3f41e0d0c407e6c9cfc6be32a5e7c7
+      - e06062717b3f12397cc0603f0937ff5b
       Date:
-      - Sat, 06 May 2017 11:43:24 GMT
+      - Sat, 22 Jul 2017 16:31:26 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
-      Set-Cookie:
-      - GOOGAPPUID=3-2e; Path=/
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:43:24 GMT
+  recorded_at: Sat, 22 Jul 2017 16:31:25 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -70,21 +70,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170506112659a2048647386json
+      - 24751170722145113a2048647386json
       Last-Modified:
-      - Sat, 06 May 2017 11:26:59 UTC
+      - Sat, 22 Jul 2017 14:51:13 UTC
+      Set-Cookie:
+      - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 6235256b2985811b1db5894f0a0695f1
+      - 0e57238889cfa0c478ce3dfa237a5ad0
       Date:
-      - Sat, 06 May 2017 11:43:25 GMT
+      - Sat, 22 Jul 2017 16:31:26 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '128470'
-      Set-Cookie:
-      - GOOGAPPUID=3-2e; Path=/
+      - '128366'
       Expires:
-      - Sat, 06 May 2017 11:43:25 GMT
+      - Sat, 22 Jul 2017 16:31:26 GMT
     body:
       encoding: UTF-8
       string: |
@@ -599,7 +599,6 @@ http_interactions:
                 "LimitedAvailability": {"@id": "schema:LimitedAvailability"},
                 "LinkRole": {"@id": "schema:LinkRole"},
                 "LiquorStore": {"@id": "schema:LiquorStore"},
-                "ListItem": {"@id": "schema:ListItem"},
                 "ListenAction": {"@id": "schema:ListenAction"},
                 "LiteraryEvent": {"@id": "schema:LiteraryEvent"},
                 "LiveAlbum": {"@id": "schema:LiveAlbum"},
@@ -726,7 +725,6 @@ http_interactions:
                 "Nerve": {"@id": "schema:Nerve"},
                 "Neuro": {"@id": "schema:Neuro"},
                 "Neurologic": {"@id": "schema:Neurologic"},
-                "NewCondition": {"@id": "schema:NewCondition"},
                 "NewsArticle": {"@id": "schema:NewsArticle"},
                 "Newspaper": {"@id": "schema:Newspaper"},
                 "NightClub": {"@id": "schema:NightClub"},
@@ -2292,7 +2290,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:43:25 GMT
+  recorded_at: Sat, 22 Jul 2017 16:31:25 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2321,21 +2319,21 @@ http_interactions:
       - private, max-age=600
       Vary:
       - Accept, Accept-Encoding
+      Set-Cookie:
+      - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 015e865ef7260ececf420de6ea9ff561
+      - '08cd64779140bc243f6b8baf03c233de'
       Date:
-      - Sat, 06 May 2017 11:43:26 GMT
+      - Sat, 22 Jul 2017 16:31:31 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
-      Set-Cookie:
-      - GOOGAPPUID=3-2e; Path=/
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:43:26 GMT
+  recorded_at: Sat, 22 Jul 2017 16:31:30 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2363,21 +2361,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170506112659a2048647386json
+      - 24751170722145113a2048647386json
       Last-Modified:
-      - Sat, 06 May 2017 11:26:59 UTC
+      - Sat, 22 Jul 2017 14:51:13 UTC
+      Set-Cookie:
+      - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 5a27302946989ac668507a68114b76e8
+      - 5f35735850ffe4e1adefc49c8241326b
       Date:
-      - Sat, 06 May 2017 11:43:26 GMT
+      - Sat, 22 Jul 2017 16:31:31 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '128470'
-      Set-Cookie:
-      - GOOGAPPUID=3-2e; Path=/
+      - '128366'
       Expires:
-      - Sat, 06 May 2017 11:43:26 GMT
+      - Sat, 22 Jul 2017 16:31:31 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2892,7 +2890,6 @@ http_interactions:
                 "LimitedAvailability": {"@id": "schema:LimitedAvailability"},
                 "LinkRole": {"@id": "schema:LinkRole"},
                 "LiquorStore": {"@id": "schema:LiquorStore"},
-                "ListItem": {"@id": "schema:ListItem"},
                 "ListenAction": {"@id": "schema:ListenAction"},
                 "LiteraryEvent": {"@id": "schema:LiteraryEvent"},
                 "LiveAlbum": {"@id": "schema:LiveAlbum"},
@@ -3019,7 +3016,6 @@ http_interactions:
                 "Nerve": {"@id": "schema:Nerve"},
                 "Neuro": {"@id": "schema:Neuro"},
                 "Neurologic": {"@id": "schema:Neurologic"},
-                "NewCondition": {"@id": "schema:NewCondition"},
                 "NewsArticle": {"@id": "schema:NewsArticle"},
                 "Newspaper": {"@id": "schema:Newspaper"},
                 "NightClub": {"@id": "schema:NightClub"},
@@ -4585,5 +4581,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:43:26 GMT
+  recorded_at: Sat, 22 Jul 2017 16:31:31 GMT
 recorded_with: VCR 3.0.3

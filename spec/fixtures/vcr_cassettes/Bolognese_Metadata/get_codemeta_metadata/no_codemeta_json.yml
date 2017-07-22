@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 404
-      message: ''
+      message: Not Found
     headers:
       Content-Security-Policy:
       - default-src 'none'; style-src 'unsafe-inline'
@@ -27,33 +27,33 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - DC9A:260D:DC1E51:E5147D:590DB6F3
+      - C18E:603F:3A523A4:3CF780B:59737D4C
       Content-Length:
       - '15'
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 06 May 2017 11:43:47 GMT
+      - Sat, 22 Jul 2017 16:29:00 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1536-HHN
+      - cache-hhn1541-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1494071028.540127,VS0,VE114
+      - S1500740940.297948,VS0,VE115
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 66d834a479c39e805887cd5d02d9b14dd86f1c4f
+      - 184d7fbc749ca9a86718a1e13555cbaf8968dffa
       Expires:
-      - Sat, 06 May 2017 11:48:47 GMT
+      - Sat, 22 Jul 2017 16:34:00 GMT
       Source-Age:
       - '0'
     body:
@@ -62,5 +62,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 06 May 2017 11:43:47 GMT
+  recorded_at: Sat, 22 Jul 2017 16:28:59 GMT
 recorded_with: VCR 3.0.3

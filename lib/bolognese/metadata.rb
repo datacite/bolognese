@@ -70,7 +70,7 @@ module Bolognese
       :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
       :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
       :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
-      :name_detector
+      :member_id, :data_center_id, :name_detector
 
     def initialize(input: nil, from: nil, regenerate: false, **options)
       id = normalize_id(input)
@@ -79,7 +79,8 @@ module Bolognese
         @from = from || find_from_format(id: id)
 
         # generate name for method to call dynamically
-        string = @from.present? ? send("get_" + @from, id: id, search_url: options[:search_url]) : nil
+        hsh = @from.present? ? send("get_" + @from, id: id, search_url: options[:search_url]) : nil
+        string = hsh.to_h.fetch("string", nil)
       elsif File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
@@ -99,6 +100,11 @@ module Bolognese
       @raw = string
       @should_passthru = (@from == "datacite") && !regenerate
       @doi = options[:doi].presence
+
+      @url = hsh.to_h["url"].presence
+      @date_modified = hsh.to_h["date_modified"].presence
+      @member_id = hsh.to_h["member_id"].presence
+      @data_center_id = hsh.to_h["data_center_id"].presence
     end
 
     def exists?
@@ -150,7 +156,7 @@ module Bolognese
     end
 
     def url
-      metadata.fetch("url", nil)
+      @url ||= metadata.fetch("url", nil)
     end
 
     def title
@@ -210,7 +216,7 @@ module Bolognese
     end
 
     def date_modified
-      metadata.fetch("date_modified", nil)
+      metadata.fetch("date_modified", @date_modified) 
     end
 
     def volume
@@ -251,6 +257,14 @@ module Bolognese
 
     def funding
       metadata.fetch("funding", nil)
+    end
+
+    def member_id
+      @member_id ||= metadata.fetch("member_id", nil)
+    end
+
+    def data_center_id
+      @data_center_id ||= metadata.fetch("data_center_id", nil)
     end
 
     def is_identical_to

@@ -17,7 +17,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get schema_org metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.id).to eq("https://doi.org/10.5438/0000-01hc")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")

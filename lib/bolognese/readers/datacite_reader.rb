@@ -6,7 +6,7 @@ module Bolognese
 
         doi = doi_from_url(id)
         url = options.fetch(:search_url, nil).presence || "https://search.datacite.org/api"
-        url += "?q=doi:#{doi}&fl=doi,xml,media,minted,updated&wt=json"
+        url += "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&wt=json"
 
         response = Maremma.get url
         attributes = response.body.dig("data", "response", "docs").first
@@ -14,10 +14,16 @@ module Bolognese
 
         string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
         string = Base64.decode64(string)
-        if string.present?
-          doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
-          doc.to_s
-        end
+        string = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
+
+        response = Maremma.head(id, limit: 0)
+        url = response.headers.present? ? response.headers["location"] : nil
+
+        { "string" => string,
+          "date_modified" => attributes.fetch("updated", nil),
+          "allocator_id" => attributes.fetch("allocator_symbol", nil),
+          "data_center_id" => attributes.fetch("datacentre_symbol", nil),
+          "url" => url }
       end
 
       def read_datacite(string: nil)

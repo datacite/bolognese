@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,media,minted,updated&q=doi:10.17173/pretest8&wt=json
+    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,updated&q=doi:10.17173/pretest8&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Access-Control-Allow-Methods:
       - GET, POST, OPTIONS
@@ -23,18 +23,53 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 03 Jun 2017 21:23:08 GMT
+      - Sat, 22 Jul 2017 16:31:08 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
-      - '3557'
+      - '3586'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":2},"response":{"numFound":1,"start":0,"docs":[{"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPHJlc291cmNlIHhtbG5zPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMycgeG1sbnM6eHNpPSdodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZScgeHNpOnNjaGVtYUxvY2F0aW9uPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCc+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9J0RPSSc+MTAuMTcxNzMvcHJldGVzdDg8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5MZW56bmVyLCBULjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPk5ldWVydCwgQy48L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5PdHRvLCBXLjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkxhbmRyb2NrLCBVLjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPk1lbm9sZCwgTi48L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0nZGUnPlBJQUFDLUxvbmdpdHVkaW5hbCAoUElBQUMtTCkgMjAxNTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HRVNJUyDigJMgUHJldGVzdCBMYWI8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTQ8L3B1YmxpY2F0aW9uWWVhcj4KICA8Y29udHJpYnV0b3JzPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0nRWRpdG9yJz4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5HRVNJUyAtIExlaWJuaXogSW5zdGl0dXRlIGZvciB0aGUgU29jaWFsIFNjaWVuY2VzPC9jb250cmlidXRvck5hbWU+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSdDb2xsZWN0ZWQnPjIwMTQtMTAtMjc8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0nQ29sbGVjdGVkJz4yMDE0LTEwLTI3LzIwMTQtMTEtMDc8L2RhdGU+CiAgPC9kYXRlcz4KICA8bGFuZ3VhZ2U+Z2VyPC9sYW5ndWFnZT4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9J1RleHQnPlByZXRlc3RiZXJpY2h0PC9yZXNvdXJjZVR5cGU+CiAgPHZlcnNpb24+MS4wPC92ZXJzaW9uPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSdBYnN0cmFjdCcgeG1sOmxhbmc9J2RlJz5JbiBkZW0gRm9yc2NodW5nc3Byb2pla3Qg4oCeUElBQUMtTG9uZ2l0dWRpbmFsIChQSUFBQy1MKeKAnCBmw7xocmVuIEdFU0lTLCBMSWZCaSB1bmQgRElXIGdlbWVpbnNhbSBlaW5lIGRlciB3ZWx0d2VpdCBlcnN0ZW4gaW50ZXJuYXRpb25hbCB2ZXJnbGVpY2hiYXJlbiBMYW5nemVpdHN0dWRpZW4genUgS29tcGV0ZW56ZW4gaW0gRXJ3YWNoc2VuZW5hbHRlciB1bmQgZGVyZW4gQmVkZXV0dW5nIGltIExlYmVuc2xhdWYgZHVyY2guIERhYmVpIGdlaHQgZGllIGRldXRzY2hsYW5kd2VpdGUgTGFuZ3plaXRzdHVkaWUgUElBQUMtTCB1LmEuIEZyYWdlbiBuYWNoLCB3aWUg4oCeV2llIHdpcmtlbiBzaWNoIGluZGl2aWR1ZWxsZSBLb21wZXRlbnplbiBhdWYgZGVuIEVyd2VyYnN2ZXJsYXVmIGRlciBNZW5zY2hlbiBpbiBEZXV0c2NobGFuZCBhdXM/4oCcLCDigJ5JbiB3ZWxjaGVtIFp1c2FtbWVuaGFuZyBzdGVoZW4gcGVyc8O2bmxpY2hlIEbDpGhpZ2tlaXRlbiB6dXIgYmVydWZsaWNoZW4gTW9iaWxpdMOkdD/igJwsIOKAnldpZSBzaW5kIEtvbXBldGVuemVuIGluIGVpbnplbG5lbiBGYW1pbGllbi96d2lzY2hlbiBQYXJ0bmVybiB2ZXJ0ZWlsdD/igJwgdW5kIOKAnldhcyBiZWRldXRldCBkYXMgZsO8ciBkaWUgQXVmc3RpZWdzY2hhbmNlbiBpbiB1bnNlcmVyIEdlc2VsbHNjaGFmdD/igJwuCiZsdDticiZndDsgSW0gUmFobWVuIHZvbiBQSUFBQy1MIHdpcmQgZGllIGRldXRzY2hlIFBJQUFDLVN0aWNocHJvYmUgaW4gZHJlaSB3ZWl0ZXJlbiBFcmhlYnVuZ2VuIGJlZnJhZ3QgdW5kIGdldGVzdGV0IHdlcmRlbi4gWnVyIFZvcmJlcmVpdHVuZyBkZXIgQmVmcmFndW5nIHNvbGx0ZW4gYXVzZ2V3w6RobHRlIFRlaWxlIGRlcyBFcmhlYnVuZ3NpbnN0cnVtZW50cyB1bnRlciBtZXRob2Rpc2NoZW4gdW5kIGZyYWdlYm9nZW50ZWNobmlzY2hlbiBBc3Bla3RlbiBlaW5lbSBrb2duaXRpdmVuIChMYWJvci0pUHJldGVzdCB1bnRlcnpvZ2VuLCBhdWZncnVuZCBkZXIgVGVzdGVyZ2Vibmlzc2Ugw7xiZXJhcmJlaXRldCB1bmQg4oCTIHdvIG3DtmdsaWNoIOKAkyB2ZXJiZXNzZXJ0IHdlcmRlbi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","minted":"2016-06-01T08:16:14Z","updated":"2016-06-01T23:32:12Z","doi":"10.17173/PRETEST8"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.GESIS","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPHJlc291cmNlIHhtbG5zPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMycgeG1sbnM6eHNpPSdodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZScgeHNpOnNjaGVtYUxvY2F0aW9uPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCc+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9J0RPSSc+MTAuMTcxNzMvcHJldGVzdDg8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5MZW56bmVyLCBULjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPk5ldWVydCwgQy48L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5PdHRvLCBXLjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkxhbmRyb2NrLCBVLjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPk1lbm9sZCwgTi48L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZSB4bWw6bGFuZz0nZGUnPlBJQUFDLUxvbmdpdHVkaW5hbCAoUElBQUMtTCkgMjAxNTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HRVNJUyDigJMgUHJldGVzdCBMYWI8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTQ8L3B1YmxpY2F0aW9uWWVhcj4KICA8Y29udHJpYnV0b3JzPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0nRWRpdG9yJz4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5HRVNJUyAtIExlaWJuaXogSW5zdGl0dXRlIGZvciB0aGUgU29jaWFsIFNjaWVuY2VzPC9jb250cmlidXRvck5hbWU+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSdDb2xsZWN0ZWQnPjIwMTQtMTAtMjc8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0nQ29sbGVjdGVkJz4yMDE0LTEwLTI3LzIwMTQtMTEtMDc8L2RhdGU+CiAgPC9kYXRlcz4KICA8bGFuZ3VhZ2U+Z2VyPC9sYW5ndWFnZT4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9J1RleHQnPlByZXRlc3RiZXJpY2h0PC9yZXNvdXJjZVR5cGU+CiAgPHZlcnNpb24+MS4wPC92ZXJzaW9uPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSdBYnN0cmFjdCcgeG1sOmxhbmc9J2RlJz5JbiBkZW0gRm9yc2NodW5nc3Byb2pla3Qg4oCeUElBQUMtTG9uZ2l0dWRpbmFsIChQSUFBQy1MKeKAnCBmw7xocmVuIEdFU0lTLCBMSWZCaSB1bmQgRElXIGdlbWVpbnNhbSBlaW5lIGRlciB3ZWx0d2VpdCBlcnN0ZW4gaW50ZXJuYXRpb25hbCB2ZXJnbGVpY2hiYXJlbiBMYW5nemVpdHN0dWRpZW4genUgS29tcGV0ZW56ZW4gaW0gRXJ3YWNoc2VuZW5hbHRlciB1bmQgZGVyZW4gQmVkZXV0dW5nIGltIExlYmVuc2xhdWYgZHVyY2guIERhYmVpIGdlaHQgZGllIGRldXRzY2hsYW5kd2VpdGUgTGFuZ3plaXRzdHVkaWUgUElBQUMtTCB1LmEuIEZyYWdlbiBuYWNoLCB3aWUg4oCeV2llIHdpcmtlbiBzaWNoIGluZGl2aWR1ZWxsZSBLb21wZXRlbnplbiBhdWYgZGVuIEVyd2VyYnN2ZXJsYXVmIGRlciBNZW5zY2hlbiBpbiBEZXV0c2NobGFuZCBhdXM/4oCcLCDigJ5JbiB3ZWxjaGVtIFp1c2FtbWVuaGFuZyBzdGVoZW4gcGVyc8O2bmxpY2hlIEbDpGhpZ2tlaXRlbiB6dXIgYmVydWZsaWNoZW4gTW9iaWxpdMOkdD/igJwsIOKAnldpZSBzaW5kIEtvbXBldGVuemVuIGluIGVpbnplbG5lbiBGYW1pbGllbi96d2lzY2hlbiBQYXJ0bmVybiB2ZXJ0ZWlsdD/igJwgdW5kIOKAnldhcyBiZWRldXRldCBkYXMgZsO8ciBkaWUgQXVmc3RpZWdzY2hhbmNlbiBpbiB1bnNlcmVyIEdlc2VsbHNjaGFmdD/igJwuCiZsdDticiZndDsgSW0gUmFobWVuIHZvbiBQSUFBQy1MIHdpcmQgZGllIGRldXRzY2hlIFBJQUFDLVN0aWNocHJvYmUgaW4gZHJlaSB3ZWl0ZXJlbiBFcmhlYnVuZ2VuIGJlZnJhZ3QgdW5kIGdldGVzdGV0IHdlcmRlbi4gWnVyIFZvcmJlcmVpdHVuZyBkZXIgQmVmcmFndW5nIHNvbGx0ZW4gYXVzZ2V3w6RobHRlIFRlaWxlIGRlcyBFcmhlYnVuZ3NpbnN0cnVtZW50cyB1bnRlciBtZXRob2Rpc2NoZW4gdW5kIGZyYWdlYm9nZW50ZWNobmlzY2hlbiBBc3Bla3RlbiBlaW5lbSBrb2duaXRpdmVuIChMYWJvci0pUHJldGVzdCB1bnRlcnpvZ2VuLCBhdWZncnVuZCBkZXIgVGVzdGVyZ2Vibmlzc2Ugw7xiZXJhcmJlaXRldCB1bmQg4oCTIHdvIG3DtmdsaWNoIOKAkyB2ZXJiZXNzZXJ0IHdlcmRlbi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","allocator_symbol":"GESIS","updated":"2016-06-01T23:32:12Z","doi":"10.17173/PRETEST8"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 03 Jun 2017 21:23:08 GMT
+  recorded_at: Sat, 22 Jul 2017 16:31:07 GMT
+- request:
+    method: head
+    uri: https://doi.org/10.17173/pretest8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 303
+      message: See Other
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Vary:
+      - Accept
+      Location:
+      - http://pretest.gesis.org/Pretest/DoiId/10.17173/pretest8
+      Expires:
+      - Sat, 22 Jul 2017 17:22:09 GMT
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '197'
+      Date:
+      - Sat, 22 Jul 2017 16:31:08 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sat, 22 Jul 2017 16:31:07 GMT
 recorded_with: VCR 3.0.3
