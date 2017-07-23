@@ -74,7 +74,7 @@ module Bolognese
         { "string" => string }
       end
 
-      def read_crossref(string: nil)
+      def read_crossref(string: nil, **options)
         if string.present?
           m = Maremma.from_xml(string).dig("doi_records", "doi_record") || {}
           meta = m.dig("crossref", "error").nil? ? m : {}

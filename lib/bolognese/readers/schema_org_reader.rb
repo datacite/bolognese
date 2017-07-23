@@ -10,7 +10,7 @@ module Bolognese
         "isSuccessor" => "IsNewVersionOf"
       }
 
-      def read_schema_org(string: nil)
+      def read_schema_org(string: nil, **options)
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 

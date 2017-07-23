@@ -10,7 +10,7 @@ module Bolognese
         { "string" => string }
       end
 
-      def read_codemeta(string: nil)
+      def read_codemeta(string: nil, **options)
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 

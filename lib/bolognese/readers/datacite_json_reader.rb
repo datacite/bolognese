@@ -1,7 +1,7 @@
 module Bolognese
   module Readers
     module DataciteJsonReader
-      def read_datacite_json(string: nil)
+      def read_datacite_json(string: nil, **options)
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 

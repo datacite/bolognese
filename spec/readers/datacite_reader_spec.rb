@@ -265,23 +265,17 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "DOI in test system" do
-      input = "https://doi.org/10.5286/TOPCAT/ISIS/1/DATACOLLECTION/84974338"
-      search_url = "https://search.test.datacite.org/api"
-      subject = Bolognese::Metadata.new(input: input, search_url: search_url)
+      input = "https://doi.test.datacite.org/10.5438/mcnv-ga6n"
+      subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5286/topcat/isis/1/datacollection/84974338")
-      expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("Experiment Data")
-      expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq([{"name"=>"Dr Winfried Kockelmann"},
-                                    {"name"=>"Dr Robert Dalgliesh"},
-                                    {"name"=>"Dr Triestino Minniti"},
-                                    {"name"=>"Professor Kenichi Watanabe"},
-                                    {"name"=>"Mr Ranggi Ramadhan"},
-                                    {"name"=>"Mr Tom Gowland"}])
-      expect(subject.title["text"]).to eq("Exploring the potential of energy-dependent neutron imaging")
-      expect(subject.date_published).to eq("2017")
-      expect(subject.publisher).to eq("ISIS")
+      expect(subject.id).to eq("https://doi.test.datacite.org/10.5438/mcnv-ga6n")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("BlogPosting")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4221-7956", "name"=>"Witt, Michael", "givenName"=>"Michael", "familyName"=>"Witt")
+      expect(subject.title).to eq("re3data Webinar and DataCite: En Avant!")
+      expect(subject.date_published).to eq("2015-11-25")
+      expect(subject.publisher).to eq("DataCite Blog")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end

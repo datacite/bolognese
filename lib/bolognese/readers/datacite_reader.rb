@@ -4,9 +4,10 @@ module Bolognese
       def get_datacite(id: nil, **options)
         return nil unless id.present?
 
+        search_url = options[:sandbox] ? "https://search.test.datacite.org/api" : "https://search.datacite.org/api"
+
         doi = doi_from_url(id)
-        url = options.fetch(:search_url, nil).presence || "https://search.datacite.org/api"
-        url += "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
+        url = search_url + "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
 
         response = Maremma.get url
         attributes = response.body.dig("data", "response", "docs").first
@@ -27,10 +28,9 @@ module Bolognese
           "url" => url }
       end
 
-      def read_datacite(string: nil)
+      def read_datacite(string: nil, **options)
         meta = string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
-
-        id = normalize_doi(meta.dig("identifier", "__content__"))
+        id = normalize_doi(meta.dig("identifier", "__content__"), sandbox: options[:sandbox])
         doi = doi_from_url(id)
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"

@@ -23,7 +23,7 @@ module Bolognese
         "webpage" => "ELEC"
       }
 
-      def read_citeproc(string: nil)
+      def read_citeproc(string: nil, **options)
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 

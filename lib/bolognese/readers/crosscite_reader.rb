@@ -1,7 +1,7 @@
 module Bolognese
   module Readers
     module CrossciteReader
-      def read_crosscite(string: nil)
+      def read_crosscite(string: nil, **options)
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 

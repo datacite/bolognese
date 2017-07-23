@@ -30,7 +30,7 @@ module Bolognese
         "UNPD" => "unpublished"
       }
 
-      def read_ris(string: nil)
+      def read_ris(string: nil, **options)
         meta = ris_meta(string: string)
 
         ris_type = meta.fetch("TY", nil) || "GEN"

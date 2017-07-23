@@ -73,13 +73,13 @@ module Bolognese
       :member_id, :data_center_id, :date_registered, :date_updated, :name_detector
 
     def initialize(input: nil, from: nil, regenerate: false, **options)
-      id = normalize_id(input)
+      id = normalize_id(input, options)
 
       if id.present?
         @from = from || find_from_format(id: id)
 
         # generate name for method to call dynamically
-        hsh = @from.present? ? send("get_" + @from, id: id, search_url: options[:search_url]) : nil
+        hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : nil
         string = hsh.to_h.fetch("string", nil)
       elsif File.exist?(input)
         ext = File.extname(input)
@@ -96,7 +96,7 @@ module Bolognese
       end
 
       # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: string) : {}
+      @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox]) : {}
       @raw = string.present? ? string.strip : nil
 
       @should_passthru = (@from == "datacite") && !regenerate

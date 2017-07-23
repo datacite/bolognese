@@ -22,7 +22,7 @@ module Bolognese
         "article" => "ScholarlyArticle"
       }
 
-      def read_bibtex(string: nil)
+      def read_bibtex(string: nil, **options)
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
         type = BIB_TO_SO_TRANSLATIONS[meta.type.to_s] || "ScholarlyArticle"

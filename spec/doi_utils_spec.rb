@@ -5,6 +5,50 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input, from: "crossref") }
 
+  context "doi resolver" do
+    it "doi" do
+      doi = "10.5061/DRYAD.8515"
+      response = subject.doi_resolver(doi)
+      expect(response).to eq("https://doi.org/")
+    end
+
+    it "doi with protocol" do
+      doi = "doi:10.5061/DRYAD.8515"
+      response = subject.doi_resolver(doi)
+      expect(response).to eq("https://doi.org/")
+    end
+
+    it "https url" do
+      doi = "https://doi.org/10.5061/dryad.8515"
+      response = subject.doi_resolver(doi)
+      expect(response).to eq("https://doi.org/")
+    end
+
+    it "dx.doi.org url" do
+      doi = "http://dx.doi.org/10.5061/dryad.8515"
+      response = subject.doi_resolver(doi)
+      expect(response).to eq("https://doi.org/")
+    end
+
+    it "test resolver" do
+      doi = "https://doi.test.datacite.org/10.5061/dryad.8515"
+      response = subject.doi_resolver(doi)
+      expect(response).to eq("https://doi.test.datacite.org/")
+    end
+
+    it "test resolver http" do
+      doi = "http://doi.test.datacite.org/10.5061/dryad.8515"
+      response = subject.doi_resolver(doi)
+      expect(response).to eq("https://doi.test.datacite.org/")
+    end
+
+    it "force test resolver" do
+      doi = "https://doi.org/10.5061/dryad.8515"
+      response = subject.doi_resolver(doi, sandbox: true)
+      expect(response).to eq("https://doi.test.datacite.org/")
+    end
+  end
+
   context "normalize doi" do
     it "doi" do
       doi = "10.5061/DRYAD.8515"
@@ -65,6 +109,18 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.normalize_doi(doi)
       expect(response).to eq("https://doi.org/10.5061/dryad.8515")
     end
+
+    it "doi from datacite sandbox" do
+      doi = "https://doi.test.datacite.org/10.5438/55e5-t5c0"
+      response = subject.normalize_doi(doi)
+      expect(response).to eq("https://doi.test.datacite.org/10.5438/55e5-t5c0")
+    end
+
+    it "doi force datacite sandbox" do
+      doi = "10.5438/55e5-t5c0"
+      response = subject.normalize_doi(doi, sandbox: true)
+      expect(response).to eq("https://doi.test.datacite.org/10.5438/55e5-t5c0")
+    end
   end
 
   context "doi_from_url" do
@@ -81,6 +137,11 @@ describe Bolognese::Metadata, vcr: true do
     it "not a doi" do
       doi = subject.doi_from_url("https://doi.org/10.5061")
       expect(doi).to be nil
+    end
+
+    it "sandbox url" do
+      doi = subject.doi_from_url("https://doi.test.datacite.org/10.5438/55e5-t5c0")
+      expect(doi).to eq("10.5438/55e5-t5c0")
     end
   end
 
