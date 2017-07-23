@@ -176,4 +176,30 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to be_nil
     end
   end
+
+  context "validate prefix" do
+    it "doi" do
+      doi = "10.5061/dryad.8515"
+      response = subject.validate_prefix(doi)
+      expect(response).to eq("10.5061")
+    end
+
+    it "doi with protocol" do
+      doi = "doi:10.5061/dryad.8515"
+      response = subject.validate_prefix(doi)
+      expect(response).to eq("10.5061")
+    end
+
+    it "doi as url" do
+      doi = "https://doi.org/10.5061/dryad.8515"
+      response = subject.validate_prefix(doi)
+      expect(response).to eq("10.5061")
+    end
+
+    it "only prefix" do
+      doi = "10.5061"
+      response = subject.validate_prefix(doi)
+      expect(response).to eq("10.5061")
+    end
+  end
 end

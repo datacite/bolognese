@@ -5,7 +5,7 @@ module Bolognese
     end
 
     def validate_prefix(doi)
-      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5})\/.+\z/.match(doi)).last
+      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}).*\z/.match(doi)).last
     end
 
     def doi_resolver(doi, options={})
