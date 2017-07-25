@@ -82,6 +82,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2014, 2, 11]])
     end
 
+    it "software" do
+      input = "https://doi.org/10.6084/m9.figshare.4906367.v1"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article")
+      expect(json["DOI"]).to eq("10.6084/m9.figshare.4906367.v1")
+      expect(json["title"]).to eq("Scimag catalogue of LibGen as of January 1st, 2014")
+    end
+
     it "multiple abstracts" do
       input = "https://doi.org/10.12763/ona1045"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
