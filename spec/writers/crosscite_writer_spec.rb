@@ -44,6 +44,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
       subject = Bolognese::Metadata.new(input: input, from: "citeproc")
+      expect(subject.valid?).to be true
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["resource_type_general"]).to eq("Text")
       expect(crosscite.fetch("title")).to eq("Eating your own Dog Food")

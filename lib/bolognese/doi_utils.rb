@@ -1,7 +1,8 @@
 module Bolognese
   module DoiUtils
     def validate_doi(doi)
-      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
+      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
+      doi = doi.delete("\u200B").downcase if doi.present?
     end
 
     def validate_prefix(doi)

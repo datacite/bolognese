@@ -33,7 +33,8 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "BlogPosting with new DOI" do
-      subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
+      subject = Bolognese::Metadata.new(input: input)
+      subject.doi = "10.5438/0000-00ss"
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")

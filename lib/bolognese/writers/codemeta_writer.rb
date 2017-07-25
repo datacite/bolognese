@@ -3,7 +3,7 @@ module Bolognese
     module CodemetaWriter
       def codemeta
         return nil unless valid?
-        
+
         hsh = {
           "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
           "@type" => type,

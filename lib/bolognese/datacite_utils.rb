@@ -1,11 +1,5 @@
 module Bolognese
   module DataciteUtils
-    def schema
-      kernel = schema_version.split("/").last || "kernel-4.0"
-      filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
-      Nokogiri::XML::Schema(open(filepath))
-    end
-
     def datacite_xml
       @datacite_xml ||= Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
         xml.resource(root_attributes) do
@@ -14,12 +8,13 @@ module Bolognese
       end.to_xml
     end
 
-    # def datacite
-    #   datacite_xml
-    # end
+    def datacite_errors(xml: nil, schema_version: nil)
+      schema_version ||= "http://datacite.org/schema/kernel-4"
+      kernel = schema_version.to_s.split("/").last
+      filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
+      schema = Nokogiri::XML::Schema(open(filepath))
 
-    def datacite_errors
-      schema.validate(Nokogiri::XML(datacite, nil, 'UTF-8')).map { |error| error.to_s }.unwrap
+      schema.validate(Nokogiri::XML(xml, nil, 'UTF-8')).map { |error| error.to_s }.unwrap
     rescue Nokogiri::XML::SyntaxError => e
       e.message
     end
@@ -88,7 +83,7 @@ module Bolognese
     end
 
     def insert_publisher(xml)
-      xml.publisher(publisher)
+      xml.publisher(publisher || container_title)
     end
 
     def insert_publication_year(xml)

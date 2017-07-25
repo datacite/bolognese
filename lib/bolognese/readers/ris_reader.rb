@@ -36,7 +36,7 @@ module Bolognese
         ris_type = meta.fetch("TY", nil) || "GEN"
         type = RIS_TO_SO_TRANSLATIONS[ris_type] || "CreativeWork"
 
-        doi = meta.fetch("DO", nil)
+        doi = validate_doi(meta.fetch("DO", nil))
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
         container_title = meta.fetch("T2", nil)
         is_part_of = if container_title.present?

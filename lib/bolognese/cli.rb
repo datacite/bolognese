@@ -27,9 +27,16 @@ module Bolognese
     method_option :to, aliases: "-t", default: "schema_org"
     method_option :regenerate, :type => :boolean, :force => false
     def convert(input)
-      metadata = Metadata.new(input: input, from: options[:from], regenerate: options[:regenerate])
+      metadata = Metadata.new(input: input,
+                              from: options[:from],
+                              regenerate: options[:regenerate])
       to = options[:to] || "schema_org"
-      puts metadata.send(to)
+
+      if metadata.valid?
+        puts metadata.send(to)
+      else
+        $stderr.puts metadata.errors
+      end
     end
 
     default_task :convert

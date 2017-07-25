@@ -98,7 +98,7 @@ module Bolognese
                             meta.dig("crossref").keys.last.camelize
                           end
         type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
-        doi = bibliographic_metadata.dig("doi_data", "doi")
+        doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase
 
         { "id" => normalize_doi(doi),
           "type" => type,

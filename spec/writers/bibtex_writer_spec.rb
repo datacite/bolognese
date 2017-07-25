@@ -8,7 +8,7 @@ describe Bolognese::Metadata, vcr: true do
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")
-      expect(bibtex[:doi]).to eq("10.7554/eLife.01567")
+      expect(bibtex[:doi]).to eq("10.7554/elife.01567")
       expect(bibtex[:url]).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(bibtex[:title]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(bibtex[:author]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
@@ -34,6 +34,7 @@ describe Bolognese::Metadata, vcr: true do
     it "text" do
       input = "https://doi.org/10.17173/PRETEST8"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.17173/pretest8")
@@ -62,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(bibtex[:doi]).to eq("10.5438/4K3M-NYVG")
+      expect(bibtex[:doi]).to eq("10.5438/4k3m-nyvg")
       expect(bibtex[:title]).to eq("Eating your own Dog Food")
       expect(bibtex[:author]).to eq("Fenner, Martin")
       expect(bibtex[:publisher]).to eq("DataCite")

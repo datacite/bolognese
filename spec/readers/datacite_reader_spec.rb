@@ -280,13 +280,33 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
-    # it "missing creator" do
-    #   string = IO.read(fixture_path + "datacite_missing_creator.xml")
-    #   subject = Bolognese::Metadata.new(string: string, regenerate: true)
-    #   expect(subject.valid?).to be true
-    #   expect(subject.datacite_errors).to eq(2)
-    #   expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
-    #   expect(subject.errors).to eq("Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).")
-    # end
+    it "missing creator" do
+      input = fixture_path + "datacite_missing_creator.xml"
+      subject = Bolognese::Metadata.new(input: input, regenerate: true)
+      expect(subject.author).to be_nil
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq("Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).")
+    end
+  end
+
+  context "change datacite metadata" do
+    it "change doi" do
+      subject.doi = "10.5061/8515"
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5061/8515")
+      expect(subject.doi).to eq("10.5061/8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.type).to eq("Dataset")
+    end
+
+    it "change title" do
+      subject.title = "A new malaria agent in African hominids."
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(subject.doi).to eq("10.5061/dryad.8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.title).to eq("A new malaria agent in African hominids.")
+    end
   end
 end

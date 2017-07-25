@@ -43,7 +43,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("report")
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(json["DOI"]).to eq("10.5438/4K3M-NYVG")
+      expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
       expect(json["title"]).to eq("Eating your own Dog Food")
       expect(json["author"]).to eq([{"family"=>"Fenner", "given"=>"Martin"}])
       expect(json["publisher"]).to eq("DataCite")
@@ -70,7 +70,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.7554/elife.01567")
-      expect(json["DOI"]).to eq("10.7554/eLife.01567")
+      expect(json["DOI"]).to eq("10.7554/elife.01567")
       expect(json["title"]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(json["author"]).to eq([{"family"=>"Sankar", "given"=>"Martial"},
                                     {"family"=>"Nieminen", "given"=>"Kaisa"},

@@ -2,8 +2,6 @@ module Bolognese
   module Writers
     module SchemaOrgWriter
       def schema_hsh
-        return nil unless valid?
-
         { "@context" => id.present? ? "http://schema.org" : nil,
           "@type" => type,
           "@id" => id,

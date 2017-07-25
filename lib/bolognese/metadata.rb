@@ -57,20 +57,24 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :schema_version, :license, :citation,
-      :additional_type, :alternate_name, :url, :version, :keywords, :editor,
-      :page_start, :page_end, :date_modified, :language, :spatial_coverage,
-      :content_size, :funding, :journal, :bibtex_type, :date_created, :has_part,
-      :publisher, :contributor, :same_as, :is_previous_version_of, :is_new_version_of,
-      :should_passthru, :errors, :datacite_errors, :date_accepted, :date_available,
-      :date_copyrighted, :date_collected, :date_submitted, :date_valid,
-      :is_cited_by, :cites, :is_supplement_to, :is_supplemented_by,
-      :is_continued_by, :continues, :has_metadata, :is_metadata_for,
-      :is_referenced_by, :references, :is_documented_by, :documents,
-      :is_compiled_by, :compiles, :is_variant_form_of, :is_original_form_of,
-      :is_reviewed_by, :reviews, :is_derived_from, :is_source_of, :format,
-      :related_identifier, :reverse, :citeproc_type, :ris_type, :volume, :issue,
-      :member_id, :data_center_id, :date_registered, :date_updated, :name_detector
+    attr_accessor :doi, :author, :title, :publisher, :contributor, :license,
+      :date_accepted, :date_available, :date_copyrighted, :date_collected,
+      :date_submitted, :date_valid, :date_created, :date_modified,
+      :date_registered, :date_updated, :member_id, :data_center_id, :journal,
+      :volume, :issue, :pagination, :url, :version, :keywords, :editor,
+      :description, :alternate_name, :language, :content_size, :spatial_coverage,
+      :schema_version, :additional_type, :has_part, :same_as,
+      :is_previous_version_of, :is_new_version_of,   :is_cited_by, :cites,
+      :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
+      :has_metadata, :is_metadata_for, :is_referenced_by, :references,
+      :is_documented_by, :documents, :is_compiled_by, :compiles,
+      :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
+      :is_derived_from, :is_source_of, :format, :funding, :type, :bibtex_type,
+      :citeproc_type, :ris_type
+
+    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :citation,
+      :page_start, :page_end, :should_passthru, :errors,
+      :related_identifier, :reverse, :name_detector
 
     def initialize(input: nil, from: nil, regenerate: false, **options)
       id = normalize_id(input, options)
@@ -100,7 +104,6 @@ module Bolognese
       @raw = string.present? ? string.strip : nil
 
       @should_passthru = (@from == "datacite") && !regenerate
-      @doi = options[:doi].presence
 
       @url = hsh.to_h["url"].presence
       @date_registered = hsh.to_h["date_registered"].presence
@@ -117,40 +120,39 @@ module Bolognese
       exists? && errors.nil?
     end
 
+    # validate against DataCite schema, unless there are already errors in the reader
     def errors
-      metadata.fetch("errors", nil)
+      xml = should_passthru ? raw : datacite_xml
+      metadata.fetch("errors", nil) || datacite_errors(xml: xml,
+                                                       schema_version: schema_version)
     end
-
-    # def errors
-    #   doc && doc.errors.map { |error| error.to_s }.unwrap
-    # end
 
     def id
       @doi.present? ? doi_as_url(@doi) : metadata.fetch("id", nil)
     end
 
     def type
-      metadata.fetch("type", nil)
+      @type ||= metadata.fetch("type", nil)
     end
 
     def additional_type
-      metadata.fetch("additional_type", nil)
+      @additional_type ||= metadata.fetch("additional_type", nil)
     end
 
     def citeproc_type
-      metadata.fetch("citeproc_type", nil)
+      @citeproc_type ||= metadata.fetch("citeproc_type", nil)
     end
 
     def bibtex_type
-      metadata.fetch("bibtex_type", nil)
+      @bibtex_type ||= metadata.fetch("bibtex_type", nil)
     end
 
     def ris_type
-      metadata.fetch("ris_type", nil)
+      @ris_type ||= metadata.fetch("ris_type", nil)
     end
 
     def resource_type_general
-      metadata.fetch("resource_type_general", nil)
+      @resource_type_general ||= metadata.fetch("resource_type_general", nil)
     end
 
     def doi
@@ -162,63 +164,63 @@ module Bolognese
     end
 
     def title
-      metadata.fetch("title", nil)
+      @title ||= metadata.fetch("title", nil)
     end
 
     def alternate_name
-      metadata.fetch("alternate_name", nil)
+      @alternate_name ||= metadata.fetch("alternate_name", nil)
     end
 
     def author
-      metadata.fetch("author", nil)
+      @author ||= metadata.fetch("author", nil)
     end
 
     def editor
-      metadata.fetch("editor", nil)
+      @editor ||= metadata.fetch("editor", nil)
     end
 
     def publisher
-      metadata.fetch("publisher", nil)
+      @publisher ||= metadata.fetch("publisher", nil)
     end
 
     def provider
-      metadata.fetch("provider", nil)
+      @provider ||= metadata.fetch("provider", nil)
     end
 
     def date_created
-      metadata.fetch("date_created", nil)
+      @date_created ||= metadata.fetch("date_created", nil)
     end
 
     def date_accepted
-      metadata.fetch("date_accepted", nil)
+      @date_accepted ||= metadata.fetch("date_accepted", nil)
     end
 
     def date_available
-      metadata.fetch("date_available", nil)
+      @date_available ||= metadata.fetch("date_available", nil)
     end
 
     def date_copyrighted
-      metadata.fetch("date_copyrighted", nil)
+      @date_copyrighted ||= metadata.fetch("date_copyrighted", nil)
     end
 
     def date_collected
-      metadata.fetch("date_collected", nil)
+      @date_collected ||= metadata.fetch("date_collected", nil)
     end
 
     def date_submitted
-      metadata.fetch("date_submitted", nil)
+      @date_submitted ||= metadata.fetch("date_submitted", nil)
     end
 
     def date_valid
-      metadata.fetch("date_valid", nil)
+      @date_valid ||= metadata.fetch("date_valid", nil)
     end
 
     def date_published
-      metadata.fetch("date_published", nil)
+      @date_published ||= metadata.fetch("date_published", nil)
     end
 
     def date_modified
-      metadata.fetch("date_modified", nil)
+      @date_modified ||= metadata.fetch("date_modified", nil)
     end
 
     def date_registered
@@ -230,43 +232,43 @@ module Bolognese
     end
 
     def volume
-      metadata.fetch("volume", nil)
+      @volume ||= metadata.fetch("volume", nil)
     end
 
     def pagination
-      metadata.fetch("pagination", nil)
+      @pagination ||= metadata.fetch("pagination", nil)
     end
 
     def description
-      metadata.fetch("description", nil)
+      @description ||= metadata.fetch("description", nil)
     end
 
     def license
-      metadata.fetch("license", nil)
+      @license ||= metadata.fetch("license", nil)
     end
 
     def version
-      metadata.fetch("version", nil)
+      @version ||= metadata.fetch("version", nil)
     end
 
     def keywords
-      metadata.fetch("keywords", nil)
+      @keywords ||= metadata.fetch("keywords", nil)
     end
 
     def language
-      metadata.fetch("language", nil)
+      @language ||= metadata.fetch("language", nil)
     end
 
     def content_size
-      metadata.fetch("content_size", nil)
+      @content_size ||= metadata.fetch("content_size", nil)
     end
 
     def schema_version
-      metadata.fetch("schema_version", nil)
+      @schema_version ||= metadata.fetch("schema_version", nil)
     end
 
     def funding
-      metadata.fetch("funding", nil)
+      @funding ||= metadata.fetch("funding", nil)
     end
 
     def member_id
@@ -330,7 +332,8 @@ module Bolognese
     end
 
     def related_identifier_hsh(relation_type)
-      Array.wrap(send(relation_type)).map { |r| r.merge("relationType" => relation_type.camelize) }
+      Array.wrap(send(relation_type)).select { |r| r["id"] || r["issn"] }
+        .map { |r| r.merge("relationType" => relation_type.camelize) }
     end
 
     def related_identifier

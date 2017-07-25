@@ -29,7 +29,18 @@ module Bolognese
       end
 
       def read_datacite(string: nil, **options)
-        meta = string.present? ? Maremma.from_xml(string).fetch("resource", {}) : {}
+        return { "errors" => "no content" } unless string.present?
+
+        meta = Maremma.from_xml(string).fetch("resource", {})
+        schema_version = meta.fetch("xmlns", nil)
+
+        # validate only when option is set, as this step is expensive and
+        # not needed if XML comes from DataCite MDS
+        if options[:validate]
+          errors = datacite_errors(xml: string, schema_version: schema_version)
+          return { "errors" => errors } if errors.present?
+        end
+
         id = normalize_doi(meta.dig("identifier", "__content__"), sandbox: options[:sandbox])
         doi = doi_from_url(id)
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
@@ -104,7 +115,7 @@ module Bolognese
           "keywords" => keywords,
           "language" => meta.fetch("language", nil),
           "content_size" => meta.fetch("size", nil),
-          "schema_version" => meta.fetch("xmlns", nil)
+          "schema_version" => schema_version
         }
       end
 

@@ -2,8 +2,6 @@ module Bolognese
   module Writers
     module RisWriter
       def ris
-        return nil unless valid?
-
         {
           "TY" => ris_type,
           "T1" => parse_attributes(title, content: "text", first: true),
