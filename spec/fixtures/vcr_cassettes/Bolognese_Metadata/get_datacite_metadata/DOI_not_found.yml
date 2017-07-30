@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 22 Jul 2017 20:28:19 GMT
+      - Sat, 29 Jul 2017 13:42:13 GMT
       Etag:
       - W/"fdee1bc1cd6b18e07cc52f94b7b59250"
       Server:
@@ -47,17 +47,17 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '325'
+      - '816'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99949'
+      - '99950'
       X-Request-Id:
-      - 56f177aa-5df0-42c0-99b1-c4d2bc8042d6
+      - f239d1d3-abb7-4ed9-8afa-ee1b1d05112e
       X-Runtime:
-      - '0.318970'
+      - '0.815459'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -68,7 +68,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:04Z"}}}'
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:17 GMT
+  recorded_at: Sat, 29 Jul 2017 13:42:13 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
@@ -92,11 +92,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 20:28:19 GMT
+      - Sat, 29 Jul 2017 13:42:14 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '88'
       Connection:
       - keep-alive
     body:
@@ -105,5 +103,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:18 GMT
+  recorded_at: Sat, 29 Jul 2017 13:42:14 GMT
 recorded_with: VCR 3.0.3

@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'postrank-uri', '~> 1.0', '>= 1.0.18'
   s.add_dependency 'json-ld', '~> 2.1', '>= 2.1.2'
   s.add_dependency 'jsonlint', '~> 0.2.0'
+  s.add_dependency 'oj', '>= 2.8.3'
   s.add_dependency 'rdf-turtle', '~> 2.2'
   s.add_dependency 'rdf-rdfxml', '~> 2.0'
   s.add_dependency 'benchmark_methods', '~> 0.7'
@@ -38,8 +39,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rack-test', '~> 0'
   s.add_development_dependency 'vcr', '~> 3.0', '>= 3.0.3'
   s.add_development_dependency 'webmock', '~> 3.0', '>= 3.0.1'
-  s.add_development_dependency 'codeclimate-test-reporter', '~> 1.0', '>= 1.0.0'
-  s.add_development_dependency 'simplecov', '~> 0.14.1'
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 1.0', '>= 1.0.8'
+  s.add_development_dependency 'simplecov', '~> 0.1'
 
   s.require_paths = ["lib"]
   s.files       = `git ls-files`.split($/)

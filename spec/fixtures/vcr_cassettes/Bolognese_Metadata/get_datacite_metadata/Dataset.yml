@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 22 Jul 2017 20:28:04 GMT
+      - Sat, 29 Jul 2017 13:41:58 GMT
       Etag:
       - W/"1eb3f4f371821b1becc6cd25a71755ce"
       Server:
@@ -47,26 +47,28 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '531'
+      - '220'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
       - '99956'
       X-Request-Id:
-      - a1724ca4-da1f-476e-b847-9864ca4c2a12
+      - 34f18a4a-1229-4459-8030-f81d73d9fa58
       X-Runtime:
-      - '0.529946'
+      - '0.218560'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5061","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:07Z"}}}'
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:03 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:59 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5061/dryad.8515&wt=json
@@ -90,11 +92,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 20:28:05 GMT
+      - Sat, 29 Jul 2017 13:41:59 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '4111'
       Connection:
       - keep-alive
     body:
@@ -103,7 +103,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:03 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:59 GMT
 - request:
     method: head
     uri: https://doi.org/10.5061/dryad.8515
@@ -127,16 +127,16 @@ http_interactions:
       Location:
       - http://datadryad.org/resource/doi:10.5061/dryad.8515
       Expires:
-      - Sat, 22 Jul 2017 21:26:21 GMT
+      - Sat, 29 Jul 2017 13:52:36 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '189'
       Date:
-      - Sat, 22 Jul 2017 20:28:05 GMT
+      - Sat, 29 Jul 2017 13:41:59 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:04 GMT
+  recorded_at: Sat, 29 Jul 2017 13:42:00 GMT
 recorded_with: VCR 3.0.3

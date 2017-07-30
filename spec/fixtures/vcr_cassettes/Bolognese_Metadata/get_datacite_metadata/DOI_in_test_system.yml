@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sun, 23 Jul 2017 10:03:47 GMT
+      - Sat, 29 Jul 2017 13:42:20 GMT
       Etag:
       - W/"b9f2d79281c542db437c42a5bac25ac8"
       Server:
@@ -47,26 +47,28 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '229'
+      - '512'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99998'
+      - '99946'
       X-Request-Id:
-      - e934a406-4974-4b93-8860-1e3ec71f023e
+      - 821c8318-c280-451f-809a-bfdb2ddd3184
       X-Runtime:
-      - '0.227858'
+      - '0.510221'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
     http_version: 
-  recorded_at: Sun, 23 Jul 2017 10:03:45 GMT
+  recorded_at: Sat, 29 Jul 2017 13:42:21 GMT
 - request:
     method: get
     uri: https://search.test.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/mcnv-ga6n&wt=json
@@ -90,7 +92,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sun, 23 Jul 2017 10:03:47 GMT
+      - Sat, 29 Jul 2017 13:42:21 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -99,11 +101,11 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"DATACITE.DATACITE","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9NQ05WLUdBNk48L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5XaXR0LCBNaWNoYWVsPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5NaWNoYWVsPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPldpdHQ8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy00MjIxLTc5NTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5yZTNkYXRhIFdlYmluYXIgYW5kIERhdGFDaXRlOiBFbiBBdmFudCE8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNpdGUgQmxvZzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5yZTNkYXRhPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RGF0YUNpdGU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgIDwvY29udHJpYnV0b3I+CiAgPC9jb250cmlidXRvcnM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNS0xMS0yNTwvZGF0ZT4KICA8L2RhdGVzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wLyI+Q3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbjwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPlRoZSBpbmF1Z3VyYWwgbWVldGluZyBvZiB0aGUgRGF0YUNpdGUgcmUzZGF0YSBXb3JraW5nIEdyb3VwIHdhcyBjb252ZW5lZCBpbiBQYXJpcyBvbiBTZXB0ZW1iZXIgMjB0aCBhdCB0aGUgb2ZmaWNlcyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb3VuY2lsIGZvciBTY2llbmNlIChJQ1NVKS4gQ28tY2hhaXJzIE1pY2hhZWwgV2l0dCBhbmQgRnJhbmsgU2Nob2x6ZSBnYXZlIHRoZSBiYWNrZ3JvdW5kIGFuZCBoaXN0b3J5IG9mIERhdGFiaWIuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"DATACITE","minted":"2016-12-19T15:46:57Z","updated":"2016-12-19T15:46:57Z","doi":"10.5438/MCNV-GA6N"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"DATACITE.DATACITE","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9NQ05WLUdBNk48L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5XaXR0LCBNaWNoYWVsPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5NaWNoYWVsPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPldpdHQ8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy00MjIxLTc5NTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5yZTNkYXRhIFdlYmluYXIgYW5kIERhdGFDaXRlOiBFbiBBdmFudCE8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNpdGUgQmxvZzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5yZTNkYXRhPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RGF0YUNpdGU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgIDwvY29udHJpYnV0b3I+CiAgPC9jb250cmlidXRvcnM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNS0xMS0yNTwvZGF0ZT4KICA8L2RhdGVzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wLyI+Q3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbjwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPlRoZSBpbmF1Z3VyYWwgbWVldGluZyBvZiB0aGUgRGF0YUNpdGUgcmUzZGF0YSBXb3JraW5nIEdyb3VwIHdhcyBjb252ZW5lZCBpbiBQYXJpcyBvbiBTZXB0ZW1iZXIgMjB0aCBhdCB0aGUgb2ZmaWNlcyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb3VuY2lsIGZvciBTY2llbmNlIChJQ1NVKS4gQ28tY2hhaXJzIE1pY2hhZWwgV2l0dCBhbmQgRnJhbmsgU2Nob2x6ZSBnYXZlIHRoZSBiYWNrZ3JvdW5kIGFuZCBoaXN0b3J5IG9mIERhdGFiaWIuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","allocator_symbol":"DATACITE","minted":"2016-12-19T15:46:57Z","updated":"2017-07-24T02:05:32Z","doi":"10.5438/MCNV-GA6N"}]}}
 
 '
     http_version: 
-  recorded_at: Sun, 23 Jul 2017 10:03:45 GMT
+  recorded_at: Sat, 29 Jul 2017 13:42:21 GMT
 - request:
     method: head
     uri: https://doi.test.datacite.org/10.5438/mcnv-ga6n
@@ -127,7 +129,7 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Sun, 23 Jul 2017 10:03:47 GMT
+      - Sat, 29 Jul 2017 13:42:22 GMT
       Location:
       - https://blog.datacite.org/re3data-webinar-and-datacite-en-avant/
       Server:
@@ -138,5 +140,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sun, 23 Jul 2017 10:03:46 GMT
+  recorded_at: Sat, 29 Jul 2017 13:42:22 GMT
 recorded_with: VCR 3.0.3

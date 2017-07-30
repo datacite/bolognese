@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sat, 22 Jul 2017 20:27:35 GMT
+      - Sat, 29 Jul 2017 13:40:57 GMT
       Server:
       - openresty/1.11.2.2
       Status:
@@ -43,19 +43,21 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '613'
+      - '772'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99961'
+      - '99987'
       X-Request-Id:
-      - 59ac112e-e135-4214-97ed-9f1b0b9d04ab
+      - 18aef95f-24e3-44ed-9055-bcb713d254a9
       X-Runtime:
-      - '0.612500'
+      - '0.770395'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '83'
       Connection:
       - keep-alive
     body:
@@ -63,5 +65,5 @@ http_interactions:
       string: '{"errors":[{"status":"404","title":"The page you are looking for doesn''t
         exist."}]}'
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:27:34 GMT
+  recorded_at: Sat, 29 Jul 2017 13:40:58 GMT
 recorded_with: VCR 3.0.3

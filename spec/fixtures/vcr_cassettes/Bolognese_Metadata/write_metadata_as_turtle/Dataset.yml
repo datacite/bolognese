@@ -23,11 +23,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 20:25:49 GMT
+      - Sat, 29 Jul 2017 13:43:58 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '4111'
       Connection:
       - keep-alive
     body:
@@ -36,7 +34,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:25:48 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:58 GMT
 - request:
     method: head
     uri: https://doi.org/10.5061/dryad.8515
@@ -60,18 +58,18 @@ http_interactions:
       Location:
       - http://datadryad.org/resource/doi:10.5061/dryad.8515
       Expires:
-      - Sat, 22 Jul 2017 20:26:21 GMT
+      - Sat, 29 Jul 2017 13:52:36 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '189'
       Date:
-      - Sat, 22 Jul 2017 20:25:50 GMT
+      - Sat, 29 Jul 2017 13:43:58 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:25:49 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:59 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -103,9 +101,9 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 40c93cae986ecde79d58ac8bb9b4bb7c
+      - c6d7419d8176eeee7a76dac2e0acf49f
       Date:
-      - Sat, 22 Jul 2017 20:25:50 GMT
+      - Sat, 29 Jul 2017 13:43:59 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -114,7 +112,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:25:49 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:59 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -142,21 +140,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170722201232a2048647386json
+      - 24751170729133455a2048647386json
       Last-Modified:
-      - Sat, 22 Jul 2017 20:12:32 UTC
+      - Sat, 29 Jul 2017 13:34:55 UTC
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 5dca1218af272c9e53a14b81d6da2128
+      - ea7d3aeebfef8225d7c4182fb4b1a759
       Date:
-      - Sat, 22 Jul 2017 20:25:50 GMT
+      - Sat, 29 Jul 2017 13:44:04 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '128366'
       Expires:
-      - Sat, 22 Jul 2017 20:25:50 GMT
+      - Sat, 29 Jul 2017 13:44:04 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2362,7 +2360,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:25:49 GMT
+  recorded_at: Sat, 29 Jul 2017 13:44:05 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2394,9 +2392,9 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - beb6917db326e5506eca271e1551c9d7
+      - 40821e11d17fc970359cd14bda5c1a6a
       Date:
-      - Sat, 22 Jul 2017 20:25:51 GMT
+      - Sat, 29 Jul 2017 13:44:05 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2405,7 +2403,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:25:50 GMT
+  recorded_at: Sat, 29 Jul 2017 13:44:05 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2433,21 +2431,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170722201232a2048647386json
+      - 24751170729133455a2048647386json
       Last-Modified:
-      - Sat, 22 Jul 2017 20:12:32 UTC
+      - Sat, 29 Jul 2017 13:34:55 UTC
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 1618345ae3d62f801064b6dc47f6d8cf
+      - 8ae2036b3d4cb776b92eae9bac00bfc4
       Date:
-      - Sat, 22 Jul 2017 20:25:51 GMT
+      - Sat, 29 Jul 2017 13:44:05 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '128366'
       Expires:
-      - Sat, 22 Jul 2017 20:25:51 GMT
+      - Sat, 29 Jul 2017 13:44:05 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4653,5 +4651,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:25:50 GMT
+  recorded_at: Sat, 29 Jul 2017 13:44:05 GMT
 recorded_with: VCR 3.0.3

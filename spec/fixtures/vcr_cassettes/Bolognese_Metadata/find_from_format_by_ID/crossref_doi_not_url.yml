@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 22 Jul 2017 20:27:28 GMT
+      - Sat, 29 Jul 2017 13:41:42 GMT
       Etag:
       - W/"b9f2d79281c542db437c42a5bac25ac8"
       Server:
@@ -45,19 +45,19 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '1'
+      - '3'
       X-Kong-Upstream-Latency:
-      - '503'
+      - '870'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99966'
+      - '99962'
       X-Request-Id:
-      - 03bbea5d-d4e6-42d1-9260-1057d8082f50
+      - fd32a7b7-f678-4bc3-97e6-b58b1faeb9bb
       X-Runtime:
-      - '0.501552'
+      - '0.731122'
       X-Xss-Protection:
       - 1; mode=block
       Content-Length:
@@ -68,7 +68,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:27:27 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:42 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
@@ -92,7 +92,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 22 Jul 2017 20:27:28 GMT
+      - Sat, 29 Jul 2017 13:41:43 GMT
       Server:
       - openresty/1.11.2.2
       Connection:
@@ -103,7 +103,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:27:27 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:43 GMT
 - request:
     method: head
     uri: https://doi.org/10.5438/4k3m-nyvg
@@ -127,18 +127,18 @@ http_interactions:
       Location:
       - https://blog.datacite.org/eating-your-own-dog-food/
       Expires:
-      - Sat, 22 Jul 2017 21:26:21 GMT
+      - Sat, 29 Jul 2017 13:52:36 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '187'
       Date:
-      - Sat, 22 Jul 2017 20:27:29 GMT
+      - Sat, 29 Jul 2017 13:41:43 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:27:28 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:43 GMT
 - request:
     method: get
     uri: https://api.datacite.org/prefixes/10.1371
@@ -168,7 +168,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 22 Jul 2017 20:27:30 GMT
+      - Sat, 29 Jul 2017 13:41:44 GMT
       Etag:
       - W/"a078870f021fe1686525a8135b0e29b8"
       Server:
@@ -186,26 +186,24 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '628'
+      - '516'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99965'
+      - '99961'
       X-Request-Id:
-      - b48747ab-30c8-4c39-b338-538ed24cf814
+      - 583a5a56-569d-43ba-9f9f-9755a69da993
       X-Runtime:
-      - '0.626100'
+      - '0.514734'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.1371","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:47:32Z"}}}'
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:27:29 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:44 GMT
 recorded_with: VCR 3.0.3

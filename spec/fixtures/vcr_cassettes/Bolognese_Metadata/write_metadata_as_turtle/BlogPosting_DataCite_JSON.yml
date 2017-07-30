@@ -31,9 +31,9 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 2a972886c956f3ff97c830c3ae6dca7d
+      - 6a48ad63abecd46b1acbf44a05c5d7eb
       Date:
-      - Sat, 22 Jul 2017 20:26:03 GMT
+      - Sat, 29 Jul 2017 13:43:53 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -42,7 +42,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:26:02 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:53 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -70,21 +70,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170722201232a2048647386json
+      - 24751170729133455a2048647386json
       Last-Modified:
-      - Sat, 22 Jul 2017 20:12:32 UTC
+      - Sat, 29 Jul 2017 13:34:55 UTC
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 9857e6609fb6b9d04b16986d07109142
+      - 8f5cb2daba8415776aee6ca72dafc5ea
       Date:
-      - Sat, 22 Jul 2017 20:26:03 GMT
+      - Sat, 29 Jul 2017 13:43:53 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '128366'
       Expires:
-      - Sat, 22 Jul 2017 20:26:03 GMT
+      - Sat, 29 Jul 2017 13:43:53 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2290,7 +2290,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:26:03 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:53 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2322,9 +2322,9 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - ae2cf83cfddce497942dbd9e65969427
+      - ad0f0155e19bb693861fc0bd4641635a
       Date:
-      - Sat, 22 Jul 2017 20:26:04 GMT
+      - Sat, 29 Jul 2017 13:43:54 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2333,7 +2333,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:26:03 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:54 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2361,21 +2361,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170722201232a2048647386json
+      - 24751170729133455a2048647386json
       Last-Modified:
-      - Sat, 22 Jul 2017 20:12:32 UTC
+      - Sat, 29 Jul 2017 13:34:55 UTC
       Set-Cookie:
       - GOOGAPPUID=3-2f; Path=/
       X-Cloud-Trace-Context:
-      - 89b7fc502dc89f9eb2b7d6779d51a380
+      - 497e8a7784885546b7feb7af4bc4620e;o=1
       Date:
-      - Sat, 22 Jul 2017 20:26:04 GMT
+      - Sat, 29 Jul 2017 13:43:54 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '128366'
       Expires:
-      - Sat, 22 Jul 2017 20:26:04 GMT
+      - Sat, 29 Jul 2017 13:43:54 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4581,5 +4581,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:26:04 GMT
+  recorded_at: Sat, 29 Jul 2017 13:43:54 GMT
 recorded_with: VCR 3.0.3

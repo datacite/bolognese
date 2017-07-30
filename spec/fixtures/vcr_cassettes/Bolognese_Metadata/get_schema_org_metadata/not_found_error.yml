@@ -23,7 +23,7 @@ http_interactions:
       Content-Length:
       - '4984'
       Date:
-      - Sat, 22 Jul 2017 20:28:31 GMT
+      - Sat, 29 Jul 2017 13:41:47 GMT
     body:
       encoding: UTF-8
       string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n
@@ -89,5 +89,5 @@ http_interactions:
         super;\">&reg;</span>, and shortDOI<span style=\"vertical-align: super;\">&reg;</span>
         are trademarks of the International DOI Foundation.</span>\n</td>       \n</tr>\n</table>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:28:30 GMT
+  recorded_at: Sat, 29 Jul 2017 13:41:48 GMT
 recorded_with: VCR 3.0.3

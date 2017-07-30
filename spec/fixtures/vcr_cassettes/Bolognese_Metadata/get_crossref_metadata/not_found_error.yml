@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 22 Jul 2017 20:26:45 GMT
+      - Sat, 29 Jul 2017 13:40:42 GMT
       Etag:
       - W/"daf85afdb45f3c2713bc7e75916ba82a"
       Server:
@@ -45,28 +45,30 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '1'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '399'
+      - '240'
       X-Powered-By:
-      - Phusion Passenger 5.1.5
+      - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99995'
+      - '99992'
       X-Request-Id:
-      - 98cfe656-4433-44d8-bbac-02a15a6bc0d2
+      - 2eae77a2-4325-47c8-83e5-80b1b5e6f129
       X-Runtime:
-      - '0.363563'
+      - '0.238914'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T21:07:27Z"}}}'
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:26:44 GMT
+  recorded_at: Sat, 29 Jul 2017 13:40:42 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -86,13 +88,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs4-1
+      - qs2-2
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sat, 22 Jul 2017 20:26:45 GMT
+      - Sat, 29 Jul 2017 13:40:41 GMT
       Connection:
       - close
     body:
@@ -101,5 +103,5 @@ http_interactions:
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sat, 22 Jul 2017 20:26:44 GMT
+  recorded_at: Sat, 29 Jul 2017 13:40:42 GMT
 recorded_with: VCR 3.0.3

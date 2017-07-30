@@ -100,6 +100,10 @@ module Bolognese
         type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
         doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase
 
+        # Crossref servers run on Eastern Time
+        Time.zone = 'Eastern Time (US & Canada)'
+        date_modified = Time.zone.parse(meta.fetch("timestamp", "")).utc.iso8601
+
         { "id" => normalize_doi(doi),
           "type" => type,
           "additional_type" => additional_type,
@@ -119,7 +123,7 @@ module Bolognese
           "is_part_of" => crossref_is_part_of(journal_metadata),
           "references" => crossref_references(bibliographic_metadata),
           "date_published" => crossref_date_published(bibliographic_metadata),
-          "date_modified" => Time.parse(meta.fetch("timestamp", "")).utc.iso8601,
+          "date_modified" => date_modified,
           "volume" => journal_issue.dig("journal_volume", "volume"),
           "issue" => journal_issue.dig("issue"),
           "pagination" => [bibliographic_metadata.dig("pages", "first_page"), bibliographic_metadata.dig("pages", "last_page")].compact.join("-").presence,
