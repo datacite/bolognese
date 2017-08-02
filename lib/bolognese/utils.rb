@@ -10,7 +10,7 @@ module Bolognese
     }
 
     DC_TO_SO_TRANSLATIONS = {
-      "Audiovisual" => "VideoObject",
+      "Audiovisual" => "MediaObject",
       "Collection" => "Collection",
       "Dataset" => "Dataset",
       "Event" => "Event",
