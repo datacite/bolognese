@@ -64,7 +64,7 @@ module Bolognese
           "description" => meta.fetch("abstract", nil).present? ? { "text" => sanitize(meta.fetch("abstract")) } : nil,
           #{ }"license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
           "version" => meta.fetch("version", nil),
-          "keywords" => Array.wrap(meta.fetch("categories", nil)).split(", ")
+          "keywords" => meta.fetch("categories", nil)
         }
       end
     end

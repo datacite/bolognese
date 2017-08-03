@@ -101,9 +101,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[4]).to eq("DO - 10.5438/4k3m-nyvg")
       expect(ris[5]).to eq("UR - https://blog.datacite.org/eating-your-own-dog-food")
       expect(ris[6]).to eq("AB - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
-      expect(ris[7]).to eq("PY - 2016")
-      expect(ris[8]).to eq("PB - DataCite")
-      expect(ris[9]).to eq("ER - ")
+      expect(ris[7]).to eq("KW - Phylogeny")
+      expect(ris[14]).to eq("PY - 2016")
+      expect(ris[15]).to eq("PB - DataCite")
+      expect(ris[16]).to eq("ER - ")
     end
 
     it "BlogPosting DataCite JSON" do
