@@ -26,10 +26,14 @@ module Bolognese
     method_option :from, aliases: "-f"
     method_option :to, aliases: "-t", default: "schema_org"
     method_option :regenerate, :type => :boolean, :force => false
+    method_option :style, aliases: "-s", default: "apa"
+    method_option :locale, aliases: "-l", default: "en-US"
     def convert(input)
       metadata = Metadata.new(input: input,
                               from: options[:from],
-                              regenerate: options[:regenerate])
+                              regenerate: options[:regenerate],
+                              style: options[:style],
+                              locale: options[:locale])
       to = options[:to] || "schema_org"
 
       if metadata.valid?

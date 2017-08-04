@@ -33,33 +33,43 @@ describe Bolognese::CLI do
         subject.options = { to: "bibtex" }
         expect { subject.convert input }.to output(/@article{https:\/\/doi.org\/10.7554\/elife.01567/).to_stdout
       end
+
+      it 'to citation' do
+        subject.options = { to: "citation", style: "vancouver" }
+        expect { subject.convert input }.to output(/Sankar M, Nieminen K, Ragni L, Xenarios I/).to_stdout
+      end
     end
 
     context "datacite" do
-      let(:id) { "10.5061/dryad.8515" }
+      let(:input) { "10.5061/dryad.8515" }
 
       it 'default' do
-        expect { subject.convert id }.to output(/Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium/).to_stdout
+        expect { subject.convert input }.to output(/Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium/).to_stdout
       end
 
       it 'to schema_org' do
         subject.options = { to: "schema_org" }
-        expect { subject.convert id }.to output(/Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium/).to_stdout
+        expect { subject.convert input }.to output(/Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium/).to_stdout
       end
 
       it 'to bibtex' do
         subject.options = { to: "bibtex" }
-        expect { subject.convert id }.to output(/@misc{https:\/\/doi.org\/10.5061\/dryad.8515/).to_stdout
+        expect { subject.convert input }.to output(/@misc{https:\/\/doi.org\/10.5061\/dryad.8515/).to_stdout
       end
 
       it 'to datacite' do
         subject.options = { to: "datacite" }
-        expect { subject.convert id }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
+        expect { subject.convert input }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
       end
 
       it 'to datacite_json' do
         subject.options = { to: "datacite_json" }
-        expect { subject.convert id }.to output(/François Renaud/).to_stdout
+        expect { subject.convert input }.to output(/François Renaud/).to_stdout
+      end
+
+      it 'to citation' do
+        subject.options = { to: "citation", style: "vancouver" }
+        expect { subject.convert input }.to output(/Ollomo B, Durand P, Prugnolle F, Douzery EJP/).to_stdout
       end
     end
 
