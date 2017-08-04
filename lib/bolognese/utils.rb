@@ -435,7 +435,7 @@ module Bolognese
         a["given"] = a["givenName"]
         a["literal"] = a["name"] unless a["familyName"].present?
         a.except("type", "@type", "id", "@id", "name", "familyName", "givenName").compact
-      end
+      end.presence
     end
 
     def to_ris(element)

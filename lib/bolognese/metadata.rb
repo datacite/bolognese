@@ -15,6 +15,7 @@ require_relative 'readers/ris_reader'
 require_relative 'readers/schema_org_reader'
 
 require_relative 'writers/bibtex_writer'
+require_relative 'writers/citation_writer'
 require_relative 'writers/citeproc_writer'
 require_relative 'writers/codemeta_writer'
 require_relative 'writers/crosscite_writer'
@@ -46,6 +47,7 @@ module Bolognese
     include Bolognese::Readers::SchemaOrgReader
 
     include Bolognese::Writers::BibtexWriter
+    include Bolognese::Writers::CitationWriter
     include Bolognese::Writers::CiteprocWriter
     include Bolognese::Writers::CodemetaWriter
     include Bolognese::Writers::CrossciteWriter
@@ -70,13 +72,13 @@ module Bolognese
       :is_documented_by, :documents, :is_compiled_by, :compiles,
       :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
       :is_derived_from, :is_source_of, :format, :funding, :type, :bibtex_type,
-      :citeproc_type, :ris_type
+      :citeproc_type, :ris_type, :style, :locale
 
-    attr_reader :id, :from, :raw, :metadata, :doc, :provider, :citation,
+    attr_reader :id, :from, :raw, :metadata, :doc, :provider,
       :page_start, :page_end, :should_passthru, :errors,
       :related_identifier, :reverse, :name_detector
 
-    def initialize(input: nil, from: nil, regenerate: false, **options)
+    def initialize(input: nil, from: nil, style: nil, locale: nil, regenerate: false, **options)
       id = normalize_id(input, options)
 
       if id.present?
@@ -110,6 +112,9 @@ module Bolognese
       @date_updated = hsh.to_h["date_updated"].presence
       @member_id = hsh.to_h["member_id"].presence
       @data_center_id = hsh.to_h["data_center_id"].presence
+
+      @style = style || "apa"
+      @locale = locale || "en-US"
     end
 
     def exists?
