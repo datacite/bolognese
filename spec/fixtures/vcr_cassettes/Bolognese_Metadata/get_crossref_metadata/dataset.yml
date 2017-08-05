@@ -1,0 +1,162 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.datacite.org/prefixes/10.2210
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Sat, 05 Aug 2017 13:22:29 GMT
+      Etag:
+      - W/"dd2862dc4994a5e64a4730a34ba0ea4e"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Kong-Proxy-Latency:
+      - '1'
+      X-Kong-Upstream-Latency:
+      - '643'
+      X-Powered-By:
+      - Phusion Passenger 5.1.6
+      X-Ratelimit-Limit-Hour:
+      - '100000'
+      X-Ratelimit-Remaining-Hour:
+      - '99998'
+      X-Request-Id:
+      - dd0b9eba-96ba-4539-8335-bded198aea1a
+      X-Runtime:
+      - '0.641491'
+      X-Xss-Protection:
+      - 1; mode=block
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","updated":"2016-09-21T20:59:47Z"}}}'
+    http_version: 
+  recorded_at: Sat, 05 Aug 2017 13:22:28 GMT
+- request:
+    method: get
+    uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Crossref-Deployment-Name:
+      - cr7-1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
+      Date:
+      - Sat, 05 Aug 2017 13:22:30 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
+        owner=\"10.2210\" timestamp=\"2014-05-27 12:45:59\">\r\n    <crossref>\r\n
+        \     <sa_component>\r\n        <component_list>\r\n          <component>\r\n
+        \           <titles>\r\n              <title>THE CRYSTAL STRUCTURE OF HUMAN
+        DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION</title>\r\n            </titles>\r\n
+        \           <contributors>\r\n              <person_name sequence=\"first\"
+        contributor_role=\"author\">\r\n                <given_name>G.</given_name>\r\n
+        \               <surname>Fermi</surname>\r\n              </person_name>\r\n
+        \             <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \               <given_name>M.F.</given_name>\r\n                <surname>Perutz</surname>\r\n
+        \             </person_name>\r\n            </contributors>\r\n            <publication_date
+        media_type=\"online\">\r\n              <month>07</month>\r\n              <day>17</day>\r\n
+        \             <year>1984</year>\r\n            </publication_date>\r\n            <description>x-ray
+        diffraction structure</description>\r\n            <format>gz compressed PDB
+        format file</format>\r\n            <doi_data>\r\n              <doi>10.2210/pdb4hhb/pdb</doi>\r\n
+        \             <resource>ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz</resource>\r\n
+        \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
+        \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
+    http_version: 
+  recorded_at: Sat, 05 Aug 2017 13:22:29 GMT
+- request:
+    method: get
+    uri: http://api.crossref.org/prefixes/10.2210
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Vary:
+      - Accept
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '227'
+      Server:
+      - http-kit
+      Date:
+      - Sat, 05 Aug 2017 13:22:31 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"status":"ok","message-type":"prefix","message-version":"1.0.0","message":{"member":"http:\/\/id.crossref.org\/member\/1042","name":"Protein
+        Data Bank, Rutgers University","prefix":"http:\/\/id.crossref.org\/prefix\/10.2210"}}'
+    http_version: 
+  recorded_at: Sat, 05 Aug 2017 13:22:30 GMT
+recorded_with: VCR 3.0.3

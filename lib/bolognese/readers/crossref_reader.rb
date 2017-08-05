@@ -87,6 +87,7 @@ module Bolognese
         journal_metadata = meta.dig("crossref", "journal", "journal_metadata").presence || {}
         bibliographic_metadata = meta.dig("crossref", "journal", "journal_article").presence ||
                                  meta.dig("crossref", "conference", "conference_paper").presence ||
+                                 meta.dig("crossref", "sa_component", "component_list", "component").presence ||
                                  meta.dig("crossref", meta.fetch("crossref", {}).keys.last).presence || {}
         program_metadata = bibliographic_metadata.dig("program") ||
                            bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || {}
@@ -104,6 +105,16 @@ module Bolognese
         Time.zone = 'Eastern Time (US & Canada)'
         date_modified = Time.zone.parse(meta.fetch("timestamp", "")).utc.iso8601
 
+        prefix = validate_prefix(doi)
+        if prefix.present?
+          prefix_url = "http://api.crossref.org/prefixes/#{prefix}"
+          response = Maremma.get(prefix_url, host: true)
+          publisher = response.body.dig("data", "message", "name")
+        else
+          publisher = nil
+        end
+
+
         { "id" => normalize_doi(doi),
           "type" => type,
           "additional_type" => additional_type,
@@ -118,7 +129,7 @@ module Bolognese
           "author" => crossref_people(bibliographic_metadata, "author"),
           "editor" => crossref_people(bibliographic_metadata, "editor"),
           "funding" => crossref_funding_reference(program_metadata),
-          "publisher" => nil,
+          "publisher" => publisher,
           "provider" => "Crossref",
           "is_part_of" => crossref_is_part_of(journal_metadata),
           "references" => crossref_references(bibliographic_metadata),
@@ -146,7 +157,7 @@ module Bolognese
       end
 
       def crossref_description(bibliographic_metadata)
-        des = bibliographic_metadata.fetch("abstract", {}).values.first
+        des = bibliographic_metadata.fetch("abstract", {}).values.first || bibliographic_metadata.fetch("description", nil)
         if des.is_a?(Hash)
           sanitize(des.fetch("__content__", nil))
         elsif des.is_a?(String)

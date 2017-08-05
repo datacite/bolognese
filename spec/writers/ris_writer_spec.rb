@@ -14,8 +14,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[8]).to eq("DO - 10.7554/elife.01567")
       expect(ris[9]).to eq("UR - http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(ris[10]).to eq("PY - 2014")
-      expect(ris[11]).to eq("VL - 3")
-      expect(ris[12]).to eq("ER - ")
+      expect(ris[11]).to eq("PB - eLife Sciences Organisation, Ltd.")
+      expect(ris[12]).to eq("VL - 3")
+      expect(ris[13]).to eq("ER - ")
     end
 
     it "with pages" do
@@ -31,9 +32,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[11]).to eq("UR - http://www.hindawi.com/journals/pm/2012/291294/")
       expect(ris[12]).to start_with("AB - . To find a statistically significant separation point for the QuantiFERON")
       expect(ris[13]).to eq("PY - 2012")
-      expect(ris[14]).to eq("VL - 2012")
-      expect(ris[15]).to eq("SP - 1-7")
-      expect(ris[16]).to eq("ER - ")
+      expect(ris[14]).to eq("PB - Hindawi Limited")
+      expect(ris[15]).to eq("VL - 2012")
+      expect(ris[16]).to eq("SP - 1-7")
+      expect(ris[17]).to eq("ER - ")
     end
 
     it "alternate name" do

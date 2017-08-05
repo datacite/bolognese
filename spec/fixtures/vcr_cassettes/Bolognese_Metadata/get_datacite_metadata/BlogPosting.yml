@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 29 Jul 2017 13:41:57 GMT
+      - Sat, 05 Aug 2017 13:28:20 GMT
       Etag:
       - W/"b9f2d79281c542db437c42a5bac25ac8"
       Server:
@@ -45,30 +45,28 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '2'
+      - '67'
       X-Kong-Upstream-Latency:
-      - '348'
+      - '523'
       X-Powered-By:
       - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99957'
+      - '99941'
       X-Request-Id:
-      - 594f659f-2b14-4b95-8cce-e38e7c030109
+      - 24690401-bf9a-42e3-a38a-cd3c56dc7799
       X-Runtime:
-      - '0.345909'
+      - '0.521581'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:41:57 GMT
+  recorded_at: Sat, 05 Aug 2017 13:28:19 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
@@ -92,9 +90,11 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 29 Jul 2017 13:41:57 GMT
+      - Sat, 05 Aug 2017 13:28:21 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '3095'
       Connection:
       - keep-alive
     body:
@@ -103,7 +103,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:41:57 GMT
+  recorded_at: Sat, 05 Aug 2017 13:28:19 GMT
 - request:
     method: head
     uri: https://doi.org/10.5438/4k3m-nyvg
@@ -127,16 +127,16 @@ http_interactions:
       Location:
       - https://blog.datacite.org/eating-your-own-dog-food/
       Expires:
-      - Sat, 29 Jul 2017 13:52:36 GMT
+      - Sat, 05 Aug 2017 14:00:35 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '187'
       Date:
-      - Sat, 29 Jul 2017 13:41:58 GMT
+      - Sat, 05 Aug 2017 13:28:21 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:41:58 GMT
+  recorded_at: Sat, 05 Aug 2017 13:28:20 GMT
 recorded_with: VCR 3.0.3

@@ -39,6 +39,7 @@ describe Bolognese::Metadata, vcr: true do
                                      {"type"=>"Organization",
                                       "id"=>"https://doi.org/10.13039/501100006390",
                                       "name"=>"University of Lausanne"}])
+      expect(subject.publisher).to eq("eLife Sciences Organisation, Ltd.")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -59,6 +60,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-06-17T12:26:15Z")
       expect(subject.pagination).to eq("e30")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"PLoS ONE", "issn"=>"1932-6203")
+      expect(subject.publisher).to eq("Public Library of Science (PLoS)")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -78,6 +80,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2016-12-28")
       expect(subject.date_modified).to eq("2016-12-29T06:10:20Z")
       expect(subject.is_part_of).to be_nil
+      expect(subject.publisher).to eq("Cold Spring Harbor Laboratory")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -96,6 +99,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-04-01T06:47:57Z")
       expect(subject.pagination).to eq("2832-2841")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Ecology", "issn"=>"0012-9658")
+      expect(subject.publisher).to eq("Wiley-Blackwell")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -115,6 +119,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2016-08-02T18:42:41Z")
       expect(subject.pagination).to eq("1-7")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
+      expect(subject.publisher).to eq("Hindawi Limited")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -132,6 +137,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2015-07")
       expect(subject.date_modified).to eq("2017-06-23T08:44:48Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"European Journal of Pharmacology", "issn"=>"00142999")
+      expect(subject.publisher).to eq("Elsevier BV")
+      expect(subject.provider).to eq("Crossref")
+    end
+
+    it "dataset" do
+      input = "10.2210/pdb4hhb/pdb"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.id).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
+      expect(subject.url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("SaComponent")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author.length).to eq(2)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"G. Fermi", "givenName"=>"G.", "familyName"=>"Fermi")
+      expect(subject.title).to eq("THE CRYSTAL STRUCTURE OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION")
+      expect(subject.description).to eq("x-ray diffraction structure")
+      expect(subject.date_published).to eq("1984-07-17")
+      expect(subject.date_modified).to eq("2014-05-27T16:45:59Z")
+      expect(subject.publisher).to eq("Protein Data Bank, Rutgers University")
       expect(subject.provider).to eq("Crossref")
     end
 

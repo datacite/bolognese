@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 29 Jul 2017 13:42:13 GMT
+      - Sat, 05 Aug 2017 13:28:26 GMT
       Etag:
       - W/"fdee1bc1cd6b18e07cc52f94b7b59250"
       Server:
@@ -47,28 +47,26 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '816'
+      - '247'
       X-Powered-By:
       - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99950'
+      - '99939'
       X-Request-Id:
-      - f239d1d3-abb7-4ed9-8afa-ee1b1d05112e
+      - e637d30c-bb1a-44a3-b02e-47963a57a609
       X-Runtime:
-      - '0.815459'
+      - '0.244717'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:04Z"}}}'
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:42:13 GMT
+  recorded_at: Sat, 05 Aug 2017 13:28:24 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
@@ -92,16 +90,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 29 Jul 2017 13:42:14 GMT
+      - Sat, 05 Aug 2017 13:28:27 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '88'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":0,"start":0,"docs":[]}}
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":0,"start":0,"docs":[]}}
 
 '
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:42:14 GMT
+  recorded_at: Sat, 05 Aug 2017 13:28:25 GMT
 recorded_with: VCR 3.0.3

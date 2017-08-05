@@ -116,7 +116,7 @@ describe Bolognese::CLI do
       end
     end
 
-    context "crossref" do
+    context "crossref", vcr: true do
       let(:file) { fixture_path + "crossref.xml" }
 
       it 'default' do

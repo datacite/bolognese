@@ -23,9 +23,11 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 29 Jul 2017 13:40:20 GMT
+      - Sat, 05 Aug 2017 13:24:11 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '3095'
       Connection:
       - keep-alive
     body:
@@ -34,7 +36,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:40:20 GMT
+  recorded_at: Sat, 05 Aug 2017 13:24:09 GMT
 - request:
     method: head
     uri: https://doi.org/10.5438/4k3m-nyvg
@@ -58,16 +60,16 @@ http_interactions:
       Location:
       - https://blog.datacite.org/eating-your-own-dog-food/
       Expires:
-      - Sat, 29 Jul 2017 13:52:36 GMT
+      - Sat, 05 Aug 2017 14:00:35 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '187'
       Date:
-      - Sat, 29 Jul 2017 13:40:21 GMT
+      - Sat, 05 Aug 2017 13:24:11 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 29 Jul 2017 13:40:21 GMT
+  recorded_at: Sat, 05 Aug 2017 13:24:10 GMT
 recorded_with: VCR 3.0.3
