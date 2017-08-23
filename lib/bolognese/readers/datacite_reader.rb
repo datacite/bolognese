@@ -15,7 +15,20 @@ module Bolognese
 
         string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
         string = Base64.decode64(string)
-        string = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
+
+        if string.present?
+          doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
+
+          # remove leading and trailing whitespace in text nodes
+          doc.xpath("//text()").each do |node|
+            if node.content =~ /\S/
+              node.content = node.content.strip
+            else
+              node.remove
+            end
+          end
+          string = doc.to_s
+        end
 
         response = Maremma.head(id, limit: 0)
         url = response.headers.present? ? response.headers["location"] : nil

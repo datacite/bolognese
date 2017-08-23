@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5438
+    uri: https://api.datacite.org/prefixes/10.20375
     body:
       encoding: US-ASCII
       string: ''
@@ -29,9 +29,9 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 23 Aug 2017 08:05:37 GMT
+      - Wed, 23 Aug 2017 10:36:24 GMT
       Etag:
-      - W/"b9f2d79281c542db437c42a5bac25ac8"
+      - W/"10fd17ede9662cd6313674701fd1aadb"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -47,31 +47,29 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '825'
+      - '1005'
       X-Powered-By:
       - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99930'
+      - '99990'
       X-Request-Id:
-      - 02fd2e8e-8a63-4fef-a4f7-9344e8396ce8
+      - ce7f3b0f-c2ed-4edc-9ce0-e40a8bdeb995
       X-Runtime:
-      - '0.736433'
+      - '0.365960'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
+      string: '{"data":{"id":"10.20375","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:25:58Z"}}}'
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:37 GMT
+  recorded_at: Wed, 23 Aug 2017 10:36:24 GMT
 - request:
     method: get
-    uri: https://search.test.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/mcnv-ga6n&wt=json
+    uri: https://search.test.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.20375/0000-0001-ddb8-7&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -92,23 +90,21 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 23 Aug 2017 08:05:37 GMT
+      - Wed, 23 Aug 2017 10:36:24 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '2467'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"DATACITE.DATACITE","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9NQ05WLUdBNk48L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5XaXR0LCBNaWNoYWVsPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5NaWNoYWVsPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPldpdHQ8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy00MjIxLTc5NTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5yZTNkYXRhIFdlYmluYXIgYW5kIERhdGFDaXRlOiBFbiBBdmFudCE8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNpdGUgQmxvZzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5yZTNkYXRhPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RGF0YUNpdGU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgIDwvY29udHJpYnV0b3I+CiAgPC9jb250cmlidXRvcnM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNS0xMS0yNTwvZGF0ZT4KICA8L2RhdGVzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wLyI+Q3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbjwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPlRoZSBpbmF1Z3VyYWwgbWVldGluZyBvZiB0aGUgRGF0YUNpdGUgcmUzZGF0YSBXb3JraW5nIEdyb3VwIHdhcyBjb252ZW5lZCBpbiBQYXJpcyBvbiBTZXB0ZW1iZXIgMjB0aCBhdCB0aGUgb2ZmaWNlcyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb3VuY2lsIGZvciBTY2llbmNlIChJQ1NVKS4gQ28tY2hhaXJzIE1pY2hhZWwgV2l0dCBhbmQgRnJhbmsgU2Nob2x6ZSBnYXZlIHRoZSBiYWNrZ3JvdW5kIGFuZCBoaXN0b3J5IG9mIERhdGFiaWIuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","allocator_symbol":"DATACITE","minted":"2016-12-19T15:46:57Z","updated":"2017-07-24T02:05:32Z","doi":"10.5438/MCNV-GA6N"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"SUBGOE.DARIAH","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8cmVzb3VyY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC00IiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC00IGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICAgIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIwMzc1LzAwMDAtMDAwMS1EREI4LTc8L2lkZW50aWZpZXI+CiAgICA8Y3JlYXRvcnM+CiAgICAgICAgPGNyZWF0b3I+CiAgICAgICAgICAgIDxjcmVhdG9yTmFtZT5mdTwvY3JlYXRvck5hbWU+CiAgICAgICAgPC9jcmVhdG9yPgogICAgPC9jcmVhdG9ycz4KICAgIDx0aXRsZXM+CiAgICAgICAgPHRpdGxlPklNR18wMTM0LmpwZzwvdGl0bGU+CiAgICA8L3RpdGxlcz4KICAgIDxwdWJsaXNoZXI+REFSSUFILURFPC9wdWJsaXNoZXI+CiAgICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICAgIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPgogICAgPGRhdGVzPgogICAgICAgIDxkYXRlIGRhdGVUeXBlPSJDcmVhdGVkIj4yMDE1LTA2LTIwVDE2OjU0OjM3PC9kYXRlPgogICAgPC9kYXRlcz4KICAgIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICAgICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iSGFuZGxlIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8iPjIxLlQxMTk5OC8wMDAwLTAwMDEtRERCOC03PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDwvcmVsYXRlZElkZW50aWZpZXJzPgogICAgPGZvcm1hdHM+CiAgICAgICAgPGZvcm1hdD5pbWFnZS9qcGVnPC9mb3JtYXQ+CiAgICA8L2Zvcm1hdHM+CiAgICA8cmlnaHRzTGlzdD4KICAgICAgICA8cmlnaHRzPmZyZWU8L3JpZ2h0cz4KICAgIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"SUBGOE","minted":"2017-08-22T17:29:41Z","updated":"2017-08-22T17:29:41Z","doi":"10.20375/0000-0001-DDB8-7"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:37 GMT
+  recorded_at: Wed, 23 Aug 2017 10:36:24 GMT
 - request:
     method: head
-    uri: https://handle.test.datacite.org/10.5438/mcnv-ga6n
+    uri: https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7
     body:
       encoding: US-ASCII
       string: ''
@@ -129,9 +125,9 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Wed, 23 Aug 2017 08:05:37 GMT
+      - Wed, 23 Aug 2017 10:36:24 GMT
       Location:
-      - https://blog.datacite.org/re3data-webinar-and-datacite-en-avant/
+      - https://hdl.handle.net/21.T11998/0000-0001-DDB8-7
       Server:
       - openresty/1.11.2.2
       Connection:
@@ -140,5 +136,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:37 GMT
+  recorded_at: Wed, 23 Aug 2017 10:36:24 GMT
 recorded_with: VCR 3.0.3

@@ -175,6 +175,18 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.normalize_id(url)
       expect(response).to be_nil
     end
+
+    it "sandbox via url" do
+      url = "https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7"
+      response = subject.normalize_id(url)
+      expect(response).to eq("https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7")
+    end
+
+    it "sandbox via options" do
+      url = "10.20375/0000-0001-ddb8-7"
+      response = subject.normalize_id(url, sandbox: true)
+      expect(response).to eq("https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7")
+    end
   end
 
   context "normalize ids" do

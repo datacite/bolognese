@@ -258,6 +258,36 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
+    it "leading and trailing whitespace" do
+      input = "https://doi.org/10.21944/temis-OZONE-MSR2"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.21944/temis-ozone-msr2")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Satellite data")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author).to eq([{"type"=>"Person",
+                                     "id"=>"https://orcid.org/0000-0002-0077-5338",
+                                     "name"=>"Ronald Van Der A",
+                                     "givenName"=>"Ronald",
+                                     "familyName"=>"Van Der A"},
+                                    {"type"=>"Person",
+                                     "name"=>"Marc Allaart",
+                                     "givenName"=>"Marc",
+                                     "familyName"=>"Allaart"},
+                                    {"type"=>"Person",
+                                     "id"=>"https://orcid.org/0000-0002-8743-4455",
+                                     "name"=>"Henk Eskes",
+                                     "givenName"=>"Henk",
+                                     "familyName"=>"Eskes"}])
+      expect(subject.title).to eq("Multi-Sensor Reanalysis (MSR) of total ozone, version 2")
+      expect(subject.version).to eq("2")
+      expect(subject.date_published).to eq("2015")
+      expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
     it "DOI not found" do
       input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
       subject = Bolognese::Metadata.new(input: input)
@@ -265,6 +295,22 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "DOI in test system" do
+      input = "https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7"
+      subject = Bolognese::Metadata.new(input: input, sandbox: true)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author).to eq("type"=>"Person", "name"=>"Fu ", "givenName"=>"Fu")
+      expect(subject.title).to eq("IMG_0134.jpg")
+      expect(subject.date_published).to eq("2017")
+      expect(subject.publisher).to eq("DARIAH-DE")
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "BlogPosting in test system" do
       input = "https://handle.test.datacite.org/10.5438/mcnv-ga6n"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true

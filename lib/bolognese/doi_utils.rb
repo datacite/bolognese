@@ -2,6 +2,7 @@ module Bolognese
   module DoiUtils
     def validate_doi(doi)
       doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
+      # remove non-printing whitespace and downcase
       doi = doi.delete("\u200B").downcase if doi.present?
     end
 
@@ -17,9 +18,6 @@ module Bolognese
     def normalize_doi(doi, options={})
       doi_str = validate_doi(doi)
       return nil unless doi_str.present?
-
-      # remove non-printing whitespace and downcase
-      doi_str = doi_str.delete("\u200B").downcase
 
       # turn DOI into URL, escape unsafe characters
       doi_resolver(doi, options) + Addressable::URI.encode(doi_str)
