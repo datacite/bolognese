@@ -4,9 +4,8 @@ module Bolognese
       def get_datacite(id: nil, **options)
         return nil unless id.present?
 
-        search_url = options[:sandbox] ? "https://search.test.datacite.org/api" : "https://search.datacite.org/api"
-
         doi = doi_from_url(id)
+        search_url = doi_search(id, options)
         url = search_url + "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
 
         response = Maremma.get url

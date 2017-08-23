@@ -15,6 +15,11 @@ module Bolognese
       sandbox.present? || options[:sandbox] ? "https://handle.test.datacite.org/" : "https://doi.org/"
     end
 
+    def doi_search(doi, options={})
+      sandbox = Array(/handle.test.datacite.org/.match(doi)).last
+      sandbox.present? || options[:sandbox] ? "https://search.test.datacite.org/api" : "https://search.datacite.org/api"
+    end
+
     def normalize_doi(doi, options={})
       doi_str = validate_doi(doi)
       return nil unless doi_str.present?

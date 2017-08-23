@@ -49,6 +49,50 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "doi search" do
+    it "doi" do
+      doi = "10.5061/DRYAD.8515"
+      response = subject.doi_search(doi)
+      expect(response).to eq("https://search.datacite.org/api")
+    end
+
+    it "doi with protocol" do
+      doi = "doi:10.5061/DRYAD.8515"
+      response = subject.doi_search(doi)
+      expect(response).to eq("https://search.datacite.org/api")
+    end
+
+    it "https url" do
+      doi = "https://doi.org/10.5061/dryad.8515"
+      response = subject.doi_search(doi)
+      expect(response).to eq("https://search.datacite.org/api")
+    end
+
+    it "dx.doi.org url" do
+      doi = "http://dx.doi.org/10.5061/dryad.8515"
+      response = subject.doi_search(doi)
+      expect(response).to eq("https://search.datacite.org/api")
+    end
+
+    it "test resolver" do
+      doi = "https://handle.test.datacite.org/10.5061/dryad.8515"
+      response = subject.doi_search(doi)
+      expect(response).to eq("https://search.test.datacite.org/api")
+    end
+
+    it "test resolver http" do
+      doi = "http://handle.test.datacite.org/10.5061/dryad.8515"
+      response = subject.doi_search(doi)
+      expect(response).to eq("https://search.test.datacite.org/api")
+    end
+
+    it "force test resolver" do
+      doi = "https://doi.org/10.5061/dryad.8515"
+      response = subject.doi_search(doi, sandbox: true)
+      expect(response).to eq("https://search.test.datacite.org/api")
+    end
+  end
+
   context "normalize doi" do
     it "doi" do
       doi = "10.5061/DRYAD.8515"
