@@ -31,21 +31,21 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "test resolver" do
-      doi = "https://doi.test.datacite.org/10.5061/dryad.8515"
+      doi = "https://handle.test.datacite.org/10.5061/dryad.8515"
       response = subject.doi_resolver(doi)
-      expect(response).to eq("https://doi.test.datacite.org/")
+      expect(response).to eq("https://handle.test.datacite.org/")
     end
 
     it "test resolver http" do
-      doi = "http://doi.test.datacite.org/10.5061/dryad.8515"
+      doi = "http://handle.test.datacite.org/10.5061/dryad.8515"
       response = subject.doi_resolver(doi)
-      expect(response).to eq("https://doi.test.datacite.org/")
+      expect(response).to eq("https://handle.test.datacite.org/")
     end
 
     it "force test resolver" do
       doi = "https://doi.org/10.5061/dryad.8515"
       response = subject.doi_resolver(doi, sandbox: true)
-      expect(response).to eq("https://doi.test.datacite.org/")
+      expect(response).to eq("https://handle.test.datacite.org/")
     end
   end
 
@@ -111,15 +111,15 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "doi from datacite sandbox" do
-      doi = "https://doi.test.datacite.org/10.5438/55e5-t5c0"
+      doi = "https://handle.test.datacite.org/10.5438/55e5-t5c0"
       response = subject.normalize_doi(doi)
-      expect(response).to eq("https://doi.test.datacite.org/10.5438/55e5-t5c0")
+      expect(response).to eq("https://handle.test.datacite.org/10.5438/55e5-t5c0")
     end
 
     it "doi force datacite sandbox" do
       doi = "10.5438/55e5-t5c0"
       response = subject.normalize_doi(doi, sandbox: true)
-      expect(response).to eq("https://doi.test.datacite.org/10.5438/55e5-t5c0")
+      expect(response).to eq("https://handle.test.datacite.org/10.5438/55e5-t5c0")
     end
   end
 
@@ -140,7 +140,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "sandbox url" do
-      doi = subject.doi_from_url("https://doi.test.datacite.org/10.5438/55e5-t5c0")
+      doi = subject.doi_from_url("https://handle.test.datacite.org/10.5438/55e5-t5c0")
       expect(doi).to eq("10.5438/55e5-t5c0")
     end
   end

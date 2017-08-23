@@ -27,33 +27,33 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - 63AC:154C8:D1623B:E09669:5985C78D
+      - 9CD4:6ABE:AAF28:B82F9:599D3753
       Content-Length:
       - '15'
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 05 Aug 2017 13:26:38 GMT
+      - Wed, 23 Aug 2017 08:05:41 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sjc3628-SJC
+      - cache-hhn1529-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1501939598.988286,VS0,VE39
+      - S1503475542.815696,VS0,VE108
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - ac6f3ad1c2df65fbee5abac5944a3db108c4c261
+      - c2cbef758ba0136d35dbe37353a824eded046c9e
       Expires:
-      - Sat, 05 Aug 2017 13:31:38 GMT
+      - Wed, 23 Aug 2017 08:10:41 GMT
       Source-Age:
       - '0'
     body:
@@ -62,5 +62,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:26:36 GMT
+  recorded_at: Wed, 23 Aug 2017 08:05:41 GMT
 recorded_with: VCR 3.0.3

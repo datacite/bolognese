@@ -135,7 +135,7 @@ describe Bolognese::Metadata, vcr: true do
       string = subject.get_datacite(id: input).to_h.fetch("string", nil)
       meta = Maremma.from_xml(string).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "id"=>"http://d-nb.info/gnd/10113301-7/10113301-7", "name"=>"Dr. Störi, Kunstsalon <Zürich>")
+      expect(response).to eq("type"=>"Person", "name"=>"Dr. Störi, Kunstsalon")
     end
 
     it "name with role" do

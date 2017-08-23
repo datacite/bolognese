@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 05 Aug 2017 13:27:09 GMT
+      - Wed, 23 Aug 2017 08:02:40 GMT
       Etag:
       - W/"622f4d07c90066bea8efc2105d2bf20c"
       Server:
@@ -45,19 +45,19 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '1'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '520'
+      - '273'
       X-Powered-By:
       - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99961'
+      - '99963'
       X-Request-Id:
-      - 3d7bf4d9-c3b1-4dda-862c-4220a719f066
+      - 6c03c4ca-f348-4f04-94c5-68efdf97636a
       X-Runtime:
-      - '0.517992'
+      - '0.272230'
       X-Xss-Protection:
       - 1; mode=block
       Connection:
@@ -66,5 +66,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.3980","type":"prefixes","attributes":{"registration-agency":"10.SERV/ISTIC","updated":"2016-09-20T21:59:03Z"}}}'
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:27:08 GMT
+  recorded_at: Wed, 23 Aug 2017 08:02:40 GMT
 recorded_with: VCR 3.0.3

@@ -1,17 +1,17 @@
 module Bolognese
   module DoiUtils
     def validate_doi(doi)
-      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
+      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
       doi = doi.delete("\u200B").downcase if doi.present?
     end
 
     def validate_prefix(doi)
-      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}).*\z/.match(doi)).last
+      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}).*\z/.match(doi)).last
     end
 
     def doi_resolver(doi, options={})
-      sandbox = Array(/doi.test.datacite.org/.match(doi)).last
-      sandbox.present? || options[:sandbox] ? "https://doi.test.datacite.org/" : "https://doi.org/"
+      sandbox = Array(/handle.test.datacite.org/.match(doi)).last
+      sandbox.present? || options[:sandbox] ? "https://handle.test.datacite.org/" : "https://doi.org/"
     end
 
     def normalize_doi(doi, options={})
@@ -26,7 +26,7 @@ module Bolognese
     end
 
     def doi_from_url(url)
-      if /\A(?:(http|https):\/\/(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(url)
+      if /\A(?:(http|https):\/\/(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(url)
         uri = Addressable::URI.parse(url)
         uri.path.gsub(/^\//, '').downcase
       end

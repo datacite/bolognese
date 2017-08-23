@@ -211,7 +211,7 @@ module Bolognese
     def find_from_format_by_id(id)
       id = normalize_id(id)
 
-      if /\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|doi.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
+      if /\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(id)
         ra = get_doi_ra(id)
         %w(DataCite Crossref).include?(ra) ? ra.downcase : nil
       elsif /\A(?:(http|https):\/(\/)?orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)

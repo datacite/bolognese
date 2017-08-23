@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 05 Aug 2017 13:26:50 GMT
+      - Wed, 23 Aug 2017 08:02:30 GMT
       Etag:
       - W/"b9f2d79281c542db437c42a5bac25ac8"
       Server:
@@ -45,30 +45,28 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '102'
+      - '3'
       X-Kong-Upstream-Latency:
-      - '228'
+      - '1775'
       X-Powered-By:
       - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99971'
+      - '99969'
       X-Request-Id:
-      - ff62ed8e-cec4-41ba-9193-483cee57b727
+      - fb76fa3d-d86f-454b-ac06-b8b109d583aa
       X-Runtime:
-      - '0.226349'
+      - '0.348911'
       X-Xss-Protection:
       - 1; mode=block
-      Content-Length:
-      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:15Z"}}}'
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:26:48 GMT
+  recorded_at: Wed, 23 Aug 2017 08:02:30 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
@@ -92,11 +90,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 05 Aug 2017 13:26:51 GMT
+      - Wed, 23 Aug 2017 08:02:31 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '3095'
       Connection:
       - keep-alive
     body:
@@ -105,7 +101,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:26:49 GMT
+  recorded_at: Wed, 23 Aug 2017 08:02:31 GMT
 - request:
     method: head
     uri: https://doi.org/10.5438/4k3m-nyvg
@@ -129,16 +125,16 @@ http_interactions:
       Location:
       - https://blog.datacite.org/eating-your-own-dog-food/
       Expires:
-      - Sat, 05 Aug 2017 14:00:35 GMT
+      - Wed, 23 Aug 2017 08:12:45 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '187'
       Date:
-      - Sat, 05 Aug 2017 13:26:51 GMT
+      - Wed, 23 Aug 2017 08:02:31 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:26:50 GMT
+  recorded_at: Wed, 23 Aug 2017 08:02:31 GMT
 recorded_with: VCR 3.0.3

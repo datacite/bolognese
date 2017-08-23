@@ -23,11 +23,9 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 05 Aug 2017 13:23:59 GMT
+      - Wed, 23 Aug 2017 08:05:54 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '4111'
       Connection:
       - keep-alive
     body:
@@ -36,7 +34,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:23:57 GMT
+  recorded_at: Wed, 23 Aug 2017 08:05:54 GMT
 - request:
     method: head
     uri: https://doi.org/10.5061/dryad.8515
@@ -60,16 +58,16 @@ http_interactions:
       Location:
       - http://datadryad.org/resource/doi:10.5061/dryad.8515
       Expires:
-      - Sat, 05 Aug 2017 14:00:35 GMT
+      - Wed, 23 Aug 2017 08:12:45 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '189'
       Date:
-      - Sat, 05 Aug 2017 13:23:59 GMT
+      - Wed, 23 Aug 2017 08:05:54 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:23:57 GMT
+  recorded_at: Wed, 23 Aug 2017 08:05:55 GMT
 recorded_with: VCR 3.0.3

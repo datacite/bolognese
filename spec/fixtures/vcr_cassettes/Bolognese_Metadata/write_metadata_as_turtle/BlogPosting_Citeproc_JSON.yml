@@ -29,11 +29,11 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       Set-Cookie:
-      - GOOGAPPUID=3-2f; Path=/
+      - GOOGAPPUID=3-3b; Path=/
       X-Cloud-Trace-Context:
-      - 469f249cf7444a300f92ce145ca29e8b
+      - cabaee6d3df4ba0dd6633429c860c0a1
       Date:
-      - Sat, 05 Aug 2017 13:22:24 GMT
+      - Wed, 23 Aug 2017 08:03:11 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -42,7 +42,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:22:23 GMT
+  recorded_at: Wed, 23 Aug 2017 08:03:12 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -70,21 +70,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170805131131a2048647386json
+      - 24751170823075941a2048647386json
       Last-Modified:
-      - Sat, 05 Aug 2017 13:11:31 UTC
+      - Wed, 23 Aug 2017 07:59:41 UTC
       Set-Cookie:
-      - GOOGAPPUID=3-2f; Path=/
+      - GOOGAPPUID=3-3b; Path=/
       X-Cloud-Trace-Context:
-      - c16f732beb044f1649a43436f7d16b00
+      - 995ead4c7c5c1600443ea2328434c100
       Date:
-      - Sat, 05 Aug 2017 13:22:24 GMT
+      - Wed, 23 Aug 2017 08:03:12 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '128366'
+      - '133672'
       Expires:
-      - Sat, 05 Aug 2017 13:22:24 GMT
+      - Wed, 23 Aug 2017 08:03:12 GMT
     body:
       encoding: UTF-8
       string: |
@@ -153,6 +153,7 @@ http_interactions:
                 "AddAction": {"@id": "schema:AddAction"},
                 "AdministrativeArea": {"@id": "schema:AdministrativeArea"},
                 "AdultEntertainment": {"@id": "schema:AdultEntertainment"},
+                "AdvertiserContentArticle": {"@id": "schema:AdvertiserContentArticle"},
                 "AerobicActivity": {"@id": "schema:AerobicActivity"},
                 "AggregateOffer": {"@id": "schema:AggregateOffer"},
                 "AggregateRating": {"@id": "schema:AggregateRating"},
@@ -165,6 +166,7 @@ http_interactions:
                 "AllocateAction": {"@id": "schema:AllocateAction"},
                 "AmusementPark": {"@id": "schema:AmusementPark"},
                 "AnaerobicActivity": {"@id": "schema:AnaerobicActivity"},
+                "AnalysisNewsArticle": {"@id": "schema:AnalysisNewsArticle"},
                 "AnatomicalStructure": {"@id": "schema:AnatomicalStructure"},
                 "AnatomicalSystem": {"@id": "schema:AnatomicalSystem"},
                 "Anesthesia": {"@id": "schema:Anesthesia"},
@@ -190,6 +192,7 @@ http_interactions:
                 "AudioObject": {"@id": "schema:AudioObject"},
                 "Audiobook": {"@id": "schema:Audiobook"},
                 "AudiobookFormat": {"@id": "schema:AudiobookFormat"},
+                "AuthoritativeLegalValue": {"@id": "schema:AuthoritativeLegalValue"},
                 "AuthorizeAction": {"@id": "schema:AuthorizeAction"},
                 "AutoBodyShop": {"@id": "schema:AutoBodyShop"},
                 "AutoDealer": {"@id": "schema:AutoDealer"},
@@ -200,6 +203,7 @@ http_interactions:
                 "AutomatedTeller": {"@id": "schema:AutomatedTeller"},
                 "AutomotiveBusiness": {"@id": "schema:AutomotiveBusiness"},
                 "Ayurvedic": {"@id": "schema:Ayurvedic"},
+                "BackgroundNewsArticle": {"@id": "schema:BackgroundNewsArticle"},
                 "Bacteria": {"@id": "schema:Bacteria"},
                 "Bakery": {"@id": "schema:Bakery"},
                 "Balance": {"@id": "schema:Balance"},
@@ -335,7 +339,9 @@ http_interactions:
                 "CreativeWorkSeries": {"@id": "schema:CreativeWorkSeries"},
                 "CreditCard": {"@id": "schema:CreditCard"},
                 "Crematorium": {"@id": "schema:Crematorium"},
+                "CriticReview": {"@id": "schema:CriticReview"},
                 "CrossSectional": {"@id": "schema:CrossSectional"},
+                "CssSelectorType": {"@id": "schema:CssSelectorType"},
                 "CurrencyConversionService": {"@id": "schema:CurrencyConversionService"},
                 "DDxElement": {"@id": "schema:DDxElement"},
                 "DJMixAlbum": {"@id": "schema:DJMixAlbum"},
@@ -356,6 +362,7 @@ http_interactions:
                 "DaySpa": {"@id": "schema:DaySpa"},
                 "DeactivateAction": {"@id": "schema:DeactivateAction"},
                 "DefenceEstablishment": {"@id": "schema:DefenceEstablishment"},
+                "Definitive": {"@id": "schema:Definitive"},
                 "DeleteAction": {"@id": "schema:DeleteAction"},
                 "DeliveryChargeSpecification": {"@id": "schema:DeliveryChargeSpecification"},
                 "DeliveryEvent": {"@id": "schema:DeliveryEvent"},
@@ -424,6 +431,7 @@ http_interactions:
                 "Emergency": {"@id": "schema:Emergency"},
                 "EmergencyService": {"@id": "schema:EmergencyService"},
                 "EmployeeRole": {"@id": "schema:EmployeeRole"},
+                "EmployerReview": {"@id": "schema:EmployerReview"},
                 "EmploymentAgency": {"@id": "schema:EmploymentAgency"},
                 "Endocrine": {"@id": "schema:Endocrine"},
                 "EndorseAction": {"@id": "schema:EndorseAction"},
@@ -542,11 +550,20 @@ http_interactions:
                 "HotelRoom": {"@id": "schema:HotelRoom"},
                 "House": {"@id": "schema:House"},
                 "HousePainter": {"@id": "schema:HousePainter"},
+                "HowTo": {"@id": "schema:HowTo"},
+                "HowToDirection": {"@id": "schema:HowToDirection"},
+                "HowToItem": {"@id": "schema:HowToItem"},
+                "HowToSection": {"@id": "schema:HowToSection"},
+                "HowToStep": {"@id": "schema:HowToStep"},
+                "HowToSupply": {"@id": "schema:HowToSupply"},
+                "HowToTip": {"@id": "schema:HowToTip"},
+                "HowToTool": {"@id": "schema:HowToTool"},
                 "IceCreamShop": {"@id": "schema:IceCreamShop"},
                 "IgnoreAction": {"@id": "schema:IgnoreAction"},
                 "ImageGallery": {"@id": "schema:ImageGallery"},
                 "ImageObject": {"@id": "schema:ImageObject"},
                 "ImagingTest": {"@id": "schema:ImagingTest"},
+                "InForce": {"@id": "schema:InForce"},
                 "InStock": {"@id": "schema:InStock"},
                 "InStoreOnly": {"@id": "schema:InStoreOnly"},
                 "IndividualProduct": {"@id": "schema:IndividualProduct"},
@@ -587,7 +604,11 @@ http_interactions:
                 "LaserDiscFormat": {"@id": "schema:LaserDiscFormat"},
                 "LeaveAction": {"@id": "schema:LeaveAction"},
                 "LeftHandDriving": {"@id": "schema:LeftHandDriving"},
+                "LegalForceStatus": {"@id": "schema:LegalForceStatus"},
                 "LegalService": {"@id": "schema:LegalService"},
+                "LegalValueLevel": {"@id": "schema:LegalValueLevel"},
+                "Legislation": {"@id": "schema:Legislation"},
+                "LegislationObject": {"@id": "schema:LegislationObject"},
                 "LegislativeBuilding": {"@id": "schema:LegislativeBuilding"},
                 "LeisureTimeActivity": {"@id": "schema:LeisureTimeActivity"},
                 "LendAction": {"@id": "schema:LendAction"},
@@ -599,6 +620,7 @@ http_interactions:
                 "LimitedAvailability": {"@id": "schema:LimitedAvailability"},
                 "LinkRole": {"@id": "schema:LinkRole"},
                 "LiquorStore": {"@id": "schema:LiquorStore"},
+                "ListItem": {"@id": "schema:ListItem"},
                 "ListenAction": {"@id": "schema:ListenAction"},
                 "LiteraryEvent": {"@id": "schema:LiteraryEvent"},
                 "LiveAlbum": {"@id": "schema:LiveAlbum"},
@@ -725,11 +747,14 @@ http_interactions:
                 "Nerve": {"@id": "schema:Nerve"},
                 "Neuro": {"@id": "schema:Neuro"},
                 "Neurologic": {"@id": "schema:Neurologic"},
+                "NewCondition": {"@id": "schema:NewCondition"},
                 "NewsArticle": {"@id": "schema:NewsArticle"},
+                "NewsMediaOrganization": {"@id": "schema:NewsMediaOrganization"},
                 "Newspaper": {"@id": "schema:Newspaper"},
                 "NightClub": {"@id": "schema:NightClub"},
                 "NoninvasiveProcedure": {"@id": "schema:NoninvasiveProcedure"},
                 "Nose": {"@id": "schema:Nose"},
+                "NotInForce": {"@id": "schema:NotInForce"},
                 "NotYetRecruiting": {"@id": "schema:NotYetRecruiting"},
                 "Notary": {"@id": "schema:Notary"},
                 "NoteDigitalDocument": {"@id": "schema:NoteDigitalDocument"},
@@ -749,6 +774,7 @@ http_interactions:
                 "OfferCatalog": {"@id": "schema:OfferCatalog"},
                 "OfferItemCondition": {"@id": "schema:OfferItemCondition"},
                 "OfficeEquipmentStore": {"@id": "schema:OfficeEquipmentStore"},
+                "OfficialLegalValue": {"@id": "schema:OfficialLegalValue"},
                 "OfflinePermanently": {"@id": "schema:OfflinePermanently"},
                 "OfflineTemporarily": {"@id": "schema:OfflineTemporarily"},
                 "OnDemandEvent": {"@id": "schema:OnDemandEvent"},
@@ -760,6 +786,7 @@ http_interactions:
                 "OnlineOnly": {"@id": "schema:OnlineOnly"},
                 "OpenTrial": {"@id": "schema:OpenTrial"},
                 "OpeningHoursSpecification": {"@id": "schema:OpeningHoursSpecification"},
+                "OpinionNewsArticle": {"@id": "schema:OpinionNewsArticle"},
                 "Optician": {"@id": "schema:Optician"},
                 "Optometric": {"@id": "schema:Optometric"},
                 "Optometric": {"@id": "schema:Optometric"},
@@ -795,6 +822,7 @@ http_interactions:
                 "Park": {"@id": "schema:Park"},
                 "ParkingFacility": {"@id": "schema:ParkingFacility"},
                 "ParkingMap": {"@id": "schema:ParkingMap"},
+                "PartiallyInForce": {"@id": "schema:PartiallyInForce"},
                 "Pathology": {"@id": "schema:Pathology"},
                 "PathologyTest": {"@id": "schema:PathologyTest"},
                 "Patient": {"@id": "schema:Patient"},
@@ -877,6 +905,7 @@ http_interactions:
                 "PublicHealth": {"@id": "schema:PublicHealth"},
                 "PublicHolidays": {"@id": "schema:PublicHolidays"},
                 "PublicSwimmingPool": {"@id": "schema:PublicSwimmingPool"},
+                "PublicToilet": {"@id": "schema:PublicToilet"},
                 "PublicationEvent": {"@id": "schema:PublicationEvent"},
                 "PublicationIssue": {"@id": "schema:PublicationIssue"},
                 "PublicationVolume": {"@id": "schema:PublicationVolume"},
@@ -923,6 +952,7 @@ http_interactions:
                 "ReplaceAction": {"@id": "schema:ReplaceAction"},
                 "ReplyAction": {"@id": "schema:ReplyAction"},
                 "Report": {"@id": "schema:Report"},
+                "ReportageNewsArticle": {"@id": "schema:ReportageNewsArticle"},
                 "ReportedDoseSchedule": {"@id": "schema:ReportedDoseSchedule"},
                 "Reservation": {"@id": "schema:Reservation"},
                 "ReservationCancelled": {"@id": "schema:ReservationCancelled"},
@@ -946,6 +976,7 @@ http_interactions:
                 "ReturnAction": {"@id": "schema:ReturnAction"},
                 "Review": {"@id": "schema:Review"},
                 "ReviewAction": {"@id": "schema:ReviewAction"},
+                "ReviewNewsArticle": {"@id": "schema:ReviewNewsArticle"},
                 "Rheumatologic": {"@id": "schema:Rheumatologic"},
                 "RightHandDriving": {"@id": "schema:RightHandDriving"},
                 "RiverBodyOfWater": {"@id": "schema:RiverBodyOfWater"},
@@ -958,7 +989,9 @@ http_interactions:
                 "RsvpResponseType": {"@id": "schema:RsvpResponseType"},
                 "RsvpResponseYes": {"@id": "schema:RsvpResponseYes"},
                 "SaleEvent": {"@id": "schema:SaleEvent"},
+                "SatiricalArticle": {"@id": "schema:SatiricalArticle"},
                 "Saturday": {"@id": "schema:Saturday"},
+                "Schedule": {"@id": "schema:Schedule"},
                 "ScheduleAction": {"@id": "schema:ScheduleAction"},
                 "ScholarlyArticle": {"@id": "schema:ScholarlyArticle"},
                 "School": {"@id": "schema:School"},
@@ -1080,6 +1113,7 @@ http_interactions:
                 "Ultrasound": {"@id": "schema:Ultrasound"},
                 "UnRegisterAction": {"@id": "schema:UnRegisterAction"},
                 "UnitPriceSpecification": {"@id": "schema:UnitPriceSpecification"},
+                "UnofficialLegalValue": {"@id": "schema:UnofficialLegalValue"},
                 "UpdateAction": {"@id": "schema:UpdateAction"},
                 "Urologic": {"@id": "schema:Urologic"},
                 "UseAction": {"@id": "schema:UseAction"},
@@ -1093,6 +1127,7 @@ http_interactions:
                 "UserPageVisits": {"@id": "schema:UserPageVisits"},
                 "UserPlays": {"@id": "schema:UserPlays"},
                 "UserPlusOnes": {"@id": "schema:UserPlusOnes"},
+                "UserReview": {"@id": "schema:UserReview"},
                 "UserTweets": {"@id": "schema:UserTweets"},
                 "VeganDiet": {"@id": "schema:VeganDiet"},
                 "VegetarianDiet": {"@id": "schema:VegetarianDiet"},
@@ -1139,6 +1174,7 @@ http_interactions:
                 "WorkersUnion": {"@id": "schema:WorkersUnion"},
                 "WriteAction": {"@id": "schema:WriteAction"},
                 "WritePermission": {"@id": "schema:WritePermission"},
+                "XPathType": {"@id": "schema:XPathType"},
                 "XRay": {"@id": "schema:XRay"},
                 "ZoneBoardingPolicy": {"@id": "schema:ZoneBoardingPolicy"},
                 "Zoo": {"@id": "schema:Zoo"},
@@ -1168,6 +1204,7 @@ http_interactions:
                 "actionOption": { "@id": "schema:actionOption"},
                 "actionPlatform": { "@id": "schema:actionPlatform", "@type": "@id"},
                 "actionStatus": { "@id": "schema:actionStatus"},
+                "actionableFeedbackPolicy": { "@id": "schema:actionableFeedbackPolicy", "@type": "@id"},
                 "activeIngredient": { "@id": "schema:activeIngredient"},
                 "activityDuration": { "@id": "schema:activityDuration"},
                 "activityFrequency": { "@id": "schema:activityFrequency"},
@@ -1188,6 +1225,7 @@ http_interactions:
                 "adverseOutcome": { "@id": "schema:adverseOutcome"},
                 "affectedBy": { "@id": "schema:affectedBy"},
                 "affiliation": { "@id": "schema:affiliation"},
+                "afterMedia": { "@id": "schema:afterMedia"},
                 "agent": { "@id": "schema:agent"},
                 "aggregateRating": { "@id": "schema:aggregateRating"},
                 "aircraft": { "@id": "schema:aircraft"},
@@ -1267,7 +1305,9 @@ http_interactions:
                 "background": { "@id": "schema:background"},
                 "bankAccountType": { "@id": "schema:bankAccountType", "@type": "@id"},
                 "baseSalary": { "@id": "schema:baseSalary"},
+                "bccRecipient": { "@id": "schema:bccRecipient"},
                 "bed": { "@id": "schema:bed"},
+                "beforeMedia": { "@id": "schema:beforeMedia"},
                 "beneficiaryBank": { "@id": "schema:beneficiaryBank"},
                 "benefits": { "@id": "schema:benefits"},
                 "benefitsSummaryUrl": { "@id": "schema:benefitsSummaryUrl", "@type": "@id"},
@@ -1314,6 +1354,9 @@ http_interactions:
                 "businessFunction": { "@id": "schema:businessFunction"},
                 "buyer": { "@id": "schema:buyer"},
                 "byArtist": { "@id": "schema:byArtist"},
+                "byDay": { "@id": "schema:byDay"},
+                "byMonth": { "@id": "schema:byMonth"},
+                "byMonthDay": { "@id": "schema:byMonthDay"},
                 "calories": { "@id": "schema:calories"},
                 "candidate": { "@id": "schema:candidate"},
                 "caption": { "@id": "schema:caption"},
@@ -1327,6 +1370,7 @@ http_interactions:
                 "category": { "@id": "schema:category"},
                 "cause": { "@id": "schema:cause"},
                 "causeOf": { "@id": "schema:causeOf"},
+                "ccRecipient": { "@id": "schema:ccRecipient"},
                 "character": { "@id": "schema:character"},
                 "characterAttribute": { "@id": "schema:characterAttribute"},
                 "characterName": { "@id": "schema:characterName"},
@@ -1385,6 +1429,7 @@ http_interactions:
                 "cookingMethod": { "@id": "schema:cookingMethod"},
                 "copyrightHolder": { "@id": "schema:copyrightHolder"},
                 "copyrightYear": { "@id": "schema:copyrightYear"},
+                "correctionsPolicy": { "@id": "schema:correctionsPolicy", "@type": "@id"},
                 "cost": { "@id": "schema:cost"},
                 "costCategory": { "@id": "schema:costCategory"},
                 "costCurrency": { "@id": "schema:costCurrency"},
@@ -1457,6 +1502,7 @@ http_interactions:
                 "distance": { "@id": "schema:distance"},
                 "distinguishingSign": { "@id": "schema:distinguishingSign"},
                 "distribution": { "@id": "schema:distribution"},
+                "diversityPolicy": { "@id": "schema:diversityPolicy", "@type": "@id"},
                 "documentation": { "@id": "schema:documentation", "@type": "@id"},
                 "domainIncludes": { "@id": "schema:domainIncludes"},
                 "domiciledMortgage": { "@id": "schema:domiciledMortgage"},
@@ -1479,6 +1525,7 @@ http_interactions:
                 "duplicateTherapy": { "@id": "schema:duplicateTherapy"},
                 "duration": { "@id": "schema:duration"},
                 "durationOfWarranty": { "@id": "schema:durationOfWarranty"},
+                "duringMedia": { "@id": "schema:duringMedia"},
                 "earlyPrepaymentPenalty": { "@id": "schema:earlyPrepaymentPenalty"},
                 "editor": { "@id": "schema:editor"},
                 "educationRequirements": { "@id": "schema:educationRequirements"},
@@ -1518,14 +1565,19 @@ http_interactions:
                 "episodes": { "@id": "schema:episodes"},
                 "equal": { "@id": "schema:equal"},
                 "error": { "@id": "schema:error"},
+                "estimatedCost": { "@id": "schema:estimatedCost"},
                 "estimatedFlightDuration": { "@id": "schema:estimatedFlightDuration"},
+                "estimatedSalary": { "@id": "schema:estimatedSalary"},
                 "estimatesRiskOf": { "@id": "schema:estimatesRiskOf"},
+                "ethicsPolicy": { "@id": "schema:ethicsPolicy", "@type": "@id"},
                 "event": { "@id": "schema:event"},
+                "eventSchedule": { "@id": "schema:eventSchedule"},
                 "eventStatus": { "@id": "schema:eventStatus"},
                 "events": { "@id": "schema:events"},
                 "evidenceLevel": { "@id": "schema:evidenceLevel"},
                 "evidenceOrigin": { "@id": "schema:evidenceOrigin"},
                 "exampleOfWork": { "@id": "schema:exampleOfWork"},
+                "exceptDate": { "@id": "schema:exceptDate", "@type": "Date"},
                 "exchangeRate": { "@id": "schema:exchangeRate"},
                 "exchangeRateSpread": { "@id": "schema:exchangeRateSpread"},
                 "executableLibraryName": { "@id": "schema:executableLibraryName"},
@@ -1737,6 +1789,22 @@ http_interactions:
                 "learningResourceType": { "@id": "schema:learningResourceType"},
                 "legalName": { "@id": "schema:legalName"},
                 "legalStatus": { "@id": "schema:legalStatus"},
+                "legislationAppliedBy": { "@id": "schema:legislationAppliedBy"},
+                "legislationApplies": { "@id": "schema:legislationApplies"},
+                "legislationChangedBy": { "@id": "schema:legislationChangedBy"},
+                "legislationChanges": { "@id": "schema:legislationChanges"},
+                "legislationConsolidatedBy": { "@id": "schema:legislationConsolidatedBy"},
+                "legislationConsolidates": { "@id": "schema:legislationConsolidates"},
+                "legislationDate": { "@id": "schema:legislationDate", "@type": "Date"},
+                "legislationDateVersion": { "@id": "schema:legislationDateVersion", "@type": "Date"},
+                "legislationIdentifier": { "@id": "schema:legislationIdentifier"},
+                "legislationLegalForce": { "@id": "schema:legislationLegalForce"},
+                "legislationLegalValue": { "@id": "schema:legislationLegalValue"},
+                "legislationPassedBy": { "@id": "schema:legislationPassedBy"},
+                "legislationResponsible": { "@id": "schema:legislationResponsible"},
+                "legislationTransposedBy": { "@id": "schema:legislationTransposedBy"},
+                "legislationTransposes": { "@id": "schema:legislationTransposes"},
+                "legislationType": { "@id": "schema:legislationType"},
                 "leiCode": { "@id": "schema:leiCode"},
                 "lender": { "@id": "schema:lender"},
                 "lesser": { "@id": "schema:lesser"},
@@ -1770,6 +1838,7 @@ http_interactions:
                 "map": { "@id": "schema:map", "@type": "@id"},
                 "mapType": { "@id": "schema:mapType"},
                 "maps": { "@id": "schema:maps", "@type": "@id"},
+                "masthead": { "@id": "schema:masthead", "@type": "@id"},
                 "material": { "@id": "schema:material", "@type": "@id"},
                 "maxPrice": { "@id": "schema:maxPrice"},
                 "maxValue": { "@id": "schema:maxValue"},
@@ -1795,6 +1864,7 @@ http_interactions:
                 "minPrice": { "@id": "schema:minPrice"},
                 "minValue": { "@id": "schema:minValue"},
                 "minimumPaymentDue": { "@id": "schema:minimumPaymentDue"},
+                "missionCoveragePrioritiesPolicy": { "@id": "schema:missionCoveragePrioritiesPolicy", "@type": "@id"},
                 "model": { "@id": "schema:model"},
                 "modelDate": { "@id": "schema:modelDate", "@type": "Date"},
                 "modifiedTime": { "@id": "schema:modifiedTime", "@type": "DateTime"},
@@ -1899,6 +1969,7 @@ http_interactions:
                 "paymentStatus": { "@id": "schema:paymentStatus"},
                 "paymentUrl": { "@id": "schema:paymentUrl", "@type": "@id"},
                 "penciler": { "@id": "schema:penciler"},
+                "performTime": { "@id": "schema:performTime"},
                 "performer": { "@id": "schema:performer"},
                 "performerIn": { "@id": "schema:performerIn"},
                 "performers": { "@id": "schema:performers"},
@@ -1970,6 +2041,7 @@ http_interactions:
                 "providerMobility": { "@id": "schema:providerMobility"},
                 "providesBroadcastService": { "@id": "schema:providesBroadcastService"},
                 "providesService": { "@id": "schema:providesService"},
+                "publicAccess": { "@id": "schema:publicAccess"},
                 "publication": { "@id": "schema:publication"},
                 "publicationType": { "@id": "schema:publicationType"},
                 "publishedBy": { "@id": "schema:publishedBy"},
@@ -2023,6 +2095,8 @@ http_interactions:
                 "relevantSpecialty": { "@id": "schema:relevantSpecialty"},
                 "remainingAttendeeCapacity": { "@id": "schema:remainingAttendeeCapacity"},
                 "renegotiableLoan": { "@id": "schema:renegotiableLoan"},
+                "repeatCount": { "@id": "schema:repeatCount"},
+                "repeatFrequency": { "@id": "schema:repeatFrequency"},
                 "repetitions": { "@id": "schema:repetitions"},
                 "replacee": { "@id": "schema:replacee"},
                 "replacer": { "@id": "schema:replacer"},
@@ -2033,6 +2107,7 @@ http_interactions:
                 "requiredGender": { "@id": "schema:requiredGender"},
                 "requiredMaxAge": { "@id": "schema:requiredMaxAge"},
                 "requiredMinAge": { "@id": "schema:requiredMinAge"},
+                "requiredQuantity": { "@id": "schema:requiredQuantity"},
                 "requirements": { "@id": "schema:requirements", "@type": "@id"},
                 "requiresSubscription": { "@id": "schema:requiresSubscription"},
                 "reservationFor": { "@id": "schema:reservationFor"},
@@ -2139,6 +2214,7 @@ http_interactions:
                 "status": { "@id": "schema:status"},
                 "steeringPosition": { "@id": "schema:steeringPosition"},
                 "stepValue": { "@id": "schema:stepValue"},
+                "steps": { "@id": "schema:steps"},
                 "storageRequirements": { "@id": "schema:storageRequirements", "@type": "@id"},
                 "streetAddress": { "@id": "schema:streetAddress"},
                 "strengthUnit": { "@id": "schema:strengthUnit"},
@@ -2167,6 +2243,7 @@ http_interactions:
                 "suitableForDiet": { "@id": "schema:suitableForDiet"},
                 "superEvent": { "@id": "schema:superEvent"},
                 "supersededBy": { "@id": "schema:supersededBy"},
+                "supply": { "@id": "schema:supply"},
                 "supplyTo": { "@id": "schema:supplyTo"},
                 "supportingData": { "@id": "schema:supportingData"},
                 "surface": { "@id": "schema:surface", "@type": "@id"},
@@ -2194,11 +2271,14 @@ http_interactions:
                 "tissueSample": { "@id": "schema:tissueSample"},
                 "title": { "@id": "schema:title"},
                 "toLocation": { "@id": "schema:toLocation"},
+                "toRecipient": { "@id": "schema:toRecipient"},
                 "tongueWeight": { "@id": "schema:tongueWeight"},
+                "tool": { "@id": "schema:tool"},
                 "torque": { "@id": "schema:torque"},
                 "totalPaymentDue": { "@id": "schema:totalPaymentDue"},
                 "totalPrice": { "@id": "schema:totalPrice"},
                 "totalTime": { "@id": "schema:totalTime"},
+                "touristType": { "@id": "schema:touristType"},
                 "track": { "@id": "schema:track"},
                 "trackingNumber": { "@id": "schema:trackingNumber"},
                 "trackingUrl": { "@id": "schema:trackingUrl", "@type": "@id"},
@@ -2221,6 +2301,7 @@ http_interactions:
                 "underName": { "@id": "schema:underName"},
                 "unitCode": { "@id": "schema:unitCode", "@type": "@id"},
                 "unitText": { "@id": "schema:unitText"},
+                "unnamedSourcesPolicy": { "@id": "schema:unnamedSourcesPolicy", "@type": "@id"},
                 "unsaturatedFatContent": { "@id": "schema:unsaturatedFatContent"},
                 "uploadDate": { "@id": "schema:uploadDate", "@type": "Date"},
                 "upvoteCount": { "@id": "schema:upvoteCount"},
@@ -2257,6 +2338,7 @@ http_interactions:
                 "vehicleSpecialUsage": { "@id": "schema:vehicleSpecialUsage"},
                 "vehicleTransmission": { "@id": "schema:vehicleTransmission", "@type": "@id"},
                 "vendor": { "@id": "schema:vendor"},
+                "verificationFactCheckingPolicy": { "@id": "schema:verificationFactCheckingPolicy", "@type": "@id"},
                 "version": { "@id": "schema:version"},
                 "video": { "@id": "schema:video"},
                 "videoFormat": { "@id": "schema:videoFormat"},
@@ -2286,11 +2368,12 @@ http_interactions:
                 "worstRating": { "@id": "schema:worstRating"},
                 "xpath": { "@id": "schema:xpath"},
                 "yearlyRevenue": { "@id": "schema:yearlyRevenue"},
-                "yearsInOperation": { "@id": "schema:yearsInOperation"}
+                "yearsInOperation": { "@id": "schema:yearsInOperation"},
+                "yield": { "@id": "schema:yield"}
             }
         }
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:22:23 GMT
+  recorded_at: Wed, 23 Aug 2017 08:03:13 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2320,11 +2403,11 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       Set-Cookie:
-      - GOOGAPPUID=3-2f; Path=/
+      - GOOGAPPUID=3-3b; Path=/
       X-Cloud-Trace-Context:
-      - e713e78bac3e52e18a0b5d93e2d8168b
+      - 52294b37a0e4cc8710319f4b3b5b2533
       Date:
-      - Sat, 05 Aug 2017 13:22:25 GMT
+      - Wed, 23 Aug 2017 08:03:13 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2333,7 +2416,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:22:23 GMT
+  recorded_at: Wed, 23 Aug 2017 08:03:13 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2361,21 +2444,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170805131131a2048647386json
+      - 24751170823075941a2048647386json
       Last-Modified:
-      - Sat, 05 Aug 2017 13:11:31 UTC
+      - Wed, 23 Aug 2017 07:59:41 UTC
       Set-Cookie:
-      - GOOGAPPUID=3-2f; Path=/
+      - GOOGAPPUID=3-3b; Path=/
       X-Cloud-Trace-Context:
-      - 03f951a02435d3c2d3280ab69e9c8bc4
+      - 5ba95a21369f6bd22e93414e081c93b2
       Date:
-      - Sat, 05 Aug 2017 13:22:25 GMT
+      - Wed, 23 Aug 2017 08:03:14 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '128366'
+      - '133672'
       Expires:
-      - Sat, 05 Aug 2017 13:22:25 GMT
+      - Wed, 23 Aug 2017 08:03:14 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2444,6 +2527,7 @@ http_interactions:
                 "AddAction": {"@id": "schema:AddAction"},
                 "AdministrativeArea": {"@id": "schema:AdministrativeArea"},
                 "AdultEntertainment": {"@id": "schema:AdultEntertainment"},
+                "AdvertiserContentArticle": {"@id": "schema:AdvertiserContentArticle"},
                 "AerobicActivity": {"@id": "schema:AerobicActivity"},
                 "AggregateOffer": {"@id": "schema:AggregateOffer"},
                 "AggregateRating": {"@id": "schema:AggregateRating"},
@@ -2456,6 +2540,7 @@ http_interactions:
                 "AllocateAction": {"@id": "schema:AllocateAction"},
                 "AmusementPark": {"@id": "schema:AmusementPark"},
                 "AnaerobicActivity": {"@id": "schema:AnaerobicActivity"},
+                "AnalysisNewsArticle": {"@id": "schema:AnalysisNewsArticle"},
                 "AnatomicalStructure": {"@id": "schema:AnatomicalStructure"},
                 "AnatomicalSystem": {"@id": "schema:AnatomicalSystem"},
                 "Anesthesia": {"@id": "schema:Anesthesia"},
@@ -2481,6 +2566,7 @@ http_interactions:
                 "AudioObject": {"@id": "schema:AudioObject"},
                 "Audiobook": {"@id": "schema:Audiobook"},
                 "AudiobookFormat": {"@id": "schema:AudiobookFormat"},
+                "AuthoritativeLegalValue": {"@id": "schema:AuthoritativeLegalValue"},
                 "AuthorizeAction": {"@id": "schema:AuthorizeAction"},
                 "AutoBodyShop": {"@id": "schema:AutoBodyShop"},
                 "AutoDealer": {"@id": "schema:AutoDealer"},
@@ -2491,6 +2577,7 @@ http_interactions:
                 "AutomatedTeller": {"@id": "schema:AutomatedTeller"},
                 "AutomotiveBusiness": {"@id": "schema:AutomotiveBusiness"},
                 "Ayurvedic": {"@id": "schema:Ayurvedic"},
+                "BackgroundNewsArticle": {"@id": "schema:BackgroundNewsArticle"},
                 "Bacteria": {"@id": "schema:Bacteria"},
                 "Bakery": {"@id": "schema:Bakery"},
                 "Balance": {"@id": "schema:Balance"},
@@ -2626,7 +2713,9 @@ http_interactions:
                 "CreativeWorkSeries": {"@id": "schema:CreativeWorkSeries"},
                 "CreditCard": {"@id": "schema:CreditCard"},
                 "Crematorium": {"@id": "schema:Crematorium"},
+                "CriticReview": {"@id": "schema:CriticReview"},
                 "CrossSectional": {"@id": "schema:CrossSectional"},
+                "CssSelectorType": {"@id": "schema:CssSelectorType"},
                 "CurrencyConversionService": {"@id": "schema:CurrencyConversionService"},
                 "DDxElement": {"@id": "schema:DDxElement"},
                 "DJMixAlbum": {"@id": "schema:DJMixAlbum"},
@@ -2647,6 +2736,7 @@ http_interactions:
                 "DaySpa": {"@id": "schema:DaySpa"},
                 "DeactivateAction": {"@id": "schema:DeactivateAction"},
                 "DefenceEstablishment": {"@id": "schema:DefenceEstablishment"},
+                "Definitive": {"@id": "schema:Definitive"},
                 "DeleteAction": {"@id": "schema:DeleteAction"},
                 "DeliveryChargeSpecification": {"@id": "schema:DeliveryChargeSpecification"},
                 "DeliveryEvent": {"@id": "schema:DeliveryEvent"},
@@ -2715,6 +2805,7 @@ http_interactions:
                 "Emergency": {"@id": "schema:Emergency"},
                 "EmergencyService": {"@id": "schema:EmergencyService"},
                 "EmployeeRole": {"@id": "schema:EmployeeRole"},
+                "EmployerReview": {"@id": "schema:EmployerReview"},
                 "EmploymentAgency": {"@id": "schema:EmploymentAgency"},
                 "Endocrine": {"@id": "schema:Endocrine"},
                 "EndorseAction": {"@id": "schema:EndorseAction"},
@@ -2833,11 +2924,20 @@ http_interactions:
                 "HotelRoom": {"@id": "schema:HotelRoom"},
                 "House": {"@id": "schema:House"},
                 "HousePainter": {"@id": "schema:HousePainter"},
+                "HowTo": {"@id": "schema:HowTo"},
+                "HowToDirection": {"@id": "schema:HowToDirection"},
+                "HowToItem": {"@id": "schema:HowToItem"},
+                "HowToSection": {"@id": "schema:HowToSection"},
+                "HowToStep": {"@id": "schema:HowToStep"},
+                "HowToSupply": {"@id": "schema:HowToSupply"},
+                "HowToTip": {"@id": "schema:HowToTip"},
+                "HowToTool": {"@id": "schema:HowToTool"},
                 "IceCreamShop": {"@id": "schema:IceCreamShop"},
                 "IgnoreAction": {"@id": "schema:IgnoreAction"},
                 "ImageGallery": {"@id": "schema:ImageGallery"},
                 "ImageObject": {"@id": "schema:ImageObject"},
                 "ImagingTest": {"@id": "schema:ImagingTest"},
+                "InForce": {"@id": "schema:InForce"},
                 "InStock": {"@id": "schema:InStock"},
                 "InStoreOnly": {"@id": "schema:InStoreOnly"},
                 "IndividualProduct": {"@id": "schema:IndividualProduct"},
@@ -2878,7 +2978,11 @@ http_interactions:
                 "LaserDiscFormat": {"@id": "schema:LaserDiscFormat"},
                 "LeaveAction": {"@id": "schema:LeaveAction"},
                 "LeftHandDriving": {"@id": "schema:LeftHandDriving"},
+                "LegalForceStatus": {"@id": "schema:LegalForceStatus"},
                 "LegalService": {"@id": "schema:LegalService"},
+                "LegalValueLevel": {"@id": "schema:LegalValueLevel"},
+                "Legislation": {"@id": "schema:Legislation"},
+                "LegislationObject": {"@id": "schema:LegislationObject"},
                 "LegislativeBuilding": {"@id": "schema:LegislativeBuilding"},
                 "LeisureTimeActivity": {"@id": "schema:LeisureTimeActivity"},
                 "LendAction": {"@id": "schema:LendAction"},
@@ -2890,6 +2994,7 @@ http_interactions:
                 "LimitedAvailability": {"@id": "schema:LimitedAvailability"},
                 "LinkRole": {"@id": "schema:LinkRole"},
                 "LiquorStore": {"@id": "schema:LiquorStore"},
+                "ListItem": {"@id": "schema:ListItem"},
                 "ListenAction": {"@id": "schema:ListenAction"},
                 "LiteraryEvent": {"@id": "schema:LiteraryEvent"},
                 "LiveAlbum": {"@id": "schema:LiveAlbum"},
@@ -3016,11 +3121,14 @@ http_interactions:
                 "Nerve": {"@id": "schema:Nerve"},
                 "Neuro": {"@id": "schema:Neuro"},
                 "Neurologic": {"@id": "schema:Neurologic"},
+                "NewCondition": {"@id": "schema:NewCondition"},
                 "NewsArticle": {"@id": "schema:NewsArticle"},
+                "NewsMediaOrganization": {"@id": "schema:NewsMediaOrganization"},
                 "Newspaper": {"@id": "schema:Newspaper"},
                 "NightClub": {"@id": "schema:NightClub"},
                 "NoninvasiveProcedure": {"@id": "schema:NoninvasiveProcedure"},
                 "Nose": {"@id": "schema:Nose"},
+                "NotInForce": {"@id": "schema:NotInForce"},
                 "NotYetRecruiting": {"@id": "schema:NotYetRecruiting"},
                 "Notary": {"@id": "schema:Notary"},
                 "NoteDigitalDocument": {"@id": "schema:NoteDigitalDocument"},
@@ -3040,6 +3148,7 @@ http_interactions:
                 "OfferCatalog": {"@id": "schema:OfferCatalog"},
                 "OfferItemCondition": {"@id": "schema:OfferItemCondition"},
                 "OfficeEquipmentStore": {"@id": "schema:OfficeEquipmentStore"},
+                "OfficialLegalValue": {"@id": "schema:OfficialLegalValue"},
                 "OfflinePermanently": {"@id": "schema:OfflinePermanently"},
                 "OfflineTemporarily": {"@id": "schema:OfflineTemporarily"},
                 "OnDemandEvent": {"@id": "schema:OnDemandEvent"},
@@ -3051,6 +3160,7 @@ http_interactions:
                 "OnlineOnly": {"@id": "schema:OnlineOnly"},
                 "OpenTrial": {"@id": "schema:OpenTrial"},
                 "OpeningHoursSpecification": {"@id": "schema:OpeningHoursSpecification"},
+                "OpinionNewsArticle": {"@id": "schema:OpinionNewsArticle"},
                 "Optician": {"@id": "schema:Optician"},
                 "Optometric": {"@id": "schema:Optometric"},
                 "Optometric": {"@id": "schema:Optometric"},
@@ -3086,6 +3196,7 @@ http_interactions:
                 "Park": {"@id": "schema:Park"},
                 "ParkingFacility": {"@id": "schema:ParkingFacility"},
                 "ParkingMap": {"@id": "schema:ParkingMap"},
+                "PartiallyInForce": {"@id": "schema:PartiallyInForce"},
                 "Pathology": {"@id": "schema:Pathology"},
                 "PathologyTest": {"@id": "schema:PathologyTest"},
                 "Patient": {"@id": "schema:Patient"},
@@ -3168,6 +3279,7 @@ http_interactions:
                 "PublicHealth": {"@id": "schema:PublicHealth"},
                 "PublicHolidays": {"@id": "schema:PublicHolidays"},
                 "PublicSwimmingPool": {"@id": "schema:PublicSwimmingPool"},
+                "PublicToilet": {"@id": "schema:PublicToilet"},
                 "PublicationEvent": {"@id": "schema:PublicationEvent"},
                 "PublicationIssue": {"@id": "schema:PublicationIssue"},
                 "PublicationVolume": {"@id": "schema:PublicationVolume"},
@@ -3214,6 +3326,7 @@ http_interactions:
                 "ReplaceAction": {"@id": "schema:ReplaceAction"},
                 "ReplyAction": {"@id": "schema:ReplyAction"},
                 "Report": {"@id": "schema:Report"},
+                "ReportageNewsArticle": {"@id": "schema:ReportageNewsArticle"},
                 "ReportedDoseSchedule": {"@id": "schema:ReportedDoseSchedule"},
                 "Reservation": {"@id": "schema:Reservation"},
                 "ReservationCancelled": {"@id": "schema:ReservationCancelled"},
@@ -3237,6 +3350,7 @@ http_interactions:
                 "ReturnAction": {"@id": "schema:ReturnAction"},
                 "Review": {"@id": "schema:Review"},
                 "ReviewAction": {"@id": "schema:ReviewAction"},
+                "ReviewNewsArticle": {"@id": "schema:ReviewNewsArticle"},
                 "Rheumatologic": {"@id": "schema:Rheumatologic"},
                 "RightHandDriving": {"@id": "schema:RightHandDriving"},
                 "RiverBodyOfWater": {"@id": "schema:RiverBodyOfWater"},
@@ -3249,7 +3363,9 @@ http_interactions:
                 "RsvpResponseType": {"@id": "schema:RsvpResponseType"},
                 "RsvpResponseYes": {"@id": "schema:RsvpResponseYes"},
                 "SaleEvent": {"@id": "schema:SaleEvent"},
+                "SatiricalArticle": {"@id": "schema:SatiricalArticle"},
                 "Saturday": {"@id": "schema:Saturday"},
+                "Schedule": {"@id": "schema:Schedule"},
                 "ScheduleAction": {"@id": "schema:ScheduleAction"},
                 "ScholarlyArticle": {"@id": "schema:ScholarlyArticle"},
                 "School": {"@id": "schema:School"},
@@ -3371,6 +3487,7 @@ http_interactions:
                 "Ultrasound": {"@id": "schema:Ultrasound"},
                 "UnRegisterAction": {"@id": "schema:UnRegisterAction"},
                 "UnitPriceSpecification": {"@id": "schema:UnitPriceSpecification"},
+                "UnofficialLegalValue": {"@id": "schema:UnofficialLegalValue"},
                 "UpdateAction": {"@id": "schema:UpdateAction"},
                 "Urologic": {"@id": "schema:Urologic"},
                 "UseAction": {"@id": "schema:UseAction"},
@@ -3384,6 +3501,7 @@ http_interactions:
                 "UserPageVisits": {"@id": "schema:UserPageVisits"},
                 "UserPlays": {"@id": "schema:UserPlays"},
                 "UserPlusOnes": {"@id": "schema:UserPlusOnes"},
+                "UserReview": {"@id": "schema:UserReview"},
                 "UserTweets": {"@id": "schema:UserTweets"},
                 "VeganDiet": {"@id": "schema:VeganDiet"},
                 "VegetarianDiet": {"@id": "schema:VegetarianDiet"},
@@ -3430,6 +3548,7 @@ http_interactions:
                 "WorkersUnion": {"@id": "schema:WorkersUnion"},
                 "WriteAction": {"@id": "schema:WriteAction"},
                 "WritePermission": {"@id": "schema:WritePermission"},
+                "XPathType": {"@id": "schema:XPathType"},
                 "XRay": {"@id": "schema:XRay"},
                 "ZoneBoardingPolicy": {"@id": "schema:ZoneBoardingPolicy"},
                 "Zoo": {"@id": "schema:Zoo"},
@@ -3459,6 +3578,7 @@ http_interactions:
                 "actionOption": { "@id": "schema:actionOption"},
                 "actionPlatform": { "@id": "schema:actionPlatform", "@type": "@id"},
                 "actionStatus": { "@id": "schema:actionStatus"},
+                "actionableFeedbackPolicy": { "@id": "schema:actionableFeedbackPolicy", "@type": "@id"},
                 "activeIngredient": { "@id": "schema:activeIngredient"},
                 "activityDuration": { "@id": "schema:activityDuration"},
                 "activityFrequency": { "@id": "schema:activityFrequency"},
@@ -3479,6 +3599,7 @@ http_interactions:
                 "adverseOutcome": { "@id": "schema:adverseOutcome"},
                 "affectedBy": { "@id": "schema:affectedBy"},
                 "affiliation": { "@id": "schema:affiliation"},
+                "afterMedia": { "@id": "schema:afterMedia"},
                 "agent": { "@id": "schema:agent"},
                 "aggregateRating": { "@id": "schema:aggregateRating"},
                 "aircraft": { "@id": "schema:aircraft"},
@@ -3558,7 +3679,9 @@ http_interactions:
                 "background": { "@id": "schema:background"},
                 "bankAccountType": { "@id": "schema:bankAccountType", "@type": "@id"},
                 "baseSalary": { "@id": "schema:baseSalary"},
+                "bccRecipient": { "@id": "schema:bccRecipient"},
                 "bed": { "@id": "schema:bed"},
+                "beforeMedia": { "@id": "schema:beforeMedia"},
                 "beneficiaryBank": { "@id": "schema:beneficiaryBank"},
                 "benefits": { "@id": "schema:benefits"},
                 "benefitsSummaryUrl": { "@id": "schema:benefitsSummaryUrl", "@type": "@id"},
@@ -3605,6 +3728,9 @@ http_interactions:
                 "businessFunction": { "@id": "schema:businessFunction"},
                 "buyer": { "@id": "schema:buyer"},
                 "byArtist": { "@id": "schema:byArtist"},
+                "byDay": { "@id": "schema:byDay"},
+                "byMonth": { "@id": "schema:byMonth"},
+                "byMonthDay": { "@id": "schema:byMonthDay"},
                 "calories": { "@id": "schema:calories"},
                 "candidate": { "@id": "schema:candidate"},
                 "caption": { "@id": "schema:caption"},
@@ -3618,6 +3744,7 @@ http_interactions:
                 "category": { "@id": "schema:category"},
                 "cause": { "@id": "schema:cause"},
                 "causeOf": { "@id": "schema:causeOf"},
+                "ccRecipient": { "@id": "schema:ccRecipient"},
                 "character": { "@id": "schema:character"},
                 "characterAttribute": { "@id": "schema:characterAttribute"},
                 "characterName": { "@id": "schema:characterName"},
@@ -3676,6 +3803,7 @@ http_interactions:
                 "cookingMethod": { "@id": "schema:cookingMethod"},
                 "copyrightHolder": { "@id": "schema:copyrightHolder"},
                 "copyrightYear": { "@id": "schema:copyrightYear"},
+                "correctionsPolicy": { "@id": "schema:correctionsPolicy", "@type": "@id"},
                 "cost": { "@id": "schema:cost"},
                 "costCategory": { "@id": "schema:costCategory"},
                 "costCurrency": { "@id": "schema:costCurrency"},
@@ -3748,6 +3876,7 @@ http_interactions:
                 "distance": { "@id": "schema:distance"},
                 "distinguishingSign": { "@id": "schema:distinguishingSign"},
                 "distribution": { "@id": "schema:distribution"},
+                "diversityPolicy": { "@id": "schema:diversityPolicy", "@type": "@id"},
                 "documentation": { "@id": "schema:documentation", "@type": "@id"},
                 "domainIncludes": { "@id": "schema:domainIncludes"},
                 "domiciledMortgage": { "@id": "schema:domiciledMortgage"},
@@ -3770,6 +3899,7 @@ http_interactions:
                 "duplicateTherapy": { "@id": "schema:duplicateTherapy"},
                 "duration": { "@id": "schema:duration"},
                 "durationOfWarranty": { "@id": "schema:durationOfWarranty"},
+                "duringMedia": { "@id": "schema:duringMedia"},
                 "earlyPrepaymentPenalty": { "@id": "schema:earlyPrepaymentPenalty"},
                 "editor": { "@id": "schema:editor"},
                 "educationRequirements": { "@id": "schema:educationRequirements"},
@@ -3809,14 +3939,19 @@ http_interactions:
                 "episodes": { "@id": "schema:episodes"},
                 "equal": { "@id": "schema:equal"},
                 "error": { "@id": "schema:error"},
+                "estimatedCost": { "@id": "schema:estimatedCost"},
                 "estimatedFlightDuration": { "@id": "schema:estimatedFlightDuration"},
+                "estimatedSalary": { "@id": "schema:estimatedSalary"},
                 "estimatesRiskOf": { "@id": "schema:estimatesRiskOf"},
+                "ethicsPolicy": { "@id": "schema:ethicsPolicy", "@type": "@id"},
                 "event": { "@id": "schema:event"},
+                "eventSchedule": { "@id": "schema:eventSchedule"},
                 "eventStatus": { "@id": "schema:eventStatus"},
                 "events": { "@id": "schema:events"},
                 "evidenceLevel": { "@id": "schema:evidenceLevel"},
                 "evidenceOrigin": { "@id": "schema:evidenceOrigin"},
                 "exampleOfWork": { "@id": "schema:exampleOfWork"},
+                "exceptDate": { "@id": "schema:exceptDate", "@type": "Date"},
                 "exchangeRate": { "@id": "schema:exchangeRate"},
                 "exchangeRateSpread": { "@id": "schema:exchangeRateSpread"},
                 "executableLibraryName": { "@id": "schema:executableLibraryName"},
@@ -4028,6 +4163,22 @@ http_interactions:
                 "learningResourceType": { "@id": "schema:learningResourceType"},
                 "legalName": { "@id": "schema:legalName"},
                 "legalStatus": { "@id": "schema:legalStatus"},
+                "legislationAppliedBy": { "@id": "schema:legislationAppliedBy"},
+                "legislationApplies": { "@id": "schema:legislationApplies"},
+                "legislationChangedBy": { "@id": "schema:legislationChangedBy"},
+                "legislationChanges": { "@id": "schema:legislationChanges"},
+                "legislationConsolidatedBy": { "@id": "schema:legislationConsolidatedBy"},
+                "legislationConsolidates": { "@id": "schema:legislationConsolidates"},
+                "legislationDate": { "@id": "schema:legislationDate", "@type": "Date"},
+                "legislationDateVersion": { "@id": "schema:legislationDateVersion", "@type": "Date"},
+                "legislationIdentifier": { "@id": "schema:legislationIdentifier"},
+                "legislationLegalForce": { "@id": "schema:legislationLegalForce"},
+                "legislationLegalValue": { "@id": "schema:legislationLegalValue"},
+                "legislationPassedBy": { "@id": "schema:legislationPassedBy"},
+                "legislationResponsible": { "@id": "schema:legislationResponsible"},
+                "legislationTransposedBy": { "@id": "schema:legislationTransposedBy"},
+                "legislationTransposes": { "@id": "schema:legislationTransposes"},
+                "legislationType": { "@id": "schema:legislationType"},
                 "leiCode": { "@id": "schema:leiCode"},
                 "lender": { "@id": "schema:lender"},
                 "lesser": { "@id": "schema:lesser"},
@@ -4061,6 +4212,7 @@ http_interactions:
                 "map": { "@id": "schema:map", "@type": "@id"},
                 "mapType": { "@id": "schema:mapType"},
                 "maps": { "@id": "schema:maps", "@type": "@id"},
+                "masthead": { "@id": "schema:masthead", "@type": "@id"},
                 "material": { "@id": "schema:material", "@type": "@id"},
                 "maxPrice": { "@id": "schema:maxPrice"},
                 "maxValue": { "@id": "schema:maxValue"},
@@ -4086,6 +4238,7 @@ http_interactions:
                 "minPrice": { "@id": "schema:minPrice"},
                 "minValue": { "@id": "schema:minValue"},
                 "minimumPaymentDue": { "@id": "schema:minimumPaymentDue"},
+                "missionCoveragePrioritiesPolicy": { "@id": "schema:missionCoveragePrioritiesPolicy", "@type": "@id"},
                 "model": { "@id": "schema:model"},
                 "modelDate": { "@id": "schema:modelDate", "@type": "Date"},
                 "modifiedTime": { "@id": "schema:modifiedTime", "@type": "DateTime"},
@@ -4190,6 +4343,7 @@ http_interactions:
                 "paymentStatus": { "@id": "schema:paymentStatus"},
                 "paymentUrl": { "@id": "schema:paymentUrl", "@type": "@id"},
                 "penciler": { "@id": "schema:penciler"},
+                "performTime": { "@id": "schema:performTime"},
                 "performer": { "@id": "schema:performer"},
                 "performerIn": { "@id": "schema:performerIn"},
                 "performers": { "@id": "schema:performers"},
@@ -4261,6 +4415,7 @@ http_interactions:
                 "providerMobility": { "@id": "schema:providerMobility"},
                 "providesBroadcastService": { "@id": "schema:providesBroadcastService"},
                 "providesService": { "@id": "schema:providesService"},
+                "publicAccess": { "@id": "schema:publicAccess"},
                 "publication": { "@id": "schema:publication"},
                 "publicationType": { "@id": "schema:publicationType"},
                 "publishedBy": { "@id": "schema:publishedBy"},
@@ -4314,6 +4469,8 @@ http_interactions:
                 "relevantSpecialty": { "@id": "schema:relevantSpecialty"},
                 "remainingAttendeeCapacity": { "@id": "schema:remainingAttendeeCapacity"},
                 "renegotiableLoan": { "@id": "schema:renegotiableLoan"},
+                "repeatCount": { "@id": "schema:repeatCount"},
+                "repeatFrequency": { "@id": "schema:repeatFrequency"},
                 "repetitions": { "@id": "schema:repetitions"},
                 "replacee": { "@id": "schema:replacee"},
                 "replacer": { "@id": "schema:replacer"},
@@ -4324,6 +4481,7 @@ http_interactions:
                 "requiredGender": { "@id": "schema:requiredGender"},
                 "requiredMaxAge": { "@id": "schema:requiredMaxAge"},
                 "requiredMinAge": { "@id": "schema:requiredMinAge"},
+                "requiredQuantity": { "@id": "schema:requiredQuantity"},
                 "requirements": { "@id": "schema:requirements", "@type": "@id"},
                 "requiresSubscription": { "@id": "schema:requiresSubscription"},
                 "reservationFor": { "@id": "schema:reservationFor"},
@@ -4430,6 +4588,7 @@ http_interactions:
                 "status": { "@id": "schema:status"},
                 "steeringPosition": { "@id": "schema:steeringPosition"},
                 "stepValue": { "@id": "schema:stepValue"},
+                "steps": { "@id": "schema:steps"},
                 "storageRequirements": { "@id": "schema:storageRequirements", "@type": "@id"},
                 "streetAddress": { "@id": "schema:streetAddress"},
                 "strengthUnit": { "@id": "schema:strengthUnit"},
@@ -4458,6 +4617,7 @@ http_interactions:
                 "suitableForDiet": { "@id": "schema:suitableForDiet"},
                 "superEvent": { "@id": "schema:superEvent"},
                 "supersededBy": { "@id": "schema:supersededBy"},
+                "supply": { "@id": "schema:supply"},
                 "supplyTo": { "@id": "schema:supplyTo"},
                 "supportingData": { "@id": "schema:supportingData"},
                 "surface": { "@id": "schema:surface", "@type": "@id"},
@@ -4485,11 +4645,14 @@ http_interactions:
                 "tissueSample": { "@id": "schema:tissueSample"},
                 "title": { "@id": "schema:title"},
                 "toLocation": { "@id": "schema:toLocation"},
+                "toRecipient": { "@id": "schema:toRecipient"},
                 "tongueWeight": { "@id": "schema:tongueWeight"},
+                "tool": { "@id": "schema:tool"},
                 "torque": { "@id": "schema:torque"},
                 "totalPaymentDue": { "@id": "schema:totalPaymentDue"},
                 "totalPrice": { "@id": "schema:totalPrice"},
                 "totalTime": { "@id": "schema:totalTime"},
+                "touristType": { "@id": "schema:touristType"},
                 "track": { "@id": "schema:track"},
                 "trackingNumber": { "@id": "schema:trackingNumber"},
                 "trackingUrl": { "@id": "schema:trackingUrl", "@type": "@id"},
@@ -4512,6 +4675,7 @@ http_interactions:
                 "underName": { "@id": "schema:underName"},
                 "unitCode": { "@id": "schema:unitCode", "@type": "@id"},
                 "unitText": { "@id": "schema:unitText"},
+                "unnamedSourcesPolicy": { "@id": "schema:unnamedSourcesPolicy", "@type": "@id"},
                 "unsaturatedFatContent": { "@id": "schema:unsaturatedFatContent"},
                 "uploadDate": { "@id": "schema:uploadDate", "@type": "Date"},
                 "upvoteCount": { "@id": "schema:upvoteCount"},
@@ -4548,6 +4712,7 @@ http_interactions:
                 "vehicleSpecialUsage": { "@id": "schema:vehicleSpecialUsage"},
                 "vehicleTransmission": { "@id": "schema:vehicleTransmission", "@type": "@id"},
                 "vendor": { "@id": "schema:vendor"},
+                "verificationFactCheckingPolicy": { "@id": "schema:verificationFactCheckingPolicy", "@type": "@id"},
                 "version": { "@id": "schema:version"},
                 "video": { "@id": "schema:video"},
                 "videoFormat": { "@id": "schema:videoFormat"},
@@ -4577,9 +4742,10 @@ http_interactions:
                 "worstRating": { "@id": "schema:worstRating"},
                 "xpath": { "@id": "schema:xpath"},
                 "yearlyRevenue": { "@id": "schema:yearlyRevenue"},
-                "yearsInOperation": { "@id": "schema:yearsInOperation"}
+                "yearsInOperation": { "@id": "schema:yearsInOperation"},
+                "yield": { "@id": "schema:yield"}
             }
         }
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:22:24 GMT
+  recorded_at: Wed, 23 Aug 2017 08:03:14 GMT
 recorded_with: VCR 3.0.3

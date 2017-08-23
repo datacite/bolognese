@@ -265,10 +265,10 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "DOI in test system" do
-      input = "https://doi.test.datacite.org/10.5438/mcnv-ga6n"
+      input = "https://handle.test.datacite.org/10.5438/mcnv-ga6n"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.test.datacite.org/10.5438/mcnv-ga6n")
+      expect(subject.id).to eq("https://handle.test.datacite.org/10.5438/mcnv-ga6n")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")

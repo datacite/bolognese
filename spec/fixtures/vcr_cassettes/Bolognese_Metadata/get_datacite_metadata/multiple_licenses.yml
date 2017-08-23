@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 05 Aug 2017 13:28:17 GMT
+      - Wed, 23 Aug 2017 08:05:26 GMT
       Etag:
       - W/"0411b3916b13b0c38e2c133d6e9905e2"
       Server:
@@ -47,26 +47,28 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '1'
       X-Kong-Upstream-Latency:
-      - '143'
+      - '813'
       X-Powered-By:
       - Phusion Passenger 5.1.6
       X-Ratelimit-Limit-Hour:
       - '100000'
       X-Ratelimit-Remaining-Hour:
-      - '99942'
+      - '99936'
       X-Request-Id:
-      - 56f5458c-a82e-4ba2-82bf-676d58331378
+      - 7cd5b0b5-d73a-4375-83f1-1f20481b661f
       X-Runtime:
-      - '0.140875'
+      - '0.336540'
       X-Xss-Protection:
       - 1; mode=block
+      Content-Length:
+      - '124'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.5281","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:13Z"}}}'
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:28:15 GMT
+  recorded_at: Wed, 23 Aug 2017 08:05:26 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
@@ -90,20 +92,18 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Sat, 05 Aug 2017 13:28:17 GMT
+      - Wed, 23 Aug 2017 08:05:26 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '3608'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":3},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CERN.ZENODO","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTI4MS96ZW5vZG8uNDg0NDA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5LcmlzdGlhbiBHYXJ6YTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkFuYWx5c2lzIFRvb2xzIEZvciBDcm9zc292ZXIgRXhwZXJpbWVudCBPZiBVaSBVc2luZyBDaG9pY2UgQXJjaGl0ZWN0dXJlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlplbm9kbzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PmNob2ljZSBhcmNoaXRlY3R1cmU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5jcm9zc292ZXIgZXhwZXJpbWVudDwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmhjaTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMDMtMjc8L2RhdGU+CiAgPC9kYXRlcz4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlNvZnR3YXJlIi8+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJJc1N1cHBsZW1lbnRUbyI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9ImluZm86ZXUtcmVwby9zZW1hbnRpY3Mvb3BlbkFjY2VzcyI+T3BlbiBBY2Nlc3M8L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4mbHQ7cCZndDsmYW1wO25ic3A7Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7VGhpcyB0b29scyBhcmUgdXNlZCB0byBhbmFseXNlIHRoZSBkYXRhIHByb2R1Y2VkIGJ5IHRoZSBDcm9zc3NvdmVyIEV4cGVyaW1lbnQgSSBkZXNpZ25lZCB0byB0ZXN0IENob2ljZSBBcmNoaXRlY3R1cmUgdGVjaG5pcXVlcyBhcyBVSSBpbnRlcnZlbnRpb25zIGluIGEgU0VFazRTY2llbmNlIGRhdGEgY2F0YWxvZ3VlLiBJdCBjb250YWluczombHQ7L3AmZ3Q7CgombHQ7cCZndDstIERhdGEgc3RydWN0dXJlcyBmb3IgdGhlIGV4cGVyaW1lbnRhbCBkYXRhLiZsdDticiAvJmd0OwotIFZpc3VhbGlzYXRpb24gZnVuY3Rpb25zJmx0O2JyIC8mZ3Q7Ci0gQW5hbHlzaXMgZnVuY3Rpb25zJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7IyMgSW5zdGFsbGF0aW9uJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7LSBSJmx0O2JyIC8mZ3Q7Ci0gcHl0aG9uJmx0O2JyIC8mZ3Q7Ci0gaXB5dGhvbiA0Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Q2xvbmUgYW5kIHVzZS4mbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBVc2FnZSZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwpgYGBweXRob24mbHQ7YnIgLyZndDsKc291cmNlKCZhbXA7IzM5O3BhcmFsbGVsX3Bsb3QuciZhbXA7IzM5OykmbHQ7YnIgLyZndDsKd2l0aCh6LCBwYXJhbGxlbHNldCh0cnQscmVzcG9uc2UsIGZyZXE9Y291bnQsIGFscGhhPTAuMikpJmx0O2JyIC8mZ3Q7CmBgYCZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwojIyBDb250cmlidXRpbmcmbHQ7L3AmZ3Q7CgombHQ7cCZndDsxLiBGb3JrIGl0ISZsdDticiAvJmd0OwoyLiBDcmVhdGUgeW91ciBmZWF0dXJlIGJyYW5jaDogYGdpdCBjaGVja291dCAtYiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKMy4gQ29tbWl0IHlvdXIgY2hhbmdlczogYGdpdCBjb21taXQgLWFtICZhbXA7IzM5O0FkZCBzb21lIGZlYXR1cmUmYW1wOyMzOTtgJmx0O2JyIC8mZ3Q7CjQuIFB1c2ggdG8gdGhlIGJyYW5jaDogYGdpdCBwdXNoIG9yaWdpbiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKNS4gU3VibWl0IGEgcHVsbCByZXF1ZXN0IDpEJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIExpY2Vuc2UmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHdvcmsgc3VwcG9ydHMgbXkgUGhEIFRoZXNpcyBhdCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+Cg==","allocator_symbol":"CERN","minted":"2016-03-27T22:18:38Z","updated":"2017-05-30T06:22:42Z","doi":"10.5281/ZENODO.48440"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CERN.ZENODO","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTI4MS96ZW5vZG8uNDg0NDA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5LcmlzdGlhbiBHYXJ6YTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkFuYWx5c2lzIFRvb2xzIEZvciBDcm9zc292ZXIgRXhwZXJpbWVudCBPZiBVaSBVc2luZyBDaG9pY2UgQXJjaGl0ZWN0dXJlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlplbm9kbzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PmNob2ljZSBhcmNoaXRlY3R1cmU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5jcm9zc292ZXIgZXhwZXJpbWVudDwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmhjaTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTYtMDMtMjc8L2RhdGU+CiAgPC9kYXRlcz4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlNvZnR3YXJlIi8+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJJc1N1cHBsZW1lbnRUbyI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9ImluZm86ZXUtcmVwby9zZW1hbnRpY3Mvb3BlbkFjY2VzcyI+T3BlbiBBY2Nlc3M8L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4mbHQ7cCZndDsmYW1wO25ic3A7Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7VGhpcyB0b29scyBhcmUgdXNlZCB0byBhbmFseXNlIHRoZSBkYXRhIHByb2R1Y2VkIGJ5IHRoZSBDcm9zc3NvdmVyIEV4cGVyaW1lbnQgSSBkZXNpZ25lZCB0byB0ZXN0IENob2ljZSBBcmNoaXRlY3R1cmUgdGVjaG5pcXVlcyBhcyBVSSBpbnRlcnZlbnRpb25zIGluIGEgU0VFazRTY2llbmNlIGRhdGEgY2F0YWxvZ3VlLiBJdCBjb250YWluczombHQ7L3AmZ3Q7CgombHQ7cCZndDstIERhdGEgc3RydWN0dXJlcyBmb3IgdGhlIGV4cGVyaW1lbnRhbCBkYXRhLiZsdDticiAvJmd0OwotIFZpc3VhbGlzYXRpb24gZnVuY3Rpb25zJmx0O2JyIC8mZ3Q7Ci0gQW5hbHlzaXMgZnVuY3Rpb25zJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7IyMgSW5zdGFsbGF0aW9uJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7LSBSJmx0O2JyIC8mZ3Q7Ci0gcHl0aG9uJmx0O2JyIC8mZ3Q7Ci0gaXB5dGhvbiA0Jmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Q2xvbmUgYW5kIHVzZS4mbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBVc2FnZSZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwpgYGBweXRob24mbHQ7YnIgLyZndDsKc291cmNlKCZhbXA7IzM5O3BhcmFsbGVsX3Bsb3QuciZhbXA7IzM5OykmbHQ7YnIgLyZndDsKd2l0aCh6LCBwYXJhbGxlbHNldCh0cnQscmVzcG9uc2UsIGZyZXE9Y291bnQsIGFscGhhPTAuMikpJmx0O2JyIC8mZ3Q7CmBgYCZsdDsvcCZndDsKCiZsdDtwJmd0OyZsdDticiAvJmd0OwojIyBDb250cmlidXRpbmcmbHQ7L3AmZ3Q7CgombHQ7cCZndDsxLiBGb3JrIGl0ISZsdDticiAvJmd0OwoyLiBDcmVhdGUgeW91ciBmZWF0dXJlIGJyYW5jaDogYGdpdCBjaGVja291dCAtYiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKMy4gQ29tbWl0IHlvdXIgY2hhbmdlczogYGdpdCBjb21taXQgLWFtICZhbXA7IzM5O0FkZCBzb21lIGZlYXR1cmUmYW1wOyMzOTtgJmx0O2JyIC8mZ3Q7CjQuIFB1c2ggdG8gdGhlIGJyYW5jaDogYGdpdCBwdXNoIG9yaWdpbiBteS1uZXctZmVhdHVyZWAmbHQ7YnIgLyZndDsKNS4gU3VibWl0IGEgcHVsbCByZXF1ZXN0IDpEJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIExpY2Vuc2UmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHdvcmsgc3VwcG9ydHMgbXkgUGhEIFRoZXNpcyBhdCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+Cg==","allocator_symbol":"CERN","minted":"2016-03-27T22:18:38Z","updated":"2017-05-30T06:22:42Z","doi":"10.5281/ZENODO.48440"}]}}
 
 '
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:28:16 GMT
+  recorded_at: Wed, 23 Aug 2017 08:05:26 GMT
 - request:
     method: head
     uri: https://doi.org/10.5281/zenodo.48440
@@ -127,16 +127,16 @@ http_interactions:
       Location:
       - https://zenodo.org/record/48440
       Expires:
-      - Sat, 05 Aug 2017 14:00:35 GMT
+      - Wed, 23 Aug 2017 08:12:45 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
       - '147'
       Date:
-      - Sat, 05 Aug 2017 13:28:18 GMT
+      - Wed, 23 Aug 2017 08:05:25 GMT
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 05 Aug 2017 13:28:16 GMT
+  recorded_at: Wed, 23 Aug 2017 08:05:26 GMT
 recorded_with: VCR 3.0.3
