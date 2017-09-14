@@ -12,12 +12,13 @@
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
   <xs:include schemaLocation="include/datacite-titleType-v4.xsd"/>
   <xs:include schemaLocation="include/datacite-contributorType-v4.xsd"/>
-  <xs:include schemaLocation="include/datacite-dateType-v4.xsd"/>
-  <xs:include schemaLocation="include/datacite-resourceType-v4.xsd"/>
-  <xs:include schemaLocation="include/datacite-relationType-v4.xsd"/>
+  <xs:include schemaLocation="include/datacite-dateType-v4.1.xsd"/>
+  <xs:include schemaLocation="include/datacite-resourceType-v4.1.xsd"/>
+  <xs:include schemaLocation="include/datacite-relationType-v4.1.xsd"/>
   <xs:include schemaLocation="include/datacite-relatedIdentifierType-v4.xsd"/>
   <xs:include schemaLocation="include/datacite-funderIdentifierType-v4.xsd"/>
   <xs:include schemaLocation="include/datacite-descriptionType-v4.xsd"/>
+  <xs:include schemaLocation="include/datacite-nameType-v4.1.xsd"/>
   <xs:element name="resource">
     <xs:annotation>
       <xs:documentation>
@@ -53,9 +54,13 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="creatorName">
-                      <xs:simpleType>
-                        <xs:restriction base="nonemptycontentStringType"/>
-                      </xs:simpleType>
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="nonemptycontentStringType">
+                            <xs:attribute name="nameType" type="nameType" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
                     </xs:element>
                     <xs:element name="givenName" minOccurs="0"/>
                     <xs:element name="familyName" minOccurs="0"/>
@@ -160,11 +165,13 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="contributorName">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:minLength value="1"/>
-                      </xs:restriction>
-                    </xs:simpleType>
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="nonemptycontentStringType">
+                          <xs:attribute name="nameType" type="nameType" use="optional"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
                   </xs:element>
                   <xs:element name="givenName" minOccurs="0"/>
                   <xs:element name="familyName" minOccurs="0"/>
@@ -198,6 +205,7 @@
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="dateType" type="dateType" use="required"/>
+                      <xs:attribute name="dateInformation" use="optional"/>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>
@@ -238,6 +246,7 @@
                 <xs:complexType>
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
+                      <xs:attribute name="resourceTypeGeneral" type="resourceType" use="optional"/>
                       <xs:attribute name="relatedIdentifierType" type="relatedIdentifierType" use="required"/>
                       <xs:attribute name="relationType" type="relationType" use="required"/>
                       <xs:attribute name="relatedMetadataScheme" use="optional"/>
@@ -291,6 +300,7 @@ Use the complete title of a license and include version information if applicabl
                   <xs:simpleContent>
                     <xs:extension base="xs:string">
                       <xs:attribute name="rightsURI" type="xs:anyURI" use="optional"/>
+                      <xs:attribute ref="xml:lang"/>
                     </xs:extension>
                   </xs:simpleContent>
                 </xs:complexType>

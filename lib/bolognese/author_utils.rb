@@ -11,8 +11,8 @@ module Bolognese
       name_identifiers = get_name_identifiers(author)
       id = author.fetch("id", nil).presence || name_identifiers.first
       identifier = name_identifiers.length > 1 ? name_identifiers.unwrap : nil
-      name = author.fetch("creatorName", nil) ||
-             author.fetch("contributorName", nil) ||
+      name = parse_attributes(author.fetch("creatorName", nil)) ||
+             parse_attributes(author.fetch("contributorName", nil)) ||
              author.fetch("name", nil)
 
       if name.include?("; ")

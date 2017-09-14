@@ -242,6 +242,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.provider).to eq("DataCite")
     end
 
+    it "Schema 4.1 from string" do
+      input = fixture_path + "datacite-example-complicated-v4.1.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5072/testpub")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("Monograph")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
+      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.date_published).to eq("2010")
+      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
+      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.publisher).to eq("Springer")
+      expect(subject.provider).to eq("DataCite")
+    end
+
     it "empty subject" do
       input = "https://doi.org/10.18169/PAPDEOTTX00502"
       subject = Bolognese::Metadata.new(input: input)
