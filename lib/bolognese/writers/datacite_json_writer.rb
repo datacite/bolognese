@@ -39,8 +39,8 @@ module Bolognese
           "geo-location" => spatial_coverage,
           "funding-reference" => funding,
           "schemaVersion" => schema_version,
-          "member_id" => member_id,
-          "data_center_id" => data_center_id,
+          "provider_id" => provider_id,
+          "client_id" => client_id,
           "provider" => provider
         }.compact
         JSON.pretty_generate hsh.presence

@@ -62,7 +62,7 @@ module Bolognese
     attr_accessor :doi, :author, :title, :publisher, :contributor, :license,
       :date_accepted, :date_available, :date_copyrighted, :date_collected,
       :date_submitted, :date_valid, :date_created, :date_modified,
-      :date_registered, :date_updated, :member_id, :data_center_id, :journal,
+      :date_registered, :date_updated, :provider_id, :client_id, :journal,
       :volume, :issue, :pagination, :url, :version, :keywords, :editor,
       :description, :alternate_name, :language, :content_size, :spatial_coverage,
       :schema_version, :additional_type, :has_part, :same_as,
@@ -97,6 +97,11 @@ module Bolognese
           exit 1
         end
       else
+        hsh = { "date_registered" => options.fetch("date_registered", nil),
+                "date_updated" => options.fetch("date_updated", nil),
+                "provider_id" => options.fetch("provider_id", nil),
+                "client_id" => options.fetch("client_id", nil),
+                "url" => options.fetch("url", nil) }
         string = input
         @from = from || find_from_format(string: string)
       end
@@ -110,8 +115,8 @@ module Bolognese
       @url = hsh.to_h["url"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
-      @member_id = hsh.to_h["member_id"].presence
-      @data_center_id = hsh.to_h["data_center_id"].presence
+      @provider_id = hsh.to_h["provider_id"].presence
+      @client_id = hsh.to_h["client_id"].presence
 
       @style = style || "apa"
       @locale = locale || "en-US"
@@ -276,12 +281,12 @@ module Bolognese
       @funding ||= metadata.fetch("funding", nil)
     end
 
-    def member_id
-      @member_id ||= metadata.fetch("member_id", nil)
+    def provider_id
+      @provider_id ||= metadata.fetch("provider_id", nil)
     end
 
-    def data_center_id
-      @data_center_id ||= metadata.fetch("data_center_id", nil)
+    def client_id
+      @client_id ||= metadata.fetch("client_id", nil)
     end
 
     def is_identical_to

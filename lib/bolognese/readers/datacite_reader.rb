@@ -35,8 +35,8 @@ module Bolognese
         { "string" => string,
           "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
-          "member_id" => attributes.fetch("allocator_symbol", nil),
-          "data_center_id" => attributes.fetch("datacentre_symbol", nil),
+          "provider_id" => attributes.fetch("allocator_symbol", nil),
+          "client_id" => attributes.fetch("datacentre_symbol", nil),
           "url" => url }
       end
 
