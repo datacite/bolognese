@@ -97,22 +97,20 @@ module Bolognese
           exit 1
         end
       else
-        hsh = { "date_registered" => options.fetch("date_registered", nil),
-                "date_updated" => options.fetch("date_updated", nil),
-                "provider_id" => options.fetch("provider_id", nil),
-                "client_id" => options.fetch("client_id", nil),
-                "url" => options.fetch("url", nil) }
+        hsh = { "date_registered" => options[:date_registered],
+                "date_updated" => options[:date_updated],
+                "provider_id" => options[:provider_id],
+                "client_id" => options[:client_id] }
         string = input
         @from = from || find_from_format(string: string)
       end
 
       # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox]) : {}
+      @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox], url: options[:url]) : {}
       @raw = string.present? ? string.strip : nil
 
       @should_passthru = (@from == "datacite") && !regenerate
 
-      @url = hsh.to_h["url"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
       @provider_id = hsh.to_h["provider_id"].presence

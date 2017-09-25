@@ -29,15 +29,11 @@ module Bolognese
           string = doc.to_s
         end
 
-        response = Maremma.head(id, limit: 0)
-        url = response.headers.present? ? response.headers["location"] : nil
-
         { "string" => string,
           "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
           "provider_id" => attributes.fetch("allocator_symbol", nil),
-          "client_id" => attributes.fetch("datacentre_symbol", nil),
-          "url" => url }
+          "client_id" => attributes.fetch("datacentre_symbol", nil) }
       end
 
       def read_datacite(string: nil, **options)
@@ -55,6 +51,14 @@ module Bolognese
 
         id = normalize_doi(meta.dig("identifier", "__content__"), sandbox: options[:sandbox])
         doi = doi_from_url(id)
+
+        if options[:url]
+          url = options[:url]
+        else
+          response = Maremma.head(id, limit: 0)
+          url = response.headers.present? ? response.headers["location"] : nil
+        end
+
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
         title = Array.wrap(meta.dig("titles", "title")).map do |r|
@@ -97,7 +101,7 @@ module Bolognese
           "ris_type" => Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => doi,
-          "url" => nil,
+          "url" => url,
           "title" => title,
           "alternate_name" => alternate_name,
           "author" => get_authors(meta.dig("creators", "creator")),

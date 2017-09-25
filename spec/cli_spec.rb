@@ -144,7 +144,7 @@ describe Bolognese::CLI do
       end
     end
 
-    context "datacite" do
+    context "datacite", vcr: true do
       let(:file) { fixture_path + "datacite.xml" }
 
       it 'default' do
