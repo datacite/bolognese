@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.9.54)
+    bolognese (0.9.55)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -60,13 +60,13 @@ GEM
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    hashdiff (0.3.6)
+    hashdiff (0.3.7)
     htmlentities (4.3.4)
     i18n (0.8.6)
     json (2.1.0)
-    json-ld (2.1.5)
+    json-ld (2.1.7)
       multi_json (~> 1.12)
-      rdf (~> 2.2)
+      rdf (~> 2.2, >= 2.2.8)
     jsonlint (0.2.0)
       oj (~> 2)
       trollop (~> 2)
@@ -104,7 +104,7 @@ GEM
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
     rake (12.1.0)
-    rdf (2.2.9)
+    rdf (2.2.11)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.0)
@@ -120,7 +120,7 @@ GEM
       rdf (~> 2.0)
       rdf-rdfa (~> 2.0)
       rdf-xsd (~> 2.0)
-    rdf-turtle (2.2.0)
+    rdf-turtle (2.2.1)
       ebnf (~> 1.1)
       rdf (~> 2.2)
     rdf-xsd (2.2.0)
@@ -159,7 +159,7 @@ GEM
     unicode (0.4.4.4)
     unicode_utils (1.4.0)
     vcr (3.0.3)
-    webmock (3.0.1)
+    webmock (3.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff

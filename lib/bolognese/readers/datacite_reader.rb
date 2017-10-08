@@ -49,7 +49,12 @@ module Bolognese
           return { "errors" => errors } if errors.present?
         end
 
-        id = normalize_doi(meta.dig("identifier", "__content__"), sandbox: options[:sandbox])
+        if options[:doi]
+          id = normalize_doi(options[:doi], sandbox: options[:sandbox])
+        else
+          id = normalize_doi(meta.dig("identifier", "__content__"), sandbox: options[:sandbox])
+        end
+
         doi = doi_from_url(id)
 
         if options[:url]

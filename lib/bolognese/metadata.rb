@@ -106,7 +106,7 @@ module Bolognese
       end
 
       # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox], url: options[:url]) : {}
+      @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
       @raw = string.present? ? string.strip : nil
 
       @should_passthru = (@from == "datacite") && !regenerate
