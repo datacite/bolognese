@@ -25,6 +25,10 @@ RSpec.configure do |config|
   config.before do
     ARGV.replace []
   end
+
+  config.before(:suite) do
+    ::NameDetector = GenderDetector.new
+  end
 end
 
 def fixture_path

@@ -351,7 +351,7 @@ module Bolognese
 
     # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
     def name_detector
-      @name_detector ||= defined?(::NameDetector) ? ::NameDetector : GenderDetector.new
+      @name_detector ||= defined?(::NameDetector) ? ::NameDetector : nil
     end
 
     def publication_year

@@ -2,6 +2,10 @@ require 'namae'
 
 module Bolognese
   module AuthorUtils
+    # include BenchmarkMethods
+    #
+    # benchmark :get_authors
+
     IDENTIFIER_SCHEME_URIS = {
       "ORCID" => "http://orcid.org/"
     }
@@ -82,8 +86,15 @@ module Bolognese
                      author.fetch("familyName", "").present? ||
                      (author.fetch("name", "").include?(",") &&
                      author.fetch("name", "").exclude?(";")) ||
-                     name_detector.name_exists?(author.fetch("name", "").split(" ").first)
+                     name_exists?(author.fetch("name", "").split(" ").first)
       false
+    end
+
+    # recognize given name if we have loaded ::NameDetector data, e.g. in a Rails initializer
+    def name_exists?(name)
+      return false unless name_detector.present?
+
+      name_detector.name_exists?(name)
     end
 
     # parse array of author strings into CSL format
