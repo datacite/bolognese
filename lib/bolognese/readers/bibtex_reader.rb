@@ -43,6 +43,8 @@ module Bolognese
                   nil
                 end
 
+        page_first, page_last = meta.pages.to_s.split("-")
+
         { "id" => normalize_doi(doi),
           "type" => type,
           "citeproc_type" => BIB_TO_CP_TRANSLATIONS[meta.type.to_s] || "misc",
@@ -56,7 +58,8 @@ module Bolognese
           "is_part_of" => is_part_of,
           "date_published" => meta.date.to_s.presence,
           "volume" => meta.volume.to_s.presence,
-          "pagination" => meta.pages.to_s.presence,
+          "page_first" => page_first,
+          "page_last" => page_last,
           "description" => { "text" => meta.field?(:abstract) && sanitize(meta.abstract.to_s).presence },
           "license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence }
         }

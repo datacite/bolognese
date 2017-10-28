@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.datacite.org/prefixes/10.1007
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Allow-Methods:
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Date:
+      - Sat, 28 Oct 2017 11:03:43 GMT
+      Etag:
+      - W/"5ffa3aa4009b56e51871db6d82d228d1"
+      Server:
+      - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '420'
+      X-Powered-By:
+      - Phusion Passenger 5.1.11
+      X-Request-Id:
+      - 2a30787e-2573-42f1-85d7-d60907fd3ff0
+      X-Runtime:
+      - '0.419010'
+      Content-Length:
+      - '203'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.1007","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
+    http_version: 
+  recorded_at: Sat, 28 Oct 2017 11:03:29 GMT
+- request:
+    method: get
+    uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1007/978-3-662-46370-3_13&noredirect=true&pid=tech@datacite.org
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Crossref-Deployment-Name:
+      - qs5-1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
+      Date:
+      - Sat, 28 Oct 2017 11:03:43 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
+        owner=\"10.1007\" timestamp=\"2015-04-13 22:31:13\">\r\n    <crossref>\r\n
+        \     <book book_type=\"other\">\r\n        <book_metadata language=\"en\">\r\n
+        \         <contributors>\r\n            <person_name contributor_role=\"editor\"
+        sequence=\"first\">\r\n              <given_name>Eiji</given_name>\r\n              <surname>Itoi</surname>\r\n
+        \           </person_name>\r\n            <person_name contributor_role=\"editor\"
+        sequence=\"additional\">\r\n              <given_name>Guillermo</given_name>\r\n
+        \             <surname>Arce</surname>\r\n            </person_name>\r\n            <person_name
+        contributor_role=\"editor\" sequence=\"additional\">\r\n              <given_name>Gregory
+        I.</given_name>\r\n              <surname>Bain</surname>\r\n            </person_name>\r\n
+        \           <person_name contributor_role=\"editor\" sequence=\"additional\">\r\n
+        \             <given_name>Ronald L.</given_name>\r\n              <surname>Diercks</surname>\r\n
+        \           </person_name>\r\n            <person_name contributor_role=\"editor\"
+        sequence=\"additional\">\r\n              <given_name>Dan</given_name>\r\n
+        \             <surname>Guttmann</surname>\r\n            </person_name>\r\n
+        \           <person_name contributor_role=\"editor\" sequence=\"additional\">\r\n
+        \             <given_name>Andreas B.</given_name>\r\n              <surname>Imhoff</surname>\r\n
+        \           </person_name>\r\n            <person_name contributor_role=\"editor\"
+        sequence=\"additional\">\r\n              <given_name>Augustus D.</given_name>\r\n
+        \             <surname>Mazzocca</surname>\r\n            </person_name>\r\n
+        \           <person_name contributor_role=\"editor\" sequence=\"additional\">\r\n
+        \             <given_name>Hiroyuki</given_name>\r\n              <surname>Sugaya</surname>\r\n
+        \           </person_name>\r\n            <person_name contributor_role=\"editor\"
+        sequence=\"additional\">\r\n              <given_name>Yon-Sik</given_name>\r\n
+        \             <surname>Yoo</surname>\r\n            </person_name>\r\n          </contributors>\r\n
+        \         <titles>\r\n            <title>Shoulder Stiffness</title>\r\n          </titles>\r\n
+        \         <publication_date media_type=\"print\">\r\n            <year>2015</year>\r\n
+        \         </publication_date>\r\n          <isbn media_type=\"print\">978-3-662-46369-7</isbn>\r\n
+        \         <isbn media_type=\"electronic\">978-3-662-46370-3</isbn>\r\n          <publisher>\r\n
+        \           <publisher_name>Springer Berlin Heidelberg</publisher_name>\r\n
+        \           <publisher_place>Berlin, Heidelberg</publisher_place>\r\n          </publisher>\r\n
+        \         <doi_data>\r\n            <doi>10.1007/978-3-662-46370-3</doi>\r\n
+        \           <resource>http://link.springer.com/10.1007/978-3-662-46370-3</resource>\r\n
+        \           <collection property=\"crawler-based\" setbyID=\"springer\">\r\n
+        \             <item crawler=\"iParadigms\">\r\n                <resource>http://link.springer.com/content/pdf/10.1007/978-3-662-46370-3</resource>\r\n
+        \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
+        \       </book_metadata>\r\n        <content_item component_type=\"chapter\"
+        level_sequence_number=\"1\" publication_type=\"full_text\">\r\n          <contributors>\r\n
+        \           <person_name contributor_role=\"author\" sequence=\"first\">\r\n
+        \             <given_name>Ronald L.</given_name>\r\n              <surname>Diercks</surname>\r\n
+        \           </person_name>\r\n            <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n              <given_name>Tom Clement</given_name>\r\n
+        \             <surname>Ludvigsen</surname>\r\n            </person_name>\r\n
+        \         </contributors>\r\n          <titles>\r\n            <title>Clinical
+        Symptoms and Physical Examinations</title>\r\n          </titles>\r\n          <component_number>Chapter
+        13</component_number>\r\n          <publication_date media_type=\"print\">\r\n
+        \           <year>2015</year>\r\n          </publication_date>\r\n          <pages>\r\n
+        \           <first_page>155</first_page>\r\n            <last_page>158</last_page>\r\n
+        \         </pages>\r\n          <doi_data>\r\n            <doi>10.1007/978-3-662-46370-3_13</doi>\r\n
+        \           <resource>http://link.springer.com/10.1007/978-3-662-46370-3_13</resource>\r\n
+        \           <collection property=\"crawler-based\" setbyID=\"springer\">\r\n
+        \             <item crawler=\"iParadigms\">\r\n                <resource>http://link.springer.com/content/pdf/10.1007/978-3-662-46370-3_13</resource>\r\n
+        \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
+        \       </content_item>\r\n      </book>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
+    http_version: 
+  recorded_at: Sat, 28 Oct 2017 11:03:29 GMT
+recorded_with: VCR 3.0.3

@@ -6,9 +6,9 @@ module Bolognese
 
         doi = doi_from_url(id)
         search_url = doi_search(id, options)
-        url = search_url + "?q=doi:#{doi}&fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
+        search_url += "?q=doi:#{doi}&fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
 
-        response = Maremma.get url
+        response = Maremma.get search_url
         attributes = response.body.dig("data", "response", "docs").first
         return nil unless attributes.present?
 
@@ -30,6 +30,7 @@ module Bolognese
         end
 
         { "string" => string,
+          "url" => attributes.fetch("url", nil),
           "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
           "provider_id" => attributes.fetch("allocator_symbol", nil),
@@ -56,14 +57,6 @@ module Bolognese
         end
 
         doi = doi_from_url(id)
-
-        if options[:url]
-          url = options[:url]
-        else
-          response = Maremma.head(id, limit: 0)
-          url = response.headers.present? ? response.headers["location"] : nil
-        end
-
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
         title = Array.wrap(meta.dig("titles", "title")).map do |r|
@@ -106,7 +99,7 @@ module Bolognese
           "ris_type" => Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => doi,
-          "url" => url,
+          "url" => options.fetch(:url, nil),
           "title" => title,
           "alternate_name" => alternate_name,
           "author" => get_authors(meta.dig("creators", "creator")),

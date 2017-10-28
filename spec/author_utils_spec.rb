@@ -208,7 +208,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author" do
       response = subject.authors_as_string(subject.author)
-      expect(response).to eq("Fenner, Martin and Crosas, Mercè and Grethe, Jeffrey and Kennedy, David and Hermjakob, Henning and Rocca-Serra, Philippe and Berjon, Robin and Karcher, Sebastian and Martone, Maryann and Clark, Timothy")
+      expect(response).to eq("Fenner, Martin and Crosas, Mercè and Grethe, Jeffrey and Kennedy, David and Hermjakob, Henning and Rocca-Serra, Philippe and Durand, Gustavo and Berjon, Robin and Karcher, Sebastian and Martone, Maryann and Clark, Timothy")
     end
 
     it "single author" do

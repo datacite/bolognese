@@ -16,7 +16,7 @@ module Bolognese
           journal: container_title,
           volume: volume,
           issue: issue,
-          pages: pagination,
+          pages: [first_page.to_s, last_page.to_s].join("-").presence,
           publisher: publisher,
           year: publication_year
         }.compact

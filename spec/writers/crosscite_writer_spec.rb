@@ -6,11 +6,11 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("url")).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(crosscite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
       expect(crosscite.fetch("resource_type_general")).to eq("Text")
       expect(crosscite.fetch("title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(crosscite.fetch("references").length).to eq(25)
-      expect(crosscite.fetch("references").first).to eq("id"=>"https://doi.org/10.1038/nature02100", "type"=>"CreativeWork")
+      expect(crosscite.fetch("references").length).to eq(26)
+      expect(crosscite.fetch("references").first).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1038/nature02100", "title"=>"APL regulates vascular tissue identity in Arabidopsis")
       expect(crosscite.fetch("license")).to eq("id"=>"http://creativecommons.org/licenses/by/3.0")
     end
 
@@ -71,7 +71,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("author").length).to eq(8)
       expect(crosscite.fetch("author").first).to eq("type"=>"Person", "familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Benjamin Ollomo")
       expect(crosscite.fetch("date_registered")).to eq("2011-02-01T17:32:02Z")
-      expect(crosscite.fetch("date_updated")).to eq("2017-07-14T01:32:56Z")
+      expect(crosscite.fetch("date_updated")).to eq("2017-09-02T07:32:23Z")
       expect(crosscite.fetch("provider_id")).to eq("CDL")
       expect(crosscite.fetch("client_id")).to eq("CDL.DRYAD")
     end

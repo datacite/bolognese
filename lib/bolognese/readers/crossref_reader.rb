@@ -84,36 +84,54 @@ module Bolognese
 
         return meta unless meta["crossref"].present?
 
-        journal_metadata = meta.dig("crossref", "journal", "journal_metadata").presence || {}
-        bibliographic_metadata = meta.dig("crossref", "journal", "journal_article").presence ||
-                                 meta.dig("crossref", "conference", "conference_paper").presence ||
-                                 meta.dig("crossref", "sa_component", "component_list", "component").presence ||
-                                 meta.dig("crossref", meta.fetch("crossref", {}).keys.last).presence || {}
-        program_metadata = bibliographic_metadata.dig("program") ||
-                           bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || {}
-        journal_issue = meta.dig("crossref", "journal", "journal_issue").presence || {}
+        # model should be one of book, conference, database, dissertation, journal, peer_review, posted_content,
+        # report-paper, sa_component, standard
+        model = meta.dig("crossref").keys.first
 
-        additional_type = if meta.dig("crossref", "journal").present?
-                            meta.dig("crossref", "journal").keys.last.camelize
-                          else
-                            meta.dig("crossref").keys.last.camelize
-                          end
+        additional_type = nil
+        program_metadata = {}
+        journal_metadata = nil
+        journal_issue = {}
+        publisher = nil
+
+        case model
+        when "book"
+          book_metadata = meta.dig("crossref", "book", "book_metadata")
+          book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
+          book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
+          bibliographic_metadata = meta.dig("crossref", "book", "content_item")
+          additional_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
+          publisher = book_metadata.dig("publisher", "publisher_name")
+        when "conference"
+          event_metadata = meta.dig("crossref", "conference", "event_metadata")
+          bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper")
+        when "journal"
+          journal_metadata = meta.dig("crossref", "journal", "journal_metadata")
+          bibliographic_metadata = meta.dig("crossref", "journal", "journal_article")
+          program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
+          journal_issue = meta.dig("crossref", "journal", "journal_issue")
+          journal_article = meta.dig("crossref", "journal", "journal_article")
+
+          additional_type = if journal_article.present?
+                              "journal_article"
+                            elsif journal_issue.present?
+                              "journal_issue"
+                            else
+                              "journal"
+                            end
+        when "posted_content"
+          bibliographic_metadata = meta.dig("crossref", "posted_content")
+        when "sa_component"
+          bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component")
+        end
+
+        additional_type = (additional_type || model).underscore.camelize
         type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
         doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase
 
         # Crossref servers run on Eastern Time
         Time.zone = 'Eastern Time (US & Canada)'
         date_modified = Time.zone.parse(meta.fetch("timestamp", "")).utc.iso8601
-
-        prefix = validate_prefix(doi)
-        if prefix.present?
-          prefix_url = "http://api.crossref.org/prefixes/#{prefix}"
-          response = Maremma.get(prefix_url, host: true)
-          publisher = response.body.dig("data", "message", "name")
-        else
-          publisher = nil
-        end
-
 
         { "id" => normalize_doi(doi),
           "type" => type,
@@ -137,7 +155,8 @@ module Bolognese
           "date_modified" => date_modified,
           "volume" => journal_issue.dig("journal_volume", "volume"),
           "issue" => journal_issue.dig("issue"),
-          "pagination" => [bibliographic_metadata.dig("pages", "first_page"), bibliographic_metadata.dig("pages", "last_page")].compact.join("-").presence,
+          "first_page" => bibliographic_metadata.dig("pages", "first_page"),
+          "last_page" => bibliographic_metadata.dig("pages", "last_page"),
           "description" => crossref_description(bibliographic_metadata),
           "license" => crossref_license(program_metadata),
           "version" => nil,
@@ -157,12 +176,19 @@ module Bolognese
       end
 
       def crossref_description(bibliographic_metadata)
-        des = bibliographic_metadata.fetch("abstract", {}).values.first || bibliographic_metadata.fetch("description", nil)
-        if des.is_a?(Hash)
-          sanitize(des.fetch("__content__", nil))
-        elsif des.is_a?(String)
-          sanitize(des)
+        abstract = Array.wrap(bibliographic_metadata.dig("abstract")).map do |r|
+          { "type" => "Abstract", "text" => sanitize(parse_attributes(r, content: 'p')) }.compact
         end
+
+        description = Array.wrap(bibliographic_metadata.dig("description")).map do |r|
+          if abstract.present?
+            { "text" => sanitize(parse_attributes(r)) }.compact
+          else
+            sanitize(parse_attributes(r))
+          end
+        end
+
+        (abstract + description).unwrap
       end
 
       def crossref_license(program_metadata)
@@ -232,11 +258,11 @@ module Bolognese
         end
       end
 
-      def crossref_is_part_of(journal_metadata)
-        if journal_metadata.present?
+      def crossref_is_part_of(model_metadata)
+        if model_metadata.present?
           { "type" => "Periodical",
-            "title" => journal_metadata["full_title"],
-            "issn" => parse_attributes(journal_metadata.fetch("issn", nil)) }.compact
+            "title" => model_metadata["full_title"],
+            "issn" => parse_attributes(model_metadata.fetch("issn", nil), first: true) }.compact
         else
           nil
         end

@@ -22,6 +22,7 @@ require_relative 'writers/crosscite_writer'
 require_relative 'writers/crossref_writer'
 require_relative 'writers/datacite_writer'
 require_relative 'writers/datacite_json_writer'
+require_relative 'writers/jats_writer'
 require_relative 'writers/rdf_xml_writer'
 require_relative 'writers/ris_writer'
 require_relative 'writers/schema_org_writer'
@@ -54,6 +55,7 @@ module Bolognese
     include Bolognese::Writers::CrossrefWriter
     include Bolognese::Writers::DataciteWriter
     include Bolognese::Writers::DataciteJsonWriter
+    include Bolognese::Writers::JatsWriter
     include Bolognese::Writers::RdfXmlWriter
     include Bolognese::Writers::RisWriter
     include Bolognese::Writers::SchemaOrgWriter
@@ -63,7 +65,7 @@ module Bolognese
       :date_accepted, :date_available, :date_copyrighted, :date_collected,
       :date_submitted, :date_valid, :date_created, :date_modified,
       :date_registered, :date_updated, :provider_id, :client_id, :journal,
-      :volume, :issue, :pagination, :url, :version, :keywords, :editor,
+      :volume, :issue, :first_page, :last_page, :url, :version, :keywords, :editor,
       :description, :alternate_name, :language, :content_size, :spatial_coverage,
       :schema_version, :additional_type, :has_part, :same_as,
       :is_previous_version_of, :is_new_version_of,   :is_cited_by, :cites,
@@ -97,7 +99,8 @@ module Bolognese
           exit 1
         end
       else
-        hsh = { "date_registered" => options[:date_registered],
+        hsh = { "url" => options[:url],
+                "date_registered" => options[:date_registered],
                 "date_updated" => options[:date_updated],
                 "provider_id" => options[:provider_id],
                 "client_id" => options[:client_id] }
@@ -111,6 +114,7 @@ module Bolognese
 
       @should_passthru = (@from == "datacite") && !regenerate
 
+      @url = hsh.to_h["url"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
       @provider_id = hsh.to_h["provider_id"].presence
@@ -243,8 +247,12 @@ module Bolognese
       @volume ||= metadata.fetch("volume", nil)
     end
 
-    def pagination
-      @pagination ||= metadata.fetch("pagination", nil)
+    def first_page
+      @first_page ||= metadata.fetch("first_page", nil)
+    end
+
+    def last_page
+      @last_page ||= metadata.fetch("last_page", nil)
     end
 
     def description

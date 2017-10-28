@@ -65,7 +65,8 @@ module Bolognese
           "description" => meta.fetch("AB", nil).present? ? { "text" => sanitize(meta.fetch("AB")) } : nil,
           "volume" => meta.fetch("VL", nil),
           "issue" => meta.fetch("IS", nil),
-          "pagination" => [meta.fetch("SP", nil), meta.fetch("EP", nil)].compact.join("-").presence,
+          "first_page" => meta.fetch("SP", nil),
+          "last_page" => meta.fetch("EP", nil),
           "keywords" => meta.fetch("KW", nil),
           "language" => meta.fetch("LA", nil)
         }

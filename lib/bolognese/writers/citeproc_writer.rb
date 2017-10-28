@@ -15,7 +15,7 @@ module Bolognese
           "container-title" => container_title,
           "DOI" => doi,
           "issue" => issue,
-          "page" => pagination,
+          "page" => [first_page, last_page].join("-").presence,
           "publisher" => publisher,
           "title" => parse_attributes(title, content: "text", first: true),
           "URL" => url,

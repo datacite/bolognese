@@ -17,7 +17,8 @@ module Bolognese
           "LA" => language,
           "VL" => volume,
           "IS" => issue,
-          "SP" => pagination,
+          "SP" => first_page,
+          "EP" => last_page,
           "ER" => ""
         }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k} - #{vi}" }.join("\r\n") : "#{k} - #{v}" }.join("\r\n")
       end

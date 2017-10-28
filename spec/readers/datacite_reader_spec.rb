@@ -39,7 +39,6 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food/")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
@@ -61,7 +60,6 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4230/lipics.tqc.2013.93")
-      expect(subject.url).to eq("http://drops.dagstuhl.de/opus/volltexte/2013/4317/")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("ConferencePaper")
       expect(subject.resource_type_general).to eq("Text")
@@ -79,7 +77,6 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
-      expect(subject.url).to eq("https://zenodo.org/record/48440")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Software")
       expect(subject.resource_type_general).to eq("Software")
@@ -99,7 +96,6 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.6084/m9.figshare.4234751.v1")
-      expect(subject.url).to eq("https://figshare.com/articles/RAIN_v1/4234751/1")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")

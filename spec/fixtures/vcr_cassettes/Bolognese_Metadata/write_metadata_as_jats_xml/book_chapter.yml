@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.5005/jp/books/12414_3&noredirect=true&pid=tech@datacite.org
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Crossref-Deployment-Name:
+      - cr6-1
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Language:
+      - en-US
+      Date:
+      - Sat, 28 Oct 2017 10:57:47 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
+        owner=\"10.5005\" timestamp=\"2016-01-20 23:44:22\">\r\n    <crossref>\r\n
+        \     <book book_type=\"edited_book\">\r\n        <book_metadata>\r\n          <contributors>\r\n
+        \           <person_name sequence=\"first\" contributor_role=\"author\">\r\n
+        \             <given_name>Ashis</given_name>\r\n              <surname>Saha</surname>\r\n
+        \           </person_name>\r\n          </contributors>\r\n          <titles>\r\n
+        \           <title>Clinical Methods &amp; Interpretation in Medicine</title>\r\n
+        \         </titles>\r\n          <edition_number>1/e</edition_number>\r\n
+        \         <publication_date media_type=\"online\">\r\n            <year>2015</year>\r\n
+        \         </publication_date>\r\n          <isbn>9789351526285</isbn>\r\n
+        \         <publisher>\r\n            <publisher_name>Jaypee Brothers Medical
+        Publishers (P) Ltd.</publisher_name>\r\n          </publisher>\r\n          <doi_data>\r\n
+        \           <doi>10.5005/jp/books/12414</doi>\r\n            <resource>http://www.jaypeedigital.com/Book/BookDetail?isbn=9789351526285</resource>\r\n
+        \         </doi_data>\r\n        </book_metadata>\r\n        <content_item
+        component_type=\"chapter\">\r\n          <contributors>\r\n            <person_name
+        sequence=\"first\" contributor_role=\"author\">\r\n              <given_name>Ashis</given_name>\r\n
+        \             <surname>Saha</surname>\r\n            </person_name>\r\n          </contributors>\r\n
+        \         <titles>\r\n            <title>Chapter-02 Physical Examinations</title>\r\n
+        \         </titles>\r\n          <publication_date media_type=\"online\">\r\n
+        \           <year>2015</year>\r\n          </publication_date>\r\n          <pages>\r\n
+        \           <first_page>27</first_page>\r\n            <last_page>145</last_page>\r\n
+        \         </pages>\r\n          <doi_data>\r\n            <doi>10.5005/jp/books/12414_3</doi>\r\n
+        \           <resource>http://www.jaypeedigital.com/Chapter/ChapterDetail/86633</resource>\r\n
+        \         </doi_data>\r\n        </content_item>\r\n      </book>\r\n    </crossref>\r\n
+        \ </doi_record>\r\n</doi_records>"
+    http_version: 
+  recorded_at: Sat, 28 Oct 2017 10:57:33 GMT
+recorded_with: VCR 3.0.3

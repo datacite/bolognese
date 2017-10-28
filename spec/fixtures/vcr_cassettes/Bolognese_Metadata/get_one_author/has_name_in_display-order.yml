@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,15 +17,17 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 23 Aug 2017 08:06:16 GMT
+      - Mon, 23 Oct 2017 18:16:05 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '3608'
       Connection:
       - keep-alive
     body:
@@ -34,45 +36,10 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:06:16 GMT
-- request:
-    method: head
-    uri: https://doi.org/10.5281/zenodo.48440
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: See Other
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - https://zenodo.org/record/48440
-      Expires:
-      - Wed, 23 Aug 2017 08:12:45 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '147'
-      Date:
-      - Wed, 23 Aug 2017 08:06:16 GMT
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:06:16 GMT
+  recorded_at: Mon, 23 Oct 2017 18:16:04 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -87,15 +54,17 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 23 Aug 2017 08:06:17 GMT
+      - Mon, 23 Oct 2017 18:16:11 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '3608'
       Connection:
       - keep-alive
     body:
@@ -104,40 +73,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:06:17 GMT
-- request:
-    method: head
-    uri: https://doi.org/10.5281/ZENODO.48440
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: See Other
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - https://zenodo.org/record/48440
-      Expires:
-      - Wed, 23 Aug 2017 08:12:45 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '147'
-      Date:
-      - Wed, 23 Aug 2017 08:06:17 GMT
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:06:17 GMT
+  recorded_at: Mon, 23 Oct 2017 18:16:11 GMT
 recorded_with: VCR 3.0.3

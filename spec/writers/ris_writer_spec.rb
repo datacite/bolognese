@@ -12,9 +12,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[2]).to eq("T2 - eLife")
       expect(ris[3]).to eq("AU - Sankar, Martial")
       expect(ris[8]).to eq("DO - 10.7554/elife.01567")
-      expect(ris[9]).to eq("UR - http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
-      expect(ris[10]).to eq("PY - 2014")
-      expect(ris[11]).to eq("PB - eLife Sciences Organisation, Ltd.")
+      expect(ris[9]).to eq("UR - https://elifesciences.org/articles/01567")
+      expect(ris[10]).to  start_with("AB - Among various advantages")
+      expect(ris[11]).to eq("PY - 2014")
       expect(ris[12]).to eq("VL - 3")
       expect(ris[13]).to eq("ER - ")
     end
@@ -32,9 +32,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[11]).to eq("UR - http://www.hindawi.com/journals/pm/2012/291294/")
       expect(ris[12]).to start_with("AB - . To find a statistically significant separation point for the QuantiFERON")
       expect(ris[13]).to eq("PY - 2012")
-      expect(ris[14]).to eq("PB - Hindawi Limited")
-      expect(ris[15]).to eq("VL - 2012")
-      expect(ris[16]).to eq("SP - 1-7")
+      expect(ris[14]).to eq("VL - 2012")
+      expect(ris[15]).to eq("SP - 1")
+      expect(ris[16]).to eq("EP - 7")
       expect(ris[17]).to eq("ER - ")
     end
 
@@ -47,14 +47,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[1]).to eq("T1 - Visions and reality: the idea of competence-oriented assessment for German medical students is not yet realised in licensing examinations")
       expect(ris[2]).to eq("AU - Huber-Lang, Markus")
       expect(ris[8]).to eq("DO - 10.3205/zma001102")
-      expect(ris[9]).to start_with("UR - http://www.egms.de/en/journals/zma/2017-34/zma001102.shtml")
-      expect(ris[10]).to start_with("AB - Objective: Competence orientation")
-      expect(ris[11]).to eq("KW - medical competence")
-      expect(ris[20]).to eq("PY - 2017")
-      expect(ris[21]).to eq("PB - German Medical Science GMS Publishing House")
-      expect(ris[22]).to eq("AN - urn:nbn:de:0183-zma0011024")
-      expect(ris[24]).to eq("LA - en")
-      expect(ris[25]).to eq("ER - ")
+      expect(ris[9]).to start_with("AB - Objective: Competence orientation")
+      expect(ris[10]).to eq("KW - medical competence")
+      expect(ris[19]).to eq("PY - 2017")
+      expect(ris[20]).to eq("PB - German Medical Science GMS Publishing House")
+      expect(ris[21]).to eq("AN - urn:nbn:de:0183-zma0011024")
+      expect(ris[23]).to eq("LA - en")
+      expect(ris[24]).to eq("ER - ")
     end
 
     it "Crossref DOI" do
@@ -83,13 +82,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[1]).to eq("T1 - Eating your own Dog Food")
       expect(ris[2]).to eq("AU - Fenner, Martin")
       expect(ris[3]).to eq("DO - 10.5438/4k3m-nyvg")
-      expect(ris[4]).to eq("UR - https://blog.datacite.org/eating-your-own-dog-food/")
-      expect(ris[5]).to eq("AB - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
-      expect(ris[6]).to eq("KW - datacite")
-      expect(ris[9]).to eq("PY - 2016")
-      expect(ris[10]).to eq("PB - DataCite")
-      expect(ris[11]).to eq("AN - MS-49-3632-5083")
-      expect(ris[12]).to eq("ER - ")
+      expect(ris[4]).to eq("AB - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(ris[5]).to eq("KW - datacite")
+      expect(ris[8]).to eq("PY - 2016")
+      expect(ris[9]).to eq("PB - DataCite")
+      expect(ris[10]).to eq("AN - MS-49-3632-5083")
+      expect(ris[11]).to eq("ER - ")
     end
 
     it "BlogPosting Citeproc JSON" do

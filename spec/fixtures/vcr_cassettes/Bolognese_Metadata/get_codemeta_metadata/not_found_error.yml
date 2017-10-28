@@ -17,7 +17,7 @@ http_interactions:
       message: Not Found
     headers:
       Content-Security-Policy:
-      - default-src 'none'; style-src 'unsafe-inline'
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
@@ -27,33 +27,33 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - 9CD4:6ABE:AAF28:B82F9:599D3753
+      - 26D4:4EDF:21C2EEC:24CB3C4:59EE3311
       Content-Length:
       - '15'
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 23 Aug 2017 08:05:41 GMT
+      - Mon, 23 Oct 2017 18:21:05 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1529-HHN
+      - cache-hhn1534-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1503475542.815696,VS0,VE108
+      - S1508782866.792397,VS0,VE102
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - c2cbef758ba0136d35dbe37353a824eded046c9e
+      - 6a6a48a7b197b629592ad17425c7a9a11350fed9
       Expires:
-      - Wed, 23 Aug 2017 08:10:41 GMT
+      - Mon, 23 Oct 2017 18:26:05 GMT
       Source-Age:
       - '0'
     body:
@@ -62,5 +62,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:41 GMT
+  recorded_at: Mon, 23 Oct 2017 18:21:05 GMT
 recorded_with: VCR 3.0.3

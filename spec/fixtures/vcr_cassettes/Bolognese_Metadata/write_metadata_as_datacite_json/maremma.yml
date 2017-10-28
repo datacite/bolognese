@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Content-Security-Policy:
-      - default-src 'none'; style-src 'unsafe-inline'
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
@@ -35,39 +35,39 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - C262:22E36:1ED50D:20C759:599D3673
+      - 55A6:2853:C8B767:D586E9:59EE2EBB
       Content-Length:
       - '1260'
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 23 Aug 2017 08:03:33 GMT
+      - Mon, 23 Oct 2017 18:07:09 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1535-HHN
+      - cache-hhn1526-HHN
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1503475414.600753,VS0,VE0
+      - S1508782029.469664,VS0,VE1
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 04fee59b9bd9eaf6c28aa7fa1e83656ec403ff22
+      - b43cd33141796c2c48af7d2a9df0d3c4dd248e91
       Expires:
-      - Wed, 23 Aug 2017 08:08:33 GMT
+      - Mon, 23 Oct 2017 18:12:09 GMT
       Source-Age:
-      - '97'
+      - '274'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         ewoJIkBjb250ZXh0IjogImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9jb2RlbWV0YS9jb2RlbWV0YS9tYXN0ZXIvY29kZW1ldGEuanNvbmxkIiwKCSJAdHlwZSI6ICJTb2Z0d2FyZVNvdXJjZUNvZGUiLAoJIkBpZCI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC9RRUcwLTNHTTMiLAoJImFnZW50cyI6IHsKCQkiQGlkIjogImh0dHA6Ly9vcmNpZC5vcmcvMDAwMC0wMDAzLTAwNzctNDczOCIsCgkJIkB0eXBlIjogInBlcnNvbiIsCgkJIm5hbWUiOiAiTWFydGluIEZlbm5lciIsCgkJImFmZmlsaWF0aW9uIjogIkRhdGFDaXRlIiwKCQkibXVzdEJlQ2l0ZWQiOiB0cnVlLAoJCSJpc01haW50YWluZXIiOiB0cnVlLAoJCSJpc1JpZ2h0c0hvbGRlciI6IHRydWUKCX0sCgkiaWRlbnRpZmllciI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC9RRUcwLTNHTTMiLAoJImNvZGVSZXBvc2l0b3J5IjogImh0dHBzOi8vZ2l0aHViLmNvbS9kYXRhY2l0ZS9tYXJlbW1hIiwKCSJjb250cm9sbGVkVGVtIjogInNvZnR3YXJlIiwKCSJkYXRlQ3JlYXRlZCI6ICIyMDE1LTExLTI4IiwKCSJkYXRlUHVibGlzaGVkIjogIjIwMTctMDItMjQiLAoJImRhdGVNb2RpZmllZCI6ICIyMDE3LTAyLTI0IiwKCSJkZXNjcmlwdGlvbiI6ICJSdWJ5IHV0aWxpdHkgbGlicmFyeSBmb3IgbmV0d29yayByZXF1ZXN0cy4gQmFzZWQgb24gRmFyYWRheSBhbmQgRXhjb24sIHByb3ZpZGVzIGEgd3JhcHBlciBmb3IgWE1ML0pTT04gcGFyc2luZyBhbmQgZXJyb3IgaGFuZGxpbmcuIEFsbCBzdWNjZXNzZnVsIHJlc3BvbnNlcyBhcmUgcmV0dXJuZWQgYXMgaGFzaCB3aXRoIGtleSBkYXRhLCBhbGwgZXJyb3JzIGluIGEgSlNPTkFQSS1mcmllbmRseSBoYXNoIHdpdGgga2V5IGVycm9ycy4iLAoJImlzQXV0b21hdGVkQnVpbGQiOiB0cnVlLAoJImxpY2Vuc2VJZCI6ICJNSVQiLAoJInB1Ymxpc2hlciI6ICJEYXRhQ2l0ZSIsCgkidGFncyI6IFsKCQkiZmFyYWRheSIsCgkJImV4Y29uIiwKCQkibmV0L2h0dHAiCgldLAoJInRpdGxlIjogIk1hcmVtbWE6IGEgUnVieSBsaWJyYXJ5IGZvciBzaW1wbGlmaWVkIG5ldHdvcmsgY2FsbHMiLAoJInByb2dyYW1taW5nTGFuZ3VhZ2UiOiB7CgkJIm5hbWUiOiAiUnVieSIsCgkJInZlcnNpb24iOiAi4omlIDIuMy4zIiwKCQkiVVJMIjogImh0dHBzOi8vd3d3LnJ1YnktbGFuZy5vcmciCgl9LAoJInJlYWRtZSI6ICJodHRwczovL2dpdGh1Yi5jb20vZGF0YWNpdGUvbWFyZW1tYS9ibG9iL21hc3Rlci9SRUFETUUubWQiCn0K
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:33 GMT
+  recorded_at: Mon, 23 Oct 2017 18:07:09 GMT
 recorded_with: VCR 3.0.3

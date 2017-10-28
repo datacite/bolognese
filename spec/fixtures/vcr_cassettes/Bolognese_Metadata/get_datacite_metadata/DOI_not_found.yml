@@ -17,21 +17,21 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
-      Access-Control-Max-Age:
-      - '1728000'
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 23 Aug 2017 08:05:30 GMT
+      - Mon, 23 Oct 2017 18:03:04 GMT
       Etag:
-      - W/"fdee1bc1cd6b18e07cc52f94b7b59250"
+      - W/"87df6c7c0fe3b456e1549015152daa63"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -40,38 +40,33 @@ http_interactions:
       - Accept-Encoding
       Via:
       - kong/0.10.3
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
+      X-Anonymous-Consumer:
+      - 'true'
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '331'
+      - '55'
       X-Powered-By:
-      - Phusion Passenger 5.1.6
-      X-Ratelimit-Limit-Hour:
-      - '100000'
-      X-Ratelimit-Remaining-Hour:
-      - '99934'
+      - Phusion Passenger 5.1.11
       X-Request-Id:
-      - 423ee098-9494-4e32-b2f9-5083dd1cfd65
+      - f718fc50-42d9-4667-8c89-b591de0ff1e3
       X-Runtime:
-      - '0.329386'
-      X-Xss-Protection:
-      - 1; mode=block
+      - '0.052850'
       Content-Length:
-      - '124'
+      - '1050'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:04Z"}}}'
+      string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"bl.old-api","type":"clients"}]},"providers":{"data":[{"id":"bl","type":"providers"}]}}},"included":[{"id":"bl.old-api","type":"clients","attributes":{"name":"BL''s
+        DOI service prototype","symbol":"BL.OLD-API","year":2012,"contact-name":"Rachael
+        Kotarski","contact-email":"datasets@bl.uk","domains":"bl.uk","is-active":true,"created":"2012-01-10T16:41:12Z","updated":"2017-09-24T01:44:23Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
+        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-09-24T01:43:55.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:30 GMT
+  recorded_at: Mon, 23 Oct 2017 18:03:05 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -86,22 +81,22 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 23 Aug 2017 08:05:30 GMT
+      - Mon, 23 Oct 2017 18:03:07 GMT
       Server:
       - openresty/1.11.2.2
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":0,"start":0,"docs":[]}}
+      string: '{"responseHeader":{"status":0,"QTime":8},"response":{"numFound":0,"start":0,"docs":[]}}
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:30 GMT
+  recorded_at: Mon, 23 Oct 2017 18:03:06 GMT
 recorded_with: VCR 3.0.3

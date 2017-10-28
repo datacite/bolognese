@@ -17,7 +17,7 @@ describe Bolognese::Metadata, vcr: true do
     it "DOI with data citation" do
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author.length).to eq(5)
@@ -25,10 +25,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by/3.0")
       expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.date_published).to eq("2014-02-11")
-      expect(subject.date_modified).to eq("2015-08-11T11:35:02Z")
+      expect(subject.date_modified).to eq("2017-10-18T19:09:43Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife", "issn"=>"2050-084X")
-      expect(subject.references.count).to eq(25)
-      expect(subject.references[19]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "type"=>"CreativeWork")
+      expect(subject.references.count).to eq(26)
+      expect(subject.references[20]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "type"=>"CreativeWork", "title" => "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.funding).to eq([{"type"=>"Organization", "name"=>"SystemsX"},
                                      {"type"=>"Organization",
                                       "id"=>"https://doi.org/10.13039/501100003043",
@@ -39,7 +39,6 @@ describe Bolognese::Metadata, vcr: true do
                                      {"type"=>"Organization",
                                       "id"=>"https://doi.org/10.13039/501100006390",
                                       "name"=>"University of Lausanne"}])
-      expect(subject.publisher).to eq("eLife Sciences Organisation, Ltd.")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -58,9 +57,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by/4.0")
       expect(subject.date_published).to eq("2006-12-20")
       expect(subject.date_modified).to eq("2017-06-17T12:26:15Z")
-      expect(subject.pagination).to eq("e30")
+      expect(subject.first_page).to eq("e30")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"PLoS ONE", "issn"=>"1932-6203")
-      expect(subject.publisher).to eq("Public Library of Science (PLoS)")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -72,15 +70,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("PostedContent")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author.count).to eq(10)
+      expect(subject.author.count).to eq(11)
       expect(subject.author.last).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4060-7360", "name"=>"Timothy Clark", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.title).to eq("A Data Citation Roadmap for Scholarly Data Repositories")
-      expect(subject.alternate_name).to eq("biorxiv;097196v1")
-      expect(subject.description).to start_with("This article presents a practical roadmap")
-      expect(subject.date_published).to eq("2016-12-28")
-      expect(subject.date_modified).to eq("2016-12-29T06:10:20Z")
+      expect(subject.alternate_name).to eq("biorxiv;097196v2")
+      expect(subject.description["text"]).to start_with("This article presents a practical roadmap")
+      expect(subject.date_published).to eq("2017-10-09")
+      expect(subject.date_modified).to eq("2017-10-10T05:10:49Z")
       expect(subject.is_part_of).to be_nil
-      expect(subject.publisher).to eq("Cold Spring Harbor Laboratory")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -97,9 +94,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES")
       expect(subject.date_published).to eq("2006-11")
       expect(subject.date_modified).to eq("2017-04-01T06:47:57Z")
-      expect(subject.pagination).to eq("2832-2841")
+      expect(subject.first_page).to eq("2832")
+      expect(subject.last_page).to eq("2841")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Ecology", "issn"=>"0012-9658")
-      expect(subject.publisher).to eq("Wiley-Blackwell")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -117,9 +114,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
       expect(subject.date_published).to eq("2012")
       expect(subject.date_modified).to eq("2016-08-02T18:42:41Z")
-      expect(subject.pagination).to eq("1-7")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Pulmonary Medicine", "issn"=>["2090-1836", "2090-1844"])
-      expect(subject.publisher).to eq("Hindawi Limited")
+      expect(subject.first_page).to eq("1")
+      expect(subject.last_page).to eq("7")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Pulmonary Medicine", "issn"=>"2090-1836")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -137,7 +134,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2015-07")
       expect(subject.date_modified).to eq("2017-06-23T08:44:48Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"European Journal of Pharmacology", "issn"=>"00142999")
-      expect(subject.publisher).to eq("Elsevier BV")
       expect(subject.provider).to eq("Crossref")
     end
 
@@ -155,7 +151,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description).to eq("x-ray diffraction structure")
       expect(subject.date_published).to eq("1984-07-17")
       expect(subject.date_modified).to eq("2014-05-27T16:45:59Z")
-      expect(subject.publisher).to eq("Protein Data Bank, Rutgers University")
+      expect(subject.provider).to eq("Crossref")
+    end
+
+    it "book chapter" do
+      input = "https://doi.org/10.1007/978-3-662-46370-3_13"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.id).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
+      expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
+      expect(subject.type).to eq("Chapter")
+      expect(subject.additional_type).to eq("BookChapter")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author.length).to eq(2)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Ronald L. Diercks", "givenName"=>"Ronald L.", "familyName"=>"Diercks")
+      expect(subject.title).to eq("Clinical Symptoms and Physical Examinations")
+      expect(subject.date_published).to eq("2015")
+      expect(subject.date_modified).to eq("2015-04-14T02:31:13Z")
+      expect(subject.publisher).to eq("Springer Berlin Heidelberg")
       expect(subject.provider).to eq("Crossref")
     end
 

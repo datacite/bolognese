@@ -15,7 +15,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref", style: "vancouver", locale: "de-de")
       expect(subject.style).to eq("vancouver")
       expect(subject.locale).to eq("de-de")
-      expect(subject.citation).to eq("1. Sankar M, Nieminen K, Ragni L, Xenarios I, Hardtke CS. Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. eLife [Internet]. 2014 Feb 11;3. Available from: http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(subject.citation).to eq("1. Sankar M, Nieminen K, Ragni L, Xenarios I, Hardtke CS. Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. eLife [Internet]. 2014 Feb 11;3. Available from: https://elifesciences.org/articles/01567")
     end
 
     it "Dataset" do

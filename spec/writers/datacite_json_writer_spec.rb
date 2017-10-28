@@ -6,11 +6,11 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
-      expect(datacite.fetch("url")).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(datacite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
       expect(datacite.fetch("resource_type_general")).to eq("Text")
       expect(datacite.fetch("title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(datacite.fetch("references").length).to eq(25)
-      expect(datacite.fetch("references").first).to eq("id"=>"https://doi.org/10.1038/nature02100", "type"=>"CreativeWork")
+      expect(datacite.fetch("references").length).to eq(26)
+      expect(datacite.fetch("references").first).to eq("id"=>"https://doi.org/10.1038/nature02100", "type"=>"CreativeWork", "title" => "APL regulates vascular tissue identity in Arabidopsis")
       expect(datacite.fetch("rights")).to eq("id"=>"http://creativecommons.org/licenses/by/3.0")
     end
 

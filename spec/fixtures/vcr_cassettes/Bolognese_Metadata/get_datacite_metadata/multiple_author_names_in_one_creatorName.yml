@@ -17,21 +17,21 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Headers:
-      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
-      Access-Control-Max-Age:
-      - '1728000'
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Wed, 23 Aug 2017 08:05:33 GMT
+      - Mon, 23 Oct 2017 18:05:18 GMT
       Etag:
-      - W/"aa6fa14b140bcc63272dcdd760463b2a"
+      - W/"f0459d60ef510fbc54ae5c7b3e731586"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -40,38 +40,32 @@ http_interactions:
       - Accept-Encoding
       Via:
       - kong/0.10.3
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
+      X-Anonymous-Consumer:
+      - 'true'
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '1032'
+      - '34'
       X-Powered-By:
-      - Phusion Passenger 5.1.6
-      X-Ratelimit-Limit-Hour:
-      - '100000'
-      X-Ratelimit-Remaining-Hour:
-      - '99932'
+      - Phusion Passenger 5.1.11
       X-Request-Id:
-      - b96cbcd5-5c11-4f0e-a69e-645b7670b7cb
+      - d8aeeefd-bb12-4c1d-bac6-72c9a45759b8
       X-Runtime:
-      - '0.367166'
-      X-Xss-Protection:
-      - 1; mode=block
+      - '0.032818'
       Content-Length:
-      - '124'
+      - '1044'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.7910","type":"prefixes","attributes":{"registration-agency":"DataCite","updated":"2016-09-21T20:27:41Z"}}}'
+      string: '{"data":{"id":"10.7910","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2012-10-02T06:27:04.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.datavers","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.datavers","type":"clients","attributes":{"name":"Harvard
+        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","is-active":true,"created":"2013-05-01T16:39:37Z","updated":"2017-09-29T05:46:24Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-09-27T16:30:44.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:33 GMT
+  recorded_at: Mon, 23 Oct 2017 18:05:17 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.7910/dvn/eqtqyo&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.7910/dvn/eqtqyo&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -86,57 +80,22 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 23 Aug 2017 08:05:34 GMT
+      - Mon, 23 Oct 2017 18:05:18 GMT
       Server:
       - openresty/1.11.2.2
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":5},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.DATAVERS","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CDL","minted":"2017-04-12T19:46:37Z","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":59},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.DATAVERS","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CDL","minted":"2017-04-12T19:46:37Z","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:34 GMT
-- request:
-    method: head
-    uri: https://doi.org/10.7910/dvn/eqtqyo
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: See Other
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/EQTQYO
-      Expires:
-      - Wed, 23 Aug 2017 08:12:45 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '233'
-      Date:
-      - Wed, 23 Aug 2017 08:05:34 GMT
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:05:34 GMT
+  recorded_at: Mon, 23 Oct 2017 18:05:18 GMT
 recorded_with: VCR 3.0.3

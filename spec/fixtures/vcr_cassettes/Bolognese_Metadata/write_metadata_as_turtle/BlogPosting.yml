@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,59 +17,26 @@ http_interactions:
       message: OK
     headers:
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Wed, 23 Aug 2017 08:03:09 GMT
+      - Mon, 23 Oct 2017 18:12:17 GMT
       Server:
       - openresty/1.11.2.2
+      Content-Length:
+      - '3095'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"DATACITE.DATACITE","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC80SzNNLU5ZVkc8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5GZW5uZXIsIE1hcnRpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TWFydGluPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZlbm5lcjwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZy8iIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCI+MDAwMC0wMDAzLTE0MTktMjQwNTwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkVhdGluZyB5b3VyIG93biBEb2cgRm9vZDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5EYXRhQ2l0ZTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iTG9jYWwgYWNjZXNzaW9uIG51bWJlciI+TVMtNDktMzYzMi01MDgzPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+ZGF0YWNpdGU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5kb2k8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5tZXRhZGF0YTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJDcmVhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzAwMTI8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvNTVFNS1UNUMwPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1BhcnRPZiI+MTAuNTQzOC8wMDAwLTAwU1M8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkVhdGluZyB5b3VyIG93biBkb2cgZm9vZCBpcyBhIHNsYW5nIHRlcm0gdG8gZGVzY3JpYmUgdGhhdCBhbiBvcmdhbml6YXRpb24gc2hvdWxkIGl0c2VsZiB1c2UgdGhlIHByb2R1Y3RzIGFuZCBzZXJ2aWNlcyBpdCBwcm92aWRlcy4gRm9yIERhdGFDaXRlIHRoaXMgbWVhbnMgdGhhdCB3ZSBzaG91bGQgdXNlIERPSXMgd2l0aCBhcHByb3ByaWF0ZSBtZXRhZGF0YSBhbmQgc3RyYXRlZ2llcyBmb3IgbG9uZy10ZXJtIHByZXNlcnZhdGlvbiBmb3IuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"DATACITE","minted":"2016-12-19T20:49:21Z","updated":"2017-01-09T13:53:12Z","doi":"10.5438/4K3M-NYVG","media":["application/xml:https://blog.datacite.org/eating-your-own-dog-food/eating-your-own-dog-food.xml"]}]}}
+      string: '{"responseHeader":{"status":0,"QTime":5},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"DATACITE.DATACITE","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC80SzNNLU5ZVkc8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5GZW5uZXIsIE1hcnRpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+TWFydGluPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkZlbm5lcjwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZy8iIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCI+MDAwMC0wMDAzLTE0MTktMjQwNTwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkVhdGluZyB5b3VyIG93biBEb2cgRm9vZDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5EYXRhQ2l0ZTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iTG9jYWwgYWNjZXNzaW9uIG51bWJlciI+TVMtNDktMzYzMi01MDgzPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+ZGF0YWNpdGU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5kb2k8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5tZXRhZGF0YTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJDcmVhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0xMi0yMDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE2LTEyLTIwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj4xMC41NDM4LzAwMTI8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPjEwLjU0MzgvNTVFNS1UNUMwPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1BhcnRPZiI+MTAuNTQzOC8wMDAwLTAwU1M8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkVhdGluZyB5b3VyIG93biBkb2cgZm9vZCBpcyBhIHNsYW5nIHRlcm0gdG8gZGVzY3JpYmUgdGhhdCBhbiBvcmdhbml6YXRpb24gc2hvdWxkIGl0c2VsZiB1c2UgdGhlIHByb2R1Y3RzIGFuZCBzZXJ2aWNlcyBpdCBwcm92aWRlcy4gRm9yIERhdGFDaXRlIHRoaXMgbWVhbnMgdGhhdCB3ZSBzaG91bGQgdXNlIERPSXMgd2l0aCBhcHByb3ByaWF0ZSBtZXRhZGF0YSBhbmQgc3RyYXRlZ2llcyBmb3IgbG9uZy10ZXJtIHByZXNlcnZhdGlvbiBmb3IuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"DATACITE","minted":"2016-12-19T20:49:21Z","updated":"2017-01-09T13:53:12Z","doi":"10.5438/4K3M-NYVG","media":["application/xml:https://blog.datacite.org/eating-your-own-dog-food/eating-your-own-dog-food.xml"]}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:09 GMT
-- request:
-    method: head
-    uri: https://doi.org/10.5438/4k3m-nyvg
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 303
-      message: See Other
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Vary:
-      - Accept
-      Location:
-      - https://blog.datacite.org/eating-your-own-dog-food/
-      Expires:
-      - Wed, 23 Aug 2017 08:12:45 GMT
-      Content-Type:
-      - text/html;charset=utf-8
-      Content-Length:
-      - '187'
-      Date:
-      - Wed, 23 Aug 2017 08:03:09 GMT
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:09 GMT
+  recorded_at: Mon, 23 Oct 2017 18:12:16 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -86,7 +53,7 @@ http_interactions:
   response:
     status:
       code: 302
-      message: Found
+      message: Moved Temporarily
     headers:
       Content-Type:
       - text/html; charset=utf-8
@@ -99,20 +66,28 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       Set-Cookie:
-      - GOOGAPPUID=3-3b; Path=/
+      - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - 22925c3d47ca87b57e535b9a0ecb8e2b
+      - 4ad6316d68d45dbb76b6a2f305c1432b
       Date:
-      - Wed, 23 Aug 2017 08:03:09 GMT
+      - Mon, 23 Oct 2017 18:12:18 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:10 GMT
+  recorded_at: Mon, 23 Oct 2017 18:12:19 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -140,21 +115,29 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170823075941a2048647386json
+      - 24751171023175703a2048647386json
       Last-Modified:
-      - Wed, 23 Aug 2017 07:59:41 UTC
+      - Mon, 23 Oct 2017 17:57:03 UTC
       Set-Cookie:
-      - GOOGAPPUID=3-3b; Path=/
+      - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - 2e24d8be23ed7fe0718268eb2940d20d
+      - 2fb5c2bfadf8e0fd1b7e1580a437bf91
       Date:
-      - Wed, 23 Aug 2017 08:03:10 GMT
+      - Mon, 23 Oct 2017 18:12:20 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '133672'
+      - '134320'
       Expires:
-      - Wed, 23 Aug 2017 08:03:10 GMT
+      - Mon, 23 Oct 2017 18:12:20 GMT
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
       string: |
@@ -432,7 +415,7 @@ http_interactions:
                 "DaySpa": {"@id": "schema:DaySpa"},
                 "DeactivateAction": {"@id": "schema:DeactivateAction"},
                 "DefenceEstablishment": {"@id": "schema:DefenceEstablishment"},
-                "Definitive": {"@id": "schema:Definitive"},
+                "DefinitiveLegalValue": {"@id": "schema:DefinitiveLegalValue"},
                 "DeleteAction": {"@id": "schema:DeleteAction"},
                 "DeliveryChargeSpecification": {"@id": "schema:DeliveryChargeSpecification"},
                 "DeliveryEvent": {"@id": "schema:DeliveryEvent"},
@@ -501,6 +484,7 @@ http_interactions:
                 "Emergency": {"@id": "schema:Emergency"},
                 "EmergencyService": {"@id": "schema:EmergencyService"},
                 "EmployeeRole": {"@id": "schema:EmployeeRole"},
+                "EmployerAggregateRating": {"@id": "schema:EmployerAggregateRating"},
                 "EmployerReview": {"@id": "schema:EmployerReview"},
                 "EmploymentAgency": {"@id": "schema:EmploymentAgency"},
                 "Endocrine": {"@id": "schema:Endocrine"},
@@ -531,6 +515,7 @@ http_interactions:
                 "ExercisePlan": {"@id": "schema:ExercisePlan"},
                 "ExhibitionEvent": {"@id": "schema:ExhibitionEvent"},
                 "Eye": {"@id": "schema:Eye"},
+                "FAQPage": {"@id": "schema:FAQPage"},
                 "FDAcategoryA": {"@id": "schema:FDAcategoryA"},
                 "FDAcategoryB": {"@id": "schema:FDAcategoryB"},
                 "FDAcategoryC": {"@id": "schema:FDAcategoryC"},
@@ -775,6 +760,7 @@ http_interactions:
                 "MobilePhoneStore": {"@id": "schema:MobilePhoneStore"},
                 "Monday": {"@id": "schema:Monday"},
                 "MonetaryAmount": {"@id": "schema:MonetaryAmount"},
+                "MonetaryAmountDistribution": {"@id": "schema:MonetaryAmountDistribution"},
                 "MoneyTransfer": {"@id": "schema:MoneyTransfer"},
                 "MortgageLoan": {"@id": "schema:MortgageLoan"},
                 "Mosque": {"@id": "schema:Mosque"},
@@ -836,6 +822,7 @@ http_interactions:
                 "Observational": {"@id": "schema:Observational"},
                 "Obstetric": {"@id": "schema:Obstetric"},
                 "Obstetric": {"@id": "schema:Obstetric"},
+                "Occupation": {"@id": "schema:Occupation"},
                 "OccupationalActivity": {"@id": "schema:OccupationalActivity"},
                 "OccupationalTherapy": {"@id": "schema:OccupationalTherapy"},
                 "OccupationalTherapy": {"@id": "schema:OccupationalTherapy"},
@@ -960,7 +947,6 @@ http_interactions:
                 "PrimaryCare": {"@id": "schema:PrimaryCare"},
                 "Prion": {"@id": "schema:Prion"},
                 "Product": {"@id": "schema:Product"},
-                "ProductModel": {"@id": "schema:ProductModel"},
                 "ProfessionalService": {"@id": "schema:ProfessionalService"},
                 "ProfilePage": {"@id": "schema:ProfilePage"},
                 "ProgramMembership": {"@id": "schema:ProgramMembership"},
@@ -983,6 +969,7 @@ http_interactions:
                 "QAPage": {"@id": "schema:QAPage"},
                 "QualitativeValue": {"@id": "schema:QualitativeValue"},
                 "QuantitativeValue": {"@id": "schema:QuantitativeValue"},
+                "QuantitativeValueDistribution": {"@id": "schema:QuantitativeValueDistribution"},
                 "Quantity": {"@id": "schema:Quantity"},
                 "Question": {"@id": "schema:Question"},
                 "Quotation": {"@id": "schema:Quotation"},
@@ -1095,7 +1082,6 @@ http_interactions:
                 "SoftwareApplication": {"@id": "schema:SoftwareApplication"},
                 "SoftwareSourceCode": {"@id": "schema:SoftwareSourceCode"},
                 "SoldOut": {"@id": "schema:SoldOut"},
-                "SomeProducts": {"@id": "schema:SomeProducts"},
                 "SoundtrackAlbum": {"@id": "schema:SoundtrackAlbum"},
                 "SpeakableSpecification": {"@id": "schema:SpeakableSpecification"},
                 "Specialty": {"@id": "schema:Specialty"},
@@ -1740,6 +1726,7 @@ http_interactions:
                 "hasMenu": { "@id": "schema:hasMenu", "@type": "@id"},
                 "hasMenuItem": { "@id": "schema:hasMenuItem"},
                 "hasMenuSection": { "@id": "schema:hasMenuSection"},
+                "hasOccupation": { "@id": "schema:hasOccupation"},
                 "hasOfferCatalog": { "@id": "schema:hasOfferCatalog"},
                 "hasPOS": { "@id": "schema:hasPOS"},
                 "hasPart": { "@id": "schema:hasPart"},
@@ -1859,20 +1846,17 @@ http_interactions:
                 "learningResourceType": { "@id": "schema:learningResourceType"},
                 "legalName": { "@id": "schema:legalName"},
                 "legalStatus": { "@id": "schema:legalStatus"},
-                "legislationAppliedBy": { "@id": "schema:legislationAppliedBy"},
                 "legislationApplies": { "@id": "schema:legislationApplies"},
-                "legislationChangedBy": { "@id": "schema:legislationChangedBy"},
                 "legislationChanges": { "@id": "schema:legislationChanges"},
-                "legislationConsolidatedBy": { "@id": "schema:legislationConsolidatedBy"},
                 "legislationConsolidates": { "@id": "schema:legislationConsolidates"},
                 "legislationDate": { "@id": "schema:legislationDate", "@type": "Date"},
                 "legislationDateVersion": { "@id": "schema:legislationDateVersion", "@type": "Date"},
                 "legislationIdentifier": { "@id": "schema:legislationIdentifier"},
+                "legislationJurisdiction": { "@id": "schema:legislationJurisdiction"},
                 "legislationLegalForce": { "@id": "schema:legislationLegalForce"},
                 "legislationLegalValue": { "@id": "schema:legislationLegalValue"},
                 "legislationPassedBy": { "@id": "schema:legislationPassedBy"},
                 "legislationResponsible": { "@id": "schema:legislationResponsible"},
-                "legislationTransposedBy": { "@id": "schema:legislationTransposedBy"},
                 "legislationTransposes": { "@id": "schema:legislationTransposes"},
                 "legislationType": { "@id": "schema:legislationType"},
                 "leiCode": { "@id": "schema:leiCode"},
@@ -1917,6 +1901,7 @@ http_interactions:
                 "mealService": { "@id": "schema:mealService"},
                 "measurementTechnique": { "@id": "schema:measurementTechnique", "@type": "@id"},
                 "mechanismOfAction": { "@id": "schema:mechanismOfAction"},
+                "median": { "@id": "schema:median"},
                 "medicalSpecialty": { "@id": "schema:medicalSpecialty"},
                 "medicineSystem": { "@id": "schema:medicineSystem"},
                 "meetsEmissionStandard": { "@id": "schema:meetsEmissionStandard", "@type": "@id"},
@@ -1981,6 +1966,7 @@ http_interactions:
                 "nutrition": { "@id": "schema:nutrition"},
                 "object": { "@id": "schema:object"},
                 "occupancy": { "@id": "schema:occupancy"},
+                "occupationLocation": { "@id": "schema:occupationLocation"},
                 "occupationalCategory": { "@id": "schema:occupationalCategory"},
                 "offerCount": { "@id": "schema:offerCount"},
                 "offeredBy": { "@id": "schema:offeredBy"},
@@ -2039,6 +2025,10 @@ http_interactions:
                 "paymentStatus": { "@id": "schema:paymentStatus"},
                 "paymentUrl": { "@id": "schema:paymentUrl", "@type": "@id"},
                 "penciler": { "@id": "schema:penciler"},
+                "percentile10": { "@id": "schema:percentile10"},
+                "percentile25": { "@id": "schema:percentile25"},
+                "percentile75": { "@id": "schema:percentile75"},
+                "percentile90": { "@id": "schema:percentile90"},
                 "performTime": { "@id": "schema:performTime"},
                 "performer": { "@id": "schema:performer"},
                 "performerIn": { "@id": "schema:performerIn"},
@@ -2162,6 +2152,7 @@ http_interactions:
                 "releaseNotes": { "@id": "schema:releaseNotes", "@type": "@id"},
                 "releaseOf": { "@id": "schema:releaseOf"},
                 "releasedEvent": { "@id": "schema:releasedEvent"},
+                "relevantOccupation": { "@id": "schema:relevantOccupation"},
                 "relevantSpecialty": { "@id": "schema:relevantSpecialty"},
                 "remainingAttendeeCapacity": { "@id": "schema:remainingAttendeeCapacity"},
                 "renegotiableLoan": { "@id": "schema:renegotiableLoan"},
@@ -2190,6 +2181,7 @@ http_interactions:
                 "resultComment": { "@id": "schema:resultComment"},
                 "resultReview": { "@id": "schema:resultReview"},
                 "review": { "@id": "schema:review"},
+                "reviewAspect": { "@id": "schema:reviewAspect"},
                 "reviewBody": { "@id": "schema:reviewBody"},
                 "reviewCount": { "@id": "schema:reviewCount"},
                 "reviewRating": { "@id": "schema:reviewRating"},
@@ -2283,6 +2275,7 @@ http_interactions:
                 "startTime": { "@id": "schema:startTime", "@type": "DateTime"},
                 "status": { "@id": "schema:status"},
                 "steeringPosition": { "@id": "schema:steeringPosition"},
+                "step": { "@id": "schema:step"},
                 "stepValue": { "@id": "schema:stepValue"},
                 "steps": { "@id": "schema:steps"},
                 "storageRequirements": { "@id": "schema:storageRequirements", "@type": "@id"},
@@ -2302,6 +2295,7 @@ http_interactions:
                 "subStageSuffix": { "@id": "schema:subStageSuffix"},
                 "subStructure": { "@id": "schema:subStructure"},
                 "subTest": { "@id": "schema:subTest"},
+                "subjectOf": { "@id": "schema:subjectOf"},
                 "subtitleLanguage": { "@id": "schema:subtitleLanguage"},
                 "subtype": { "@id": "schema:subtype"},
                 "successorOf": { "@id": "schema:successorOf"},
@@ -2443,7 +2437,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:10 GMT
+  recorded_at: Mon, 23 Oct 2017 18:12:24 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2460,7 +2454,7 @@ http_interactions:
   response:
     status:
       code: 302
-      message: Found
+      message: Moved Temporarily
     headers:
       Content-Type:
       - text/html; charset=utf-8
@@ -2473,20 +2467,28 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding
       Set-Cookie:
-      - GOOGAPPUID=3-3b; Path=/
+      - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - cc5f03e5d3508eef79a42e8baae9d9d0
+      - 86d9b774965f6d3a5049a509245526d9
       Date:
-      - Wed, 23 Aug 2017 08:03:11 GMT
+      - Mon, 23 Oct 2017 18:12:25 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:11 GMT
+  recorded_at: Mon, 23 Oct 2017 18:12:27 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2514,21 +2516,29 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751170823075941a2048647386json
+      - 24751171023175703a2048647386json
       Last-Modified:
-      - Wed, 23 Aug 2017 07:59:41 UTC
+      - Mon, 23 Oct 2017 17:57:03 UTC
       Set-Cookie:
-      - GOOGAPPUID=3-3b; Path=/
+      - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - d4da79c497debd89c390f1f73aa0658c
+      - 9aeec3cf0b1d6e9a62092cf18fe3a400
       Date:
-      - Wed, 23 Aug 2017 08:03:11 GMT
+      - Mon, 23 Oct 2017 18:12:28 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '133672'
+      - '134320'
       Expires:
-      - Wed, 23 Aug 2017 08:03:11 GMT
+      - Mon, 23 Oct 2017 18:12:28 GMT
+      X-Cache:
+      - MISS from IMP-cache
+      X-Cache-Lookup:
+      - MISS from IMP-cache:3128
+      Via:
+      - 1.0 IMP-cache (squid/3.1.20)
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
       string: |
@@ -2806,7 +2816,7 @@ http_interactions:
                 "DaySpa": {"@id": "schema:DaySpa"},
                 "DeactivateAction": {"@id": "schema:DeactivateAction"},
                 "DefenceEstablishment": {"@id": "schema:DefenceEstablishment"},
-                "Definitive": {"@id": "schema:Definitive"},
+                "DefinitiveLegalValue": {"@id": "schema:DefinitiveLegalValue"},
                 "DeleteAction": {"@id": "schema:DeleteAction"},
                 "DeliveryChargeSpecification": {"@id": "schema:DeliveryChargeSpecification"},
                 "DeliveryEvent": {"@id": "schema:DeliveryEvent"},
@@ -2875,6 +2885,7 @@ http_interactions:
                 "Emergency": {"@id": "schema:Emergency"},
                 "EmergencyService": {"@id": "schema:EmergencyService"},
                 "EmployeeRole": {"@id": "schema:EmployeeRole"},
+                "EmployerAggregateRating": {"@id": "schema:EmployerAggregateRating"},
                 "EmployerReview": {"@id": "schema:EmployerReview"},
                 "EmploymentAgency": {"@id": "schema:EmploymentAgency"},
                 "Endocrine": {"@id": "schema:Endocrine"},
@@ -2905,6 +2916,7 @@ http_interactions:
                 "ExercisePlan": {"@id": "schema:ExercisePlan"},
                 "ExhibitionEvent": {"@id": "schema:ExhibitionEvent"},
                 "Eye": {"@id": "schema:Eye"},
+                "FAQPage": {"@id": "schema:FAQPage"},
                 "FDAcategoryA": {"@id": "schema:FDAcategoryA"},
                 "FDAcategoryB": {"@id": "schema:FDAcategoryB"},
                 "FDAcategoryC": {"@id": "schema:FDAcategoryC"},
@@ -3149,6 +3161,7 @@ http_interactions:
                 "MobilePhoneStore": {"@id": "schema:MobilePhoneStore"},
                 "Monday": {"@id": "schema:Monday"},
                 "MonetaryAmount": {"@id": "schema:MonetaryAmount"},
+                "MonetaryAmountDistribution": {"@id": "schema:MonetaryAmountDistribution"},
                 "MoneyTransfer": {"@id": "schema:MoneyTransfer"},
                 "MortgageLoan": {"@id": "schema:MortgageLoan"},
                 "Mosque": {"@id": "schema:Mosque"},
@@ -3210,6 +3223,7 @@ http_interactions:
                 "Observational": {"@id": "schema:Observational"},
                 "Obstetric": {"@id": "schema:Obstetric"},
                 "Obstetric": {"@id": "schema:Obstetric"},
+                "Occupation": {"@id": "schema:Occupation"},
                 "OccupationalActivity": {"@id": "schema:OccupationalActivity"},
                 "OccupationalTherapy": {"@id": "schema:OccupationalTherapy"},
                 "OccupationalTherapy": {"@id": "schema:OccupationalTherapy"},
@@ -3334,7 +3348,6 @@ http_interactions:
                 "PrimaryCare": {"@id": "schema:PrimaryCare"},
                 "Prion": {"@id": "schema:Prion"},
                 "Product": {"@id": "schema:Product"},
-                "ProductModel": {"@id": "schema:ProductModel"},
                 "ProfessionalService": {"@id": "schema:ProfessionalService"},
                 "ProfilePage": {"@id": "schema:ProfilePage"},
                 "ProgramMembership": {"@id": "schema:ProgramMembership"},
@@ -3357,6 +3370,7 @@ http_interactions:
                 "QAPage": {"@id": "schema:QAPage"},
                 "QualitativeValue": {"@id": "schema:QualitativeValue"},
                 "QuantitativeValue": {"@id": "schema:QuantitativeValue"},
+                "QuantitativeValueDistribution": {"@id": "schema:QuantitativeValueDistribution"},
                 "Quantity": {"@id": "schema:Quantity"},
                 "Question": {"@id": "schema:Question"},
                 "Quotation": {"@id": "schema:Quotation"},
@@ -3469,7 +3483,6 @@ http_interactions:
                 "SoftwareApplication": {"@id": "schema:SoftwareApplication"},
                 "SoftwareSourceCode": {"@id": "schema:SoftwareSourceCode"},
                 "SoldOut": {"@id": "schema:SoldOut"},
-                "SomeProducts": {"@id": "schema:SomeProducts"},
                 "SoundtrackAlbum": {"@id": "schema:SoundtrackAlbum"},
                 "SpeakableSpecification": {"@id": "schema:SpeakableSpecification"},
                 "Specialty": {"@id": "schema:Specialty"},
@@ -4114,6 +4127,7 @@ http_interactions:
                 "hasMenu": { "@id": "schema:hasMenu", "@type": "@id"},
                 "hasMenuItem": { "@id": "schema:hasMenuItem"},
                 "hasMenuSection": { "@id": "schema:hasMenuSection"},
+                "hasOccupation": { "@id": "schema:hasOccupation"},
                 "hasOfferCatalog": { "@id": "schema:hasOfferCatalog"},
                 "hasPOS": { "@id": "schema:hasPOS"},
                 "hasPart": { "@id": "schema:hasPart"},
@@ -4233,20 +4247,17 @@ http_interactions:
                 "learningResourceType": { "@id": "schema:learningResourceType"},
                 "legalName": { "@id": "schema:legalName"},
                 "legalStatus": { "@id": "schema:legalStatus"},
-                "legislationAppliedBy": { "@id": "schema:legislationAppliedBy"},
                 "legislationApplies": { "@id": "schema:legislationApplies"},
-                "legislationChangedBy": { "@id": "schema:legislationChangedBy"},
                 "legislationChanges": { "@id": "schema:legislationChanges"},
-                "legislationConsolidatedBy": { "@id": "schema:legislationConsolidatedBy"},
                 "legislationConsolidates": { "@id": "schema:legislationConsolidates"},
                 "legislationDate": { "@id": "schema:legislationDate", "@type": "Date"},
                 "legislationDateVersion": { "@id": "schema:legislationDateVersion", "@type": "Date"},
                 "legislationIdentifier": { "@id": "schema:legislationIdentifier"},
+                "legislationJurisdiction": { "@id": "schema:legislationJurisdiction"},
                 "legislationLegalForce": { "@id": "schema:legislationLegalForce"},
                 "legislationLegalValue": { "@id": "schema:legislationLegalValue"},
                 "legislationPassedBy": { "@id": "schema:legislationPassedBy"},
                 "legislationResponsible": { "@id": "schema:legislationResponsible"},
-                "legislationTransposedBy": { "@id": "schema:legislationTransposedBy"},
                 "legislationTransposes": { "@id": "schema:legislationTransposes"},
                 "legislationType": { "@id": "schema:legislationType"},
                 "leiCode": { "@id": "schema:leiCode"},
@@ -4291,6 +4302,7 @@ http_interactions:
                 "mealService": { "@id": "schema:mealService"},
                 "measurementTechnique": { "@id": "schema:measurementTechnique", "@type": "@id"},
                 "mechanismOfAction": { "@id": "schema:mechanismOfAction"},
+                "median": { "@id": "schema:median"},
                 "medicalSpecialty": { "@id": "schema:medicalSpecialty"},
                 "medicineSystem": { "@id": "schema:medicineSystem"},
                 "meetsEmissionStandard": { "@id": "schema:meetsEmissionStandard", "@type": "@id"},
@@ -4355,6 +4367,7 @@ http_interactions:
                 "nutrition": { "@id": "schema:nutrition"},
                 "object": { "@id": "schema:object"},
                 "occupancy": { "@id": "schema:occupancy"},
+                "occupationLocation": { "@id": "schema:occupationLocation"},
                 "occupationalCategory": { "@id": "schema:occupationalCategory"},
                 "offerCount": { "@id": "schema:offerCount"},
                 "offeredBy": { "@id": "schema:offeredBy"},
@@ -4413,6 +4426,10 @@ http_interactions:
                 "paymentStatus": { "@id": "schema:paymentStatus"},
                 "paymentUrl": { "@id": "schema:paymentUrl", "@type": "@id"},
                 "penciler": { "@id": "schema:penciler"},
+                "percentile10": { "@id": "schema:percentile10"},
+                "percentile25": { "@id": "schema:percentile25"},
+                "percentile75": { "@id": "schema:percentile75"},
+                "percentile90": { "@id": "schema:percentile90"},
                 "performTime": { "@id": "schema:performTime"},
                 "performer": { "@id": "schema:performer"},
                 "performerIn": { "@id": "schema:performerIn"},
@@ -4536,6 +4553,7 @@ http_interactions:
                 "releaseNotes": { "@id": "schema:releaseNotes", "@type": "@id"},
                 "releaseOf": { "@id": "schema:releaseOf"},
                 "releasedEvent": { "@id": "schema:releasedEvent"},
+                "relevantOccupation": { "@id": "schema:relevantOccupation"},
                 "relevantSpecialty": { "@id": "schema:relevantSpecialty"},
                 "remainingAttendeeCapacity": { "@id": "schema:remainingAttendeeCapacity"},
                 "renegotiableLoan": { "@id": "schema:renegotiableLoan"},
@@ -4564,6 +4582,7 @@ http_interactions:
                 "resultComment": { "@id": "schema:resultComment"},
                 "resultReview": { "@id": "schema:resultReview"},
                 "review": { "@id": "schema:review"},
+                "reviewAspect": { "@id": "schema:reviewAspect"},
                 "reviewBody": { "@id": "schema:reviewBody"},
                 "reviewCount": { "@id": "schema:reviewCount"},
                 "reviewRating": { "@id": "schema:reviewRating"},
@@ -4657,6 +4676,7 @@ http_interactions:
                 "startTime": { "@id": "schema:startTime", "@type": "DateTime"},
                 "status": { "@id": "schema:status"},
                 "steeringPosition": { "@id": "schema:steeringPosition"},
+                "step": { "@id": "schema:step"},
                 "stepValue": { "@id": "schema:stepValue"},
                 "steps": { "@id": "schema:steps"},
                 "storageRequirements": { "@id": "schema:storageRequirements", "@type": "@id"},
@@ -4676,6 +4696,7 @@ http_interactions:
                 "subStageSuffix": { "@id": "schema:subStageSuffix"},
                 "subStructure": { "@id": "schema:subStructure"},
                 "subTest": { "@id": "schema:subTest"},
+                "subjectOf": { "@id": "schema:subjectOf"},
                 "subtitleLanguage": { "@id": "schema:subtitleLanguage"},
                 "subtype": { "@id": "schema:subtype"},
                 "successorOf": { "@id": "schema:successorOf"},
@@ -4817,5 +4838,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:03:11 GMT
+  recorded_at: Mon, 23 Oct 2017 18:12:33 GMT
 recorded_with: VCR 3.0.3

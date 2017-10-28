@@ -16,10 +16,8 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
-      Access-Control-Allow-Headers:
-      - Content-Type,Accept,Accept-Encoding,Origin,User-Agent,Cache-Control,Keep-Alive
       Access-Control-Allow-Methods:
-      - GET, POST, OPTIONS
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -27,7 +25,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Wed, 23 Aug 2017 08:02:40 GMT
+      - Mon, 23 Oct 2017 17:59:43 GMT
       Server:
       - openresty/1.11.2.2
       Status:
@@ -36,28 +34,16 @@ http_interactions:
       - Accept-Encoding
       Via:
       - kong/0.10.3
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
       X-Kong-Proxy-Latency:
-      - '1'
+      - '0'
       X-Kong-Upstream-Latency:
-      - '253'
+      - '811'
       X-Powered-By:
-      - Phusion Passenger 5.1.6
-      X-Ratelimit-Limit-Hour:
-      - '100000'
-      X-Ratelimit-Remaining-Hour:
-      - '99964'
+      - Phusion Passenger 5.1.11
       X-Request-Id:
-      - 3392474c-526f-4847-b97c-c1242e378844
+      - 6841dd34-2a38-411c-bde3-0c8528de2dc5
       X-Runtime:
-      - '0.252423'
-      X-Xss-Protection:
-      - 1; mode=block
-      Content-Length:
-      - '83'
+      - '0.806835'
       Connection:
       - keep-alive
     body:
@@ -65,5 +51,5 @@ http_interactions:
       string: '{"errors":[{"status":"404","title":"The page you are looking for doesn''t
         exist."}]}'
     http_version: 
-  recorded_at: Wed, 23 Aug 2017 08:02:40 GMT
+  recorded_at: Mon, 23 Oct 2017 17:59:42 GMT
 recorded_with: VCR 3.0.3

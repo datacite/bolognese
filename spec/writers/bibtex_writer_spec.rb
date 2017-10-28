@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")
       expect(bibtex[:doi]).to eq("10.7554/elife.01567")
-      expect(bibtex[:url]).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(bibtex[:url]).to eq("https://elifesciences.org/articles/01567")
       expect(bibtex[:title]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(bibtex[:author]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
       expect(bibtex[:journal]).to eq("eLife")

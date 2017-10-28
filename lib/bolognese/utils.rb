@@ -43,31 +43,59 @@ module Bolognese
     }
 
     CR_TO_CP_TRANSLATIONS = {
-      "proceedings" => nil,
-      "reference-book" => nil,
-      "journal-issue" => nil,
-      "proceedings-article" => "paper-conference",
-      "other" => nil,
-      "dissertation" => "thesis",
-      "dataset" => "dataset",
-      "edited-book" => "book",
-      "journal-article" => "article-journal",
-      "journal" => nil,
-      "report" => "report",
-      "book-series" => nil,
-      "report-series" => nil,
-      "book-track" => nil,
-      "standard" => nil,
-      "book-section" => "chapter",
-      "book-part" => nil,
-      "book" => "book",
-      "book-chapter" => "chapter",
-      "standard-series" => nil,
-      "monograph" => "book",
-      "component" => nil,
-      "reference-entry" => "entry-dictionary",
-      "journal-volume" => nil,
-      "book-set" => nil
+      "Proceedings" => nil,
+      "ReferenceBook" => nil,
+      "JournalIssue" => nil,
+      "ProceedingsArticle" => "paper-conference",
+      "Other" => nil,
+      "Dissertation" => "thesis",
+      "Dataset" => "dataset",
+      "EditedBook" => "book",
+      "JournalArticle" => "article-journal",
+      "Journal" => nil,
+      "Report" => "report",
+      "BookSeries" => nil,
+      "ReportSeries" => nil,
+      "BookTrack" => nil,
+      "Standard" => nil,
+      "BookSection" => "chapter",
+      "BookPart" => nil,
+      "Book" => "book",
+      "BookChapter" => "chapter",
+      "StandardSeries" => nil,
+      "Monograph" => "book",
+      "Component" => nil,
+      "ReferenceEntry" => "entry-dictionary",
+      "JournalVolume" => nil,
+      "BookSet" => nil
+    }
+
+    CR_TO_JATS_TRANSLATIONS = {
+      "Proceedings" => "working-paper",
+      "ReferenceBook" => "book",
+      "JournalIssue" => "journal",
+      "ProceedingsArticle" => "working-paper",
+      "Other" => nil,
+      "Dissertation" => nil,
+      "Dataset" => "data",
+      "EditedBook" => "book",
+      "JournalArticle" => "journal",
+      "Journal" => "journal",
+      "Report" => "report",
+      "BookSeries" => "book",
+      "ReportSeries" => "report",
+      "BookTrack" => "book",
+      "Standard" => "standard",
+      "BookSection" => "book",
+      "BookPart" => "book",
+      "Book" => "book",
+      "BookChapter" => "book",
+      "StandardSeries" => "standard",
+      "Monograph" => "book",
+      "Component" => nil,
+      "ReferenceEntry" => nil,
+      "JournalVolume" => "journal",
+      "BookSet" => "book"
     }
 
     SO_TO_DC_TRANSLATIONS = {
@@ -75,6 +103,7 @@ module Bolognese
       "AudioObject" => "Sound",
       "Blog" => "Text",
       "BlogPosting" => "Text",
+      "Chapter" => "Text",
       "Collection" => "Collection",
       "CreativeWork" => "Other",
       "DataCatalog" => "Dataset",
@@ -89,6 +118,27 @@ module Bolognese
       "VideoObject" => "Audiovisual",
       "WebPage" => "Text",
       "WebSite" => "Text"
+    }
+
+    SO_TO_JATS_TRANSLATIONS = {
+      "Article" => "journal",
+      "AudioObject" => nil,
+      "Blog" => nil,
+      "BlogPosting" => nil,
+      "Collection" => nil,
+      "CreativeWork" => nil,
+      "DataCatalog" => "data",
+      "Dataset" => "data",
+      "Event" => nil,
+      "ImageObject" => nil,
+      "Movie" => nil,
+      "PublicationIssue" => "journal",
+      "ScholarlyArticle" => "journal",
+      "Service" => nil,
+      "SoftwareSourceCode" => "software",
+      "VideoObject" => nil,
+      "WebPage" => nil,
+      "WebSite" => "website"
     }
 
     SO_TO_CP_TRANSLATIONS = {
@@ -133,31 +183,31 @@ module Bolognese
     }
 
     CR_TO_RIS_TRANSLATIONS = {
-      "proceedings" => "CONF",
-      "reference-book" => "BOOK",
-      "journal-issue" => nil,
-      "proceedings-article" => "CPAPER",
-      "other" => "GEN",
-      "dissertation" => "THES",
-      "dataset" => "DATA",
-      "edited-book" => "BOOK",
-      "journal-article" => "JOUR",
-      "journal" => nil,
-      "report" => nil,
-      "book-series" => nil,
-      "report-series" => nil,
-      "book-track" => nil,
-      "standard" => nil,
-      "book-section" => "CHAP",
-      "book-part" => "CHAP",
-      "book" => "BOOK",
-      "book-chapter" => "CHAP",
-      "standard-series" => nil,
-      "monograph" => "BOOK",
-      "component" => nil,
-      "reference-entry" => "DICT",
-      "journal-volume" => nil,
-      "book-set" => nil
+      "Proceedings" => "CONF",
+      "ReferenceBook" => "BOOK",
+      "JournalIssue" => nil,
+      "ProceedingsArticle" => "CPAPER",
+      "Other" => "GEN",
+      "Dissertation" => "THES",
+      "Dataset" => "DATA",
+      "EditedBook" => "BOOK",
+      "JournalArticle" => "JOUR",
+      "Journal" => nil,
+      "Report" => nil,
+      "BookSeries" => nil,
+      "ReportSeries" => nil,
+      "BookTrack" => nil,
+      "Standard" => nil,
+      "BookSection" => "CHAP",
+      "BookPart" => "CHAP",
+      "Book" => "BOOK",
+      "BookChapter" => "CHAP",
+      "StandardSeries" => nil,
+      "Monograph" => "BOOK",
+      "Component" => nil,
+      "ReferenceEntry" => "DICT",
+      "JournalVolume" => nil,
+      "BookSet" => nil
     }
 
     DC_TO_RIS_TRANSLATIONS = {
@@ -450,9 +500,19 @@ module Bolognese
 
     def sanitize(text, options={})
       options[:tags] ||= Set.new(%w(strong em b i code pre sub sup br))
+      content = options[:content] || "__content__"
       custom_scrubber = Bolognese::WhitelistScrubber.new(options)
 
-      Loofah.scrub_fragment(text, custom_scrubber).to_s.gsub(/\u00a0/, ' ').strip
+      if text.is_a?(String)
+        Loofah.scrub_fragment(text, custom_scrubber).to_s.gsub(/\u00a0/, ' ').strip
+      elsif text.is_a?(Hash)
+        sanitize(text.fetch(content, nil))
+      elsif text.is_a?(Array)
+        a = text.map { |e| e.is_a?(Hash) ? sanitize(e.fetch(content, nil)) : sanitize(e) }.uniq
+        a = options[:first] ? a.first : a.unwrap
+      else
+        nil
+      end
     end
 
     def github_from_url(url)

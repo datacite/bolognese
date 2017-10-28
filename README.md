@@ -80,6 +80,13 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
+      <td><a href='https://jats.nlm.nih.gov/'>JATS</a></td>
+      <td>jats</td>
+      <td>application/vnd.jats+xml</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
       <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
       <td>bibtex</td>
       <td>application/x-bibtex</td>

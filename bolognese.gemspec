@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'thor', '~> 0.19'
   s.add_dependency 'colorize', '~> 0.8.1'
   s.add_dependency 'namae', '~> 0.11.3'
+  s.add_dependency 'iso8601', '~> 0.9.1'
   s.add_dependency 'postrank-uri', '~> 1.0', '>= 1.0.18'
   s.add_dependency 'json-ld', '~> 2.1', '>= 2.1.2'
   s.add_dependency 'jsonlint', '~> 0.2.0'
