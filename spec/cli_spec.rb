@@ -38,6 +38,11 @@ describe Bolognese::CLI do
         subject.options = { to: "citation", style: "vancouver" }
         expect { subject.convert input }.to output(/Sankar M, Nieminen K, Ragni L, Xenarios I/).to_stdout
       end
+
+      it 'to jats' do
+        subject.options = { to: "jats" }
+        expect { subject.convert input }.to output(/article-title/).to_stdout
+      end
     end
 
     context "datacite" do
@@ -70,6 +75,11 @@ describe Bolognese::CLI do
       it 'to citation' do
         subject.options = { to: "citation", style: "vancouver" }
         expect { subject.convert input }.to output(/Ollomo B, Durand P, Prugnolle F, Douzery EJP/).to_stdout
+      end
+
+      it 'to jats' do
+        subject.options = { to: "jats" }
+        expect { subject.convert input }.to output(/data-title/).to_stdout
       end
     end
 

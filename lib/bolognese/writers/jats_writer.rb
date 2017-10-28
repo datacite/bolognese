@@ -12,8 +12,9 @@ module Bolognese
       def insert_citation(xml)
         insert_authors(xml)
         insert_editors(xml)
-        insert_citation_title(xml)
+        insert_citation_title(xml) if is_article? || is_data? || is_chapter?
         insert_source(xml)
+        insert_publisher_name(xml) unless is_data?
         insert_publication_date(xml)
         insert_volume(xml) if volume.present?
         insert_issue(xml) if issue.present?
@@ -21,6 +22,18 @@ module Bolognese
         insert_lpage(xml) if last_page.present?
         insert_version(xml) if version.present?
         insert_pub_id(xml)
+      end
+
+      def is_article?
+        publication_type.fetch('publication-type', nil) == "journal"
+      end
+
+      def is_data?
+        publication_type.fetch('publication-type', nil) == "data"
+      end
+
+      def is_chapter?
+        publication_type.fetch('publication-type', nil) == "chapter"
       end
 
       def insert_authors(xml)
@@ -55,14 +68,21 @@ module Bolognese
       def insert_citation_title(xml)
         case publication_type.fetch('publication-type', nil)
         when "data" then xml.send("data-title", title)
-        when "software" then xml.send("software-title", title)
-        else
-          xml.send("article-title", title)
+        when "journal" then xml.send("article-title", title)
+        when "chapter" then xml.send("chapter-title", title)
         end
       end
 
       def insert_source(xml)
-        xml.source(container_title || publisher)
+        if is_article? || is_data? || is_chapter?
+          xml.source(container_title || publisher)
+        else
+          xml.source(title)
+        end
+      end
+
+      def insert_publisher_name(xml)
+        xml.send("publisher-name", publisher)
       end
 
       def insert_publication_date(xml)
