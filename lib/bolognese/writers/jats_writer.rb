@@ -17,6 +17,9 @@ module Bolognese
         insert_publication_date(xml)
         insert_volume(xml) if volume.present?
         insert_issue(xml) if issue.present?
+        insert_fpage(xml) if first_page.present?
+        insert_lpage(xml) if last_page.present?
+        insert_version(xml) if version.present?
         insert_pub_id(xml)
       end
 
@@ -50,8 +53,9 @@ module Bolognese
       end
 
       def insert_citation_title(xml)
-        if type == "Dataset"
-          xml.send("data-title", title)
+        case publication_type.fetch('publication-type', nil)
+        when "data" then xml.send("data-title", title)
+        when "software" then xml.send("software-title", title)
         else
           xml.send("article-title", title)
         end
@@ -75,6 +79,18 @@ module Bolognese
 
       def insert_issue(xml)
         xml.issue(issue)
+      end
+
+      def insert_fpage(xml)
+        xml.fpage(first_page)
+      end
+
+      def insert_lpage(xml)
+        xml.lpage(last_page)
+      end
+
+      def insert_version(xml)
+        xml.version(version)
       end
 
       def insert_pub_id(xml)

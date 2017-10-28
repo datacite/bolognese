@@ -41,6 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2006-12-20", "__content__"=>"2006")
       expect(jats.dig("month")).to eq("12")
       expect(jats.dig("day")).to eq("20")
+      expect(jats.dig("fpage")).to eq("e30")
       expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.1371/journal.pone.0000030")
     end
 
@@ -53,6 +54,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(jats.dig("source")).to eq("Jaypee Brothers Medical Publishers (P) Ltd.")
       expect(jats.dig("person_group", "name")).to eq("surname"=>"Saha", "given_names"=>"Ashis")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2015", "__content__"=>"2015")
+      expect(jats.dig("fpage")).to eq("27")
+      expect(jats.dig("lpage")).to eq("145")
       expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.5005/jp/books/12414_3")
     end
 
@@ -89,13 +92,14 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("software")
-      expect(jats.dig("article_title")).to eq("R Interface to the DataONE REST API")
+      expect(jats.dig("software_title")).to eq("R Interface to the DataONE REST API")
       expect(jats.dig("source")).to eq("https://cran.r-project.org")
       expect(jats.dig("person_group", "name").length).to eq(3)
       expect(jats.dig("person_group", "name").first).to eq("surname"=>"Jones", "given_names"=>"Matt")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2016-05-27", "__content__"=>"2016")
       expect(jats.dig("month")).to eq("05")
       expect(jats.dig("day")).to eq("27")
+      expect(jats.dig("version")).to eq("2.0.0")
       expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.5063/f1m61h5x")
     end
 
@@ -104,7 +108,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("software")
-      expect(jats.dig("article_title")).to eq("Maremma: a Ruby library for simplified network calls")
+      expect(jats.dig("software_title")).to eq("Maremma: a Ruby library for simplified network calls")
       expect(jats.dig("source")).to eq("DataCite")
       expect(jats.dig("person_group", "name")).to eq("surname"=>"Fenner", "given_names"=>"Martin")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2017-02-24", "__content__"=>"2017")
