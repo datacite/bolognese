@@ -15,7 +15,7 @@ install:
 
 script:
 - bundle exec rspec
-- bundle exec codeclimate-test-reporter
+- bundle exec codeclimate-test-reporter || true
 
 notifications:
   email: false
