@@ -6,7 +6,7 @@ module Bolognese
 
         doi = doi_from_url(id)
         search_url = doi_search(id, options)
-        search_url += "?q=doi:#{doi}&fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
+        search_url += "?q=doi:#{doi}&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
 
         response = Maremma.get search_url
         attributes = response.body.dig("data", "response", "docs").first
@@ -31,6 +31,7 @@ module Bolognese
 
         { "string" => string,
           "url" => attributes.fetch("url", nil),
+          "state" => attributes.fetch("state", nil),
           "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
           "provider_id" => attributes.fetch("allocator_symbol", nil),

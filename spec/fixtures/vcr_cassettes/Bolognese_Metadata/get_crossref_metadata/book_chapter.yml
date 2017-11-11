@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 28 Oct 2017 11:03:43 GMT
+      - Sat, 11 Nov 2017 12:55:33 GMT
       Etag:
       - W/"5ffa3aa4009b56e51871db6d82d228d1"
       Server:
@@ -45,13 +45,13 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '420'
+      - '463'
       X-Powered-By:
       - Phusion Passenger 5.1.11
       X-Request-Id:
-      - 2a30787e-2573-42f1-85d7-d60907fd3ff0
+      - 460a25f0-1399-4db3-8766-9526620e9c66
       X-Runtime:
-      - '0.419010'
+      - '0.462130'
       Content-Length:
       - '203'
       Connection:
@@ -60,7 +60,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"data":{"id":"10.1007","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Sat, 28 Oct 2017 11:03:29 GMT
+  recorded_at: Sat, 11 Nov 2017 12:54:31 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1007/978-3-662-46370-3_13&noredirect=true&pid=tech@datacite.org
@@ -86,7 +86,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Sat, 28 Oct 2017 11:03:43 GMT
+      - Sat, 11 Nov 2017 12:55:33 GMT
       Connection:
       - close
     body:
@@ -146,5 +146,5 @@ http_interactions:
         \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
         \       </content_item>\r\n      </book>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sat, 28 Oct 2017 11:03:29 GMT
+  recorded_at: Sat, 11 Nov 2017 12:54:31 GMT
 recorded_with: VCR 3.0.3

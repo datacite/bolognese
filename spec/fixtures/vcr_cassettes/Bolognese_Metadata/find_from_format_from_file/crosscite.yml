@@ -29,9 +29,9 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Mon, 23 Oct 2017 17:57:33 GMT
+      - Sat, 11 Nov 2017 12:57:31 GMT
       Etag:
-      - W/"9f9b4d4b753bd2663f9f211af7a2ad55"
+      - W/"94db080a9ee05e0061a9924c2a6a790b"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -43,27 +43,27 @@ http_interactions:
       X-Anonymous-Consumer:
       - 'true'
       X-Kong-Proxy-Latency:
-      - '0'
+      - '2'
       X-Kong-Upstream-Latency:
-      - '135'
+      - '21'
       X-Powered-By:
       - Phusion Passenger 5.1.11
       X-Request-Id:
-      - 45845b0c-e4b8-4c52-a14a-ca2558a4b6c0
+      - e4dcff58-ce56-4cb4-8c40-a21c78714f51
       X-Runtime:
-      - '0.094776'
+      - '0.019512'
       Content-Length:
       - '1138'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2011-03-30T08:56:21.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"datacite.datacite","type":"clients"}]},"providers":{"data":[{"id":"datacite","type":"providers"}]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","domains":"datacite.org,orcid.org,odin-project.eu,project-thor.eu,pidapalooza.org,github.com","is-active":true,"created":"2011-12-07T13:43:39Z","updated":"2017-09-24T01:44:22Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"datacite","type":"providers","attributes":{"name":"DataCite","symbol":"DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","logo-url":"https://assets.datacite.org/images/members/datacite.png","is-active":true,"created":"2011-12-07T13:41:07.000Z","updated":"2017-09-24T01:43:55.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2011-03-30T08:56:21.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"datacite.datacite","type":"clients"}]},"providers":{"data":[{"id":"datacite","type":"providers"}]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","domains":"datacite.org,orcid.org,odin-project.eu,project-thor.eu,pidapalooza.org,github.com","is-active":true,"created":"2011-12-07T13:43:39Z","updated":"2017-11-07T17:09:30Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"datacite","type":"providers","attributes":{"name":"DataCite","symbol":"DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","logo-url":"https://assets.datacite.org/images/members/datacite.png","is-active":true,"created":"2011-12-07T13:41:07.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 17:57:40 GMT
+  recorded_at: Sat, 11 Nov 2017 12:56:29 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/4k3m-nyvg&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -84,7 +84,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Mon, 23 Oct 2017 17:57:43 GMT
+      - Sat, 11 Nov 2017 12:57:31 GMT
       Server:
       - openresty/1.11.2.2
       Content-Length:
@@ -97,5 +97,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 17:57:43 GMT
+  recorded_at: Sat, 11 Nov 2017 12:56:29 GMT
 recorded_with: VCR 3.0.3

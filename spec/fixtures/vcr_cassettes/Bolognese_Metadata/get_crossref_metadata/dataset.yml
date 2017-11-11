@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Mon, 23 Oct 2017 18:01:55 GMT
+      - Sat, 11 Nov 2017 12:55:35 GMT
       Etag:
       - W/"dfa1b36b298b7f19e0e4365818694b40"
       Server:
@@ -45,22 +45,20 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '229'
+      - '857'
       X-Powered-By:
       - Phusion Passenger 5.1.11
       X-Request-Id:
-      - 894ff964-bf6c-476b-a7c6-daf9c2dbd8f3
+      - cc45a174-2e74-40ed-9651-1da8ecec1eb4
       X-Runtime:
-      - '0.227697'
-      Content-Length:
-      - '203'
+      - '0.855678'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:01:54 GMT
+  recorded_at: Sat, 11 Nov 2017 12:54:33 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
@@ -80,19 +78,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs5-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Mon, 23 Oct 2017 18:01:55 GMT
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
+      - Sat, 11 Nov 2017 12:55:35 GMT
       Connection:
       - close
     body:
@@ -116,53 +108,5 @@ http_interactions:
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:01:55 GMT
-- request:
-    method: get
-    uri: http://api.crossref.org/prefixes/10.2210
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Maremma - https://github.com/datacite/maremma
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json;charset=UTF-8
-      Vary:
-      - Accept
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - X-Requested-With
-      Content-Length:
-      - '227'
-      Server:
-      - http-kit
-      Date:
-      - Mon, 23 Oct 2017 18:01:57 GMT
-      X-Rate-Limit-Limit:
-      - '50'
-      X-Rate-Limit-Interval:
-      - 1s
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: '{"status":"ok","message-type":"prefix","message-version":"1.0.0","message":{"member":"http:\/\/id.crossref.org\/member\/1042","name":"Protein
-        Data Bank, Rutgers University","prefix":"http:\/\/id.crossref.org\/prefix\/10.2210"}}'
-    http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:01:56 GMT
+  recorded_at: Sat, 11 Nov 2017 12:54:34 GMT
 recorded_with: VCR 3.0.3

@@ -16,7 +16,7 @@ http_interactions:
   response:
     status:
       code: 302
-      message: Moved Temporarily
+      message: Found
     headers:
       Content-Type:
       - text/html; charset=utf-8
@@ -31,26 +31,18 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - 9a5e1af12b3db53e661ff86a675075fe
+      - 85942b9568a8150e22d7479aa8cbe7b7
       Date:
-      - Mon, 23 Oct 2017 18:11:24 GMT
+      - Sat, 11 Nov 2017 12:57:03 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:11:23 GMT
+  recorded_at: Sat, 11 Nov 2017 12:56:01 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -78,29 +70,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751171023175703a2048647386json
+      - 24751171111124221a2048647386json
       Last-Modified:
-      - Mon, 23 Oct 2017 17:57:03 UTC
+      - Sat, 11 Nov 2017 12:42:21 UTC
       Set-Cookie:
       - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - b4927f2f581f97ddd9d824813facb4a7
+      - 9907160b1daa427bf47e3f321ec03c95
       Date:
-      - Mon, 23 Oct 2017 18:11:24 GMT
+      - Sat, 11 Nov 2017 12:57:03 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '134320'
       Expires:
-      - Mon, 23 Oct 2017 18:11:24 GMT
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
+      - Sat, 11 Nov 2017 12:57:03 GMT
     body:
       encoding: UTF-8
       string: |
@@ -2400,7 +2384,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:11:26 GMT
+  recorded_at: Sat, 11 Nov 2017 12:56:01 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2417,7 +2401,7 @@ http_interactions:
   response:
     status:
       code: 302
-      message: Moved Temporarily
+      message: Found
     headers:
       Content-Type:
       - text/html; charset=utf-8
@@ -2432,26 +2416,18 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - 27e6b5515098192bd37a3789a7edc5d6
+      - c4dc140c51b66e40554b8b63b83d7e9f
       Date:
-      - Mon, 23 Oct 2017 18:11:27 GMT
+      - Sat, 11 Nov 2017 12:57:04 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:11:27 GMT
+  recorded_at: Sat, 11 Nov 2017 12:56:02 GMT
 - request:
     method: get
     uri: http://schema.org/docs/jsonldcontext.json
@@ -2479,29 +2455,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751171023175703a2048647386json
+      - 24751171111124221a2048647386json
       Last-Modified:
-      - Mon, 23 Oct 2017 17:57:03 UTC
+      - Sat, 11 Nov 2017 12:42:21 UTC
       Set-Cookie:
       - GOOGAPPUID=3-4pre; Path=/
       X-Cloud-Trace-Context:
-      - '0258c2ab74be5009ea8f1be9a3138440'
+      - 29ac9b0816f270d45925e3deb90c2c65
       Date:
-      - Mon, 23 Oct 2017 18:11:36 GMT
+      - Sat, 11 Nov 2017 12:57:04 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '134320'
       Expires:
-      - Mon, 23 Oct 2017 18:11:36 GMT
-      X-Cache:
-      - MISS from IMP-cache
-      X-Cache-Lookup:
-      - MISS from IMP-cache:3128
-      Via:
-      - 1.0 IMP-cache (squid/3.1.20)
-      Connection:
-      - keep-alive
+      - Sat, 11 Nov 2017 12:57:04 GMT
     body:
       encoding: UTF-8
       string: |
@@ -4801,5 +4769,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Mon, 23 Oct 2017 18:11:44 GMT
+  recorded_at: Sat, 11 Nov 2017 12:56:02 GMT
 recorded_with: VCR 3.0.3
