@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:57 GMT
+      - Fri, 24 Nov 2017 22:10:42 GMT
       Etag:
       - W/"a3d5440e9823f6bb07b07410b1174435"
       Server:
@@ -45,13 +45,13 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '19'
+      - '18'
       X-Powered-By:
-      - Phusion Passenger 5.1.11
+      - Phusion Passenger 5.1.12
       X-Request-Id:
-      - 1851324e-4525-472d-af75-3a744f4b2674
+      - 37c965c2-d13d-4856-b784-80f06885e8c4
       X-Runtime:
-      - '0.018008'
+      - '0.017080'
       Content-Length:
       - '1495'
       Connection:
@@ -65,10 +65,10 @@ http_interactions:
         Witt","contact-email":"mwitt@purdue.edu","logo-url":"https://assets.datacite.org/images/members/purdue.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
         Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-09T00:06:44.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:55 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:42 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.21233/n34n5q&wt=json
+    uri: https://api.datacite.org/dois/10.21233/n34n5q?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -82,25 +82,58 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:57 GMT
+      - Fri, 24 Nov 2017 22:10:42 GMT
+      Etag:
+      - W/"d826cfbcfe6aa8ecda961d2b7a5c8c5c"
       Server:
       - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '14'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - 8dbbf005-1aad-4bf3-9d44-0237ba4a3921
+      X-Runtime:
+      - '0.013115'
       Content-Length:
-      - '4286'
+      - '6004'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":4},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"PURDUE.UWISC","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+ICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4yMTIzMy9OMzRONVE8L2lkZW50aWZpZXI+ICA8Y3JlYXRvcnM+ICAgIDxjcmVhdG9yPiAgICAgIDxjcmVhdG9yTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jcmVhdG9yTmFtZT4gICAgICA8YWZmaWxpYXRpb24+RGVwYXJ0bWVudCBvZiBHZW9sb2dpY2FsIFNjaWVuY2VzLCBDYW1wdXMgQm94IDI1MCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbywgQm91bGRlciwgQ08gODAzMDksIFVOSVRFRCBTVEFURVM8L2FmZmlsaWF0aW9uPiAgICA8L2NyZWF0b3I+ICA8L2NyZWF0b3JzPiAgPHRpdGxlcz4gICAgPHRpdGxlIHhtbDpsYW5nPSJlbi11cyI+TnVlbHRpbiBMYWtlIFNpdGUgMSBwb2xsZW4gc3VyZmFjZSBzYW1wbGUgZGF0YXNldDwvdGl0bGU+ICA8L3RpdGxlcz4gIDxwdWJsaXNoZXI+TmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2U8L3B1Ymxpc2hlcj4gIDxwdWJsaWNhdGlvblllYXI+MjAxNzwvcHVibGljYXRpb25ZZWFyPiAgPHN1YmplY3RzPiAgICA8c3ViamVjdCBzdWJqZWN0U2NoZW1lPSJMaWJyYXJ5IG9mIENvbmdyZXNzIiBzY2hlbWVVUkk9Imh0dHA6Ly9pZC5sb2MuZ292L2F1dGhvcml0aWVzL3N1YmplY3RzIj5QYWxlb2Vjb2xvZ3k8L3N1YmplY3Q+ICA8L3N1YmplY3RzPiAgPGNvbnRyaWJ1dG9ycz4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YUNvbGxlY3RvciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5OaWNob2xzLCBIYXJ2ZXk8L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmlidXRvcj4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUHJvamVjdExlYWRlciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkRhdGFDdXJhdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkdyaW1tLCBFcmljIENocmlzdG9waGVyPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmlidXRvck5hbWU+TmljaG9scywgSGFydmV5PC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmlidXRvck5hbWU+QW5kcmV3cywgSm9obiBULjwvY29udHJpYnV0b3JOYW1lPiAgICA8L2NvbnRyaWJ1dG9yPiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJEYXRhQ29sbGVjdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkFuZHJld3MsIEpvaG4gVC48L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmlidXRvcj4gIDwvY29udHJpYnV0b3JzPiAgPGRhdGVzPiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MTk5OC0wNi0xMjwvZGF0ZT4gICAgPGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjE5OTgtMDYtMTI8L2RhdGU+ICA8L2RhdGVzPiAgPGxhbmd1YWdlPkVuZ2xpc2g8L2xhbmd1YWdlPiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0L1BhbGVvZWNvbG9naWNhbCBTYW1wbGUgRGF0YTwvcmVzb3VyY2VUeXBlPiAgPHJlbGF0ZWRJZGVudGlmaWVycz4gICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0aW9uVHlwZT0iSXNNZXRhZGF0YUZvciIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0ZWRNZXRhZGF0YVNjaGVtZT0ianNvbiI+YXBpLm5lb3RvbWFkYi5vcmcvdjEvZG93bmxvYWRzLzMxNTc8L3JlbGF0ZWRJZGVudGlmaWVyPiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRpb25UeXBlPSJJc01ldGFkYXRhRm9yIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRlZE1ldGFkYXRhU2NoZW1lPSJqc29uIj5kYXRhLm5lb3RvbWFkYi5vcmcvZGF0YXNldHMvMzE1Ny9pbmRleC5odG1sPC9yZWxhdGVkSWRlbnRpZmllcj4gIDwvcmVsYXRlZElkZW50aWZpZXJzPiAgPHNpemVzPiAgICA8c2l6ZT4xMiBLQjwvc2l6ZT4gIDwvc2l6ZXM+ICA8Zm9ybWF0cz4gICAgPGZvcm1hdD5YTUw8L2Zvcm1hdD4gICAgPGZvcm1hdD5UTFg8L2Zvcm1hdD4gICAgPGZvcm1hdD5KU09OPC9mb3JtYXQ+ICA8L2Zvcm1hdHM+ICA8ZGVzY3JpcHRpb25zPiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCIgeG1sOmxhbmc9IkVOIj5SYXcgZGF0YSBmb3IgdGhlIE51ZWx0aW4gTGFrZSBTaXRlIDEgcG9sbGVuIHN1cmZhY2Ugc2FtcGxlIGRhdGFzZXQgb2J0YWluZWQgZnJvbSB0aGUgTmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2UuPC9kZXNjcmlwdGlvbj4gIDwvZGVzY3JpcHRpb25zPiAgPHJpZ2h0c0xpc3Q+ICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvZGVlZC5lbl9VUyI+Q0MtQlk0PC9yaWdodHM+ICA8L3JpZ2h0c0xpc3Q+ICA8Z2VvTG9jYXRpb25zPiAgICA8Z2VvTG9jYXRpb24+ICAgICAgPGdlb0xvY2F0aW9uQm94PjYwLjAzIC05OS44NSA2MC4wMyAtOTkuODU8L2dlb0xvY2F0aW9uQm94PiAgICA8L2dlb0xvY2F0aW9uPiAgPC9nZW9Mb2NhdGlvbnM+PC9yZXNvdXJjZT4=","allocator_symbol":"PURDUE","minted":"2017-04-18T01:36:23Z","updated":"2017-04-18T01:36:23Z","doi":"10.21233/N34N5Q"}]}}
-
-'
+      string: '{"data":{"id":"10.21233/n34n5q","type":"dois","attributes":{"doi":"10.21233/n34n5q","identifier":"https://doi.org/10.21233/n34n5q","url":null,"author":{"type":"Person","name":"John
+        T. Andrews","given-name":"John T.","family-name":"Andrews"},"title":"Nueltin
+        Lake Site 1 pollen surface sample dataset","container-title":"Neotoma Paleoecological
+        Database","description":{"type":"Abstract","text":"Raw data for the Nueltin
+        Lake Site 1 pollen surface sample dataset obtained from the Neotoma Paleoecological
+        Database."},"resource-type-subtype":"Dataset/Paleoecological Sample Data","license":"http://creativecommons.org/licenses/by/4.0/deed.en_US","version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291\ncmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwt\nMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVt\nYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNp\ndGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRl\nLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+ICA8aWRlbnRpZmll\nciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4yMTIzMy9OMzRONVE8L2lkZW50\naWZpZXI+ICA8Y3JlYXRvcnM+ICAgIDxjcmVhdG9yPiAgICAgIDxjcmVhdG9y\nTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jcmVhdG9yTmFtZT4gICAgICA8YWZm\naWxpYXRpb24+RGVwYXJ0bWVudCBvZiBHZW9sb2dpY2FsIFNjaWVuY2VzLCBD\nYW1wdXMgQm94IDI1MCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbywgQm91bGRl\nciwgQ08gODAzMDksIFVOSVRFRCBTVEFURVM8L2FmZmlsaWF0aW9uPiAgICA8\nL2NyZWF0b3I+ICA8L2NyZWF0b3JzPiAgPHRpdGxlcz4gICAgPHRpdGxlIHht\nbDpsYW5nPSJlbi11cyI+TnVlbHRpbiBMYWtlIFNpdGUgMSBwb2xsZW4gc3Vy\nZmFjZSBzYW1wbGUgZGF0YXNldDwvdGl0bGU+ICA8L3RpdGxlcz4gIDxwdWJs\naXNoZXI+TmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2U8L3B1Ymxp\nc2hlcj4gIDxwdWJsaWNhdGlvblllYXI+MjAxNzwvcHVibGljYXRpb25ZZWFy\nPiAgPHN1YmplY3RzPiAgICA8c3ViamVjdCBzdWJqZWN0U2NoZW1lPSJMaWJy\nYXJ5IG9mIENvbmdyZXNzIiBzY2hlbWVVUkk9Imh0dHA6Ly9pZC5sb2MuZ292\nL2F1dGhvcml0aWVzL3N1YmplY3RzIj5QYWxlb2Vjb2xvZ3k8L3N1YmplY3Q+\nICA8L3N1YmplY3RzPiAgPGNvbnRyaWJ1dG9ycz4gICAgPGNvbnRyaWJ1dG9y\nIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YUNvbGxlY3RvciI+ICAgICAgPGNvbnRy\naWJ1dG9yTmFtZT5OaWNob2xzLCBIYXJ2ZXk8L2NvbnRyaWJ1dG9yTmFtZT4g\nICAgPC9jb250cmlidXRvcj4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9y\nVHlwZT0iUHJvamVjdExlYWRlciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5B\nbmRyZXdzLCBKb2huIFQuPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJp\nYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkRhdGFD\ndXJhdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkdyaW1tLCBFcmljIENo\ncmlzdG9waGVyPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+\nICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIi\nPiAgICAgIDxjb250cmlidXRvck5hbWU+TmljaG9scywgSGFydmV5PC9jb250\ncmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRv\nciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmli\ndXRvck5hbWU+QW5kcmV3cywgSm9obiBULjwvY29udHJpYnV0b3JOYW1lPiAg\nICA8L2NvbnRyaWJ1dG9yPiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JU\neXBlPSJEYXRhQ29sbGVjdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkFu\nZHJld3MsIEpvaG4gVC48L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmli\ndXRvcj4gIDwvY29udHJpYnV0b3JzPiAgPGRhdGVzPiAgICA8ZGF0ZSBkYXRl\nVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBk\nYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0\nZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MTk5OC0wNi0xMjwvZGF0ZT4gICAgPGRh\ndGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjE5OTgtMDYtMTI8L2RhdGU+ICA8L2Rh\ndGVzPiAgPGxhbmd1YWdlPkVuZ2xpc2g8L2xhbmd1YWdlPiAgPHJlc291cmNl\nVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0L1Bh\nbGVvZWNvbG9naWNhbCBTYW1wbGUgRGF0YTwvcmVzb3VyY2VUeXBlPiAgPHJl\nbGF0ZWRJZGVudGlmaWVycz4gICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0\naW9uVHlwZT0iSXNNZXRhZGF0YUZvciIgcmVsYXRlZElkZW50aWZpZXJUeXBl\nPSJVUkwiIHJlbGF0ZWRNZXRhZGF0YVNjaGVtZT0ianNvbiI+YXBpLm5lb3Rv\nbWFkYi5vcmcvdjEvZG93bmxvYWRzLzMxNTc8L3JlbGF0ZWRJZGVudGlmaWVy\nPiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRpb25UeXBlPSJJc01ldGFk\nYXRhRm9yIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRlZE1l\ndGFkYXRhU2NoZW1lPSJqc29uIj5kYXRhLm5lb3RvbWFkYi5vcmcvZGF0YXNl\ndHMvMzE1Ny9pbmRleC5odG1sPC9yZWxhdGVkSWRlbnRpZmllcj4gIDwvcmVs\nYXRlZElkZW50aWZpZXJzPiAgPHNpemVzPiAgICA8c2l6ZT4xMiBLQjwvc2l6\nZT4gIDwvc2l6ZXM+ICA8Zm9ybWF0cz4gICAgPGZvcm1hdD5YTUw8L2Zvcm1h\ndD4gICAgPGZvcm1hdD5UTFg8L2Zvcm1hdD4gICAgPGZvcm1hdD5KU09OPC9m\nb3JtYXQ+ICA8L2Zvcm1hdHM+ICA8ZGVzY3JpcHRpb25zPiAgICA8ZGVzY3Jp\ncHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCIgeG1sOmxhbmc9IkVO\nIj5SYXcgZGF0YSBmb3IgdGhlIE51ZWx0aW4gTGFrZSBTaXRlIDEgcG9sbGVu\nIHN1cmZhY2Ugc2FtcGxlIGRhdGFzZXQgb2J0YWluZWQgZnJvbSB0aGUgTmVv\ndG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2UuPC9kZXNjcmlwdGlvbj4g\nIDwvZGVzY3JpcHRpb25zPiAgPHJpZ2h0c0xpc3Q+ICAgIDxyaWdodHMgcmln\naHRzVVJJPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9i\neS80LjAvZGVlZC5lbl9VUyI+Q0MtQlk0PC9yaWdodHM+ICA8L3JpZ2h0c0xp\nc3Q+ICA8Z2VvTG9jYXRpb25zPiAgICA8Z2VvTG9jYXRpb24+ICAgICAgPGdl\nb0xvY2F0aW9uQm94PjYwLjAzIC05OS44NSA2MC4wMyAtOTkuODU8L2dlb0xv\nY2F0aW9uQm94PiAgICA8L2dlb0xvY2F0aW9uPiAgPC9nZW9Mb2NhdGlvbnM+\nPC9yZXNvdXJjZT4=\n","published":"2017","registered":"2017-04-18T01:36:23.000Z","updated":"2017-04-18T01:36:23.000Z"},"relationships":{"client":{"data":{"id":"purdue.uwisc","type":"clients"}},"provider":{"data":{"id":"purdue","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"purdue.uwisc","type":"clients","attributes":{"name":"University
+        of Wisconsin-Madison","symbol":"PURDUE.UWISC","year":2016,"contact-name":"Greg
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","is-active":true,"created":"2016-05-25T18:36:35Z","updated":"2017-11-07T17:10:04Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"purdue","type":"providers","attributes":{"name":"Purdue
+        University Library","symbol":"PURDUE","year":2010,"contact-name":"Michael
+        Witt","contact-email":"mwitt@purdue.edu","logo-url":"https://assets.datacite.org/images/members/purdue.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:55 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:42 GMT
 recorded_with: VCR 3.0.3

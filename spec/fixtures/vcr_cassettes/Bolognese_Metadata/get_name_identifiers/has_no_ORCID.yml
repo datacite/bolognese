@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
+    uri: https://api.datacite.org/dois/10.4230/lipics.tqc.2013.93?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -16,30 +16,67 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:56:07 GMT
+      - Fri, 24 Nov 2017 22:11:07 GMT
+      Etag:
+      - W/"66bea1747f4d31d8108d5acebd520bb0"
       Server:
       - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '12'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - 6afd2b0f-79e8-409d-9f9c-3502de884833
+      X-Runtime:
+      - '0.010781'
       Content-Length:
-      - '2815'
+      - '4905'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DAGST","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"TIB","minted":"2013-11-13T13:42:17Z","updated":"2013-11-13T13:42:17Z","doi":"10.4230/LIPICS.TQC.2013.93"}]}}
-
-'
+      string: '{"data":{"id":"10.4230/lipics.tqc.2013.93","type":"dois","attributes":{"doi":"10.4230/lipics.tqc.2013.93","identifier":"https://doi.org/10.4230/lipics.tqc.2013.93","url":null,"author":{"type":"Person","name":"Nathaniel
+        Johnston","given-name":"Nathaniel","family-name":"Johnston"},"title":"The
+        Minimum Size of Qubit Unextendible Product Bases","container-title":"Schloss
+        Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany","description":{"type":"Other","text":"We
+        investigate the problem of constructing unextendible product bases in the
+        qubit case - that is, when each local dimension equals 2. The cardinality
+        of the smallest unextendible product basis is known in all qubit cases except
+        when the number of parties is a multiple of 4 greater than 4 itself. We construct
+        small unextendible product bases in all of the remaining open cases, and we
+        use graph theory techniques to produce a computer-assisted proof that our
+        constructions are indeed the smallest possible."},"resource-type-subtype":"ConferencePaper","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-2.1","state":"findable","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291\ncmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwt\nMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2No\nZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRh\nY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRh\nY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVu\ndGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRR\nQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8\nY3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+\nCjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUg\nTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJh\nc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdz\ndHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwg\nV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVi\nbGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3Rz\nPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJq\nZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2Us\nIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0\ncz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5\ncGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBN\nYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRy\naWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+\nMjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFu\nZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4\ndCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxz\naXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3Jt\nYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNp\nb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0\ncmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3Jp\nZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlv\nblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9m\nIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0\naGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1l\nbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxl\nc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxs\nIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGll\ncyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBX\nZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMg\naW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVz\nZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0\nZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUg\naW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+\nCjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==\n","published":"2013","registered":"2013-11-13T13:42:17.000Z","updated":"2013-11-13T13:42:17.000Z"},"relationships":{"client":{"data":{"id":"tib.dagst","type":"clients"}},"provider":{"data":{"id":"tib","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"tib.dagst","type":"clients","attributes":{"name":"Dagstuhl","symbol":"TIB.DAGST","year":2011,"contact-name":"Marc
+        Herbstritt","contact-email":"marc.herbstritt@dagstuhl.de","domains":"dagstuhl.de","is-active":true,"created":"2011-06-08T14:27:35Z","updated":"2017-11-07T17:09:28Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
+        National Library of Science and Technology","symbol":"TIB","year":2010,"contact-name":"Steffen
+        Krentz","contact-email":"steffen.krentz@tib.eu","logo-url":"https://assets.datacite.org/images/members/tib.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:55:05 GMT
+  recorded_at: Fri, 24 Nov 2017 22:11:07 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4230/lipics.tqc.2013.93&wt=json
+    uri: https://api.datacite.org/dois/10.4230/lipics.tqc.2013.93?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -53,25 +90,62 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:56:07 GMT
+      - Fri, 24 Nov 2017 22:11:07 GMT
+      Etag:
+      - W/"66bea1747f4d31d8108d5acebd520bb0"
       Server:
       - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '15'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - b3eae1f6-76d3-4afb-8f3f-a3c39b92850c
+      X-Runtime:
+      - '0.012610'
       Content-Length:
-      - '2815'
+      - '4905'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DAGST","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","allocator_symbol":"TIB","minted":"2013-11-13T13:42:17Z","updated":"2013-11-13T13:42:17Z","doi":"10.4230/LIPICS.TQC.2013.93"}]}}
-
-'
+      string: '{"data":{"id":"10.4230/lipics.tqc.2013.93","type":"dois","attributes":{"doi":"10.4230/lipics.tqc.2013.93","identifier":"https://doi.org/10.4230/lipics.tqc.2013.93","url":null,"author":{"type":"Person","name":"Nathaniel
+        Johnston","given-name":"Nathaniel","family-name":"Johnston"},"title":"The
+        Minimum Size of Qubit Unextendible Product Bases","container-title":"Schloss
+        Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany","description":{"type":"Other","text":"We
+        investigate the problem of constructing unextendible product bases in the
+        qubit case - that is, when each local dimension equals 2. The cardinality
+        of the smallest unextendible product basis is known in all qubit cases except
+        when the number of parties is a multiple of 4 greater than 4 itself. We construct
+        small unextendible product bases in all of the remaining open cases, and we
+        use graph theory techniques to produce a computer-assisted proof that our
+        constructions are indeed the smallest possible."},"resource-type-subtype":"ConferencePaper","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-2.1","state":"findable","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291\ncmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwt\nMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2No\nZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRh\nY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRh\nY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVu\ndGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRR\nQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8\nY3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+\nCjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUg\nTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJh\nc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdz\ndHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwg\nV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVi\nbGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3Rz\nPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJq\nZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2Us\nIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0\ncz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5\ncGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBN\nYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRy\naWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+\nMjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFu\nZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4\ndCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxz\naXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3Jt\nYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNp\nb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0\ncmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3Jp\nZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlv\nblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9m\nIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0\naGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1l\nbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxl\nc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxs\nIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGll\ncyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBX\nZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMg\naW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVz\nZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0\nZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUg\naW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+\nCjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==\n","published":"2013","registered":"2013-11-13T13:42:17.000Z","updated":"2013-11-13T13:42:17.000Z"},"relationships":{"client":{"data":{"id":"tib.dagst","type":"clients"}},"provider":{"data":{"id":"tib","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"tib.dagst","type":"clients","attributes":{"name":"Dagstuhl","symbol":"TIB.DAGST","year":2011,"contact-name":"Marc
+        Herbstritt","contact-email":"marc.herbstritt@dagstuhl.de","domains":"dagstuhl.de","is-active":true,"created":"2011-06-08T14:27:35Z","updated":"2017-11-07T17:09:28Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
+        National Library of Science and Technology","symbol":"TIB","year":2010,"contact-name":"Steffen
+        Krentz","contact-email":"steffen.krentz@tib.eu","logo-url":"https://assets.datacite.org/images/members/tib.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:55:05 GMT
+  recorded_at: Fri, 24 Nov 2017 22:11:07 GMT
 recorded_with: VCR 3.0.3

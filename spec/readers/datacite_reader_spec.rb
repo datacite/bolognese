@@ -340,7 +340,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("DARIAH-DE")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
-      expect(subject.state).to eq("draft")
+      expect(subject.state).to be_nil
     end
 
     it "BlogPosting in test system" do

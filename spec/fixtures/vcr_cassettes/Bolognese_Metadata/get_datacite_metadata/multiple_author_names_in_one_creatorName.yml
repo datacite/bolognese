@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:58 GMT
+      - Fri, 24 Nov 2017 22:10:47 GMT
       Etag:
       - W/"b741b8a4c8132737f31b1e34e3c37253"
       Server:
@@ -45,13 +45,15 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '21'
+      - '15'
       X-Powered-By:
-      - Phusion Passenger 5.1.11
+      - Phusion Passenger 5.1.12
       X-Request-Id:
-      - c4c0852f-4c1a-4e3b-835d-99db3ca467dc
+      - 247cd61b-c412-4c95-bb35-ac39eb9d188e
       X-Runtime:
-      - '0.019641'
+      - '0.013780'
+      Content-Length:
+      - '1044'
       Connection:
       - keep-alive
     body:
@@ -60,10 +62,10 @@ http_interactions:
         Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","is-active":true,"created":"2013-05-01T16:39:37Z","updated":"2017-11-07T17:09:39Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
         Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-09T00:06:44.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:56 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:47 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.7910/dvn/eqtqyo&wt=json
+    uri: https://api.datacite.org/dois/10.7910/dvn/eqtqyo?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -77,25 +79,56 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:58 GMT
+      - Fri, 24 Nov 2017 22:10:47 GMT
+      Etag:
+      - W/"bacccf540b8e6aea1c938c1a123fca74"
       Server:
       - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '14'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - '052942a6-ee14-408a-9683-10ea3d2a843f'
+      X-Runtime:
+      - '0.012381'
       Content-Length:
-      - '1342'
+      - '2932'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.DATAVERS","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CDL","minted":"2017-04-12T19:46:37Z","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO"}]}}
-
-'
+      string: '{"data":{"id":"10.7910/dvn/eqtqyo","type":"dois","attributes":{"doi":"10.7910/dvn/eqtqyo","identifier":"https://doi.org/10.7910/dvn/eqtqyo","url":null,"author":[{"type":"Person","name":"Ryan
+        Enos","given-name":"Ryan","family-name":"Enos"},{"type":"Person","name":"Anthony
+        Fowler","given-name":"Anthony","family-name":"Fowler"},{"type":"Person","name":"Lynn
+        Vavreck","given-name":"Lynn","family-name":"Vavreck"}],"title":"Replication
+        Data for: Increasing Inequality: The Effect of GOTV Mobilization on the Composition
+        of the Electorate","container-title":"Harvard Dataverse","description":null,"resource-type-subtype":"Dataset","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291\ncmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwt\nNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2No\nZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2Rh\ndGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEu\nZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8\naWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9F\nUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+\nCiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZl\ncnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fn\nbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwv\nY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+\nUmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTog\nVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9z\naXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgog\nIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8\ncHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVz\nb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9y\nZXNvdXJjZT4=\n","published":"2017","registered":"2017-04-12T19:46:37.000Z","updated":"2017-04-12T19:46:37.000Z"},"relationships":{"client":{"data":{"id":"cdl.datavers","type":"clients"}},"provider":{"data":{"id":"cdl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"cdl.datavers","type":"clients","attributes":{"name":"Harvard
+        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","is-active":true,"created":"2013-05-01T16:39:37Z","updated":"2017-11-07T17:09:39Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-09T00:06:44.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:56 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:47 GMT
 recorded_with: VCR 3.0.3

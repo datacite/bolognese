@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:56 GMT
+      - Fri, 24 Nov 2017 22:10:39 GMT
       Etag:
       - W/"737516685faccb6a36fbaff5fce9ad95"
       Server:
@@ -45,13 +45,15 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '17'
+      - '15'
       X-Powered-By:
-      - Phusion Passenger 5.1.11
+      - Phusion Passenger 5.1.12
       X-Request-Id:
-      - 85b02e21-4b54-4d30-bea7-cb92d560b4f8
+      - 4f0aaa41-a9b9-4269-86e7-5117d7c80018
       X-Runtime:
-      - '0.015883'
+      - '0.014013'
+      Content-Length:
+      - '1050'
       Connection:
       - keep-alive
     body:
@@ -61,10 +63,10 @@ http_interactions:
         Kotarski","contact-email":"datasets@bl.uk","domains":"bl.uk","is-active":true,"created":"2012-01-10T16:41:12Z","updated":"2017-11-07T17:09:31Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
         British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:54 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:39 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
+    uri: https://api.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -75,28 +77,43 @@ http_interactions:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Cache-Control:
+      - no-cache
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:57 GMT
+      - Fri, 24 Nov 2017 22:10:39 GMT
       Server:
       - openresty/1.11.2.2
-      Content-Length:
-      - '88'
+      Status:
+      - 404 Not Found
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '5'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - 40fbe80e-b157-4115-97f2-417a991e4aef
+      X-Runtime:
+      - '0.004288'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":0,"start":0,"docs":[]}}
-
-'
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:55 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:39 GMT
 recorded_with: VCR 3.0.3

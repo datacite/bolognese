@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:35 GMT
+      - Fri, 24 Nov 2017 22:10:49 GMT
       Etag:
       - W/"dfa1b36b298b7f19e0e4365818694b40"
       Server:
@@ -45,20 +45,22 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '857'
+      - '225'
       X-Powered-By:
-      - Phusion Passenger 5.1.11
+      - Phusion Passenger 5.1.12
       X-Request-Id:
-      - cc45a174-2e74-40ed-9651-1da8ecec1eb4
+      - 63954c63-ab1b-4e01-8136-f3693781113b
       X-Runtime:
-      - '0.855678'
+      - '0.223942'
+      Content-Length:
+      - '203'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:33 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:49 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
@@ -78,13 +80,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr6-1
+      - qs5-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sat, 11 Nov 2017 12:55:35 GMT
+      - Fri, 24 Nov 2017 22:10:48 GMT
       Connection:
       - close
     body:
@@ -108,5 +110,5 @@ http_interactions:
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:34 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:49 GMT
 recorded_with: VCR 3.0.3

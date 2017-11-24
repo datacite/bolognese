@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:56:04 GMT
+      - Fri, 24 Nov 2017 22:10:46 GMT
       Etag:
       - W/"529cfc2ee603f7cf3bca2e419e825ca4"
       Server:
@@ -45,13 +45,15 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '20'
+      - '16'
       X-Powered-By:
-      - Phusion Passenger 5.1.11
+      - Phusion Passenger 5.1.12
       X-Request-Id:
-      - b917783e-6e54-4e01-9047-89c9e99956f9
+      - 8b796bfa-2aaa-40f8-85d8-d19b36f16123
       X-Runtime:
-      - '0.018127'
+      - '0.014566'
+      Content-Length:
+      - '1111'
       Connection:
       - keep-alive
     body:
@@ -62,10 +64,10 @@ http_interactions:
         National Library of Science and Technology","symbol":"TIB","year":2010,"contact-name":"Steffen
         Krentz","contact-email":"steffen.krentz@tib.eu","logo-url":"https://assets.datacite.org/images/members/tib.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:55:02 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:46 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.18169/papdeottx00502&wt=json
+    uri: https://api.datacite.org/dois/10.18169/papdeottx00502?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -79,25 +81,55 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:56:04 GMT
+      - Fri, 24 Nov 2017 22:10:46 GMT
+      Etag:
+      - W/"a5f8f159f02a72134a15934800cb276e"
       Server:
       - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '0'
+      X-Kong-Upstream-Latency:
+      - '15'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - b5e87e8e-be6b-45e3-9f1d-2854cc485bb6
+      X-Runtime:
+      - '0.012805'
       Content-Length:
-      - '1814'
+      - '3244'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":2},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.PAP","xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+DTxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RUWDAwNTAyPC9pZGVudGlmaWVyPg08Y3JlYXRvcnM+DTxjcmVhdG9yPg08Y3JlYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4NPC9jcmVhdG9yPg08L2NyZWF0b3JzPg08dGl0bGVzPg08dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVuc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVvc2VxdWVuemVuPC90aXRsZT4NPC90aXRsZXM+DTxwdWJsaXNoZXI+U2llbWVucyBBRzwvcHVibGlzaGVyPg08cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4NPHN1YmplY3RzPg08c3ViamVjdD48L3N1YmplY3Q+DTxzdWJqZWN0Pjwvc3ViamVjdD4NPHN1YmplY3Q+PC9zdWJqZWN0Pg08L3N1YmplY3RzPg08ZGF0ZXM+DTxkYXRlIGRhdGVUeXBlPSJBdmFpbGFibGUiPjA3LjA0LjIwMTc8L2RhdGU+DTwvZGF0ZXM+DTxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+DTxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGlzY2xvc3VyZTwvcmVzb3VyY2VUeXBlPg08YWx0ZXJuYXRlSWRlbnRpZmllcnM+DTxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJVUkwiPg1odHRwOi8vd3d3LnByaW9yYXJ0cmVnaXN0ZXIuY29tL3Jlc29sdmUucGhwP2Rpc2Nsb3N1cmU9T1RUWDAwNTAyDTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4NPC9hbHRlcm5hdGVJZGVudGlmaWVycz4NPHNpemVzPg08c2l6ZT48L3NpemU+DTwvc2l6ZXM+DTxmb3JtYXRzPg08Zm9ybWF0PlBERjwvZm9ybWF0Pg08L2Zvcm1hdHM+DTx2ZXJzaW9uPjE8L3ZlcnNpb24+DTxkZXNjcmlwdGlvbnM+DTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4NPC9kZXNjcmlwdGlvbj4NPC9kZXNjcmlwdGlvbnM+DTwvcmVzb3VyY2U+DQ==","allocator_symbol":"TIB","minted":"2017-04-07T11:11:49Z","updated":"2017-04-07T11:11:49Z","doi":"10.18169/PAPDEOTTX00502"}]}}
-
-'
+      string: '{"data":{"id":"10.18169/papdeottx00502","type":"dois","attributes":{"doi":"10.18169/papdeottx00502","identifier":"https://doi.org/10.18169/papdeottx00502","url":null,"author":{"name":"Anonymous"},"title":"Messung
+        der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen","container-title":"Siemens
+        AG","description":{"type":"Abstract","text":""},"resource-type-subtype":"Disclosure","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9r\nZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hN\nTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8v\nZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRh\ndGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+DTxpZGVu\ndGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RU\nWDAwNTAyPC9pZGVudGlmaWVyPg08Y3JlYXRvcnM+DTxjcmVhdG9yPg08Y3Jl\nYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4NPC9jcmVhdG9yPg08\nL2NyZWF0b3JzPg08dGl0bGVzPg08dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVu\nc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVv\nc2VxdWVuemVuPC90aXRsZT4NPC90aXRsZXM+DTxwdWJsaXNoZXI+U2llbWVu\ncyBBRzwvcHVibGlzaGVyPg08cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1Ymxp\nY2F0aW9uWWVhcj4NPHN1YmplY3RzPg08c3ViamVjdD48L3N1YmplY3Q+DTxz\ndWJqZWN0Pjwvc3ViamVjdD4NPHN1YmplY3Q+PC9zdWJqZWN0Pg08L3N1Ympl\nY3RzPg08ZGF0ZXM+DTxkYXRlIGRhdGVUeXBlPSJBdmFpbGFibGUiPjA3LjA0\nLjIwMTc8L2RhdGU+DTwvZGF0ZXM+DTxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+\nDTxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+\nRGlzY2xvc3VyZTwvcmVzb3VyY2VUeXBlPg08YWx0ZXJuYXRlSWRlbnRpZmll\ncnM+DTxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJU\neXBlPSJVUkwiPg1odHRwOi8vd3d3LnByaW9yYXJ0cmVnaXN0ZXIuY29tL3Jl\nc29sdmUucGhwP2Rpc2Nsb3N1cmU9T1RUWDAwNTAyDTwvYWx0ZXJuYXRlSWRl\nbnRpZmllcj4NPC9hbHRlcm5hdGVJZGVudGlmaWVycz4NPHNpemVzPg08c2l6\nZT48L3NpemU+DTwvc2l6ZXM+DTxmb3JtYXRzPg08Zm9ybWF0PlBERjwvZm9y\nbWF0Pg08L2Zvcm1hdHM+DTx2ZXJzaW9uPjE8L3ZlcnNpb24+DTxkZXNjcmlw\ndGlvbnM+DTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0\nIj4NPC9kZXNjcmlwdGlvbj4NPC9kZXNjcmlwdGlvbnM+DTwvcmVzb3VyY2U+\n","published":"2017","registered":"2017-04-07T11:11:49.000Z","updated":"2017-04-07T11:11:49.000Z"},"relationships":{"client":{"data":{"id":"tib.pap","type":"clients"}},"provider":{"data":{"id":"tib","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"tib.pap","type":"clients","attributes":{"name":"Prior
+        Art Publishing GmbH","symbol":"TIB.PAP","year":2015,"contact-name":"Jakob
+        Marquard","contact-email":"office@priorartpublishing.de","domains":"www.priorartregister.com","is-active":true,"created":"2015-11-02T13:43:59Z","updated":"2017-11-07T17:09:59Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
+        National Library of Science and Technology","symbol":"TIB","year":2010,"contact-name":"Steffen
+        Krentz","contact-email":"steffen.krentz@tib.eu","logo-url":"https://assets.datacite.org/images/members/tib.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:55:02 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:46 GMT
 recorded_with: VCR 3.0.3

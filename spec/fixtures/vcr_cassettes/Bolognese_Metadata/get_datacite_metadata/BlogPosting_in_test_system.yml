@@ -29,9 +29,9 @@ http_interactions:
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:55 GMT
+      - Fri, 24 Nov 2017 22:10:37 GMT
       Etag:
-      - W/"94db080a9ee05e0061a9924c2a6a790b"
+      - W/"ea9b4e691cdc43f43bc403c92c7315d7"
       Server:
       - openresty/1.11.2.2
       Status:
@@ -45,23 +45,25 @@ http_interactions:
       X-Kong-Proxy-Latency:
       - '0'
       X-Kong-Upstream-Latency:
-      - '17'
+      - '16'
       X-Powered-By:
-      - Phusion Passenger 5.1.11
+      - Phusion Passenger 5.1.12
       X-Request-Id:
-      - 83c397b5-5b23-4933-a536-c171cd84366c
+      - 8b0c5208-d787-4cad-972e-d8484826efa4
       X-Runtime:
-      - '0.015451'
+      - '0.014745'
+      Content-Length:
+      - '1058'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2011-03-30T08:56:21.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"datacite.datacite","type":"clients"}]},"providers":{"data":[{"id":"datacite","type":"providers"}]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","domains":"datacite.org,orcid.org,odin-project.eu,project-thor.eu,pidapalooza.org,github.com","is-active":true,"created":"2011-12-07T13:43:39Z","updated":"2017-11-07T17:09:30Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"datacite","type":"providers","attributes":{"name":"DataCite","symbol":"DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","logo-url":"https://assets.datacite.org/images/members/datacite.png","is-active":true,"created":"2011-12-07T13:41:07.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: '{"data":{"id":"10.5438","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2011-03-30T08:56:21.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"datacite.datacite","type":"clients"}]},"providers":{"data":[{"id":"datacite","type":"providers"}]}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","domains":"*","is-active":true,"created":"2011-12-07T13:43:39Z","updated":"2017-11-22T18:19:22Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"datacite","type":"providers","attributes":{"name":"DataCite","symbol":"DATACITE","year":2011,"contact-name":"DataCite","contact-email":"support@datacite.org","logo-url":"https://assets.datacite.org/images/members/datacite.png","is-active":true,"created":"2011-12-07T13:41:07.000Z","updated":"2017-11-22T18:05:20.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:53 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:37 GMT
 - request:
     method: get
-    uri: https://search.test.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5438/mcnv-ga6n&wt=json
+    uri: https://api.test.datacite.org/dois/10.5438/mcnv-ga6n?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -75,23 +77,57 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
       Access-Control-Allow-Methods:
       - GET, POST, PATCH, PUT, DELETE, OPTIONS
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Cache-Control:
+      - max-age=0, private, must-revalidate
       Content-Type:
-      - application/json;charset=UTF-8
+      - application/vnd.api+json; charset=utf-8
       Date:
-      - Sat, 11 Nov 2017 12:55:55 GMT
+      - Fri, 24 Nov 2017 22:10:37 GMT
+      Etag:
+      - W/"e1891a3890ada669726748cfe11a590d"
       Server:
       - openresty/1.11.2.2
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Via:
+      - kong/0.10.3
+      X-Anonymous-Consumer:
+      - 'true'
+      X-Kong-Proxy-Latency:
+      - '2'
+      X-Kong-Upstream-Latency:
+      - '14'
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      X-Request-Id:
+      - ce07ab29-8aca-494a-a556-4898e254de75
+      X-Runtime:
+      - '0.011737'
+      Content-Length:
+      - '4319'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"SANDBOX.XH38-7HZV","url":"https://blog.datacite.org/re3data-webinar-and-datacite-en-avant/","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9NQ05WLUdBNk48L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5XaXR0LCBNaWNoYWVsPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5NaWNoYWVsPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPldpdHQ8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMy00MjIxLTc5NTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5yZTNkYXRhIFdlYmluYXIgYW5kIERhdGFDaXRlOiBFbiBBdmFudCE8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNpdGUgQmxvZzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5yZTNkYXRhPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RGF0YUNpdGU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgIDwvY29udHJpYnV0b3I+CiAgPC9jb250cmlidXRvcnM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNS0xMS0yNTwvZGF0ZT4KICA8L2RhdGVzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wLyI+Q3JlYXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbjwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPlRoZSBpbmF1Z3VyYWwgbWVldGluZyBvZiB0aGUgRGF0YUNpdGUgcmUzZGF0YSBXb3JraW5nIEdyb3VwIHdhcyBjb252ZW5lZCBpbiBQYXJpcyBvbiBTZXB0ZW1iZXIgMjB0aCBhdCB0aGUgb2ZmaWNlcyBvZiB0aGUgSW50ZXJuYXRpb25hbCBDb3VuY2lsIGZvciBTY2llbmNlIChJQ1NVKS4gQ28tY2hhaXJzIE1pY2hhZWwgV2l0dCBhbmQgRnJhbmsgU2Nob2x6ZSBnYXZlIHRoZSBiYWNrZ3JvdW5kIGFuZCBoaXN0b3J5IG9mIERhdGFiaWIuLi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","allocator_symbol":"SANDBOX","minted":"2016-12-19T15:46:57Z","state":"draft","updated":"2017-07-24T02:05:32Z","doi":"10.5438/MCNV-GA6N"}]}}
-
-'
+      string: '{"data":{"id":"10.5438/mcnv-ga6n","type":"dois","attributes":{"doi":"10.5438/mcnv-ga6n","identifier":"https://handle.test.datacite.org/10.5438/mcnv-ga6n","url":"https://blog.datacite.org/re3data-webinar-and-datacite-en-avant/","author":{"type":"Person","id":"https://orcid.org/0000-0003-4221-7956","name":"Witt,
+        Michael","given-name":"Michael","family-name":"Witt"},"title":"re3data Webinar
+        and DataCite: En Avant!","container-title":"DataCite Blog","description":{"type":"Abstract","text":"The
+        inaugural meeting of the DataCite re3data Working Group was convened in Paris
+        on September 20th at the offices of the International Council for Science
+        (ICSU). Co-chairs Michael Witt and Frank Scholze gave the background and history
+        of Databib..."},"resource-type-subtype":"BlogPosting","license":"https://creativecommons.org/licenses/by/4.0","version":35,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-4","state":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291\ncmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hl\nbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVt\nYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNp\ndGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRl\nLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZp\nZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTQzOC9NQ05WLUdBNk48L2lk\nZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxj\ncmVhdG9yTmFtZT5XaXR0LCBNaWNoYWVsPC9jcmVhdG9yTmFtZT4KICAgICAg\nPGdpdmVuTmFtZT5NaWNoYWVsPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlO\nYW1lPldpdHQ8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBz\nY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmcvIiBuYW1lSWRlbnRpZmllclNj\naGVtZT0iT1JDSUQiPjAwMDAtMDAwMy00MjIxLTc5NTY8L25hbWVJZGVudGlm\naWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4K\nICAgIDx0aXRsZT5yZTNkYXRhIFdlYmluYXIgYW5kIERhdGFDaXRlOiBFbiBB\ndmFudCE8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RGF0YUNp\ndGUgQmxvZzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNTwv\ncHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBl\nR2VuZXJhbD0iVGV4dCI+QmxvZ1Bvc3Rpbmc8L3Jlc291cmNlVHlwZT4KICA8\nc3ViamVjdHM+CiAgICA8c3ViamVjdD5yZTNkYXRhPC9zdWJqZWN0PgogIDwv\nc3ViamVjdHM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBj\nb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxj\nb250cmlidXRvck5hbWU+RGF0YUNpdGU8L2NvbnRyaWJ1dG9yTmFtZT4KICAg\nIDwvY29udHJpYnV0b3I+CiAgPC9jb250cmlidXRvcnM+CiAgPGRhdGVzPgog\nICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNS0xMS0yNTwvZGF0ZT4K\nICA8L2RhdGVzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRz\nTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZl\nY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wLyI+Q3JlYXRpdmUgQ29tbW9u\ncyBBdHRyaWJ1dGlvbjwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVz\nY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0i\nQWJzdHJhY3QiPlRoZSBpbmF1Z3VyYWwgbWVldGluZyBvZiB0aGUgRGF0YUNp\ndGUgcmUzZGF0YSBXb3JraW5nIEdyb3VwIHdhcyBjb252ZW5lZCBpbiBQYXJp\ncyBvbiBTZXB0ZW1iZXIgMjB0aCBhdCB0aGUgb2ZmaWNlcyBvZiB0aGUgSW50\nZXJuYXRpb25hbCBDb3VuY2lsIGZvciBTY2llbmNlIChJQ1NVKS4gQ28tY2hh\naXJzIE1pY2hhZWwgV2l0dCBhbmQgRnJhbmsgU2Nob2x6ZSBnYXZlIHRoZSBi\nYWNrZ3JvdW5kIGFuZCBoaXN0b3J5IG9mIERhdGFiaWIuLi48L2Rlc2NyaXB0\naW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==\n","published":"2015-11-25","registered":"2016-12-19T15:46:57.000Z","updated":"2017-11-22T10:50:19.000Z"},"relationships":{"client":{"data":{"id":"datacite.datacite","type":"clients"}},"provider":{"data":{"id":"datacite","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"datacite.datacite","type":"clients","attributes":{"name":"DataCite","symbol":"DATACITE.DATACITE","year":2011,"contact-name":"Martin
+        Fenner","contact-email":"tech@datacite.org","domains":"datacite.org","is-active":true,"created":"2011-12-07T13:43:39Z","updated":"2017-11-22T10:50:40Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"datacite","type":"providers","attributes":{"name":"DataCite","symbol":"DATACITE","year":2011,"contact-name":"Britta
+        Dreyer","contact-email":"britta.dreyer@datacite.org","logo-url":"https://assets.datacite.org/images/members/datacite.png","is-active":true,"created":"2011-12-07T13:41:07.000Z","updated":"2017-11-17T11:49:38.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:54 GMT
+  recorded_at: Fri, 24 Nov 2017 22:10:37 GMT
 recorded_with: VCR 3.0.3

@@ -25,7 +25,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Sat, 11 Nov 2017 12:55:28 GMT
+      - Fri, 24 Nov 2017 22:11:40 GMT
       Connection:
       - close
     body:
@@ -56,5 +56,5 @@ http_interactions:
         \         </doi_data>\r\n        </content_item>\r\n      </book>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sat, 11 Nov 2017 12:54:26 GMT
+  recorded_at: Fri, 24 Nov 2017 22:11:41 GMT
 recorded_with: VCR 3.0.3
