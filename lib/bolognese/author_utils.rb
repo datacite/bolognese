@@ -19,14 +19,6 @@ module Bolognese
              parse_attributes(author.fetch("contributorName", nil)) ||
              author.fetch("name", nil)
 
-      if name.include?("; ")
-        authors = name.split("; ").map do |name|
-          { "type" => author.fetch("type", nil),
-            "id" => author.fetch("id", nil),
-            "name" => name }.compact
-        end
-        return get_authors(authors)
-      end
 
       name = cleanup_author(name)
       given_name = author.fetch("givenName", nil)
@@ -71,9 +63,6 @@ module Bolognese
 
       # remove spaces around hyphens
       author = author.gsub(" - ", "-")
-
-      # remove text in parentheses
-      author = author.sub(/\s*\(.+\)\s*/, '')
 
       # titleize strings
       # remove non-standard space characters
