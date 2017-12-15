@@ -92,18 +92,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_authors(meta.dig("creators", "creator"))
-      expect(response).to eq([{"type"=>"Person",
-                               "name"=>"Ryan Enos",
-                               "givenName"=>"Ryan",
-                               "familyName"=>"Enos"},
-                              {"type"=>"Person",
-                               "name"=>"Anthony Fowler",
-                               "givenName"=>"Anthony",
-                               "familyName"=>"Fowler"},
-                              {"type"=>"Person",
-                               "name"=>"Lynn Vavreck",
-                               "givenName"=>"Lynn",
-                               "familyName"=>"Vavreck"}])
+      expect(response).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
     end
 
     it "hyper-authorship" do
@@ -127,6 +116,14 @@ describe Bolognese::Metadata, vcr: true do
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "name"=>"Dr. Störi, Kunstsalon")
+    end
+
+    it "name with affiliation and country" do
+      input = "10.16910/jemr.9.1.2"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
+      response = subject.get_one_author(meta.dig("creators", "creator").first)
+      expect(response).to eq("name"=>"Eraslan, Sukru; University Of Manchester, UK, & Middle East Technical University, Northern Cyprus Campus,  Kalkanli, Guzelyurt, Turkey")
     end
 
     it "name with role" do

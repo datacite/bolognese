@@ -109,5 +109,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:keywords]).to eq("datacite, doi, metadata, featured")
       expect(bibtex[:year]).to eq("2016")
     end
+
+    it "authors with affiliations" do
+      input = "10.16910/jemr.9.1.2"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.16910/jemr.9.1.2")
+      expect(bibtex[:doi]).to eq("10.16910/jemr.9.1.2")
+      expect(bibtex[:title]).to eq("Eye tracking scanpath analysis techniques on web pages: A survey, evaluation and comparison")
+      expect(bibtex[:author]).to eq("{Eraslan, Sukru; University Of Manchester, UK, & Middle East Technical University, Northern Cyprus Campus,  Kalkanli, Guzelyurt, Turkey} and {Yesilada, Yeliz; Middle East Technical University, Northern Cyprus Campus, 99738 Kalkanli, Guzelyurt, Mersin 10, Turkey} and {Harper, Simon; School Of Computer Science, University Of Manchester, Manchester, United Kingdom}")
+      expect(bibtex[:publisher]).to eq("eyemovement.org")
+      expect(bibtex[:keywords]).to eq("eye tracking; eye movements; scanpaths; eye movement sequence; web pages; visual elements; web pages; scanpath analysis techniques; scanpath analysis; pattern detection; common scanpaths")
+      expect(bibtex[:year]).to eq("2015")
+    end
   end
 end

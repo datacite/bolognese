@@ -146,8 +146,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7910/dvn/eqtqyo")
       expect(subject.type).to eq("Dataset")
-      expect(subject.author.length).to eq(3)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Ryan Enos", "givenName"=>"Ryan", "familyName"=>"Enos")
+      expect(subject.author).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
     end
 
     it "author with scheme" do
