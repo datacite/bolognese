@@ -99,18 +99,18 @@ module Bolognese
           book_metadata = meta.dig("crossref", "book", "book_metadata")
           book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
-          bibliographic_metadata = meta.dig("crossref", "book", "content_item")
+          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || {}
           additional_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
           publisher = book_metadata.dig("publisher", "publisher_name")
         when "conference"
-          event_metadata = meta.dig("crossref", "conference", "event_metadata")
-          bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper")
+          event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
+          bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper") || {}
         when "journal"
-          journal_metadata = meta.dig("crossref", "journal", "journal_metadata")
-          bibliographic_metadata = meta.dig("crossref", "journal", "journal_article")
+          journal_metadata = meta.dig("crossref", "journal", "journal_metadata") || {}
+          bibliographic_metadata = meta.dig("crossref", "journal", "journal_article") || {}
           program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
-          journal_issue = meta.dig("crossref", "journal", "journal_issue")
-          journal_article = meta.dig("crossref", "journal", "journal_article")
+          journal_issue = meta.dig("crossref", "journal", "journal_issue") || {}
+          journal_article = meta.dig("crossref", "journal", "journal_article") || {}
 
           additional_type = if journal_article.present?
                               "journal_article"
@@ -120,9 +120,9 @@ module Bolognese
                               "journal"
                             end
         when "posted_content"
-          bibliographic_metadata = meta.dig("crossref", "posted_content")
+          bibliographic_metadata = meta.dig("crossref", "posted_content") || {}
         when "sa_component"
-          bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component")
+          bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component") || {}
         end
 
         additional_type = (additional_type || model).underscore.camelize
@@ -194,7 +194,9 @@ module Bolognese
       def crossref_license(program_metadata)
         access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
         if access_indicator.present?
-          { "id" => normalize_url(parse_attributes(access_indicator["license_ref"])) }
+          Array.wrap(access_indicator["license_ref"]).map do |license|
+            { "id" => normalize_url(parse_attributes(license)) }
+          end.uniq.unwrap
         else
           nil
         end

@@ -171,6 +171,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.provider).to eq("Crossref")
     end
 
+    it "journal article with" do
+      input = "https://doi.org/10.1111/nph.14619"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.id).to eq(input)
+      expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("JournalArticle")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author.length).to eq(3)
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0002-4156-3761", "name"=>"Nico Dissmeyer", "givenName"=>"Nico", "familyName"=>"Dissmeyer")
+      expect(subject.title).to eq("Life and death of proteins after protease cleavage: protein degradation by the N-end rule pathway")
+      expect(subject.license).to eq([{"id"=>"http://doi.wiley.com/10.1002/tdm_license_1"}, {"id"=>"http://onlinelibrary.wiley.com/termsAndConditions"}])
+      expect(subject.date_published).to eq("2017-06-05")
+      expect(subject.date_modified).to eq("2017-06-05T10:56:59Z")
+      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"New Phytologist", "issn"=>"0028646X")
+      expect(subject.provider).to eq("Crossref")
+    end
+
     it "not found error" do
       input = "https://doi.org/10.7554/elife.01567x"
       subject = Bolognese::Metadata.new(input: input)
