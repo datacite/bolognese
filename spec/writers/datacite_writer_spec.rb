@@ -169,7 +169,7 @@ describe Bolognese::Metadata, vcr: true do
       subject.type = "Dataset"
       expect(subject.doi).to eq("123")
       expect(subject.valid?).to be false
-      expect(subject.errors.first).to start_with("Element '{http://datacite.org/schema/kernel-4}identifier'")
+      expect(subject.errors.first).to start_with("3:0: ERROR: Element '{http://datacite.org/schema/kernel-4}identifier'")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
     end
   end
