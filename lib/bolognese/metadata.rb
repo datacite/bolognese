@@ -117,7 +117,7 @@ module Bolognese
       if @from == "datacite" && options[:doi].present?
         doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
         node = doc.at_css("identifier")
-        node.content = options[:doi]
+        node.content = options[:doi].upcase
         @raw = doc.to_xml.strip
       end
 
