@@ -113,6 +113,14 @@ module Bolognese
       @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
       @raw = string.present? ? string.strip : nil
 
+      # replace DOI in XML if provided in options
+      if @from == "datacite" && options[:doi].present?
+        doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
+        node = doc.at_css("identifier")
+        node.content = options[:doi]
+        @raw = doc.to_xml.strip
+      end
+
       @should_passthru = (@from == "datacite") && !regenerate
 
       @url = hsh.to_h["url"].presence
