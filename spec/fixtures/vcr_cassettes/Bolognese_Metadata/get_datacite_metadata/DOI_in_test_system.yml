@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.20375
+    uri: https://api.datacite.org/prefixes/10.22002
     body:
       encoding: US-ASCII
       string: ''
@@ -16,55 +16,47 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Fri, 12 Jan 2018 18:11:18 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:10:43 GMT
-      Etag:
-      - W/"c8a4751fe1e4ab5bfa3498691f588231"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '21'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - 57b7b118-2fa4-47bd-a916-dfea50fcd2db
-      X-Runtime:
-      - '0.019384'
-      Content-Length:
-      - '1773'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"00d8969c9fcc61dfeb1b2a3edbdb2f8e"
+      X-Runtime:
+      - '0.018061'
+      X-Request-Id:
+      - b2f057f5-d86c-4f44-afba-471ed7037399
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.1.12
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuMjAzNzUiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE1LTEyLTE0VDA4OjE5OjU2LjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoic3ViZ29lLmRhcmlhaCIsInR5cGUiOiJjbGllbnRzIn0seyJpZCI6InN1YmdvZS50ZXh0Z3JpZCIsInR5cGUiOiJjbGllbnRzIn1dfSwicHJvdmlkZXJzIjp7ImRhdGEiOlt7ImlkIjoic3ViZ29lIiwidHlwZSI6InByb3ZpZGVycyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoic3ViZ29lLmRhcmlhaCIsInR5cGUiOiJjbGllbnRzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiRGlnaXRhbCBSZXNlYXJjaCBJbmZyYXN0cnVjdHVyZSBmb3IgdGhlIEFydHMgYW5kIEh1bWFuaXRpZXMiLCJzeW1ib2wiOiJTVUJHT0UuREFSSUFIIiwieWVhciI6MjAxNiwiY29udGFjdC1uYW1lIjoiU3RlZmFuIEUuIEZ1bmsgIiwiY29udGFjdC1lbWFpbCI6ImZ1bmtAc3ViLnVuaS1nb2V0dGluZ2VuLmRlIiwiZG9tYWlucyI6ImRhcmlhaC5ldSxkaGQtYmxvZy5vcmcsaGRsLmhhbmRsZS5uZXQscmVwb3NpdG9yeS5kZS5kYXJpYWguZXUsdHJlcC5kZS5kYXJpYWguZXUiLCJpcy1hY3RpdmUiOnRydWUsImNyZWF0ZWQiOiIyMDE2LTAzLTIxVDEyOjU2OjU1WiIsInVwZGF0ZWQiOiIyMDE3LTExLTA3VDE3OjEwOjAzWiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7Im1ldGEiOnt9fSwicHJvdmlkZXIiOnsibWV0YSI6e319LCJyZXBvc2l0b3J5Ijp7Im1ldGEiOnt9fX19LHsiaWQiOiJzdWJnb2UudGV4dGdyaWQiLCJ0eXBlIjoiY2xpZW50cyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IlRleHRncmlkIC0gVmlydHVlbGxlIEZvcnNjaHVuZ3N1bWdlYnVuZyBmw7xyIGRpZSBEaWdpdGFsZW4gR2Vpc3Rlc3dpc3NlbmNoYWZ0ZW4iLCJzeW1ib2wiOiJTVUJHT0UuVEVYVEdSSUQiLCJ5ZWFyIjoyMDE3LCJjb250YWN0LW5hbWUiOiJTdGVmYW4gRS4gRnVuayAiLCJjb250YWN0LWVtYWlsIjoiZnVua0BzdWIudW5pLWdvZXR0aW5nZW4uZGUiLCJkb21haW5zIjoidGV4dGdyaWRyZXAub3JnLGhkbC5oYW5kbGUubmV0IiwiaXMtYWN0aXZlIjp0cnVlLCJjcmVhdGVkIjoiMjAxNy0wOC0wN1QwNzo0NToyMFoiLCJ1cGRhdGVkIjoiMjAxNy0xMS0wN1QxNzoxMDoxOFoifSwicmVsYXRpb25zaGlwcyI6eyJwcmVmaXhlcyI6eyJtZXRhIjp7fX0sInByb3ZpZGVyIjp7Im1ldGEiOnt9fSwicmVwb3NpdG9yeSI6eyJtZXRhIjp7fX19fSx7ImlkIjoic3ViZ29lIiwidHlwZSI6InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6Ik5pZWRlcnPDpGNoc2lzY2hlIFN0YWF0cy0gdW5kIFVuaXZlcnNpdMOkdHNiaWJsaW90aGVrIEfDtnR0aW5nZW4iLCJzeW1ib2wiOiJTVUJHT0UiLCJ5ZWFyIjoyMDE2LCJjb250YWN0LW5hbWUiOiJIYW5zLVdlcm5lciBIaWxzZSIsImNvbnRhY3QtZW1haWwiOiJoaWxzZUBzdWIudW5pLWdvZXR0aW5nZW4uZGUiLCJsb2dvLXVybCI6Imh0dHBzOi8vYXNzZXRzLmRhdGFjaXRlLm9yZy9pbWFnZXMvbWVtYmVycy9zdWJnb2UucG5nIiwiaXMtYWN0aXZlIjp0cnVlLCJjcmVhdGVkIjoiMjAxNi0wMi0wMlQxNjo0MDowMy4wMDBaIiwidXBkYXRlZCI6IjIwMTctMTEtMTdUMDk6MjA6NTQuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsibWV0YSI6e319LCJwcmVmaXhlcyI6eyJtZXRhIjp7fX19fV19
+        eyJkYXRhIjp7ImlkIjoiMTAuMjIwMDIiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMyLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJDYWx0ZWNoIiwic3ltYm9sIjoiVElORC5DQUxURUNIIiwieWVhciI6MjAxNiwiY29udGFjdC1uYW1lIjoiVElORCIsImNvbnRhY3QtZW1haWwiOiJ0ZWNoQHRpbmQuaW8iLCJkb21haW5zIjoiZGF0YS5jYWx0ZWNoLmVkdSIsImlzLWFjdGl2ZSI6dHJ1ZSwicGFzc3dvcmQiOiJ5ZXMiLCJjcmVhdGVkIjoiMjAxNi0xMi0xNVQxMjoyOTo1N1oiLCJ1cGRhdGVkIjoiMjAxNy0xMS0wN1QxNzoxMDoxMVoifSwicmVsYXRpb25zaGlwcyI6eyJwcmVmaXhlcyI6eyJtZXRhIjp7fX0sInByb3ZpZGVyIjp7Im1ldGEiOnt9fSwicmVwb3NpdG9yeSI6eyJtZXRhIjp7fX19fSx7ImlkIjoidGluZCIsInR5cGUiOiJwcm92aWRlcnMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJUSU5EIiwic3ltYm9sIjoiVElORCIsInllYXIiOjIwMTYsImNvbnRhY3QtbmFtZSI6IkF1ZHVuIEJqw7hya8O4eSIsImNvbnRhY3QtZW1haWwiOiJhdWR1bkB0aW5kdGVjaG5vbG9naWVzLmNvbSIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMuZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL3RpbmQucG5nIiwiaXMtYWN0aXZlIjp0cnVlLCJwYXNzd29yZCI6InllcyIsImNyZWF0ZWQiOiIyMDE2LTA3LTExVDE0OjU2OjI2LjAwMFoiLCJ1cGRhdGVkIjoiMjAxNy0xMS0wN1QxNzowODoyOC4wMDBaIn0sInJlbGF0aW9uc2hpcHMiOnsiY2xpZW50cyI6eyJtZXRhIjp7fX0sInByZWZpeGVzIjp7Im1ldGEiOnt9fX19XX0=
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:10:43 GMT
+  recorded_at: Fri, 12 Jan 2018 18:11:20 GMT
 - request:
     method: get
-    uri: https://api.test.datacite.org/dois/10.20375/0000-0001-ddb8-7?include=client,provider
+    uri: https://api.test.datacite.org/dois/10.22002/d1.694?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -78,50 +70,44 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Fri, 12 Jan 2018 18:11:22 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:10:43 GMT
-      Etag:
-      - W/"24cfe4701ecbf43cdb75dd9554145ab2"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '14'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - db122af0-a8ac-4adf-a8ab-d9d83e40f91c
-      X-Runtime:
-      - '0.012617'
-      Content-Length:
-      - '3215'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"86ba73d74ecdef190ed868022940e8ba"
+      X-Runtime:
+      - '0.056634'
+      X-Request-Id:
+      - b979005e-d574-4231-a84d-5984bdd06d08
+      X-Powered-By:
+      - Phusion Passenger 5.1.12
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.1.12
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PATCH, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuMjAzNzUvMDAwMC0wMDAxLWRkYjgtNyIsInR5cGUiOiJkb2lzIiwiYXR0cmlidXRlcyI6eyJkb2kiOiIxMC4yMDM3NS8wMDAwLTAwMDEtZGRiOC03IiwiaWRlbnRpZmllciI6Imh0dHBzOi8vaGFuZGxlLnRlc3QuZGF0YWNpdGUub3JnLzEwLjIwMzc1LzAwMDAtMDAwMS1kZGI4LTciLCJ1cmwiOm51bGwsImF1dGhvciI6eyJ0eXBlIjoiUGVyc29uIiwibmFtZSI6IkZ1ICIsImdpdmVuLW5hbWUiOiJGdSJ9LCJ0aXRsZSI6IklNR18wMTM0LmpwZyIsImNvbnRhaW5lci10aXRsZSI6IkRBUklBSC1ERSIsImRlc2NyaXB0aW9uIjpudWxsLCJyZXNvdXJjZS10eXBlLXN1YnR5cGUiOiJEYXRhc2V0IiwibGljZW5zZSI6bnVsbCwidmVyc2lvbiI6MiwicmVsYXRlZC1pZGVudGlmaWVyIjpbXSwic2NoZW1hLXZlcnNpb24iOiJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIsInN0YXRlIjpudWxsLCJ4bWwiOiJQRDk0Yld3Z2RtVnljMmx2YmowaU1TNHdJaUJsYm1OdlpHbHVaejBpVlZSR0xUZ2lJSE4wWVc1a1lXeHZcbmJtVTlJbmxsY3lJL1BnbzhjbVZ6YjNWeVkyVWdlRzFzYm5NOUltaDBkSEE2THk5a1lYUmhZMmwwWlM1dlxuY21jdmMyTm9aVzFoTDJ0bGNtNWxiQzAwSWlCNGJXeHVjenA0YzJrOUltaDBkSEE2THk5M2QzY3Vkek11XG5iM0puTHpJd01ERXZXRTFNVTJOb1pXMWhMV2x1YzNSaGJtTmxJaUI0YzJrNmMyTm9aVzFoVEc5allYUnBcbmIyNDlJbWgwZEhBNkx5OWtZWFJoWTJsMFpTNXZjbWN2YzJOb1pXMWhMMnRsY201bGJDMDBJR2gwZEhBNlxuTHk5elkyaGxiV0V1WkdGMFlXTnBkR1V1YjNKbkwyMWxkR0V2YTJWeWJtVnNMVFF2YldWMFlXUmhkR0V1XG5lSE5rSWo0S0lDQWdJRHhwWkdWdWRHbG1hV1Z5SUdsa1pXNTBhV1pwWlhKVWVYQmxQU0pFVDBraVBqRXdcbkxqSXdNemMxTHpBd01EQXRNREF3TVMxRVJFSTRMVGM4TDJsa1pXNTBhV1pwWlhJK0NpQWdJQ0E4WTNKbFxuWVhSdmNuTStDaUFnSUNBZ0lDQWdQR055WldGMGIzSStDaUFnSUNBZ0lDQWdJQ0FnSUR4amNtVmhkRzl5XG5UbUZ0WlQ1bWRUd3ZZM0psWVhSdmNrNWhiV1UrQ2lBZ0lDQWdJQ0FnUEM5amNtVmhkRzl5UGdvZ0lDQWdcblBDOWpjbVZoZEc5eWN6NEtJQ0FnSUR4MGFYUnNaWE0rQ2lBZ0lDQWdJQ0FnUEhScGRHeGxQa2xOUjE4d1xuTVRNMExtcHdaend2ZEdsMGJHVStDaUFnSUNBOEwzUnBkR3hsY3o0S0lDQWdJRHh3ZFdKc2FYTm9aWEkrXG5SRUZTU1VGSUxVUkZQQzl3ZFdKc2FYTm9aWEkrQ2lBZ0lDQThjSFZpYkdsallYUnBiMjVaWldGeVBqSXdcbk1UYzhMM0IxWW14cFkyRjBhVzl1V1dWaGNqNEtJQ0FnSUR4eVpYTnZkWEpqWlZSNWNHVWdjbVZ6YjNWeVxuWTJWVWVYQmxSMlZ1WlhKaGJEMGlSR0YwWVhObGRDSStSR0YwWVhObGREd3ZjbVZ6YjNWeVkyVlVlWEJsXG5QZ29nSUNBZ1BHUmhkR1Z6UGdvZ0lDQWdJQ0FnSUR4a1lYUmxJR1JoZEdWVWVYQmxQU0pEY21WaGRHVmtcbklqNHlNREUxTFRBMkxUSXdWREUyT2pVME9qTTNQQzlrWVhSbFBnb2dJQ0FnUEM5a1lYUmxjejRLSUNBZ1xuSUR4eVpXeGhkR1ZrU1dSbGJuUnBabWxsY25NK0NpQWdJQ0FnSUNBZ1BISmxiR0YwWldSSlpHVnVkR2xtXG5hV1Z5SUhKbGJHRjBaV1JKWkdWdWRHbG1hV1Z5Vkhsd1pUMGlTR0Z1Wkd4bElpQnlaV3hoZEdsdmJsUjVcbmNHVTlJa2x6U1dSbGJuUnBZMkZzVkc4aVBqSXhMbFF4TVRrNU9DOHdNREF3TFRBd01ERXRSRVJDT0MwM1xuUEM5eVpXeGhkR1ZrU1dSbGJuUnBabWxsY2o0S0lDQWdJRHd2Y21Wc1lYUmxaRWxrWlc1MGFXWnBaWEp6XG5QZ29nSUNBZ1BHWnZjbTFoZEhNK0NpQWdJQ0FnSUNBZ1BHWnZjbTFoZEQ1cGJXRm5aUzlxY0dWblBDOW1cbmIzSnRZWFErQ2lBZ0lDQThMMlp2Y20xaGRITStDaUFnSUNBOGNtbG5hSFJ6VEdsemRENEtJQ0FnSUNBZ1xuSUNBOGNtbG5hSFJ6UG1aeVpXVThMM0pwWjJoMGN6NEtJQ0FnSUR3dmNtbG5hSFJ6VEdsemRENEtQQzl5XG5aWE52ZFhKalpUND1cbiIsInB1Ymxpc2hlZCI6IjIwMTciLCJyZWdpc3RlcmVkIjoiMjAxNy0wOC0yMlQxNzoyOTo0MS4wMDBaIiwidXBkYXRlZCI6IjIwMTctMDgtMjJUMTc6Mjk6NDEuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudCI6eyJkYXRhIjp7ImlkIjoic3ViZ29lLmRhcmlhaCIsInR5cGUiOiJjbGllbnRzIn19LCJwcm92aWRlciI6eyJkYXRhIjp7ImlkIjoic3ViZ29lIiwidHlwZSI6InByb3ZpZGVycyJ9fSwicmVzb3VyY2UtdHlwZSI6eyJtZXRhIjp7fX0sIm1lZGlhIjp7Im1ldGEiOnt9fX19LCJpbmNsdWRlZCI6W3siaWQiOiJzdWJnb2UuZGFyaWFoIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJEaWdpdGFsIFJlc2VhcmNoIEluZnJhc3RydWN0dXJlIGZvciB0aGUgQXJ0cyBhbmQgSHVtYW5pdGllcyIsInN5bWJvbCI6IlNVQkdPRS5EQVJJQUgiLCJ5ZWFyIjoyMDE2LCJjb250YWN0LW5hbWUiOiJTdGVmYW4gRnVuayIsImNvbnRhY3QtZW1haWwiOiJmdW5rQHN1Yi51bmktZ29ldHRpbmdlbi5kZSIsImRvbWFpbnMiOiJkYXJpYWguZXUsdHJlcC5kZS5kYXJpYWguZXUscmVwb3NpdG9yeS5kZS5kYXJpYWguZXUsaGRsLmhhbmRsZS5uZXQiLCJpcy1hY3RpdmUiOnRydWUsImNyZWF0ZWQiOiIyMDE2LTAzLTIxVDEzOjA0OjAyWiIsInVwZGF0ZWQiOiIyMDE3LTExLTA3VDE3OjEzOjM2WiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7Im1ldGEiOnt9fSwicHJvdmlkZXIiOnsibWV0YSI6e319LCJyZXBvc2l0b3J5Ijp7Im1ldGEiOnt9fX19LHsiaWQiOiJzdWJnb2UiLCJ0eXBlIjoicHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTmllZGVyc8OkY2hzaXNjaGUgU3RhYXRzLSB1bmQgVW5pdmVyc2l0w6R0c2JpYmxpb3RoZWsgR8O2dHRpbmdlbiIsInN5bWJvbCI6IlNVQkdPRSIsInllYXIiOjIwMTYsImNvbnRhY3QtbmFtZSI6IkhhbnMtV2VybmVyIEhpbHNlIiwiY29udGFjdC1lbWFpbCI6ImhpbHNlQHN1Yi51bmktZ29ldHRpbmdlbi5kZSIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMuZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL3N1YmdvZS5wbmciLCJpcy1hY3RpdmUiOnRydWUsImNyZWF0ZWQiOiIyMDE2LTAyLTA0VDE0OjE3OjM3LjAwMFoiLCJ1cGRhdGVkIjoiMjAxNy0xMS0wN1QxNzoxMzoxMS4wMDBaIn0sInJlbGF0aW9uc2hpcHMiOnsiY2xpZW50cyI6eyJtZXRhIjp7fX0sInByZWZpeGVzIjp7Im1ldGEiOnt9fX19XX0=
+      encoding: UTF-8
+      string: '{"data":{"id":"10.22002/d1.694","type":"dois","attributes":{"doi":"10.22002/d1.694","identifier":"https://handle.test.datacite.org/10.22002/d1.694","url":null,"author":{"name":"Tester"},"title":"Test
+        license","container-title":"CaltechDATA","description":null,"resource-type-subtype":"Dataset","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-4","state":"inactive","is-active":true,"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291\ncmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hl\nbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVt\nYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNp\ndGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRl\nLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZp\nZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVu\ndGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3Jl\nYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0\naW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwv\nY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8\nL3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8\nL3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0\naW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJq\nZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5\ncGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxs\nYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3Vy\nY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZv\ncm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4K\nICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29v\nZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9y\nZXNvdXJjZT4=\n","published":"2018-01-12","registered":"2018-01-12T14:42:51.000Z","updated":"2018-01-12T14:42:51.000Z"},"relationships":{"client":{"data":{"id":"tind.cal","type":"clients"}},"provider":{"data":{"id":"tind","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"tind.cal","type":"clients","attributes":{"name":"California
+        Institute of Technology","symbol":"TIND.CAL","year":2016,"contact-name":"tech@tind.io","contact-email":"tech@tind.io","domains":"tind.io","is-active":true,"password":"yes","created":"2016-10-25T15:16:46Z","updated":"2017-12-02T22:49:14Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tind","type":"providers","attributes":{"name":"TIND
+        Technologies","symbol":"TIND","year":2016,"contact-name":"Alexander Nietzold","contact-email":"alexander@tind.io","logo-url":"https://assets.datacite.org/images/members/tind.png","is-active":true,"password":"yes","created":"2016-06-08T18:16:18.000Z","updated":"2017-12-02T22:48:26.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:10:43 GMT
+  recorded_at: Fri, 12 Jan 2018 18:11:23 GMT
 recorded_with: VCR 3.0.3

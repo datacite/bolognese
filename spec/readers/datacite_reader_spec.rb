@@ -326,20 +326,21 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "DOI in test system" do
-      input = "https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7"
+      input = "https://handle.test.datacite.org/10.22002/d1.694"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://handle.test.datacite.org/10.20375/0000-0001-ddb8-7")
+      expect(subject.id).to eq("https://handle.test.datacite.org/10.22002/d1.694")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Fu ", "givenName"=>"Fu")
-      expect(subject.title).to eq("IMG_0134.jpg")
-      expect(subject.date_published).to eq("2017")
-      expect(subject.publisher).to eq("DARIAH-DE")
+      expect(subject.author).to eq("name"=>"Tester")
+      expect(subject.title).to eq("Test license")
+      expect(subject.date_published).to eq("2018-01-12")
+      expect(subject.publisher).to eq("CaltechDATA")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
-      expect(subject.state).to be_nil
+      expect(subject.state).to eq("inactive")
+      expect(subject.is_active).to be true
     end
 
     it "BlogPosting in test system" do

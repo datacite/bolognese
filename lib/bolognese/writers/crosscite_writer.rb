@@ -47,7 +47,8 @@ module Bolognese
           "provider_id" => provider_id,
           "client_id" => client_id,
           "provider" => provider,
-          "state" => state
+          "state" => state,
+          "is_active" => is_active
         }.compact
         JSON.pretty_generate hsh.presence
       end
