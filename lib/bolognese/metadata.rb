@@ -74,7 +74,7 @@ module Bolognese
       :is_documented_by, :documents, :is_compiled_by, :compiles,
       :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
       :is_derived_from, :is_source_of, :format, :funding, :type, :bibtex_type,
-      :citeproc_type, :ris_type, :style, :locale, :state, :is_active
+      :citeproc_type, :ris_type, :style, :locale, :state
 
     attr_reader :id, :from, :raw, :metadata, :doc, :provider,
       :page_start, :page_end, :should_passthru, :errors,
@@ -101,7 +101,6 @@ module Bolognese
       else
         hsh = { "url" => options[:url],
                 "state" => options[:state],
-                "is_active" => options[:is_active],
                 "date_registered" => options[:date_registered],
                 "date_updated" => options[:date_updated],
                 "provider_id" => options[:provider_id],
@@ -126,7 +125,6 @@ module Bolognese
 
       @url = hsh.to_h["url"].presence
       @state = hsh.to_h["state"].presence
-      @is_active = hsh.to_h["is_active"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
       @provider_id = hsh.to_h["provider_id"].presence
@@ -189,10 +187,6 @@ module Bolognese
 
     def state
       @state ||= metadata.fetch("state", nil)
-    end
-
-    def is_active
-      @is_active ||= metadata.fetch("is_active", nil)
     end
 
     def title

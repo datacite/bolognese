@@ -35,7 +35,6 @@ module Bolognese
         { "string" => string,
           "url" => attributes.fetch("url", nil),
           "state" => attributes.fetch("state", nil),
-          "is_active" => attributes.fetch("is-active", nil),
           "date_registered" => attributes.fetch("registered", nil),
           "date_updated" => attributes.fetch("updated", nil),
           "provider_id" => provider_id,

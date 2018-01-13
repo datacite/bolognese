@@ -340,7 +340,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
       expect(subject.state).to eq("inactive")
-      expect(subject.is_active).to be true
     end
 
     it "BlogPosting in test system" do
