@@ -44,6 +44,7 @@ module Bolognese
                 end
 
         page_first, page_last = meta.pages.to_s.split("-")
+        state = doi.present? ? "findable" : "not_found"
 
         { "id" => normalize_doi(doi),
           "type" => type,
@@ -61,7 +62,8 @@ module Bolognese
           "page_first" => page_first,
           "page_last" => page_last,
           "description" => { "text" => meta.field?(:abstract) && sanitize(meta.abstract.to_s).presence },
-          "license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence }
+          "license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
+          "state" => state
         }
       end
     end

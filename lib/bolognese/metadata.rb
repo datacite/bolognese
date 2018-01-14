@@ -61,14 +61,14 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :doi, :author, :title, :publisher, :contributor, :license,
+    attr_accessor :id, :doi, :author, :title, :publisher, :contributor, :license,
       :date_accepted, :date_available, :date_copyrighted, :date_collected,
       :date_submitted, :date_valid, :date_created, :date_modified,
       :date_registered, :date_updated, :provider_id, :client_id, :journal,
       :volume, :issue, :first_page, :last_page, :url, :version, :keywords, :editor,
       :description, :alternate_name, :language, :content_size, :spatial_coverage,
       :schema_version, :additional_type, :has_part, :same_as,
-      :is_previous_version_of, :is_new_version_of,   :is_cited_by, :cites,
+      :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
       :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
       :has_metadata, :is_metadata_for, :is_referenced_by, :references,
       :is_documented_by, :documents, :is_compiled_by, :compiles,
@@ -87,8 +87,8 @@ module Bolognese
         @from = from || find_from_format(id: id)
 
         # generate name for method to call dynamically
-        hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : nil
-        string = hsh.to_h.fetch("string", nil)
+        hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : {}
+        string = hsh.fetch("string", nil)
       elsif File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
@@ -110,11 +110,11 @@ module Bolognese
       end
 
       # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
+      @metadata = @from.present? ? send("read_" + @from, string: string, id: id, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
       @raw = string.present? ? string.strip : nil
 
       # replace DOI in XML if provided in options
-      if @from == "datacite" && options[:doi].present?
+      if @from == "datacite" && options[:doi].present? && string.present?
         doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
         node = doc.at_css("identifier")
         node.content = options[:doi].upcase
@@ -135,7 +135,7 @@ module Bolognese
     end
 
     def exists?
-      metadata.fetch("id", nil).present?
+      metadata.fetch("state", "not_found") != "not_found"
     end
 
     def valid?
@@ -150,7 +150,7 @@ module Bolognese
     end
 
     def id
-      @doi.present? ? doi_as_url(@doi) : metadata.fetch("id", nil)
+      @id ||= metadata.fetch("id", nil)
     end
 
     def type
@@ -178,7 +178,7 @@ module Bolognese
     end
 
     def doi
-      @doi ||= metadata.fetch("doi", nil)
+      @doi ||= @id.present? ? doi_from_url(@id) : metadata.fetch("doi", nil)
     end
 
     def url

@@ -193,6 +193,10 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.7554/elife.01567x"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567x")
+      expect(subject.doi).to eq("10.7554/elife.01567x")
+      expect(subject.provider).to eq("Crossref")
+      expect(subject.state).to eq("not_found")
     end
   end
 end

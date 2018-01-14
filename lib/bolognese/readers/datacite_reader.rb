@@ -2,7 +2,7 @@ module Bolognese
   module Readers
     module DataciteReader
       def get_datacite(id: nil, **options)
-        return nil unless id.present?
+        return { "string" => nil, "state" => "not_found" } unless id.present?
 
         doi = doi_from_url(id)
         search_url = doi_search(id, options)
@@ -10,7 +10,7 @@ module Bolognese
 
         response = Maremma.get search_url
         attributes = response.body.dig("data", "attributes")
-        return nil unless attributes.present?
+        return { "string" => nil, "state" => "not_found" } unless attributes.present?
 
         client_id = response.body.dig("data", "relationships", "client", "data", "id").upcase
         provider_id = response.body.dig("data", "relationships", "provider", "data", "id").upcase
@@ -42,9 +42,7 @@ module Bolognese
       end
 
       def read_datacite(string: nil, **options)
-        return { "errors" => "no content" } unless string.present?
-
-        meta = Maremma.from_xml(string).fetch("resource", {})
+        meta = Maremma.from_xml(string).to_h.fetch("resource", {})
         schema_version = meta.fetch("xmlns", nil)
 
         # validate only when option is set, as this step is expensive and
@@ -57,7 +55,7 @@ module Bolognese
         if options[:doi]
           id = normalize_doi(options[:doi], sandbox: options[:sandbox])
         else
-          id = normalize_doi(meta.dig("identifier", "__content__"), sandbox: options[:sandbox])
+          id = normalize_doi(meta.dig("identifier", "__content__") || options[:id], sandbox: options[:sandbox])
         end
 
         doi = doi_from_url(id)
@@ -93,6 +91,7 @@ module Bolognese
           f = datacite_funder_contributor(meta) + datacite_funding_reference(meta)
           f.length > 1 ? f : f.first
         end
+        state = doi.present? ? "findable" : "not_found"
 
         { "id" => id,
           "type" => type,
@@ -133,7 +132,8 @@ module Bolognese
           "keywords" => keywords,
           "language" => meta.fetch("language", nil),
           "content_size" => meta.fetch("size", nil),
-          "schema_version" => schema_version
+          "schema_version" => schema_version,
+          "state" => state
         }
       end
 

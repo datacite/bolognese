@@ -2,7 +2,7 @@ module Bolognese
   module Readers
     module CodemetaReader
       def get_codemeta(id: nil, **options)
-        return nil unless id.present?
+        return { "string" => nil, "state" => "not_found" } unless id.present?
         id = normalize_id(id)
         response = Maremma.get(github_as_codemeta_url(id), accept: "json", raw: true)
         string = response.body.fetch("data", nil)
@@ -11,17 +11,20 @@ module Bolognese
       end
 
       def read_codemeta(string: nil, **options)
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
+        if string.present?
+          errors = jsonlint(string)
+          return { "errors" => errors } if errors.present?
+        end
 
         meta = string.present? ? Maremma.from_json(string) : {}
-        identifier = meta.fetch("identifier", nil)
+        identifier = meta.fetch("identifier", nil) || options[:id]
         id = normalize_id(meta.fetch("@id", nil) || identifier)
         type = meta.fetch("@type", nil)
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         date_published = meta.fetch("datePublished", nil)
         publisher = meta.fetch("publisher", nil)
+        state = meta.present? ? "findable" : "not_found"
 
         { "id" => id,
           "type" => type,
@@ -45,7 +48,8 @@ module Bolognese
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("tags", nil)
+          "keywords" => meta.fetch("tags", nil),
+          "state" => state
         }
       end
 

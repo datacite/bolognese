@@ -63,7 +63,7 @@ module Bolognese
       CONTACT_EMAIL = "tech@datacite.org"
 
       def get_crossref(id: nil, **options)
-        return nil unless id.present?
+        return { "string" => nil, "state" => "not_found" } unless id.present?
 
         doi = doi_from_url(id)
         url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
@@ -82,13 +82,12 @@ module Bolognese
           meta = {}
         end
 
-        return meta unless meta["crossref"].present?
-
         # model should be one of book, conference, database, dissertation, journal, peer_review, posted_content,
         # report-paper, sa_component, standard
-        model = meta.dig("crossref").keys.first
+        model = meta.dig("crossref").to_h.keys.first
 
         additional_type = nil
+        bibliographic_metadata = {}
         program_metadata = {}
         journal_metadata = nil
         journal_issue = {}
@@ -99,15 +98,15 @@ module Bolognese
           book_metadata = meta.dig("crossref", "book", "book_metadata")
           book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
-          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || {}
+          bibliographic_metadata = meta.dig("crossref", "book", "content_item").to_h
           additional_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
           publisher = book_metadata.dig("publisher", "publisher_name")
         when "conference"
           event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
-          bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper") || {}
+          bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper").to_h
         when "journal"
           journal_metadata = meta.dig("crossref", "journal", "journal_metadata") || {}
-          bibliographic_metadata = meta.dig("crossref", "journal", "journal_article") || {}
+          bibliographic_metadata = meta.dig("crossref", "journal", "journal_article").to_h
           program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
           journal_issue = meta.dig("crossref", "journal", "journal_issue") || {}
           journal_article = meta.dig("crossref", "journal", "journal_article") || {}
@@ -120,18 +119,20 @@ module Bolognese
                               "journal"
                             end
         when "posted_content"
-          bibliographic_metadata = meta.dig("crossref", "posted_content") || {}
+          bibliographic_metadata = meta.dig("crossref", "posted_content").to_h
         when "sa_component"
-          bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component") || {}
+          bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
         end
 
-        additional_type = (additional_type || model).underscore.camelize
+        additional_type = (additional_type || model).to_s.underscore.camelize.presence
         type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
-        doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase
+
+        doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase.presence || doi_from_url(options[:id])
 
         # Crossref servers run on Eastern Time
         Time.zone = 'Eastern Time (US & Canada)'
-        date_modified = Time.zone.parse(meta.fetch("timestamp", "")).utc.iso8601
+        date_modified = Time.zone.parse(meta.fetch("timestamp", "2018-01-01")).utc.iso8601
+        state = meta.present? ? "findable" : "not_found"
 
         { "id" => normalize_doi(doi),
           "type" => type,
@@ -163,7 +164,8 @@ module Bolognese
           "keywords" => nil,
           "language" => nil,
           "content_size" => nil,
-          "schema_version" => nil
+          "schema_version" => nil,
+          "state" => state
         }
       end
 

@@ -34,7 +34,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting with new DOI" do
       subject = Bolognese::Metadata.new(input: input)
-      subject.doi = "10.5438/0000-00ss"
+      subject.id = "https://doi.org/10.5438/0000-00ss"
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
@@ -45,8 +45,9 @@ describe Bolognese::Metadata, vcr: true do
     it "not found error" do
       input = "https://doi.org/10.5438/4K3M-NYVGx"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
-      expect(subject.id).to be_nil
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvgx")
       expect(subject.exists?).to be false
+      expect(subject.state).to eq("not_found")
     end
   end
 

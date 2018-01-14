@@ -10,13 +10,27 @@ module Bolognese
         "isSuccessor" => "IsNewVersionOf"
       }
 
+      def get_schema_org(id: nil, **options)
+        return { "string" => nil, "state" => "not_found" } unless id.present?
+
+        id = normalize_id(id)
+        response = Maremma.get(id)
+        doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
+        string = doc.at_xpath('//script[@type="application/ld+json"]')
+        string = string.text if string.present?
+
+        { "string" => string }
+      end
+
       def read_schema_org(string: nil, **options)
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
+        if string.present?
+          errors = jsonlint(string)
+          return { "errors" => errors } if errors.present?
+        end
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        id = normalize_id(meta.fetch("@id", nil))
+        id = normalize_id(meta.fetch("@id", nil) || options[:id])
         type = meta.fetch("@type", nil)
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("author", nil))))
@@ -27,6 +41,7 @@ module Bolognese
                       meta.dig("publisher")
                     end
         date_published = meta.fetch("datePublished", nil)
+        state = meta.present? ? "findable" : "not_found"
 
         { "id" => id,
           "type" => type,
@@ -55,20 +70,9 @@ module Bolognese
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "license" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("keywords", nil).to_s.split(", ")
+          "keywords" => meta.fetch("keywords", nil).to_s.split(", "),
+          "state" => state
         }
-      end
-
-      def get_schema_org(id: nil, **options)
-        return nil unless id.present?
-
-        id = normalize_id(id)
-        response = Maremma.get(id)
-        doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
-        string = doc.at_xpath('//script[@type="application/ld+json"]')
-        string = string.text if string.present?
-
-        { "string" => string }
       end
 
       def schema_org_related_identifier(meta, relation_type: nil)

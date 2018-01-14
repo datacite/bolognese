@@ -9,6 +9,7 @@ module Bolognese
 
         resource_type_general = meta.fetch("resource-type-general", nil)
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
+        state = meta.fetch("doi", nil).present? ? "findable" : "not_found"
 
         { "id" => meta.fetch("id", nil),
           "type" => type,
@@ -44,7 +45,8 @@ module Bolognese
           "keywords" => meta.fetch("subject", nil),
           "language" => meta.fetch("language", nil),
           "content_size" => meta.fetch("size", nil),
-          "schema_version" => meta.fetch("schema-version", nil)
+          "schema_version" => meta.fetch("schema-version", nil),
+          "state" => state
         }
       end
 

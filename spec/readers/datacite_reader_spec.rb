@@ -323,6 +323,10 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
+      expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.state).to eq("not_found")
     end
 
     it "DOI in test system" do
@@ -368,8 +372,8 @@ describe Bolognese::Metadata, vcr: true do
   end
 
   context "change datacite metadata" do
-    it "change doi" do
-      subject.doi = "10.5061/8515"
+    it "change id" do
+      subject.id = "https://doi.org/10.5061/8515"
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/8515")
       expect(subject.doi).to eq("10.5061/8515")

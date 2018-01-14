@@ -46,6 +46,7 @@ module Bolognese
                      else
                        nil
                      end
+        state = doi.present? ? "findable" : "not_found"
 
         { "id" => normalize_doi(doi),
           "type" => type,
@@ -68,7 +69,8 @@ module Bolognese
           "first_page" => meta.fetch("SP", nil),
           "last_page" => meta.fetch("EP", nil),
           "keywords" => meta.fetch("KW", nil),
-          "language" => meta.fetch("LA", nil)
+          "language" => meta.fetch("LA", nil),
+          "state" => state
         }
       end
 

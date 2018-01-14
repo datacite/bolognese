@@ -24,8 +24,10 @@ module Bolognese
       }
 
       def read_citeproc(string: nil, **options)
-        errors = jsonlint(string)
-        return { "errors" => errors } if errors.present?
+        if string.present?
+          errors = jsonlint(string)
+          return { "errors" => errors } if errors.present?
+        end
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
@@ -43,8 +45,10 @@ module Bolognese
                      else
                        nil
                      end
+        id = normalize_id(meta.fetch("id", nil))
+        state = id.present? ? "findable" : "not_found"
 
-        { "id" => normalize_id(meta.fetch("id", nil)),
+        { "id" => id,
           "type" => type,
           "additional_type" => meta.fetch("additionalType", nil),
           "citeproc_type" => citeproc_type,
@@ -64,7 +68,8 @@ module Bolognese
           "description" => meta.fetch("abstract", nil).present? ? { "text" => sanitize(meta.fetch("abstract")) } : nil,
           #{ }"license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("categories", nil)
+          "keywords" => meta.fetch("categories", nil),
+          "state" => state
         }
       end
     end
