@@ -15,8 +15,8 @@ module Bolognese
         client_id = response.body.dig("data", "relationships", "client", "data", "id").upcase
         provider_id = response.body.dig("data", "relationships", "provider", "data", "id").upcase
 
-        string = attributes.fetch('xml', "PGhzaD48L2hzaD4=\n")
-        string = Base64.decode64(string)
+        string = attributes.fetch('xml', nil)
+        string = Base64.decode64(string) if string.present?
 
         if string.present?
           doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
