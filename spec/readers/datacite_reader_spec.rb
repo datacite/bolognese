@@ -390,5 +390,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("A new malaria agent in African hominids.")
     end
+
+    it "change state" do
+      subject.state = "registered"
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(subject.doi).to eq("10.5061/dryad.8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
+      expect(subject.state).to eq("registered")
+    end
   end
 end

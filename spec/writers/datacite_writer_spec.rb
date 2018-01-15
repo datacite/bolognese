@@ -180,6 +180,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
     end
 
+    it "change state" do
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      expect(subject.state).to eq("findable")
+      subject.state = "registered"
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("identifier", "__content__")).to eq("10.7554/elife.01567")
+      expect(subject.state).to eq("registered")
+    end
+
     it "validates against schema" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
