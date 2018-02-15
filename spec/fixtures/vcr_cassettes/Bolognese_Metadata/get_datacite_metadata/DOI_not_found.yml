@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.4124
+    uri: https://app.datacite.org/prefixes/10.4124
     body:
       encoding: US-ASCII
       string: ''
@@ -16,57 +16,41 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Thu, 15 Feb 2018 06:33:58 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:10:39 GMT
-      Etag:
-      - W/"737516685faccb6a36fbaff5fce9ad95"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '15'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - 4f0aaa41-a9b9-4269-86e7-5117d7c80018
-      X-Runtime:
-      - '0.014013'
-      Content-Length:
-      - '1050'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 719fbe0d-46e2-4594-995c-274c0934c0ce
+      Etag:
+      - W/"ca0ba9c079f576b532dfc92f34c78cb8"
+      X-Runtime:
+      - '0.015101'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"bl.old-api","type":"clients"}]},"providers":{"data":[{"id":"bl","type":"providers"}]}}},"included":[{"id":"bl.old-api","type":"clients","attributes":{"name":"BL''s
         DOI service prototype","symbol":"BL.OLD-API","year":2012,"contact-name":"Rachael
-        Kotarski","contact-email":"datasets@bl.uk","domains":"bl.uk","is-active":true,"created":"2012-01-10T16:41:12Z","updated":"2017-11-07T17:09:31Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
-        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Kotarski","contact-email":"datasets@bl.uk","domains":"bl.uk","url":null,"is-active":true,"has-password":false,"created":"2012-01-10T16:41:12Z","updated":"2018-02-15T02:30:10Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
+        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:10:39 GMT
+  recorded_at: Thu, 15 Feb 2018 06:33:58 GMT
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=client,provider
+    uri: https://app.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -80,40 +64,30 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache
+      Date:
+      - Thu, 15 Feb 2018 06:33:58 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:10:39 GMT
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 404 Not Found
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '5'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - 40fbe80e-b157-4115-97f2-417a991e4aef
-      X-Runtime:
-      - '0.004288'
       Connection:
       - keep-alive
+      Status:
+      - 404 Not Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 75bc99f2-b308-4b9b-8212-9209346b635f
+      X-Runtime:
+      - '0.004078'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:10:39 GMT
+  recorded_at: Thu, 15 Feb 2018 06:33:58 GMT
 recorded_with: VCR 3.0.3

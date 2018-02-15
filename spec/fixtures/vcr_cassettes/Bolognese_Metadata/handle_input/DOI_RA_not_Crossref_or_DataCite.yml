@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.3980
+    uri: https://app.datacite.org/prefixes/10.3980
     body:
       encoding: US-ASCII
       string: ''
@@ -16,49 +16,33 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Thu, 15 Feb 2018 06:33:21 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:14:19 GMT
-      Etag:
-      - W/"000fecca6416b8e7634edbc0a8e596f2"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '345'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - ccec4773-aef0-42c9-86b3-436da03559b2
-      X-Runtime:
-      - '0.344732'
-      Content-Length:
-      - '200'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 490b4de6-e589-4690-8c87-31574a659bc0
+      Etag:
+      - W/"000fecca6416b8e7634edbc0a8e596f2"
+      X-Runtime:
+      - '0.871708'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.3980","type":"prefixes","attributes":{"registration-agency":"ISTIC","created":null,"updated":"2016-09-20T21:59:03Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:14:19 GMT
+  recorded_at: Thu, 15 Feb 2018 06:33:22 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.1007
+    uri: https://app.datacite.org/prefixes/10.1007
     body:
       encoding: US-ASCII
       string: ''
@@ -16,51 +16,35 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Thu, 15 Feb 2018 06:34:28 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:10:51 GMT
-      Etag:
-      - W/"5ffa3aa4009b56e51871db6d82d228d1"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '671'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - cd0ac1ea-6e18-4eff-be44-797fb5cf5bc7
-      X-Runtime:
-      - '0.669312'
-      Content-Length:
-      - '203'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 85517e0e-8f1f-42de-abd5-c4f1d884dcab
+      Etag:
+      - W/"5ffa3aa4009b56e51871db6d82d228d1"
+      X-Runtime:
+      - '0.114201'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
       string: '{"data":{"id":"10.1007","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:10:51 GMT
+  recorded_at: Thu, 15 Feb 2018 06:34:28 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1007/978-3-662-46370-3_13&noredirect=true&pid=tech@datacite.org
@@ -80,13 +64,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs5-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Fri, 24 Nov 2017 22:10:50 GMT
+      - Thu, 15 Feb 2018 06:34:28 GMT
       Connection:
       - close
     body:
@@ -146,5 +130,5 @@ http_interactions:
         \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
         \       </content_item>\r\n      </book>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:10:51 GMT
+  recorded_at: Thu, 15 Feb 2018 06:34:29 GMT
 recorded_with: VCR 3.0.3

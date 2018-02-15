@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.0137
+    uri: https://app.datacite.org/prefixes/10.0137
     body:
       encoding: US-ASCII
       string: ''
@@ -16,40 +16,30 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache
+      Date:
+      - Thu, 15 Feb 2018 06:33:20 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:14:19 GMT
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 404 Not Found
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '478'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - edfd6443-9dc3-40e7-b88f-39579eb90f36
-      X-Runtime:
-      - '0.476502'
       Connection:
       - keep-alive
+      Status:
+      - 404 Not Found
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 33d3eaf4-a905-490a-9f6a-92858d07d2c2
+      X-Runtime:
+      - '0.112095'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:14:19 GMT
+  recorded_at: Thu, 15 Feb 2018 06:33:20 GMT
 recorded_with: VCR 3.0.3

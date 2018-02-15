@@ -17,7 +17,7 @@ module Bolognese
 
     def doi_search(doi, options={})
       sandbox = Array(/handle.test.datacite.org/.match(doi)).last
-      sandbox.present? || options[:sandbox] ? "https://api.test.datacite.org" : "https://api.datacite.org"
+      sandbox.present? || options[:sandbox] ? "https://app.test.datacite.org" : "https://app.datacite.org"
     end
 
     def normalize_doi(doi, options={})
@@ -44,7 +44,7 @@ module Bolognese
       prefix = validate_prefix(doi)
       return nil if prefix.blank?
 
-      url = "https://api.datacite.org/prefixes/#{prefix}"
+      url = "https://app.datacite.org/prefixes/#{prefix}"
       result = Maremma.get(url)
 
       result.body.fetch("data", {}).fetch('attributes', {}).fetch('registration-agency', nil)

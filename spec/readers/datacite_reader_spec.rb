@@ -346,20 +346,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.state).to eq("inactive")
     end
 
-    it "BlogPosting in test system" do
-      input = "https://handle.test.datacite.org/10.5438/mcnv-ga6n"
+    it "Referee report in test system" do
+      input = "10.21956/gatesopenres.530.r190"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://handle.test.datacite.org/10.5438/mcnv-ga6n")
+      expect(subject.id).to eq("https://handle.test.datacite.org/10.21956/gatesopenres.530.r190")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.additional_type).to eq("BlogPosting")
+      expect(subject.additional_type).to eq("Text")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4221-7956", "name"=>"Witt, Michael", "givenName"=>"Michael", "familyName"=>"Witt")
-      expect(subject.title).to eq("re3data Webinar and DataCite: En Avant!")
-      expect(subject.date_published).to eq("2015-11-25")
-      expect(subject.publisher).to eq("DataCite Blog")
+      expect(subject.author.length).to eq(5)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Lina Patel", "givenName"=>"Lina", "familyName"=>"Patel")
+      expect(subject.title).to eq("Referee report. For: Gates - add article keywords to the metatags [version 2; referees: 1 approved]")
+      expect(subject.date_published).to eq("2018")
+      expect(subject.publisher).to eq("Gates Open Research")
       expect(subject.provider).to eq("DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
     it "missing creator" do

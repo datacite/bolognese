@@ -1,0 +1,102 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.datacite.org/prefixes/10.21956
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 15 Feb 2018 06:42:44 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - f9904d06-30ad-484a-9877-ed3f56114c0a
+      Etag:
+      - W/"9913352d1f46cb5678fcd1747242e111"
+      X-Runtime:
+      - '0.015562'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.21956","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2016-05-31T14:02:31.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"bl.f1000r","type":"clients"}]},"providers":{"data":[{"id":"bl","type":"providers"}]}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
+        of 1000 Research Ltd","symbol":"BL.F1000R","year":2013,"contact-name":"Ravi
+        Kumarasinghe","contact-email":"Ravi.Kumarasinghe@F1000.com","domains":"f1000research.com,wellcomeopenresearch.org,gatesopenresearch.org,mniopenresearch.org","url":null,"is-active":true,"has-password":true,"created":"2013-11-22T09:46:04Z","updated":"2018-02-15T02:30:15Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
+        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+    http_version: 
+  recorded_at: Thu, 15 Feb 2018 06:42:44 GMT
+- request:
+    method: get
+    uri: https://app.test.datacite.org/dois/10.21956/gatesopenres.530.r190?include=client,provider
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 15 Feb 2018 06:42:45 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 3d817060-c31c-422a-a479-4cd919a532cb
+      Etag:
+      - W/"b095e5d17ea276eddcae4292766d5457"
+      X-Runtime:
+      - '0.053004'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"10.21956/gatesopenres.530.r190","type":"dois","attributes":{"doi":"10.21956/gatesopenres.530.r190","identifier":"https://handle.test.datacite.org/10.21956/gatesopenres.530.r190","url":null,"author":[{"type":"Person","name":"Lina
+        Patel","given-name":"Lina","family-name":"Patel"},{"name":"Test Test"},{"name":"Test
+        Test1"},{"name":"Ere Rer"},{"name":"Test Test4"}],"title":"Referee report.
+        For: Gates - add article keywords to the metatags [version 2; referees: 1
+        approved]","container-title":"Gates Open Research","description":null,"resource-type-subtype":"Text","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxyZXNvdXJjZSB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIiB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIxOTU2L2dhdGVzb3BlbnJlcy41MzAucjE5MDwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPmxpbmEgcGF0ZWw8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+dGVzdCB0ZXN0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPnRlc3QgdGVzdDE8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+ZXJlIHJlcjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT50ZXN0IHRlc3Q0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5SZWZlcmVlIHJlcG9ydC4gRm9yOiBHYXRlcyAtwqBhZGQgYXJ0aWNsZSBrZXl3b3JkcyB0byB0aGUgbWV0YXRhZ3MgW3ZlcnNpb24gMjsgcmVmZXJlZXM6IDEgYXBwcm92ZWRdPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkdhdGVzIE9wZW4gUmVzZWFyY2g8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiLz48L3Jlc291cmNlPg==","published":"2018","registered":"2018-02-13T15:35:13.000Z","updated":"2018-02-13T15:35:13.000Z"},"relationships":{"client":{"data":{"id":"bl.f1000r","type":"clients"}},"provider":{"data":{"id":"bl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
+        of 1000 Research","symbol":"BL.F1000R","year":2013,"contact-name":"Ravi Kumarasinghe","contact-email":"Ravi.Kumarasinghe@F1000.com","domains":"f1000r.com,f1000ri.com,wellcomeopenresearch.org,f1000internal.com","url":null,"is-active":true,"has-password":true,"created":"2013-11-07T13:41:36Z","updated":"2018-02-15T01:30:26Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
+        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T01:25:40.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+    http_version: 
+  recorded_at: Thu, 15 Feb 2018 06:42:45 GMT
+recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.16910/jemr.9.1.2?include=client,provider
+    uri: https://app.datacite.org/dois/10.16910/jemr.9.1.2?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -16,57 +16,40 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Thu, 15 Feb 2018 06:34:32 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 15 Dec 2017 14:26:50 GMT
-      Etag:
-      - W/"9c98c7be915568eb830b726459a2c7e3"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '96'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - a070526d-6e77-440c-b37a-dc94b79a075a
-      X-Runtime:
-      - '0.093748'
-      Content-Length:
-      - '7444'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 967d949e-4c24-4710-9e25-6fd135be4a63
+      Etag:
+      - W/"dafcda7a3aba5e875924e15be454f0dc"
+      X-Runtime:
+      - '0.012399'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.16910/jemr.9.1.2","type":"dois","attributes":{"doi":"10.16910/jemr.9.1.2","identifier":"https://doi.org/10.16910/jemr.9.1.2","url":null,"author":[[{"type":"Person","name":"Sukru
-        Eraslan","given-name":"Sukru","family-name":"Eraslan"},{"type":"Person","name":"UK
-        University Of Manchester","given-name":"UK","family-name":"University Of Manchester"}],[{"type":"Person","name":"Yeliz
-        Yesilada","given-name":"Yeliz","family-name":"Yesilada"},{"type":"Person","name":"Middle
-        East Technical University, Northern Cyprus Campus, 99738 Kalkanli, Guzelyurt,
-        Mersin 10, Turkey"}],[{"type":"Person","name":"Simon Harper","given-name":"Simon","family-name":"Harper"},{"type":"Person","name":"University
-        Of Manchester School Of Computer Science","given-name":"University Of Manchester","family-name":"School
-        Of Computer Science"}]],"title":"Eye tracking scanpath analysis techniques
-        on web pages: A survey, evaluation and comparison","container-title":"eyemovement.org","description":{"type":"Other","text":"Eye
+      string: '{"data":{"id":"10.16910/jemr.9.1.2","type":"dois","attributes":{"doi":"10.16910/jemr.9.1.2","identifier":"https://doi.org/10.16910/jemr.9.1.2","url":null,"author":[{"name":"Eraslan,
+        Sukru; University Of Manchester, UK, \u0026 Middle East Technical University,
+        Northern Cyprus Campus,  Kalkanli, Guzelyurt, Turkey"},{"name":"Yesilada,
+        Yeliz; Middle East Technical University, Northern Cyprus Campus, 99738 Kalkanli,
+        Guzelyurt, Mersin 10, Turkey"},{"name":"Harper, Simon; School Of Computer
+        Science, University Of Manchester, Manchester, United Kingdom"}],"title":"Eye
+        tracking scanpath analysis techniques on web pages: A survey, evaluation and
+        comparison","container-title":"eyemovement.org","description":{"type":"Other","text":"Eye
         tracking has commonly been used to investigate how users interact with web
         pages, with the goal of improving their usability. This article comprehensively
         revisits the techniques that could be applicable to eye tracking data for
@@ -81,10 +64,10 @@ http_interactions:
         researchers can directly focus on the appropriate techniques for a sequential
         analysis of user scanpaths on web pages. This article also suggests dealing
         with the limitations of these techniques by pre-processing eye tracking data,
-        considering cognitive processing and addressing their reductionist approach."},"resource-type-subtype":"Workflow","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48cmVzb3Vy\nY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0z\nIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1h\nLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0\nZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUu\nb3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj48aWRlbnRpZmllciBp\nZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4xNjkxMC9qZW1yLjkuMS4yPC9pZGVu\ndGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+RXJhc2xh\nbiwgU3VrcnU7IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlciwgVUssICZhbXA7\nIE1pZGRsZSBFYXN0IFRlY2huaWNhbCBVbml2ZXJzaXR5LCBOb3J0aGVybiBD\neXBydXMgQ2FtcHVzLCAgS2Fsa2FubGksIEd1emVseXVydCwgVHVya2V5PC9j\ncmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPlll\nc2lsYWRhLCBZZWxpejsgTWlkZGxlIEVhc3QgVGVjaG5pY2FsIFVuaXZlcnNp\ndHksIE5vcnRoZXJuIEN5cHJ1cyBDYW1wdXMsIDk5NzM4IEthbGthbmxpLCBH\ndXplbHl1cnQsIE1lcnNpbiAxMCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2Ny\nZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkhhcnBlciwgU2ltb247IFNj\naG9vbCBvZiBDb21wdXRlciBTY2llbmNlLCBVbml2ZXJzaXR5IG9mIE1hbmNo\nZXN0ZXIsIE1hbmNoZXN0ZXIsIFVuaXRlZCBLaW5nZG9tPC9jcmVhdG9yTmFt\nZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5FeWUgdHJh\nY2tpbmcgc2NhbnBhdGggYW5hbHlzaXMgdGVjaG5pcXVlcyBvbiB3ZWIgcGFn\nZXM6IEEgc3VydmV5LCBldmFsdWF0aW9uIGFuZCBjb21wYXJpc29uPC90aXRs\nZT48L3RpdGxlcz48cHVibGlzaGVyPmV5ZW1vdmVtZW50Lm9yZzwvcHVibGlz\naGVyPjxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPjxz\ndWJqZWN0cz48c3ViamVjdD5leWUgdHJhY2tpbmc7IGV5ZSBtb3ZlbWVudHM7\nIHNjYW5wYXRoczsgZXllIG1vdmVtZW50IHNlcXVlbmNlOyB3ZWIgcGFnZXM7\nIHZpc3VhbCBlbGVtZW50czsgd2ViIHBhZ2VzOyBzY2FucGF0aCBhbmFseXNp\ncyB0ZWNobmlxdWVzOyBzY2FucGF0aCBhbmFseXNpczsgcGF0dGVybiBkZXRl\nY3Rpb247IGNvbW1vbiBzY2FucGF0aHM8L3N1YmplY3Q+PC9zdWJqZWN0cz48\nZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxNS0xMi0zMDwv\nZGF0ZT48L2RhdGVzPjxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPjxyZXNvdXJj\nZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iV29ya2Zsb3ciPjwvcmVzb3Vy\nY2VUeXBlPjxmb3JtYXRzPjxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3Jt\nYXQ+PC9mb3JtYXRzPjxyaWdodHNMaXN0PjxyaWdodHM+aHR0cDovL2NyZWF0\naXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wPC9yaWdodHM+PHJpZ2h0\ncz5Db3B5cmlnaHQgKGMpIDIwMTUgU3VrcnUgRXJhc2xhbiwgWWVsaXogWWVz\naWxhZGEsIFNpbW9uIEhhcnBlcjwvcmlnaHRzPjwvcmlnaHRzTGlzdD48ZGVz\nY3JpcHRpb25zPjxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVy\nIj5FeWUgdHJhY2tpbmcgaGFzIGNvbW1vbmx5IGJlZW4gdXNlZCB0byBpbnZl\nc3RpZ2F0ZSBob3cgdXNlcnMgaW50ZXJhY3Qgd2l0aCB3ZWIgcGFnZXMsIHdp\ndGggdGhlIGdvYWwgb2YgaW1wcm92aW5nIHRoZWlyIHVzYWJpbGl0eS4gVGhp\ncyBhcnRpY2xlIGNvbXByZWhlbnNpdmVseSByZXZpc2l0cyB0aGUgdGVjaG5p\ncXVlcyB0aGF0IGNvdWxkIGJlIGFwcGxpY2FibGUgdG8gZXllIHRyYWNraW5n\nIGRhdGEgZm9yIGFuYWx5c2luZyB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFn\nZXMuIEl0IGFsc28gdXNlcyBhIHRoaXJkLXBhcnR5IGV5ZSB0cmFja2luZyBz\ndHVkeSB0byBjb21wYXJlIHRoZXNlIHRlY2huaXF1ZXMuIFRoaXMgYWxsb3dz\nIHJlc2VhcmNoZXJzIHRvIHJlY29nbmlzZSBleGlzdGluZyB0ZWNobmlxdWVz\nIGZvciB0aGVpciBnb2FscywgdW5kZXJzdGFuZCBob3cgdGhleSB3b3JrIGFu\nZCBrbm93IHRoZWlyIHN0cmVuZ3RocyBhbmQgbGltaXRhdGlvbnMgc28gdGhh\ndCB0aGV5IGNhbiBtYWtlIGFuIGVmZmljaWVudCBjaG9pY2UgZm9yIHRoZWly\nIHN0dWRpZXMuIFRoZXNlIHRlY2huaXF1ZXMgY2FuIG1haW5seSBiZSB1c2Vk\nIGZvciBjYWxjdWxhdGluZyBzaW1pbGFyaXRpZXMvZGlzc2ltaWxhcml0aWVz\nIGJldHdlZW4gc2NhbnBhdGhzLCBjb21wdXRpbmcgdHJhbnNpdGlvbiBwcm9i\nYWJpbGl0aWVzIGJldHdlZW4gd2ViIHBhZ2UgZWxlbWVudHMsIGRldGVjdGlu\nZyBwYXR0ZXJucyBpbiBzY2FucGF0aHMgYW5kIGlkZW50aWZ5aW5nIGNvbW1v\nbiBzY2FucGF0aHMuIFRoZSBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVz\nIGFyZSBjbGFzc2lmaWVkIGludG8gZm91ciBncm91cHMgYnkgdGhlaXIgZ29h\nbHMgc28gdGhhdCByZXNlYXJjaGVycyBjYW4gZGlyZWN0bHkgZm9jdXMgb24g\ndGhlIGFwcHJvcHJpYXRlIHRlY2huaXF1ZXMgZm9yIGEgc2VxdWVudGlhbCBh\nbmFseXNpcyBvZiB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIFRoaXMg\nYXJ0aWNsZSBhbHNvIHN1Z2dlc3RzIGRlYWxpbmcgd2l0aCB0aGUgbGltaXRh\ndGlvbnMgb2YgdGhlc2UgdGVjaG5pcXVlcyBieSBwcmUtcHJvY2Vzc2luZyBl\neWUgdHJhY2tpbmcgZGF0YSwgY29uc2lkZXJpbmcgY29nbml0aXZlIHByb2Nl\nc3NpbmcgYW5kIGFkZHJlc3NpbmcgdGhlaXIgcmVkdWN0aW9uaXN0IGFwcHJv\nYWNoLjwvZGVzY3JpcHRpb24+PC9kZXNjcmlwdGlvbnM+PC9yZXNvdXJjZT4=\n","published":"2015","registered":"2016-02-22T14:43:13.000Z","updated":"2016-06-09T13:32:43.000Z"},"relationships":{"client":{"data":{"id":"ethz.bopjemr","type":"clients"}},"provider":{"data":{"id":"ethz","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"ethz.bopjemr","type":"clients","attributes":{"name":"BOP:
+        considering cognitive processing and addressing their reductionist approach."},"resource-type-subtype":"Workflow","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48cmVzb3VyY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj48aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4xNjkxMC9qZW1yLjkuMS4yPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+RXJhc2xhbiwgU3VrcnU7IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlciwgVUssICZhbXA7IE1pZGRsZSBFYXN0IFRlY2huaWNhbCBVbml2ZXJzaXR5LCBOb3J0aGVybiBDeXBydXMgQ2FtcHVzLCAgS2Fsa2FubGksIEd1emVseXVydCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPlllc2lsYWRhLCBZZWxpejsgTWlkZGxlIEVhc3QgVGVjaG5pY2FsIFVuaXZlcnNpdHksIE5vcnRoZXJuIEN5cHJ1cyBDYW1wdXMsIDk5NzM4IEthbGthbmxpLCBHdXplbHl1cnQsIE1lcnNpbiAxMCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkhhcnBlciwgU2ltb247IFNjaG9vbCBvZiBDb21wdXRlciBTY2llbmNlLCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIsIE1hbmNoZXN0ZXIsIFVuaXRlZCBLaW5nZG9tPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5FeWUgdHJhY2tpbmcgc2NhbnBhdGggYW5hbHlzaXMgdGVjaG5pcXVlcyBvbiB3ZWIgcGFnZXM6IEEgc3VydmV5LCBldmFsdWF0aW9uIGFuZCBjb21wYXJpc29uPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPmV5ZW1vdmVtZW50Lm9yZzwvcHVibGlzaGVyPjxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPjxzdWJqZWN0cz48c3ViamVjdD5leWUgdHJhY2tpbmc7IGV5ZSBtb3ZlbWVudHM7IHNjYW5wYXRoczsgZXllIG1vdmVtZW50IHNlcXVlbmNlOyB3ZWIgcGFnZXM7IHZpc3VhbCBlbGVtZW50czsgd2ViIHBhZ2VzOyBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVzOyBzY2FucGF0aCBhbmFseXNpczsgcGF0dGVybiBkZXRlY3Rpb247IGNvbW1vbiBzY2FucGF0aHM8L3N1YmplY3Q+PC9zdWJqZWN0cz48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxNS0xMi0zMDwvZGF0ZT48L2RhdGVzPjxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iV29ya2Zsb3ciPjwvcmVzb3VyY2VUeXBlPjxmb3JtYXRzPjxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+PC9mb3JtYXRzPjxyaWdodHNMaXN0PjxyaWdodHM+aHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wPC9yaWdodHM+PHJpZ2h0cz5Db3B5cmlnaHQgKGMpIDIwMTUgU3VrcnUgRXJhc2xhbiwgWWVsaXogWWVzaWxhZGEsIFNpbW9uIEhhcnBlcjwvcmlnaHRzPjwvcmlnaHRzTGlzdD48ZGVzY3JpcHRpb25zPjxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj5FeWUgdHJhY2tpbmcgaGFzIGNvbW1vbmx5IGJlZW4gdXNlZCB0byBpbnZlc3RpZ2F0ZSBob3cgdXNlcnMgaW50ZXJhY3Qgd2l0aCB3ZWIgcGFnZXMsIHdpdGggdGhlIGdvYWwgb2YgaW1wcm92aW5nIHRoZWlyIHVzYWJpbGl0eS4gVGhpcyBhcnRpY2xlIGNvbXByZWhlbnNpdmVseSByZXZpc2l0cyB0aGUgdGVjaG5pcXVlcyB0aGF0IGNvdWxkIGJlIGFwcGxpY2FibGUgdG8gZXllIHRyYWNraW5nIGRhdGEgZm9yIGFuYWx5c2luZyB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIEl0IGFsc28gdXNlcyBhIHRoaXJkLXBhcnR5IGV5ZSB0cmFja2luZyBzdHVkeSB0byBjb21wYXJlIHRoZXNlIHRlY2huaXF1ZXMuIFRoaXMgYWxsb3dzIHJlc2VhcmNoZXJzIHRvIHJlY29nbmlzZSBleGlzdGluZyB0ZWNobmlxdWVzIGZvciB0aGVpciBnb2FscywgdW5kZXJzdGFuZCBob3cgdGhleSB3b3JrIGFuZCBrbm93IHRoZWlyIHN0cmVuZ3RocyBhbmQgbGltaXRhdGlvbnMgc28gdGhhdCB0aGV5IGNhbiBtYWtlIGFuIGVmZmljaWVudCBjaG9pY2UgZm9yIHRoZWlyIHN0dWRpZXMuIFRoZXNlIHRlY2huaXF1ZXMgY2FuIG1haW5seSBiZSB1c2VkIGZvciBjYWxjdWxhdGluZyBzaW1pbGFyaXRpZXMvZGlzc2ltaWxhcml0aWVzIGJldHdlZW4gc2NhbnBhdGhzLCBjb21wdXRpbmcgdHJhbnNpdGlvbiBwcm9iYWJpbGl0aWVzIGJldHdlZW4gd2ViIHBhZ2UgZWxlbWVudHMsIGRldGVjdGluZyBwYXR0ZXJucyBpbiBzY2FucGF0aHMgYW5kIGlkZW50aWZ5aW5nIGNvbW1vbiBzY2FucGF0aHMuIFRoZSBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVzIGFyZSBjbGFzc2lmaWVkIGludG8gZm91ciBncm91cHMgYnkgdGhlaXIgZ29hbHMgc28gdGhhdCByZXNlYXJjaGVycyBjYW4gZGlyZWN0bHkgZm9jdXMgb24gdGhlIGFwcHJvcHJpYXRlIHRlY2huaXF1ZXMgZm9yIGEgc2VxdWVudGlhbCBhbmFseXNpcyBvZiB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIFRoaXMgYXJ0aWNsZSBhbHNvIHN1Z2dlc3RzIGRlYWxpbmcgd2l0aCB0aGUgbGltaXRhdGlvbnMgb2YgdGhlc2UgdGVjaG5pcXVlcyBieSBwcmUtcHJvY2Vzc2luZyBleWUgdHJhY2tpbmcgZGF0YSwgY29uc2lkZXJpbmcgY29nbml0aXZlIHByb2Nlc3NpbmcgYW5kIGFkZHJlc3NpbmcgdGhlaXIgcmVkdWN0aW9uaXN0IGFwcHJvYWNoLjwvZGVzY3JpcHRpb24+PC9kZXNjcmlwdGlvbnM+PC9yZXNvdXJjZT4=","published":"2015","registered":"2016-02-22T14:43:13.000Z","updated":"2016-06-09T13:32:43.000Z"},"relationships":{"client":{"data":{"id":"ethz.bopjemr","type":"clients"}},"provider":{"data":{"id":"ethz","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"ethz.bopjemr","type":"clients","attributes":{"name":"BOP:
         JEMR","symbol":"ETHZ.BOPJEMR","year":2016,"contact-name":"ETH-Bibliothek,
-        Barbara Hirschmann","contact-email":"doi@library.ethz.ch","domains":"bop.unibe.ch","is-active":true,"password":"yes","created":"2016-02-22T14:40:17Z","updated":"2017-11-07T17:10:02Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"ethz","type":"providers","attributes":{"name":"ETH
-        Zurich","symbol":"ETHZ","year":2010,"contact-name":"Barbara Hirschmann","contact-email":"barbara.hirschmann@library.ethz.ch","logo-url":"https://assets.datacite.org/images/members/ethz.png","is-active":true,"password":"yes","created":"2010-01-01T00:00:00.000Z","updated":"2017-11-07T17:08:27.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Barbara Hirschmann","contact-email":"doi@library.ethz.ch","domains":"bop.unibe.ch","url":null,"is-active":true,"has-password":true,"created":"2016-02-22T14:40:17Z","updated":"2018-02-15T02:30:24Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"ethz","type":"providers","attributes":{"name":"ETH
+        Zurich","symbol":"ETHZ","year":2010,"contact-name":"Barbara Hirschmann","contact-email":"barbara.hirschmann@library.ethz.ch","logo-url":"https://assets.datacite.org/images/members/ethz.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Fri, 15 Dec 2017 14:26:50 GMT
+  recorded_at: Thu, 15 Feb 2018 06:34:32 GMT
 recorded_with: VCR 3.0.3

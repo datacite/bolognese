@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.5063/f1m61h5x?include=client,provider
+    uri: https://app.datacite.org/dois/10.5063/f1m61h5x?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -16,63 +16,40 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Allow-Methods:
-      - GET, POST, PATCH, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Cache-Control:
-      - max-age=0, private, must-revalidate
+      Date:
+      - Thu, 15 Feb 2018 06:34:12 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
-      Date:
-      - Fri, 24 Nov 2017 22:11:15 GMT
-      Etag:
-      - W/"7b36e37511df1fbcfba2aa7d4ec8350c"
-      Server:
-      - openresty/1.11.2.2
-      Status:
-      - 200 OK
-      Vary:
-      - Accept-Encoding
-      Via:
-      - kong/0.10.3
-      X-Anonymous-Consumer:
-      - 'true'
-      X-Kong-Proxy-Latency:
-      - '0'
-      X-Kong-Upstream-Latency:
-      - '19'
-      X-Powered-By:
-      - Phusion Passenger 5.1.12
-      X-Request-Id:
-      - bffab899-5f5d-4e30-a17c-8f0164ae5ce2
-      X-Runtime:
-      - '0.017157'
-      Content-Length:
-      - '3437'
       Connection:
       - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 1eedeb61-d7ff-4579-8468-d458bb18a82a
+      Etag:
+      - W/"749e9fc78e4d7bcadfec5a5c11ecbc63"
+      X-Runtime:
+      - '0.012870'
+      X-Powered-By:
+      - Phusion Passenger 5.2.0
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
       encoding: UTF-8
-      string: '{"data":{"id":"10.5063/f1m61h5x","type":"dois","attributes":{"doi":"10.5063/f1m61h5x","identifier":"https://doi.org/10.5063/f1m61h5x","url":null,"author":[{"type":"Person","name":"Matthew
-        B. Jones","given-name":"Matthew B.","family-name":"Jones"},{"type":"Person","name":"Peter
-        Slaughter","given-name":"Peter","family-name":"Slaughter"},{"type":"Person","name":"Rob
-        Nahf","given-name":"Rob","family-name":"Nahf"},{"type":"Person","name":"Carl
-        Boettiger","given-name":"Carl","family-name":"Boettiger"},{"type":"Person","name":"Chris
-        Jones","given-name":"Chris","family-name":"Jones"},{"type":"Person","name":"Jordan
-        Read","given-name":"Jordan","family-name":"Read"},{"type":"Person","name":"Lauren
-        Walker","given-name":"Lauren","family-name":"Walker"},{"type":"Person","name":"Edmund
-        Hart","given-name":"Edmund","family-name":"Hart"},{"type":"Person","name":"Scott
-        Chamberlain","given-name":"Scott","family-name":"Chamberlain"}],"title":"dataone:
+      string: '{"data":{"id":"10.5063/f1m61h5x","type":"dois","attributes":{"doi":"10.5063/f1m61h5x","identifier":"https://doi.org/10.5063/f1m61h5x","url":null,"author":{"name":"Jones,
+        Matthew B.; Slaughter, Peter; Nahf, Rob; Boettiger, Carl ; Jones, Chris; Read,
+        Jordan; Walker, Lauren; Hart, Edmund; Chamberlain, Scott"},"title":"dataone:
         R interface to the DataONE network of data repositories","container-title":"KNB
-        Data Repository","description":null,"resource-type-subtype":"Software","license":null,"version":4,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291\ncmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwt\nMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2No\nZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2Rh\ndGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEu\nZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8\naWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYx\nSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgog\nICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRl\nciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMs\nIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBF\nZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8\nL2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxl\nPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsg\nb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxw\ndWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxw\ndWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNv\ndXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9y\nZXNvdXJjZT4=\n","published":"2016","registered":"2016-03-12T03:15:04.000Z","updated":"2016-06-18T04:33:34.000Z"},"relationships":{"client":{"data":{"id":"cdl.nceas","type":"clients"}},"provider":{"data":{"id":"cdl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"cdl.nceas","type":"clients","attributes":{"name":"National
+        Data Repository","description":null,"resource-type-subtype":"Software","license":null,"version":4,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYxSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRlciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMsIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBFZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsgb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9yZXNvdXJjZT4K","published":"2016","registered":"2016-03-12T03:15:04.000Z","updated":"2016-06-18T04:33:34.000Z"},"relationships":{"client":{"data":{"id":"cdl.nceas","type":"clients"}},"provider":{"data":{"id":"cdl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"cdl.nceas","type":"clients","attributes":{"name":"National
         Center for Ecological Analysis and Synthesis (NCEAS)","symbol":"CDL.NCEAS","year":2011,"contact-name":"Greg
-        Janee","contact-email":"gjanee@ucop.edu","domains":"*","is-active":true,"created":"2011-12-13T04:27:25Z","updated":"2017-11-07T17:09:30Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"created":"2010-01-01T00:00:00.000Z","updated":"2017-11-09T00:06:44.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":true,"created":"2011-12-13T04:27:25Z","updated":"2018-02-15T02:30:09Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:11:15 GMT
+  recorded_at: Thu, 15 Feb 2018 06:34:12 GMT
 recorded_with: VCR 3.0.3

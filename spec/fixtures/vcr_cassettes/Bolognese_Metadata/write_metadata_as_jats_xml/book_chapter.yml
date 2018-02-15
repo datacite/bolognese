@@ -19,13 +19,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - cr6-1
+      - qs2-2
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Fri, 24 Nov 2017 22:11:40 GMT
+      - Thu, 15 Feb 2018 06:32:49 GMT
       Connection:
       - close
     body:
@@ -56,5 +56,5 @@ http_interactions:
         \         </doi_data>\r\n        </content_item>\r\n      </book>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Fri, 24 Nov 2017 22:11:41 GMT
+  recorded_at: Thu, 15 Feb 2018 06:32:49 GMT
 recorded_with: VCR 3.0.3
