@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:33:58 GMT
+      - Sun, 25 Feb 2018 14:12:45 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -31,23 +31,23 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 719fbe0d-46e2-4594-995c-274c0934c0ce
+      - '09848230-e37d-4340-853c-860799474444'
       Etag:
-      - W/"ca0ba9c079f576b532dfc92f34c78cb8"
+      - W/"c2a613d46c8a2877d6453f8f6c24088e"
       X-Runtime:
-      - '0.015101'
+      - '0.017718'
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.4124","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"bl.old-api","type":"clients"}]},"providers":{"data":[{"id":"bl","type":"providers"}]}}},"included":[{"id":"bl.old-api","type":"clients","attributes":{"name":"BL''s
         DOI service prototype","symbol":"BL.OLD-API","year":2012,"contact-name":"Rachael
-        Kotarski","contact-email":"datasets@bl.uk","domains":"bl.uk","url":null,"is-active":true,"has-password":false,"created":"2012-01-10T16:41:12Z","updated":"2018-02-15T02:30:10Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
-        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Kotarski","contact-email":"datasets@bl.uk","domains":"bl.uk","url":null,"is-active":true,"has-password":false,"created":"2012-01-10T16:41:12Z","updated":"2018-02-25T02:30:10Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
+        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:33:58 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:45 GMT
 - request:
     method: get
     uri: https://app.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=client,provider
@@ -65,7 +65,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:33:58 GMT
+      - Sun, 25 Feb 2018 14:12:46 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -76,18 +76,18 @@ http_interactions:
       - no-cache
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 75bc99f2-b308-4b9b-8212-9209346b635f
       X-Runtime:
-      - '0.004078'
+      - '0.003641'
+      X-Request-Id:
+      - 144e38f3-19da-4516-87e9-e292a2ffc2e5
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:33:58 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:46 GMT
 recorded_with: VCR 3.0.3

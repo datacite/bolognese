@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:34:09 GMT
+      - Sun, 25 Feb 2018 14:12:49 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,23 +30,23 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 7e086ed4-9abe-4d68-8a56-046105e207b5
       Etag:
-      - W/"0c01a5c0ebf034c56125b5c42f4c9251"
+      - W/"5281af429dfe2545044c046cf8f3903f"
       X-Runtime:
-      - '0.015012'
+      - '0.018060'
+      X-Request-Id:
+      - f60320aa-39d6-48fd-861d-21daf420dcaf
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.7910","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2012-10-02T06:27:04.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.datavers","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.datavers","type":"clients","attributes":{"name":"Harvard
-        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-05-01T16:39:37Z","updated":"2018-02-15T02:30:13Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-05-01T16:39:37Z","updated":"2018-02-25T02:30:15Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:09 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:49 GMT
 - request:
     method: get
     uri: https://app.datacite.org/dois/10.7910/dvn/eqtqyo?include=client,provider
@@ -64,7 +64,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:34:10 GMT
+      - Sun, 25 Feb 2018 14:12:49 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -78,24 +78,24 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - d3b6d6b0-267e-4ece-97cd-bf8db54db91d
+      - 68f95f00-e841-4b8c-9227-3b5cc98fa8dc
       Etag:
-      - W/"06ad8ffbc09ff31036ba75ceb9773654"
+      - W/"80c01c80098fcc13b31eb1a73a8fb153"
       X-Runtime:
-      - '0.013595'
+      - '0.049869'
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.7910/dvn/eqtqyo","type":"dois","attributes":{"doi":"10.7910/dvn/eqtqyo","identifier":"https://doi.org/10.7910/dvn/eqtqyo","url":null,"author":{"name":"Enos,
         Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck,
         Lynn (UCLA)"},"title":"Replication Data for: Increasing Inequality: The Effect
         of GOTV Mobilization on the Composition of the Electorate","container-title":"Harvard
         Dataverse","description":null,"resource-type-subtype":"Dataset","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","published":"2017","registered":"2017-04-12T19:46:37.000Z","updated":"2017-04-12T19:46:37.000Z"},"relationships":{"client":{"data":{"id":"cdl.datavers","type":"clients"}},"provider":{"data":{"id":"cdl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"cdl.datavers","type":"clients","attributes":{"name":"Harvard
-        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-05-01T16:39:37Z","updated":"2018-02-15T02:30:13Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-05-01T16:39:37Z","updated":"2018-02-25T02:30:15Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:10 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:49 GMT
 recorded_with: VCR 3.0.3

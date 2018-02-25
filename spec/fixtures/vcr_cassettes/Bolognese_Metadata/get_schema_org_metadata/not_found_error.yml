@@ -23,9 +23,9 @@ http_interactions:
       Content-Length:
       - '4984'
       Date:
-      - Thu, 15 Feb 2018 06:34:11 GMT
+      - Sun, 25 Feb 2018 14:12:41 GMT
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n
         \       \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<head>\n<title>Error:
         DOI Not Found</title>\n\n<meta http-equiv=\"Content-Type\" content=\"text/html;
@@ -89,5 +89,5 @@ http_interactions:
         super;\">&reg;</span>, and shortDOI<span style=\"vertical-align: super;\">&reg;</span>
         are trademarks of the International DOI Foundation.</span>\n</td>       \n</tr>\n</table>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:11 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:41 GMT
 recorded_with: VCR 3.0.3

@@ -343,7 +343,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("CaltechDATA")
       expect(subject.provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
-      expect(subject.state).to eq("inactive")
+      expect(subject.state).to eq("findable")
     end
 
     it "Referee report in test system" do

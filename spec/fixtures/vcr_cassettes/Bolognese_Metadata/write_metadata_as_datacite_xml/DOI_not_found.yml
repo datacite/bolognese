@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/prefixes/10.0137
+    uri: https://app.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=client,provider
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:12:25 GMT
+      - Sun, 25 Feb 2018 14:11:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -29,9 +29,9 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Runtime:
-      - '0.421232'
+      - '0.002987'
       X-Request-Id:
-      - 65df7697-4d69-4d80-b498-9817c69b96c2
+      - 78351cb3-0e55-4c66-903b-a30d517ff208
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
@@ -41,5 +41,5 @@ http_interactions:
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:12:25 GMT
+  recorded_at: Sun, 25 Feb 2018 14:11:31 GMT
 recorded_with: VCR 3.0.3

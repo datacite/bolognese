@@ -159,6 +159,17 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(3)
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "__content__"=>"https://doi.org/10.5438/0000-00ss")
     end
+
+    it "DOI not found" do
+      input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      expect(subject.valid?).to be false
+      expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.provider).to eq("DataCite")
+      expect(subject.state).to eq("not_found")
+      expect(subject.datacite).to be_nil
+    end
   end
 
   context "change metadata as datacite xml" do

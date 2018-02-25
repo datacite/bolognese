@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:33:21 GMT
+      - Sun, 25 Feb 2018 14:11:49 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,19 +30,19 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 490b4de6-e589-4690-8c87-31574a659bc0
       Etag:
       - W/"000fecca6416b8e7634edbc0a8e596f2"
       X-Runtime:
-      - '0.871708'
+      - '0.332503'
+      X-Request-Id:
+      - cdc8b7d4-87f8-414a-bbac-8164b9c0583c
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.3980","type":"prefixes","attributes":{"registration-agency":"ISTIC","created":null,"updated":"2016-09-20T21:59:03Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:33:22 GMT
+  recorded_at: Sun, 25 Feb 2018 14:11:49 GMT
 recorded_with: VCR 3.0.3

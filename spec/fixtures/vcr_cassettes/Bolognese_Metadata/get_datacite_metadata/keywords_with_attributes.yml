@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:34:07 GMT
+      - Sun, 25 Feb 2018 14:12:45 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -31,25 +31,25 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 4043d334-aad5-4c8b-bb4d-f4bb19b141f7
+      - fb69122a-defe-4613-a393-111b1231fb7c
       Etag:
-      - W/"30030f1a246de1c04fb7daa465f74815"
+      - W/"699f60a29337bc7fe0061cde15e30159"
       X-Runtime:
-      - '0.016205'
+      - '0.020663'
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.21233","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2016-03-29T15:27:43.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"purdue.uwisc","type":"clients"}]},"providers":{"data":[{"id":"purdue","type":"providers"},{"id":"cdl","type":"providers"}]}}},"included":[{"id":"purdue.uwisc","type":"clients","attributes":{"name":"University
         of Wisconsin-Madison","symbol":"PURDUE.UWISC","year":2016,"contact-name":"Greg
-        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2016-05-25T18:36:35Z","updated":"2018-02-15T02:30:25Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"purdue","type":"providers","attributes":{"name":"Purdue
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2016-05-25T18:36:35Z","updated":"2018-02-25T02:30:36Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"purdue","type":"providers","attributes":{"name":"Purdue
         University Library","symbol":"PURDUE","year":2010,"contact-name":"Michael
-        Witt","contact-email":"mwitt@purdue.edu","logo-url":"https://assets.datacite.org/images/members/purdue.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Witt","contact-email":"mwitt@purdue.edu","logo-url":"https://assets.datacite.org/images/members/purdue.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:07 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:45 GMT
 - request:
     method: get
     uri: https://app.datacite.org/dois/10.21233/n34n5q?include=client,provider
@@ -67,7 +67,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:34:08 GMT
+      - Sun, 25 Feb 2018 14:12:45 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -80,18 +80,18 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - e5f6f8c3-a02a-45aa-8e8b-551683ce6625
       Etag:
-      - W/"52f00f17445f5dc3df68f4a5a7bafc9a"
+      - W/"8da8ecc8b35dd310c4949166115a6efc"
       X-Runtime:
-      - '0.013496'
+      - '0.105735'
+      X-Request-Id:
+      - 7ec0c54c-9f10-448a-bb14-b95d5a2f34f4
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.21233/n34n5q","type":"dois","attributes":{"doi":"10.21233/n34n5q","identifier":"https://doi.org/10.21233/n34n5q","url":null,"author":{"type":"Person","name":"John
         T. Andrews","given-name":"John T.","family-name":"Andrews"},"title":"Nueltin
         Lake Site 1 pollen surface sample dataset","container-title":"Neotoma Paleoecological
@@ -99,9 +99,9 @@ http_interactions:
         Lake Site 1 pollen surface sample dataset obtained from the Neotoma Paleoecological
         Database."},"resource-type-subtype":"Dataset/Paleoecological Sample Data","license":"http://creativecommons.org/licenses/by/4.0/deed.en_US","version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+ICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4yMTIzMy9OMzRONVE8L2lkZW50aWZpZXI+ICA8Y3JlYXRvcnM+ICAgIDxjcmVhdG9yPiAgICAgIDxjcmVhdG9yTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jcmVhdG9yTmFtZT4gICAgICA8YWZmaWxpYXRpb24+RGVwYXJ0bWVudCBvZiBHZW9sb2dpY2FsIFNjaWVuY2VzLCBDYW1wdXMgQm94IDI1MCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbywgQm91bGRlciwgQ08gODAzMDksIFVOSVRFRCBTVEFURVM8L2FmZmlsaWF0aW9uPiAgICA8L2NyZWF0b3I+ICA8L2NyZWF0b3JzPiAgPHRpdGxlcz4gICAgPHRpdGxlIHhtbDpsYW5nPSJlbi11cyI+TnVlbHRpbiBMYWtlIFNpdGUgMSBwb2xsZW4gc3VyZmFjZSBzYW1wbGUgZGF0YXNldDwvdGl0bGU+ICA8L3RpdGxlcz4gIDxwdWJsaXNoZXI+TmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2U8L3B1Ymxpc2hlcj4gIDxwdWJsaWNhdGlvblllYXI+MjAxNzwvcHVibGljYXRpb25ZZWFyPiAgPHN1YmplY3RzPiAgICA8c3ViamVjdCBzdWJqZWN0U2NoZW1lPSJMaWJyYXJ5IG9mIENvbmdyZXNzIiBzY2hlbWVVUkk9Imh0dHA6Ly9pZC5sb2MuZ292L2F1dGhvcml0aWVzL3N1YmplY3RzIj5QYWxlb2Vjb2xvZ3k8L3N1YmplY3Q+ICA8L3N1YmplY3RzPiAgPGNvbnRyaWJ1dG9ycz4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YUNvbGxlY3RvciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5OaWNob2xzLCBIYXJ2ZXk8L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmlidXRvcj4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUHJvamVjdExlYWRlciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkRhdGFDdXJhdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkdyaW1tLCBFcmljIENocmlzdG9waGVyPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmlidXRvck5hbWU+TmljaG9scywgSGFydmV5PC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmlidXRvck5hbWU+QW5kcmV3cywgSm9obiBULjwvY29udHJpYnV0b3JOYW1lPiAgICA8L2NvbnRyaWJ1dG9yPiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJEYXRhQ29sbGVjdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkFuZHJld3MsIEpvaG4gVC48L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmlidXRvcj4gIDwvY29udHJpYnV0b3JzPiAgPGRhdGVzPiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MTk5OC0wNi0xMjwvZGF0ZT4gICAgPGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjE5OTgtMDYtMTI8L2RhdGU+ICA8L2RhdGVzPiAgPGxhbmd1YWdlPkVuZ2xpc2g8L2xhbmd1YWdlPiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0L1BhbGVvZWNvbG9naWNhbCBTYW1wbGUgRGF0YTwvcmVzb3VyY2VUeXBlPiAgPHJlbGF0ZWRJZGVudGlmaWVycz4gICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0aW9uVHlwZT0iSXNNZXRhZGF0YUZvciIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0ZWRNZXRhZGF0YVNjaGVtZT0ianNvbiI+YXBpLm5lb3RvbWFkYi5vcmcvdjEvZG93bmxvYWRzLzMxNTc8L3JlbGF0ZWRJZGVudGlmaWVyPiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRpb25UeXBlPSJJc01ldGFkYXRhRm9yIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRlZE1ldGFkYXRhU2NoZW1lPSJqc29uIj5kYXRhLm5lb3RvbWFkYi5vcmcvZGF0YXNldHMvMzE1Ny9pbmRleC5odG1sPC9yZWxhdGVkSWRlbnRpZmllcj4gIDwvcmVsYXRlZElkZW50aWZpZXJzPiAgPHNpemVzPiAgICA8c2l6ZT4xMiBLQjwvc2l6ZT4gIDwvc2l6ZXM+ICA8Zm9ybWF0cz4gICAgPGZvcm1hdD5YTUw8L2Zvcm1hdD4gICAgPGZvcm1hdD5UTFg8L2Zvcm1hdD4gICAgPGZvcm1hdD5KU09OPC9mb3JtYXQ+ICA8L2Zvcm1hdHM+ICA8ZGVzY3JpcHRpb25zPiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCIgeG1sOmxhbmc9IkVOIj5SYXcgZGF0YSBmb3IgdGhlIE51ZWx0aW4gTGFrZSBTaXRlIDEgcG9sbGVuIHN1cmZhY2Ugc2FtcGxlIGRhdGFzZXQgb2J0YWluZWQgZnJvbSB0aGUgTmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2UuPC9kZXNjcmlwdGlvbj4gIDwvZGVzY3JpcHRpb25zPiAgPHJpZ2h0c0xpc3Q+ICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvZGVlZC5lbl9VUyI+Q0MtQlk0PC9yaWdodHM+ICA8L3JpZ2h0c0xpc3Q+ICA8Z2VvTG9jYXRpb25zPiAgICA8Z2VvTG9jYXRpb24+ICAgICAgPGdlb0xvY2F0aW9uQm94PjYwLjAzIC05OS44NSA2MC4wMyAtOTkuODU8L2dlb0xvY2F0aW9uQm94PiAgICA8L2dlb0xvY2F0aW9uPiAgPC9nZW9Mb2NhdGlvbnM+PC9yZXNvdXJjZT4=","published":"2017","registered":"2017-04-18T01:36:23.000Z","updated":"2017-04-18T01:36:23.000Z"},"relationships":{"client":{"data":{"id":"purdue.uwisc","type":"clients"}},"provider":{"data":{"id":"purdue","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"purdue.uwisc","type":"clients","attributes":{"name":"University
         of Wisconsin-Madison","symbol":"PURDUE.UWISC","year":2016,"contact-name":"Greg
-        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2016-05-25T18:36:35Z","updated":"2018-02-15T02:30:25Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"purdue","type":"providers","attributes":{"name":"Purdue
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2016-05-25T18:36:35Z","updated":"2018-02-25T02:30:36Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"purdue","type":"providers","attributes":{"name":"Purdue
         University Library","symbol":"PURDUE","year":2010,"contact-name":"Michael
-        Witt","contact-email":"mwitt@purdue.edu","logo-url":"https://assets.datacite.org/images/members/purdue.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Witt","contact-email":"mwitt@purdue.edu","logo-url":"https://assets.datacite.org/images/members/purdue.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:08 GMT
+  recorded_at: Sun, 25 Feb 2018 14:12:45 GMT
 recorded_with: VCR 3.0.3

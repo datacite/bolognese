@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:34:28 GMT
+      - Sun, 25 Feb 2018 14:09:52 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -31,20 +31,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 467462bb-7636-4dfa-993b-348690139dea
+      - f86e5c65-6502-434e-be41-82c3d6c613ae
       Etag:
       - W/"dfa1b36b298b7f19e0e4365818694b40"
       X-Runtime:
-      - '0.656421'
+      - '0.434724'
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:28 GMT
+  recorded_at: Sun, 25 Feb 2018 14:09:52 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
@@ -64,17 +64,17 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs2-2
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Thu, 15 Feb 2018 06:34:27 GMT
+      - Sun, 25 Feb 2018 14:09:51 GMT
       Connection:
       - close
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
         owner=\"10.2210\" timestamp=\"2014-05-27 12:45:59\">\r\n    <crossref>\r\n
         \     <sa_component>\r\n        <component_list>\r\n          <component>\r\n
@@ -94,5 +94,5 @@ http_interactions:
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:28 GMT
+  recorded_at: Sun, 25 Feb 2018 14:09:52 GMT
 recorded_with: VCR 3.0.3

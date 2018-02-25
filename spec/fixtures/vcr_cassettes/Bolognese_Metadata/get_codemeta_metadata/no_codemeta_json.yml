@@ -27,40 +27,40 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - 8F16:616D:7A72C:848C7:5A8529D0
+      - 2DAA:1172:1353E:147C5:5A92C3B5
       Content-Length:
       - '15'
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 15 Feb 2018 06:33:53 GMT
+      - Sun, 25 Feb 2018 14:09:57 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-fra19133-FRA
+      - cache-fra19132-FRA
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1518676434.652266,VS0,VE127
+      - S1519567798.831732,VS0,VE123
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 9a33092b04c35d258b2eebe2c9eb6ca5e64dfa9f
+      - 7e059c8df18f88333295ad6d27091f43ef7573b7
       Expires:
-      - Thu, 15 Feb 2018 06:38:53 GMT
+      - Sun, 25 Feb 2018 14:14:57 GMT
       Source-Age:
       - '0'
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '404: Not Found
 
 '
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:33:53 GMT
+  recorded_at: Sun, 25 Feb 2018 14:09:57 GMT
 recorded_with: VCR 3.0.3

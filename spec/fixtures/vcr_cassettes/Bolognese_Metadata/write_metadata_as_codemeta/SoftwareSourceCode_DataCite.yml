@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 15 Feb 2018 06:34:12 GMT
+      - Sun, 25 Feb 2018 14:10:37 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -31,25 +31,25 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 1eedeb61-d7ff-4579-8468-d458bb18a82a
+      - 63b35318-8ecf-4027-adc7-81841da1ab15
       Etag:
-      - W/"749e9fc78e4d7bcadfec5a5c11ecbc63"
+      - W/"25e98076f0fb01cda439c95ff54b3ada"
       X-Runtime:
-      - '0.012870'
+      - '0.052831'
       X-Powered-By:
       - Phusion Passenger 5.2.0
       Server:
       - nginx/1.12.2 + Phusion Passenger 5.2.0
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"data":{"id":"10.5063/f1m61h5x","type":"dois","attributes":{"doi":"10.5063/f1m61h5x","identifier":"https://doi.org/10.5063/f1m61h5x","url":null,"author":{"name":"Jones,
         Matthew B.; Slaughter, Peter; Nahf, Rob; Boettiger, Carl ; Jones, Chris; Read,
         Jordan; Walker, Lauren; Hart, Edmund; Chamberlain, Scott"},"title":"dataone:
         R interface to the DataONE network of data repositories","container-title":"KNB
         Data Repository","description":null,"resource-type-subtype":"Software","license":null,"version":4,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYxSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRlciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMsIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBFZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsgb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9yZXNvdXJjZT4K","published":"2016","registered":"2016-03-12T03:15:04.000Z","updated":"2016-06-18T04:33:34.000Z"},"relationships":{"client":{"data":{"id":"cdl.nceas","type":"clients"}},"provider":{"data":{"id":"cdl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"cdl.nceas","type":"clients","attributes":{"name":"National
         Center for Ecological Analysis and Synthesis (NCEAS)","symbol":"CDL.NCEAS","year":2011,"contact-name":"Greg
-        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":true,"created":"2011-12-13T04:27:25Z","updated":"2018-02-15T02:30:09Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-15T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":true,"created":"2011-12-13T04:27:25Z","updated":"2018-02-25T02:30:09Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Thu, 15 Feb 2018 06:34:12 GMT
+  recorded_at: Sun, 25 Feb 2018 14:10:37 GMT
 recorded_with: VCR 3.0.3
