@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.9.76)
+    bolognese (0.9.77)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -32,7 +32,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     benchmark_methods (0.7)
-    bibtex-ruby (4.4.5)
+    bibtex-ruby (4.4.6)
       latex-decode (~> 0.0)
     builder (3.2.3)
     codeclimate-test-reporter (1.0.8)
@@ -103,7 +103,7 @@ GEM
       public_suffix (>= 2.0.0, < 2.1)
     public_suffix (2.0.5)
     rack (2.0.4)
-    rack-test (0.8.2)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rake (12.3.0)
     rdf (3.0.1)
