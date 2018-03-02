@@ -5,7 +5,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input, from: "citeproc") }
 
-  context "get bibtex raw" do
+  context "get citeproc raw" do
     it "BlogPosting" do
       expect(subject.raw).to eq(IO.read(input).strip)
     end

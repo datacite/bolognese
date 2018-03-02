@@ -5,6 +5,18 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
+  context "detect format" do
+    it "extension" do
+      expect(subject.valid?).to be true
+    end
+
+    it "string" do
+      Bolognese::Metadata.new(input: IO.read(input).strip)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
+    end
+  end
+
   context "get bibtex raw" do
     it "Crossref DOI" do
       expect(subject.raw).to eq(IO.read(input).strip)
