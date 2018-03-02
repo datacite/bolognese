@@ -109,6 +109,9 @@ module Bolognese
         @from = from || find_from_format(string: string)
       end
 
+      # make sure input is encoded as utf8
+      string = string.force_encoding("UTF-8") if string.present?
+
       # generate name for method to call dynamically
       @metadata = @from.present? ? send("read_" + @from, string: string, id: id, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
       @raw = string.present? ? string.strip : nil
