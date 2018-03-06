@@ -61,7 +61,7 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :id, :doi, :author, :title, :publisher, :contributor, :license,
+    attr_accessor :id, :doi, :author, :creator, :title, :publisher, :contributor, :license,
       :date_accepted, :date_available, :date_copyrighted, :date_collected,
       :date_submitted, :date_valid, :date_created, :date_modified,
       :date_registered, :date_updated, :provider_id, :client_id, :journal,
@@ -115,6 +115,20 @@ module Bolognese
       # generate name for method to call dynamically
       @metadata = @from.present? ? send("read_" + @from, string: string, id: id, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
       @raw = string.present? ? string.strip : nil
+
+      # input specific metadata elements required for DataCite
+      @doi = options[:doi].presence
+      @author = options[:author].presence
+      @title = options[:title].presence
+      @publisher = options[:publisher].presence
+      @publication_year = options[:publication_year].presence
+      @resource_type_general = options[:resource_type_general].presence
+
+      # input specific metadata elements recommended for DataCite
+      @additional_type = options[:additional_type].presence
+      @description = options[:description].presence
+      @license = options[:license].presence
+      @date_published = options[:date_published].presence
 
       # replace DOI in XML if provided in options
       if @from == "datacite" && options[:doi].present? && string.present?
@@ -380,7 +394,7 @@ module Bolognese
     end
 
     def publication_year
-      date_published.present? ? date_published[0..3].to_i.presence : nil
+      @publication_year ||= date_published.present? ? date_published[0..3].to_i.presence : nil
     end
 
     def container_title

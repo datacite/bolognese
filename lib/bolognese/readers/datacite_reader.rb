@@ -95,8 +95,7 @@ module Bolognese
 
         { "id" => id,
           "type" => type,
-          "additional_type" => meta.fetch("resourceType", {}).fetch("__content__", nil) ||
-            meta.fetch("resourceType", {}).fetch("resourceTypeGeneral", nil),
+          "additional_type" => meta.fetch("resourceType", {}).fetch("__content__", nil),
           "citeproc_type" => Bolognese::Utils::DC_TO_CP_TRANSLATIONS[resource_type_general.to_s.dasherize] || "article",
           "bibtex_type" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
           "ris_type" => Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",

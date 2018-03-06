@@ -78,7 +78,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.type).to eq("SoftwareSourceCode")
-      expect(subject.additional_type).to eq("Software")
       expect(subject.resource_type_general).to eq("Software")
       expect(subject.author).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
       expect(subject.title).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
@@ -117,7 +116,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author.length).to eq(4)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Najko Jahn", "givenName"=>"Najko", "familyName"=>"Jahn")
@@ -335,7 +333,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://handle.test.datacite.org/10.22002/d1.694")
       expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author).to eq("name"=>"Tester")
       expect(subject.title).to eq("Test license")
@@ -352,7 +349,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://handle.test.datacite.org/10.21956/gatesopenres.530.r190")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.additional_type).to eq("Text")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author.length).to eq(5)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Lina Patel", "givenName"=>"Lina", "familyName"=>"Patel")
@@ -401,6 +397,147 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
       expect(subject.state).to eq("registered")
+    end
+  end
+
+  context "change datacite metadata on input" do
+    it "change doi" do
+      input = fixture_path + 'datacite.xml'
+      doi = "10.5061/dryad.8515"
+      subject = Bolognese::Metadata.new(input: input, doi: doi)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(subject.doi).to eq("10.5061/dryad.8515")
+      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+    end
+
+    it "change author" do
+      input = fixture_path + 'datacite.xml'
+      author = { "type"=>"Person", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo" }
+      subject = Bolognese::Metadata.new(input: input, author: author)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.author).to eq("type"=>"Person", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+    end
+
+    it "change title" do
+      input = fixture_path + 'datacite.xml'
+      title = "A new malaria agent in African hominids."
+      subject = Bolognese::Metadata.new(input: input, title: title)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("A new malaria agent in African hominids.")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+    end
+
+    it "change publisher" do
+      input = fixture_path + 'datacite.xml'
+      publisher = "Zenodo"
+      subject = Bolognese::Metadata.new(input: input, publisher: publisher)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.publication_year).to eq(2016)
+    end
+
+    it "change publication_year" do
+      input = fixture_path + 'datacite.xml'
+      publication_year = 2017
+      subject = Bolognese::Metadata.new(input: input, publication_year: publication_year)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2017)
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.additional_type).to eq("BlogPosting")
+    end
+
+    it "change resource_type_general" do
+      input = fixture_path + 'datacite.xml'
+      resource_type_general = "Software"
+      subject = Bolognese::Metadata.new(input: input, resource_type_general: resource_type_general)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+      expect(subject.resource_type_general).to eq("Software")
+      expect(subject.additional_type).to eq("BlogPosting")
+    end
+
+    it "change additional_type" do
+      input = fixture_path + 'datacite.xml'
+      additional_type = "ScholarlyArticle"
+      subject = Bolognese::Metadata.new(input: input, additional_type: additional_type)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.additional_type).to eq("ScholarlyArticle")
+      expect(subject.description).to eq("type"=>"Abstract", "text"=>"Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+    end
+
+    it "change description" do
+      input = fixture_path + 'datacite.xml'
+      description = "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for..."
+      subject = Bolognese::Metadata.new(input: input, description: description)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.additional_type).to eq("BlogPosting")
+      expect(subject.description).to eq(description)
+    end
+
+    it "change license" do
+      input = fixture_path + 'datacite.xml'
+      license = { "id"=>"http://creativecommons.org/publicdomain/zero/1.0" }
+      subject = Bolognese::Metadata.new(input: input, license: license)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2016)
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.additional_type).to eq("BlogPosting")
+      expect(subject.license).to eq(license)
+      expect(subject.date_published).to eq("2016-12-20")
+    end
+
+    it "change date_published" do
+      input = fixture_path + 'datacite.xml'
+      date_published = "2017-12-20"
+      subject = Bolognese::Metadata.new(input: input, date_published: date_published)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.doi).to eq("10.5438/4k3m-nyvg")
+      expect(subject.title).to eq("Eating your own Dog Food")
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq(2017)
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.additional_type).to eq("BlogPosting")
+      expect(subject.date_published).to eq(date_published)
     end
   end
 end
