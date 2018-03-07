@@ -311,7 +311,7 @@ module Bolognese
     end
 
     def schema_version
-      @schema_version ||= metadata.fetch("schema_version", nil)
+      @schema_version ||= metadata.fetch("schema_version", nil) || "http://datacite.org/schema/kernel-4"
     end
 
     def funding
