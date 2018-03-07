@@ -12,7 +12,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("references").length).to eq(26)
       expect(crosscite.fetch("references").first).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1038/nature02100", "title"=>"APL regulates vascular tissue identity in Arabidopsis")
       expect(crosscite.fetch("license")).to eq("id"=>"http://creativecommons.org/licenses/by/3.0")
-      expect(crosscite.fetch("schema_version")).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "with ORCID ID" do
