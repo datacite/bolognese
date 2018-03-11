@@ -6,7 +6,7 @@ module Bolognese
 
         bib = {
           bibtex_type: bibtex_type.presence || "misc",
-          bibtex_key: id,
+          bibtex_key: identifier,
           doi: doi,
           url: url,
           author: authors_as_string(author),
@@ -16,7 +16,7 @@ module Bolognese
           journal: container_title,
           volume: volume,
           issue: issue,
-          pages: [first_page.to_s, last_page.to_s].join("-").presence,
+          pages: [first_page, last_page].compact.join("-").presence,
           publisher: publisher,
           year: publication_year
         }.compact

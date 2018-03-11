@@ -4,7 +4,7 @@ module Bolognese
       def citeproc
         hsh = {
           "type" => citeproc_type,
-          "id" => id,
+          "id" => identifier,
           "categories" => parse_attributes(keywords, content: "text"),
           "language" => language,
           "author" => to_citeproc(author),
@@ -15,7 +15,7 @@ module Bolognese
           "container-title" => container_title,
           "DOI" => doi,
           "issue" => issue,
-          "page" => [first_page, last_page].join("-").presence,
+          "page" => [first_page, last_page].compact.join("-").presence,
           "publisher" => publisher,
           "title" => parse_attributes(title, content: "text", first: true),
           "URL" => url,

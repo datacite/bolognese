@@ -61,7 +61,7 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :id, :doi, :author, :creator, :title, :publisher, :contributor, :license,
+    attr_accessor :id, :identifier, :doi, :author, :creator, :title, :publisher, :contributor, :license,
       :date_accepted, :date_available, :date_copyrighted, :date_collected,
       :date_submitted, :date_valid, :date_created, :date_modified,
       :date_registered, :date_updated, :provider_id, :client_id, :journal,
@@ -200,6 +200,10 @@ module Bolognese
 
     def url
       @url ||= metadata.fetch("url", nil)
+    end
+
+    def identifier
+      @identifier ||= metadata.fetch("id", nil)
     end
 
     def state

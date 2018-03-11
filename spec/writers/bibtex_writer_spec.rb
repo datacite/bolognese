@@ -40,6 +40,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.17173/pretest8")
       expect(bibtex[:doi]).to eq("10.17173/pretest8")
       expect(bibtex[:title]).to eq("PIAAC-Longitudinal (PIAAC-L) 2015")
+      expect(bibtex[:pages]).to be_nil
     end
 
     it "maremma" do

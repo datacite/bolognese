@@ -23,7 +23,7 @@ module Bolognese
           "pageStart" => first_page,
           "pageEnd" => last_page,
           "spatialCoverage" => spatial_coverage,
-          "sameAs" => same_as,
+          "sameAs" => to_schema_org(is_identical_to),
           "isPartOf" => to_schema_org(is_part_of),
           "hasPart" => to_schema_org(has_part),
           "predecessor_of" => to_schema_org(is_previous_version_of),
