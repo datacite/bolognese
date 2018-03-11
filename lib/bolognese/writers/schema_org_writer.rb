@@ -2,9 +2,10 @@ module Bolognese
   module Writers
     module SchemaOrgWriter
       def schema_hsh
-        { "@context" => id.present? ? "http://schema.org" : nil,
+        { "@context" => identifier.present? ? "http://schema.org" : nil,
           "@type" => type,
-          "@id" => id,
+          "@id" => identifier,
+          "identifier" => identifier,
           "url" => url,
           "additionalType" => additional_type,
           "name" => parse_attributes(title, content: "text", first: true),

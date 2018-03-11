@@ -121,7 +121,6 @@ module Bolognese
       @author = options[:author].presence
       @title = options[:title].presence
       @publisher = options[:publisher].presence
-      @publication_year = options[:publication_year].presence
       @resource_type_general = options[:resource_type_general].presence
 
       # input specific metadata elements recommended for DataCite
@@ -398,7 +397,7 @@ module Bolognese
     end
 
     def publication_year
-      @publication_year ||= date_published.present? ? date_published[0..3].to_i.presence : nil
+      date_published.present? ? date_published[0..3].to_i : nil
     end
 
     def container_title

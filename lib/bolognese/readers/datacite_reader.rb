@@ -29,7 +29,7 @@ module Bolognese
               node.remove
             end
           end
-          string = doc.to_s
+          string = doc.to_xml(:indent => 2)
         end
 
         { "string" => string,

@@ -453,8 +453,8 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change publication_year" do
       input = fixture_path + 'datacite.xml'
-      publication_year = 2017
-      subject = Bolognese::Metadata.new(input: input, publication_year: publication_year)
+      date_published = "2017"
+      subject = Bolognese::Metadata.new(input: input, date_published: date_published)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.doi).to eq("10.5438/4k3m-nyvg")
