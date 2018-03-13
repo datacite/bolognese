@@ -120,8 +120,10 @@ module Bolognese
                             end
         when "posted_content"
           bibliographic_metadata = meta.dig("crossref", "posted_content").to_h
+          publisher = bibliographic_metadata.dig("institution", "institution_name")
         when "sa_component"
           bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
+          publisher = "(:unav)"
         end
 
         additional_type = (additional_type || model).to_s.underscore.camelize.presence

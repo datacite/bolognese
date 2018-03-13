@@ -15,6 +15,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get crossref metadata" do
     it "DOI with data citation" do
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.url).to eq("https://elifesciences.org/articles/01567")
@@ -27,6 +28,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2014-02-11")
       expect(subject.date_modified).to eq("2017-10-18T19:09:43Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife", "issn"=>"2050-084X")
+      expect(subject.container_title).to eq("eLife")
       expect(subject.references.count).to eq(26)
       expect(subject.references[20]).to eq("id"=>"https://doi.org/10.5061/dryad.b835k", "type"=>"CreativeWork", "title" => "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.funding).to eq([{"type"=>"Organization", "name"=>"SystemsX"},
@@ -45,6 +47,7 @@ describe Bolognese::Metadata, vcr: true do
     it "journal article" do
       input = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -59,12 +62,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-06-17T12:26:15Z")
       expect(subject.first_page).to eq("e30")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"PLoS ONE", "issn"=>"1932-6203")
+      expect(subject.container_title).to eq("PLoS ONE")
       expect(subject.provider).to eq("Crossref")
     end
 
     it "posted_content" do
       input = "https://doi.org/10.1101/097196"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -78,12 +83,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2017-10-09")
       expect(subject.date_modified).to eq("2017-10-10T05:10:49Z")
       expect(subject.is_part_of).to be_nil
+      expect(subject.publisher).to eq("bioRxiv")
       expect(subject.provider).to eq("Crossref")
     end
 
     it "DOI with SICI DOI" do
       input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
       expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -97,12 +104,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.first_page).to eq("2832")
       expect(subject.last_page).to eq("2841")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Ecology", "issn"=>"0012-9658")
+      expect(subject.container_title).to eq("Ecology")
       expect(subject.provider).to eq("Crossref")
     end
 
     it "DOI with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -117,12 +126,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.first_page).to eq("1")
       expect(subject.last_page).to eq("7")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Pulmonary Medicine", "issn"=>"2090-1836")
+      expect(subject.container_title).to eq("Pulmonary Medicine")
       expect(subject.provider).to eq("Crossref")
     end
 
     it "date in future" do
       input = "https://doi.org/10.1016/j.ejphar.2015.03.018"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -134,12 +145,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2015-07")
       expect(subject.date_modified).to eq("2017-06-23T08:44:48Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"European Journal of Pharmacology", "issn"=>"00142999")
+      expect(subject.container_title).to eq("European Journal of Pharmacology")
       expect(subject.provider).to eq("Crossref")
     end
 
     it "dataset" do
       input = "10.2210/pdb4hhb/pdb"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
       expect(subject.url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -151,12 +164,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description).to eq("x-ray diffraction structure")
       expect(subject.date_published).to eq("1984-07-17")
       expect(subject.date_modified).to eq("2014-05-27T16:45:59Z")
+      expect(subject.publisher).to eq("(:unav)")
       expect(subject.provider).to eq("Crossref")
     end
 
     it "book chapter" do
       input = "https://doi.org/10.1007/978-3-662-46370-3_13"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
       expect(subject.type).to eq("Chapter")
@@ -174,6 +189,7 @@ describe Bolognese::Metadata, vcr: true do
     it "journal article with" do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
       expect(subject.id).to eq(input)
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
       expect(subject.type).to eq("ScholarlyArticle")
@@ -186,6 +202,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2017-06-05")
       expect(subject.date_modified).to eq("2017-06-05T10:56:59Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"New Phytologist", "issn"=>"0028646X")
+      expect(subject.container_title).to eq("New Phytologist")
       expect(subject.provider).to eq("Crossref")
     end
 
