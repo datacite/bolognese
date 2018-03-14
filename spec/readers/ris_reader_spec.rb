@@ -39,6 +39,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.date_published).to eq("2014")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife")
+      expect(subject.container_title).to eq("eLife")
     end
   end
 end
