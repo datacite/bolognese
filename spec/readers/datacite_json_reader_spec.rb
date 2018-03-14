@@ -24,7 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss")
       expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0"}])
-      expect(subject.provider).to eq("DataCite")
+      expect(subject.service_provider).to eq("DataCite")
     end
 
     it "SoftwareSourceCode missing_comma" do

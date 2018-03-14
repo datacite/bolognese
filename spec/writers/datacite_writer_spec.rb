@@ -108,7 +108,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"https://creativecommons.org/publicdomain/zero/1.0", "name"=>"CC-0")
       expect(subject.date_published).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.provider).to eq("DataCite")
+      expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -127,7 +127,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"https://creativecommons.org/publicdomain/zero/1.0", "name"=>"CC-0")
       expect(subject.date_published).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.provider).to eq("DataCite")
+      expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -150,7 +150,7 @@ describe Bolognese::Metadata, vcr: true do
                                       {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/2"}])
       expect(subject.is_referenced_by).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1371/journal.ppat.1000446")
       expect(subject.publisher).to eq("Dryad Digital Repository")
-      expect(subject.provider).to eq("DataCite")
+      expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -173,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
-      expect(subject.provider).to eq("DataCite")
+      expect(subject.service_provider).to eq("DataCite")
       expect(subject.state).to eq("not_found")
       expect(subject.datacite).to be_nil
     end

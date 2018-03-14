@@ -56,7 +56,7 @@ module Bolognese
           "alternate_name" => meta.fetch("alternateName", nil),
           "author" => author,
           "publisher" => meta.dig("publisher", "name"),
-          "provider" => meta.fetch("provider", nil),
+          "service_provider" => meta.fetch("provider", nil),
           "is_identical_to" => schema_org_is_identical_to(meta),
           "is_part_of" => schema_org_is_part_of(meta),
           "has_part" => schema_org_has_part(meta),

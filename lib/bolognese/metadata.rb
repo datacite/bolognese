@@ -76,7 +76,7 @@ module Bolognese
       :is_derived_from, :is_source_of, :format, :funding, :type, :bibtex_type,
       :citeproc_type, :ris_type, :style, :locale, :state
 
-    attr_reader :id, :from, :raw, :metadata, :doc, :provider,
+    attr_reader :id, :from, :raw, :metadata, :doc, :service_provider,
       :page_start, :page_end, :should_passthru, :errors,
       :related_identifier, :reverse, :name_detector
 
@@ -229,8 +229,8 @@ module Bolognese
       @publisher ||= metadata.fetch("publisher", nil)
     end
 
-    def provider
-      @provider ||= metadata.fetch("provider", nil)
+    def service_provider
+      @service_provider ||= metadata.fetch("service_provider", nil)
     end
 
     def date_created

@@ -25,7 +25,7 @@ module Bolognese
           "author" => meta.fetch("creator", nil),
           "editor" => meta.fetch("contributor", nil),
           "publisher" => meta.fetch("publisher", nil),
-          "provider" => "DataCite",
+          "service_provider" => "DataCite",
           "is_part_of" => meta.fetch("is_part_of", nil),
           "has_part" => meta.fetch("has_part", nil),
           "references" => meta.fetch("references", nil),

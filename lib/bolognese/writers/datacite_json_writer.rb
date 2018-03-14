@@ -3,7 +3,7 @@ module Bolognese
     module DataciteJsonWriter
       def datacite_json
         hsh = {
-          "id" => id,
+          "id" => identifier,
           "doi" => doi,
           "url" => url,
           "creator" => author,
@@ -40,7 +40,7 @@ module Bolognese
           "schemaVersion" => schema_version,
           "provider_id" => provider_id,
           "client_id" => client_id,
-          "provider" => provider
+          "provider" => service_provider
         }.compact
         JSON.pretty_generate hsh.presence
       end

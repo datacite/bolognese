@@ -107,7 +107,7 @@ module Bolognese
           "author" => get_authors(meta.dig("creators", "creator")),
           "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
           "publisher" => meta.fetch("publisher", nil),
-          "provider" => "DataCite",
+          "service_provider" => "DataCite",
           "funding" => funding,
           "is_identical_to" => datacite_is_identical_to(meta),
           "is_part_of" => datacite_is_part_of(meta),

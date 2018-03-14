@@ -34,7 +34,7 @@ module Bolognese
           "schemaVersion" => schema_version,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
           "funding" => to_schema_org(funding),
-          "provider" => provider.present? ? { "@type" => "Organization", "name" => provider } : nil
+          "provider" => service_provider.present? ? { "@type" => "Organization", "name" => service_provider } : nil
         }.compact.presence
       end
 

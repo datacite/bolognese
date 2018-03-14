@@ -151,7 +151,7 @@ module Bolognese
           "editor" => crossref_people(bibliographic_metadata, "editor"),
           "funding" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
-          "provider" => "Crossref",
+          "service_provider" => "Crossref",
           "is_part_of" => crossref_is_part_of(journal_metadata),
           "references" => crossref_references(bibliographic_metadata),
           "date_published" => crossref_date_published(bibliographic_metadata),

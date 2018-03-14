@@ -42,7 +42,7 @@ describe Bolognese::Metadata, vcr: true do
                                      {"type"=>"Organization",
                                       "id"=>"https://doi.org/10.13039/501100006390",
                                       "name"=>"University of Lausanne"}])
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "journal article" do
@@ -65,7 +65,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.first_page).to eq("e30")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"PLoS ONE", "issn"=>"1932-6203")
       expect(subject.container_title).to eq("PLoS ONE")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "posted_content" do
@@ -86,7 +86,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-10-10T05:10:49Z")
       expect(subject.is_part_of).to be_nil
       expect(subject.publisher).to eq("bioRxiv")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "DOI with SICI DOI" do
@@ -107,7 +107,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.last_page).to eq("2841")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Ecology", "issn"=>"0012-9658")
       expect(subject.container_title).to eq("Ecology")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "DOI with ORCID ID" do
@@ -129,7 +129,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.last_page).to eq("7")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"Pulmonary Medicine", "issn"=>"2090-1836")
       expect(subject.container_title).to eq("Pulmonary Medicine")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "date in future" do
@@ -148,7 +148,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-06-23T08:44:48Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"European Journal of Pharmacology", "issn"=>"00142999")
       expect(subject.container_title).to eq("European Journal of Pharmacology")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "dataset" do
@@ -168,7 +168,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq(1984)
       expect(subject.date_modified).to eq("2014-05-27T16:45:59Z")
       expect(subject.publisher).to eq("(:unav)")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "book chapter" do
@@ -186,7 +186,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_published).to eq("2015")
       expect(subject.date_modified).to eq("2015-04-14T02:31:13Z")
       expect(subject.publisher).to eq("Springer Berlin Heidelberg")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "journal article with" do
@@ -206,7 +206,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-06-05T10:56:59Z")
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"New Phytologist", "issn"=>"0028646X")
       expect(subject.container_title).to eq("New Phytologist")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
     end
 
     it "not found error" do
@@ -215,7 +215,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567x")
       expect(subject.doi).to eq("10.7554/elife.01567x")
-      expect(subject.provider).to eq("Crossref")
+      expect(subject.service_provider).to eq("Crossref")
       expect(subject.state).to eq("not_found")
     end
   end
