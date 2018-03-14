@@ -32,7 +32,6 @@ module Bolognese
           "is_part_of" => is_part_of,
           "has_part" => has_part,
           "size" => content_size,
-          "format" => format,
           "version" => version,
           "rights" => license,
           "description" => description,
