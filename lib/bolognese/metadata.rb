@@ -397,7 +397,7 @@ module Bolognese
     end
 
     def publication_year
-      date_published.present? ? date_published[0..3].to_i : nil
+      date_published.present? ? date_published[0..3].to_i.presence : nil
     end
 
     def container_title
