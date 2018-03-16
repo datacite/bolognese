@@ -65,7 +65,7 @@ module Bolognese
       :date_accepted, :date_available, :date_copyrighted, :date_collected,
       :date_submitted, :date_valid, :date_created, :date_modified,
       :date_registered, :date_updated, :provider_id, :client_id, :journal,
-      :volume, :issue, :first_page, :last_page, :url, :version, :keywords, :editor,
+      :volume, :issue, :first_page, :last_page, :b_url, :b_version, :keywords, :editor,
       :description, :alternate_name, :language, :content_size, :spatial_coverage,
       :schema_version, :additional_type, :has_part, :same_as,
       :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
@@ -99,7 +99,7 @@ module Bolognese
           exit 1
         end
       else
-        hsh = { "url" => options[:url],
+        hsh = { "b_url" => options[:b_url],
                 "state" => options[:state],
                 "date_registered" => options[:date_registered],
                 "date_updated" => options[:date_updated],
@@ -113,7 +113,7 @@ module Bolognese
       string = string.force_encoding("UTF-8") if string.present?
 
       # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: string, id: id, sandbox: options[:sandbox], doi: options[:doi], url: options[:url]) : {}
+      @metadata = @from.present? ? send("read_" + @from, string: string, id: id, sandbox: options[:sandbox], doi: options[:doi], b_url: options[:b_url]) : {}
       @raw = string.present? ? string.strip : nil
 
       # input specific metadata elements required for DataCite
@@ -139,7 +139,7 @@ module Bolognese
 
       @should_passthru = (@from == "datacite") && !regenerate
 
-      @url = hsh.to_h["url"].presence
+      @b_url = hsh.to_h["b_url"].presence
       @state = hsh.to_h["state"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
@@ -197,8 +197,8 @@ module Bolognese
       @doi ||= @id.present? ? doi_from_url(@id) : metadata.fetch("doi", nil)
     end
 
-    def url
-      @url ||= metadata.fetch("url", nil)
+    def b_url
+      @b_url ||= metadata.fetch("b_url", nil)
     end
 
     def identifier
@@ -297,8 +297,8 @@ module Bolognese
       @license ||= metadata.fetch("license", nil)
     end
 
-    def version
-      @version ||= metadata.fetch("version", nil)
+    def b_version
+      @b_version ||= metadata.fetch("b_version", nil)
     end
 
     def keywords

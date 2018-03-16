@@ -52,7 +52,7 @@ module Bolognese
           "ris_type" => BIB_TO_RIS_TRANSLATIONS[meta.type.to_s] || "GEN",
           "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
           "doi" => doi,
-          "url" => meta.url.to_s,
+          "b_url" => meta.url.to_s,
           "title" => meta.title.to_s,
           "author" => author,
           "publisher" => meta.publisher.to_s.presence,

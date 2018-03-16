@@ -17,7 +17,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Dataset" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
       expect(subject.resource_type_general).to eq("Dataset")
@@ -313,7 +313,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "givenName"=>"Henk",
                                      "familyName"=>"Eskes"}])
       expect(subject.title).to eq("Multi-Sensor Reanalysis (MSR) of total ozone, version 2")
-      expect(subject.version).to eq("2")
+      expect(subject.b_version).to eq("2")
       expect(subject.date_published).to eq("2015")
       expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")
       expect(subject.service_provider).to eq("DataCite")
@@ -378,7 +378,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/8515")
       expect(subject.doi).to eq("10.5061/8515")
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
     end
 
@@ -387,7 +387,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("A new malaria agent in African hominids.")
     end
@@ -397,7 +397,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
       expect(subject.state).to eq("registered")

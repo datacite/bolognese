@@ -18,8 +18,8 @@ module Bolognese
           "page" => [first_page, last_page].compact.join("-").presence,
           "publisher" => publisher,
           "title" => parse_attributes(title, content: "text", first: true),
-          "URL" => url,
-          "version" => version,
+          "URL" => b_url,
+          "version" => b_version,
           "volume" => volume
         }.compact
         JSON.pretty_generate hsh.presence

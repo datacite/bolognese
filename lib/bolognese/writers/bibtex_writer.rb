@@ -8,7 +8,7 @@ module Bolognese
           bibtex_type: bibtex_type.presence || "misc",
           bibtex_key: identifier,
           doi: doi,
-          url: url,
+          url: b_url,
           author: authors_as_string(author),
           keywords: Array.wrap(parse_attributes(keywords, content: "text")).join(", "),
           language: language,

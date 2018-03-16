@@ -8,7 +8,7 @@ module Bolognese
           "T2" => container_title,
           "AU" => to_ris(author),
           "DO" => doi,
-          "UR" => url,
+          "UR" => b_url,
           "AB" => parse_attributes(description, content: "text", first: true),
           "KW" => parse_attributes(keywords, content: "text").presence,
           "PY" => publication_year,

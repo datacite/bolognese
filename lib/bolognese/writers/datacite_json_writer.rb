@@ -5,7 +5,7 @@ module Bolognese
         hsh = {
           "id" => identifier,
           "doi" => doi,
-          "url" => url,
+          "url" => b_url,
           "creator" => author,
           "title" => title,
           "publisher" => publisher,
@@ -32,7 +32,7 @@ module Bolognese
           "is_part_of" => is_part_of,
           "has_part" => has_part,
           "size" => content_size,
-          "version" => version,
+          "version" => b_version,
           "rights" => license,
           "description" => description,
           "geo-location" => spatial_coverage,

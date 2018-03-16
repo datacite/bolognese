@@ -51,7 +51,7 @@ module Bolognese
           "ris_type" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => validate_doi(id),
-          "url" => normalize_id(meta.fetch("url", nil)),
+          "b_url" => normalize_id(meta.fetch("url", nil)),
           "title" => meta.fetch("name", nil),
           "alternate_name" => meta.fetch("alternateName", nil),
           "author" => author,
@@ -69,7 +69,7 @@ module Bolognese
           "date_modified" => meta.fetch("dateModified", nil),
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "license" => { "id" => meta.fetch("license", nil) },
-          "version" => meta.fetch("version", nil),
+          "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("keywords", nil).to_s.split(", "),
           "state" => state
         }

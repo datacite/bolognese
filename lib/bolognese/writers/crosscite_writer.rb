@@ -5,7 +5,7 @@ module Bolognese
         hsh = {
           "id" => identifier,
           "doi" => doi,
-          "url" => url,
+          "url" => b_url,
           "type" => type,
           "additional_type" => additional_type,
           "citeproc_type" => citeproc_type,
@@ -32,7 +32,7 @@ module Bolognese
           "language" => language,
           "alternate_name" => alternate_name,
           "content_size" => content_size,
-          "version" => version,
+          "version" => b_version,
           "license" => license,
           "description" => description,
           "volume" => volume,

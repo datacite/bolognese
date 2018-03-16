@@ -18,7 +18,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
@@ -38,7 +38,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
-      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
     end
 
@@ -57,7 +57,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
