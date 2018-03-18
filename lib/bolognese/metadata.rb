@@ -401,7 +401,7 @@ module Bolognese
     end
 
     def container_title
-      Array.wrap(is_part_of).length == 1 ? is_part_of.to_h.fetch("title", nil) : nil
+      Array.wrap(is_part_of).first.to_h.fetch("title", nil)
     end
 
     def descriptions

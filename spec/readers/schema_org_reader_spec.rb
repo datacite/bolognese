@@ -49,6 +49,62 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.exists?).to be false
       expect(subject.state).to eq("not_found")
     end
+
+    it "zenodo" do
+      input = "https://www.zenodo.org/record/1196821"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org", doi: nil)
+      subject.id = "https://doi.org/10.5438/0000-00ss"
+      #expect(subject.errors.size).to eq(2)
+      expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
+      expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
+      expect(subject.doi).to eq("10.5438/0000-00ss")
+      expect(subject.b_url).to eq("https://www.zenodo.org/record/1196821")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.title).to eq("PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning task with auditory CS and electrical US")
+      expect(subject.author.size).to eq(6)
+      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-9688-838X", "name"=>"Matthias Staib", "givenName"=>"Matthias", "familyName"=>"Staib")
+    end
+
+    it "pangaea" do
+      input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org", doi: nil)
+      subject.id = "https://doi.org/10.5438/0000-00ss"
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
+      expect(subject.doi).to eq("10.5438/0000-00ss")
+      expect(subject.b_url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.title).to eq("Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland")
+      expect(subject.author.size).to eq(8)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
+    end
+
+    it "ornl daac" do
+      input = "https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1418"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      subject.id = "https://doi.org/10.3334/ornldaac/1418"
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.3334/ornldaac/1418")
+      expect(subject.doi).to eq("10.3334/ornldaac/1418")
+      expect(subject.b_url).to eq("https://doi.org/10.3334/ornldaac/1418")
+      expect(subject.type).to eq("DataSet")
+      expect(subject.title).to eq("AirMOSS: L2/3 Volumetric Soil Moisture Profiles Derived From Radar, 2012-2015")
+      expect(subject.author.size).to eq(8)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"M. MOGHADDAM", "givenName"=>"M.", "familyName"=>"MOGHADDAM")
+    end
+
+    it "harvard dataverse" do
+      input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GAOC03"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org", doi: nil)
+      subject.id = "https://doi.org/10.3334/ornldaac/1418"
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.3334/ornldaac/1418")
+      expect(subject.doi).to eq("10.3334/ornldaac/1418")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.title).to eq("The National Labor Force : SAKERNAS, 2008")
+      expect(subject.container_title).to eq("Harvard Dataverse")
+      expect(subject.author).to eq("name"=>"Badan Pusat Statistik")
+    end
   end
 
   context "get schema_org metadata as string" do

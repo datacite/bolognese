@@ -141,6 +141,12 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4514-4211", "name"=>"Thomas Dubos", "givenName"=>"Thomas", "familyName"=>"Dubos", "identifier"=>["https://orcid.org/0000-0003-4514-4211", "http://isni.org/isni/0000-0003-5752-6882"])
     end
+
+    it "only familyName and givenName" do
+      input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
+    end
   end
 
   context "get_name_identifiers" do

@@ -289,7 +289,7 @@ module Bolognese
         "datacite_json"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
@@ -307,7 +307,7 @@ module Bolognese
         "datacite_json"
       elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
-      elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org")
+      elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
       elsif Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"

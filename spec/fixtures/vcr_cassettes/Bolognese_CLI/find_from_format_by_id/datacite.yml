@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.datacite.org/prefixes/10.5061
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 18 Mar 2018 06:54:43 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 744df000-0eec-4750-a9a5-92e8552c01eb
+      Etag:
+      - W/"b88da514519eb2584bb29d491bf684df"
+      X-Runtime:
+      - '0.015930'
+      X-Powered-By:
+      - Phusion Passenger 5.2.1
+      Server:
+      - nginx/1.12.2 + Phusion Passenger 5.2.1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.5061","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.dryad","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.dryad","type":"clients","attributes":{"name":"Dryad","symbol":"CDL.DRYAD","year":2013,"contact-name":"Greg
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-02-19T17:42:03Z","updated":"2018-03-18T02:30:16Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-03-18T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+    http_version: 
+  recorded_at: Sun, 18 Mar 2018 06:54:43 GMT
+recorded_with: VCR 3.0.3

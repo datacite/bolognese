@@ -16,7 +16,10 @@ module Bolognese
         id = normalize_id(id)
         response = Maremma.get(id)
         doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
-        string = doc.at_xpath('//script[@type="application/ld+json"]')
+        #string = doc.at_xpath('//script[@type="application/ld+json"]')
+        # workaround for xhtml documents
+        nodeset = doc.css("script")
+        string = nodeset.find { |element| element["type"] == "application/ld+json" }
         string = string.text if string.present?
 
         { "string" => string }
@@ -31,15 +34,26 @@ module Bolognese
         meta = string.present? ? Maremma.from_json(string) : {}
 
         id = normalize_id(meta.fetch("@id", nil) || options[:id])
-        type = meta.fetch("@type", nil)
+        type = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
-        author = get_authors(from_schema_org(Array.wrap(meta.fetch("author", nil))))
+        authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
+        author = get_authors(from_schema_org(Array.wrap(authors)))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         publisher = if meta.dig("publisher").is_a?(Hash)
                       meta.dig("publisher", "name")
                     elsif publisher.is_a?(String)
                       meta.dig("publisher")
                     end
+
+        included_in_data_catalog = from_schema_org(Array.wrap(meta.fetch("includedInDataCatalog", nil)))
+        included_in_data_catalog = Array.wrap(included_in_data_catalog).map { |dc| { "title" => dc["name"], "url" => dc["url"] } }
+        is_part_of = schema_org_is_part_of(meta) || included_in_data_catalog
+
+        license = {
+          "id" => parse_attributes(meta.fetch("license", nil), content: "id", first: true),
+          "name" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
+        }
+
         date_published = meta.fetch("datePublished", nil)
         state = meta.present? ? "findable" : "not_found"
 
@@ -58,7 +72,7 @@ module Bolognese
           "publisher" => meta.dig("publisher", "name"),
           "service_provider" => meta.fetch("provider", nil),
           "is_identical_to" => schema_org_is_identical_to(meta),
-          "is_part_of" => schema_org_is_part_of(meta),
+          "is_part_of" => is_part_of,
           "has_part" => schema_org_has_part(meta),
           "references" => schema_org_references(meta),
           "is_referenced_by" => schema_org_is_referenced_by(meta),
@@ -68,7 +82,7 @@ module Bolognese
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
-          "license" => { "id" => meta.fetch("license", nil) },
+          "license" => license,
           "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("keywords", nil).to_s.split(", "),
           "state" => state
