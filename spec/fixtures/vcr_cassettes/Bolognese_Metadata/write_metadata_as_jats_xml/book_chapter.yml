@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/xml
   response:
@@ -25,7 +25,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Sun, 25 Feb 2018 14:10:42 GMT
+      - Sun, 01 Apr 2018 09:07:31 GMT
       Connection:
       - close
     body:
@@ -56,5 +56,5 @@ http_interactions:
         \         </doi_data>\r\n        </content_item>\r\n      </book>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:10:44 GMT
+  recorded_at: Sun, 01 Apr 2018 09:07:32 GMT
 recorded_with: VCR 3.0.3

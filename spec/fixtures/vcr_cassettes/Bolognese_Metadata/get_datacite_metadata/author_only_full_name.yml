@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:12:46 GMT
+      - Sun, 01 Apr 2018 09:08:46 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,33 +30,31 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"14873c3da44b49976b2101ac50e204b4"
-      X-Runtime:
-      - '0.018723'
       X-Request-Id:
-      - df450146-d7b6-4f7e-a585-9b8867492cb7
+      - 76bd0fd1-4fc1-4141-a454-8dfb57215da2
+      Etag:
+      - W/"6db2a8efa458eabb68205fba06246bc7"
+      X-Runtime:
+      - '0.014003'
       X-Powered-By:
-      - Phusion Passenger 5.2.0
+      - Phusion Passenger 5.2.2
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.12.2 + Phusion Passenger 5.2.2
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.14457","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2013-11-05T07:22:12.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"nrct.db1","type":"clients"}]},"providers":{"data":[{"id":"nrct","type":"providers"}]}}},"included":[{"id":"nrct.db1","type":"clients","attributes":{"name":"NRCT
-        Data Center","symbol":"NRCT.DB1","year":2013,"contact-name":"SBS Staff","contact-email":"poramin@simplybright.co.th","domains":"doi.nrct.go.th","url":null,"is-active":true,"has-password":true,"created":"2013-02-22T09:06:28Z","updated":"2018-02-25T02:30:14Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"nrct","type":"providers","attributes":{"name":"National
-        Research Council of Thailand","symbol":"NRCT","year":2013,"contact-name":"Petchara
-        Sungkhaworn","contact-email":"petchara@sungkhaworn.org","logo-url":"https://assets.datacite.org/images/members/nrct.png","is-active":true,"has-password":true,"created":"2013-02-18T09:17:30.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: !binary |-
+        eyJkYXRhIjp7ImlkIjoiMTAuMTQ0NTciLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDEzLTExLTA1VDA3OjIyOjEyLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoibnJjdC5kYjEiLCJ0eXBlIjoiY2xpZW50cyJ9XX0sInByb3ZpZGVycyI6eyJkYXRhIjpbeyJpZCI6Im5yY3QiLCJ0eXBlIjoicHJvdmlkZXJzIn1dfX19LCJpbmNsdWRlZCI6W3siaWQiOiJucmN0LmRiMSIsInR5cGUiOiJjbGllbnRzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTlJDVCBEYXRhIENlbnRlciIsInN5bWJvbCI6Ik5SQ1QuREIxIiwieWVhciI6MjAxMywiY29udGFjdC1uYW1lIjoiU0JTIFN0YWZmIiwiY29udGFjdC1lbWFpbCI6InBvcmFtaW5Ac2ltcGx5YnJpZ2h0LmNvLnRoIiwiZG9tYWlucyI6ImRvaS5ucmN0LmdvLnRoIiwidXJsIjpudWxsLCJpcy1hY3RpdmUiOnRydWUsImhhcy1wYXNzd29yZCI6dHJ1ZSwiY3JlYXRlZCI6IjIwMTMtMDItMjJUMDk6MDY6MjhaIiwidXBkYXRlZCI6IjIwMTgtMDQtMDFUMDI6MzA6MTVaIn0sInJlbGF0aW9uc2hpcHMiOnsicHJlZml4ZXMiOnsibWV0YSI6e319LCJwcm92aWRlciI6eyJtZXRhIjp7fX0sInJlcG9zaXRvcnkiOnsibWV0YSI6e319fX0seyJpZCI6Im5yY3QiLCJ0eXBlIjoicHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTmF0aW9uYWwgUmVzZWFyY2ggQ291bmNpbCBvZiBUaGFpbGFuZCIsInN5bWJvbCI6Ik5SQ1QiLCJ3ZWJzaXRlIjoiaHR0cDovL3d3dy5kb2kubnJjdC5nby50aCIsImNvbnRhY3QtbmFtZSI6IlBldGNoYXJhIFN1bmdraGF3b3JuIiwiY29udGFjdC1lbWFpbCI6InBldGNoYXJhQHN1bmdraGF3b3JuLm9yZyIsInBob25lIjoiKzY2IDIgNTYxIDI0NDUgZXh0IDM1MywgNTcwIiwiZGVzY3JpcHRpb24iOiJUaGUgTmF0aW9uYWwgUmVzZWFyY2ggQ291bmNpbCBvZiBUaGFpbGFuZCAoTlJDVCkgd2FzIGluYXVndXJhdGVkIGJ5IHRoZSBOYXRpb25hbCBSZXNlYXJjaCBDb3VuY2lsIEFjdCBCLkUuMjUwMiAoMTk1OSkgYW5kIHdhcyBkZXNpZ25hdGVkIGJ5IHRoZSBDYWJpbmV0IGFzIHRoZSBuYXRpb25hbCBib2R5IHJlc3BvbnNpYmxlIGZvciB0aGUgaW1wbGVtZW50YXRpb24gb2YgcmVzZWFyY2ggcmVsYXRlZCBtYXR0ZXJzLiBUaGUgTlJDVCBpcyBhbHNvIGFzc2lnbmVkIHRvIGdpdmUgY29tbWVudHMgdG8gdGhlIFByaW1lIE1pbmlzdGVyIHdoZW4gcmVxdWVzdGVkLlxuXG5UaGUgYWRtaW5pc3RyYXRpdmUgYm9keSBvZiB0aGUgTlJDVCBpcyBjb25zaXN0ZWQgb2YgdGhyZWUgcGFydHM7IHRoZSBmaXJzdCBvbmUgaXMgdGhlIE5hdGlvbmFsIFJlc2VhcmNoIENvdW5jaWwgY2hhaXJlZCBieSBQcmltZSBNaW5pc3Rlciwgd2l0aCBEZXB1dHkgUHJpbWUgTWluaXN0ZXJzIGFzIFZpY2UgQ2hhaXJtZW4sIGFuZCBNaW5pc3RlcnMgYXJlIERlcHV0eSBNaW5pc3RlcnMgYXMgQWR2aXNvcnM7IHRoZSBzZWNvbmQgb25lIGlzIHRoZSBOYXRpb25hbCBSZXNlYXJjaCBDb3VuY2lsIEV4ZWN1dGl2ZSBCb2FyZDsgYW5kIHRoZSBsYXN0IGJvZHkgaXMgdGhlIE9mZmljZSBvZiB0aGUgTmF0aW9uYWwgUmVzZWFyY2ggQ291bmNpbCBvZiBUaGFpbGFuZCBoZWFkZWQgYnkgU2VjcmV0YXJ5LUdlbmVyYWwuXG5cblZpc2lvbiAoWWVhcnMgMjAxMCDigJMgMjAxNilcblxuTlJDVCBpcyB0aGUgcHJpbmNpcGFsIG9yZ2FuaXphdGlvbiBmb3IgdXNpbmcgcmVzZWFyY2ggdG8gZ3VpZGUgdGhlIGRldmVsb3BtZW50IG9mIFRoYWlsYW5kLCBhbmQgaXMgdGhlIGxlYWRlciBpbiB0aGUgZGV2ZWxvcG1lbnQgb2YgVGhhaWxhbmTigJlzIG5hdGlvbmFsIHJlc2VhcmNoIHN5c3RlbS5cblxuU3RyYXRlZ2llc1xuXG4xLiBGb3JtdWxhdGUgdGhlIG5hdGlvbmFsIHJlc2VhcmNoIHBvbGljeSBhbmQgZXhwZW5kaXR1cmUgZnJhbWV3b3JrIHdpdGggdGhlIHBhcnRpY2lwYXRpb24gb2Ygc3Rha2Vob2xkZXJzOyBhbGwgaW52b2x2ZWQgcGFydGllcyBmb2xsb3cgdGhpcyBzdHJhdGVneSBhbmQgZnJhbWV3b3JrIGZvciB0aGVpciBpbXBsZW1lbnRhdGlvbi5cblxuMi4gQmVpbmcgdGhlIGNlbnRyYWwgb3JnYW5pemF0aW9uIGZvciByZXNlYXJjaCBjb29wZXJhdGlvbiBhbW9uZyBkb21lc3RpYyBhbmQgaW50ZXJuYXRpb25hbCBvcmdhbml6YXRpb24uXG5cbjMuIEluY3JlYXNlIGNvbXBldGVuY3kgYW5kIHN0cmVuZ3RoIG9mIHRoZSBOYXRpb25hbCBSZXNlYXJjaCBDb3VuY2lsIG9mIFRoYWlsYW5kIGluIG9yZGVyIHRvIGVzdGFibGlzaCBhbiBhY2FkZW1pYyBiYWxhbmNlIGZvciBzdXN0YWluYWJsZSBkZXZlbG9wbWVudCBpbiBlY29ub21pY3MsIHNvY2lldHksIGFuZCBwdWJsaWMgd2VsbC1iZWluZy5cblxuNC4gT3ZlcnNlZSBhbiBpbnRlZ3JhdGVkIG1hbmFnZW1lbnQgc2NoZW1lIHRvIHByb21vdGUgYW5kIHN1cHBvcnQgcXVhbGl0YXRpdmUgZG9tZXN0aWMgYW5kIGludGVybmF0aW9uYWwgcmVzZWFyY2ggcmVzdWx0cyBhbmQgaW5ub3ZhdGlvbnMgZm9yIGZ1dHVyZSB1c2UgYnkgb3VyIGNvdW50cnkuXG5cbjUuIFByb21vdGUgYW5kIGVuY291cmFnZSByZXNlYXJjaCBvciByZXNlYXJjaCBkZXZlbG9wbWVudCBhbmQgaW52ZW50aW9uIHdoaWNoIGNhbiBiZSB1dGlsaXplZCBmb3IgdGhlIGNvdW50cnnigJlzIGRldmVsb3BtZW50LiIsImNvdW50cnkiOiJUSCIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMuZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL25yY3QucG5nIiwiaW5zdGl0dXRpb24tdHlwZSI6bnVsbCwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWUsImpvaW5lZCI6IjIwMTItMTItMTEiLCJjcmVhdGVkIjoiMjAxMy0wMi0xOFQwOToxNzozMC4wMDBaIiwidXBkYXRlZCI6IjIwMTgtMDQtMDFUMDI6MjU6NTIuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsibWV0YSI6e319LCJwcmVmaXhlcyI6eyJtZXRhIjp7fX19fV19
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:12:46 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:46 GMT
 - request:
     method: get
-    uri: https://app.datacite.org/dois/10.14457/kmitl.res.2006.17?include=client,provider
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.14457/kmitl.res.2006.17&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,33 +63,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:12:46 GMT
+      - Sun, 01 Apr 2018 09:08:47 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      Etag:
-      - W/"1cc9edaf44b1aa64c553d789c181d768"
-      X-Runtime:
-      - '0.068169'
-      X-Request-Id:
-      - 1633ac92-7958-4479-8ea6-43af83b9e189
-      X-Powered-By:
-      - Phusion Passenger 5.2.0
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuMTQ0NTcva21pdGwucmVzLjIwMDYuMTciLCJ0eXBlIjoiZG9pcyIsImF0dHJpYnV0ZXMiOnsiZG9pIjoiMTAuMTQ0NTcva21pdGwucmVzLjIwMDYuMTciLCJpZGVudGlmaWVyIjoiaHR0cHM6Ly9kb2kub3JnLzEwLjE0NDU3L2ttaXRsLnJlcy4yMDA2LjE3IiwidXJsIjpudWxsLCJhdXRob3IiOnsibmFtZSI6IuC4geC4seC4jeC4iOC4meC4siDguYHguIvguYjguYDguJXguLXguKLguKcifSwidGl0bGUiOiLguIHguLLguKPguYDguJ7guLLguLDguYDguKXguLXguYnguKLguIfguYDguJnguLfguYnguK3guYDguKLguLfguYjguK3guJvguJfguLjguKHguKHguLLguJfguLXguYjguYDguKvguKHguLLguLDguKrguKEg4Liq4Liz4Lir4Lij4Lix4Lia4LiB4Liy4Lij4LiW4LmI4Liy4Lii4Lii4Li14LiZ4LmC4LiU4Lii4LmD4LiK4LmJ4Lit4Liw4LmC4LiB4Lij4LmB4Lia4LiE4LiX4Li14LmA4Lij4Li14Lii4LihIC8iLCJjb250YWluZXItdGl0bGUiOiLguKDguLLguITguKfguLTguIrguLLguJ7guLfguIrguKrguKfguJkg4Liq4LiW4Liy4Lia4Lix4LiZ4LmA4LiX4LiE4LmC4LiZ4LmC4Lil4Lii4Li14Lie4Lij4Liw4LiI4Lit4Lih4LmA4LiB4Lil4LmJ4Liy4LmA4LiI4LmJ4Liy4LiE4Li44LiT4LiX4Lir4Liy4Lij4Lil4Liy4LiU4LiB4Lij4Liw4Lia4Lix4LiHLCIsImRlc2NyaXB0aW9uIjpudWxsLCJyZXNvdXJjZS10eXBlLXN1YnR5cGUiOiJEYXRhc2V0IiwibGljZW5zZSI6bnVsbCwidmVyc2lvbiI6MiwicmVsYXRlZC1pZGVudGlmaWVyIjpbXSwic2NoZW1hLXZlcnNpb24iOiJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIsInN0YXRlIjoiZmluZGFibGUiLCJyZWFzb24iOm51bGwsInhtbCI6IlBEOTRiV3dnZG1WeWMybHZiajBpTVM0d0lpQmxibU52WkdsdVp6MGlWVlJHTFRnaVB6NDhjbVZ6YjNWeVkyVWdlSE5wT25OamFHVnRZVXh2WTJGMGFXOXVQU0pvZEhSd09pOHZaR0YwWVdOcGRHVXViM0puTDNOamFHVnRZUzlyWlhKdVpXd3RNeUJvZEhSd09pOHZjMk5vWlcxaExtUmhkR0ZqYVhSbExtOXlaeTl0WlhSaEwydGxjbTVsYkMwekwyMWxkR0ZrWVhSaExuaHpaQ0lnZUcxc2JuTTlJbWgwZEhBNkx5OWtZWFJoWTJsMFpTNXZjbWN2YzJOb1pXMWhMMnRsY201bGJDMHpJaUI0Yld4dWN6cDRjMms5SW1oMGRIQTZMeTkzZDNjdWR6TXViM0puTHpJd01ERXZXRTFNVTJOb1pXMWhMV2x1YzNSaGJtTmxJajQ4YVdSbGJuUnBabWxsY2lCcFpHVnVkR2xtYVdWeVZIbHdaVDBpUkU5SklqNHhNQzR4TkRRMU55OUxUVWxVVEM1eVpYTXVNakF3Tmk0eE56d3ZhV1JsYm5ScFptbGxjajQ4WTNKbFlYUnZjbk1nUGp4amNtVmhkRzl5SUQ0OFkzSmxZWFJ2Y2s1aGJXVWdQdUM0Z2VDNHNlQzRqZUM0aU9DNG1lQzRzaURndVlIZ3VJdmd1WWpndVlEZ3VKWGd1TFhndUtMZ3VLYzhMMk55WldGMGIzSk9ZVzFsUGp3dlkzSmxZWFJ2Y2o0OEwyTnlaV0YwYjNKelBqeDBhWFJzWlhNZ1BqeDBhWFJzWlNBKzRMaUI0TGl5NExpajRMbUE0TGllNExpeTRMaXc0TG1BNExpbDRMaTE0TG1KNExpaTRMaUg0TG1BNExpWjRMaTM0TG1KNExpdDRMbUE0TGlpNExpMzRMbUk0TGl0NExpYjRMaVg0TGk0NExpaDRMaWg0TGl5NExpWDRMaTE0TG1JNExtQTRMaXI0TGloNExpeTRMaXc0TGlxNExpaElPQzRxdUM0cytDNHErQzRvK0M0c2VDNG11QzRnZUM0c3VDNG8rQzRsdUM1aU9DNHN1QzRvdUM0b3VDNHRlQzRtZUM1Z3VDNGxPQzRvdUM1ZytDNGl1QzVpZUM0cmVDNHNPQzVndUM0Z2VDNG8rQzVnZUM0bXVDNGhPQzRsK0M0dGVDNWdPQzRvK0M0dGVDNG91QzRvU0F2UEM5MGFYUnNaVDQ4TDNScGRHeGxjejQ4YzNWaWFtVmpkSE1nUGp4emRXSnFaV04wSUQ3Z3VJSGd1TExndUtQZ3VZRGd1SjdndUxMZ3VMRGd1WURndUtYZ3VMWGd1WW5ndUtMZ3VJZmd1WURndUpuZ3VMZmd1WW5ndUszZ3VZRGd1S0xndUxmZ3VZamd1SzNndUo3Z3VMZmd1SW84TDNOMVltcGxZM1ErUEhOMVltcGxZM1FnUHVDNG0rQzRsK0M0dU9DNG9lQzRvZUM0c2p3dmMzVmlhbVZqZEQ0OGMzVmlhbVZqZENBKzRMaUI0TGl5NExpajRMaVc0TG1JNExpeTRMaWk0TGlpNExpMTRMaVpQQzl6ZFdKcVpXTjBQanh6ZFdKcVpXTjBJRDdndUp2Z3VKZmd1TGpndUtIZ3VLSGd1TEk4TDNOMVltcGxZM1ErUEhOMVltcGxZM1FnUHVDNHJlQzRzT0M1Z3VDNGdlQzRvK0M1Z2VDNG11QzRoT0M0bCtDNHRlQzVnT0M0bytDNHRlQzRvdUM0b1R3dmMzVmlhbVZqZEQ0OEwzTjFZbXBsWTNSelBqeGpiMjUwY21saWRYUnZjbk1nUGp4amIyNTBjbWxpZFhSdmNpQmpiMjUwY21saWRYUnZjbFI1Y0dVOUlsSmxjMlZoY21Ob1pYSWlQanhqYjI1MGNtbGlkWFJ2Y2s1aGJXVWdQdUM0cXVDNHVPQzVnT0M0b1NEZ3VLM2d1S1BndUxIZ3VJM2d1Sm5ndUxMZ3VLUGd1Slk4TDJOdmJuUnlhV0oxZEc5eVRtRnRaVDQ4TDJOdmJuUnlhV0oxZEc5eVBqeGpiMjUwY21saWRYUnZjaUJqYjI1MGNtbGlkWFJ2Y2xSNWNHVTlJbEpsYzJWaGNtTm9aWElpUGp4amIyNTBjbWxpZFhSdmNrNWhiV1VnUHVDNHArQzRtZUM0dE9DNGxPQzRzaURndUpUZ3VLZmd1SWZndUlIZ3VZbmd1SWZndVlIZ3VLcmd1Sms4TDJOdmJuUnlhV0oxZEc5eVRtRnRaVDQ4TDJOdmJuUnlhV0oxZEc5eVBqd3ZZMjl1ZEhKcFluVjBiM0p6UGp4d2RXSnNhWE5vWlhJZ1B1QzRvT0M0c3VDNGhPQzRwK0M0dE9DNGl1QzRzdUM0bnVDNHQrQzRpdUM0cXVDNHArQzRtU0RndUtyZ3VKYmd1TExndUpyZ3VMSGd1Sm5ndVlEZ3VKZmd1SVRndVlMZ3VKbmd1WUxndUtYZ3VLTGd1TFhndUo3Z3VLUGd1TERndUlqZ3VLM2d1S0hndVlEZ3VJSGd1S1hndVluZ3VMTGd1WURndUlqZ3VZbmd1TExndUlUZ3VMamd1SlBndUpmZ3VLdmd1TExndUtQZ3VLWGd1TExndUpUZ3VJSGd1S1BndUxEZ3VKcmd1TEhndUljc1BDOXdkV0pzYVhOb1pYSStQSEIxWW14cFkyRjBhVzl1V1dWaGNpQStNalUwT1R3dmNIVmliR2xqWVhScGIyNVpaV0Z5UGp4eVpYTnZkWEpqWlZSNWNHVWdjbVZ6YjNWeVkyVlVlWEJsUjJWdVpYSmhiRDBpUkdGMFlYTmxkQ0krUkdGMFlYTmxkRHd2Y21WemIzVnlZMlZVZVhCbFBqd3ZjbVZ6YjNWeVkyVSsiLCJwdWJsaXNoZWQiOiIyNTQ5IiwicmVnaXN0ZXJlZCI6IjIwMTYtMDUtMjNUMDg6MDg6MzkuMDAwWiIsInVwZGF0ZWQiOiIyMDE2LTA1LTIzVDA4OjA4OjM5LjAwMFoifSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnQiOnsiZGF0YSI6eyJpZCI6Im5yY3QuZGIxIiwidHlwZSI6ImNsaWVudHMifX0sInByb3ZpZGVyIjp7ImRhdGEiOnsiaWQiOiJucmN0IiwidHlwZSI6InByb3ZpZGVycyJ9fSwicmVzb3VyY2UtdHlwZSI6eyJtZXRhIjp7fX0sIm1lZGlhIjp7Im1ldGEiOnt9fX19LCJpbmNsdWRlZCI6W3siaWQiOiJucmN0LmRiMSIsInR5cGUiOiJjbGllbnRzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTlJDVCBEYXRhIENlbnRlciIsInN5bWJvbCI6Ik5SQ1QuREIxIiwieWVhciI6MjAxMywiY29udGFjdC1uYW1lIjoiU0JTIFN0YWZmIiwiY29udGFjdC1lbWFpbCI6InBvcmFtaW5Ac2ltcGx5YnJpZ2h0LmNvLnRoIiwiZG9tYWlucyI6ImRvaS5ucmN0LmdvLnRoIiwidXJsIjpudWxsLCJpcy1hY3RpdmUiOnRydWUsImhhcy1wYXNzd29yZCI6dHJ1ZSwiY3JlYXRlZCI6IjIwMTMtMDItMjJUMDk6MDY6MjhaIiwidXBkYXRlZCI6IjIwMTgtMDItMjVUMDI6MzA6MTRaIn0sInJlbGF0aW9uc2hpcHMiOnsicHJlZml4ZXMiOnsibWV0YSI6e319LCJwcm92aWRlciI6eyJtZXRhIjp7fX0sInJlcG9zaXRvcnkiOnsibWV0YSI6e319fX0seyJpZCI6Im5yY3QiLCJ0eXBlIjoicHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiTmF0aW9uYWwgUmVzZWFyY2ggQ291bmNpbCBvZiBUaGFpbGFuZCIsInN5bWJvbCI6Ik5SQ1QiLCJ5ZWFyIjoyMDEzLCJjb250YWN0LW5hbWUiOiJQZXRjaGFyYSBTdW5na2hhd29ybiIsImNvbnRhY3QtZW1haWwiOiJwZXRjaGFyYUBzdW5na2hhd29ybi5vcmciLCJsb2dvLXVybCI6Imh0dHBzOi8vYXNzZXRzLmRhdGFjaXRlLm9yZy9pbWFnZXMvbWVtYmVycy9ucmN0LnBuZyIsImlzLWFjdGl2ZSI6dHJ1ZSwiaGFzLXBhc3N3b3JkIjp0cnVlLCJjcmVhdGVkIjoiMjAxMy0wMi0xOFQwOToxNzozMC4wMDBaIiwidXBkYXRlZCI6IjIwMTgtMDItMjVUMDI6MjU6NTEuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsibWV0YSI6e319LCJwcmVmaXhlcyI6eyJtZXRhIjp7fX19fV19
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"NRCT.DB1","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48cmVzb3VyY2UgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCIgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj48aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4xNDQ1Ny9LTUlUTC5yZXMuMjAwNi4xNzwvaWRlbnRpZmllcj48Y3JlYXRvcnMgPjxjcmVhdG9yID48Y3JlYXRvck5hbWUgPuC4geC4seC4jeC4iOC4meC4siDguYHguIvguYjguYDguJXguLXguKLguKc8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48L2NyZWF0b3JzPjx0aXRsZXMgPjx0aXRsZSA+4LiB4Liy4Lij4LmA4Lie4Liy4Liw4LmA4Lil4Li14LmJ4Lii4LiH4LmA4LiZ4Li34LmJ4Lit4LmA4Lii4Li34LmI4Lit4Lib4LiX4Li44Lih4Lih4Liy4LiX4Li14LmI4LmA4Lir4Lih4Liy4Liw4Liq4LihIOC4quC4s+C4q+C4o+C4seC4muC4geC4suC4o+C4luC5iOC4suC4ouC4ouC4teC4meC5guC4lOC4ouC5g+C4iuC5ieC4reC4sOC5guC4geC4o+C5geC4muC4hOC4l+C4teC5gOC4o+C4teC4ouC4oSAvPC90aXRsZT48L3RpdGxlcz48c3ViamVjdHMgPjxzdWJqZWN0ID7guIHguLLguKPguYDguJ7guLLguLDguYDguKXguLXguYnguKLguIfguYDguJnguLfguYnguK3guYDguKLguLfguYjguK3guJ7guLfguIo8L3N1YmplY3Q+PHN1YmplY3QgPuC4m+C4l+C4uOC4oeC4oeC4sjwvc3ViamVjdD48c3ViamVjdCA+4LiB4Liy4Lij4LiW4LmI4Liy4Lii4Lii4Li14LiZPC9zdWJqZWN0PjxzdWJqZWN0ID7guJvguJfguLjguKHguKHguLI8L3N1YmplY3Q+PHN1YmplY3QgPuC4reC4sOC5guC4geC4o+C5geC4muC4hOC4l+C4teC5gOC4o+C4teC4ouC4oTwvc3ViamVjdD48L3N1YmplY3RzPjxjb250cmlidXRvcnMgPjxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPjxjb250cmlidXRvck5hbWUgPuC4quC4uOC5gOC4oSDguK3guKPguLHguI3guJnguLLguKPguJY8L2NvbnRyaWJ1dG9yTmFtZT48L2NvbnRyaWJ1dG9yPjxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPjxjb250cmlidXRvck5hbWUgPuC4p+C4meC4tOC4lOC4siDguJTguKfguIfguIHguYnguIfguYHguKrguJk8L2NvbnRyaWJ1dG9yTmFtZT48L2NvbnRyaWJ1dG9yPjwvY29udHJpYnV0b3JzPjxwdWJsaXNoZXIgPuC4oOC4suC4hOC4p+C4tOC4iuC4suC4nuC4t+C4iuC4quC4p+C4mSDguKrguJbguLLguJrguLHguJnguYDguJfguITguYLguJnguYLguKXguKLguLXguJ7guKPguLDguIjguK3guKHguYDguIHguKXguYnguLLguYDguIjguYnguLLguITguLjguJPguJfguKvguLLguKPguKXguLLguJTguIHguKPguLDguJrguLHguIcsPC9wdWJsaXNoZXI+PHB1YmxpY2F0aW9uWWVhciA+MjU0OTwvcHVibGljYXRpb25ZZWFyPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPjwvcmVzb3VyY2U+","allocator_symbol":"NRCT","minted":"2016-05-23T08:08:39Z","state":"findable","updated":"2016-05-23T08:08:39Z","doi":"10.14457/KMITL.RES.2006.17"}]}}
+
+'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:12:46 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:47 GMT
 recorded_with: VCR 3.0.3

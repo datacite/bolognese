@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Mar 2018 04:28:22 GMT
+      - Sun, 01 Apr 2018 09:07:38 GMT
       Server:
       - Apache/2.4.6 (Red Hat Enterprise Linux)
       Strict-Transport-Security:
@@ -104,12 +104,16 @@ http_interactions:
         DAAC\">ORNL DAAC Home</a><a id=\"nasa-link\" href=\"https://www.nasa.gov\"
         title=\"NASA\" target=\"_blank\">NASA Home</a><nav class=\"menubox\"><ul class=\"nav\">\n\t<li
         class=\"top first home\"><a class=\"top_link\" href=\"/\" title=\"ORNL DAAC
-        home\"><span class=\"icon-home\"></span><span class=\"home_text pad-left down\">Home</span></a></li>\n\t<li
-        class=\"top\"><a href=\"/about/\" class=\"top_link\"><span class=\"down\">About
-        Us</span></a>\n\t\t<ul class='sub'>\n\t\t\t<!-- <li><a href=\"/about_us.shtml\"><span>About
-        ORNL DAAC</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/who.shtml\"><span>Who
-        We Are</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/partners.html\"><span>Partners</span></a></li>
-        -->\n\t\t\t<!-- <li><a href=\"/UWG/publicuwg.shtml\"><span>User Working Group</span></a></li>
+        home\"><span class=\"fa fa-home fa-fw\"></span><span class=\"home_text down\">Home</span></a>\n\t\t<ul
+        class=\"contact_link\">\n\t\t\t<li><a href=\"javascript:feedback.showForm();\"
+        class=\"top_link\" title=\"User's Service Office\" id=\"Contact\"><span class=\"fa
+        fa-comment fa-flip-horizontal fa-fw\"></span><span class=\"down\">Contact
+        Us</span></a></li>\n\t\t</ul>\n\t</li>\n\t<li class=\"top\"><a href=\"/about/\"
+        class=\"top_link\"><span class=\"down\">About Us</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!--
+        <li><a href=\"/about_us.shtml\"><span>About ORNL DAAC</span></a></li> -->\n\t\t\t<!--
+        <li><a href=\"/who.shtml\"><span>Who We Are</span></a></li> -->\n\t\t\t<!--
+        <li><a href=\"/partners.html\"><span>Partners</span></a></li> -->\n\t\t\t<!--
+        <li><a href=\"/UWG/publicuwg.shtml\"><span>User Working Group</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/biogeochem.shtml\"><span>Biogeochemical Dynamics</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/citation_policy.html\"><span>Data Citation
         Policy</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/workshops/workshops.shtml\"><span>Workshops</span></a></li>
@@ -120,7 +124,7 @@ http_interactions:
         href=\"https://daac-news.ornl.gov/\"><span>News</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
         <li class=\"top\"><a href=\"/about/about_us.html\"><span>About Us</span></a></li>
         -->\n\t<li class=\"top\"><a href=\"/get_data/\" class=\"top_link\"><span class=\"down\">Get
-        Data</span></a>\n\t\t<ul class='sub'>\n\t\t\t<!-- <li><a href=\"/cgi-bin/catalog.pl?s\"><span>All
+        Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!-- <li><a href=\"/cgi-bin/catalog.pl?s\"><span>All
         Projects</span></a></li> -->\n\t\t\t<li><a href=\"/cgi-bin/catalog.pl?l\"><span>Complete
         Dataset List</span></a></li>\n\t\t\t<li><a href=\"/get_data#datasearch\" class=\"fly\"><span>Search
         for Data</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<!-- <li><a href=\"https://mercury.ornl.gov/ornldaac/#q=*%3A*\"><span>Data
@@ -145,8 +149,8 @@ http_interactions:
         of Subcanopy and Subsurface (AirMOSS)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=37\"><span>Atmospheric
         Carbon and Transport - America (ACT-America)</span></a></li>\n\t\t\t\t\t<!--
         <li><a href=\"/cgi-bin/dataset_lister.pl?p=38\"><span>AfriSAR</span></a></li>
-        -->\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=39\"><span>Atmospheric
-        Tomography Mission (ATom)</span></a></li> -->\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=7\"><span>First
+        -->\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=39\"><span>Atmospheric
+        Tomography Mission (ATom)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=7\"><span>First
         ISLSCP Field Experiment (FIFE)</span></a></li>\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=8\"><span>First
         ISLSCP Field Experiment (FIFE)  Follow On</span></a></li> -->\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t\t<li><a
         href=\"/get_data#validation\" class=\"fly\"><span>Land Validation</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
@@ -175,24 +179,36 @@ http_interactions:
         href=\"/get_data#models\" class=\"fly\"><span>Model Archive</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
         href=\"/cgi-bin/dataset_lister.pl?p=27\"><span>Model Archive</span></a></li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</li>\n\t<!--
         <li class=\"top\"><a href=\"/get_data/get_data.html\"><span>Get Data</span></a></li>
-        -->\n\t<li class=\"top halfwide tabonly\"><a href=\"/submit/\" class=\"top_link\"><span
-        class=\"down\">Submit Data</span></a></li>\n\t<!-- <li class=\"top\"><a href=\"/submit/submit_data.html\"><span>Submit
-        Data</span></a></li> -->\n\t<li class=\"top wide\"><a href=\"/PI/\" class=\"top_link\"><span
-        class=\"down\">Data Management</span></a>\n\t\t<ul class='sub'>\n\t\t\t<li><a
-        href=\"/PI/plan.shtml\"><span>Plan</span></a></li>\n\t\t\t<li><a href=\"/PI/manage.shtml\"><span>Manage</span></a></li>\n\t\t\t<li><a
-        href=\"/PI/archive.shtml\"><span>Archive</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
-        href=\"/PI/questions.shtml\"><span>Data Provider Questions</span></a></li>\n\t\t\t\t\t<li><a
-        href=\"/PI/archival_priority.html\"><span>Data Scope and Acceptance Policy</span></a></li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t\t<li><a
-        href=\"/PI/curation.shtml\"><span>DAAC Curation</span></a></li>\n\t\t\t<li><a
-        href=\"/submit/\"><span>Submit Data</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
-        <li class=\"top\"><a href=\"/PI/pi_info.shtml\"><span>Data Management</span></a></li>
-        -->\n\t<li class=\"top\"><a href=\"/tools/\" class=\"top_link\"><span class=\"down\">Tools</span></a>\n\t\t<ul
-        class='sub'>\n\t\t\t<!-- <li><a href=\"/tools/\"><span>Data Tools</span></a></li>
-        -->\n\t\t\t<li><a href=\"https://modis.ornl.gov/data.html\" class=\"fly\"><span>MODIS</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
-        href=\"/modisfixedsite/\"><span>MODIS Fixed Site Subsets</span></a></li>\n\t\t\t\t\t<li><a
-        href=\"/modisglobal/\"><span>MODIS Global Subsets</span></a></li>\n\t\t\t\t\t<li><a
-        href=\"/modiswebservice/\"><span>MODIS Web service</span></a></li>\n\t\t\t\t</ul></li>\n\t\t\t<li><a
-        href=\"https://thredds.daac.ornl.gov/thredds/catalogs/ornldaac/ornldaac.html\"><span>THREDDS</span></a></li>\n\t\t\t<li><a
+        -->\n\t<li class=\"top halfwide\"><a href=\"/submit/\" class=\"top_link\"><span
+        class=\"down\">Submit Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<li><a
+        href=\"/submit/form/form.html\"><span>Submit Data Form</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#scope_and_acceptance_policy\"><span>Data Scope and Acceptance</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#authorship\"><span>Data Authorship Policy</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#timeline\"><span>Data Publication Timeline</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#guidelines\"><span>Detailed Submission Guidelines</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
+        <li class=\"top\"><a href=\"/submit/submit.html\"><span>Submit Data</span></a>\n\t\t<ul
+        class=\"sub\">\n\t\t\t<li><a href=\"/submit/form/form.html\"><span>Submit
+        Data Form</span></a></li>\n\t\t\t<li><a href=\"/submit/#scope_and_acceptance_policy\"><span>Data
+        Scope and Acceptance Policy</span></a></li>\n\t\t\t<li><a href=\"/submit/#authorship\"><span>Data
+        Authorship Policy</span></a></li>\n\t\t\t<li><a href=\"/submit/#timeline\"><span>Data
+        Publication Timeline</span></a></li>\n\t\t\t<li><a href=\"/submit/#guidelines\"><span>Detailed
+        Submission Guidelines</span></a></li>\n\t\t\t<li><a href=\"/submit/questions/questions.html\"><span>Data
+        Provider Questions</span></a></li>\n\t\t\t<li><a href=\"/submit/qachecklist/qachecklist.html\"><span>Data
+        Quality Review Checklist</span></a></li>\n\t\t\t<li><a href=\"/submit/csvstandards/csvstandards.html\"><span>CSV
+        Standards</span></a></li>\n\t\t\t<li><a href=\"/submit/netcdfrequirements/netcdfrequirements.html\"><span>NetCDF
+        Data Requirements</span></a></li>\n\t\t</ul>\n\t</li> -->\n\t<li class=\"top
+        wide\"><a href=\"/datamanagement/\" class=\"top_link\"><span class=\"down\">Data
+        Management</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<li><a href=\"/datamanagement/#best_practices\"><span>Best
+        Practices</span></a></li>\n\t\t\t<li><a href=\"/datamanagement/#dmp\"><span>Data
+        Management Plan</span></a></li>\n\t\t\t<li><a href=\"/datamanagement/#how-tos\"><span>How-to's</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
+        <li class=\"top\"><a href=\"/datamanagement/datamanagement.html\"><span>Data
+        Management</span></a></li> -->\n\t<li class=\"top\"><a href=\"/tools/\" class=\"top_link\"><span
+        class=\"down\">Tools</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!-- <li><a
+        href=\"/tools/\"><span>Data Tools</span></a></li> -->\n\t\t\t<li><a href=\"https://modis.ornl.gov/data.html\"
+        class=\"fly\"><span>MODIS</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a href=\"/modisfixedsite/\"><span>MODIS
+        Fixed Site Subsets</span></a></li>\n\t\t\t\t\t<li><a href=\"/modisglobal/\"><span>MODIS
+        Global Subsets</span></a></li>\n\t\t\t\t\t<li><a href=\"/modiswebservice/\"><span>MODIS
+        Web service</span></a></li>\n\t\t\t\t</ul></li>\n\t\t\t<li><a href=\"https://thredds.daac.ornl.gov/thredds/catalogs/ornldaac/ornldaac.html\"><span>THREDDS</span></a></li>\n\t\t\t<li><a
         href=\"https://webmap.ornl.gov/wcsdown\"><span>SDAT</span></a></li>\n\t\t\t<li><a
         href=\"https://daymet.ornl.gov\"><span>Daymet</span></a></li>\n\t\t\t<li><a
         href=\"https://carve.ornl.gov/visualize/\"><span>CARVE Data Viewer</span></a></li>\n\t\t\t<li><a
@@ -206,8 +222,8 @@ http_interactions:
         -->\n\t\t\t<!-- <li><a href=\"/cgi-bin/service_dataset_lister.pl?svc_id=4\"><span>THREDDS</span></a></li>
         -->\n\t\t</ul>\n\t</li>\n\t<!-- <li class=\"top\"><a href=\"/tools/tools.html\"><span>Tools</span></a></li>
         -->\n    <li class=\"top notab\"><a href=\"/help/\" class=\"top_link\"><span
-        class=\"down\">Help</span></a>\n    <ul class='sub'>\n      <!-- <li><a href=\"/help/\"><span>ORNL
-        DAAC Help</span></a></li> -->\n      <li><a href=\"/faq/\"><span>FAQs</span></a></li>\n
+        class=\"down\">Help</span></a>\n    <ul class=\"sub\">\n      <!-- <li><a
+        href=\"/help/\"><span>ORNL DAAC Help</span></a></li> -->\n      <li><a href=\"/faq/\"><span>FAQs</span></a></li>\n
         \     <!-- <li><a href=\"/faq/faq.shtml\"><span>FAQs</span></a></li> -->\n
         \     <!-- <li><a href=\"/tutorial_main.shtml\"><span>Tutorials</span></a></li>
         -->\n      <!-- <li><a href=\"/order_access.shtml\">Order Access</a></li>
@@ -285,7 +301,7 @@ http_interactions:
         scope=\"row\">Project</th><td><ul class=\"associated-projects\"><li><a href=\"/cgi-bin/dataset_lister.pl?p=36\"><span
         class=\"eui-badge--md primary-project\">AirMOSS</span></a></li></ul></td></tr><tr><th
         scope=\"row\">Release Date</th><td>2018-03-06</td></tr><tr><th scope=\"row\">Usage</th><td
-        title=\"44796 total files since 2016-11-11\">285 downloads</td></tr>    </tbody></table>\n
+        title=\"47100 total files since 2016-11-11\">300 downloads</td></tr>    </tbody></table>\n
         \   </div>\n<div class=\"action_links\"><a class=\"eui-btn--green eui-btn--pill
         eui-btn--lg\" title=\"Sign-in to download\" href=\"javascript:alert('Sign-in
         to download data')\"><i class=\"fa fa-download pad-right\" aria-hidden=\"true\"></i>Download
@@ -585,13 +601,17 @@ http_interactions:
         RSS Feed\"> <span class=\"icon-rss-sign\"></span><span class=\"sr-only\">ORNL
         DAAC News RSS Feed</span></a>\n      </div>\n    </div>\n    <!--main-footer-->\n\n
         \   <div class=\"big-foot\">\n<ul class=\"nav\">\n\t<li class=\"top first
-        home\"><a class=\"top_link\" href=\"/\" title=\"ORNL DAAC home\"><span class=\"icon-home\"></span><span
-        class=\"home_text pad-left down\">Home</span></a></li>\n\t<li class=\"top\"><a
-        href=\"/about/\" class=\"top_link\"><span class=\"down\">About Us</span></a>\n\t\t<ul
-        class='sub'>\n\t\t\t<!-- <li><a href=\"/about_us.shtml\"><span>About ORNL
-        DAAC</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/who.shtml\"><span>Who
-        We Are</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/partners.html\"><span>Partners</span></a></li>
-        -->\n\t\t\t<!-- <li><a href=\"/UWG/publicuwg.shtml\"><span>User Working Group</span></a></li>
+        home\"><a class=\"top_link\" href=\"/\" title=\"ORNL DAAC home\"><span class=\"fa
+        fa-home fa-fw\"></span><span class=\"home_text down\">Home</span></a>\n\t\t<ul
+        class=\"contact_link\">\n\t\t\t<li><a href=\"javascript:feedback.showForm();\"
+        class=\"top_link\" title=\"User's Service Office\" id=\"Contact\"><span class=\"fa
+        fa-comment fa-flip-horizontal fa-fw\"></span><span class=\"down\">Contact
+        Us</span></a></li>\n\t\t</ul>\n\t</li>\n\t<li class=\"top\"><a href=\"/about/\"
+        class=\"top_link\"><span class=\"down\">About Us</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!--
+        <li><a href=\"/about_us.shtml\"><span>About ORNL DAAC</span></a></li> -->\n\t\t\t<!--
+        <li><a href=\"/who.shtml\"><span>Who We Are</span></a></li> -->\n\t\t\t<!--
+        <li><a href=\"/partners.html\"><span>Partners</span></a></li> -->\n\t\t\t<!--
+        <li><a href=\"/UWG/publicuwg.shtml\"><span>User Working Group</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/biogeochem.shtml\"><span>Biogeochemical Dynamics</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/citation_policy.html\"><span>Data Citation
         Policy</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/workshops/workshops.shtml\"><span>Workshops</span></a></li>
@@ -602,7 +622,7 @@ http_interactions:
         href=\"https://daac-news.ornl.gov/\"><span>News</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
         <li class=\"top\"><a href=\"/about/about_us.html\"><span>About Us</span></a></li>
         -->\n\t<li class=\"top\"><a href=\"/get_data/\" class=\"top_link\"><span class=\"down\">Get
-        Data</span></a>\n\t\t<ul class='sub'>\n\t\t\t<!-- <li><a href=\"/cgi-bin/catalog.pl?s\"><span>All
+        Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!-- <li><a href=\"/cgi-bin/catalog.pl?s\"><span>All
         Projects</span></a></li> -->\n\t\t\t<li><a href=\"/cgi-bin/catalog.pl?l\"><span>Complete
         Dataset List</span></a></li>\n\t\t\t<li><a href=\"/get_data#datasearch\" class=\"fly\"><span>Search
         for Data</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<!-- <li><a href=\"https://mercury.ornl.gov/ornldaac/#q=*%3A*\"><span>Data
@@ -627,8 +647,8 @@ http_interactions:
         of Subcanopy and Subsurface (AirMOSS)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=37\"><span>Atmospheric
         Carbon and Transport - America (ACT-America)</span></a></li>\n\t\t\t\t\t<!--
         <li><a href=\"/cgi-bin/dataset_lister.pl?p=38\"><span>AfriSAR</span></a></li>
-        -->\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=39\"><span>Atmospheric
-        Tomography Mission (ATom)</span></a></li> -->\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=7\"><span>First
+        -->\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=39\"><span>Atmospheric
+        Tomography Mission (ATom)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=7\"><span>First
         ISLSCP Field Experiment (FIFE)</span></a></li>\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=8\"><span>First
         ISLSCP Field Experiment (FIFE)  Follow On</span></a></li> -->\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t\t<li><a
         href=\"/get_data#validation\" class=\"fly\"><span>Land Validation</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
@@ -657,24 +677,36 @@ http_interactions:
         href=\"/get_data#models\" class=\"fly\"><span>Model Archive</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
         href=\"/cgi-bin/dataset_lister.pl?p=27\"><span>Model Archive</span></a></li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</li>\n\t<!--
         <li class=\"top\"><a href=\"/get_data/get_data.html\"><span>Get Data</span></a></li>
-        -->\n\t<li class=\"top halfwide tabonly\"><a href=\"/submit/\" class=\"top_link\"><span
-        class=\"down\">Submit Data</span></a></li>\n\t<!-- <li class=\"top\"><a href=\"/submit/submit_data.html\"><span>Submit
-        Data</span></a></li> -->\n\t<li class=\"top wide\"><a href=\"/PI/\" class=\"top_link\"><span
-        class=\"down\">Data Management</span></a>\n\t\t<ul class='sub'>\n\t\t\t<li><a
-        href=\"/PI/plan.shtml\"><span>Plan</span></a></li>\n\t\t\t<li><a href=\"/PI/manage.shtml\"><span>Manage</span></a></li>\n\t\t\t<li><a
-        href=\"/PI/archive.shtml\"><span>Archive</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
-        href=\"/PI/questions.shtml\"><span>Data Provider Questions</span></a></li>\n\t\t\t\t\t<li><a
-        href=\"/PI/archival_priority.html\"><span>Data Scope and Acceptance Policy</span></a></li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t\t<li><a
-        href=\"/PI/curation.shtml\"><span>DAAC Curation</span></a></li>\n\t\t\t<li><a
-        href=\"/submit/\"><span>Submit Data</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
-        <li class=\"top\"><a href=\"/PI/pi_info.shtml\"><span>Data Management</span></a></li>
-        -->\n\t<li class=\"top\"><a href=\"/tools/\" class=\"top_link\"><span class=\"down\">Tools</span></a>\n\t\t<ul
-        class='sub'>\n\t\t\t<!-- <li><a href=\"/tools/\"><span>Data Tools</span></a></li>
-        -->\n\t\t\t<li><a href=\"https://modis.ornl.gov/data.html\" class=\"fly\"><span>MODIS</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
-        href=\"/modisfixedsite/\"><span>MODIS Fixed Site Subsets</span></a></li>\n\t\t\t\t\t<li><a
-        href=\"/modisglobal/\"><span>MODIS Global Subsets</span></a></li>\n\t\t\t\t\t<li><a
-        href=\"/modiswebservice/\"><span>MODIS Web service</span></a></li>\n\t\t\t\t</ul></li>\n\t\t\t<li><a
-        href=\"https://thredds.daac.ornl.gov/thredds/catalogs/ornldaac/ornldaac.html\"><span>THREDDS</span></a></li>\n\t\t\t<li><a
+        -->\n\t<li class=\"top halfwide\"><a href=\"/submit/\" class=\"top_link\"><span
+        class=\"down\">Submit Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<li><a
+        href=\"/submit/form/form.html\"><span>Submit Data Form</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#scope_and_acceptance_policy\"><span>Data Scope and Acceptance</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#authorship\"><span>Data Authorship Policy</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#timeline\"><span>Data Publication Timeline</span></a></li>\n\t\t\t<li><a
+        href=\"/submit/#guidelines\"><span>Detailed Submission Guidelines</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
+        <li class=\"top\"><a href=\"/submit/submit.html\"><span>Submit Data</span></a>\n\t\t<ul
+        class=\"sub\">\n\t\t\t<li><a href=\"/submit/form/form.html\"><span>Submit
+        Data Form</span></a></li>\n\t\t\t<li><a href=\"/submit/#scope_and_acceptance_policy\"><span>Data
+        Scope and Acceptance Policy</span></a></li>\n\t\t\t<li><a href=\"/submit/#authorship\"><span>Data
+        Authorship Policy</span></a></li>\n\t\t\t<li><a href=\"/submit/#timeline\"><span>Data
+        Publication Timeline</span></a></li>\n\t\t\t<li><a href=\"/submit/#guidelines\"><span>Detailed
+        Submission Guidelines</span></a></li>\n\t\t\t<li><a href=\"/submit/questions/questions.html\"><span>Data
+        Provider Questions</span></a></li>\n\t\t\t<li><a href=\"/submit/qachecklist/qachecklist.html\"><span>Data
+        Quality Review Checklist</span></a></li>\n\t\t\t<li><a href=\"/submit/csvstandards/csvstandards.html\"><span>CSV
+        Standards</span></a></li>\n\t\t\t<li><a href=\"/submit/netcdfrequirements/netcdfrequirements.html\"><span>NetCDF
+        Data Requirements</span></a></li>\n\t\t</ul>\n\t</li> -->\n\t<li class=\"top
+        wide\"><a href=\"/datamanagement/\" class=\"top_link\"><span class=\"down\">Data
+        Management</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<li><a href=\"/datamanagement/#best_practices\"><span>Best
+        Practices</span></a></li>\n\t\t\t<li><a href=\"/datamanagement/#dmp\"><span>Data
+        Management Plan</span></a></li>\n\t\t\t<li><a href=\"/datamanagement/#how-tos\"><span>How-to's</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
+        <li class=\"top\"><a href=\"/datamanagement/datamanagement.html\"><span>Data
+        Management</span></a></li> -->\n\t<li class=\"top\"><a href=\"/tools/\" class=\"top_link\"><span
+        class=\"down\">Tools</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!-- <li><a
+        href=\"/tools/\"><span>Data Tools</span></a></li> -->\n\t\t\t<li><a href=\"https://modis.ornl.gov/data.html\"
+        class=\"fly\"><span>MODIS</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a href=\"/modisfixedsite/\"><span>MODIS
+        Fixed Site Subsets</span></a></li>\n\t\t\t\t\t<li><a href=\"/modisglobal/\"><span>MODIS
+        Global Subsets</span></a></li>\n\t\t\t\t\t<li><a href=\"/modiswebservice/\"><span>MODIS
+        Web service</span></a></li>\n\t\t\t\t</ul></li>\n\t\t\t<li><a href=\"https://thredds.daac.ornl.gov/thredds/catalogs/ornldaac/ornldaac.html\"><span>THREDDS</span></a></li>\n\t\t\t<li><a
         href=\"https://webmap.ornl.gov/wcsdown\"><span>SDAT</span></a></li>\n\t\t\t<li><a
         href=\"https://daymet.ornl.gov\"><span>Daymet</span></a></li>\n\t\t\t<li><a
         href=\"https://carve.ornl.gov/visualize/\"><span>CARVE Data Viewer</span></a></li>\n\t\t\t<li><a
@@ -688,18 +720,18 @@ http_interactions:
         -->\n\t\t\t<!-- <li><a href=\"/cgi-bin/service_dataset_lister.pl?svc_id=4\"><span>THREDDS</span></a></li>
         -->\n\t\t</ul>\n\t</li>\n\t<!-- <li class=\"top\"><a href=\"/tools/tools.html\"><span>Tools</span></a></li>
         -->\n    <li class=\"top notab\"><a href=\"/help/\" class=\"top_link\"><span
-        class=\"down\">Help</span></a>\n    <ul class='sub'>\n      <!-- <li><a href=\"/help/\"><span>ORNL
-        DAAC Help</span></a></li> -->\n      <li><a href=\"/faq/\"><span>FAQs</span></a></li>\n
+        class=\"down\">Help</span></a>\n    <ul class=\"sub\">\n      <!-- <li><a
+        href=\"/help/\"><span>ORNL DAAC Help</span></a></li> -->\n      <li><a href=\"/faq/\"><span>FAQs</span></a></li>\n
         \     <!-- <li><a href=\"/faq/faq.shtml\"><span>FAQs</span></a></li> -->\n
         \     <!-- <li><a href=\"/tutorial_main.shtml\"><span>Tutorials</span></a></li>
         -->\n      <!-- <li><a href=\"/order_access.shtml\">Order Access</a></li>
         -->\n    </ul></li>\n    <!-- <li class=\"top notab\"><a href=\"/help/help.html\">Help</a></li>
-        -->\n\n</ul>\n      <ul>\n        <li class=\"top last\"><a href=\"javascript:feedback.showForm();\"
+        -->\n\n</ul>\n      <!-- \n      <ul>\n        <li class=\"top last\"><a href=\"javascript:feedback.showForm();\"
         class=\"top_link foot-link\"\n          title=\"User's Service Office\" id=\"Contact\">
         <span\n            class=\"icon-comment icon-flip-horizontal pad-right line-icon\"></span><span
-        class=\"down\">Contact Us</span></a></li>\n      </ul>\n    </div>\n    <!--big-foot-->\n
-        \   <hr>\n\n  </div>\n  <!-- headWrapper -->\n</footer>\n\n<!-- Add utils.js
-        -->\n<script src=\"/js/jquery.js\"></script>\n<script src=\"/js/utils.js\"></script>\n<script
+        class=\"down\">Contact Us</span></a></li>\n      </ul>\n       -->\n    </div>\n
+        \   <!--big-foot-->\n    <hr>\n\n  </div>\n  <!-- headWrapper -->\n</footer>\n\n<!--
+        Add utils.js -->\n<script src=\"/js/jquery.js\"></script>\n<script src=\"/js/utils.js\"></script>\n<script
         >highlight(tabToHighlight);</script>\n\n<!-- integrated search bar js -->\n<script
         src=\"/js/jquery-ui/jquery-ui.min.js\"></script>\n<script src=\"/js/succinct-master/jQuery.succinct.min.js\"></script>\n<script
         src=\"/js/integrated-search/integrated-search.min.js\"></script>\n\n<!-- Add
@@ -730,5 +762,5 @@ http_interactions:
         orderable: false, targets: [] }, \n            { type: \"file-size\", targets:
         [1] }\n        ],\n        order: [[0, \"asc\"]]\n      } );\n\n  } );\n</script>\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Sun, 18 Mar 2018 04:28:23 GMT
+  recorded_at: Sun, 01 Apr 2018 09:07:39 GMT
 recorded_with: VCR 3.0.3

@@ -2,44 +2,41 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=client,provider
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:11:31 GMT
+      - Sun, 01 Apr 2018 09:08:59 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Status:
-      - 404 Not Found
-      Cache-Control:
-      - no-cache
-      Vary:
-      - Accept-Encoding, Origin
-      X-Runtime:
-      - '0.002987'
-      X-Request-Id:
-      - 78351cb3-0e55-4c66-903b-a30d517ff208
-      X-Powered-By:
-      - Phusion Passenger 5.2.0
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"errors":[{"status":"404","title":"The resource you are looking for
-        doesn''t exist."}]}'
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":0,"start":0,"docs":[]}}
+
+'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:11:31 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:59 GMT
 recorded_with: VCR 3.0.3

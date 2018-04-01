@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:12:52 GMT
+      - Sun, 01 Apr 2018 09:08:35 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,34 +30,46 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"d72acdc09d074ab922d4a32619002a22"
-      X-Runtime:
-      - '0.016952'
       X-Request-Id:
-      - 9e059251-dd96-4aa5-92f8-8894c4f20d33
+      - 99f29fce-c8d7-4a2f-b2ba-a52db43c49a7
+      Etag:
+      - W/"294367e4d36cd57d1765d741a75ccd36"
+      X-Runtime:
+      - '0.013490'
       X-Powered-By:
-      - Phusion Passenger 5.2.0
+      - Phusion Passenger 5.2.2
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.12.2 + Phusion Passenger 5.2.2
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.18169","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2015-05-04T07:33:55.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"tib.pap","type":"clients"}]},"providers":{"data":[{"id":"tib","type":"providers"}]}}},"included":[{"id":"tib.pap","type":"clients","attributes":{"name":"Prior
         Art Publishing GmbH","symbol":"TIB.PAP","year":2015,"contact-name":"Jakob
-        Marquard","contact-email":"office@priorartpublishing.de","domains":"www.priorartregister.com","url":null,"is-active":true,"has-password":true,"created":"2015-11-02T13:43:59Z","updated":"2018-02-25T02:30:31Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
-        National Library of Science and Technology","symbol":"TIB","year":2010,"contact-name":"Steffen
-        Krentz","contact-email":"steffen.krentz@tib.eu","logo-url":"https://assets.datacite.org/images/members/tib.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        Marquard","contact-email":"office@priorartpublishing.de","domains":"www.priorartregister.com","url":null,"is-active":true,"has-password":true,"created":"2015-11-02T13:43:59Z","updated":"2018-04-01T02:30:32Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
+        National Library of Science and Technology","symbol":"TIB","website":"http://www.tib.eu","contact-name":"Steffen
+        Krentz","contact-email":"steffen.krentz@tib.eu","phone":"+49 511 762 17642","description":"The
+        TIB is the German National Library for all areas of engineering as well as
+        architecture, chemistry, information technology, mathematics and physics.
+        We are the world''s largest specialised library for science and technology
+        and are part of the German research infrastructure. Our function is the comprehensive
+        procurement and archival storage of technical scientific literature from all
+        over the world. TIB was the first DOI registration agency for primary data
+        worldwide. We have been providing DOI registration services since 2005 and
+        we now work directly with over 40 data centres. TIB is one of the founding
+        members of DataCite and is currently the Business Office. We provide DOI registration
+        services for all German data centres in the fields of engineering, architecture,
+        chemistry, information technology, mathematics and physics. Our current focus
+        is on providing DOI names for primary data and grey literature.","country":"DE","logo-url":"https://assets.datacite.org/images/members/tib.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-04-01T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:12:52 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:35 GMT
 - request:
     method: get
-    uri: https://app.datacite.org/dois/10.18169/papdeottx00502?include=client,provider
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.18169/papdeottx00502&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -66,38 +78,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:12:52 GMT
+      - Sun, 01 Apr 2018 09:08:35 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      Etag:
-      - W/"d74b8aff58fe9cc69b88efcd215be203"
-      X-Runtime:
-      - '0.066096'
-      X-Request-Id:
-      - e21060b9-8961-4e3e-a18f-cefb1653f4bd
-      X-Powered-By:
-      - Phusion Passenger 5.2.0
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.18169/papdeottx00502","type":"dois","attributes":{"doi":"10.18169/papdeottx00502","identifier":"https://doi.org/10.18169/papdeottx00502","url":null,"author":{"name":"Anonymous"},"title":"Messung
-        der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen","container-title":"Siemens
-        AG","description":{"type":"Abstract","text":""},"resource-type-subtype":"Disclosure","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+DTxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RUWDAwNTAyPC9pZGVudGlmaWVyPg08Y3JlYXRvcnM+DTxjcmVhdG9yPg08Y3JlYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4NPC9jcmVhdG9yPg08L2NyZWF0b3JzPg08dGl0bGVzPg08dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVuc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVvc2VxdWVuemVuPC90aXRsZT4NPC90aXRsZXM+DTxwdWJsaXNoZXI+U2llbWVucyBBRzwvcHVibGlzaGVyPg08cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4NPHN1YmplY3RzPg08c3ViamVjdD48L3N1YmplY3Q+DTxzdWJqZWN0Pjwvc3ViamVjdD4NPHN1YmplY3Q+PC9zdWJqZWN0Pg08L3N1YmplY3RzPg08ZGF0ZXM+DTxkYXRlIGRhdGVUeXBlPSJBdmFpbGFibGUiPjA3LjA0LjIwMTc8L2RhdGU+DTwvZGF0ZXM+DTxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+DTxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGlzY2xvc3VyZTwvcmVzb3VyY2VUeXBlPg08YWx0ZXJuYXRlSWRlbnRpZmllcnM+DTxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJVUkwiPg1odHRwOi8vd3d3LnByaW9yYXJ0cmVnaXN0ZXIuY29tL3Jlc29sdmUucGhwP2Rpc2Nsb3N1cmU9T1RUWDAwNTAyDTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4NPC9hbHRlcm5hdGVJZGVudGlmaWVycz4NPHNpemVzPg08c2l6ZT48L3NpemU+DTwvc2l6ZXM+DTxmb3JtYXRzPg08Zm9ybWF0PlBERjwvZm9ybWF0Pg08L2Zvcm1hdHM+DTx2ZXJzaW9uPjE8L3ZlcnNpb24+DTxkZXNjcmlwdGlvbnM+DTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4NPC9kZXNjcmlwdGlvbj4NPC9kZXNjcmlwdGlvbnM+DTwvcmVzb3VyY2U+DQ==","published":"2017","registered":"2017-04-07T11:11:49.000Z","updated":"2017-04-07T11:11:49.000Z"},"relationships":{"client":{"data":{"id":"tib.pap","type":"clients"}},"provider":{"data":{"id":"tib","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"tib.pap","type":"clients","attributes":{"name":"Prior
-        Art Publishing GmbH","symbol":"TIB.PAP","year":2015,"contact-name":"Jakob
-        Marquard","contact-email":"office@priorartpublishing.de","domains":"www.priorartregister.com","url":null,"is-active":true,"has-password":true,"created":"2015-11-02T13:43:59Z","updated":"2018-02-25T02:30:31Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
-        National Library of Science and Technology","symbol":"TIB","year":2010,"contact-name":"Steffen
-        Krentz","contact-email":"steffen.krentz@tib.eu","logo-url":"https://assets.datacite.org/images/members/tib.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: '{"responseHeader":{"status":0,"QTime":2},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.PAP","xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+DTxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RUWDAwNTAyPC9pZGVudGlmaWVyPg08Y3JlYXRvcnM+DTxjcmVhdG9yPg08Y3JlYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4NPC9jcmVhdG9yPg08L2NyZWF0b3JzPg08dGl0bGVzPg08dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVuc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVvc2VxdWVuemVuPC90aXRsZT4NPC90aXRsZXM+DTxwdWJsaXNoZXI+U2llbWVucyBBRzwvcHVibGlzaGVyPg08cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4NPHN1YmplY3RzPg08c3ViamVjdD48L3N1YmplY3Q+DTxzdWJqZWN0Pjwvc3ViamVjdD4NPHN1YmplY3Q+PC9zdWJqZWN0Pg08L3N1YmplY3RzPg08ZGF0ZXM+DTxkYXRlIGRhdGVUeXBlPSJBdmFpbGFibGUiPjA3LjA0LjIwMTc8L2RhdGU+DTwvZGF0ZXM+DTxsYW5ndWFnZT5kZTwvbGFuZ3VhZ2U+DTxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGlzY2xvc3VyZTwvcmVzb3VyY2VUeXBlPg08YWx0ZXJuYXRlSWRlbnRpZmllcnM+DTxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJVUkwiPg1odHRwOi8vd3d3LnByaW9yYXJ0cmVnaXN0ZXIuY29tL3Jlc29sdmUucGhwP2Rpc2Nsb3N1cmU9T1RUWDAwNTAyDTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4NPC9hbHRlcm5hdGVJZGVudGlmaWVycz4NPHNpemVzPg08c2l6ZT48L3NpemU+DTwvc2l6ZXM+DTxmb3JtYXRzPg08Zm9ybWF0PlBERjwvZm9ybWF0Pg08L2Zvcm1hdHM+DTx2ZXJzaW9uPjE8L3ZlcnNpb24+DTxkZXNjcmlwdGlvbnM+DTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4NPC9kZXNjcmlwdGlvbj4NPC9kZXNjcmlwdGlvbnM+DTwvcmVzb3VyY2U+DQ==","allocator_symbol":"TIB","minted":"2017-04-07T11:11:49Z","state":"findable","updated":"2017-04-07T11:11:49Z","doi":"10.18169/PAPDEOTTX00502"}]}}
+
+'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:12:52 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:35 GMT
 recorded_with: VCR 3.0.3

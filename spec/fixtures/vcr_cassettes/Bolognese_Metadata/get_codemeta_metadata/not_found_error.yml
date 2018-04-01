@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - application/json
   response:
@@ -27,33 +27,33 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - 35B6:6F1C:2F60A:321EB:5A92C3B6
+      - 92F2:550B:394BD:3E831:5AC0A173
       Content-Length:
       - '15'
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 25 Feb 2018 14:09:58 GMT
+      - Sun, 01 Apr 2018 09:08:03 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-fra19135-FRA
+      - cache-fra19133-FRA
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1519567798.313888,VS0,VE121
+      - S1522573684.626356,VS0,VE110
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 9f823031cbf887ceccd7df5858bc045b5f3b0aa8
+      - 2326f07996643408f722bd7d79b89c38aee97546
       Expires:
-      - Sun, 25 Feb 2018 14:14:58 GMT
+      - Sun, 01 Apr 2018 09:13:03 GMT
       Source-Age:
       - '0'
     body:
@@ -62,5 +62,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:09:58 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:03 GMT
 recorded_with: VCR 3.0.3

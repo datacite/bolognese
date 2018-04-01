@@ -70,8 +70,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("title")).to eq("Data from: A new malaria agent in African hominids.")
       expect(crosscite.fetch("author").length).to eq(8)
       expect(crosscite.fetch("author").first).to eq("type"=>"Person", "familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Benjamin Ollomo")
-      expect(crosscite.fetch("date_registered")).to eq("2011-02-01T17:32:02.000Z")
-      expect(crosscite.fetch("date_updated")).to eq("2017-09-02T07:32:23.000Z")
+      expect(crosscite.fetch("date_registered")).to eq("2011-02-01T17:32:02Z")
+      expect(crosscite.fetch("date_updated")).to eq("2018-03-30T21:47:26Z")
       expect(crosscite.fetch("provider_id")).to eq("CDL")
       expect(crosscite.fetch("client_id")).to eq("CDL.DRYAD")
     end

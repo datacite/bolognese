@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:15:55 GMT
+      - Sun, 01 Apr 2018 09:08:17 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"5ffa3aa4009b56e51871db6d82d228d1"
-      X-Runtime:
-      - '0.905297'
       X-Request-Id:
-      - c3e52ab6-a56b-4952-aad9-dd0baa4bbd32
+      - 9b0f6b0b-b764-4a50-a82c-795ae7ca28d3
+      Etag:
+      - W/"37a7d81cd24a954db63b7b525f99df73"
+      X-Runtime:
+      - '0.679426'
       X-Powered-By:
-      - Phusion Passenger 5.2.0
+      - Phusion Passenger 5.2.2
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.12.2 + Phusion Passenger 5.2.2
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.1007","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
+      string: '{"data":{"id":"10.1007","type":"handles","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:15:55 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:17 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1007/978-3-662-46370-3_13&noredirect=true&pid=tech@datacite.org
@@ -53,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/xml
   response:
@@ -64,13 +64,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs5-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sun, 25 Feb 2018 14:15:55 GMT
+      - Sun, 01 Apr 2018 09:08:16 GMT
       Connection:
       - close
     body:
@@ -130,5 +130,5 @@ http_interactions:
         \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
         \       </content_item>\r\n      </book>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:15:56 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:17 GMT
 recorded_with: VCR 3.0.3

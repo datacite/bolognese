@@ -12,7 +12,7 @@ module Bolognese
           "codeRepository" => b_url,
           "title" => title,
           "agents" => author,
-          "description" => description.present? ? description["text"] : nil,
+          "description" => parse_attributes(description, content: "text", first: true),
           "version" => b_version,
           "tags" => keywords.to_s.split(", ").presence,
           "dateCreated" => date_created,

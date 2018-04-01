@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - nginx/1.12.2
       Date:
-      - Sun, 18 Mar 2018 06:58:22 GMT
+      - Sun, 01 Apr 2018 09:07:42 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
@@ -41,12 +41,12 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '4999'
       X-Ratelimit-Reset:
-      - '1521359902'
+      - '1522577261'
       Retry-After:
-      - '3599'
+      - '3598'
       Set-Cookie:
-      - session=aed1299c50e31896_5aae0e0e.SPEnltowyPUaTMjiqHCZrRxlGYI; Expires=Wed,
-        18-Apr-2018 06:58:22 GMT; Secure; HttpOnly; Path=/
+      - session=39358d9f4e3ad6ec_5ac0a15e.A8rE8v6nYDGuX-VMXoUb5K5cfNk; Expires=Wed,
+        02-May-2018 09:07:42 GMT; Secure; HttpOnly; Path=/
     body:
       encoding: ASCII-8BIT
       string: "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n    <meta
@@ -477,5 +477,5 @@ http_interactions:
         g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);\n})();\n</script>\n
         \ </body>\n</html>"
     http_version: 
-  recorded_at: Sun, 18 Mar 2018 06:58:22 GMT
+  recorded_at: Sun, 01 Apr 2018 09:07:42 GMT
 recorded_with: VCR 3.0.3

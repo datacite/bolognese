@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -23,7 +23,7 @@ http_interactions:
       Content-Length:
       - '4984'
       Date:
-      - Sun, 25 Feb 2018 14:12:41 GMT
+      - Sun, 01 Apr 2018 09:07:35 GMT
     body:
       encoding: ASCII-8BIT
       string: "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\n
@@ -89,5 +89,5 @@ http_interactions:
         super;\">&reg;</span>, and shortDOI<span style=\"vertical-align: super;\">&reg;</span>
         are trademarks of the International DOI Foundation.</span>\n</td>       \n</tr>\n</table>\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:12:41 GMT
+  recorded_at: Sun, 01 Apr 2018 09:07:36 GMT
 recorded_with: VCR 3.0.3

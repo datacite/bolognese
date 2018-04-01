@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:09:50 GMT
+      - Sun, 01 Apr 2018 09:08:20 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -31,20 +31,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 2e989259-5dc2-4864-9d27-71b5d2d43eb4
+      - ffde5991-e21d-4664-bbb0-fd3048db9465
       Etag:
-      - W/"f03c5d43c9e031db0cf6b29702cab8ca"
+      - W/"258c3a49bbc303b1229efe2fae9cc9e2"
       X-Runtime:
-      - '0.410994'
+      - '0.666511'
       X-Powered-By:
-      - Phusion Passenger 5.2.0
+      - Phusion Passenger 5.2.2
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.12.2 + Phusion Passenger 5.2.2
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
+      string: '{"data":{"id":"10.7554","type":"handles","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:09:51 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:20 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -53,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/xml
   response:
@@ -64,13 +64,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs3-1
+      - qs5-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sun, 25 Feb 2018 14:09:51 GMT
+      - Sun, 01 Apr 2018 09:08:21 GMT
       Connection:
       - close
     body:
@@ -79,5 +79,5 @@ http_interactions:
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:09:51 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:21 GMT
 recorded_with: VCR 3.0.3

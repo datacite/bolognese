@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:13:53 GMT
+      - Sun, 01 Apr 2018 09:08:41 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,33 +30,31 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"36be915d5cc8423eff2fb43e0a52495c"
-      X-Runtime:
-      - '0.018021'
       X-Request-Id:
-      - 345d8801-1944-4549-9b62-769916c075cd
+      - abb8689a-fa20-4a14-ad0d-262ff2be1bbb
+      Etag:
+      - W/"f68a2fae1c17e48e005fd71e90a312f5"
+      X-Runtime:
+      - '0.014299'
       X-Powered-By:
-      - Phusion Passenger 5.2.0
+      - Phusion Passenger 5.2.2
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.12.2 + Phusion Passenger 5.2.2
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.21956","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2016-05-31T14:02:31.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"bl.f1000r","type":"clients"}]},"providers":{"data":[{"id":"bl","type":"providers"}]}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
-        of 1000 Research Ltd","symbol":"BL.F1000R","year":2013,"contact-name":"Ravi
-        Kumarasinghe","contact-email":"Ravi.Kumarasinghe@F1000.com","domains":"f1000research.com,wellcomeopenresearch.org,gatesopenresearch.org,mniopenresearch.org","url":null,"is-active":true,"has-password":true,"created":"2013-11-22T09:46:04Z","updated":"2018-02-25T02:30:18Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
-        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: !binary |-
+        eyJkYXRhIjp7ImlkIjoiMTAuMjE5NTYiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMxLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoiYmwuZjEwMDByIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJibCIsInR5cGUiOiJwcm92aWRlcnMifV19fX0sImluY2x1ZGVkIjpbeyJpZCI6ImJsLmYxMDAwciIsInR5cGUiOiJjbGllbnRzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiRmFjdWx0eSBvZiAxMDAwIFJlc2VhcmNoIEx0ZCIsInN5bWJvbCI6IkJMLkYxMDAwUiIsInllYXIiOjIwMTMsImNvbnRhY3QtbmFtZSI6IlJhdmkgS3VtYXJhc2luZ2hlIiwiY29udGFjdC1lbWFpbCI6IlJhdmkuS3VtYXJhc2luZ2hlQEYxMDAwLmNvbSIsImRvbWFpbnMiOiJmMTAwMHJlc2VhcmNoLmNvbSx3ZWxsY29tZW9wZW5yZXNlYXJjaC5vcmcsZ2F0ZXNvcGVucmVzZWFyY2gub3JnLG1uaW9wZW5yZXNlYXJjaC5vcmcsaHJib3BlbnJlc2VhcmNoLm9yZyxhYXNvcGVucmVzZWFyY2gub3JnIiwidXJsIjpudWxsLCJpcy1hY3RpdmUiOnRydWUsImhhcy1wYXNzd29yZCI6dHJ1ZSwiY3JlYXRlZCI6IjIwMTMtMTEtMjJUMDk6NDY6MDRaIiwidXBkYXRlZCI6IjIwMTgtMDQtMDFUMDI6MzA6MThaIn0sInJlbGF0aW9uc2hpcHMiOnsicHJlZml4ZXMiOnsibWV0YSI6e319LCJwcm92aWRlciI6eyJtZXRhIjp7fX0sInJlcG9zaXRvcnkiOnsibWV0YSI6e319fX0seyJpZCI6ImJsIiwidHlwZSI6InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IkJyaXRpc2ggTGlicmFyeSIsInN5bWJvbCI6IkJMIiwid2Vic2l0ZSI6Imh0dHA6Ly93d3cuYmwudWsvZGF0YXNldHMiLCJjb250YWN0LW5hbWUiOiJSYWNoYWVsIEtvdGFyc2tpIiwiY29udGFjdC1lbWFpbCI6ImRhdGFzZXRzQGJsLnVrIiwicGhvbmUiOiIrNDQgKDApIDIwNyA0MTIgNzE2NyIsImRlc2NyaXB0aW9uIjoiVGhlIEJyaXRpc2ggTGlicmFyeSBpcyB0aGUgbmF0aW9uYWwgbGlicmFyeSBvZiB0aGUgVW5pdGVkIEtpbmdkb20gYW5kIGEgZm91bmRpbmcgbWVtYmVyIG9mIERhdGFDaXRlLiBBcyBEYXRhQ2l0ZeKAmXMgb25seSBtZW1iZXIgaW4gdGhlIFVuaXRlZCBLaW5nZG9tLCB3ZSBhcmUgd29ya2luZyB3aXRoIFVLIG9yZ2FuaXNhdGlvbnMgdG8gZW5zdXJlIHRoYXQgZGF0YSBnZW5lcmF0ZWQgYnkgcmVzZWFyY2hlcnMgaXMgZmluZGFibGUgYW5kIGNpdGFibGUgc28gdGhhdCBpdHMgaW1wYWN0IG9uIHRoZSBnbG9iYWwgcmVzZWFyY2ggbGFuZHNjYXBlIGlzIHJlY29nbmlzZWQuIFdlIHdvcmsgd2l0aCBhIHJhbmdlIG9mIG9yZ2FuaXNhdGlvbnMgd2hvIG1hbmFnZSBhbmQgYXJjaGl2ZSBkYXRhLCBmcm9tIGdvdmVybm1lbnQgYm9kaWVzIHRvIGNoYXJpdGllcywgdW5pdmVyc2l0aWVzIGFuZCBwdWJsaXNoZXJzLiBJZiB5b3UgbWFuYWdlIGRhdGEgaW4gdGhlIFVLIGFuZCB3b3VsZCBsaWtlIHRvIGZpbmQgb3V0IG1vcmUgYWJvdXQgRGF0YUNpdGUsIHBsZWFzZSBjb250YWN0IHVzIGRpcmVjdGx5LiIsImNvdW50cnkiOiJHQiIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMuZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL2JsLnBuZyIsImluc3RpdHV0aW9uLXR5cGUiOm51bGwsImlzLWFjdGl2ZSI6dHJ1ZSwiaGFzLXBhc3N3b3JkIjp0cnVlLCJqb2luZWQiOiIyMDA5LTEyLTAxIiwiY3JlYXRlZCI6IjIwMTAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsInVwZGF0ZWQiOiIyMDE4LTA0LTAxVDAyOjI1OjUxLjAwMFoifSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7Im1ldGEiOnt9fSwicHJlZml4ZXMiOnsibWV0YSI6e319fX1dfQ==
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:13:53 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:41 GMT
 - request:
     method: get
-    uri: https://app.test.datacite.org/dois/10.21956/gatesopenres.530.r190?include=client,provider
+    uri: https://search.test.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.21956/gatesopenres.530.r190&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,38 +63,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:13:53 GMT
+      - Sun, 01 Apr 2018 09:08:41 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      Etag:
-      - W/"43251e937d3fbaa07b94b42fd168774d"
-      X-Runtime:
-      - '0.067377'
-      X-Request-Id:
-      - 8312a7b9-f3cd-4bf5-840d-97a65bf0ec08
-      X-Powered-By:
-      - Phusion Passenger 5.2.0
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.21956/gatesopenres.530.r190","type":"dois","attributes":{"doi":"10.21956/gatesopenres.530.r190","identifier":"https://handle.test.datacite.org/10.21956/gatesopenres.530.r190","url":null,"author":[{"type":"Person","name":"Lina
-        Patel","given-name":"Lina","family-name":"Patel"},{"name":"Test Test"},{"name":"Test
-        Test1"},{"name":"Ere Rer"},{"name":"Test Test4"}],"title":"Referee report.
-        For: Gates - add article keywords to the metatags [version 2; referees: 1
-        approved]","container-title":"Gates Open Research","description":null,"resource-type-subtype":"Text","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-3","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxyZXNvdXJjZSB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIiB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIxOTU2L2dhdGVzb3BlbnJlcy41MzAucjE5MDwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPmxpbmEgcGF0ZWw8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+dGVzdCB0ZXN0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPnRlc3QgdGVzdDE8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+ZXJlIHJlcjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT50ZXN0IHRlc3Q0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5SZWZlcmVlIHJlcG9ydC4gRm9yOiBHYXRlcyAtwqBhZGQgYXJ0aWNsZSBrZXl3b3JkcyB0byB0aGUgbWV0YXRhZ3MgW3ZlcnNpb24gMjsgcmVmZXJlZXM6IDEgYXBwcm92ZWRdPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkdhdGVzIE9wZW4gUmVzZWFyY2g8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiLz48L3Jlc291cmNlPg==","published":"2018","registered":"2018-02-13T15:35:13.000Z","updated":"2018-02-13T15:35:13.000Z"},"relationships":{"client":{"data":{"id":"bl.f1000r","type":"clients"}},"provider":{"data":{"id":"bl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
-        of 1000 Research","symbol":"BL.F1000R","year":2013,"contact-name":"Ravi Kumarasinghe","contact-email":"Ravi.Kumarasinghe@F1000.com","domains":"f1000r.com,f1000ri.com,wellcomeopenresearch.org,f1000internal.com","url":null,"is-active":true,"has-password":true,"created":"2013-11-07T13:41:36Z","updated":"2018-02-25T01:30:29Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"bl","type":"providers","attributes":{"name":"The
-        British Library","symbol":"BL","year":2010,"contact-name":"Rachael Kotarski","contact-email":"datasets@bl.uk","logo-url":"https://assets.datacite.org/images/members/bl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T01:25:40.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"BL.F1000R","url":"https://dev1rg.f1000internal.com/articles/2-14/v2#referee-response-190","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxyZXNvdXJjZSB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIiB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIxOTU2L2dhdGVzb3BlbnJlcy41MzAucjE5MDwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPmxpbmEgcGF0ZWw8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+dGVzdCB0ZXN0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPnRlc3QgdGVzdDE8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+ZXJlIHJlcjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT50ZXN0IHRlc3Q0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5SZWZlcmVlIHJlcG9ydC4gRm9yOiBHYXRlcyAtwqBhZGQgYXJ0aWNsZSBrZXl3b3JkcyB0byB0aGUgbWV0YXRhZ3MgW3ZlcnNpb24gMjsgcmVmZXJlZXM6IDEgYXBwcm92ZWRdPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkdhdGVzIE9wZW4gUmVzZWFyY2g8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiLz48L3Jlc291cmNlPg==","allocator_symbol":"BL","minted":"2018-02-13T15:35:13Z","state":"findable","updated":"2018-02-13T15:35:13Z","doi":"10.21956/GATESOPENRES.530.R190"}]}}
+
+'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:13:53 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:41 GMT
 recorded_with: VCR 3.0.3

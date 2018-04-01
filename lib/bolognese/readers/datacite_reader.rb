@@ -6,14 +6,11 @@ module Bolognese
 
         doi = doi_from_url(id)
         search_url = doi_search(id, options)
-        search_url += "/dois/#{doi}?include=client,provider"
+        search_url += "?q=doi:#{doi}&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
 
         response = Maremma.get search_url
-        attributes = response.body.dig("data", "attributes")
+        attributes = response.body.dig("data", "response", "docs").first
         return { "string" => nil, "state" => "not_found" } unless attributes.present?
-
-        client_id = response.body.dig("data", "relationships", "client", "data", "id").upcase
-        provider_id = response.body.dig("data", "relationships", "provider", "data", "id").upcase
 
         string = attributes.fetch('xml', nil)
         string = Base64.decode64(string) if string.present?
@@ -35,10 +32,10 @@ module Bolognese
         { "string" => string,
           "b_url" => attributes.fetch("url", nil),
           "state" => attributes.fetch("state", nil),
-          "date_registered" => attributes.fetch("registered", nil),
+          "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
-          "provider_id" => provider_id,
-          "client_id" => client_id }
+          "provider_id" => attributes.fetch("allocator_symbol", nil),
+          "client_id" => attributes.fetch("datacentre_symbol", nil) }
       end
 
       def read_datacite(string: nil, **options)

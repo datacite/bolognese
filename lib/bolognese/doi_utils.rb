@@ -17,7 +17,7 @@ module Bolognese
 
     def doi_search(doi, options={})
       sandbox = Array(/handle.test.datacite.org/.match(doi)).last
-      sandbox.present? || options[:sandbox] ? "https://app.test.datacite.org" : "https://app.datacite.org"
+      sandbox.present? || options[:sandbox] ? "https://search.test.datacite.org/api" : "https://search.datacite.org/api"
     end
 
     def normalize_doi(doi, options={})

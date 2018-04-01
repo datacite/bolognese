@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.9.92)
+    bolognese (0.9.93)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -24,9 +24,9 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.1.5)
+    activesupport (5.1.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (~> 0.7)
+      i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.5.2)
@@ -47,7 +47,7 @@ GEM
     ebnf (1.1.2)
       rdf (>= 2.2, < 4.0)
       sxp (~> 1.0)
-    excon (0.61.0)
+    excon (0.62.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
@@ -63,7 +63,7 @@ GEM
       concurrent-ruby (~> 1.0)
     hashdiff (0.3.7)
     htmlentities (4.3.4)
-    i18n (0.9.5)
+    i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     iso8601 (0.9.1)
     json (2.1.0)
@@ -75,7 +75,7 @@ GEM
       trollop (~> 2)
     latex-decode (0.3.1)
     link_header (0.0.8)
-    loofah (2.2.0)
+    loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     maremma (4.0.5)
@@ -105,8 +105,8 @@ GEM
     rack (2.0.4)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
-    rake (12.3.0)
-    rdf (3.0.1)
+    rake (12.3.1)
+    rdf (3.0.2)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.1)

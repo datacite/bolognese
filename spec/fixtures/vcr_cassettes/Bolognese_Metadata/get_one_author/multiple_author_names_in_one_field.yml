@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/dois/10.7910/dvn/eqtqyo?include=client,provider
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.7910/dvn/eqtqyo&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma - https://github.com/datacite/maremma
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,38 +17,26 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 25 Feb 2018 14:10:12 GMT
+      - Sun, 01 Apr 2018 09:08:52 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      Etag:
-      - W/"80c01c80098fcc13b31eb1a73a8fb153"
-      X-Runtime:
-      - '0.059738'
-      X-Request-Id:
-      - bb41105d-a955-45cd-8bf4-862d8bdd1856
-      X-Powered-By:
-      - Phusion Passenger 5.2.0
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.0
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.7910/dvn/eqtqyo","type":"dois","attributes":{"doi":"10.7910/dvn/eqtqyo","identifier":"https://doi.org/10.7910/dvn/eqtqyo","url":null,"author":{"name":"Enos,
-        Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck,
-        Lynn (UCLA)"},"title":"Replication Data for: Increasing Inequality: The Effect
-        of GOTV Mobilization on the Composition of the Electorate","container-title":"Harvard
-        Dataverse","description":null,"resource-type-subtype":"Dataset","license":null,"version":2,"related-identifier":[],"schema-version":"http://datacite.org/schema/kernel-4","state":"findable","reason":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","published":"2017","registered":"2017-04-12T19:46:37.000Z","updated":"2017-04-12T19:46:37.000Z"},"relationships":{"client":{"data":{"id":"cdl.datavers","type":"clients"}},"provider":{"data":{"id":"cdl","type":"providers"}},"resource-type":{"meta":{}},"media":{"meta":{}}}},"included":[{"id":"cdl.datavers","type":"clients","attributes":{"name":"Harvard
-        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-05-01T16:39:37Z","updated":"2018-02-25T02:30:15Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","year":2010,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","logo-url":"https://assets.datacite.org/images/members/cdl.png","is-active":true,"has-password":true,"created":"2010-01-01T00:00:00.000Z","updated":"2018-02-25T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.DATAVERS","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CDL","minted":"2017-04-12T19:46:37Z","state":"findable","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO"}]}}
+
+'
     http_version: 
-  recorded_at: Sun, 25 Feb 2018 14:10:12 GMT
+  recorded_at: Sun, 01 Apr 2018 09:08:52 GMT
 recorded_with: VCR 3.0.3
