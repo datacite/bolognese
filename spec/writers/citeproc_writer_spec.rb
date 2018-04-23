@@ -166,5 +166,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["publisher"]).to eq("DataCite")
       expect(json["issued"]).to eq("date-parts" => [[2017, 2, 24]])
     end
+
+    it "keywords subject scheme" do
+      input = "https://doi.org/10.1594/pangaea.721193"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("dataset")
+      expect(json["id"]).to eq("https://doi.org/10.1594/pangaea.721193")
+      expect(json["DOI"]).to eq("10.1594/pangaea.721193")
+      expect(json["categories"]).to eq(["GetInfo", "Animalia", "Bottles or small containers/Aquaria ( 20 L)", "Calcification/Dissolution", "Coast and continental shelf", "Development", "Growth/Morphology", "Laboratory experiment", "Mollusca", "Pelagos", "Single species", "Temperate", "Zooplankton", "Experimental treatment", "Carbonate system computation flag", "Temperature, water", "Salinity", "pH", "Alkalinity, total", "Carbon, inorganic, dissolved", "Carbon dioxide", "Bicarbonate ion", "Carbonate ion", "Partial pressure of carbon dioxide (water) at sea surface temperature (wet air)", "Fugacity of carbon dioxide (water) at sea surface temperature (wet air)", "Aragonite saturation state", "Calcite saturation state", "Proportion", "Crassostrea gigas, larvae length", "Crassostrea gigas, larvae height", "Crassostrea gigas, non mineralized", "Crassostrea gigas, partially mineralized", "Crassostrea gigas, fully mineralized", "Calculated using seacarb after Nisumaa et al. (2010)", "Refractometer (Atago 100-S)", "pH meter (Mettler Toledo)", "pH meter (PHM290, Radiometer)", "Measured", "European Project on Ocean Acidification (EPOCA)", "European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS)", "Ocean Acidification International Coordination Centre (OA-ICC)"])
+    end
   end
 end

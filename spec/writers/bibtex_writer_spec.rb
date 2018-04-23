@@ -124,5 +124,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:keywords]).to eq("eye tracking; eye movements; scanpaths; eye movement sequence; web pages; visual elements; web pages; scanpath analysis techniques; scanpath analysis; pattern detection; common scanpaths")
       expect(bibtex[:year]).to eq("2015")
     end
+
+    it "keywords subject scheme" do
+      input = "https://doi.org/10.1594/pangaea.721193"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1594/pangaea.721193")
+      expect(bibtex[:doi]).to eq("10.1594/pangaea.721193")
+      expect(bibtex[:keywords]).to eq("GetInfo, Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Development, Growth/Morphology, Laboratory experiment, Mollusca, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(bibtex[:year]).to eq("2007")
+    end
   end
 end

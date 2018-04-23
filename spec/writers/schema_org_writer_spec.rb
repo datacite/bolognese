@@ -99,5 +99,23 @@ describe Bolognese::Metadata, vcr: true do
                                     "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
                                     "identifier" => "246686")
     end
+
+    it "subject scheme" do
+      input = "https://doi.org/10.4232/1.2745"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.4232/1.2745")
+      expect(json["name"]).to eq("Flash Eurobarometer 54 (Madrid Summit)")
+      expect(json["keywords"]).to eq("KAT12 International Institutions, Relations, Conditions")
+    end
+
+    it "subject scheme multiple keywords" do
+      input = "https://doi.org/10.1594/pangaea.721193"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
+      expect(json["name"]).to eq("Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
+      expect(json["keywords"]).to eq("GetInfo, Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Development, Growth/Morphology, Laboratory experiment, Mollusca, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+    end
   end
 end

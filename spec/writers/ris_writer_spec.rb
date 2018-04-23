@@ -49,11 +49,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[8]).to eq("DO - 10.3205/zma001102")
       expect(ris[9]).to start_with("AB - Objective: Competence orientation")
       expect(ris[10]).to eq("KW - medical competence")
-      expect(ris[19]).to eq("PY - 2017")
-      expect(ris[20]).to eq("PB - German Medical Science GMS Publishing House")
-      expect(ris[21]).to eq("AN - urn:nbn:de:0183-zma0011024")
-      expect(ris[23]).to eq("LA - en")
-      expect(ris[24]).to eq("ER - ")
+      expect(ris[20]).to eq("PY - 2017")
+      expect(ris[21]).to eq("PB - German Medical Science GMS Publishing House")
+      expect(ris[22]).to eq("AN - urn:nbn:de:0183-zma0011024")
+      expect(ris[24]).to eq("LA - en")
+      expect(ris[25]).to eq("ER - ")
     end
 
     it "Crossref DOI" do
@@ -172,6 +172,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[9]).to eq("PY - 2017")
       expect(ris[10]).to eq("PB - DataCite")
       expect(ris[11]).to eq("ER - ")
+    end
+
+    it "keywords with subject scheme" do
+      input = "https://doi.org/10.1594/pangaea.721193"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      ris = subject.ris.split("\r\n")
+      expect(ris[0]).to eq("TY - DATA")
+      expect(ris[1]).to eq("T1 - Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
+      expect(ris[2]).to eq("AU - Kurihara, Haruko")
+      expect(ris[5]).to eq("DO - 10.1594/pangaea.721193")
+      expect(ris[6]).to eq("UR - https://doi.pangaea.de/10.1594/PANGAEA.721193")
+      expect(ris[8]).to eq("KW - GetInfo")
+      expect(ris[9]).to eq("KW - Animalia")
+      expect(ris[10]).to eq("KW - Bottles or small containers/Aquaria ( 20 L)")
+      expect(ris[49]).to eq("PY - 2007")
+      expect(ris[50]).to eq("PB - PANGAEA - Data Publisher for Earth & Environmental Science")
+      expect(ris[51]).to eq("LA - eng")
+      expect(ris[52]).to eq("ER - ")
     end
   end
 end

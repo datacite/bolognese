@@ -5,7 +5,7 @@ module Bolognese
         hsh = {
           "type" => citeproc_type,
           "id" => identifier,
-          "categories" => parse_attributes(keywords, content: "text"),
+          "categories" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
           "language" => language,
           "author" => to_citeproc(author),
           "editor" => to_citeproc(editor),

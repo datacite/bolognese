@@ -10,7 +10,7 @@ module Bolognese
           "DO" => doi,
           "UR" => b_url,
           "AB" => parse_attributes(description, content: "text", first: true),
-          "KW" => parse_attributes(keywords, content: "text").presence,
+          "KW" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
           "PY" => publication_year,
           "PB" => publisher,
           "AN" => parse_attributes(alternate_name, content: "name").presence,

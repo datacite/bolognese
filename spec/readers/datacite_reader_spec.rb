@@ -274,6 +274,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.service_provider).to eq("DataCite")
     end
 
+    it "subject scheme" do
+      input = "https://doi.org/10.4232/1.2745"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.4232/1.2745")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author).to eq("name"=>"Europäische Kommission")
+      expect(subject.title).to eq([{"lang"=>"de", "text"=>"Flash Eurobarometer 54 (Madrid Summit)"}, {"lang"=>"en", "text"=>"Flash Eurobarometer 54 (Madrid Summit)"}, {"title_type"=>"Subtitle","lang"=>"de", "text"=>"The Common European Currency"}, {"title_type"=>"Subtitle", "lang"=>"en", "text"=>"The Common European Currency"}])
+      expect(subject.keywords).to eq([{"subject_scheme"=>"ZA", "text"=>"KAT12 International Institutions, Relations, Conditions"}])
+      expect(subject.date_published).to eq("1996")
+      expect(subject.publisher).to eq("GESIS Data Archive")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
     it "empty subject" do
       input = "https://doi.org/10.18169/PAPDEOTTX00502"
       subject = Bolognese::Metadata.new(input: input)
