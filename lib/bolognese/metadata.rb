@@ -1,6 +1,5 @@
 require_relative 'doi_utils'
 require_relative 'author_utils'
-require_relative 'date_utils'
 require_relative 'datacite_utils'
 require_relative 'utils'
 
@@ -33,7 +32,6 @@ module Bolognese
     # include BenchmarkMethods
     include Bolognese::DoiUtils
     include Bolognese::AuthorUtils
-    include Bolognese::DateUtils
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 

@@ -15,7 +15,7 @@ module Bolognese
           "description" => parse_attributes(description, content: "text", first: true),
           "license" => Array.wrap(license).map { |l| l["id"] }.compact.unwrap,
           "version" => b_version,
-          "keywords" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.join(", ").presence,
+          "keywords" => keywords.present? ? Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.join(", ") : nil,
           "inLanguage" => language,
           "contentSize" => content_size,
           "dateCreated" => date_created,

@@ -436,12 +436,12 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change author" do
       input = fixture_path + 'datacite.xml'
-      author = { "type"=>"Person", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo" }
+      author = [{ "type"=>"Person", "name"=>"Ollomi, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo" }, { "type"=>"Person", "name"=>"Duran, Patrick", "givenName"=>"Patrick", "familyName"=>"Durand" }]
       subject = Bolognese::Metadata.new(input: input, author: author)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.doi).to eq("10.5438/4k3m-nyvg")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(subject.author).to eq([{"type"=>"Person", "name"=>"Ollomi, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo"}, {"type"=>"Person", "name"=>"Duran, Patrick", "givenName"=>"Patrick", "familyName"=>"Durand"}])
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.publisher).to eq("DataCite")
       expect(subject.publication_year).to eq(2016)
