@@ -48,7 +48,7 @@ GEM
       rdf (>= 2.2, < 4.0)
       sxp (~> 1.0)
     excon (0.62.0)
-    faraday (0.14.0)
+    faraday (0.15.0)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
       faraday
@@ -102,7 +102,7 @@ GEM
       nokogiri (>= 1.6.1, < 1.9)
       public_suffix (>= 2.0.0, < 2.1)
     public_suffix (2.0.5)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rake (12.3.1)
@@ -160,7 +160,7 @@ GEM
       thread_safe (~> 0.1)
     unicode_utils (1.4.0)
     vcr (3.0.3)
-    webmock (3.3.0)
+    webmock (3.4.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
