@@ -59,24 +59,24 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :id, :string, :identifier, :from, :metadata, :doi, :author, :creator, :title, :publisher, :contributor, :license,
-      :date_accepted, :date_available, :date_copyrighted, :date_collected,
-      :date_submitted, :date_valid, :date_created, :date_modified,
-      :date_registered, :date_updated, :provider_id, :client_id, :journal,
-      :volume, :issue, :first_page, :last_page, :b_url, :b_version, :keywords, :editor,
-      :description, :alternate_name, :language, :content_size, :spatial_coverage,
-      :schema_version, :additional_type, :has_part, :same_as,
-      :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
-      :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
-      :has_metadata, :is_metadata_for, :is_referenced_by, :references,
-      :is_documented_by, :documents, :is_compiled_by, :compiles,
-      :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
-      :is_derived_from, :is_source_of, :format, :funding, :type, :bibtex_type,
-      :citeproc_type, :ris_type, :style, :locale, :state, :regenerate, :sandbox
+    attr_accessor :string, :identifier, :from, :metadata, :doi, :author,
+                  :creator, :title, :publisher, :contributor, :license,
+                  :date_accepted, :date_available, :date_copyrighted, :date_collected,
+                  :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, :provider_id, :client_id, :journal,
+                  :volume, :issue, :first_page, :last_page, :b_url, :b_version, :keywords, :editor,
+                  :description, :alternate_name, :language, :content_size, :spatial_coverage,
+                  :schema_version, :has_part, :same_as,
+                  :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
+                  :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
+                  :has_metadata, :is_metadata_for, :is_referenced_by, :references,
+                  :is_documented_by, :documents, :is_compiled_by, :compiles,
+                  :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
+                  :is_derived_from, :is_source_of, :format, :funding, :style, :locale, :state, :regenerate, :sandbox
 
-    attr_reader :raw, :doc, :service_provider,
-      :page_start, :page_end, :should_passthru, :errors,
-      :related_identifier, :reverse, :name_detector
+    attr_reader :doc, :service_provider, :page_start, :page_end, :related_identifier, :reverse, :name_detector
+
+    attr_writer :id, :type, :additional_type, :citeproc_type, :bibtex_type, 
+                :ris_type
 
     def exists?
       metadata.fetch("state", "not_found") != "not_found"
@@ -89,8 +89,7 @@ module Bolognese
     # validate against DataCite schema, unless there are already errors in the reader
     def errors
       xml = should_passthru ? raw : datacite_xml
-      metadata.fetch("errors", nil) || datacite_errors(xml: xml,
-                                                       schema_version: schema_version)
+      metadata.fetch("errors", nil) || datacite_errors(xml: xml, schema_version: schema_version)
     end
 
     # replace DOI in XML if provided in options
@@ -110,7 +109,7 @@ module Bolognese
 
     # generate name for method to call dynamically
     # def metadata
-    #   from.present? ? send("read_" + from, string: string, id: id, sandbox: sandbox, doi: doi, b_url: b_url) : {}
+    #   from.present? ? send("read_" + from, string: string, id: id, sandbox: sandbox, doi: doi) : {}
     # end
 
     def id

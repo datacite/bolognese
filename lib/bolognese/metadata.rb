@@ -65,7 +65,7 @@ module Bolognese
       @client_id = hsh.to_h["client_id"].presence
 
       # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: @string, id: @id, sandbox: @sandbox, doi: @doi) : {}
+      @metadata = @from.present? ? send("read_" + @from, string: @string, id: id, sandbox: @sandbox, doi: @doi, url: @b_url) : {}
       @id = @metadata.fetch("id", nil) || id
     end
   end

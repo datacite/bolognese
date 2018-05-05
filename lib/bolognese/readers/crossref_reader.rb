@@ -129,7 +129,7 @@ module Bolognese
         additional_type = (additional_type || model).to_s.underscore.camelize.presence
         type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
 
-        doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase.presence || doi_from_url(options[:id])
+        doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase.presence #|| doi_from_url(options[:id])
 
         # Crossref servers run on Eastern Time
         Time.zone = 'Eastern Time (US & Canada)'

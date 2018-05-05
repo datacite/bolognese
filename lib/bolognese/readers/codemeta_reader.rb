@@ -17,7 +17,7 @@ module Bolognese
         end
 
         meta = string.present? ? Maremma.from_json(string) : {}
-        identifier = meta.fetch("identifier", nil) || options[:id]
+        identifier = meta.fetch("identifier", nil)
         id = normalize_id(meta.fetch("@id", nil) || identifier)
         type = meta.fetch("@type", nil)
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
