@@ -29,22 +29,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("DataCite")
     end
 
-    it "no codemeta.json" do
-      input = "https://github.com/datacite/homepage"
-      subject = Bolognese::Metadata.new(input: input)
-      expect(subject.id).to eq("https://github.com/datacite/homepage")
-      expect(subject.exists?).to be false
-      expect(subject.state).to eq("not_found")
-    end
-
-    it "not found error" do
-      input = "https://github.com/datacite/x"
-      subject = Bolognese::Metadata.new(input: input)
-      expect(subject.id).to eq("https://github.com/datacite/x")
-      expect(subject.exists?).to be false
-      expect(subject.state).to eq("not_found")
-    end
-
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
       subject = Bolognese::Metadata.new(input: input)

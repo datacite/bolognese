@@ -41,32 +41,17 @@ module Bolognese
       @style = options[:style]
       @locale = options[:locale]
 
-      # input specific metadata elements required for DataCite
-      @doi = options[:doi].presence
-      @author = options[:author].presence
-      @title = options[:title].presence
-      @publisher = options[:publisher].presence
-      @resource_type_general = options[:resource_type_general].presence
-
-      # input specific metadata elements recommended for DataCite
-      @additional_type = options[:additional_type].presence
-      @description = options[:description].presence
-      @license = options[:license].presence
-      @date_published = options[:date_published].presence
-
       @regenerate = options[:regenerate]
       @sandbox = options[:sandbox]
 
+      # options that come from the datacite database
+      @b_doi = normalize_doi(options[:doi] || input, options)
       @b_url = hsh.to_h["b_url"].presence || options[:b_url].presence
       @state = hsh.to_h["state"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
       @provider_id = hsh.to_h["provider_id"].presence
       @client_id = hsh.to_h["client_id"].presence
-
-      # generate name for method to call dynamically
-      @metadata = @from.present? ? send("read_" + @from, string: @string, id: id, sandbox: @sandbox, doi: @doi, url: @b_url) : {}
-      @id = @metadata.fetch("id", nil) || id
     end
   end
 end

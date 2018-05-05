@@ -33,8 +33,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "BlogPosting with new DOI" do
-      subject = Bolognese::Metadata.new(input: input)
-      subject.id = "https://doi.org/10.5438/0000-00ss"
+      subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
@@ -42,22 +41,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("BlogPosting")
     end
 
-    it "not found error" do
-      input = "https://doi.org/10.5438/4K3M-NYVGx"
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
-      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvgx")
-      expect(subject.exists?).to be false
-      expect(subject.state).to eq("not_found")
-    end
-
     it "zenodo" do
       input = "https://www.zenodo.org/record/1196821"
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org", doi: nil)
-      subject.id = "https://doi.org/10.5438/0000-00ss"
-      #expect(subject.errors.size).to eq(2)
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      expect(subject.errors.size).to eq(2)
       expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
-      expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
-      expect(subject.doi).to eq("10.5438/0000-00ss")
+      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1196821")
+      expect(subject.doi).to eq("10.5281/zenodo.1196821")
       expect(subject.b_url).to eq("https://zenodo.org/record/1196821")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning task with auditory CS and electrical US")
@@ -67,11 +57,10 @@ describe Bolognese::Metadata, vcr: true do
 
     it "pangaea" do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org", doi: nil)
-      subject.id = "https://doi.org/10.5438/0000-00ss"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
-      expect(subject.doi).to eq("10.5438/0000-00ss")
+      expect(subject.id).to eq("https://doi.org/10.1594/pangaea.836178")
+      expect(subject.doi).to eq("10.1594/pangaea.836178")
       expect(subject.b_url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland")
@@ -95,11 +84,10 @@ describe Bolognese::Metadata, vcr: true do
 
     it "harvard dataverse" do
       input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GAOC03"
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org", doi: nil)
-      subject.id = "https://doi.org/10.3334/ornldaac/1418"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.3334/ornldaac/1418")
-      expect(subject.doi).to eq("10.3334/ornldaac/1418")
+      expect(subject.id).to eq("https://doi.org/10.7910/dvn/gaoc03")
+      expect(subject.doi).to eq("10.7910/dvn/gaoc03")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("The National Labor Force : SAKERNAS, 2008")
       expect(subject.container_title).to eq("Harvard Dataverse")

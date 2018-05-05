@@ -59,11 +59,11 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :string, :identifier, :from, :metadata, :doi, :author,
+    attr_accessor :string, :identifier, :from, :author,
                   :creator, :title, :publisher, :contributor, :license,
                   :date_accepted, :date_available, :date_copyrighted, :date_collected,
                   :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, :provider_id, :client_id, :journal,
-                  :volume, :issue, :first_page, :last_page, :b_url, :b_version, :keywords, :editor,
+                  :volume, :issue, :first_page, :last_page, :b_doi, :b_url, :b_version, :keywords, :editor,
                   :description, :alternate_name, :language, :content_size, :spatial_coverage,
                   :schema_version, :has_part, :same_as,
                   :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
@@ -75,11 +75,11 @@ module Bolognese
 
     attr_reader :doc, :service_provider, :page_start, :page_end, :related_identifier, :reverse, :name_detector
 
-    attr_writer :id, :type, :additional_type, :citeproc_type, :bibtex_type, 
-                :ris_type
+    attr_writer :id, :type, :additional_type, :citeproc_type, :bibtex_type, :doi,
+                :ris_type, :meta
 
     def exists?
-      metadata.fetch("state", "not_found") != "not_found"
+      meta.fetch("state", "not_found") != "not_found"
     end
 
     def valid?
@@ -88,18 +88,17 @@ module Bolognese
 
     # validate against DataCite schema, unless there are already errors in the reader
     def errors
-      xml = should_passthru ? raw : datacite_xml
-      metadata.fetch("errors", nil) || datacite_errors(xml: xml, schema_version: schema_version)
+      meta.fetch("errors", nil) || datacite_errors(xml: datacite, schema_version: schema_version)
     end
 
     # replace DOI in XML if provided in options
     def raw
       r = string.present? ? string.strip : nil
-      return r unless (from == "datacite" && doi.present? && r.present?)
+      return r unless (from == "datacite" && r.present?)
 
       doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
       node = doc.at_css("identifier")
-      node.content = doi.upcase
+      node.content = doi.to_s.upcase
       doc.to_xml.strip
     end
 
@@ -108,224 +107,228 @@ module Bolognese
     end
 
     # generate name for method to call dynamically
-    # def metadata
-    #   from.present? ? send("read_" + from, string: string, id: id, sandbox: sandbox, doi: doi) : {}
-    # end
+    # the id might change
+    def meta
+      m = from.present? ? send("read_" + from, string: string, sandbox: sandbox) : {}
+      @id = b_doi || m.fetch("id", nil) || m.fetch("identifier", nil)
+
+      m
+    end
 
     def id
-      @id ||= metadata.fetch("id", nil)
+      @id ||= meta.fetch("id", nil)
     end
 
     def type
-      @type ||= metadata.fetch("type", nil)
+      @type ||= meta.fetch("type", nil)
     end
 
     def additional_type
-      @additional_type ||= metadata.fetch("additional_type", nil)
+      @additional_type ||= meta.fetch("additional_type", nil)
     end
 
     def citeproc_type
-      @citeproc_type ||= metadata.fetch("citeproc_type", nil)
+      @citeproc_type ||= meta.fetch("citeproc_type", nil)
     end
 
     def bibtex_type
-      @bibtex_type ||= metadata.fetch("bibtex_type", nil)
+      @bibtex_type ||= meta.fetch("bibtex_type", nil)
     end
 
     def ris_type
-      @ris_type ||= metadata.fetch("ris_type", nil)
+      @ris_type ||= meta.fetch("ris_type", nil)
     end
 
     def resource_type_general
-      @resource_type_general ||= metadata.fetch("resource_type_general", nil)
+      @resource_type_general ||= meta.fetch("resource_type_general", nil)
     end
 
     def doi
-      @doi ||= @id.present? ? doi_from_url(@id) : metadata.fetch("doi", nil)
+      @doi ||= @id.present? ? doi_from_url(@id) : meta.fetch("doi", nil)
     end
 
     def b_url
-      @b_url ||= metadata.fetch("b_url", nil)
+      @b_url ||= meta.fetch("b_url", nil)
     end
 
     def identifier
-      @identifier ||= metadata.fetch("id", nil)
+      @identifier ||= meta.fetch("id", nil)
     end
 
     def state
-      @state ||= metadata.fetch("state", nil)
+      @state ||= meta.fetch("state", nil)
     end
 
     def title
-      @title ||= metadata.fetch("title", nil)
+      @title ||= meta.fetch("title", nil)
     end
 
     def alternate_name
-      @alternate_name ||= metadata.fetch("alternate_name", nil)
+      @alternate_name ||= meta.fetch("alternate_name", nil)
     end
 
     def author
-      @author ||= metadata.fetch("author", nil)
+      @author ||= meta.fetch("author", nil)
     end
 
     def editor
-      @editor ||= metadata.fetch("editor", nil)
+      @editor ||= meta.fetch("editor", nil)
     end
 
     def publisher
-      @publisher ||= metadata.fetch("publisher", nil)
+      @publisher ||= meta.fetch("publisher", nil)
     end
 
     def service_provider
-      @service_provider ||= metadata.fetch("service_provider", nil)
+      @service_provider ||= meta.fetch("service_provider", nil)
     end
 
     def date_created
-      @date_created ||= metadata.fetch("date_created", nil)
+      @date_created ||= meta.fetch("date_created", nil)
     end
 
     def date_accepted
-      @date_accepted ||= metadata.fetch("date_accepted", nil)
+      @date_accepted ||= meta.fetch("date_accepted", nil)
     end
 
     def date_available
-      @date_available ||= metadata.fetch("date_available", nil)
+      @date_available ||= meta.fetch("date_available", nil)
     end
 
     def date_copyrighted
-      @date_copyrighted ||= metadata.fetch("date_copyrighted", nil)
+      @date_copyrighted ||= meta.fetch("date_copyrighted", nil)
     end
 
     def date_collected
-      @date_collected ||= metadata.fetch("date_collected", nil)
+      @date_collected ||= meta.fetch("date_collected", nil)
     end
 
     def date_submitted
-      @date_submitted ||= metadata.fetch("date_submitted", nil)
+      @date_submitted ||= meta.fetch("date_submitted", nil)
     end
 
     def date_valid
-      @date_valid ||= metadata.fetch("date_valid", nil)
+      @date_valid ||= meta.fetch("date_valid", nil)
     end
 
     def date_published
-      @date_published ||= metadata.fetch("date_published", nil)
+      @date_published ||= meta.fetch("date_published", nil)
     end
 
     def date_modified
-      @date_modified ||= metadata.fetch("date_modified", nil)
+      @date_modified ||= meta.fetch("date_modified", nil)
     end
 
     def date_registered
-      @date_registered ||= metadata.fetch("date_registered", nil)
+      @date_registered ||= meta.fetch("date_registered", nil)
     end
 
     def date_updated
-      @date_updated ||= metadata.fetch("date_updated", nil)
+      @date_updated ||= meta.fetch("date_updated", nil)
     end
 
     def volume
-      @volume ||= metadata.fetch("volume", nil)
+      @volume ||= meta.fetch("volume", nil)
     end
 
     def first_page
-      @first_page ||= metadata.fetch("first_page", nil)
+      @first_page ||= meta.fetch("first_page", nil)
     end
 
     def last_page
-      @last_page ||= metadata.fetch("last_page", nil)
+      @last_page ||= meta.fetch("last_page", nil)
     end
 
     def description
-      @description ||= metadata.fetch("description", nil)
+      @description ||= meta.fetch("description", nil)
     end
 
     def license
-      @license ||= metadata.fetch("license", nil)
+      @license ||= meta.fetch("license", nil)
     end
 
     def b_version
-      @b_version ||= metadata.fetch("b_version", nil)
+      @b_version ||= meta.fetch("b_version", nil)
     end
 
     def keywords
-      @keywords ||= metadata.fetch("keywords", nil)
+      @keywords ||= meta.fetch("keywords", nil)
     end
 
     def language
-      @language ||= metadata.fetch("language", nil)
+      @language ||= meta.fetch("language", nil)
     end
 
     def content_size
-      @content_size ||= metadata.fetch("content_size", nil)
+      @content_size ||= meta.fetch("content_size", nil)
     end
 
     def schema_version
-      @schema_version ||= metadata.fetch("schema_version", nil)
+      @schema_version ||= meta.fetch("schema_version", nil)
     end
 
     def funding
-      @funding ||= metadata.fetch("funding", nil)
+      @funding ||= meta.fetch("funding", nil)
     end
 
     def provider_id
-      @provider_id ||= metadata.fetch("provider_id", nil)
+      @provider_id ||= meta.fetch("provider_id", nil)
     end
 
     def client_id
-      @client_id ||= metadata.fetch("client_id", nil)
+      @client_id ||= meta.fetch("client_id", nil)
     end
 
     def is_identical_to
-      metadata.fetch("is_identical_to", nil)
+      meta.fetch("is_identical_to", nil)
     end
 
     def is_part_of
-      metadata.fetch("is_part_of", nil)
+      meta.fetch("is_part_of", nil)
     end
 
     def has_part
-      metadata.fetch("has_part", nil)
+      meta.fetch("has_part", nil)
     end
 
     def is_previous_version_of
-      metadata.fetch("is_previous_of", nil)
+      meta.fetch("is_previous_of", nil)
     end
 
     def is_new_version_of
-      metadata.fetch("is_new_version_of", nil)
+      meta.fetch("is_new_version_of", nil)
     end
 
     def is_variant_form_of
-      metadata.fetch("is_variant_form_of", nil)
+      meta.fetch("is_variant_form_of", nil)
     end
 
     def is_original_form_of
-      metadata.fetch("is_original_form_of", nil)
+      meta.fetch("is_original_form_of", nil)
     end
 
     def references
-      metadata.fetch("references", nil)
+      meta.fetch("references", nil)
     end
 
     def is_referenced_by
-      metadata.fetch("is_referenced_by", nil)
+      meta.fetch("is_referenced_by", nil)
     end
 
     def is_supplement_to
-      metadata.fetch("is_supplement_to", nil)
+      meta.fetch("is_supplement_to", nil)
     end
 
     def is_supplemented_by
-      metadata.fetch("is_supplemented_by", nil)
+      meta.fetch("is_supplemented_by", nil)
     end
 
     def reviews
-      metadata.fetch("reviews", nil)
+      meta.fetch("reviews", nil)
     end
 
     def is_reviewed_by
-      metadata.fetch("is_reviewed_by", nil)
+      meta.fetch("is_reviewed_by", nil)
     end
 
     def related_identifier_hsh(relation_type)

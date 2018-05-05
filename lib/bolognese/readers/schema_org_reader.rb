@@ -33,7 +33,7 @@ module Bolognese
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        id = normalize_id(meta.fetch("@id", nil))
+        id = normalize_id(meta.fetch("@id", nil) || meta.fetch("identifier", nil))
         type = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
@@ -65,6 +65,7 @@ module Bolognese
           "ris_type" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => validate_doi(id),
+          "identifier" => id,
           "b_url" => normalize_id(meta.fetch("url", nil)),
           "title" => meta.fetch("name", nil),
           "alternate_name" => meta.fetch("alternateName", nil),
