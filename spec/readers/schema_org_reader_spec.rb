@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
 
   subject { Bolognese::Metadata.new(input: input) }
 
-  context "get ris raw" do
+  context "get schema_org raw" do
     it "BlogPosting" do
       input = fixture_path + 'schema_org.json'
       subject = Bolognese::Metadata.new(input: input)
@@ -58,7 +58,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
-      expect(subject.b_url).to eq("https://www.zenodo.org/record/1196821")
+      expect(subject.b_url).to eq("https://zenodo.org/record/1196821")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning task with auditory CS and electrical US")
       expect(subject.author.size).to eq(6)

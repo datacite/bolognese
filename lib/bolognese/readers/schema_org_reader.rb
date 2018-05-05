@@ -16,7 +16,7 @@ module Bolognese
         id = normalize_id(id)
         response = Maremma.get(id)
         doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
-        #string = doc.at_xpath('//script[@type="application/ld+json"]')
+
         # workaround for xhtml documents
         nodeset = doc.css("script")
         string = nodeset.find { |element| element["type"] == "application/ld+json" }
@@ -33,7 +33,7 @@ module Bolognese
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        id = normalize_id(meta.fetch("@id", nil) || options[:id])
+        id = normalize_id(meta.fetch("@id", nil))
         type = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)

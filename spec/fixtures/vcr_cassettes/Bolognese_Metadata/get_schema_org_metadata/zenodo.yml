@@ -19,11 +19,11 @@ http_interactions:
       Server:
       - nginx/1.12.2
       Date:
-      - Sun, 01 Apr 2018 09:07:42 GMT
+      - Sat, 05 May 2018 11:18:20 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '34996'
+      - '34869'
       Vary:
       - Accept-Encoding
       X-Frame-Options:
@@ -41,15 +41,15 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '4999'
       X-Ratelimit-Reset:
-      - '1522577261'
+      - '1525522701'
       Retry-After:
-      - '3598'
+      - '3600'
       Set-Cookie:
-      - session=39358d9f4e3ad6ec_5ac0a15e.A8rE8v6nYDGuX-VMXoUb5K5cfNk; Expires=Wed,
-        02-May-2018 09:07:42 GMT; Secure; HttpOnly; Path=/
+      - session=97c5661c06730b5_5aed92fc.Ok-qAndogCA71XVECkk8UbNqAE0; Expires=Tue,
+        05-Jun-2018 11:18:20 GMT; Secure; HttpOnly; Path=/
     body:
       encoding: ASCII-8BIT
-      string: "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n    <meta
+      string: "\n<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n    <meta
         charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n
         \   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n
         \   <meta name=\"google-site-verification\" content=\"5fPGCLllnWrvFxH9QWI0l1TadV7byeEvfPcyK2VkS_s\"/>\n
@@ -348,7 +348,7 @@ http_interactions:
         \      item-template=\"/static/templates/invenio_csl/item.html\">\n      </invenio-csl-typeahead>\n
         \   </invenio-csl>\n  </div>\n      </div>\n      <div class=\"well\"><h4>Export</h4>\n<ul
         class=\"list-inline\">\n  <li><a href=\"/record/1196821/export/hx\">BibTeX</a></li>\n
-        \ <li><a href=\"/record/1196821/export/csl\">CSL</a></li>\n  <li><a href=\"/record/1196821/export/dcite3\">DataCite</a></li>\n
+        \ <li><a href=\"/record/1196821/export/csl\">CSL</a></li>\n  <li><a href=\"/record/1196821/export/dcite4\">DataCite</a></li>\n
         \ <li><a href=\"/record/1196821/export/xd\">Dublin Core</a></li>\n  <li><a
         href=\"/record/1196821/export/json\">JSON</a></li>\n  <li><a href=\"/record/1196821/export/schemaorg_jsonld\">JSON-LD</a></li>\n
         \ <li><a href=\"/record/1196821/export/xm\">MARCXML</a></li>\n  <li><a href=\"https://www.mendeley.com/import/?url=https://www.zenodo.org/record/1196821\"><i
@@ -458,18 +458,16 @@ http_interactions:
         \n      \"contentUrl\": \"https://www.zenodo.org:443/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/README.txt\",
         \n      \"fileFormat\": \"txt\"\n    }\n  ], \n  \"identifier\": \"https://doi.org/10.5281/zenodo.1196821\",
         \n  \"inLanguage\": {\n    \"@type\": \"Language\", \n    \"alternateName\":
-        \"eng\", \n    \"name\": \"English\"\n  }, \n  \"isPartOf\": [\n    {\n      \"@id\":
-        \"https://doi.org/10.5281/zenodo.1039580\", \n      \"@type\": \"CreativeWork\"\n
-        \   }\n  ], \n  \"keywords\": [\n    \"Pupil Size Response\", \n    \"Skin
-        Conductance Response\", \n    \"Electrocardiogram\", \n    \"Electromyogram\",
-        \n    \"Electrodermal Activity\", \n    \"Galvanic Skin Response\", \n    \"PSR\",
-        \n    \"SCR\", \n    \"ECG\", \n    \"EMG\", \n    \"EDA\", \n    \"GSR\"\n
-        \ ], \n  \"license\": \"https://creativecommons.org/licenses/by-sa/4.0/\",
+        \"eng\", \n    \"name\": \"English\"\n  }, \n  \"keywords\": [\n    \"Pupil
+        Size Response\", \n    \"Skin Conductance Response\", \n    \"Electrocardiogram\",
+        \n    \"Electromyogram\", \n    \"Electrodermal Activity\", \n    \"Galvanic
+        Skin Response\", \n    \"PSR\", \n    \"SCR\", \n    \"ECG\", \n    \"EMG\",
+        \n    \"EDA\", \n    \"GSR\"\n  ], \n  \"license\": \"https://creativecommons.org/licenses/by-sa/4.0/\",
         \n  \"name\": \"PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements
         in a delay fear conditioning task with auditory CS and electrical US\", \n
-        \ \"url\": \"https://www.zenodo.org:443/record/1196821\", \n  \"version\":
-        \"1.0.2\"\n}</script>\n\n<script type=\"text/javascript\">\nvar _paq = _paq
-        || [];\n_paq.push([\"setDomains\", [\"*.zenodo.org\",\"*.zenodo.cern.ch\",\"*.zenodo.eu\",\"*.zenodo.net\"]]);\n_paq.push([\"trackPageView\"]);\n_paq.push([\"enableLinkTracking\"]);\n\n(function()
+        \ \"url\": \"https://zenodo.org/record/1196821\", \n  \"version\": \"1.0.2\"\n}</script>\n\n<script
+        type=\"text/javascript\">\nvar _paq = _paq || [];\n_paq.push([\"setDomains\",
+        [\"*.zenodo.org\",\"*.zenodo.cern.ch\",\"*.zenodo.eu\",\"*.zenodo.net\"]]);\n_paq.push([\"trackPageView\"]);\n_paq.push([\"enableLinkTracking\"]);\n\n(function()
         {\n  var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\")
         + \"://piwik.web.cern.ch/\";\n  _paq.push([\"setTrackerUrl\", u+\"piwik.php\"]);\n
         \ _paq.push([\"setSiteId\", \"57\"]);\n  var d=document, g=d.createElement(\"script\"),
@@ -477,5 +475,5 @@ http_interactions:
         g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);\n})();\n</script>\n
         \ </body>\n</html>"
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:07:42 GMT
+  recorded_at: Sat, 05 May 2018 11:18:20 GMT
 recorded_with: VCR 3.0.3
