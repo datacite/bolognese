@@ -3,6 +3,30 @@ require_relative 'author_utils'
 require_relative 'datacite_utils'
 require_relative 'utils'
 
+require_relative 'readers/bibtex_reader'
+require_relative 'readers/citeproc_reader'
+require_relative 'readers/codemeta_reader'
+require_relative 'readers/crosscite_reader'
+require_relative 'readers/crossref_reader'
+require_relative 'readers/datacite_json_reader'
+require_relative 'readers/datacite_reader'
+require_relative 'readers/ris_reader'
+require_relative 'readers/schema_org_reader'
+
+require_relative 'writers/bibtex_writer'
+require_relative 'writers/citation_writer'
+require_relative 'writers/citeproc_writer'
+require_relative 'writers/codemeta_writer'
+require_relative 'writers/crosscite_writer'
+require_relative 'writers/crossref_writer'
+require_relative 'writers/datacite_writer'
+require_relative 'writers/datacite_json_writer'
+require_relative 'writers/jats_writer'
+require_relative 'writers/rdf_xml_writer'
+require_relative 'writers/ris_writer'
+require_relative 'writers/schema_org_writer'
+require_relative 'writers/turtle_writer'
+
 module Bolognese
   module MetadataUtils
     # include BenchmarkMethods
@@ -11,15 +35,39 @@ module Bolognese
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    attr_accessor :string, :from, :sandbox, :b_doi, :regenerate, :issue, :contributor,
+    include Bolognese::Readers::BibtexReader
+    include Bolognese::Readers::CiteprocReader
+    include Bolognese::Readers::CodemetaReader
+    include Bolognese::Readers::CrossciteReader
+    include Bolognese::Readers::CrossrefReader
+    include Bolognese::Readers::DataciteReader
+    include Bolognese::Readers::DataciteJsonReader
+    include Bolognese::Readers::RisReader
+    include Bolognese::Readers::SchemaOrgReader
+
+    include Bolognese::Writers::BibtexWriter
+    include Bolognese::Writers::CitationWriter
+    include Bolognese::Writers::CiteprocWriter
+    include Bolognese::Writers::CodemetaWriter
+    include Bolognese::Writers::CrossciteWriter
+    include Bolognese::Writers::CrossrefWriter
+    include Bolognese::Writers::DataciteWriter
+    include Bolognese::Writers::DataciteJsonWriter
+    include Bolognese::Writers::JatsWriter
+    include Bolognese::Writers::RdfXmlWriter
+    include Bolognese::Writers::RisWriter
+    include Bolognese::Writers::SchemaOrgWriter
+    include Bolognese::Writers::TurtleWriter
+
+    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :contributor,
                   :spatial_coverage
 
     attr_writer :identifier, :author, :title, :publisher, :license,
                 :date_accepted, :date_available, :date_copyrighted, :date_collected,
                 :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, 
-                :journal, :volume, :first_page, :last_page,
+                :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
                 :keywords, :editor, :description, :alternate_name, :language, :content_size,
-                :schema_version, :has_part, :same_as,
+                :schema_version, :has_part, :same_as, :resource_type_general,
                 :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
                 :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
                 :has_metadata, :is_metadata_for, :is_referenced_by, :references,
@@ -43,15 +91,6 @@ module Bolognese
 
     def should_passthru
       (from == "datacite") && regenerate.blank?
-    end
-
-    # generate name for method to call dynamically
-    # the id might change
-    def meta
-      m = from.present? ? send("read_" + from, string: string, sandbox: sandbox) : {}
-      @identifier = b_doi || m.fetch("id", nil) || m.fetch("identifier", nil)
-
-      m
     end
 
     def type
@@ -256,6 +295,14 @@ module Bolognese
       relation_types.reduce([]) { |sum, r| sum += related_identifier_hsh(r) }
     end
 
+    def b_url
+      @b_url ||= meta.fetch("b_url", nil)
+    end
+
+    def b_version
+      @b_version ||= meta.fetch("b_version", nil)
+    end
+
     # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
     def name_detector
       @name_detector ||= defined?(::NameDetector) ? ::NameDetector : nil
@@ -283,11 +330,11 @@ module Bolognese
     end
 
     def style
-      @style || "apa"
+      @style ||= "apa"
     end
 
     def locale
-      @locale || "en-US"
+      @locale ||= "en-US"
     end
   end
 end
