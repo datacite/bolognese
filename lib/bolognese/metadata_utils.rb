@@ -63,7 +63,7 @@ module Bolognese
                   :spatial_coverage
 
     attr_writer :identifier, :author, :title, :publisher, :license,
-                :date_accepted, :date_available, :date_copyrighted, :date_collected,
+                :date_accepted, :date_available, :date_copyrighted, :date_collected, :date_published,
                 :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, 
                 :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
                 :keywords, :editor, :description, :alternate_name, :language, :content_size,
