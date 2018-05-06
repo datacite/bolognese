@@ -13,7 +13,7 @@ describe Bolognese::Metadata, vcr: true do
     it "string" do
       Bolognese::Metadata.new(input: IO.read(input).strip)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
     end
   end
 
@@ -26,7 +26,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get ris metadata" do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.b_url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.resource_type_general).to eq("Text")

@@ -3,30 +3,6 @@ require_relative 'author_utils'
 require_relative 'datacite_utils'
 require_relative 'utils'
 
-require_relative 'readers/bibtex_reader'
-require_relative 'readers/citeproc_reader'
-require_relative 'readers/codemeta_reader'
-require_relative 'readers/crosscite_reader'
-require_relative 'readers/crossref_reader'
-require_relative 'readers/datacite_json_reader'
-require_relative 'readers/datacite_reader'
-require_relative 'readers/ris_reader'
-require_relative 'readers/schema_org_reader'
-
-require_relative 'writers/bibtex_writer'
-require_relative 'writers/citation_writer'
-require_relative 'writers/citeproc_writer'
-require_relative 'writers/codemeta_writer'
-require_relative 'writers/crosscite_writer'
-require_relative 'writers/crossref_writer'
-require_relative 'writers/datacite_writer'
-require_relative 'writers/datacite_json_writer'
-require_relative 'writers/jats_writer'
-require_relative 'writers/rdf_xml_writer'
-require_relative 'writers/ris_writer'
-require_relative 'writers/schema_org_writer'
-require_relative 'writers/turtle_writer'
-
 module Bolognese
   module MetadataUtils
     # include BenchmarkMethods
@@ -35,61 +11,24 @@ module Bolognese
     include Bolognese::DataciteUtils
     include Bolognese::Utils
 
-    include Bolognese::Readers::BibtexReader
-    include Bolognese::Readers::CiteprocReader
-    include Bolognese::Readers::CodemetaReader
-    include Bolognese::Readers::CrossciteReader
-    include Bolognese::Readers::CrossrefReader
-    include Bolognese::Readers::DataciteReader
-    include Bolognese::Readers::DataciteJsonReader
-    include Bolognese::Readers::RisReader
-    include Bolognese::Readers::SchemaOrgReader
+    attr_accessor :string, :from, :sandbox, :b_doi, :regenerate, :issue, :contributor,
+                  :spatial_coverage
 
-    include Bolognese::Writers::BibtexWriter
-    include Bolognese::Writers::CitationWriter
-    include Bolognese::Writers::CiteprocWriter
-    include Bolognese::Writers::CodemetaWriter
-    include Bolognese::Writers::CrossciteWriter
-    include Bolognese::Writers::CrossrefWriter
-    include Bolognese::Writers::DataciteWriter
-    include Bolognese::Writers::DataciteJsonWriter
-    include Bolognese::Writers::JatsWriter
-    include Bolognese::Writers::RdfXmlWriter
-    include Bolognese::Writers::RisWriter
-    include Bolognese::Writers::SchemaOrgWriter
-    include Bolognese::Writers::TurtleWriter
-
-    attr_accessor :string, :identifier, :from, :author,
-                  :creator, :title, :publisher, :contributor, :license,
-                  :date_accepted, :date_available, :date_copyrighted, :date_collected,
-                  :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, :provider_id, :client_id, :journal,
-                  :volume, :issue, :first_page, :last_page, :b_doi, :b_url, :b_version, :keywords, :editor,
-                  :description, :alternate_name, :language, :content_size, :spatial_coverage,
-                  :schema_version, :has_part, :same_as,
-                  :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
-                  :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
-                  :has_metadata, :is_metadata_for, :is_referenced_by, :references,
-                  :is_documented_by, :documents, :is_compiled_by, :compiles,
-                  :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
-                  :is_derived_from, :is_source_of, :format, :funding, :style, :locale, :state, :regenerate, :sandbox
+    attr_writer :identifier, :author, :title, :publisher, :license,
+                :date_accepted, :date_available, :date_copyrighted, :date_collected,
+                :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, 
+                :journal, :volume, :first_page, :last_page,
+                :keywords, :editor, :description, :alternate_name, :language, :content_size,
+                :schema_version, :has_part, :same_as,
+                :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
+                :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
+                :has_metadata, :is_metadata_for, :is_referenced_by, :references,
+                :is_documented_by, :documents, :is_compiled_by, :compiles,
+                :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
+                :is_derived_from, :is_source_of, :format, :funding, :style, :locale, :state,
+                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :meta
 
     attr_reader :doc, :service_provider, :page_start, :page_end, :related_identifier, :reverse, :name_detector
-
-    attr_writer :id, :type, :additional_type, :citeproc_type, :bibtex_type, :doi,
-                :ris_type, :meta
-
-    def exists?
-      meta.fetch("state", "not_found") != "not_found"
-    end
-
-    def valid?
-      exists? && errors.nil?
-    end
-
-    # validate against DataCite schema, unless there are already errors in the reader
-    def errors
-      meta.fetch("errors", nil) || datacite_errors(xml: datacite, schema_version: schema_version)
-    end
 
     # replace DOI in XML if provided in options
     def raw
@@ -110,13 +49,9 @@ module Bolognese
     # the id might change
     def meta
       m = from.present? ? send("read_" + from, string: string, sandbox: sandbox) : {}
-      @id = b_doi || m.fetch("id", nil) || m.fetch("identifier", nil)
+      @identifier = b_doi || m.fetch("id", nil) || m.fetch("identifier", nil)
 
       m
-    end
-
-    def id
-      @id ||= meta.fetch("id", nil)
     end
 
     def type
@@ -141,14 +76,6 @@ module Bolognese
 
     def resource_type_general
       @resource_type_general ||= meta.fetch("resource_type_general", nil)
-    end
-
-    def doi
-      @doi ||= @id.present? ? doi_from_url(@id) : meta.fetch("doi", nil)
-    end
-
-    def b_url
-      @b_url ||= meta.fetch("b_url", nil)
     end
 
     def identifier
@@ -247,10 +174,6 @@ module Bolognese
       @license ||= meta.fetch("license", nil)
     end
 
-    def b_version
-      @b_version ||= meta.fetch("b_version", nil)
-    end
-
     def keywords
       @keywords ||= meta.fetch("keywords", nil)
     end
@@ -269,14 +192,6 @@ module Bolognese
 
     def funding
       @funding ||= meta.fetch("funding", nil)
-    end
-
-    def provider_id
-      @provider_id ||= meta.fetch("provider_id", nil)
-    end
-
-    def client_id
-      @client_id ||= meta.fetch("client_id", nil)
     end
 
     def is_identical_to

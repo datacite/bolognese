@@ -14,7 +14,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get datacite_json metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")

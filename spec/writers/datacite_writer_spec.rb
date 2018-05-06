@@ -98,7 +98,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.23640/07243.5153971")
+      expect(subject.identifier).to eq("https://doi.org/10.23640/07243.5153971")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("Paper")
       expect(subject.resource_type_general).to eq("Text")
@@ -117,7 +117,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.5072/07243.5153971")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5072/07243.5153971")
+      expect(subject.identifier).to eq("https://doi.org/10.5072/07243.5153971")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("Paper")
       expect(subject.resource_type_general).to eq("Text")
@@ -136,7 +136,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
       expect(subject.resource_type_general).to eq("Dataset")
@@ -171,7 +171,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be false
-      expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.identifier).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.state).to eq("not_found")

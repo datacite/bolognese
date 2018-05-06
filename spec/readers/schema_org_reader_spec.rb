@@ -17,7 +17,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get schema_org metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
@@ -35,7 +35,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting with new DOI" do
       subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
+      expect(subject.identifier).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
       expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
@@ -46,7 +46,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.errors.size).to eq(2)
       expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
-      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1196821")
+      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1196821")
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
       expect(subject.b_url).to eq("https://zenodo.org/record/1196821")
       expect(subject.type).to eq("Dataset")
@@ -59,7 +59,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.1594/pangaea.836178")
+      expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.836178")
       expect(subject.doi).to eq("10.1594/pangaea.836178")
       expect(subject.b_url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
       expect(subject.type).to eq("Dataset")
@@ -73,7 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       subject.id = "https://doi.org/10.3334/ornldaac/1418"
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.3334/ornldaac/1418")
+      expect(subject.identifier).to eq("https://doi.org/10.3334/ornldaac/1418")
       expect(subject.doi).to eq("10.3334/ornldaac/1418")
       expect(subject.b_url).to eq("https://doi.org/10.3334/ornldaac/1418")
       expect(subject.type).to eq("DataSet")
@@ -86,7 +86,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GAOC03"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.7910/dvn/gaoc03")
+      expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/gaoc03")
       expect(subject.doi).to eq("10.7910/dvn/gaoc03")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("The National Labor Force : SAKERNAS, 2008")
@@ -100,7 +100,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'schema_org.json'
       subject = Bolognese::Metadata.new(input: input)
 
-      expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")

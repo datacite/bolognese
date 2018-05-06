@@ -14,7 +14,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get crosscite metadata" do
     it "SoftwareSourceCode" do
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
+      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.resource_type_general).to eq("Software")
       expect(subject.author).to eq("type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza")
@@ -27,7 +27,7 @@ describe Bolognese::Metadata, vcr: true do
       input = IO.read(fixture_path + "crosscite.json")
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.48440")
+      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.resource_type_general).to eq("Software")
       expect(subject.author).to eq("type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza")
