@@ -194,7 +194,15 @@ module Bolognese
 
       xml.rightsList do
         Array.wrap(license).each do |lic|
-          xml.rights(lic["name"], 'rightsURI' => lic["id"])
+          if lic.is_a?(Hash)
+            l = lic
+          else
+            l = {}
+            l["name"] = lic
+            l["id"] = normalize_id(lic)
+          end
+
+          xml.rights(l["name"], { 'rightsURI' => l["id"] }.compact)
         end
       end
     end
@@ -204,7 +212,15 @@ module Bolognese
 
       xml.descriptions do
         Array.wrap(description).each do |des|
-          xml.description(des["text"], 'descriptionType' => des["type"] || "Abstract")
+          if des.is_a?(Hash)
+            d = des
+          else
+            d = {}
+            d["text"] = des
+            d["type"] = "Abstract"
+          end
+
+          xml.description(d["text"], 'descriptionType' => d["type"] || "Abstract")
         end
       end
     end

@@ -199,6 +199,42 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
     end
 
+    it "change description" do
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject.description = "This is an abstract."
+      expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("descriptions", "description")).to eq("descriptionType"=>"Abstract", "__content__"=>"This is an abstract.")
+    end
+
+    it "change license" do
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject.license = { "id" => "https://creativecommons.org/licenses/by-nc-sa/4.0", "name" => "Creative Commons Attribution-NonCommercial-ShareAlike" }
+      expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "__content__"=>"Creative Commons Attribution-NonCommercial-ShareAlike")
+    end
+
+    it "change license url" do
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject.license = "https://creativecommons.org/licenses/by-nc-sa/4.0"
+      expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "__content__"=>"https://creativecommons.org/licenses/by-nc-sa/4.0")
+    end
+
+    it "change license name" do
+      input = "10.7554/eLife.01567"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject.license = "Creative Commons Attribution-NonCommercial-ShareAlike"
+      expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("rightsList", "rights")).to eq("Creative Commons Attribution-NonCommercial-ShareAlike")
+    end
+
     it "change state" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
