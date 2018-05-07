@@ -91,7 +91,7 @@ module Bolognese
     end
 
     def res_type
-      { "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type] || "Other",
+      { "resource_type_general" => resource_type_general || Metadata::SO_TO_DC_TRANSLATIONS[type] || "Other",
         "__content__" => additional_type || type }
     end
 

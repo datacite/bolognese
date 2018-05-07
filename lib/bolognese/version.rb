@@ -1,3 +1,3 @@
 module Bolognese
-  VERSION = "0.9.99"
+  VERSION = "0.10"
 end

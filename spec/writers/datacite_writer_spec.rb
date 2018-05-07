@@ -185,7 +185,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "10.5061/DRYAD.8515"
       subject.title = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
-      subject.type = "Dataset"
+      subject.resource_type_general = "Dataset"
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.5061/DRYAD.8515")
