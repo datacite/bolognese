@@ -256,6 +256,8 @@ module Bolognese
         find_from_format_by_ext(string, ext: ext)
       elsif string.present?
         find_from_format_by_string(string)
+      else
+        "datacite"
       end
     end
 
