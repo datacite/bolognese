@@ -175,7 +175,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.state).to eq("not_found")
-      expect(subject.datacite).to be_nil
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(datacite["xmlns"]).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "no input" do
+      input = nil
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.valid?).to be false
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(datacite["xmlns"]).to eq("http://datacite.org/schema/kernel-4")
     end
   end
 
@@ -204,6 +215,15 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.description = "This is an abstract."
       expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("descriptions", "description")).to eq("descriptionType"=>"Abstract", "__content__"=>"This is an abstract.")
+    end
+
+    it "change description no input" do
+      input = nil
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      subject.description = "This is an abstract."
+      expect(subject.valid?).to be false
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("descriptions", "description")).to eq("descriptionType"=>"Abstract", "__content__"=>"This is an abstract.")
     end

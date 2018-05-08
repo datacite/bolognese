@@ -15,7 +15,7 @@ module Bolognese
         # generate name for method to call dynamically
         hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : {}
         string = hsh.fetch("string", nil)
-      elsif File.exist?(input)
+      elsif input.present? && File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
           string = IO.read(input)

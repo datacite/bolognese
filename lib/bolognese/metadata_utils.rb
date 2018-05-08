@@ -90,7 +90,7 @@ module Bolognese
     end
 
     def should_passthru
-      (from == "datacite") && regenerate.blank?
+      (from == "datacite") && regenerate.blank? && raw.present?
     end
 
     def type
