@@ -76,7 +76,7 @@ module Bolognese
     end
 
     def exists?
-      meta.fetch("state", "not_found") != "not_found"
+      (@state || meta.fetch("state", "not_found")) != "not_found"
     end
 
     def valid?

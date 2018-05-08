@@ -228,6 +228,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("descriptions", "description")).to eq("descriptionType"=>"Abstract", "__content__"=>"This is an abstract.")
     end
 
+    it "required metadata no input" do
+      input = nil
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      subject.author = [{"creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}]
+      subject.title = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
+      subject.publisher = "Dryad"
+      subject.resource_type_general = "Dataset"
+      subject.additional_type = "DataPackage"
+      subject.date_published = "2011"
+      subject.state = "findable"
+      expect(subject.exists?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("identifier", "__content__")).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Dataset")
+      expect(datacite.dig("titles", "title")).to eq("Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      
+    end
+
     it "change license" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
