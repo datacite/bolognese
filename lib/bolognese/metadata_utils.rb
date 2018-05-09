@@ -85,7 +85,7 @@ module Bolognese
 
       doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
       node = doc.at_css("identifier")
-      node.content = doi.to_s.upcase
+      node.content = doi.to_s.upcase if node.present? && doi.present?
       doc.to_xml.strip
     end
 
