@@ -72,5 +72,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_modified).to eq("2017-02-24")
       expect(subject.publisher).to eq("DataCite")
     end
+
+    it "metadata_reports" do
+      input = "https://github.com/datacite/metadata-reports/blob/master/software/codemeta.json"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5438/wr0x-e194")
+      expect(subject.b_url).to eq("https://github.com/datacite/metadata-reports")
+      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.author.size).to eq(4)
+      expect(subject.author.last).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8135-3489", "name"=>"Lars Holm Nielsen", "givenName"=>"Lars Holm", "familyName"=>"Nielsen")
+      expect(subject.title).to eq("DOI Registrations for Software")
+      expect(subject.description["text"]).to start_with("Analysis of DataCite DOIs registered for software")
+      expect(subject.keywords).to eq(["doi", "software", "codemeta"])
+      expect(subject.date_created).to eq("2018-03-09")
+      expect(subject.date_published).to eq("2018-05-17")
+      expect(subject.date_modified).to eq("2018-05-17")
+      expect(subject.publisher).to eq("DataCite")
+    end
   end
 end

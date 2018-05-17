@@ -525,10 +525,12 @@ module Bolognese
     def github_from_url(url)
       return {} unless /\Ahttps:\/\/github\.com\/(.+)(?:\/)?(.+)?(?:\/tree\/)?(.*)\z/.match(url)
       words = URI.parse(url).path[1..-1].split('/')
+      path = words.length > 3 ? words[4...words.length].join("/") : nil
 
       { owner: words[0],
         repo: words[1],
-        release: words[3] }.compact
+        release: words[3],
+        path: path }.compact
     end
 
     def github_repo_from_url(url)
@@ -560,7 +562,12 @@ module Bolognese
 
     def github_as_codemeta_url(url)
       github_hash = github_from_url(url)
-      "https://raw.githubusercontent.com/#{github_hash[:owner]}/#{github_hash[:repo]}/master/codemeta.json" if github_hash[:owner].present?
+
+      if github_hash[:path].to_s.end_with?("codemeta.json")
+        "https://raw.githubusercontent.com/#{github_hash[:owner]}/#{github_hash[:repo]}/#{github_hash[:release]}/#{github_hash[:path]}"
+      elsif github_hash[:owner].present?
+        "https://raw.githubusercontent.com/#{github_hash[:owner]}/#{github_hash[:repo]}/master/codemeta.json"
+      end
     end
 
     def get_date_parts(iso8601_time)

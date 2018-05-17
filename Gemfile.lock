@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.10.6)
+    bolognese (0.10.7)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -48,7 +48,7 @@ GEM
       rdf (>= 2.2, < 4.0)
       sxp (~> 1.0)
     excon (0.62.0)
-    faraday (0.15.0)
+    faraday (0.15.1)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
       faraday

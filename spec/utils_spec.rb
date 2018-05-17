@@ -286,4 +286,30 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("2016")
     end
   end
+
+  context "github" do
+    it "github_from_url" do
+      url = "https://github.com/datacite/bolognese"
+      response = subject.github_from_url(url)
+      expect(response).to eq(:owner=>"datacite", :repo=>"bolognese")
+    end
+
+    it "github_from_url file" do
+      url = "https://github.com/datacite/metadata-reports/blob/master/software/codemeta.json"
+      response = subject.github_from_url(url)
+      expect(response).to eq(:owner=>"datacite", :repo=>"metadata-reports", :release=>"master", :path=>"software/codemeta.json")
+    end
+
+    it "github_as_codemeta_url" do
+      url = "https://github.com/datacite/bolognese"
+      response = subject.github_as_codemeta_url(url)
+      expect(response).to eq("https://raw.githubusercontent.com/datacite/bolognese/master/codemeta.json")
+    end
+
+    it "github_from_url file" do
+      url = "https://github.com/datacite/metadata-reports/blob/master/software/codemeta.json"
+      response = subject.github_as_codemeta_url(url)
+      expect(response).to eq("https://raw.githubusercontent.com/datacite/metadata-reports/master/software/codemeta.json")
+    end
+  end
 end
