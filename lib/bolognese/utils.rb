@@ -128,6 +128,15 @@ module Bolognese
       "PostedContent" => "article"
     }
 
+    BIB_TO_CR_TRANSLATIONS = {
+      "proceedings" => "Proceedings",
+      "phdthesis" => "Dissertation",
+      "article" => "JournalArticle",
+      "book" => "Book",
+      "inbook" => "BookChapter",
+      "book" => "Monograph"
+    }
+
     CR_TO_JATS_TRANSLATIONS = {
       "Proceedings" => "working-paper",
       "ReferenceBook" => "book",
