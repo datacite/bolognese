@@ -133,8 +133,7 @@ module Bolognese
       "phdthesis" => "Dissertation",
       "article" => "JournalArticle",
       "book" => "Book",
-      "inbook" => "BookChapter",
-      "book" => "Monograph"
+      "inbook" => "BookChapter"
     }
 
     CR_TO_JATS_TRANSLATIONS = {
