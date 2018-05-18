@@ -67,9 +67,9 @@ module Bolognese
 
       def insert_citation_title(xml)
         case publication_type.fetch('publication-type', nil)
-        when "data" then xml.send("data-title", title)
-        when "journal" then xml.send("article-title", title)
-        when "chapter" then xml.send("chapter-title", title)
+        when "data" then xml.send("data-title", parse_attributes(title, content: "text", first: true))
+        when "journal" then xml.send("article-title", parse_attributes(title, content: "text", first: true))
+        when "chapter" then xml.send("chapter-title", parse_attributes(title, content: "text", first: true))
         end
       end
 
@@ -77,7 +77,7 @@ module Bolognese
         if is_article? || is_data? || is_chapter?
           xml.source(container_title || publisher)
         else
-          xml.source(title)
+          xml.source(parse_attributes(title, content: "text", first: true))
         end
       end
 
