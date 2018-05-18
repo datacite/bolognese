@@ -241,7 +241,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5072/testpub")
-      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.type).to eq("Book")
       expect(subject.additional_type).to eq("Monograph")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
@@ -260,7 +260,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, doi: "10.5072/testpub2")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5072/testpub2")
-      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.type).to eq("Book")
       expect(subject.additional_type).to eq("Monograph")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
@@ -385,6 +385,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author).to be_nil
       expect(subject.valid?).to be false
       expect(subject.errors).to eq("4:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).")
+    end
+
+    it "dissertation" do
+      input = "10.3204/desy-2014-01645"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.3204/desy-2014-01645")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.additional_type).to eq("Dissertation")
+      expect(subject.type).to eq("Thesis")
+      expect(subject.bibtex_type).to eq("phdthesis")
+      expect(subject.citeproc_type).to eq("thesis")
+      expect(subject.author).to eq("type"=>"Person", "name"=>"Heiko Conrad", "givenName"=>"Heiko", "familyName"=>"Conrad")
+      expect(subject.title).to eq("Dynamics of colloids in molecular glass forming liquids studied via X-ray photon correlation spectroscopy")
+      expect(subject.date_published).to eq("2014")
+      expect(subject.publisher).to eq("Deutsches Elektronen-Synchrotron, DESY, Hamburg")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
   end
 
