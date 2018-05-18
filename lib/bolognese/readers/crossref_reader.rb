@@ -3,35 +3,6 @@ module Bolognese
     module CrossrefReader
       # CrossRef types from https://api.crossref.org/types
 
-      CR_TO_BIB_TRANSLATIONS = {
-        "Proceedings" => "proceedings",
-        "ReferenceBook" => "book",
-        "JournalIssue" => nil,
-        "ProceedingsArticle" => nil,
-        "Other" => nil,
-        "Dissertation" => "phdthesis",
-        "Dataset" => nil,
-        "EditedBook" => "book",
-        "JournalArticle" => "article",
-        "Journal" => nil,
-        "Report" => nil,
-        "BookSeries" => nil,
-        "ReportSeries" => nil,
-        "BookTrack" => nil,
-        "Standard" => nil,
-        "BookSection" => "inbook",
-        "BookPart" => nil,
-        "Book" => "book",
-        "BookChapter" => "inbook",
-        "StandardSeries" => nil,
-        "Monograph" => "book",
-        "Component" => nil,
-        "ReferenceEntry" => nil,
-        "JournalVolume" => nil,
-        "BookSet" => nil,
-        "PostedContent" => "article"
-      }
-
       CONTACT_EMAIL = "tech@datacite.org"
 
       def get_crossref(id: nil, **options)
@@ -112,7 +83,7 @@ module Bolognese
           "type" => type,
           "additional_type" => additional_type,
           "citeproc_type" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[additional_type] || "article-journal",
-          "bibtex_type" => CR_TO_BIB_TRANSLATIONS[additional_type] || "misc",
+          "bibtex_type" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[additional_type] || "misc",
           "ris_type" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[additional_type] || "JOUR",
           "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
           "doi" => doi,

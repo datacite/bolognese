@@ -99,6 +99,35 @@ module Bolognese
       "PostedContent" => "ScholarlyArticle"
     }
 
+    CR_TO_BIB_TRANSLATIONS = {
+      "Proceedings" => "proceedings",
+      "ReferenceBook" => "book",
+      "JournalIssue" => nil,
+      "ProceedingsArticle" => nil,
+      "Other" => nil,
+      "Dissertation" => "phdthesis",
+      "Dataset" => nil,
+      "EditedBook" => "book",
+      "JournalArticle" => "article",
+      "Journal" => nil,
+      "Report" => nil,
+      "BookSeries" => nil,
+      "ReportSeries" => nil,
+      "BookTrack" => nil,
+      "Standard" => nil,
+      "BookSection" => "inbook",
+      "BookPart" => nil,
+      "Book" => "book",
+      "BookChapter" => "inbook",
+      "StandardSeries" => nil,
+      "Monograph" => "book",
+      "Component" => nil,
+      "ReferenceEntry" => nil,
+      "JournalVolume" => nil,
+      "BookSet" => nil,
+      "PostedContent" => "article"
+    }
+
     CR_TO_JATS_TRANSLATIONS = {
       "Proceedings" => "working-paper",
       "ReferenceBook" => "book",
