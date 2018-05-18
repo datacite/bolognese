@@ -640,7 +640,7 @@ module Bolognese
     end
 
     def get_date_parts(iso8601_time)
-      return { "date_parts" => [[]] } if iso8601_time.nil?
+      return { 'date-parts' => [[]] } if iso8601_time.nil?
 
       year = iso8601_time[0..3].to_i
       month = iso8601_time[5..6].to_i
