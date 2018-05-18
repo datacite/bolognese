@@ -20,7 +20,7 @@ module Bolognese
           "SP" => first_page,
           "EP" => last_page,
           "ER" => ""
-        }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k} - #{vi}" }.join("\r\n") : "#{k} - #{v}" }.join("\r\n")
+        }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k}  - #{vi}" }.join("\r\n") : "#{k}  - #{v}" }.join("\r\n")
       end
     end
   end

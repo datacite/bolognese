@@ -382,7 +382,7 @@ module Bolognese
         "schema_org"
       elsif Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
-      elsif string.start_with?("TY ")
+      elsif string.start_with?("TY  - ")
         "ris"
       elsif BibTeX.parse(string).first
         "bibtex"
