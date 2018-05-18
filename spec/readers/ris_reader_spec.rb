@@ -41,5 +41,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife")
       expect(subject.container_title).to eq("eLife")
     end
+
+    it "DOI does not exist" do
+      input = fixture_path + "pure.ris"
+      doi = "10.7554/elife.01567"
+      subject = Bolognese::Metadata.new(input: input, doi: doi)
+      expect(subject.valid?).to be false
+      expect(subject.state).to eq("not_found")
+      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.ris_type).to eq("THES")
+      expect(subject.type).to eq("Thesis")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author).to eq("type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar")
+      expect(subject.title).to eq("A multiscale analysis of the urban heat island effect")
+      expect(subject.description["text"]).to start_with("Designing the climates of cities")
+      expect(subject.date_published).to eq("2018-04-25")
+    end
   end
 end

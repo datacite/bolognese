@@ -267,6 +267,23 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "get_date_from_parts" do
+    it "date" do
+      response = subject.get_date_from_parts(2016, 12, 20)
+      expect(response).to eq("2016-12-20")
+    end
+
+    it "year-month" do
+      response = subject.get_date_from_parts(2016, 12)
+      expect(response).to eq("2016-12")
+    end
+
+    it "year" do
+      response = subject.get_date_from_parts(2016)
+      expect(response).to eq("2016")
+    end
+  end
+
   context "get_date_from_date_parts" do
     it "date" do
       date_as_parts = { "date-parts"=>[[2016, 12, 20]] }

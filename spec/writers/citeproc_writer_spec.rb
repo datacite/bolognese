@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("report")
+      expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
       expect(json["title"]).to eq("Eating your own Dog Food")
@@ -95,7 +95,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.12763/ona1045"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("report")
+      expect(json["type"]).to eq("article-journal")
       expect(json["DOI"]).to eq("10.12763/ona1045")
       expect(json["abstract"]).to eq("Le code est accompagné de commentaires de F. A. Vogel, qui signe l'épitre dédicatoire")
     end
@@ -126,7 +126,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.6102/ZIS146"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("report")
+      expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.6102/zis146")
       expect(json["DOI"]).to eq("10.6102/zis146")
       expect(json["title"]).to eq("Deutsche Version der Positive and Negative Affect Schedule (PANAS)")

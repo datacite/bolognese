@@ -2,34 +2,6 @@ module Bolognese
   module Readers
     module CrossrefReader
       # CrossRef types from https://api.crossref.org/types
-      CR_TO_SO_TRANSLATIONS = {
-        "Proceedings" => nil,
-        "ReferenceBook" => "Book",
-        "JournalIssue" => "PublicationIssue",
-        "ProceedingsArticle" => nil,
-        "Other" => "CreativeWork",
-        "Dissertation" => "Thesis",
-        "Dataset" => "Dataset",
-        "EditedBook" => "Book",
-        "JournalArticle" => "ScholarlyArticle",
-        "Journal" => nil,
-        "Report" => nil,
-        "BookSeries" => nil,
-        "ReportSeries" => nil,
-        "BookTrack" => nil,
-        "Standard" => nil,
-        "BookSection" => nil,
-        "BookPart" => nil,
-        "Book" => "Book",
-        "BookChapter" => "Chapter",
-        "StandardSeries" => nil,
-        "Monograph" => "Book",
-        "Component" => "CreativeWork",
-        "ReferenceEntry" => nil,
-        "JournalVolume" => "PublicationVolume",
-        "BookSet" => nil,
-        "PostedContent" => "ScholarlyArticle"
-      }
 
       CR_TO_BIB_TRANSLATIONS = {
         "Proceedings" => "proceedings",
@@ -127,7 +99,7 @@ module Bolognese
         end
 
         additional_type = (additional_type || model).to_s.underscore.camelize.presence
-        type = CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
+        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
 
         doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase.presence #|| doi_from_url(options[:id])
 

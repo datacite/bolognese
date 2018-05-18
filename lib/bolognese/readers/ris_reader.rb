@@ -7,6 +7,7 @@ module Bolognese
         "CTLG" => "DataCatalog",
         "DATA" => "Dataset",
         "FIGURE" => "ImageObject",
+        "THES" => "Thesis",
         "MPCT" => "Movie",
         "JOUR" => "ScholarlyArticle",
         "COMP" => "SoftwareSourceCode",
@@ -39,6 +40,8 @@ module Bolognese
         doi = validate_doi(meta.fetch("DO", nil))
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
         container_title = meta.fetch("T2", nil)
+        date_parts = meta.fetch("PY", nil).to_s.split("/")
+        date_published = get_date_from_parts(*date_parts)
         is_part_of = if container_title.present?
                        { "type" => "Periodical",
                          "title" => container_title,
@@ -61,7 +64,7 @@ module Bolognese
           "publisher" => meta.fetch("PB", nil),
           "is_part_of" => is_part_of,
           "date_created" => meta.fetch("Y1", nil),
-          "date_published" => meta.fetch("PY", nil),
+          "date_published" => date_published,
           "date_accessed" => meta.fetch("Y2", nil),
           "description" => meta.fetch("AB", nil).present? ? { "text" => sanitize(meta.fetch("AB")) } : nil,
           "volume" => meta.fetch("VL", nil),
@@ -78,7 +81,7 @@ module Bolognese
         h = Hash.new { |h,k| h[k] = [] }
         string.split("\n").reduce(h) do |sum, line|
           k, v = line.split(" - ")
-          h[k] << v
+          h[k.strip] << v
           sum
         end.map { |k,v| [k, v.unwrap] }.to_h.compact
       end

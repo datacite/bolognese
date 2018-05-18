@@ -70,6 +70,35 @@ module Bolognese
       "BookSet" => nil
     }
 
+    CR_TO_SO_TRANSLATIONS = {
+      "Proceedings" => nil,
+      "ReferenceBook" => "Book",
+      "JournalIssue" => "PublicationIssue",
+      "ProceedingsArticle" => nil,
+      "Other" => "CreativeWork",
+      "Dissertation" => "Thesis",
+      "Dataset" => "Dataset",
+      "EditedBook" => "Book",
+      "JournalArticle" => "ScholarlyArticle",
+      "Journal" => nil,
+      "Report" => nil,
+      "BookSeries" => nil,
+      "ReportSeries" => nil,
+      "BookTrack" => nil,
+      "Standard" => nil,
+      "BookSection" => nil,
+      "BookPart" => nil,
+      "Book" => "Book",
+      "BookChapter" => "Chapter",
+      "StandardSeries" => nil,
+      "Monograph" => "Book",
+      "Component" => "CreativeWork",
+      "ReferenceEntry" => nil,
+      "JournalVolume" => "PublicationVolume",
+      "BookSet" => nil,
+      "PostedContent" => "ScholarlyArticle"
+    }
+
     CR_TO_JATS_TRANSLATIONS = {
       "Proceedings" => "working-paper",
       "ReferenceBook" => "book",
@@ -113,6 +142,7 @@ module Bolognese
       "Movie" => "Audiovisual",
       "PublicationIssue" => "Text",
       "ScholarlyArticle" => "Text",
+      "Thesis" => "Text",
       "Service" => "Service",
       "SoftwareSourceCode" => "Software",
       "VideoObject" => "Audiovisual",
@@ -157,6 +187,7 @@ module Bolognese
       "PublicationIssue" => nil,
       "ScholarlyArticle" => "article-journal",
       "Service" => nil,
+      "Thesis" => "thesis",
       "VideoObject" => "broadcast",
       "WebPage" => "webpage",
       "WebSite" => "webpage"
@@ -231,6 +262,7 @@ module Bolognese
     SO_TO_BIB_TRANSLATIONS = {
       "Article" => "article",
       "AudioObject" => "misc",
+      "Thesis" => "phdthesis",
       "Blog" => "misc",
       "BlogPosting" => "article",
       "Collection" => "misc",

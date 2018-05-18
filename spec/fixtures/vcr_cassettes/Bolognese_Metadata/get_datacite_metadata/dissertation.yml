@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.datacite.org/prefixes/10.3204
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 May 2018 10:11:23 GMT
+      Content-Type:
+      - application/vnd.api+json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - c7d2c58a-8a32-4654-865d-d0ee4eda062a
+      Etag:
+      - W/"b6b43f1308b8af8e7954484fe743e2c0"
+      X-Runtime:
+      - '0.018615'
+      X-Powered-By:
+      - Phusion Passenger 5.3.1
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.1
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.3204","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"tib.desy","type":"clients"}]},"providers":{"data":[{"id":"tib","type":"providers"}]}}},"included":[{"id":"tib.desy","type":"clients","attributes":{"name":"DESY
+        - Deutsches Elektronen-Synchrotron","symbol":"TIB.DESY","year":2011,"contact-name":"Kirsten
+        Sachs","contact-email":"Kirsten.Sachs@desy.de","domains":"desy.de,cern.ch","url":null,"is-active":true,"has-password":true,"created":"2011-08-12T09:39:17Z","updated":"2018-05-18T02:30:08Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"tib","type":"providers","attributes":{"name":"German
+        National Library of Science and Technology","symbol":"TIB","website":"http://www.tib.eu","contact-name":"Steffen
+        Krentz","contact-email":"steffen.krentz@tib.eu","phone":"+49 511 762 17642","description":"The
+        TIB is the German National Library for all areas of engineering as well as
+        architecture, chemistry, information technology, mathematics and physics.
+        We are the world''s largest specialised library for science and technology
+        and are part of the German research infrastructure. Our function is the comprehensive
+        procurement and archival storage of technical scientific literature from all
+        over the world. TIB was the first DOI registration agency for primary data
+        worldwide. We have been providing DOI registration services since 2005 and
+        we now work directly with over 40 data centres. TIB is one of the founding
+        members of DataCite and is currently the Business Office. We provide DOI registration
+        services for all German data centres in the fields of engineering, architecture,
+        chemistry, information technology, mathematics and physics. Our current focus
+        is on providing DOI names for primary data and grey literature.","country":"DE","logo-url":"https://assets.datacite.org/images/members/tib.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-05-18T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+    http_version: 
+  recorded_at: Fri, 18 May 2018 10:11:23 GMT
+- request:
+    method: get
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.3204/desy-2014-01645&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 May 2018 10:11:23 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIB.DESY","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGNvbnRyaWJ1dG9ycz48Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJDb250YWN0UGVyc29uIj48Y29udHJpYnV0b3JOYW1lPkNvbnJhZCwgSGVpa288L2NvbnRyaWJ1dG9yTmFtZT48L2NvbnRyaWJ1dG9yPjxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlN1cGVydmlzb3IiPjxjb250cmlidXRvck5hbWU+R3J1ZWJlbCwgR2VyaGFyZDwvY29udHJpYnV0b3JOYW1lPjxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZyI+MDAwMC0wMDAyLTg2MzMtODIzNDwvbmFtZUlkZW50aWZpZXI+PGFmZmlsaWF0aW9uPkRldXRzY2hlcyBFbGVrdHJvbmVuLVN5bmNocm90cm9uPC9hZmZpbGlhdGlvbj48L2NvbnRyaWJ1dG9yPjwvY29udHJpYnV0b3JzPjxkYXRlcz48ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE0PC9kYXRlPjxkYXRlIGRhdGVUeXBlPSJDb3B5cmlnaHRlZCI+MjAxNDwvZGF0ZT48ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAwOS0xMC0wMS8yMDE0LTAxLTIzPC9kYXRlPjwvZGF0ZXM+PGRlc2NyaXB0aW9ucz48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJTZXJpZXNJbmZvcm1hdGlvbiI+VW5pdmVyc2l0eSBvZiBIYW1idXJnLCBEaXNzLiwgMjAxNDsgSGFtYnVyZyA6IFVuaXZlcnNpdHkgb2YgSGFtYnVyZywgMTUyIHBwLiAoMjAxNCkuID0gVW5pdmVyc2l0eSBvZiBIYW1idXJnLCBEaXNzLiwgMjAxNDwvZGVzY3JpcHRpb24+PGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkluIHRoaXMgd29yayB0aGUgc3RhdGljIGFuZCBkeW5hbWljYWwgcHJvcGVydGllcyBvZiB0aGUgZ2xhc3MgZm9ybWVycyBwb2x5cHJvcHlsZW5lIGdseWNvbCBhbmQgZGlidXR5bCBwaHRoYWxhdGUgYXJlIHN0dWRpZWQgaW4gdGhlIHN1cGVyY29vbGVkIHN0YXRlLiBDb2xsb2lkYWwgdHJhY2VyIHBhcnRpY2xlcyBzdXNwZW5kZWQgaW4gdGhlc2UgZ2xhc3MgZm9ybWVycyBhbGxvdyB0aGUgaW52ZXN0aWdhdGlvbiBvZiB0aGVpciBkeW5hbWljcyB3aXRoIGNvaGVyZW50IHN5bmNocm90cm9uIHJhZGlhdGlvbiBieSBtZWFucyBvZiBYLXJheSBwaG90b24gY29ycmVsYXRpb24gc3BlY3Ryb3Njb3B5LiBUaGUgc3RhdGljIHN0cnVjdHVyZSBmYWN0b3JzLCB0aGUgcmVsYXhhdGlvbiB0aW1lcyBhbmQgdGhlIGRpc3BlcnNpb24gcmVsYXRpb25zIG9mIHRoZSB0cmFjZXIgcGFydGljbGVzIHdlcmUgZGV0ZXJtaW5lZCBhcyBmdW5jdGlvbiBvZiB0aGUgc29sdmVudCB0ZW1wZXJhdHVyZS4gVGhlIHJlc3VsdHMgc2hvdyB0aGF0IHRoZSBuYXR1cmUgb2YgdGhlIHBhcnRpY2xlcyBkeW5hbWljcyBpbiB0aGUgZ2xhc3MgZm9ybWVyIGNoYW5nZXMgY2xvc2UgdG8gdGhlIGdsYXNzIHRyYW5zaXRpb24gdGVtcGVyYXR1cmUgKFRnKSBiZXR3ZWVuIDEuMDgg4oiSIDEuMTIgVGcuIFdoaWxlIHRoZSBzdGF0aWMgc3RydWN0dXJlIGZhY3RvciByZW1haW5zIHVuY2hhbmdlZCBpbiB0aGlzIHRlbXBlcmF0dXJlIHJhbmdlLCB0aGUgcGFydGljbGUgZHluYW1pY3MgY2hhbmdlcyBmcm9tIGZyZWUgZGlmZnVzaW9uIGF0IFQgJmd0OyAxLjEyIFRnIHRvIGh5cGVyIGRpZmZ1c2l2ZSBhbmQgY29ycmVsYXRlZCBwYXJ0aWNsZSBtb3Rpb24gYXQgVCAmbHQ7IDEuMDggVGcuIEJ5IGNvbXBhcmluZyBzYW1wbGVzIG9mIGRpZmZlcmVudCBwYXJ0aWNsZSBzaXplcyBhbmQgY29uY2VudHJhdGlvbnMgaXQgYmVjb21lcyBldmlkZW50IHRoYXQgdGhpcyBjaGFuZ2UgaW4gdGhlIGR5bmFtaWNzIGlzIHJlbGF0ZWQgdG8gY2hhbmdlcyBvZiB0aGUgc29sdmVudCBwcm9wZXJ0aWVzLiBUaGVzZSBjaGFuZ2VzIGFyZSBhY2NvbXBhbmllZCBieSBhbiBpbmNyZWFzaW5nIGhldGVyb2dlbmVpdHkgaW4gdGhlIGR5bmFtaWNzIG9mIHRoZSB0cmFjZXIgcGFydGljbGVzLiBUaGUgZmluZGluZ3MgYXJlIGluIGFncmVlbWVudCB3aXRoIGFuIGludGVycHJldGF0aW9uIHRoYXQgZG9tYWlucyBvZiBjb3JyZWxhdGVkIGR5bmFtaWNzIGluIHRoZSBzdXBlcmNvb2xlZCBnbGFzcyBmb3JtZXJzIGdyb3cgaW4gc2l6ZSB3aXRoIGRlY3JlYXNpbmcgdGVtcGVyYXR1cmUuPC9kZXNjcmlwdGlvbj48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJPdGhlciI+UHVibGlzaGVkIGJ5IFVuaXZlcnNpdHkgb2YgSGFtYnVyZywgSGFtYnVyZzwvZGVzY3JpcHRpb24+PC9kZXNjcmlwdGlvbnM+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMzIwNC9ERVNZLTIwMTQtMDE2NDU8L2lkZW50aWZpZXI+PGxhbmd1YWdlPmVuPC9sYW5ndWFnZT48cHVibGljYXRpb25ZZWFyPjIwMTQ8L3B1YmxpY2F0aW9uWWVhcj48cHVibGlzaGVyPkRldXRzY2hlcyBFbGVrdHJvbmVuLVN5bmNocm90cm9uLCBERVNZLCBIYW1idXJnPC9wdWJsaXNoZXI+PHJlbGF0ZWRJZGVudGlmaWVycz48cmVsYXRlZElkZW50aWZpZXIgcmVsYXRpb25UeXBlPSJJc0lkZW50aWNhbFRvIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTiI+aHR0cDovL25ibi1yZXNvbHZpbmcuZGUvdXJuOm5ibjpkZTpnYnY6MTgtNjU5MDc8L3JlbGF0ZWRJZGVudGlmaWVyPjwvcmVsYXRlZElkZW50aWZpZXJzPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+RGlzc2VydGF0aW9uPC9yZXNvdXJjZVR5cGU+PHNpemVzPjxzaXplPnBhZ2VzIDE1Mjwvc2l6ZT48L3NpemVzPjxzdWJqZWN0cz48c3ViamVjdD5EaXNzZXJ0YXRpb248L3N1YmplY3Q+PC9zdWJqZWN0cz48dGl0bGVzPjx0aXRsZT5EeW5hbWljcyBvZiBjb2xsb2lkcyBpbiBtb2xlY3VsYXIgZ2xhc3MgZm9ybWluZyBsaXF1aWRzIHN0dWRpZWQgdmlhIFgtcmF5IHBob3RvbiBjb3JyZWxhdGlvbiBzcGVjdHJvc2NvcHk8L3RpdGxlPjwvdGl0bGVzPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+Q29ucmFkLCBIZWlrbzwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjwvY3JlYXRvcnM+PC9yZXNvdXJjZT4=","allocator_symbol":"TIB","minted":"2018-01-25T13:51:27Z","state":"","updated":"2018-01-25T13:51:27Z","doi":"10.3204/DESY-2014-01645"}]}}
+
+'
+    http_version: 
+  recorded_at: Fri, 18 May 2018 10:11:23 GMT
+recorded_with: VCR 3.0.3

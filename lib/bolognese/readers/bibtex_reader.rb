@@ -2,7 +2,8 @@ module Bolognese
   module Readers
     module BibtexReader
       BIB_TO_CP_TRANSLATIONS = {
-        "article" => "article-journal"
+        "article" => "article-journal",
+        "phdthesis" => "thesis"
       }
 
       BIB_TO_RIS_TRANSLATIONS = {
@@ -19,50 +20,52 @@ module Bolognese
       }
 
       BIB_TO_SO_TRANSLATIONS = {
-        "article" => "ScholarlyArticle"
+        "article" => "ScholarlyArticle",
+        "phdthesis" => "Thesis"
       }
 
       def read_bibtex(string: nil, **options)
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
         type = BIB_TO_SO_TRANSLATIONS[meta.type.to_s] || "ScholarlyArticle"
-        doi = meta.doi.to_s
+        doi = meta.try(:doi)
 
-        author = Array(meta.author).map do |a|
+        author = Array(meta.try(:author)).map do |a|
                   { "type" => "Person",
                     "name" => [a.first, a.last].join(" "),
                     "givenName" => a.first,
                     "familyName" => a.last }.compact
                 end
 
-        is_part_of = if meta.journal.present?
+        is_part_of = if meta.try(:journal).present?
                   { "type" => "Periodical",
                     "title" => meta.journal.to_s,
-                    "issn" => meta.issn.to_s.presence }.compact
+                    "issn" => meta.try(:issn).to_s.presence }.compact
                 else
                   nil
                 end
 
-        page_first, page_last = meta.pages.to_s.split("-")
+        page_first, page_last = meta.try(:pages).to_s.split("-")
         state = doi.present? ? "findable" : "not_found"
 
         { "id" => normalize_doi(doi),
           "type" => type,
+          "bibtex_type" => meta.type.to_s,
           "citeproc_type" => BIB_TO_CP_TRANSLATIONS[meta.type.to_s] || "misc",
           "ris_type" => BIB_TO_RIS_TRANSLATIONS[meta.type.to_s] || "GEN",
           "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
           "doi" => doi,
-          "b_url" => meta.url.to_s,
-          "title" => meta.title.to_s,
+          "b_url" => meta.try(:url).to_s,
+          "title" => meta.try(:title).to_s,
           "author" => author,
-          "publisher" => meta.publisher.to_s.presence,
+          "publisher" => meta.try(:publisher).to_s.presence,
           "is_part_of" => is_part_of,
-          "date_published" => meta.date.to_s.presence,
-          "volume" => meta.volume.to_s.presence,
+          "date_published" => meta.try(:date).to_s.presence,
+          "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
-          "description" => { "text" => meta.field?(:abstract) && sanitize(meta.abstract.to_s).presence },
-          "license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
+          "description" => { "text" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence },
+          "license" => { "id" => meta.try(:copyright).to_s.presence },
           "state" => state
         }
       end
