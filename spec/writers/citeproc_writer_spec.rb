@@ -21,6 +21,7 @@ describe Bolognese::Metadata, vcr: true do
                                     {"family"=>"Renaud", "given"=>"François"}])
       expect(json["publisher"]).to eq("Dryad Digital Repository")
       expect(json["issued"]).to eq("date-parts" => [[2011]])
+      expect(json["submitted"]).to be_nil
     end
 
     it "BlogPosting" do
