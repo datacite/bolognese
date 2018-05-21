@@ -97,7 +97,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(json["funding"]).to eq("@type" => "Award",
                                     "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
-                                    "identifier" => "246686")
+                                    "identifier" => "246686",
+                                    "name" => "Open Access Infrastructure for Research in Europe",
+                                    "url" => "info:eu-repo/grantAgreement/EC/FP7/246686/")
     end
 
     it "subject scheme" do

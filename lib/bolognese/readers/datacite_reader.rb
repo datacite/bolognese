@@ -4,9 +4,13 @@ module Bolognese
       def get_datacite(id: nil, **options)
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
-        doi = doi_from_url(id)
         search_url = doi_search(id, options)
-        search_url += "?q=doi:#{doi}&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&wt=json"
+        doi = doi_from_url(id)
+        params = { q: doi,
+                   fl: "doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated",
+                   defType: "edismax",
+                   wt: "json" }
+        search_url += "?" + URI.encode_www_form(params)
 
         response = Maremma.get search_url
         attributes = response.body.dig("data", "response", "docs").first

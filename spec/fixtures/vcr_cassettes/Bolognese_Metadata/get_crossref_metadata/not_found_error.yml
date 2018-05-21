@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:20 GMT
+      - Mon, 21 May 2018 15:00:24 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - ffde5991-e21d-4664-bbb0-fd3048db9465
       Etag:
       - W/"258c3a49bbc303b1229efe2fae9cc9e2"
       X-Runtime:
-      - '0.666511'
+      - '0.032815'
+      X-Request-Id:
+      - 72bc24ea-8219-4ca9-9d93-61f9963116f9
       X-Powered-By:
-      - Phusion Passenger 5.2.2
+      - Phusion Passenger 5.3.1
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.1
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.7554","type":"handles","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:20 GMT
+  recorded_at: Mon, 21 May 2018 15:00:24 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -64,13 +64,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs5-1
+      - qs4-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sun, 01 Apr 2018 09:08:21 GMT
+      - Mon, 21 May 2018 15:00:24 GMT
       Connection:
       - close
     body:
@@ -79,5 +79,5 @@ http_interactions:
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:21 GMT
+  recorded_at: Mon, 21 May 2018 15:00:24 GMT
 recorded_with: VCR 3.0.3

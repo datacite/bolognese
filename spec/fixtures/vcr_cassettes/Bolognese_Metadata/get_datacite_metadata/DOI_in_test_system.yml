@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:38 GMT
+      - Mon, 21 May 2018 15:01:38 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,25 +30,25 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 7bad2d9f-8e99-4cea-9afe-a7289759efef
       Etag:
-      - W/"56f961aac1f357c5bcbda226a7c19c90"
+      - W/"327973d6dfd964052b23f789a12aa68d"
       X-Runtime:
-      - '0.012768'
+      - '0.013249'
+      X-Request-Id:
+      - 915c67cf-319a-44cd-8a35-c5da4f25ed75
       X-Powered-By:
-      - Phusion Passenger 5.2.2
+      - Phusion Passenger 5.3.1
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.1
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuMjIwMDIiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMyLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJDYWx0ZWNoIiwic3ltYm9sIjoiVElORC5DQUxURUNIIiwieWVhciI6MjAxNiwiY29udGFjdC1uYW1lIjoiVElORCIsImNvbnRhY3QtZW1haWwiOiJ0ZWNoQHRpbmQuaW8iLCJkb21haW5zIjoiZGF0YS5jYWx0ZWNoLmVkdSIsInVybCI6bnVsbCwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWUsImNyZWF0ZWQiOiIyMDE2LTEyLTE1VDEyOjI5OjU3WiIsInVwZGF0ZWQiOiIyMDE4LTA0LTAxVDAyOjMwOjQyWiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7Im1ldGEiOnt9fSwicHJvdmlkZXIiOnsibWV0YSI6e319LCJyZXBvc2l0b3J5Ijp7Im1ldGEiOnt9fX19LHsiaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IlRJTkQiLCJzeW1ib2wiOiJUSU5EIiwid2Vic2l0ZSI6Imh0dHA6Ly90aW5kLmlvIiwiY29udGFjdC1uYW1lIjoiQXVkdW4gQmrDuHJrw7h5IiwiY29udGFjdC1lbWFpbCI6ImF1ZHVuQHRpbmR0ZWNobm9sb2dpZXMuY29tIiwicGhvbmUiOm51bGwsImRlc2NyaXB0aW9uIjoiVElORCBpcyBhbiBvZmZpY2lhbCBzcGluLW9mZiBmcm9tIHRoZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2ggKENFUk4pLCBwcm92aWRpbmcgc2VydmljZXMgZm9yIGxpYnJhcnkgbWFuYWdlbWVudCBhbmQgZGF0YSBtYW5hZ2VtZW50IGJhc2VkIG9uIENFUk4tZGV2ZWxvcGVkLCBvcGVuIHNvdXJjZSB0ZWNobm9sb2d5LiBFc3RhYmxpc2hlZCBpbiAyMDEzLCBUSU5EIGlzIHByb3ZpZGluZyBpdOKAmXMgc2VydmljZXMgdG8gbGVhZGluZyByZXNlYXJjaCBpbnN0aXR1dGlvbnMgYW5kIElHT3Mgc3VjaCBhcyBDYWx0ZWNoIGFuZCB0aGUgVW5pdGVkIE5hdGlvbnMuIiwiY291bnRyeSI6IkNIIiwibG9nby11cmwiOiJodHRwczovL2Fzc2V0cy5kYXRhY2l0ZS5vcmcvaW1hZ2VzL21lbWJlcnMvdGluZC5wbmciLCJpbnN0aXR1dGlvbi10eXBlIjpudWxsLCJpcy1hY3RpdmUiOnRydWUsImhhcy1wYXNzd29yZCI6dHJ1ZSwiam9pbmVkIjoiMjAxNi0wNi0yNyIsImNyZWF0ZWQiOiIyMDE2LTA3LTExVDE0OjU2OjI2LjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wNC0wMVQwMjoyNTo1Mi4wMDBaIn0sInJlbGF0aW9uc2hpcHMiOnsiY2xpZW50cyI6eyJtZXRhIjp7fX0sInByZWZpeGVzIjp7Im1ldGEiOnt9fX19XX0=
+        eyJkYXRhIjp7ImlkIjoiMTAuMjIwMDIiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMyLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJDYWx0ZWNoIiwic3ltYm9sIjoiVElORC5DQUxURUNIIiwieWVhciI6MjAxNiwiY29udGFjdC1uYW1lIjoiVElORCIsImNvbnRhY3QtZW1haWwiOiJ0ZWNoQHRpbmQuaW8iLCJkb21haW5zIjoiZGF0YS5jYWx0ZWNoLmVkdSIsInVybCI6bnVsbCwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWUsImNyZWF0ZWQiOiIyMDE2LTEyLTE1VDEyOjI5OjU3WiIsInVwZGF0ZWQiOiIyMDE4LTA1LTIxVDAyOjMwOjM1WiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7Im1ldGEiOnt9fSwicHJvdmlkZXIiOnsibWV0YSI6e319LCJyZXBvc2l0b3J5Ijp7Im1ldGEiOnt9fX19LHsiaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IlRJTkQiLCJzeW1ib2wiOiJUSU5EIiwid2Vic2l0ZSI6Imh0dHA6Ly90aW5kLmlvIiwiY29udGFjdC1uYW1lIjoiQXVkdW4gQmrDuHJrw7h5IiwiY29udGFjdC1lbWFpbCI6ImF1ZHVuQHRpbmR0ZWNobm9sb2dpZXMuY29tIiwicGhvbmUiOm51bGwsImRlc2NyaXB0aW9uIjoiVElORCBpcyBhbiBvZmZpY2lhbCBzcGluLW9mZiBmcm9tIHRoZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2ggKENFUk4pLCBwcm92aWRpbmcgc2VydmljZXMgZm9yIGxpYnJhcnkgbWFuYWdlbWVudCBhbmQgZGF0YSBtYW5hZ2VtZW50IGJhc2VkIG9uIENFUk4tZGV2ZWxvcGVkLCBvcGVuIHNvdXJjZSB0ZWNobm9sb2d5LiBFc3RhYmxpc2hlZCBpbiAyMDEzLCBUSU5EIGlzIHByb3ZpZGluZyBpdOKAmXMgc2VydmljZXMgdG8gbGVhZGluZyByZXNlYXJjaCBpbnN0aXR1dGlvbnMgYW5kIElHT3Mgc3VjaCBhcyBDYWx0ZWNoIGFuZCB0aGUgVW5pdGVkIE5hdGlvbnMuIiwiY291bnRyeSI6IkNIIiwibG9nby11cmwiOiJodHRwczovL2Fzc2V0cy5kYXRhY2l0ZS5vcmcvaW1hZ2VzL21lbWJlcnMvdGluZC5wbmciLCJpbnN0aXR1dGlvbi10eXBlIjpudWxsLCJpcy1hY3RpdmUiOnRydWUsImhhcy1wYXNzd29yZCI6dHJ1ZSwiam9pbmVkIjoiMjAxNi0wNi0yNyIsImNyZWF0ZWQiOiIyMDE2LTA3LTExVDE0OjU2OjI2LjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wNS0yMVQwMjoyNTo1Mi4wMDBaIn0sInJlbGF0aW9uc2hpcHMiOnsiY2xpZW50cyI6eyJtZXRhIjp7fX0sInByZWZpeGVzIjp7Im1ldGEiOnt9fX19XX0=
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:38 GMT
+  recorded_at: Mon, 21 May 2018 15:01:38 GMT
 - request:
     method: get
-    uri: https://search.test.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.22002/d1.694&wt=json
+    uri: https://search.test.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.22002/d1.694&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -63,7 +63,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:39 GMT
+      - Mon, 21 May 2018 15:01:38 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -80,9 +80,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIND.CAL","url":"https://data.caltech.edu/records/694","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"TIND","minted":"2018-01-12T14:42:51Z","state":"findable","updated":"2018-02-16T10:09:12Z","doi":"10.22002/D1.694"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":4},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIND.CAL","url":"https://data.caltech.edu/records/694","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"TIND","minted":"2018-01-12T14:42:51Z","state":"findable","updated":"2018-02-16T10:09:12Z","doi":"10.22002/D1.694"}]}}
 
 '
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:39 GMT
+  recorded_at: Mon, 21 May 2018 15:01:38 GMT
 recorded_with: VCR 3.0.3

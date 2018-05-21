@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
+    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:59 GMT
+      - Mon, 21 May 2018 15:02:06 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -34,9 +34,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":0,"start":0,"docs":[]}}
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":0,"start":0,"docs":[]}}
 
 '
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:59 GMT
+  recorded_at: Mon, 21 May 2018 15:02:06 GMT
 recorded_with: VCR 3.0.3

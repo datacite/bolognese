@@ -178,6 +178,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(doi).to eq("10.5061/dryad.8515")
     end
 
+    it "doi with special characters" do
+      doi = subject.doi_from_url("10.5067/terra+aqua/ceres/cldtyphist_l3.004")
+      expect(doi).to eq("10.5067/terra+aqua/ceres/cldtyphist_l3.004")
+    end
+
     it "not a doi" do
       doi = subject.doi_from_url("https://doi.org/10.5061")
       expect(doi).to be nil

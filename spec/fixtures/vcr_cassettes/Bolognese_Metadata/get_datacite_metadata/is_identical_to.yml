@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:39 GMT
+      - Mon, 21 May 2018 15:01:34 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - bbd6f5ef-f9a5-49de-a61f-76aaaa0069a9
       Etag:
-      - W/"cde9477124631abbf39bf656ba11dac7"
+      - W/"e2deddd6c61be3fbd2081ea2999d4112"
       X-Runtime:
-      - '0.014753'
+      - '0.014553'
+      X-Request-Id:
+      - b8093e2f-cf72-4c46-a3b1-69cfdd5064c6
       X-Powered-By:
-      - Phusion Passenger 5.2.2
+      - Phusion Passenger 5.3.1
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.1
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.6084","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2011-12-09T07:47:16.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"figshare.ars","type":"clients"}]},"providers":{"data":[{"id":"figshare","type":"providers"}]}}},"included":[{"id":"figshare.ars","type":"clients","attributes":{"name":"figshare
         Academic Research System","symbol":"FIGSHARE.ARS","year":2016,"contact-name":"Gavrila
-        Daniel","contact-email":"danielduduta@figshare.com","domains":"figshare.com","url":null,"is-active":true,"has-password":true,"created":"2016-10-12T13:42:35Z","updated":"2018-04-01T02:30:40Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"figshare","type":"providers","attributes":{"name":"figshare","symbol":"FIGSHARE","website":"https://figshare.com","contact-name":"Daniel
+        Daniel","contact-email":"danielduduta@figshare.com","domains":"figshare.com","url":null,"is-active":true,"has-password":true,"created":"2016-10-12T13:42:35Z","updated":"2018-05-21T02:30:34Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"figshare","type":"providers","attributes":{"name":"figshare","symbol":"FIGSHARE","website":"https://figshare.com","contact-name":"Daniel
         Gavrila","contact-email":"danielduduta@figshare.com","phone":"+44 (0) 20 7418
         5573","description":"figshare is a repository where users can make all of
         their research outputs available in a citable, shareable and discoverable
@@ -53,12 +53,12 @@ http_interactions:
         to datasets and code, can be disseminated in a way that the current scholarly
         publishing model does not allow.\n\nOur mission is to change the face of academic
         publishing with the improved dissemination and discoverability and reusability
-        of all scholarly research.","country":"GB","logo-url":"https://assets.datacite.org/images/members/figshare.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2016-09-12","created":"2016-10-04T12:19:14.000Z","updated":"2018-04-01T02:25:52.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+        of all scholarly research.","country":"GB","logo-url":"https://assets.datacite.org/images/members/figshare.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2016-09-12","created":"2016-10-04T12:19:14.000Z","updated":"2018-05-21T02:25:52.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:39 GMT
+  recorded_at: Mon, 21 May 2018 15:01:34 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.6084/m9.figshare.4234751.v1&wt=json
+    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.6084/m9.figshare.4234751.v1&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -73,7 +73,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:39 GMT
+      - Mon, 21 May 2018 15:01:34 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -90,9 +90,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"FIGSHARE.ARS","xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9tOS5maWdzaGFyZS40MjM0NzUxLnYxPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+QWxleGFuZGVyIEp1bmdlPC9jcmVhdG9yTmFtZT48bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmciPjAwMDAtMDAwMi0yNDEwLTk2NzE8L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+SmFuIEMuIFJlZnNnYWFyZDwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gR2FyZGU8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+WGlhb3lvbmcgUGFuPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkFsYmVydG8gU2FudG9zPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkZlcmhhdCBBbGthbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gQW50aG9uPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdGlhbiB2b24gTWVyaW5nPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdG9waGVyIFQuIFdvcmttYW48L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+TGFycyBKdWhsIEplbnNlbjwvY3JlYXRvck5hbWU+PG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJodHRwOi8vb3JjaWQub3JnIj4wMDAwLTAwMDEtNzg4NS03MTVYPC9uYW1lSWRlbnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkphbiBHb3JvZGtpbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjwvY3JlYXRvcnM+PHRpdGxlcz48dGl0bGU+UkFJTiB2MTwvdGl0bGU+PC90aXRsZXM+PGRlc2NyaXB0aW9ucz48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+Jmx0O2RpdiZndDsmbHQ7YiZndDtSQUlOOiBSTkHigJNwcm90ZWluIEFzc29jaWF0aW9uIGFuZCBJbnRlcmFjdGlvbiBOZXR3b3JrcyZsdDsvYiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0OyZsdDticiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O1JBSU4gaW50ZWdyYXRlcyBub24tY29kaW5nIFJOQSAobmNSTkEpIGFuZCBwcm90ZWluIGludGVyYWN0aW9uIG5ldHdvcmtzIGluIGFuIGVhc2lseSBhY2Nlc3NpYmxlIHdlYiBpbnRlcmZhY2UuwqAmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O0l0IGNvbnRhaW5zIHRocmVlIHR5cGVzIG9mIG5jUk5BIGFzc29jaWF0aW9uczogbWljcm9STkEtdGFyZ2V0LCBuY1JOQS1wcm90ZWluIGFuZCBuY1JOQS1uY1JOQSBpbnRlcmFjdGlvbnMgYW5kIGNvbWJpbmVzIHRoZW0gd2l0aCBwcm90ZWluLXByb3RlaW4gaW50ZXJhY3Rpb24gYXZhaWxhYmxlIGluIHRoZSBTVFJJTkcgZGF0YWJhc2UuIG5jUk5BIGFzc29jaWF0aW9ucyBjb3ZlciBmb3VyIG1vZGVsIG9yZ2FuaXNtcyBhbmQgYXJlIGV4dHJhY3RlZCBmcm9tIGV4cGVyaW1lbnRhbCBkYXRhLCBhdXRvbWF0aWMgbGl0ZXJhdHVyZSBtaW5pbmcgYW5kIGN1cmF0ZWQgZXhhbXBsZXMuIEZvciBtaVJOQXMsIHdlIGZ1cnRoZXIgaW5jbHVkZSBwcmVjb21wdXRlZCB0YXJnZXQgcHJlZGljdGlvbnMuwqAmbHQ7L2RpdiZndDs8L2Rlc2NyaXB0aW9uPjwvZGVzY3JpcHRpb25zPjxzdWJqZWN0cz48c3ViamVjdD5CaW9pbmZvcm1hdGljczwvc3ViamVjdD48c3ViamVjdD5Db21wdXRhdGlvbmFsICBCaW9sb2d5PC9zdWJqZWN0PjxzdWJqZWN0PlN5c3RlbXMgQmlvbG9neTwvc3ViamVjdD48L3N1YmplY3RzPjxwdWJsaXNoZXI+Rmlnc2hhcmU8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkNyZWF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PC9kYXRlcz48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQ8L3Jlc291cmNlVHlwZT48c2l6ZXM+PHNpemU+MTEyMDMzNTUxMiBCeXRlczwvc2l6ZT48L3NpemVzPjxyZWxhdGVkSWRlbnRpZmllcnM+PHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8iPjEwLjYwODQvbTkuZmlnc2hhcmUuNDIzNDc1MTwvcmVsYXRlZElkZW50aWZpZXI+PC9yZWxhdGVkSWRlbnRpZmllcnM+PHJpZ2h0c0xpc3Q+PHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48L3Jlc291cmNlPg==","allocator_symbol":"FIGSHARE","minted":"2016-11-16T10:49:12Z","state":"findable","updated":"2016-11-16T10:49:12Z","doi":"10.6084/M9.FIGSHARE.4234751.V1"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":12},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"FIGSHARE.ARS","xml":"PHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9tOS5maWdzaGFyZS40MjM0NzUxLnYxPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+QWxleGFuZGVyIEp1bmdlPC9jcmVhdG9yTmFtZT48bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmciPjAwMDAtMDAwMi0yNDEwLTk2NzE8L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+SmFuIEMuIFJlZnNnYWFyZDwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gR2FyZGU8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+WGlhb3lvbmcgUGFuPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkFsYmVydG8gU2FudG9zPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkZlcmhhdCBBbGthbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT5DaHJpc3RpYW4gQW50aG9uPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdGlhbiB2b24gTWVyaW5nPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkNocmlzdG9waGVyIFQuIFdvcmttYW48L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+TGFycyBKdWhsIEplbnNlbjwvY3JlYXRvck5hbWU+PG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJodHRwOi8vb3JjaWQub3JnIj4wMDAwLTAwMDEtNzg4NS03MTVYPC9uYW1lSWRlbnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkphbiBHb3JvZGtpbjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjwvY3JlYXRvcnM+PHRpdGxlcz48dGl0bGU+UkFJTiB2MTwvdGl0bGU+PC90aXRsZXM+PGRlc2NyaXB0aW9ucz48ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+Jmx0O2RpdiZndDsmbHQ7YiZndDtSQUlOOiBSTkHigJNwcm90ZWluIEFzc29jaWF0aW9uIGFuZCBJbnRlcmFjdGlvbiBOZXR3b3JrcyZsdDsvYiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0OyZsdDticiZndDsmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O1JBSU4gaW50ZWdyYXRlcyBub24tY29kaW5nIFJOQSAobmNSTkEpIGFuZCBwcm90ZWluIGludGVyYWN0aW9uIG5ldHdvcmtzIGluIGFuIGVhc2lseSBhY2Nlc3NpYmxlIHdlYiBpbnRlcmZhY2UuwqAmbHQ7L2RpdiZndDsmbHQ7ZGl2Jmd0O0l0IGNvbnRhaW5zIHRocmVlIHR5cGVzIG9mIG5jUk5BIGFzc29jaWF0aW9uczogbWljcm9STkEtdGFyZ2V0LCBuY1JOQS1wcm90ZWluIGFuZCBuY1JOQS1uY1JOQSBpbnRlcmFjdGlvbnMgYW5kIGNvbWJpbmVzIHRoZW0gd2l0aCBwcm90ZWluLXByb3RlaW4gaW50ZXJhY3Rpb24gYXZhaWxhYmxlIGluIHRoZSBTVFJJTkcgZGF0YWJhc2UuIG5jUk5BIGFzc29jaWF0aW9ucyBjb3ZlciBmb3VyIG1vZGVsIG9yZ2FuaXNtcyBhbmQgYXJlIGV4dHJhY3RlZCBmcm9tIGV4cGVyaW1lbnRhbCBkYXRhLCBhdXRvbWF0aWMgbGl0ZXJhdHVyZSBtaW5pbmcgYW5kIGN1cmF0ZWQgZXhhbXBsZXMuIEZvciBtaVJOQXMsIHdlIGZ1cnRoZXIgaW5jbHVkZSBwcmVjb21wdXRlZCB0YXJnZXQgcHJlZGljdGlvbnMuwqAmbHQ7L2RpdiZndDs8L2Rlc2NyaXB0aW9uPjwvZGVzY3JpcHRpb25zPjxzdWJqZWN0cz48c3ViamVjdD5CaW9pbmZvcm1hdGljczwvc3ViamVjdD48c3ViamVjdD5Db21wdXRhdGlvbmFsICBCaW9sb2d5PC9zdWJqZWN0PjxzdWJqZWN0PlN5c3RlbXMgQmlvbG9neTwvc3ViamVjdD48L3N1YmplY3RzPjxwdWJsaXNoZXI+Rmlnc2hhcmU8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTY8L3B1YmxpY2F0aW9uWWVhcj48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkNyZWF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjIwMTYtMTEtMTY8L2RhdGU+PC9kYXRlcz48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQ8L3Jlc291cmNlVHlwZT48c2l6ZXM+PHNpemU+MTEyMDMzNTUxMiBCeXRlczwvc2l6ZT48L3NpemVzPjxyZWxhdGVkSWRlbnRpZmllcnM+PHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8iPjEwLjYwODQvbTkuZmlnc2hhcmUuNDIzNDc1MTwvcmVsYXRlZElkZW50aWZpZXI+PC9yZWxhdGVkSWRlbnRpZmllcnM+PHJpZ2h0c0xpc3Q+PHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48L3Jlc291cmNlPg==","allocator_symbol":"FIGSHARE","minted":"2016-11-16T10:49:12Z","state":"findable","updated":"2016-11-16T10:49:12Z","doi":"10.6084/M9.FIGSHARE.4234751.V1"}]}}
 
 '
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:39 GMT
+  recorded_at: Mon, 21 May 2018 15:01:34 GMT
 recorded_with: VCR 3.0.3

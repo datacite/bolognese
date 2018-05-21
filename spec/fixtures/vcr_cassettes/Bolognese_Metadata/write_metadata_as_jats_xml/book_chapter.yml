@@ -19,13 +19,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs3-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sun, 01 Apr 2018 09:07:31 GMT
+      - Mon, 21 May 2018 15:00:39 GMT
       Connection:
       - close
     body:
@@ -56,5 +56,5 @@ http_interactions:
         \         </doi_data>\r\n        </content_item>\r\n      </book>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:07:32 GMT
+  recorded_at: Mon, 21 May 2018 15:00:40 GMT
 recorded_with: VCR 3.0.3

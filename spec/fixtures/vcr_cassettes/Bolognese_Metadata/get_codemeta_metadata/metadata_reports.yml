@@ -35,33 +35,33 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 184A:2E0C:29EE9F:2CDE1A:5AFD33B0
+      - 10E8:02AD:FB529:104508:5B02DF15
       Content-Length:
       - '1624'
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 17 May 2018 07:48:03 GMT
+      - Mon, 21 May 2018 15:00:38 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-fra19126-FRA
+      - cache-lcy19239-LCY
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1526543284.739021,VS0,VE117
+      - S1526914838.340364,VS0,VE127
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 83a604364010786c6336fe3d758f307d91584ff8
+      - d52ffa2fc578563163e2183d5fd9bc07b3d83bea
       Expires:
-      - Thu, 17 May 2018 07:53:03 GMT
+      - Mon, 21 May 2018 15:05:38 GMT
       Source-Age:
       - '0'
     body:
@@ -90,5 +90,5 @@ http_interactions:
         Registrations for Software\",\n\t\"programmingLanguage\": {\n\t\t\"name\":
         \"R\",\n\t\t\"URL\": \"https://www.r-project.org/\"\n\t}\n}\n"
     http_version: 
-  recorded_at: Thu, 17 May 2018 07:48:03 GMT
+  recorded_at: Mon, 21 May 2018 15:00:38 GMT
 recorded_with: VCR 3.0.3

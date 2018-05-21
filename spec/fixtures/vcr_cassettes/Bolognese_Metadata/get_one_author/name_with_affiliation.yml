@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.11588/diglit.6130&wt=json
+    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.11588/diglit.6130&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:49 GMT
+      - Mon, 21 May 2018 15:01:18 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -34,9 +34,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":2},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.UBHD","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPHJlc291cmNlIHhtbG5zPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCcgeG1sbnM6eHNpPSdodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZScgeHNpOnNjaGVtYUxvY2F0aW9uPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkJz4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0nRE9JJz4xMC4xMTU4OC9kaWdsaXQuNjEzMDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lIG5hbWVUeXBlPSdPcmdhbml6YXRpb25hbCc+RHIuIFN0w7ZyaSwgS3Vuc3RzYWxvbjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlIHhtbDpsYW5nPSdkZSc+QXVzIFNjaHdlaXplciBQcml2YXRiZXNpdHo6IEdyYXBoaWtzYW1tbHVuZywgSG9senNjaG5pdHRlLCBLdXBmZXJzdGljaGUsIFJhZGllcnVuZ2VuLCBaZWljaG51bmdlbiB1c3cuPC90aXRsZT4KICAgIDx0aXRsZSB4bWw6bGFuZz0nZGUnIHRpdGxlVHlwZT0nU3VidGl0bGUnPlNhbW1sdW5nIFdpdHRnZW5zdGVpbiB1bmQgZGl2ZXJzZXIgQmVzaXR6LCBmcmFuesO2c2lzY2hlIHVuZCBzY2h3ZWl6ZXJpc2NoZSBNw7ZiZWwgZGVzIFhWSUlJLiBKYWhyaHVuZGVydHMsIEZheWVuY2VuLCBaaW5uZ2Vyw6R0ZSwgU2lsYmVyYXJiZWl0ZW4sIFN0b2ZmZSwgVGVwcGljaGUsIFZhcmlhLCBHZW3DpGxkZSBlcnN0ZXIgTWVpc3RlciwgU2Nod2VpemVyIE1laXN0ZXIgZGVzIFhJWC4gSmFocmh1bmRlcnRzIDsgMjkuIHVuZCAzMC4gQXByPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlVuaXZlcnNpdHkgTGlicmFyeSBIZWlkZWxiZXJnPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4xOTMxPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSdUZXh0Jz5Nb25vZ3JhcGhpZU1vbm9ncmFwaDwvcmVzb3VyY2VUeXBlPgogIDxsYW5ndWFnZT5nZXI8L2xhbmd1YWdlPgogIDxhbHRlcm5hdGVJZGVudGlmaWVycz4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSdVUk4nPnVybjpuYm46ZGU6YnN6OjE2LWRpZ2xpdC02MTMwMjwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgeG1sOmxhbmc9J2RlJz4tPC9yaWdodHM+CiAgPC9yaWdodHNMaXN0Pgo8L3Jlc291cmNlPg==","allocator_symbol":"GESIS","minted":"2016-12-09T12:00:39Z","state":"findable","updated":"2018-01-12T22:45:35Z","doi":"10.11588/DIGLIT.6130"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":9},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"GESIS.UBHD","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPHJlc291cmNlIHhtbG5zPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCcgeG1sbnM6eHNpPSdodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZScgeHNpOnNjaGVtYUxvY2F0aW9uPSdodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkJz4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0nRE9JJz4xMC4xMTU4OC9kaWdsaXQuNjEzMDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lIG5hbWVUeXBlPSdPcmdhbml6YXRpb25hbCc+RHIuIFN0w7ZyaSwgS3Vuc3RzYWxvbjwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlIHhtbDpsYW5nPSdkZSc+QXVzIFNjaHdlaXplciBQcml2YXRiZXNpdHo6IEdyYXBoaWtzYW1tbHVuZywgSG9senNjaG5pdHRlLCBLdXBmZXJzdGljaGUsIFJhZGllcnVuZ2VuLCBaZWljaG51bmdlbiB1c3cuPC90aXRsZT4KICAgIDx0aXRsZSB4bWw6bGFuZz0nZGUnIHRpdGxlVHlwZT0nU3VidGl0bGUnPlNhbW1sdW5nIFdpdHRnZW5zdGVpbiB1bmQgZGl2ZXJzZXIgQmVzaXR6LCBmcmFuesO2c2lzY2hlIHVuZCBzY2h3ZWl6ZXJpc2NoZSBNw7ZiZWwgZGVzIFhWSUlJLiBKYWhyaHVuZGVydHMsIEZheWVuY2VuLCBaaW5uZ2Vyw6R0ZSwgU2lsYmVyYXJiZWl0ZW4sIFN0b2ZmZSwgVGVwcGljaGUsIFZhcmlhLCBHZW3DpGxkZSBlcnN0ZXIgTWVpc3RlciwgU2Nod2VpemVyIE1laXN0ZXIgZGVzIFhJWC4gSmFocmh1bmRlcnRzIDsgMjkuIHVuZCAzMC4gQXByPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlVuaXZlcnNpdHkgTGlicmFyeSBIZWlkZWxiZXJnPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4xOTMxPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSdUZXh0Jz5Nb25vZ3JhcGhpZU1vbm9ncmFwaDwvcmVzb3VyY2VUeXBlPgogIDxsYW5ndWFnZT5nZXI8L2xhbmd1YWdlPgogIDxhbHRlcm5hdGVJZGVudGlmaWVycz4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSdVUk4nPnVybjpuYm46ZGU6YnN6OjE2LWRpZ2xpdC02MTMwMjwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgeG1sOmxhbmc9J2RlJz4tPC9yaWdodHM+CiAgPC9yaWdodHNMaXN0Pgo8L3Jlc291cmNlPg==","allocator_symbol":"GESIS","minted":"2016-12-09T12:00:39Z","state":"findable","updated":"2018-01-12T22:45:35Z","doi":"10.11588/DIGLIT.6130"}]}}
 
 '
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:49 GMT
+  recorded_at: Mon, 21 May 2018 15:01:18 GMT
 recorded_with: VCR 3.0.3

@@ -88,12 +88,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
       expect(subject.title).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.license).to eq("name"=>"Open Access")
+      expect(subject.license).to eq([{"id"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}, {"name"=>"Open Access"}])
       expect(subject.date_published).to eq("2016-03-27")
       expect(subject.is_supplement_to).to eq("type"=>"CreativeWork", "id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0")
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.service_provider).to eq("DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "is identical to" do
@@ -124,14 +124,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.author.length).to eq(4)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Najko Jahn", "givenName"=>"Najko", "familyName"=>"Jahn")
-      expect(subject.title).to eq("Publication FP7 Funding Acknowledgment - PLOS OpenAIRE")
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn")
+      expect(subject.title).to eq("Publication Fp7 Funding Acknowledgment - Plos Openaire")
       expect(subject.description["text"]).to start_with("The dataset contains a sample of metadata describing papers")
       expect(subject.date_published).to eq("2013-04-03")
-      expect(subject.publisher).to eq("OpenAIRE Orphan Record Repository")
-      expect(subject.funding).to eq("type"=>"Award", "identifier"=>"246686", "funder"=>{"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"})
+      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.funding).to eq("type"=>"Award", "identifier"=>"246686", "funder"=>{"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"}, "name" => "Open Access Infrastructure for Research in Europe", "url" => "info:eu-repo/grantAgreement/EC/FP7/246686/")
       expect(subject.service_provider).to eq("DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "author only full name" do
@@ -169,8 +169,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.2314/coscv1")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.author.length).to eq(14)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-0232-7085", "name"=>"Lambert Heller", "givenName"=>"Lambert", "familyName"=>"Heller")
+      expect(subject.author.length).to eq(2)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Neumann, Janna", "givenName"=>"Janna", "familyName"=>"Neumann")
     end
 
     it "keywords with attributes" do
@@ -284,6 +284,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
+    end
+
+    it "doi with + sign" do
+      input = "10.5067/terra+aqua/ceres/cldtyphist_l3.004"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5067/terra+aqua/ceres/cldtyphist_l3.004")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author).to eq("type"=>"Person", "name"=>"Takmeng Wong", "givenName"=>"Takmeng", "familyName"=>"Wong")
+      expect(subject.title).to eq("CERES Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4")
+      expect(subject.date_published).to eq("2016")
+      expect(subject.publisher).to eq("NASA Langley Atmospheric Science Data Center DAAC")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "subject scheme" do

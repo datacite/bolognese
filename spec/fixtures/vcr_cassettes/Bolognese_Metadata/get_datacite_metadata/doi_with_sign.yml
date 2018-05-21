@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/prefixes/10.7910
+    uri: https://app.datacite.org/prefixes/10.5067
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 May 2018 15:01:28 GMT
+      - Mon, 21 May 2018 15:01:36 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -31,19 +31,20 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       Etag:
-      - W/"c1b4f91913518e0943b75b499cd8bbb0"
+      - W/"3d4727fd5492629182f830ffc71aaa0d"
       X-Runtime:
-      - '0.014224'
+      - '0.012937'
       X-Request-Id:
-      - 5be48ffa-cc93-4e8a-b9e8-55fbaf52fbd9
+      - 8e46cc67-6d38-4b7a-91fd-22feb6a72646
       X-Powered-By:
       - Phusion Passenger 5.3.1
       Server:
       - nginx/1.14.0 + Phusion Passenger 5.3.1
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.7910","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2012-10-02T06:27:04.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.datavers","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.datavers","type":"clients","attributes":{"name":"Harvard
-        Dataverse","symbol":"CDL.DATAVERS","year":2013,"contact-name":"Greg Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-05-01T16:39:37Z","updated":"2018-05-21T02:30:14Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
+      string: '{"data":{"id":"10.5067","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.nasagsfc","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.nasagsfc","type":"clients","attributes":{"name":"NASA
+        Goddard Space Flight Center (GSFC)","symbol":"CDL.NASAGSFC","year":2012,"contact-name":"Greg
+        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":true,"created":"2012-01-25T16:36:03Z","updated":"2018-05-21T02:30:10Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
         Digital Library","symbol":"CDL","website":"http://ezid.cdlib.org","contact-name":"Greg
         Janee","contact-email":"ezid@ucop.edu","phone":null,"description":"California
         Digital Library (CDL) handles scholarly information at every stage of its
@@ -55,10 +56,10 @@ http_interactions:
         identifier service to help educational, non-profit, governmental and commercial
         clients create and manage globally unique identifiers for data and other sources.","country":"US","logo-url":"https://assets.datacite.org/images/members/cdl.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-05-21T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
     http_version: 
-  recorded_at: Mon, 21 May 2018 15:01:28 GMT
+  recorded_at: Mon, 21 May 2018 15:01:36 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.7910/dvn/eqtqyo&wt=json
+    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.5067/terra%2Baqua/ceres/cldtyphist_l3.004&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -73,7 +74,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 May 2018 15:01:28 GMT
+      - Mon, 21 May 2018 15:01:36 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -90,9 +91,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.DATAVERS","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CDL","minted":"2017-04-12T19:46:37Z","state":"findable","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":14},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.NASAGSFC","url":"https://eosweb.larc.nasa.gov/project/ceres/cldtyphist_ed4a","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDY3L1RFUlJBK0FRVUEvQ0VSRVMvQ0xEVFlQSElTVF9MMy4wMDQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Xb25nLFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5DRVJFUyBMZXZlbCAzIENsb3VkIFR5cGUgSGlzdG9yZ3JhbSBUZXJyYStBcXVhIEhERiBmaWxlIC0gRWRpdGlvbjQ8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+TkFTQSBMYW5nbGV5IEF0bW9zcGhlcmljIFNjaWVuY2UgRGF0YSBDZW50ZXIgREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPgo=","allocator_symbol":"CDL","minted":"2017-01-04T22:48:07Z","state":"findable","updated":"2018-04-19T18:57:20Z","doi":"10.5067/TERRA+AQUA/CERES/CLDTYPHIST_L3.004"}]}}
 
 '
     http_version: 
-  recorded_at: Mon, 21 May 2018 15:01:28 GMT
+  recorded_at: Mon, 21 May 2018 15:01:37 GMT
 recorded_with: VCR 3.0.3

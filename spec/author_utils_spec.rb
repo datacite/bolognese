@@ -62,15 +62,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
     end
 
-    it "has multiple names in display-order" do
-      input = "https://doi.org/10.6084/M9.FIGSHARE.3479141 "
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
-      response = subject.get_authors(meta.dig("creators", "creator"))
-      expect(response.count).to eq(9)
-      expect(response.last).to eq("type"=>"Person", "name"=>"Ed Pentz", "givenName"=>"Ed", "familyName"=>"Pentz")
-    end
-
     it "has name in display-order with ORCID" do
       input = "https://doi.org/10.6084/M9.FIGSHARE.4700788"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")

@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 01 Apr 2018 09:08:22 GMT
+      - Mon, 21 May 2018 15:00:34 GMT
       Content-Type:
       - application/vnd.api+json; charset=utf-8
       Connection:
@@ -30,21 +30,21 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 05aeb00f-d9b2-4791-8e85-68fc0c19529e
       Etag:
       - W/"edcb2264a364b46d21e9e1630a4006d0"
       X-Runtime:
-      - '0.211425'
+      - '0.123951'
+      X-Request-Id:
+      - 6e811fdc-2f9c-4251-8ce7-b0717bce0d95
       X-Powered-By:
-      - Phusion Passenger 5.2.2
+      - Phusion Passenger 5.3.1
       Server:
-      - nginx/1.12.2 + Phusion Passenger 5.2.2
+      - nginx/1.14.0 + Phusion Passenger 5.3.1
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.2210","type":"handles","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:22 GMT
+  recorded_at: Mon, 21 May 2018 15:00:34 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
@@ -64,13 +64,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs2-2
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Sun, 01 Apr 2018 09:08:22 GMT
+      - Mon, 21 May 2018 15:00:33 GMT
       Connection:
       - close
     body:
@@ -94,5 +94,5 @@ http_interactions:
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Sun, 01 Apr 2018 09:08:23 GMT
+  recorded_at: Mon, 21 May 2018 15:00:34 GMT
 recorded_with: VCR 3.0.3

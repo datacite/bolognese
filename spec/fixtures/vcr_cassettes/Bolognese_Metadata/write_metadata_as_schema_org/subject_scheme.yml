@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4232/1.2745&wt=json
+    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.4232/1.2745&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 23 Apr 2018 06:41:52 GMT
+      - Mon, 21 May 2018 15:01:41 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -38,5 +38,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Mon, 23 Apr 2018 06:41:52 GMT
+  recorded_at: Mon, 21 May 2018 15:01:41 GMT
 recorded_with: VCR 3.0.3
