@@ -313,7 +313,7 @@ module Bolognese
     end
 
     def container_title
-      Array.wrap(is_part_of).first.to_h.fetch("title", nil)
+      meta.fetch("container_title", nil) || Array.wrap(is_part_of).first.to_h.fetch("title", nil)
     end
 
     def descriptions

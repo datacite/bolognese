@@ -112,11 +112,11 @@ module Bolognese
       end
 
       def schema_org_is_previous_version_of(meta)
-        schema_org_related_identifier(meta, relation_type: "isPredecessor")
+        schema_org_related_identifier(meta, relation_type: "PredecessorOf")
       end
 
       def schema_org_is_new_version_of(meta)
-        schema_org_related_identifier(meta, relation_type: "isSuccessor")
+        schema_org_related_identifier(meta, relation_type: "SuccessorOf")
       end
 
       def schema_org_references(meta)

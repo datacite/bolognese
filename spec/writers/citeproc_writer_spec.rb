@@ -133,7 +133,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["title"]).to eq("Deutsche Version der Positive and Negative Affect Schedule (PANAS)")
       expect(json["author"]).to eq([{"family"=>"Janke", "given"=>"S."},
                                     {"family"=>"Glöckner-Rist", "given"=>"A."}])
-      expect(json["container-title"]).to be_nil
+      expect(json["container-title"]).to eq("Zusammenstellung sozialwissenschaftlicher Items und Skalen (ZIS)")
       expect(json["issued"]).to eq("date-parts" => [[2012]])
     end
 

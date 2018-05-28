@@ -317,6 +317,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
+    it "series-information" do
+      input = "https://doi.org/10.4229/23RDEUPVSEC2008-5CO.8.3"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.4229/23rdeupvsec2008-5co.8.3")
+      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.additional_type).to eq("Article")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.author.length).to eq(3)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"P. Llamas", "givenName"=>"P.", "familyName"=>"Llamas")
+      expect(subject.title).to eq("Rural Electrification With Hybrid Power Systems Based on Renewables - Technical System Configurations From the Point of View of the European Industry")
+      expect(subject.date_published).to eq("2008")
+      expect(subject.container_title).to eq("23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356")
+      expect(subject.publisher).to eq("WIP-Munich")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
+    end
+
     it "empty subject" do
       input = "https://doi.org/10.18169/PAPDEOTTX00502"
       subject = Bolognese::Metadata.new(input: input)

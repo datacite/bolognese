@@ -70,6 +70,9 @@ module Bolognese
             { "title_type" => r["titleType"], "lang" => r["xml:lang"], "text" => sanitize(r["__content__"]) }.compact
           end
         end.unwrap
+
+        container_title = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
+
         alternate_name = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
           { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }.compact
         end.unwrap
@@ -108,6 +111,7 @@ module Bolognese
           "alternate_name" => alternate_name,
           "author" => get_authors(meta.dig("creators", "creator")),
           "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
+          "container_title" => container_title,
           "publisher" => meta.fetch("publisher", nil),
           "service_provider" => "DataCite",
           "funding" => funding,
