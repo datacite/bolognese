@@ -25,7 +25,7 @@ module Bolognese
           "pageEnd" => last_page,
           "spatialCoverage" => spatial_coverage,
           "sameAs" => to_schema_org(is_identical_to),
-          "isPartOf" => to_schema_org(is_part_of),
+          "isPartOf" => to_schema_org_container(is_part_of, container_title: container_title),
           "hasPart" => to_schema_org(has_part),
           "predecessor_of" => to_schema_org(is_previous_version_of),
           "successor_of" => to_schema_org(is_new_version_of),

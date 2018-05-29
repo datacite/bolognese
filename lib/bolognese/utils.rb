@@ -520,6 +520,16 @@ module Bolognese
       map_hash_keys(element: element, mapping: mapping)
     end
 
+    def to_schema_org_container(element, options={})
+      mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
+
+      element ||= {}
+      element["type"] ||= (type == "Dataset") ? "DataCatalog" : "Periodical"
+      element["title"] = options[:container_title] if options[:container_title].present?
+
+      map_hash_keys(element: element, mapping: mapping)
+    end
+
     def from_schema_org(element)
       mapping = { "@type" => "type", "@id" => "id" }
 

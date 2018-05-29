@@ -16,6 +16,7 @@ module Bolognese
           "author" => author,
           "title" => title,
           "publisher" => publisher,
+          "container_title" => container_title,
           "keywords" => keywords,
           "contributor" => contributor,
           "date_accepted" => date_accepted,

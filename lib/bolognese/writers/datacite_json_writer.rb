@@ -9,6 +9,7 @@ module Bolognese
           "creator" => author,
           "title" => title,
           "publisher" => publisher,
+          "container_title" => container_title,
           "resource_type_general" => resource_type_general,
           "resource_type" => additional_type,
           "subject" => keywords.present? ? keywords.split(", ") : nil,
