@@ -76,7 +76,7 @@ module Bolognese
         alternate_name = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
           { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }.compact
         end.unwrap
-        description = Array.wrap(meta.dig("descriptions", "description")).map do |r|
+        description = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
           { "type" => r["descriptionType"], "text" => sanitize(r["__content__"]) }.compact
         end.unwrap
         license = Array.wrap(meta.dig("rightsList", "rights")).map do |r|

@@ -330,6 +330,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Rural Electrification With Hybrid Power Systems Based on Renewables - Technical System Configurations From the Point of View of the European Industry")
       expect(subject.date_published).to eq("2008")
       expect(subject.container_title).to eq("23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356")
+      expect(subject.description["text"]).to start_with("Aim of this paper is the presentation")
       expect(subject.publisher).to eq("WIP-Munich")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
