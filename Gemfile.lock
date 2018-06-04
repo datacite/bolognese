@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.10.18)
+    bolognese (0.10.19)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -32,7 +32,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     benchmark_methods (0.7)
-    bibtex-ruby (4.4.6)
+    bibtex-ruby (4.4.7)
       latex-decode (~> 0.0)
     builder (3.2.3)
     codeclimate-test-reporter (1.0.8)
@@ -78,7 +78,7 @@ GEM
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    maremma (4.0.5)
+    maremma (4.0.6)
       activesupport (>= 4.2.5, < 6)
       addressable (>= 2.3.6)
       builder (~> 3.2, >= 3.2.2)
@@ -160,7 +160,7 @@ GEM
       thread_safe (~> 0.1)
     unicode_utils (1.4.0)
     vcr (3.0.3)
-    webmock (3.4.1)
+    webmock (3.4.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
