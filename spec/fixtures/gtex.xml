@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">  
+  <identifier identifierType="DOI">10.25491/9HX8-KE93</identifier>  
+  <creators> 
+    <creator> 
+      <creatorName nameType="Organizational">The GTEx Consortium</creatorName> 
+    </creator> 
+  </creators>  
+  <titles> 
+    <title>DroNc-seq data</title> 
+  </titles>  
+  <publisher>GTEx</publisher>  
+  <publicationYear>2017</publicationYear>  
+  <subjects> 
+    <subject>gtex</subject>  
+    <subject>annotation</subject>  
+    <subject>phenotype</subject>  
+    <subject>gene regulation</subject>  
+    <subject>transcriptomics</subject> 
+  </subjects>  
+  <fundingReferences> 
+    <fundingReference> 
+      <funderName>Common Fund of the Office of the Director of the NIH</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000052</funderIdentifier> 
+    </fundingReference>  
+    <fundingReference> 
+      <funderName>National Cancer Institute (NCI)</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000054</funderIdentifier> 
+    </fundingReference>  
+    <fundingReference> 
+      <funderName>National Human Genome Research Institute (NHGRI)</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000051</funderIdentifier> 
+    </fundingReference>  
+    <fundingReference> 
+      <funderName>National Heart, Lung, and Blood Institute (NHLBI)</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000050</funderIdentifier> 
+    </fundingReference>  
+    <fundingReference> 
+      <funderName>National Institute on Drug Abuse (NIDA)</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000026</funderIdentifier> 
+    </fundingReference>  
+    <fundingReference> 
+      <funderName>National Institute of Mental Health (NIMH)</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000025</funderIdentifier> 
+    </fundingReference>  
+    <fundingReference> 
+      <funderName>National Institute of Neurological Disorders and Stroke (NINDS)</funderName>  
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">http://doi.org/10.13039/100000065</funderIdentifier> 
+    </fundingReference> 
+  </fundingReferences>  
+  <resourceType resourceTypeGeneral="Dataset">DroNc-seq data</resourceType>  
+  <dates> 
+    <date dateType="Issued">2017</date> 
+  </dates>  
+  <relatedIdentifiers> 
+    <relatedIdentifier relationType="Documents" relatedIdentifierType="URL">http://identifiers.org/dbgap:phs000424.v7.p2</relatedIdentifier>  
+    <relatedIdentifier relationType="IsDocumentedBy" relatedIdentifierType="DOI">https://doi.org/10.1038/nature24277</relatedIdentifier>  
+    <relatedIdentifier relationType="IsSupplementTo" relatedIdentifierType="DOI">https://doi.org/10.1038/nmeth.4407</relatedIdentifier> 
+  </relatedIdentifiers>  
+  <sizes> 
+    <size>15.7M</size> 
+  </sizes>
+  <descriptions> 
+    <description descriptionType="SeriesInformation">GTEx</description> 
+  </descriptions> 
+</resource>

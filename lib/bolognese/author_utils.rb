@@ -11,7 +11,14 @@ module Bolognese
     }
 
     def get_one_author(author)
-      type = author.fetch("type", nil) && author.fetch("type").titleize
+      if author.fetch("type", nil).present?
+        type = author.fetch("type").titleize
+      elsif author.fetch("creatorName", nil).is_a?(Hash)
+        type = author.dig("creatorName", "nameType") == "Organizational" ? "Organization" : "Person"
+      else
+        type = nil
+      end
+
       name_identifiers = get_name_identifiers(author)
       id = author.fetch("id", nil).presence || name_identifiers.first
       identifier = name_identifiers.length > 1 ? name_identifiers.unwrap : nil

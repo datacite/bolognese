@@ -106,7 +106,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "name"=>"Dr. Störi, Kunstsalon")
+      expect(response).to eq("type"=>"Organization", "name"=>"Dr. Störi, Kunstsalon")
     end
 
     it "name with affiliation and country" do
@@ -131,6 +131,14 @@ describe Bolognese::Metadata, vcr: true do
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
       expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4514-4211", "name"=>"Thomas Dubos", "givenName"=>"Thomas", "familyName"=>"Dubos", "identifier"=>["https://orcid.org/0000-0003-4514-4211", "http://isni.org/isni/0000-0003-5752-6882"])
+    end
+
+    it "nameType organizational" do
+      input = fixture_path + 'gtex.xml'
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
+      response = subject.get_one_author(meta.dig("creators", "creator"))
+      expect(response).to eq("type"=>"Organization", "name"=>"The GTEx Consortium")
     end
 
     it "only familyName and givenName" do

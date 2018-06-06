@@ -155,6 +155,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2014]])
     end
 
+    it "author is organization" do
+      input = fixture_path + 'gtex.xml'
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
+      expect(json["author"]).to eq([{"literal"=>"The GTEx Consortium"}])
+    end
+
     it "maremma" do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
