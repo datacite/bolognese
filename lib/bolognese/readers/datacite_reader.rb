@@ -109,7 +109,7 @@ module Bolognese
           "url" => options.fetch(:url, nil),
           "title" => title,
           "alternate_name" => alternate_name,
-          "author" => get_authors(meta.dig("creators", "creator")),
+          "author" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
           "container_title" => container_title,
           "publisher" => meta.fetch("publisher", nil),

@@ -57,6 +57,7 @@
     <relatedIdentifier relationType="Documents" relatedIdentifierType="URL">http://identifiers.org/dbgap:phs000424.v7.p2</relatedIdentifier>  
     <relatedIdentifier relationType="IsDocumentedBy" relatedIdentifierType="DOI">https://doi.org/10.1038/nature24277</relatedIdentifier>  
     <relatedIdentifier relationType="IsSupplementTo" relatedIdentifierType="DOI">https://doi.org/10.1038/nmeth.4407</relatedIdentifier> 
+    <relatedIdentifier relationType="IsPartOf" relatedIdentifierType="URL">https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663</relatedIdentifier> 
   </relatedIdentifiers>  
   <sizes> 
     <size>15.7M</size> 

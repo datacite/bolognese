@@ -435,6 +435,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors).to eq("4:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).")
     end
 
+    it "malformed creator" do
+      input = fixture_path + "datacite_malformed_creator.xml"
+      subject = Bolognese::Metadata.new(input: input, regenerate: false)
+      expect(subject.author).to be_nil
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq("16:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creatorName': This element is not expected. Expected is ( {http://datacite.org/schema/kernel-4}affiliation ).")
+    end
+
     it "dissertation" do
       input = "10.3204/desy-2014-01645"
       subject = Bolognese::Metadata.new(input: input)

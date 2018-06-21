@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.25670/oi2018-001on</identifier>
+  <titles>
+    <title xml:lang="sl">Učinkovitost kanabinoidov pri zdravljenju raka</title>
+    <title xml:lang="sl" titleType="Subtitle">mit ali resnica</title>
+    <title xml:lang="en" titleType="TranslatedTitle">Therapeutic Efficacy of Cannabinoids in Cancer Treatment</title>
+    <title xml:lang="en" titleType="Subtitle">Myth or Fact</title>
+  </titles>
+  <creators>
+    <creator>
+      <creatorName nameType="Personal">Grošelj, Blaž</creatorName>
+      <givenName>Blaž</givenName>
+      <familyName>Grošelj</familyName>
+      <affiliation>Onkološki inštitut Ljubljana</affiliation>
+      <creatorName nameType="Personal">Oražem, Miha </creatorName>
+      <givenName>Miha</givenName>
+      <familyName>Oražem</familyName>
+      <affiliation>Onkološki inštitut Ljubljana</affiliation>
+      <creatorName nameType="Personal">Kovač, Viljem</creatorName>
+      <givenName>Viljem</givenName>
+      <familyName>Kovač</familyName>
+      <affiliation>Onkološki inštitut Ljubljana</affiliation>
+    </creator>
+  </creators>
+  <publisher>Onkološki inštitut Ljubljana</publisher>
+  <publicationYear>2018</publicationYear>
+  <resourceType resourceTypeGeneral="Text">Journal Article</resourceType>
+  <subjects>
+    <subject subjectScheme="DDC">610 Medical sciences; Medicine</subject>
+    <subject xml:lang="en">cancer</subject>
+    <subject xml:lang="en">cannabinoids</subject>
+  </subjects>
+  <dates>
+    <date dateType="Issued">2018-06-20</date>
+  </dates>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="ISSN" relationType="IsPartOf">1581-3215</relatedIdentifier>
+  </relatedIdentifiers>
+  <descriptions>
+    <description xml:lang="en" descriptionType="Other">The use of cannabis derivatives (cannabinoids) in oncology is sometimes indicated in the symptomatic treatment of nausea and vomiting, in pain management and in some neuropsychiatric disorders. In the recent years, there has been a growing interest in determining the anticancer effects of cannabinoids. Based on our clinical experience, we know that many patients use cannabinoids, among them also those with the aim of curing their disease. But despite the extensive and convincing data on the anticancer properties of cannabinoids from in vitro studies on cell cultures and studies on animal models, these properties have not (yet) been confirmed in a clinical trial. This paper summarises the currently available data on the potential of cannabinoid use in the clinical practice of oncology.</description>
+    <description descriptionType="SeriesInformation" xml:lang="sl">Onkologija, leto XXII, št. 1, junij 2018</description>
+    <description descriptionType="SeriesInformation" xml:lang="en">Onkologija, Volume XXII, No. 1, June 2018</description>
+  </descriptions>
+  <language>sl</language>
+  <formats>
+    <format>pdf</format>
+  </formats>
+  <rightsList>
+    <rights rightsURI="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license (CC BY 4.0)</rights>
+  </rightsList>
+</resource>

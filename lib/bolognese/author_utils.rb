@@ -11,7 +11,10 @@ module Bolognese
     }
 
     def get_one_author(author)
-      if author.fetch("type", nil).present?
+      if author.fetch("creatorName", nil).is_a?(Array)
+        # malformed XML
+        return nil
+      elsif author.fetch("type", nil).present?
         type = author.fetch("type").titleize
       elsif author.fetch("creatorName", nil).is_a?(Hash)
         type = author.dig("creatorName", "nameType") == "Organizational" ? "Organization" : "Person"
