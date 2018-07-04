@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # modified from https://gist.github.com/ivan-kolmychek/ee2fdc53f3e2c637271d
 
 module Bolognese

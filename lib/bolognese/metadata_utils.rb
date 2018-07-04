@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'doi_utils'
 require_relative 'author_utils'
 require_relative 'datacite_utils'

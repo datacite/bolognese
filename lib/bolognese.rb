@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/all'
 require 'nokogiri'
 require 'maremma'
@@ -16,7 +18,6 @@ require 'gender_detector'
 
 require "bolognese/version"
 require "bolognese/metadata"
-require "bolognese/orcid"
 require "bolognese/cli"
 require "bolognese/string"
 require "bolognese/array"

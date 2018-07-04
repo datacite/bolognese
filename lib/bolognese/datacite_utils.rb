@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bolognese
   module DataciteUtils
     def datacite_xml

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bolognese
   module DoiUtils
     def validate_doi(doi)

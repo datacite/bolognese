@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # turn array into hash or nil, depending on array size.
 # Reverses Array.wrap, but uses self to allow chaining with Array.wrap
 class Array

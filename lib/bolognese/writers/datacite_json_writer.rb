@@ -1,4 +1,6 @@
 module Bolognese
+  # frozen_string_literal: true
+  
   module Writers
     module DataciteJsonWriter
       def datacite_json
