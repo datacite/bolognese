@@ -289,7 +289,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4.0")
     end
 
     it "Schema 3.0 from string" do
@@ -311,7 +311,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3.0")
     end
 
     it "Schema 2.2 from string" do
