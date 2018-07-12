@@ -267,6 +267,72 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "Schema 4.0 from string" do
+      input = fixture_path + "datacite-example-complicated-v4.0.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5072/testpub")
+      expect(subject.type).to eq("Book")
+      expect(subject.additional_type).to eq("Monograph")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.ris_type).to eq("BOOK")
+      expect(subject.citeproc_type).to eq("book")
+      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
+      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.date_published).to eq("2010")
+      expect(subject.publication_year).to eq(2010)
+      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
+      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.publisher).to eq("Springer")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "Schema 3.0 from string" do
+      input = fixture_path + "datacite-example-complicated-v3.0.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5072/testpub")
+      expect(subject.type).to eq("Book")
+      expect(subject.additional_type).to eq("Monograph")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.ris_type).to eq("BOOK")
+      expect(subject.citeproc_type).to eq("book")
+      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
+      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.date_published).to eq("2010")
+      expect(subject.publication_year).to eq(2010)
+      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
+      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.publisher).to eq("Springer")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "Schema 2.2 from string" do
+      input = fixture_path + "datacite-metadata-sample-complicated-v2.2.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5072/testpub")
+      expect(subject.type).to eq("Book")
+      expect(subject.additional_type).to eq("Monograph")
+      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.ris_type).to eq("BOOK")
+      expect(subject.citeproc_type).to eq("book")
+      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
+      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.date_published).to eq("2010")
+      expect(subject.publication_year).to eq(2010)
+      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
+      expect(subject.publisher).to eq("Springer")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
     end
 
     it "Schema 4.1 from string with doi in options" do

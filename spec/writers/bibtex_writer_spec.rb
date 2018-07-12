@@ -45,6 +45,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:pages]).to be_nil
     end
 
+    it "climate data" do
+      input = "https://doi.org/10.5067/altcy-tj122"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      expect(subject.valid?).to be true
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5067/altcy-tj122")
+      expect(bibtex[:doi]).to eq("10.5067/altcy-tj122")
+      expect(bibtex[:title]).to eq("Integrated Multi-Mission Ocean Altimeter Data for Climate Research Version 2")
+      expect(bibtex[:pages]).to be_nil
+    end
+    
     it "maremma" do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
