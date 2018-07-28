@@ -354,6 +354,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.service_provider).to eq("DataCite")
     end
 
+    it "namespaced xml from string" do
+      input = fixture_path + "ns0.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.4231/d38g8fk8b")
+      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.additional_type).to eq("Simulation Tool")
+      expect(subject.resource_type_general).to eq("Software")
+      expect(subject.author.length).to eq(5)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Carlos PatiÃ±O", "givenName"=>"Carlos", "familyName"=>"PatiÃ±O")
+      expect(subject.title).to eq("LAMMPS Data-File Generator")
+      expect(subject.date_published).to eq("2018")
+      expect(subject.publication_year).to eq(2018)
+      expect(subject.publisher).to eq("nanoHUB")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
+    end
+
     it "doi with + sign" do
       input = "10.5067/terra+aqua/ceres/cldtyphist_l3.004"
       subject = Bolognese::Metadata.new(input: input)

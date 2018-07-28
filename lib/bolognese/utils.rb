@@ -354,7 +354,7 @@ module Bolognese
         "ris"
       elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref")
         "crossref"
-      elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".xml" && Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }      
         "datacite"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("ris_type")
         "crosscite"

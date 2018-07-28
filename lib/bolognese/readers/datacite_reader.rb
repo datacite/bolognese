@@ -45,8 +45,13 @@ module Bolognese
       end
 
       def read_datacite(string: nil, **options)
+        doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
+        ns = doc.collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
+        schema_version = Array.wrap(ns).last || "http://datacite.org/schema/kernel-4"
+        doc.remove_namespaces!
+        string = doc.to_xml(:indent => 2)
+        
         meta = Maremma.from_xml(string).to_h.fetch("resource", {})
-        schema_version = meta.fetch("xmlns", nil)
 
         # validate only when option is set, as this step is expensive and
         # not needed if XML comes from DataCite MDS
@@ -69,7 +74,7 @@ module Bolognese
           if r.is_a?(String)
             sanitize(r)
           else
-            { "title_type" => r["titleType"], "lang" => r["xml:lang"], "text" => sanitize(r["__content__"]) }.compact
+            { "title_type" => r["titleType"], "lang" => r["lang"], "text" => sanitize(r["__content__"]) }.compact
           end
         end.unwrap
 
