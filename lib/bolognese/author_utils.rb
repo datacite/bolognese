@@ -31,8 +31,8 @@ module Bolognese
              parse_attributes(author.fetch("contributorName", nil)) ||
              author.fetch("name", nil)
 
-      given_name = author.fetch("givenName", nil)
-      family_name = author.fetch("familyName", nil)
+      given_name = parse_attributes(author.fetch("givenName", nil))
+      family_name = parse_attributes(author.fetch("familyName", nil))
       name = cleanup_author(name)
       name = [family_name, given_name].join(", ") if name.blank? && family_name.present?
 

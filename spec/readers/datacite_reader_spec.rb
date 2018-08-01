@@ -78,6 +78,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.1")
     end
 
+    it "xs:string attributes" do
+      input = "https://doi.org/10.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Audiovisual")
+      expect(subject.author.length).to eq(14)
+      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Haywood, Raphaelle Dawn", "givenName"=>"Raphaelle Dawn", "familyName"=>"Haywood")
+      expect(subject.title).to eq("lang"=>"en", "text"=>"Data underpinning - The Sun as a planet-host star: Proxies from SDO images for HARPS radial-velocity variations")
+      expect(subject.date_published).to eq("2016")
+      expect(subject.publisher).to eq("University of St Andrews")
+      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
     it "multiple licenses" do
       input = "https://doi.org/10.5281/ZENODO.48440"
       subject = Bolognese::Metadata.new(input: input)
