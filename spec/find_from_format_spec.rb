@@ -45,6 +45,11 @@ describe Bolognese::CLI do
       expect(subject.find_from_format_by_string(string)).to eq("datacite")
     end
 
+    it "datacite namespaced" do
+      string = IO.read(fixture_path + 'ns0.xml').strip
+      expect(subject.find_from_format_by_string(string)).to eq("datacite")
+    end
+
     it "codemeta" do
       string = IO.read(fixture_path + 'codemeta.json').strip
       expect(subject.find_from_format_by_string(string)).to eq("codemeta")

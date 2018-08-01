@@ -372,7 +372,7 @@ module Bolognese
     def find_from_format_by_string(string)
       if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
         "crossref"
-      elsif Maremma.from_xml(string).to_h.dig("resource", "xmlns").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }  
         "datacite"
       elsif Maremma.from_json(string).to_h.dig("ris_type").present?
         "crosscite"
