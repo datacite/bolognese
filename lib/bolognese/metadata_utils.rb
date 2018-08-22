@@ -68,7 +68,7 @@ module Bolognese
                 :date_accepted, :date_available, :date_copyrighted, :date_collected, :date_published,
                 :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, 
                 :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
-                :keywords, :editor, :description, :alternate_name, :language, :content_size,
+                :keywords, :editor, :description, :alternate_identifier, :language, :content_size,
                 :schema_version, :has_part, :same_as, :resource_type_general,
                 :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
                 :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
@@ -76,7 +76,7 @@ module Bolognese
                 :is_documented_by, :documents, :is_compiled_by, :compiles,
                 :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
                 :is_derived_from, :is_source_of, :format, :funding, :style, :locale, :state,
-                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :meta
+                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :content_url, :meta
 
     attr_reader :doc, :service_provider, :page_start, :page_end, :related_identifier, :reverse, :name_detector
 
@@ -123,16 +123,20 @@ module Bolognese
       @identifier ||= meta.fetch("id", nil)
     end
 
+    def alternate_identifier
+      @alternate_identifier ||= meta.fetch("alternate_identifier", nil)
+    end
+
+    def content_url
+      @content_url ||= meta.fetch("content_url", nil)
+    end
+
     def state
       @state ||= meta.fetch("state", nil)
     end
 
     def title
       @title ||= meta.fetch("title", nil)
-    end
-
-    def alternate_name
-      @alternate_name ||= meta.fetch("alternate_name", nil)
     end
 
     def author

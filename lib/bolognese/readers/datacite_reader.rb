@@ -35,13 +35,18 @@ module Bolognese
           string = doc.to_xml(:indent => 2)
         end
 
+        content_url = Array.wrap(attributes.fetch("media", nil)).map do |media|
+          media.split(":", 2).last
+        end.compact
+
         { "string" => string,
           "b_url" => attributes.fetch("url", nil),
           "state" => attributes.fetch("state", nil),
           "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
           "provider_id" => attributes.fetch("allocator_symbol", nil),
-          "client_id" => attributes.fetch("datacentre_symbol", nil) }
+          "client_id" => attributes.fetch("datacentre_symbol", nil),
+          "content_url" => content_url }
       end
 
       def read_datacite(string: nil, **options)
@@ -80,8 +85,8 @@ module Bolognese
 
         container_title = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
 
-        alternate_name = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-          { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }.compact
+        alternate_identifier = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
+          { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }
         end.unwrap
         description = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
           { "type" => r["descriptionType"], "text" => sanitize(r["__content__"]) }.compact
@@ -113,9 +118,9 @@ module Bolognese
           "ris_type" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[additional_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => doi,
+          "alternate_identifier" => alternate_identifier,
           "url" => options.fetch(:url, nil),
           "title" => title,
-          "alternate_name" => alternate_name,
           "author" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
           "container_title" => container_title,
@@ -132,7 +137,7 @@ module Bolognese
           "date_created" => datacite_date(dates, "Created"),
           "date_accepted" => datacite_date(dates, "Accepted"),
           "date_available" => datacite_date(dates, "Available"),
-          "date_copyrighted" => datacite_date(dates, "Copyrightes"),
+          "date_copyrighted" => datacite_date(dates, "Copyrights"),
           "date_collected" => datacite_date(dates, "Collected"),
           "date_submitted" => datacite_date(dates, "Submitted"),
           "date_valid" => datacite_date(dates, "Valid"),

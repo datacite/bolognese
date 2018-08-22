@@ -61,7 +61,6 @@ module Bolognese
           "doi" => doi,
           "b_url" => meta.fetch("UR", nil),
           "title" => meta.fetch("T1", nil),
-          "alternate_name" => meta.fetch("AN", nil),
           "author" => get_authors(author),
           "publisher" => meta.fetch("PB", nil),
           "is_part_of" => is_part_of,

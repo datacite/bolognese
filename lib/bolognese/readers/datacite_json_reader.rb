@@ -23,7 +23,7 @@ module Bolognese
           "doi" => validate_doi(meta.fetch("doi", nil)),
           "b_url" => normalize_id(meta.fetch("url", nil)),
           "title" => meta.fetch("title", nil),
-          "alternate_name" => meta.fetch("alternate-identifier", nil),
+          "alternate_identifier" => meta.fetch("alternate-identifier", nil),
           "author" => meta.fetch("creator", nil),
           "editor" => meta.fetch("contributor", nil),
           "publisher" => meta.fetch("publisher", nil),

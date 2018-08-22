@@ -33,7 +33,7 @@ module Bolognese
           "date_updated" => date_updated,
           "date_valid" => date_valid,
           "language" => language,
-          "alternate_name" => alternate_name,
+          "alternate_identifier" => alternate_identifier,
           "content_size" => content_size,
           "version" => b_version,
           "license" => license,

@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author.length).to eq(8)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
-      expect(subject.alternate_name).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
+      expect(subject.alternate_identifier).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
       expect(subject.license).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/1"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/2"}])
@@ -50,7 +50,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.citeproc_type).to eq("article-journal")
       expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_name).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
+      expect(subject.alternate_identifier).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
@@ -151,6 +151,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.funding).to eq("type"=>"Award", "identifier"=>"246686", "funder"=>{"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"}, "name" => "Open Access Infrastructure for Research in Europe", "url" => "info:eu-repo/grantAgreement/EC/FP7/246686/")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "missing resource_type_general" do
+      input = fixture_path + 'vivli.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.type).to eq("CreativeWork")
+      expect(subject.resource_type_general).to be_nil
+      expect(subject.valid?).to be false
+      puts subject.errors
+      expect(subject.errors).to eq("2:0: ERROR: Element '{http://datacite.org/schema/kernel-4}resource': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}resourceType, {http://datacite.org/schema/kernel-4}subjects, {http://datacite.org/schema/kernel-4}contributors, {http://datacite.org/schema/kernel-4}language, {http://datacite.org/schema/kernel-4}alternateIdentifiers, {http://datacite.org/schema/kernel-4}relatedIdentifiers, {http://datacite.org/schema/kernel-4}sizes, {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}rightsList, {http://datacite.org/schema/kernel-4}descriptions ).")
     end
 
     it "author only full name" do
@@ -257,7 +267,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.citeproc_type).to eq("article-journal")
       expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_name).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
+      expect(subject.alternate_identifier).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.publication_year).to eq(2016)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0000-00ss")
@@ -277,7 +287,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.citeproc_type).to eq("book")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
@@ -299,7 +309,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.citeproc_type).to eq("book")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
@@ -321,7 +331,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.citeproc_type).to eq("book")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
@@ -343,7 +353,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.citeproc_type).to eq("book")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
@@ -362,7 +372,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_name).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
@@ -437,6 +447,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("WIP-Munich")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
+    end
+
+    it "content url" do
+      input = "10.23725/8na3-9s47"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.doi).to eq("10.23725/8na3-9s47")
+      expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")
+      expect(subject.alternate_identifier).to eq([{"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"}])
+      expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
     end
 
     it "empty subject" do

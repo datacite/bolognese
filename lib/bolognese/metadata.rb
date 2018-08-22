@@ -32,7 +32,8 @@ module Bolognese
                 "date_registered" => options[:date_registered],
                 "date_updated" => options[:date_updated],
                 "provider_id" => options[:provider_id],
-                "client_id" => options[:client_id] }
+                "client_id" => options[:client_id],
+                "content_url" => options[:content_url] }
         string = input
         @from = from || find_from_format(string: string)
       end
@@ -55,6 +56,7 @@ module Bolognese
       @date_updated = hsh.to_h["date_updated"].presence
       @provider_id = hsh.to_h["provider_id"].presence
       @client_id = hsh.to_h["client_id"].presence
+      @content_url = hsh.to_h["content_url"].presence
 
       # generate name for method to call dynamically
       @meta = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox]) : {}

@@ -24,7 +24,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_name).to eq("MS-49-3632-5083")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
       expect(subject.keywords).to eq(["datacite", "doi", "metadata", "featured"])
       expect(subject.date_published).to eq("2016-12-20")
@@ -86,15 +85,27 @@ describe Bolognese::Metadata, vcr: true do
     # end
 
     it "harvard dataverse" do
-      input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GAOC03"
+      input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJ7XSO"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/gaoc03")
-      expect(subject.doi).to eq("10.7910/dvn/gaoc03")
+      expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
+      expect(subject.doi).to eq("10.7910/dvn/nj7xso")
       expect(subject.type).to eq("Dataset")
-      expect(subject.title).to eq("The National Labor Force : SAKERNAS, 2008")
+      expect(subject.title).to eq("Summary data ankylosing spondylitis GWAS")
       expect(subject.container_title).to eq("Harvard Dataverse")
-      expect(subject.author).to eq("name"=>"Badan Pusat Statistik")
+      expect(subject.author).to eq("name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)")
+    end
+
+    it "harvard dataverse via identifiers.org" do
+      input = "http://identifiers.org/doi/10.7910/DVN/NJ7XSO"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
+      expect(subject.doi).to eq("10.7910/dvn/nj7xso")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.title).to eq("Summary data ankylosing spondylitis GWAS")
+      expect(subject.container_title).to eq("Harvard Dataverse")
+      expect(subject.author).to eq("name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)")
     end
   end
 
@@ -108,7 +119,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("BlogPosting")
       expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_name).to eq("MS-49-3632-5083")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
       expect(subject.keywords).to eq(["datacite", "doi", "metadata", "featured"])
       expect(subject.date_published).to eq("2016-12-20")

@@ -142,5 +142,40 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"].count).to eq(3)
       expect(json["author"].first).to eq("@type"=>"Person", "name"=>"P. Llamas", "givenName"=>"P.", "familyName"=>"Llamas")
     end
+
+    it "data catalog" do
+      input = "10.25491/8KMC-G314"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.25491/8kmc-g314")
+      expect(json["@type"]).to eq("Dataset")
+      expect(json["name"]).to eq("Covariates used in eQTL analysis. Includes genotyping principal components and PEER factors")
+      expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
+      expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
+      expect(json["identifier"]).to eq(["https://doi.org/10.25491/8kmc-g314", {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
+      expect(json["contentUrl"]).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz"])
+    end
+
+    it "alternate identifiers" do
+      input = "10.23725/8na3-9s47"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.23725/8na3-9s47")
+      expect(json["@type"]).to eq("Dataset")
+      expect(json["name"]).to eq("NWD165827.recab.cram")
+      expect(json["author"]).to eq("@type"=>"Organization", "name"=>"TOPMed IRC")
+      expect(json["includedInDataCatalog"]).to be_nil
+      expect(json["identifier"]).to eq(["https://doi.org/10.23725/8na3-9s47",
+        {"@type"=>"PropertyValue",
+         "propertyID"=>"md5",
+         "value"=>"3b33f6b9338fccab0901b7d317577ea3"},
+        {"@type"=>"PropertyValue",
+         "propertyID"=>"minid",
+         "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
+        {"@type"=>"PropertyValue",
+          "propertyID"=>"dataguid",
+          "value"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}])
+      expect(json["contentUrl"]).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
+    end
   end
 end

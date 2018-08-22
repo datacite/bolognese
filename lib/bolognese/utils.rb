@@ -523,13 +523,32 @@ module Bolognese
     end
 
     def to_schema_org_container(element, options={})
+      return nil unless options[:container_title].present?
+
       mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
 
       element ||= {}
       element["type"] ||= (type == "Dataset") ? "DataCatalog" : "Periodical"
-      element["title"] = options[:container_title] if options[:container_title].present?
+      element["title"] = options[:container_title]
 
       map_hash_keys(element: element, mapping: mapping)
+    end
+
+    def to_schema_org_identifier(element, options={})
+      if options[:alternate_identifier].present?
+        [identifier] + Array.wrap(options[:alternate_identifier]).map do |ai|
+                         if ai["type"].to_s.downcase == "url"
+                           ai["name"]
+                         else
+                           { 
+                             "@type" => "PropertyValue",
+                             "propertyID" => ai["type"],
+                             "value" => ai["name"] }
+                         end
+                       end
+      else
+        identifier
+      end
     end
 
     def from_schema_org(element)

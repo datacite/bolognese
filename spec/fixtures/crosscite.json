@@ -18,7 +18,7 @@
     "publisher": "Zenodo",
     "keywords": ["choice architecture", "crossover experiment", "hci"],
     "date_published": "2016-03-27",
-    "alternate_name": {
+    "alternate_identifier": {
         "type": "URL",
         "name": "http://zenodo.org/record/48440"
     },

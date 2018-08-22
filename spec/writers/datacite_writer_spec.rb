@@ -145,7 +145,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author.length).to eq(8)
       expect(subject.author.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
-      expect(subject.alternate_name).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
+      expect(subject.alternate_identifier).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
       expect(subject.license).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
       expect(subject.date_published).to eq("2011")
       expect(subject.has_part).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/1"},

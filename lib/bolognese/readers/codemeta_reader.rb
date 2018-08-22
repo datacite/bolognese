@@ -39,7 +39,6 @@ module Bolognese
           "doi" => validate_doi(id),
           "b_url" => normalize_id(meta.fetch("codeRepository", nil)),
           "title" => meta.fetch("title", nil),
-          "alternate_name" => meta.fetch("alternateName", nil),
           "author" => author,
           "editor" => editor,
           "publisher" => publisher,

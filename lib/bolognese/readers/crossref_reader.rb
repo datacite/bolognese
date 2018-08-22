@@ -91,7 +91,7 @@ module Bolognese
           "doi" => doi,
           "b_url" => bibliographic_metadata.dig("doi_data", "resource"),
           "title" => parse_attributes(bibliographic_metadata.dig("titles", "title")),
-          "alternate_name" => crossref_alternate_name(bibliographic_metadata),
+          "alternate_identifier" => crossref_alternate_identifier(bibliographic_metadata),
           "author" => crossref_people(bibliographic_metadata, "author"),
           "editor" => crossref_people(bibliographic_metadata, "editor"),
           "funding" => crossref_funding_reference(program_metadata),
@@ -116,7 +116,7 @@ module Bolognese
         }
       end
 
-      def crossref_alternate_name(bibliographic_metadata)
+      def crossref_alternate_identifier(bibliographic_metadata)
         if bibliographic_metadata.fetch("publisher_item", nil).present?
           parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number"))
         else

@@ -29,7 +29,7 @@ module Bolognese
           "date_valid" => date_valid,
           "publication_year" => publication_year,
           "language" => language,
-          "alternate_identifier" => alternate_name,
+          "alternate_identifier" => alternate_identifier,
           "references" => references,
           "is_referenced_by" => is_referenced_by,
           "is_part_of" => is_part_of,

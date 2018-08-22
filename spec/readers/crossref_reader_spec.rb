@@ -91,7 +91,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.author.count).to eq(11)
       expect(subject.author.last).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4060-7360", "name"=>"Timothy Clark", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.title).to eq("A Data Citation Roadmap for Scholarly Data Repositories")
-      expect(subject.alternate_name).to eq("biorxiv;097196v2")
+      expect(subject.alternate_identifier).to eq("biorxiv;097196v2")
       expect(subject.description["text"]).to start_with("This article presents a practical roadmap")
       expect(subject.date_published).to eq("2017-10-09")
       expect(subject.date_modified).to eq("2017-10-10T05:10:49Z")

@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.23725/8na3-9s47&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 22 Aug 2018 05:56:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":172},"response":{"numFound":2,"start":0,"docs":[{"datacentre_symbol":"DATACITE.TOPMED","url":"https://ors.datacite.org/doi:/10.23725/8na3-9s47","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvOE5BMy05UzQ3PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5UT1BNZWQgSVJDPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TldEMTY1ODI3LnJlY2FiLmNyYW08L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+VE9QTWVkPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE3PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5DUkFNIGZpbGU8L3Jlc291cmNlVHlwZT4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD50b3BtZWQ8L3N1YmplY3Q+CiAgICA8c3ViamVjdD53aG9sZSBnZW5vbWUgc2VxdWVuY2luZzwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxmdW5kaW5nUmVmZXJlbmNlcz4KICAgIDxmdW5kaW5nUmVmZXJlbmNlPgogICAgICA8ZnVuZGVyTmFtZT5OYXRpb25hbCBIZWFydCwgTHVuZywgYW5kIEJsb29kIEluc3RpdHV0ZSAoTkhMQkkpPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj5odHRwczovL2RvaS5vcmcvMTAuMTMwMzkvMTAwMDAwMDUwPC9mdW5kZXJJZGVudGlmaWVyPgogICAgPC9mdW5kaW5nUmVmZXJlbmNlPgogIDwvZnVuZGluZ1JlZmVyZW5jZXM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNy0xMS0zMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxhbHRlcm5hdGVJZGVudGlmaWVycz4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJtZDUiPjNiMzNmNmI5MzM4ZmNjYWIwOTAxYjdkMzE3NTc3ZWEzPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9Im1pbmlkIj5hcms6Lzk5OTk5L2ZrNDFDclU0ZXN6ZUxVRGU8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iZGF0YWd1aWQiPmRnLjQ1MDMvYzNkNjZkYzktNThkYS00MTFjLTgzYzQtZGQ2NTZhYTNjNGI3PC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1JlcXVpcmVkQnkiPjEwLjIzNzI1L3diNWgtZHA1MzwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPHZlcnNpb24vPgo8L3Jlc291cmNlPg==","allocator_symbol":"DATACITE","minted":"2018-08-16T15:04:36Z","state":"findable","updated":"2018-08-16T15:04:36Z","doi":"10.23725/8NA3-9S47","media":["text/vnd.cram+s3:s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram","text/vnd.cram+gs:gs://topmed-irc-share/public/NWD165827.recab.cram"]},{"datacentre_symbol":"DATACITE.TOPMED","url":"https://ors.datacite.org/doi:/10.23725/2g4s-qv04","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvMkc0Uy1RVjA0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5UT1BNZWQgSVJDPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TldEMTY1ODI3LnJlY2FiLmNyYW0uY3JhaTwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5UT1BNZWQ8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkNSQU0uY3JhaSBpbmRleCBmaWxlPC9yZXNvdXJjZVR5cGU+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+dG9wbWVkPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+d2hvbGUgZ2Vub21lIHNlcXVlbmNpbmc8L3N1YmplY3Q+CiAgPC9zdWJqZWN0cz4KICA8ZnVuZGluZ1JlZmVyZW5jZXM+CiAgICA8ZnVuZGluZ1JlZmVyZW5jZT4KICAgICAgPGZ1bmRlck5hbWU+TmF0aW9uYWwgSGVhcnQsIEx1bmcsIGFuZCBCbG9vZCBJbnN0aXR1dGUgKE5ITEJJKTwvZnVuZGVyTmFtZT4KICAgICAgPGZ1bmRlcklkZW50aWZpZXIgZnVuZGVySWRlbnRpZmllclR5cGU9IkNyb3NzcmVmIEZ1bmRlciBJRCI+aHR0cHM6Ly9kb2kub3JnLzEwLjEzMDM5LzEwMDAwMDA1MDwvZnVuZGVySWRlbnRpZmllcj4KICAgIDwvZnVuZGluZ1JlZmVyZW5jZT4KICA8L2Z1bmRpbmdSZWZlcmVuY2VzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTctMTEtMzA8L2RhdGU+CiAgPC9kYXRlcz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWQ1Ij4zYjMzZjZiOTMzOGZjY2FiMDkwMWI3ZDMxNzU3N2VhMzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJtaW5pZCI+YXJrOi85OTk5OS9mazQxQ3JVNGVzemVMVURlPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9ImRhdGFndWlkIj5kZy40NTAzL2MzZDY2ZGM5LTU4ZGEtNDExYy04M2M0LWRkNjU2YWEzYzRiNzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iUmVxdWlyZXMiPjEwLjIzNzI1LzhuYTMtOXM0NzwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPHZlcnNpb24vPgo8L3Jlc291cmNlPg==","allocator_symbol":"DATACITE","minted":"2018-08-16T15:09:11Z","state":"findable","updated":"2018-08-16T15:09:11Z","doi":"10.23725/2G4S-QV04","media":["text/vnd.cram.crai+s3:s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram.crai","text/vnd.cram.crai+gs:gs://topmed-irc-share/public/NWD165827.recab.cram.crai"]}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 22 Aug 2018 05:56:31 GMT
+recorded_with: VCR 3.0.3

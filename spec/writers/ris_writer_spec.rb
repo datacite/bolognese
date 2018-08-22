@@ -54,9 +54,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[11]).to eq("KW  - medical competence")
       expect(ris[21]).to eq("PY  - 2017")
       expect(ris[22]).to eq("PB  - German Medical Science GMS Publishing House")
-      expect(ris[23]).to eq("AN  - urn:nbn:de:0183-zma0011024")
-      expect(ris[25]).to eq("LA  - en")
-      expect(ris[26]).to eq("ER  - ")
+      expect(ris[23]).to eq("LA  - en")
+      expect(ris[24]).to eq("ER  - ")
     end
 
     it "Crossref DOI" do
@@ -89,8 +88,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[5]).to eq("KW  - datacite")
       expect(ris[8]).to eq("PY  - 2016")
       expect(ris[9]).to eq("PB  - DataCite")
-      expect(ris[10]).to eq("AN  - MS-49-3632-5083")
-      expect(ris[11]).to eq("ER  - ")
+      expect(ris[10]).to eq("ER  - ")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -122,8 +120,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[5]).to eq("KW  - datacite")
       expect(ris[8]).to eq("PY  - 2016")
       expect(ris[9]).to eq("PB  - DataCite")
-      expect(ris[10]).to eq("AN  - MS-49-3632-5083")
-      expect(ris[11]).to eq("ER  - ")
+      expect(ris[10]).to eq("ER  - ")
     end
 
     it "BlogPosting schema.org" do
@@ -140,8 +137,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[7]).to eq("KW  - datacite")
       expect(ris[11]).to eq("PY  - 2016")
       expect(ris[12]).to eq("PB  - DataCite")
-      expect(ris[13]).to eq("AN  - MS-49-3632-5083")
-      expect(ris[14]).to eq("ER  - ")
+      expect(ris[13]).to eq("ER  - ")
     end
 
     it "Dataset" do
@@ -157,8 +153,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[13]).to eq("KW  - Malaria")
       expect(ris[19]).to eq("PY  - 2011")
       expect(ris[20]).to eq("PB  - Dryad Digital Repository")
-      expect(ris[21]).to eq("AN  - Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
-      expect(ris[22]).to eq("ER  - ")
+      expect(ris[21]).to eq("ER  - ")
     end
 
     it "maremma" do

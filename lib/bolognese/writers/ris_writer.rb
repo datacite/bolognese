@@ -15,7 +15,6 @@ module Bolognese
           "KW" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
           "PY" => publication_year,
           "PB" => publisher,
-          "AN" => parse_attributes(alternate_name, content: "name").presence,
           "LA" => language,
           "VL" => volume,
           "IS" => issue,

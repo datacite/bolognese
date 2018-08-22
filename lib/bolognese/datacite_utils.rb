@@ -105,10 +105,10 @@ module Bolognese
     end
 
     def insert_alternate_identifiers(xml)
-      return xml unless alternate_name.present?
+      return xml unless alternate_identifier.present?
 
       xml.alternateIdentifiers do
-        Array.wrap(alternate_name).each do |alt|
+        Array.wrap(alternate_identifier).each do |alt|
           xml.alternateIdentifier(alt["name"], 'alternateIdentifierType' => alt["type"])
         end
       end
