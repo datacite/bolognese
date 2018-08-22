@@ -523,7 +523,7 @@ module Bolognese
     end
 
     def to_schema_org_container(element, options={})
-      return nil unless options[:container_title].present?
+      return nil unless (element.nil? || element.is_a?(Hash)) && options[:container_title].present?
 
       mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
 
