@@ -26,7 +26,7 @@ module Bolognese
           "pageEnd" => last_page,
           "spatialCoverage" => spatial_coverage,
           "sameAs" => to_schema_org(is_identical_to),
-          "isPartOf" => type == "Dataset" ? nil : to_schema_org_container(is_part_of, container_title: container_title),
+          "isPartOf" => type == "Dataset" ? nil : to_schema_org_container(is_part_of, container_title: container_title, type: type),
           "hasPart" => to_schema_org(has_part),
           "predecessor_of" => to_schema_org(is_previous_version_of),
           "successor_of" => to_schema_org(is_new_version_of),
@@ -34,7 +34,7 @@ module Bolognese
           "@reverse" => reverse.presence,
           "contentUrl" => content_url,
           "schemaVersion" => schema_version,
-          "includedInDataCatalog" => type == "Dataset" ? to_schema_org_container(is_part_of, container_title: container_title) : nil,
+          "includedInDataCatalog" => type == "Dataset" ? to_schema_org_container(is_part_of, container_title: container_title, type: type) : nil,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
           "funding" => to_schema_org(funding),
           "provider" => service_provider.present? ? { "@type" => "Organization", "name" => service_provider } : nil

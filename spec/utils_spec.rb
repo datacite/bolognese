@@ -239,7 +239,7 @@ describe Bolognese::Metadata, vcr: true do
     it "with alternate_identifier" do
       identifier = "https://doi.org/10.23725/8na3-9s47"
       alternate_identifier = [{"type"=>"md5", "name"=>"3b33f6b9338fccab0901b7d317577ea3"}, {"type"=>"minid", "name"=>"ark:/99999/fk41CrU4eszeLUDe"}, {"type"=>"dataguid", "name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}]
-      response = subject.to_schema_org_identifier(identifier, alternate_identifier: alternate_identifier)
+      response = subject.to_schema_org_identifier(identifier, alternate_identifier: alternate_identifier, type: "Dataset")
       expect(response).to eq(["https://doi.org/10.1101/097196",
         {"@type"=>"PropertyValue",
          "propertyID"=>"md5",
