@@ -35,6 +35,20 @@ module Bolognese
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
+        identifier = Array.wrap(meta.fetch("identifier", nil))
+        if identifier.length > 1
+          alternate_identifier = identifier[1..-1].map do |r|
+            if r.is_a?(String)
+              { "type" => "URL", "name" => r }
+            elsif r.is_a?(Hash)
+              { "type" => r["propertyID"], "name" => r["value"] }
+            end
+          end.unwrap
+        else
+          alternate_identifier = nil
+        end
+        identifier = identifier.first
+
         id = normalize_id(meta.fetch("@id", nil) || meta.fetch("identifier", nil))
         type = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
@@ -56,8 +70,12 @@ module Bolognese
           "name" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
         }
 
+        funding = from_schema_org(Array.wrap(meta.fetch("funding", nil)))
         date_published = meta.fetch("datePublished", nil)
         state = meta.present? ? "findable" : "not_found"
+        
+        ct = (type == "Dataset") ? "includedInDataCatalog" : "Periodical"
+        container_title = parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "name", first: true)
 
         { "id" => id,
           "type" => type,
@@ -67,13 +85,16 @@ module Bolognese
           "ris_type" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => validate_doi(id),
-          "identifier" => meta.fetch("identifier", nil),
+          "identifier" => identifier,
+          "alternate_identifier" => alternate_identifier,
           "b_url" => normalize_id(meta.fetch("url", nil)),
+          "content_url" => Array.wrap(meta.fetch("contentUrl", nil)).unwrap,
           "title" => meta.fetch("name", nil),
           "author" => author,
           "editor" => editor,
           "publisher" => publisher,
-          "service_provider" => meta.fetch("provider", nil),
+          "service_provider" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
+          "container_title" => container_title,
           "is_identical_to" => schema_org_is_identical_to(meta),
           "is_part_of" => is_part_of,
           "has_part" => schema_org_has_part(meta),
@@ -88,7 +109,9 @@ module Bolognese
           "license" => license,
           "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("keywords", nil).to_s.split(", "),
-          "state" => state
+          "state" => state,
+          "schema_version" => meta.fetch("schemaVersion", nil),
+          "funding" => funding
         }
       end
 

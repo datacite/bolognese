@@ -1,0 +1,76 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.25491/d50j-3083",
+  "identifier": [
+    "https://doi.org/10.25491/d50j-3083",
+    {
+      "@type": "PropertyValue",
+      "propertyID": "md5",
+      "value": "687610993"
+    }
+  ],
+  "url": "https://ors.datacite.org/doi:/10.25491/d50j-3083",
+  "additionalType": "Gene expression matrices",
+  "name": "Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery",
+  "author": {
+    "@type": "Organization",
+    "name": "The GTEx Consortium"
+  },
+  "version": "v7",
+  "keywords": "gtex, annotation, phenotype, gene regulation, transcriptomics",
+  "datePublished": "2017",
+  "contentUrl": [
+    "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "GTEx"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GTEx"
+  },
+  "funding": [
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000052",
+      "name": "Common Fund of the Office of the Director of the NIH"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000054",
+      "name": "National Cancer Institute (NCI)"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000051",
+      "name": "National Human Genome Research Institute (NHGRI)"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000050",
+      "name": "National Heart, Lung, and Blood Institute (NHLBI)"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000026",
+      "name": "National Institute on Drug Abuse (NIDA)"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000025",
+      "name": "National Institute of Mental Health (NIMH)"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://doi.org/10.13039/100000065",
+      "name": "National Institute of Neurological Disorders and Stroke (NINDS)"
+    }
+  ],
+  "provider": {
+    "@type": "Organization",
+    "name": "DataCite"
+  }
+}

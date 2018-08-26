@@ -97,7 +97,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "harvard dataverse via identifiers.org" do
-      input = "http://identifiers.org/doi/10.7910/DVN/NJ7XSO"
+      input = "https://identifiers.org/doi/10.7910/DVN/NJ7XSO"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
@@ -126,6 +126,65 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss", "type"=>"Blog", "title"=>"DataCite Blog")
       expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork"}])
       expect(subject.publisher).to eq("DataCite")
+    end
+
+    it "GTEx dataset" do
+      input = fixture_path + 'schema_org_gtex.json'
+      subject = Bolognese::Metadata.new(input: input, from: 'schema_org')
+
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.25491/d50j-3083")
+      expect(subject.alternate_identifier).to eq("name"=>"687610993", "type"=>"md5")
+      expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
+      expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("Gene expression matrices")
+      expect(subject.author).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
+      expect(subject.title).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
+      expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
+      expect(subject.date_published).to eq("2017")
+      expect(subject.container_title).to eq("GTEx")
+      expect(subject.publisher).to eq("GTEx")
+      expect(subject.funding).to eq([{"id"=>"https://doi.org/10.13039/100000052",
+                                      "name"=>"Common Fund of the Office of the Director of the NIH",
+                                      "type"=>"Organization"},
+                                     {"id"=>"https://doi.org/10.13039/100000054",
+                                      "name"=>"National Cancer Institute (NCI)",
+                                      "type"=>"Organization"},
+                                     {"id"=>"https://doi.org/10.13039/100000051",
+                                      "name"=>"National Human Genome Research Institute (NHGRI)",
+                                      "type"=>"Organization"},
+                                     {"id"=>"https://doi.org/10.13039/100000050",
+                                      "name"=>"National Heart, Lung, and Blood Institute (NHLBI)",
+                                      "type"=>"Organization"},
+                                     {"id"=>"https://doi.org/10.13039/100000026",
+                                      "name"=>"National Institute on Drug Abuse (NIDA)",
+                                      "type"=>"Organization"},
+                                     {"id"=>"https://doi.org/10.13039/100000025",
+                                      "name"=>"National Institute of Mental Health (NIMH)",
+                                      "type"=>"Organization"},
+                                     {"id"=>"https://doi.org/10.13039/100000065",
+                                      "name"=>"National Institute of Neurological Disorders and Stroke (NINDS)",
+                                      "type"=>"Organization"}])
+    end
+
+    it "TOPMed dataset" do
+      input = fixture_path + 'schema_org_topmed.json'
+      subject = Bolognese::Metadata.new(input: input, from: 'schema_org')
+
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")
+      expect(subject.alternate_identifier).to eq([{"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"}])
+      expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
+      expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("CRAM file")
+      expect(subject.author).to eq("name"=>"TOPMed IRC", "type"=>"Organization")
+      expect(subject.title).to eq("NWD165827.recab.cram")
+      expect(subject.keywords).to eq(["topmed", "whole genome sequencing"])
+      expect(subject.date_published).to eq("2017-11-30")
+      expect(subject.publisher).to eq("TOPMed")
+      expect(subject.funding).to eq("id"=>"https://doi.org/10.13039/100000050", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)", "type"=>"Organization")
     end
   end
 end

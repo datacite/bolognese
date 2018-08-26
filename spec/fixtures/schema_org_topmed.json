@@ -1,0 +1,50 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.23725/8na3-9s47",
+  "identifier": [
+    "https://doi.org/10.23725/8na3-9s47",
+    {
+      "@type": "PropertyValue",
+      "propertyID": "md5",
+      "value": "3b33f6b9338fccab0901b7d317577ea3"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "minid",
+      "value": "ark:/99999/fk41CrU4eszeLUDe"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "dataguid",
+      "value": "dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"
+    }
+  ],
+  "url": "https://ors.datacite.org/doi:/10.23725/8na3-9s47",
+  "additionalType": "CRAM file",
+  "name": "NWD165827.recab.cram",
+  "author": {
+    "@type": "Organization",
+    "name": "TOPMed IRC"
+  },
+  "keywords": "topmed, whole genome sequencing",
+  "datePublished": "2017-11-30",
+  "contentUrl": [
+    "s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram",
+    "gs://topmed-irc-share/public/NWD165827.recab.cram"
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TOPMed"
+  },
+  "funding": {
+    "@type": "Organization",
+    "@id": "https://doi.org/10.13039/100000050",
+    "name": "National Heart, Lung, and Blood Institute (NHLBI)"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "DataCite"
+  }
+}
