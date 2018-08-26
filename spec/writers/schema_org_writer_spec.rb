@@ -125,10 +125,18 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author is organization" do
       input = fixture_path + 'gtex.xml'
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      b_url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
+      content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"  
+      subject = Bolognese::Metadata.new(input: input, b_url: b_url, content_url: content_url, from: "datacite")
       json = JSON.parse(subject.schema_org)
+      puts json
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
+      expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
+      expect(json["contentSize"]).to eq("15.7M")
+      expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
+      expect(json["includedInDataCatalog"]).to eq("@id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "@type"=>"DataCatalog", "name"=>"GTEx")
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1038/nmeth.4407"})
     end
 
     it "series information" do

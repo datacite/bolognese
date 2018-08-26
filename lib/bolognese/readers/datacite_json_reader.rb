@@ -47,6 +47,7 @@ module Bolognese
           "keywords" => meta.fetch("subject", nil),
           "language" => meta.fetch("language", nil),
           "content_size" => meta.fetch("size", nil),
+          "content_format" => meta.fetch("format", nil),
           "schema_version" => meta.fetch("schema-version", nil),
           "state" => state
         }

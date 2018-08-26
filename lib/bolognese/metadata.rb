@@ -20,6 +20,13 @@ module Bolognese
       elsif input.present? && File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
+          hsh = { "b_url" => options[:b_url],
+            "state" => options[:state],
+            "date_registered" => options[:date_registered],
+            "date_updated" => options[:date_updated],
+            "provider_id" => options[:provider_id],
+            "client_id" => options[:client_id],
+            "content_url" => options[:content_url] }
           string = IO.read(input)
           @from = from || find_from_format(string: string, ext: ext)
         else

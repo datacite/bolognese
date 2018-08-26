@@ -364,7 +364,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema 4.1 from string with doi in options" do
       input = fixture_path + "datacite-example-complicated-v4.1.xml"
-      subject = Bolognese::Metadata.new(input: input, doi: "10.5072/testpub2")
+      subject = Bolognese::Metadata.new(input: input, doi: "10.5072/testpub2", content_url: "https://example.org/report.pdf")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5072/testpub2")
       expect(subject.type).to eq("Book")
@@ -374,6 +374,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
       expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
+      expect(subject.content_size).to eq("256 pages")
+      expect(subject.content_format).to eq("pdf")
+      expect(subject.content_url).to eq("https://example.org/report.pdf")
       expect(subject.publication_year).to eq(2010)
       expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
       expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
@@ -621,5 +624,48 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("DataCite")
       expect(subject.publication_year).to eq(2016)
     end
+  end
+
+  it "GTEx dataset" do
+    input = fixture_path + 'gtex.xml'
+    b_url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
+    content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"
+    subject = Bolognese::Metadata.new(input: input, from: 'datacite', b_url: b_url, content_url: content_url)
+
+    expect(subject.valid?).to be true
+    expect(subject.identifier).to eq("https://doi.org/10.25491/9hx8-ke93")
+    expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
+    expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
+    expect(subject.type).to eq("Dataset")
+    expect(subject.additional_type).to eq("DroNc-seq data")
+    expect(subject.author).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
+    expect(subject.title).to eq("DroNc-seq data")
+    expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
+    expect(subject.date_published).to eq("2017")
+    expect(subject.is_supplement_to).to eq("id"=>"https://doi.org/10.1038/nmeth.4407", "type"=>"CreativeWork")
+    expect(subject.content_size).to eq("15.7M")
+    expect(subject.container_title).to eq("GTEx")
+    expect(subject.publisher).to eq("GTEx")
+    expect(subject.funding).to eq([{"id"=>"https://doi.org/10.13039/100000052",
+                                    "name"=>"Common Fund of the Office of the Director of the NIH",
+                                    "type"=>"Organization"},
+                                   {"id"=>"https://doi.org/10.13039/100000054",
+                                    "name"=>"National Cancer Institute (NCI)",
+                                    "type"=>"Organization"},
+                                   {"id"=>"https://doi.org/10.13039/100000051",
+                                    "name"=>"National Human Genome Research Institute (NHGRI)",
+                                    "type"=>"Organization"},
+                                   {"id"=>"https://doi.org/10.13039/100000050",
+                                    "name"=>"National Heart, Lung, and Blood Institute (NHLBI)",
+                                    "type"=>"Organization"},
+                                   {"id"=>"https://doi.org/10.13039/100000026",
+                                    "name"=>"National Institute on Drug Abuse (NIDA)",
+                                    "type"=>"Organization"},
+                                   {"id"=>"https://doi.org/10.13039/100000025",
+                                    "name"=>"National Institute of Mental Health (NIMH)",
+                                    "type"=>"Organization"},
+                                   {"id"=>"https://doi.org/10.13039/100000065",
+                                    "name"=>"National Institute of Neurological Disorders and Stroke (NINDS)",
+                                    "type"=>"Organization"}])
   end
 end

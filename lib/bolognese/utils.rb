@@ -528,7 +528,7 @@ module Bolognese
       mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
 
       element ||= {}
-      element["type"] ||= (options[:type] == "Dataset") ? "DataCatalog" : "Periodical"
+      element["type"] = (options[:type] == "Dataset") ? "DataCatalog" : "Periodical"
       element["title"] ||= options[:container_title]
 
       map_hash_keys(element: element, mapping: mapping)

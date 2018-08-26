@@ -104,6 +104,8 @@ module Bolognese
           end
         end.compact
         dates = Array.wrap(meta.dig("dates", "date"))
+        sizes = Array.wrap(meta.dig("sizes", "size")).unwrap
+        formats = Array.wrap(meta.dig("formats", "format")).unwrap
         funding = begin
           f = datacite_funder_contributor(meta) + datacite_funding_reference(meta)
           f.length > 1 ? f : f.first
@@ -148,7 +150,8 @@ module Bolognese
           "b_version" => meta.fetch("version", nil),
           "keywords" => keywords,
           "language" => meta.fetch("language", nil),
-          "content_size" => meta.fetch("size", nil),
+          "content_format" => formats,
+          "content_size" => sizes,
           "schema_version" => schema_version,
           "state" => state
         }

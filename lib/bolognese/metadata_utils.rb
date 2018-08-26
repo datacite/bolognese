@@ -69,7 +69,7 @@ module Bolognese
                 :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, 
                 :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
                 :keywords, :editor, :description, :alternate_identifier, :language, :content_size,
-                :schema_version, :has_part, :same_as, :resource_type_general,
+                :content_format, :schema_version, :has_part, :same_as, :resource_type_general,
                 :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
                 :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
                 :has_metadata, :is_metadata_for, :is_referenced_by, :references,
@@ -229,6 +229,10 @@ module Bolognese
 
     def content_size
       @content_size ||= meta.fetch("content_size", nil)
+    end
+
+    def content_format
+      @content_format ||= meta.fetch("content_format", nil)
     end
 
     def schema_version
