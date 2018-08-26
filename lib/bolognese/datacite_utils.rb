@@ -11,7 +11,7 @@ module Bolognese
     end
 
     def datacite_errors(xml: nil, schema_version: nil)
-      schema_version ||= "http://datacite.org/schema/kernel-4"
+      schema_version = schema_version.to_s.start_with?("http://datacite.org/schema/kernel") ? schema_version : "http://datacite.org/schema/kernel-4"
       kernel = schema_version.to_s.split("/").last
       filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
       schema = Nokogiri::XML::Schema(open(filepath))
