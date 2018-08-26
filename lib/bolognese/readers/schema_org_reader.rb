@@ -62,7 +62,10 @@ module Bolognese
                     end
 
         included_in_data_catalog = from_schema_org(Array.wrap(meta.fetch("includedInDataCatalog", nil)))
-        included_in_data_catalog = Array.wrap(included_in_data_catalog).map { |dc| { "title" => dc["name"], "url" => dc["url"] } }
+        included_in_data_catalog = Array.wrap(included_in_data_catalog).reduce([]) do |sum, dc| 
+          sum << { "title" => dc["name"], "url" => dc["url"] } if dc["url"].present?
+          sum
+        end.unwrap
         is_part_of = schema_org_is_part_of(meta) || included_in_data_catalog
 
         license = {

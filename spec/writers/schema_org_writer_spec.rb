@@ -188,12 +188,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(json["additionalType"]).to eq("Gene expression matrices")
       expect(json["name"]).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
+      expect(json["version"]).to eq("v7")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["keywords"]).to eq("gtex, annotation, phenotype, gene regulation, transcriptomics")
       expect(json["datePublished"]).to eq("2017")
       expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
       expect(json["schemaVersion"]).to eq("http://datacite.org/schema/kernel-4")
-      expect(json["includedInDataCatalog"]).to eq(2)
+      expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
       expect(json["publisher"]).to eq("@type"=>"Organization", "name"=>"GTEx")
       expect(json["funding"]).to eq([{"@id"=>"https://doi.org/10.13039/100000052",
         "name"=>"Common Fund of the Office of the Director of the NIH",

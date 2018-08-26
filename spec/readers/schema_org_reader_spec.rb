@@ -94,6 +94,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Summary data ankylosing spondylitis GWAS")
       expect(subject.container_title).to eq("Harvard Dataverse")
       expect(subject.author).to eq("name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)")
+      expect(subject.schema_version).to eq("https://schema.org/version/3.3")
     end
 
     it "harvard dataverse via identifiers.org" do
@@ -141,6 +142,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.additional_type).to eq("Gene expression matrices")
       expect(subject.author).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
       expect(subject.title).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
+      expect(subject.b_version).to eq("v7")
       expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
       expect(subject.date_published).to eq("2017")
       expect(subject.container_title).to eq("GTEx")

@@ -523,13 +523,13 @@ module Bolognese
     end
 
     def to_schema_org_container(element, options={})
-      return nil unless (element.nil? || element.is_a?(Hash)) && options[:container_title].present?
+      return nil unless (element.is_a?(Hash) || (element.nil? && options[:container_title].present?))
 
       mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
 
       element ||= {}
       element["type"] ||= (options[:type] == "Dataset") ? "DataCatalog" : "Periodical"
-      element["title"] = options[:container_title]
+      element["title"] ||= options[:container_title]
 
       map_hash_keys(element: element, mapping: mapping)
     end
