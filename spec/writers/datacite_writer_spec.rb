@@ -47,7 +47,8 @@ describe Bolognese::Metadata, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(datacite.dig("descriptions", "description", "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
+      expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"eLife", "descriptionType"=>"SeriesInformation")
+      expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.dig("creators", "creator").count).to eq(5)
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
     end
@@ -59,7 +60,8 @@ describe Bolognese::Metadata, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
-      expect(datacite.dig("descriptions", "description", "__content__")).to start_with("Eating your own dog food")
+      expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"DataCite Blog", "descriptionType"=>"SeriesInformation")
+      expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Eating your own dog food")
       expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
     end
 
@@ -218,7 +220,7 @@ describe Bolognese::Metadata, vcr: true do
       subject.description = "This is an abstract."
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("descriptions", "description")).to eq("descriptionType"=>"Abstract", "__content__"=>"This is an abstract.")
+      expect(datacite.dig("descriptions", "description")).to eq([{"__content__"=>"eLife", "descriptionType"=>"SeriesInformation"}, {"__content__"=>"This is an abstract.", "descriptionType"=>"Abstract"}])
     end
 
     it "change description no input" do
@@ -296,6 +298,28 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.errors.first).to start_with("3:0: ERROR: Element '{http://datacite.org/schema/kernel-4}identifier'")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+    end
+
+    it "from schema_org gtex" do
+      input = fixture_path + "schema_org_gtex.json"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("identifier", "__content__")).to eq("10.25491/d50j-3083")
+      expect(datacite.dig("creators", "creator").count).to eq(1)
+      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"The GTEx Consortium")
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Dataset")
+      expect(datacite.dig("resourceType", "__content__")).to eq("Gene expression matrices")
+      expect(datacite.dig("titles", "title")).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
+      expect(datacite.dig("version")).to eq("v7")
+      expect(datacite.dig("publisher")).to eq("GTEx")
+      expect(datacite.dig("descriptions", "description")).to eq("__content__"=>"GTEx", "descriptionType"=>"SeriesInformation")
+      expect(datacite.dig("publicationYear")).to eq("2017")
+      expect(datacite.dig("dates", "date")).to eq("__content__"=>"2017", "dateType"=>"Issued")
+      expect(datacite.dig("subjects", "subject")).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
+      expect(datacite.dig("alternateIdentifiers", "alternateIdentifier")).to eq("__content__"=>"687610993", "alternateIdentifierType"=>"md5")
+      expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(7)
+      expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderIdentifier" => {"__content__"=>"https://doi.org/10.13039/100000065", "funderIdentifierType"=>"Crossref Funder ID"},"funderName" => "National Institute of Neurological Disorders and Stroke (NINDS)")
     end
   end
 end

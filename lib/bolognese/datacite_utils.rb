@@ -210,9 +210,13 @@ module Bolognese
     end
 
     def insert_descriptions(xml)
-      return xml unless description.present?
+      return xml unless description.present? || container_title.present?
 
       xml.descriptions do
+        if container_title.present?
+          xml.description(container_title, 'descriptionType' => "SeriesInformation")
+        end
+
         Array.wrap(description).each do |des|
           if des.is_a?(Hash)
             d = des
