@@ -131,7 +131,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "GTEx dataset" do
       input = fixture_path + 'schema_org_gtex.json'
-      subject = Bolognese::Metadata.new(input: input, from: 'schema_org')
+      subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.25491/d50j-3083")
@@ -172,7 +172,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "TOPMed dataset" do
       input = fixture_path + 'schema_org_topmed.json'
-      subject = Bolognese::Metadata.new(input: input, from: 'schema_org')
+      subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")

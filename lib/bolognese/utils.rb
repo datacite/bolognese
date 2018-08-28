@@ -356,16 +356,16 @@ module Bolognese
         "crossref"
       elsif options[:ext] == ".xml" && Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }      
         "datacite"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
+        "schema_org"
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
+        "codemeta"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("ris_type")
         "crosscite"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
-        "schema_org"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
-        "codemeta"
       end
     end
 
@@ -376,14 +376,14 @@ module Bolognese
         "datacite"
       elsif Maremma.from_json(string).to_h.dig("ris_type").present?
         "crosscite"
-      elsif Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
-        "datacite_json"
-      elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
-        "citeproc"
       elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
       elsif Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
+      elsif Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
+        "datacite_json"
+      elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
+        "citeproc"
       elsif string.start_with?("TY  - ")
         "ris"
       elsif BibTeX.parse(string).first

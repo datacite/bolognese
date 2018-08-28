@@ -56,7 +56,7 @@ describe Bolognese::CLI do
     end
 
     it "schema_org" do
-      string = IO.read(fixture_path + 'schema_org.json').strip
+      string = IO.read(fixture_path + 'schema_org_topmed.json').strip
       expect(subject.find_from_format_by_string(string)).to eq("schema_org")
     end
 
