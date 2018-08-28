@@ -92,6 +92,8 @@ module Bolognese
           "alternate_identifier" => alternate_identifier,
           "b_url" => normalize_id(meta.fetch("url", nil)),
           "content_url" => Array.wrap(meta.fetch("contentUrl", nil)).unwrap,
+          "content_size" => meta.fetch("contenSize", nil),
+          "content_format" => Array.wrap(meta.fetch("encodingFormat", nil) || meta.fetch("fileFormat", nil)).unwrap,
           "title" => meta.fetch("name", nil),
           "author" => author,
           "editor" => editor,

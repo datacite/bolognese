@@ -643,6 +643,7 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
     expect(subject.date_published).to eq("2017")
     expect(subject.is_supplement_to).to eq("id"=>"https://doi.org/10.1038/nmeth.4407", "type"=>"CreativeWork")
+    expect(subject.content_format).to eq("application/tar")
     expect(subject.content_size).to eq("15.7M")
     expect(subject.container_title).to eq("GTEx")
     expect(subject.publisher).to eq("GTEx")

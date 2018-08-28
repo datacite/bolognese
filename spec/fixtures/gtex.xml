@@ -58,7 +58,10 @@
     <relatedIdentifier relationType="IsDocumentedBy" relatedIdentifierType="DOI">https://doi.org/10.1038/nature24277</relatedIdentifier>  
     <relatedIdentifier relationType="IsSupplementTo" relatedIdentifierType="DOI">https://doi.org/10.1038/nmeth.4407</relatedIdentifier> 
     <relatedIdentifier relationType="IsPartOf" relatedIdentifierType="URL">https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663</relatedIdentifier> 
-  </relatedIdentifiers>  
+  </relatedIdentifiers> 
+  <formats> 
+    <format>application/tar</format> 
+  </formats> 
   <sizes> 
     <size>15.7M</size> 
   </sizes>

@@ -133,6 +133,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
+      expect(json["encodingFormat"]).to eq("application/tar")
       expect(json["contentSize"]).to eq("15.7M")
       expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
       expect(json["includedInDataCatalog"]).to eq("@id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "@type"=>"DataCatalog", "name"=>"GTEx")
@@ -253,6 +254,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["contentUrl"]).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
       expect(json["schemaVersion"]).to eq("http://datacite.org/schema/kernel-4")
       expect(json["publisher"]).to eq("@type"=>"Organization", "name"=>"TOPMed")
+      expect(json["citation"]).to eq("@id"=>"https://doi.org/10.23725/2g4s-qv04", "@type"=>"Dataset")
       expect(json["funding"]).to eq("@id"=>"https://doi.org/10.13039/100000050", "@type"=>"Organization", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)")
       expect(json["provider"]).to eq("@type"=>"Organization", "name"=>"DataCite")
     end

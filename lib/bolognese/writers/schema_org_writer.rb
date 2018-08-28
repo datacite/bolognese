@@ -19,6 +19,7 @@ module Bolognese
           "keywords" => keywords.present? ? Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.join(", ") : nil,
           "inLanguage" => language,
           "contentSize" => content_size,
+          "encodingFormat" => content_format,
           "dateCreated" => date_created,
           "datePublished" => date_published,
           "dateModified" => date_modified,

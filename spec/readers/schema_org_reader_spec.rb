@@ -186,6 +186,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.keywords).to eq(["topmed", "whole genome sequencing"])
       expect(subject.date_published).to eq("2017-11-30")
       expect(subject.publisher).to eq("TOPMed")
+      expect(subject.references).to eq("id"=>"https://doi.org/10.23725/2g4s-qv04", "type"=>"Dataset")
       expect(subject.funding).to eq("id"=>"https://doi.org/10.13039/100000050", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)", "type"=>"Organization")
     end
   end
