@@ -55,11 +55,7 @@ module Bolognese
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
         author = get_authors(from_schema_org(Array.wrap(authors)))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
-        publisher = if meta.dig("publisher").is_a?(Hash)
-                      meta.dig("publisher", "name")
-                    elsif publisher.is_a?(String)
-                      meta.dig("publisher")
-                    end
+        publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
         included_in_data_catalog = from_schema_org(Array.wrap(meta.fetch("includedInDataCatalog", nil)))
         included_in_data_catalog = Array.wrap(included_in_data_catalog).reduce([]) do |sum, dc| 

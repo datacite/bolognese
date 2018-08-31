@@ -189,5 +189,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.references).to eq("id"=>"https://doi.org/10.23725/2g4s-qv04", "type"=>"Dataset")
       expect(subject.funding).to eq("id"=>"https://doi.org/10.13039/100000050", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)", "type"=>"Organization")
     end
+
+    it "schema_org list" do
+      data = IO.read(fixture_path + 'schema_org_list.json').strip
+      input = JSON.parse(data).first.to_json
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.23725/7jg3-v803")
+      expect(subject.alternate_identifier).to eq([{"name"=>"ark:/99999/fk4E1n6n1YHKxPk", "type"=>"minid"}, {"name"=>"dg.4503/01b048d0-e128-4cb0-94e9-b2d2cab7563d", "type"=>"dataguid"}, {"name"=>"f9e72bdf25bf4b4f0e581d9218fec2eb", "type"=>"md5"}])
+      expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
+      expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/44a8837b-4456-5709-b56b-54e23000f13a/NWD100953.recab.cram","gs://topmed-irc-share/public/NWD100953.recab.cram","dos://dos.commons.ucsc-cgp.org/01b048d0-e128-4cb0-94e9-b2d2cab7563d?version=2018-05-26T133719.491772Z"])
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("CRAM file")
+      expect(subject.author).to eq("name"=>"TOPMed", "type"=>"Organization")
+      expect(subject.title).to eq("NWD100953.recab.cram")
+      expect(subject.keywords).to eq(["topmed", "whole genome sequencing"])
+      expect(subject.date_published).to eq("2017-11-30")
+      expect(subject.publisher).to eq("TOPMed")
+      expect(subject.funding).to eq("id"=>"https://doi.org/10.13039/100000050", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)", "type"=>"Organization")
+    end
   end
 end
