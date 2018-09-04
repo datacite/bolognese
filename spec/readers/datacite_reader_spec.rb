@@ -586,6 +586,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
+
+    it "DOI in with related id system" do
+      input = "https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.title).to eq("BPI Challenge 2012")
+      expect(subject.date_published).to eq("2012")
+      expect(subject.publication_year).to eq(2012)
+      expect(subject.state).to eq("findable")
+    end
   end
 
   context "change datacite metadata" do

@@ -9,7 +9,7 @@ module Bolognese
         search_url = doi_search(id, options)
         doi = doi_from_url(id)
         params = { q: doi,
-                   fl: "doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated",
+                   fq: "doi:#{doi.dump}",
                    defType: "edismax",
                    wt: "json" }
         search_url += "?" + URI.encode_www_form(params)
