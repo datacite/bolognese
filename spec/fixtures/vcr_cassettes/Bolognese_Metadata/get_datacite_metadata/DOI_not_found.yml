@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:50 GMT
+      - Wed, 05 Sep 2018 09:01:25 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,12 +30,12 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      X-Request-Id:
+      - 0de006d6-e4e1-4f46-8c6d-ee084f25706a
       Etag:
       - W/"3868a65292ee8ee9d7a8343e933561ec"
       X-Runtime:
-      - '0.023064'
-      X-Request-Id:
-      - 27d9e8c3-3bca-4e01-a924-676d813a3753
+      - '0.021716'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -217,7 +217,7 @@ http_interactions:
         cmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1OCIsInR5cGUiOiJwcmVmaXhlcyJ9
         LHsiaWQiOiIxMC4yNTg1OSIsInR5cGUiOiJwcmVmaXhlcyJ9XX19fV19
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:50 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:25 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1%22&q=10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
@@ -235,7 +235,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:50 GMT
+      - Wed, 05 Sep 2018 09:01:25 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -252,9 +252,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":35},"response":{"numFound":0,"start":0,"docs":[]}}
+      string: '{"responseHeader":{"status":0,"QTime":38},"response":{"numFound":0,"start":0,"docs":[]}}
 
 '
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:50 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:25 GMT
 recorded_with: VCR 3.0.3

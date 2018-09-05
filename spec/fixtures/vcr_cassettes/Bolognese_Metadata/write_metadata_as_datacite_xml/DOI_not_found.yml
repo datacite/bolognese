@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1%22&q=10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Sep 2018 09:01:38 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":0,"start":0,"docs":[]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:01:38 GMT
+recorded_with: VCR 3.0.3

@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:55 GMT
+      - Wed, 05 Sep 2018 09:01:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 0f59bead-3193-4eff-a7a8-2d1d534f7e8f
+      - 9fe72424-6c77-4f1f-8fa4-43acdb58e264
       Etag:
       - W/"67be502af2444fa555c6bb9ec9cb95a0"
       X-Runtime:
-      - '0.020203'
+      - '0.019648'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -118,7 +118,7 @@ http_interactions:
         cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyNSIsInR5cGUiOiJwcmVm
         aXhlcyJ9XX19fV19
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:55 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:27 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.18429/jacow-ipac2016-tupmy003%22&q=10.18429/jacow-ipac2016-tupmy003&wt=json
@@ -136,7 +136,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:56 GMT
+      - Wed, 05 Sep 2018 09:01:27 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -154,7 +154,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjo0OX0sInJl
+        eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjoxNX0sInJl
         c3BvbnNlIjp7Im51bUZvdW5kIjoxLCJzdGFydCI6MCwiZG9jcyI6W3siaXNf
         YWN0aXZlIjp0cnVlLCJjcmVhdGVkIjoiMjAxNi0wNi0wM1QxMjo1Mjo0Nloi
         LCJwcmVmaXgiOiIxMC4xODQyOSIsImRhdGFzZXRfaWQiOiI4MzM2MjU3Iiwi
@@ -444,8 +444,8 @@ http_interactions:
         MDEyMzIwIiwiSkFDb1ctSUQ6SkFDb1ctMDAwNzkzMDgiLCJKQUNvVy1JRDpK
         QUNvVy0wMDAwMDkyNSIsIkpBQ29XLUlEOkpBQ29XLTAwMDc5MzA5IiwiSkFD
         b1ctSUQ6SkFDb1ctMDAwMTA1MjMiXSwicmVzb3VyY2VUeXBlIjoiQ29uZmVy
-        ZW5jZVBhcGVyIiwiX3ZlcnNpb25fIjoxNjEwNzEzNzg1NzUwNzgxOTUyLCJp
-        bmRleGVkIjoiMjAxOC0wOS0wNFQyMToyNjowOC41NTJaIn1dfX0K
+        ZW5jZVBhcGVyIiwiX3ZlcnNpb25fIjoxNjEwNzM5OTQ3NTA0OTI2NzIwLCJp
+        bmRleGVkIjoiMjAxOC0wOS0wNVQwNDoyMTo1OC4zNDVaIn1dfX0K
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:56 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:27 GMT
 recorded_with: VCR 3.0.3

@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:53 GMT
+      - Wed, 05 Sep 2018 09:01:12 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - e13f79c2-efcd-4fa0-b354-ed00028f546c
+      - 7c40c5b0-1745-476a-9154-e211a8a2c7bc
       Etag:
       - W/"ca3693b1f4608e45f329a5bf126b506d"
       X-Runtime:
-      - '0.035411'
+      - '0.021076'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -216,7 +216,7 @@ http_interactions:
         ImlkIjoiMTAuMjU4NTgiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAu
         MjU4NTkiLCJ0eXBlIjoicHJlZml4ZXMifV19fX1dfQ==
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:53 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:12 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09%22&q=10.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09&wt=json
@@ -234,7 +234,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:54 GMT
+      - Wed, 05 Sep 2018 09:01:13 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -252,7 +252,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjo0NX0sInJl
+        eyJyZXNwb25zZUhlYWRlciI6eyJzdGF0dXMiOjAsIlFUaW1lIjo3MH0sInJl
         c3BvbnNlIjp7Im51bUZvdW5kIjoxLCJzdGFydCI6MCwiZG9jcyI6W3siaXNf
         YWN0aXZlIjp0cnVlLCJjcmVhdGVkIjoiMjAxNi0wMS0yMFQxNjozMTo0Nloi
         LCJwcmVmaXgiOiIxMC4xNzYzMCIsImRhdGFzZXRfaWQiOiI3NTE5ODYyIiwi
@@ -519,8 +519,8 @@ http_interactions:
         bGlzaGVyIjoiVW5pdmVyc2l0eSBvZiBTdCBBbmRyZXdzIiwicHVibGljYXRp
         b25ZZWFyIjoiMjAxNiIsImNvbnRyaWJ1dG9yVHlwZSI6WyJDb250YWN0UGVy
         c29uIl0sInJlc291cmNlVHlwZSI6IkRhdGFzZXQiLCJfdmVyc2lvbl8iOjE2
-        MTA3MTEyOTIwMjMxNDQ0NDksImluZGV4ZWQiOiIyMDE4LTA5LTA0VDIwOjQ2
-        OjMwLjM0OVoifV19fQo=
+        MTA3Mzc4NTUxNjI3NDQ4MzQsImluZGV4ZWQiOiIyMDE4LTA5LTA1VDAzOjQ4
+        OjQyLjkzMloifV19fQo=
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:54 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:13 GMT
 recorded_with: VCR 3.0.3

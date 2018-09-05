@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:57 GMT
+      - Wed, 05 Sep 2018 09:01:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 35cd51c7-0c86-4861-8f1e-13ee0d5992f7
+      - 28f77963-3f5b-4551-9d2a-48b55e79361f
       Etag:
       - W/"229bef4b8dd377ba68d34479c4821f91"
       X-Runtime:
-      - '0.024364'
+      - '0.027409'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -140,7 +140,7 @@ http_interactions:
         ZCI6IjEwLjI1MzQwIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjI1
         MzQxIiwidHlwZSI6InByZWZpeGVzIn1dfX19XX0=
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:57 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:23 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.21233/n34n5q%22&q=10.21233/n34n5q&wt=json
@@ -158,7 +158,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:57 GMT
+      - Wed, 05 Sep 2018 09:01:23 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -175,7 +175,7 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":41},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2017-04-18T01:36:22Z","prefix":"10.21233","dataset_id":"10828965","has_media":false,"datacentre_symbol":"PURDUE.UWISC","datacentre":"PURDUE.UWISC
+      string: '{"responseHeader":{"status":0,"QTime":11},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2017-04-18T01:36:22Z","prefix":"10.21233","dataset_id":"10828965","has_media":false,"datacentre_symbol":"PURDUE.UWISC","datacentre":"PURDUE.UWISC
         - University of Wisconsin-Madison","datacentre_facet":"PURDUE.UWISC - University
         of Wisconsin-Madison","allocator":"PURDUE - Purdue University Library","allocator_facet":"PURDUE
         - Purdue University Library","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+ICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4yMTIzMy9OMzRONVE8L2lkZW50aWZpZXI+ICA8Y3JlYXRvcnM+ICAgIDxjcmVhdG9yPiAgICAgIDxjcmVhdG9yTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jcmVhdG9yTmFtZT4gICAgICA8YWZmaWxpYXRpb24+RGVwYXJ0bWVudCBvZiBHZW9sb2dpY2FsIFNjaWVuY2VzLCBDYW1wdXMgQm94IDI1MCwgVW5pdmVyc2l0eSBvZiBDb2xvcmFkbywgQm91bGRlciwgQ08gODAzMDksIFVOSVRFRCBTVEFURVM8L2FmZmlsaWF0aW9uPiAgICA8L2NyZWF0b3I+ICA8L2NyZWF0b3JzPiAgPHRpdGxlcz4gICAgPHRpdGxlIHhtbDpsYW5nPSJlbi11cyI+TnVlbHRpbiBMYWtlIFNpdGUgMSBwb2xsZW4gc3VyZmFjZSBzYW1wbGUgZGF0YXNldDwvdGl0bGU+ICA8L3RpdGxlcz4gIDxwdWJsaXNoZXI+TmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2U8L3B1Ymxpc2hlcj4gIDxwdWJsaWNhdGlvblllYXI+MjAxNzwvcHVibGljYXRpb25ZZWFyPiAgPHN1YmplY3RzPiAgICA8c3ViamVjdCBzdWJqZWN0U2NoZW1lPSJMaWJyYXJ5IG9mIENvbmdyZXNzIiBzY2hlbWVVUkk9Imh0dHA6Ly9pZC5sb2MuZ292L2F1dGhvcml0aWVzL3N1YmplY3RzIj5QYWxlb2Vjb2xvZ3k8L3N1YmplY3Q+ICA8L3N1YmplY3RzPiAgPGNvbnRyaWJ1dG9ycz4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YUNvbGxlY3RvciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5OaWNob2xzLCBIYXJ2ZXk8L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmlidXRvcj4gICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUHJvamVjdExlYWRlciI+ICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5BbmRyZXdzLCBKb2huIFQuPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkRhdGFDdXJhdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkdyaW1tLCBFcmljIENocmlzdG9waGVyPC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmlidXRvck5hbWU+TmljaG9scywgSGFydmV5PC9jb250cmlidXRvck5hbWU+ICAgIDwvY29udHJpYnV0b3I+ICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlc2VhcmNoZXIiPiAgICAgIDxjb250cmlidXRvck5hbWU+QW5kcmV3cywgSm9obiBULjwvY29udHJpYnV0b3JOYW1lPiAgICA8L2NvbnRyaWJ1dG9yPiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJEYXRhQ29sbGVjdG9yIj4gICAgICA8Y29udHJpYnV0b3JOYW1lPkFuZHJld3MsIEpvaG4gVC48L2NvbnRyaWJ1dG9yTmFtZT4gICAgPC9jb250cmlidXRvcj4gIDwvY29udHJpYnV0b3JzPiAgPGRhdGVzPiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4xOTk4LTA2LTEyPC9kYXRlPiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MTk5OC0wNi0xMjwvZGF0ZT4gICAgPGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjE5OTgtMDYtMTI8L2RhdGU+ICA8L2RhdGVzPiAgPGxhbmd1YWdlPkVuZ2xpc2g8L2xhbmd1YWdlPiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0L1BhbGVvZWNvbG9naWNhbCBTYW1wbGUgRGF0YTwvcmVzb3VyY2VUeXBlPiAgPHJlbGF0ZWRJZGVudGlmaWVycz4gICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0aW9uVHlwZT0iSXNNZXRhZGF0YUZvciIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0ZWRNZXRhZGF0YVNjaGVtZT0ianNvbiI+YXBpLm5lb3RvbWFkYi5vcmcvdjEvZG93bmxvYWRzLzMxNTc8L3JlbGF0ZWRJZGVudGlmaWVyPiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRpb25UeXBlPSJJc01ldGFkYXRhRm9yIiByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRlZE1ldGFkYXRhU2NoZW1lPSJqc29uIj5kYXRhLm5lb3RvbWFkYi5vcmcvZGF0YXNldHMvMzE1Ny9pbmRleC5odG1sPC9yZWxhdGVkSWRlbnRpZmllcj4gIDwvcmVsYXRlZElkZW50aWZpZXJzPiAgPHNpemVzPiAgICA8c2l6ZT4xMiBLQjwvc2l6ZT4gIDwvc2l6ZXM+ICA8Zm9ybWF0cz4gICAgPGZvcm1hdD5YTUw8L2Zvcm1hdD4gICAgPGZvcm1hdD5UTFg8L2Zvcm1hdD4gICAgPGZvcm1hdD5KU09OPC9mb3JtYXQ+ICA8L2Zvcm1hdHM+ICA8ZGVzY3JpcHRpb25zPiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCIgeG1sOmxhbmc9IkVOIj5SYXcgZGF0YSBmb3IgdGhlIE51ZWx0aW4gTGFrZSBTaXRlIDEgcG9sbGVuIHN1cmZhY2Ugc2FtcGxlIGRhdGFzZXQgb2J0YWluZWQgZnJvbSB0aGUgTmVvdG9tYSBQYWxlb2Vjb2xvZ2ljYWwgRGF0YWJhc2UuPC9kZXNjcmlwdGlvbj4gIDwvZGVzY3JpcHRpb25zPiAgPHJpZ2h0c0xpc3Q+ICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvZGVlZC5lbl9VUyI+Q0MtQlk0PC9yaWdodHM+ICA8L3JpZ2h0c0xpc3Q+ICA8Z2VvTG9jYXRpb25zPiAgICA8Z2VvTG9jYXRpb24+ICAgICAgPGdlb0xvY2F0aW9uQm94PjYwLjAzIC05OS44NSA2MC4wMyAtOTkuODU8L2dlb0xvY2F0aW9uQm94PiAgICA8L2dlb0xvY2F0aW9uPiAgPC9nZW9Mb2NhdGlvbnM+PC9yZXNvdXJjZT4=","has_metadata":true,"allocator_symbol":"PURDUE","uploaded":"2017-04-18T01:36:22Z","namespace":"http://datacite.org/schema/kernel-3","minted":"2017-04-18T01:36:23Z","state":"findable","updated":"2017-04-18T01:36:23Z","doi":"10.21233/N34N5Q","schema_version":"3","date":["1998-06-12","1998-06-12","1998-06-12","1998-06-12"],"spdx":["http://creativecommons.org/licenses/by/4.0/deed.en_US/legalcode"],"relatedIdentifier":["IsMetadataFor:URL:api.neotomadb.org/v1/downloads/3157","IsMetadataFor:URL:data.neotomadb.org/datasets/3157/index.html"],"subject":["Paleoecology"],"description":["Raw
@@ -186,9 +186,9 @@ http_interactions:
         John T."],"dateType":["Submitted","Submitted","Created","Updated"],"rightsURI":["http://creativecommons.org/licenses/by/4.0/deed.en_US"],"descriptionType":["Abstract"],"rights":["CC-BY4"],"subjectScheme":["Library
         of Congress"],"creator":["Andrews, John T."],"resourceTypeGeneral":"Dataset","format":["XML","TLX","JSON"],"size":["12
         KB"],"publisher":"Neotoma Paleoecological Database","publicationYear":"2017","contributorType":["DataCollector","ProjectLeader","DataCurator","Researcher","Researcher","DataCollector"],"resourceType":"Dataset/Paleoecological
-        Sample Data","_version_":1610714303093014529,"indexed":"2018-09-04T21:34:21.928Z"}]}}
+        Sample Data","_version_":1610740301454901249,"indexed":"2018-09-05T04:27:35.898Z"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:57 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:23 GMT
 recorded_with: VCR 3.0.3

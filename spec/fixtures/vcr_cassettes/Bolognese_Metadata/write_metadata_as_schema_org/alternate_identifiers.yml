@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.23725/8na3-9s47%22&q=10.23725/8na3-9s47&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Sep 2018 09:01:05 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":16},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2018-08-16T15:01:46Z","prefix":"10.23725","dataset_id":"15841298","has_media":true,"datacentre_symbol":"DATACITE.TOPMED","url":"https://ors.datacite.org/doi:/10.23725/8na3-9s47","datacentre":"DATACITE.TOPMED
+        - TOPMed","datacentre_facet":"DATACITE.TOPMED - TOPMed","allocator":"DATACITE
+        - DataCite","allocator_facet":"DATACITE - DataCite","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvOE5BMy05UzQ3PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VE9QTWVkPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TldEMTY1ODI3LnJlY2FiLmNyYW08L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+VE9QTWVkPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE3PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5DUkFNIGZpbGU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWluaWQiPmFyazovOTk5OTkvZms0MUNyVTRlc3plTFVEZTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJkYXRhZ3VpZCI+ZGcuNDUwMy9jM2Q2NmRjOS01OGRhLTQxMWMtODNjNC1kZDY1NmFhM2M0Yjc8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWQ1Ij4zYjMzZjZiOTMzOGZjY2FiMDkwMWI3ZDMxNzU3N2VhMzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PnRvcG1lZDwvc3ViamVjdD4KICAgIDxzdWJqZWN0Pndob2xlIGdlbm9tZSBzZXF1ZW5jaW5nPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGZ1bmRpbmdSZWZlcmVuY2VzPgogICAgPGZ1bmRpbmdSZWZlcmVuY2U+CiAgICAgIDxmdW5kZXJOYW1lPk5hdGlvbmFsIEhlYXJ0LCBMdW5nLCBhbmQgQmxvb2QgSW5zdGl0dXRlIChOSExCSSk8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHBzOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwNTA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgPC9mdW5kaW5nUmVmZXJlbmNlcz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE3LTExLTMwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHZlcnNpb24vPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cy8+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VE9QTWVkOiBOV0QxNjU4MjcgJmx0O2JyJmd0O0hhcE1hcF8xMDAwRzogTkExOTIzOCAmbHQ7YnImZ3Q7U2VxIEN0cjogVVcgJmx0O2JyJmd0O0ZpbGU6ICBDUkFNIGZpbGU8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","has_metadata":true,"allocator_symbol":"DATACITE","uploaded":"2018-08-31T15:42:23Z","namespace":"http://datacite.org/schema/kernel-4","minted":"2018-08-16T15:04:36Z","state":"findable","updated":"2018-08-31T17:46:17Z","doi":"10.23725/8NA3-9S47","schema_version":"4","date":["2017-11-30"],"creator":["TOPMed"],"resourceTypeGeneral":"Dataset","subject":["topmed","whole
+        genome sequencing"],"description":["TOPMed: NWD165827 <br>HapMap_1000G: NA19238
+        <br>Seq Ctr: UW <br>File:  CRAM file"],"title":["NWD165827.recab.cram"],"version":"","funderIdentifier":["Crossref
+        Funder ID:https://doi.org/10.13039/100000050"],"dateType":["Issued"],"descriptionType":["Abstract"],"rights":[""],"publisher":"TOPMed","publicationYear":"2017","alternateIdentifier":["minid:ark:/99999/fk41CrU4eszeLUDe","dataguid:dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7","md5:3b33f6b9338fccab0901b7d317577ea3"],"resourceType":"CRAM
+        file","media":["text/plain :s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram","text/plain
+        :gs://topmed-irc-share/public/NWD165827.recab.cram","text/plain :dos://dos.commons.ucsc-cgp.org/c3d66dc9-58da-411c-83c4-dd656aa3c4b7?version=2018-05-26T133719.892835Z"],"_version_":1610742294884909056,"indexed":"2018-09-05T04:59:16.981Z"}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:01:05 GMT
+recorded_with: VCR 3.0.3

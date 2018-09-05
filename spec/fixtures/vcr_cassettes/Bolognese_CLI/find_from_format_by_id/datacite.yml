@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,9 +17,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 May 2018 15:02:06 GMT
+      - Wed, 05 Sep 2018 09:02:50 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
@@ -30,30 +30,69 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"5bd24ccdf15afbcd76306add43d83f68"
-      X-Runtime:
-      - '0.012096'
       X-Request-Id:
-      - 718c1488-4e20-4c70-9fca-00aca278823c
+      - d7508a2f-0ea6-42de-a6c5-95fba9ab5738
+      Etag:
+      - W/"869f202ca6784aafc6494c612030fdc5"
+      X-Runtime:
+      - '0.019452'
       X-Powered-By:
-      - Phusion Passenger 5.3.1
+      - Phusion Passenger 5.3.4
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.1
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5061","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.dryad","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.dryad","type":"clients","attributes":{"name":"Dryad","symbol":"CDL.DRYAD","year":2013,"contact-name":"Greg
-        Janee","contact-email":"gjanee@ucop.edu","domains":"*","url":null,"is-active":true,"has-password":false,"created":"2013-02-19T17:42:03Z","updated":"2018-05-21T02:30:13Z"},"relationships":{"prefixes":{"meta":{}},"provider":{"meta":{}},"repository":{"meta":{}}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","website":"http://ezid.cdlib.org","contact-name":"Greg
-        Janee","contact-email":"ezid@ucop.edu","phone":null,"description":"California
-        Digital Library (CDL) handles scholarly information at every stage of its
-        life. CDL provides technology and expertise to help the University of California
-        (UC) collect, publish, access, and preserve its full range of information
-        resources. CDL partners with organizations outside the UCs on far-reaching
-        problems.\n\nCDL offers DataCite DOIs to University of California scholars
-        and researchers via the EZID service. EZID is also available as a general
-        identifier service to help educational, non-profit, governmental and commercial
-        clients create and manage globally unique identifiers for data and other sources.","country":"US","logo-url":"https://assets.datacite.org/images/members/cdl.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-05-21T02:25:51.000Z"},"relationships":{"clients":{"meta":{}},"prefixes":{"meta":{}}}}]}'
+      string: !binary |-
+        eyJkYXRhIjp7ImlkIjoiMTAuNTA2MSIsInR5cGUiOiJwcmVmaXhlcyIsImF0
+        dHJpYnV0ZXMiOnsicmVnaXN0cmF0aW9uLWFnZW5jeSI6IkRhdGFDaXRlIiwi
+        Y3JlYXRlZCI6IjIwMTAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsInVwZGF0ZWQi
+        Om51bGx9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsiZGF0YSI6W3si
+        aWQiOiJkcnlhZC5kcnlhZCIsInR5cGUiOiJjbGllbnRzIn1dfSwicHJvdmlk
+        ZXJzIjp7ImRhdGEiOlt7ImlkIjoiZHJ5YWQiLCJ0eXBlIjoicHJvdmlkZXJz
+        In1dfX19LCJpbmNsdWRlZCI6W3siaWQiOiJkcnlhZC5kcnlhZCIsInR5cGUi
+        OiJjbGllbnRzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiRFJZQUQiLCJzeW1i
+        b2wiOiJEUllBRC5EUllBRCIsInllYXIiOjIwMTgsImNvbnRhY3QtbmFtZSI6
+        IkRyeWFkIEFkbWluaXN0cmF0b3IiLCJjb250YWN0LWVtYWlsIjoiYWRtaW5A
+        ZGF0YWRyeWFkLm9yZyIsImRvbWFpbnMiOiIqIiwidXJsIjpudWxsLCJjcmVh
+        dGVkIjoiMjAxOC0wNC0yNFQyMDo1OToxNS4wMDBaIiwidXBkYXRlZCI6IjIw
+        MTgtMDgtMjZUMDI6MzY6MDguMDAwWiIsImlzLWFjdGl2ZSI6dHJ1ZSwiaGFz
+        LXBhc3N3b3JkIjp0cnVlfSwicmVsYXRpb25zaGlwcyI6eyJwcm92aWRlciI6
+        eyJkYXRhIjp7ImlkIjoiZHJ5YWQiLCJ0eXBlIjoicHJvdmlkZXJzIn19LCJy
+        ZXBvc2l0b3J5Ijp7ImRhdGEiOnsiaWQiOiJyM2QxMDAwMDAwNDQiLCJ0eXBl
+        IjoicmVwb3NpdG9yaWVzIn19LCJwcmVmaXhlcyI6eyJkYXRhIjpbeyJpZCI6
+        IjEwLjUwNjEiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTA3MiIs
+        InR5cGUiOiJwcmVmaXhlcyJ9XX19fSx7ImlkIjoiZHJ5YWQiLCJ0eXBlIjoi
+        cHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiRHJ5YWQiLCJzeW1i
+        b2wiOiJEUllBRCIsIndlYnNpdGUiOiJodHRwczovL2RhdGFkcnlhZC5vcmci
+        LCJjb250YWN0LW5hbWUiOiJEcnlhZCBBZG1pbmlzdHJhdG9yIiwiY29udGFj
+        dC1lbWFpbCI6ImhlbHBAZGF0YWRyeWFkLm9yZyIsInBob25lIjpudWxsLCJk
+        ZXNjcmlwdGlvbiI6IlRoZSBEcnlhZCBEaWdpdGFsIFJlcG9zaXRvcnkgaXMg
+        YSBjdXJhdGVkIHJlc291cmNlIHRoYXQgbWFrZXMgdGhlIGRhdGEgdW5kZXJs
+        eWluZyBzY2llbnRpZmljIHB1YmxpY2F0aW9ucyBkaXNjb3ZlcmFibGUsIGZy
+        ZWVseSByZXVzYWJsZSwgYW5kIGNpdGFibGUuIERyeWFkIHByb3ZpZGVzIGEg
+        Z2VuZXJhbC1wdXJwb3NlIGhvbWUgZm9yIGEgd2lkZSBkaXZlcnNpdHkgb2Yg
+        ZGF0YXR5cGVzLiBEcnlhZOKAmXMgdmlzaW9uIGlzIHRvIHByb21vdGUgYSB3
+        b3JsZCB3aGVyZSByZXNlYXJjaCBkYXRhIGlzIG9wZW5seSBhdmFpbGFibGUs
+        IGludGVncmF0ZWQgd2l0aCB0aGUgc2Nob2xhcmx5IGxpdGVyYXR1cmUsIGFu
+        ZCByb3V0aW5lbHkgcmUtdXNlZCB0byBjcmVhdGUga25vd2xlZGdlLiBcblxu
+        RHJ5YWQgaXMgZ292ZXJuZWQgYnkgYSBub25wcm9maXQgbWVtYmVyc2hpcCBv
+        cmdhbml6YXRpb24uIE1lbWJlcnNoaXAgaXMgb3BlbiB0byBhbnkgc3Rha2Vo
+        b2xkZXIgb3JnYW5pemF0aW9uLCBpbmNsdWRpbmcgYnV0IG5vdCBsaW1pdGVk
+        IHRvIGpvdXJuYWxzLCBzY2llbnRpZmljIHNvY2lldGllcywgcHVibGlzaGVy
+        cywgcmVzZWFyY2ggaW5zdGl0dXRpb25zLCBsaWJyYXJpZXMsIGFuZCBmdW5k
+        aW5nIG9yZ2FuaXphdGlvbnMuIFB1Ymxpc2hlcnMgY2FuIHBhcnRuZXIgd2l0
+        aCBEcnlhZCB0byBmYWNpbGl0YXRlIGRhdGEgYXJjaGl2aW5nIGluIGFzc29j
+        aWF0aW9uIHdpdGggdGhlaXIgYXJ0aWNsZXMuIEFsbCBpbnN0aXR1dGlvbnMg
+        aW50ZXJlc3RlZCBpbiBvcGVuIGRhdGEgYXJlIGVuY291cmFnZWQgdG8gY29u
+        dGFjdCB1cy4iLCJyZWdpb24iOiJBTUVSIiwiY291bnRyeSI6IlVTIiwibG9n
+        by11cmwiOiJodHRwczovL2Fzc2V0cy5kYXRhY2l0ZS5vcmcvaW1hZ2VzL21l
+        bWJlcnMvZHJ5YWQucG5nIiwiaW5zdGl0dXRpb24tdHlwZSI6bnVsbCwiaXMt
+        YWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWUsImpvaW5lZCI6IjIw
+        MTctMTItMzAiLCJjcmVhdGVkIjoiMjAxOC0wMi0wOFQyMzozNToyNi4wMDBa
+        IiwidXBkYXRlZCI6IjIwMTgtMDgtMjZUMDI6MjU6NTMuMDAwWiJ9LCJyZWxh
+        dGlvbnNoaXBzIjp7InByZWZpeGVzIjp7ImRhdGEiOlt7ImlkIjoiMTAuNTA2
+        MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41MDcyIiwidHlwZSI6
+        InByZWZpeGVzIn1dfX19XX0=
     http_version: 
-  recorded_at: Mon, 21 May 2018 15:02:06 GMT
+  recorded_at: Wed, 05 Sep 2018 09:02:50 GMT
 recorded_with: VCR 3.0.3

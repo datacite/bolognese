@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.7910/dvn/eqtqyo%22&q=10.7910/dvn/eqtqyo&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Sep 2018 09:01:55 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2017-04-12T19:46:36Z","prefix":"10.7910","dataset_id":"10787370","has_media":false,"datacentre_symbol":"CDL.DATAVERS","datacentre":"CDL.DATAVERS
+        - Harvard Dataverse","datacentre_facet":"CDL.DATAVERS - Harvard Dataverse","allocator":"CDL
+        - California Digital Library","allocator_facet":"CDL - California Digital
+        Library","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","has_metadata":true,"allocator_symbol":"CDL","uploaded":"2017-04-12T19:46:36Z","namespace":"http://datacite.org/schema/kernel-4","minted":"2017-04-12T19:46:37Z","state":"findable","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO","schema_version":"4","creator":["Enos,
+        Ryan (Harvard University); Fowler, Anthony (University of Chicago); Vavreck,
+        Lynn (UCLA)"],"resourceTypeGeneral":"Dataset","publisher":"Harvard Dataverse","publicationYear":"2017","title":["Replication
+        Data for: Increasing Inequality: The Effect of GOTV Mobilization on the Composition
+        of the Electorate"],"resourceType":"","_version_":1610730313898524673,"indexed":"2018-09-05T01:48:51.022Z"}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:01:55 GMT
+recorded_with: VCR 3.0.3

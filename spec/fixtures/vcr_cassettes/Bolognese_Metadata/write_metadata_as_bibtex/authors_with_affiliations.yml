@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.16910/jemr.9.1.2%22&q=10.16910/jemr.9.1.2&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Sep 2018 09:03:27 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":13},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2016-02-22T14:43:33Z","prefix":"10.16910","dataset_id":"7665537","has_media":false,"datacentre_symbol":"ETHZ.BOPJEMR","url":"https://bop.unibe.ch/index.php/JEMR/article/view/2430","datacentre":"ETHZ.BOPJEMR
+        - BOP: JEMR","datacentre_facet":"ETHZ.BOPJEMR - BOP: JEMR","allocator":"ETHZ
+        - ETH Zurich","allocator_facet":"ETHZ - ETH Zurich","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48cmVzb3VyY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj48aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4xNjkxMC9qZW1yLjkuMS4yPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+RXJhc2xhbiwgU3VrcnU7IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlciwgVUssICZhbXA7IE1pZGRsZSBFYXN0IFRlY2huaWNhbCBVbml2ZXJzaXR5LCBOb3J0aGVybiBDeXBydXMgQ2FtcHVzLCAgS2Fsa2FubGksIEd1emVseXVydCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPlllc2lsYWRhLCBZZWxpejsgTWlkZGxlIEVhc3QgVGVjaG5pY2FsIFVuaXZlcnNpdHksIE5vcnRoZXJuIEN5cHJ1cyBDYW1wdXMsIDk5NzM4IEthbGthbmxpLCBHdXplbHl1cnQsIE1lcnNpbiAxMCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkhhcnBlciwgU2ltb247IFNjaG9vbCBvZiBDb21wdXRlciBTY2llbmNlLCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIsIE1hbmNoZXN0ZXIsIFVuaXRlZCBLaW5nZG9tPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5FeWUgdHJhY2tpbmcgc2NhbnBhdGggYW5hbHlzaXMgdGVjaG5pcXVlcyBvbiB3ZWIgcGFnZXM6IEEgc3VydmV5LCBldmFsdWF0aW9uIGFuZCBjb21wYXJpc29uPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPmV5ZW1vdmVtZW50Lm9yZzwvcHVibGlzaGVyPjxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPjxzdWJqZWN0cz48c3ViamVjdD5leWUgdHJhY2tpbmc7IGV5ZSBtb3ZlbWVudHM7IHNjYW5wYXRoczsgZXllIG1vdmVtZW50IHNlcXVlbmNlOyB3ZWIgcGFnZXM7IHZpc3VhbCBlbGVtZW50czsgd2ViIHBhZ2VzOyBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVzOyBzY2FucGF0aCBhbmFseXNpczsgcGF0dGVybiBkZXRlY3Rpb247IGNvbW1vbiBzY2FucGF0aHM8L3N1YmplY3Q+PC9zdWJqZWN0cz48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxNS0xMi0zMDwvZGF0ZT48L2RhdGVzPjxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iV29ya2Zsb3ciPjwvcmVzb3VyY2VUeXBlPjxmb3JtYXRzPjxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+PC9mb3JtYXRzPjxyaWdodHNMaXN0PjxyaWdodHM+aHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wPC9yaWdodHM+PHJpZ2h0cz5Db3B5cmlnaHQgKGMpIDIwMTUgU3VrcnUgRXJhc2xhbiwgWWVsaXogWWVzaWxhZGEsIFNpbW9uIEhhcnBlcjwvcmlnaHRzPjwvcmlnaHRzTGlzdD48ZGVzY3JpcHRpb25zPjxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj5FeWUgdHJhY2tpbmcgaGFzIGNvbW1vbmx5IGJlZW4gdXNlZCB0byBpbnZlc3RpZ2F0ZSBob3cgdXNlcnMgaW50ZXJhY3Qgd2l0aCB3ZWIgcGFnZXMsIHdpdGggdGhlIGdvYWwgb2YgaW1wcm92aW5nIHRoZWlyIHVzYWJpbGl0eS4gVGhpcyBhcnRpY2xlIGNvbXByZWhlbnNpdmVseSByZXZpc2l0cyB0aGUgdGVjaG5pcXVlcyB0aGF0IGNvdWxkIGJlIGFwcGxpY2FibGUgdG8gZXllIHRyYWNraW5nIGRhdGEgZm9yIGFuYWx5c2luZyB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIEl0IGFsc28gdXNlcyBhIHRoaXJkLXBhcnR5IGV5ZSB0cmFja2luZyBzdHVkeSB0byBjb21wYXJlIHRoZXNlIHRlY2huaXF1ZXMuIFRoaXMgYWxsb3dzIHJlc2VhcmNoZXJzIHRvIHJlY29nbmlzZSBleGlzdGluZyB0ZWNobmlxdWVzIGZvciB0aGVpciBnb2FscywgdW5kZXJzdGFuZCBob3cgdGhleSB3b3JrIGFuZCBrbm93IHRoZWlyIHN0cmVuZ3RocyBhbmQgbGltaXRhdGlvbnMgc28gdGhhdCB0aGV5IGNhbiBtYWtlIGFuIGVmZmljaWVudCBjaG9pY2UgZm9yIHRoZWlyIHN0dWRpZXMuIFRoZXNlIHRlY2huaXF1ZXMgY2FuIG1haW5seSBiZSB1c2VkIGZvciBjYWxjdWxhdGluZyBzaW1pbGFyaXRpZXMvZGlzc2ltaWxhcml0aWVzIGJldHdlZW4gc2NhbnBhdGhzLCBjb21wdXRpbmcgdHJhbnNpdGlvbiBwcm9iYWJpbGl0aWVzIGJldHdlZW4gd2ViIHBhZ2UgZWxlbWVudHMsIGRldGVjdGluZyBwYXR0ZXJucyBpbiBzY2FucGF0aHMgYW5kIGlkZW50aWZ5aW5nIGNvbW1vbiBzY2FucGF0aHMuIFRoZSBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVzIGFyZSBjbGFzc2lmaWVkIGludG8gZm91ciBncm91cHMgYnkgdGhlaXIgZ29hbHMgc28gdGhhdCByZXNlYXJjaGVycyBjYW4gZGlyZWN0bHkgZm9jdXMgb24gdGhlIGFwcHJvcHJpYXRlIHRlY2huaXF1ZXMgZm9yIGEgc2VxdWVudGlhbCBhbmFseXNpcyBvZiB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIFRoaXMgYXJ0aWNsZSBhbHNvIHN1Z2dlc3RzIGRlYWxpbmcgd2l0aCB0aGUgbGltaXRhdGlvbnMgb2YgdGhlc2UgdGVjaG5pcXVlcyBieSBwcmUtcHJvY2Vzc2luZyBleWUgdHJhY2tpbmcgZGF0YSwgY29uc2lkZXJpbmcgY29nbml0aXZlIHByb2Nlc3NpbmcgYW5kIGFkZHJlc3NpbmcgdGhlaXIgcmVkdWN0aW9uaXN0IGFwcHJvYWNoLjwvZGVzY3JpcHRpb24+PC9kZXNjcmlwdGlvbnM+PC9yZXNvdXJjZT4=","has_metadata":true,"allocator_symbol":"ETHZ","uploaded":"2016-06-09T13:32:43Z","namespace":"http://datacite.org/schema/kernel-3","minted":"2016-02-22T14:43:13Z","state":"findable","updated":"2016-06-09T13:32:43Z","doi":"10.16910/JEMR.9.1.2","schema_version":"3","date":["2015-12-30"],"creator":["Eraslan,
+        Sukru; University of Manchester, UK, & Middle East Technical University, Northern
+        Cyprus Campus,  Kalkanli, Guzelyurt, Turkey","Yesilada, Yeliz; Middle East
+        Technical University, Northern Cyprus Campus, 99738 Kalkanli, Guzelyurt, Mersin
+        10, Turkey","Harper, Simon; School of Computer Science, University of Manchester,
+        Manchester, United Kingdom"],"resourceTypeGeneral":"Workflow","subject":["eye
+        tracking; eye movements; scanpaths; eye movement sequence; web pages; visual
+        elements; web pages; scanpath analysis techniques; scanpath analysis; pattern
+        detection; common scanpaths"],"format":["application/pdf"],"description":["Eye
+        tracking has commonly been used to investigate how users interact with web
+        pages, with the goal of improving their usability. This article comprehensively
+        revisits the techniques that could be applicable to eye tracking data for
+        analysing user scanpaths on web pages. It also uses a third-party eye tracking
+        study to compare these techniques. This allows researchers to recognise existing
+        techniques for their goals, understand how they work and know their strengths
+        and limitations so that they can make an efficient choice for their studies.
+        These techniques can mainly be used for calculating similarities/dissimilarities
+        between scanpaths, computing transition probabilities between web page elements,
+        detecting patterns in scanpaths and identifying common scanpaths. The scanpath
+        analysis techniques are classified into four groups by their goals so that
+        researchers can directly focus on the appropriate techniques for a sequential
+        analysis of user scanpaths on web pages. This article also suggests dealing
+        with the limitations of these techniques by pre-processing eye tracking data,
+        considering cognitive processing and addressing their reductionist approach."],"language":"eng","title":["Eye
+        tracking scanpath analysis techniques on web pages: A survey, evaluation and
+        comparison"],"dateType":["Available"],"descriptionType":["Other"],"rights":["http://creativecommons.org/licenses/by/4.0","Copyright
+        (c) 2015 Sukru Eraslan, Yeliz Yesilada, Simon Harper"],"publisher":"eyemovement.org","publicationYear":"2015","resourceType":"","_version_":1610740285613015041,"indexed":"2018-09-05T04:27:20.79Z"}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:03:27 GMT
+recorded_with: VCR 3.0.3

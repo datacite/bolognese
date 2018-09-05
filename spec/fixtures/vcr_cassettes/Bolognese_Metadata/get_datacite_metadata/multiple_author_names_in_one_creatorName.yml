@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:45 GMT
+      - Wed, 05 Sep 2018 09:01:14 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - cf1649b8-7239-44e5-b382-943e90f22991
+      - 377f2e20-cefe-4ed6-ad4a-7bac178b4dc9
       Etag:
       - W/"364000657aca23c5df4a1763c20972c3"
       X-Runtime:
-      - '0.026731'
+      - '0.022342'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -56,7 +56,7 @@ http_interactions:
         identifier service to help educational, non-profit, governmental and commercial
         clients create and manage globally unique identifiers for data and other sources.","region":"AMER","country":"US","logo-url":"https://assets.datacite.org/images/members/cdl.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-08-26T02:25:51.000Z"},"relationships":{"prefixes":{"data":[{"id":"10.5062","type":"prefixes"},{"id":"10.5063","type":"prefixes"},{"id":"10.5064","type":"prefixes"},{"id":"10.5065","type":"prefixes"},{"id":"10.5067","type":"prefixes"},{"id":"10.5068","type":"prefixes"},{"id":"10.5069","type":"prefixes"},{"id":"10.5070","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.6067","type":"prefixes"},{"id":"10.6071","type":"prefixes"},{"id":"10.6072","type":"prefixes"},{"id":"10.6074","type":"prefixes"},{"id":"10.6075","type":"prefixes"},{"id":"10.6076","type":"prefixes"},{"id":"10.6078","type":"prefixes"},{"id":"10.6079","type":"prefixes"},{"id":"10.6080","type":"prefixes"},{"id":"10.6081","type":"prefixes"},{"id":"10.6085","type":"prefixes"},{"id":"10.6086","type":"prefixes"},{"id":"10.3334","type":"prefixes"},{"id":"10.7265","type":"prefixes"},{"id":"10.7266","type":"prefixes"},{"id":"10.7268","type":"prefixes"},{"id":"10.7269","type":"prefixes"},{"id":"10.7270","type":"prefixes"},{"id":"10.7271","type":"prefixes"},{"id":"10.7272","type":"prefixes"},{"id":"10.7276","type":"prefixes"},{"id":"10.7278","type":"prefixes"},{"id":"10.7279","type":"prefixes"},{"id":"10.7280","type":"prefixes"},{"id":"10.7281","type":"prefixes"},{"id":"10.7282","type":"prefixes"},{"id":"10.7283","type":"prefixes"},{"id":"10.7284","type":"prefixes"},{"id":"10.7285","type":"prefixes"},{"id":"10.7286","type":"prefixes"},{"id":"10.7288","type":"prefixes"},{"id":"10.7289","type":"prefixes"},{"id":"10.7290","type":"prefixes"},{"id":"10.7291","type":"prefixes"},{"id":"10.7292","type":"prefixes"},{"id":"10.7293","type":"prefixes"},{"id":"10.7295","type":"prefixes"},{"id":"10.7296","type":"prefixes"},{"id":"10.7297","type":"prefixes"},{"id":"10.7298","type":"prefixes"},{"id":"10.7299","type":"prefixes"},{"id":"10.7300","type":"prefixes"},{"id":"10.7303","type":"prefixes"},{"id":"10.4246","type":"prefixes"},{"id":"10.7908","type":"prefixes"},{"id":"10.7910","type":"prefixes"},{"id":"10.7911","type":"prefixes"},{"id":"10.7913","type":"prefixes"},{"id":"10.7914","type":"prefixes"},{"id":"10.7916","type":"prefixes"},{"id":"10.7917","type":"prefixes"},{"id":"10.7918","type":"prefixes"},{"id":"10.7919","type":"prefixes"},{"id":"10.7920","type":"prefixes"},{"id":"10.7921","type":"prefixes"},{"id":"10.7922","type":"prefixes"},{"id":"10.7924","type":"prefixes"},{"id":"10.7925","type":"prefixes"},{"id":"10.7927","type":"prefixes"},{"id":"10.7928","type":"prefixes"},{"id":"10.7929","type":"prefixes"},{"id":"10.7930","type":"prefixes"},{"id":"10.7931","type":"prefixes"},{"id":"10.7932","type":"prefixes"},{"id":"10.7933","type":"prefixes"},{"id":"10.7934","type":"prefixes"},{"id":"10.7936","type":"prefixes"},{"id":"10.7937","type":"prefixes"},{"id":"10.7939","type":"prefixes"},{"id":"10.7940","type":"prefixes"},{"id":"10.7941","type":"prefixes"},{"id":"10.7942","type":"prefixes"},{"id":"10.7943","type":"prefixes"},{"id":"10.7944","type":"prefixes"},{"id":"10.7945","type":"prefixes"},{"id":"10.7946","type":"prefixes"},{"id":"10.13022","type":"prefixes"},{"id":"10.13026","type":"prefixes"},{"id":"10.13025","type":"prefixes"},{"id":"10.13027","type":"prefixes"},{"id":"10.15147","type":"prefixes"},{"id":"10.15146","type":"prefixes"},{"id":"10.15142","type":"prefixes"},{"id":"10.15144","type":"prefixes"},{"id":"10.15145","type":"prefixes"},{"id":"10.15140","type":"prefixes"},{"id":"10.15141","type":"prefixes"},{"id":"10.15139","type":"prefixes"},{"id":"10.15138","type":"prefixes"},{"id":"10.1184","type":"prefixes"},{"id":"10.15788","type":"prefixes"},{"id":"10.15787","type":"prefixes"},{"id":"10.15785","type":"prefixes"},{"id":"10.15784","type":"prefixes"},{"id":"10.15779","type":"prefixes"},{"id":"10.15780","type":"prefixes"},{"id":"10.15781","type":"prefixes"},{"id":"10.15782","type":"prefixes"},{"id":"10.17612","type":"prefixes"},{"id":"10.17613","type":"prefixes"},{"id":"10.17610","type":"prefixes"},{"id":"10.17611","type":"prefixes"},{"id":"10.17614","type":"prefixes"},{"id":"10.17615","type":"prefixes"},{"id":"10.17602","type":"prefixes"},{"id":"10.17603","type":"prefixes"},{"id":"10.17606","type":"prefixes"},{"id":"10.17908","type":"prefixes"},{"id":"10.17916","type":"prefixes"},{"id":"10.17915","type":"prefixes"},{"id":"10.17918","type":"prefixes"},{"id":"10.17919","type":"prefixes"},{"id":"10.17910","type":"prefixes"},{"id":"10.17911","type":"prefixes"},{"id":"10.17913","type":"prefixes"},{"id":"10.17920","type":"prefixes"},{"id":"10.18125","type":"prefixes"},{"id":"10.18123","type":"prefixes"},{"id":"10.18124","type":"prefixes"},{"id":"10.18119","type":"prefixes"},{"id":"10.18118","type":"prefixes"},{"id":"10.18117","type":"prefixes"},{"id":"10.18115","type":"prefixes"},{"id":"10.18431","type":"prefixes"},{"id":"10.18436","type":"prefixes"},{"id":"10.18437","type":"prefixes"},{"id":"10.18439","type":"prefixes"},{"id":"10.18737","type":"prefixes"},{"id":"10.18736","type":"prefixes"},{"id":"10.18739","type":"prefixes"},{"id":"10.18734","type":"prefixes"},{"id":"10.20353","type":"prefixes"},{"id":"10.20354","type":"prefixes"},{"id":"10.20352","type":"prefixes"},{"id":"10.20357","type":"prefixes"},{"id":"10.20358","type":"prefixes"},{"id":"10.20359","type":"prefixes"},{"id":"10.21228","type":"prefixes"},{"id":"10.21229","type":"prefixes"},{"id":"10.21224","type":"prefixes"},{"id":"10.21222","type":"prefixes"},{"id":"10.21223","type":"prefixes"},{"id":"10.21221","type":"prefixes"},{"id":"10.21237","type":"prefixes"},{"id":"10.21238","type":"prefixes"},{"id":"10.21239","type":"prefixes"},{"id":"10.21236","type":"prefixes"},{"id":"10.21430","type":"prefixes"},{"id":"10.21433","type":"prefixes"},{"id":"10.21431","type":"prefixes"},{"id":"10.21420","type":"prefixes"},{"id":"10.21421","type":"prefixes"},{"id":"10.21422","type":"prefixes"},{"id":"10.21423","type":"prefixes"},{"id":"10.21424","type":"prefixes"},{"id":"10.21425","type":"prefixes"},{"id":"10.21426","type":"prefixes"},{"id":"10.21427","type":"prefixes"},{"id":"10.21428","type":"prefixes"},{"id":"10.21418","type":"prefixes"},{"id":"10.21415","type":"prefixes"},{"id":"10.21416","type":"prefixes"},{"id":"10.21414","type":"prefixes"},{"id":"10.21972","type":"prefixes"},{"id":"10.21973","type":"prefixes"},{"id":"10.21975","type":"prefixes"},{"id":"10.21976","type":"prefixes"},{"id":"10.21977","type":"prefixes"},{"id":"10.21978","type":"prefixes"},{"id":"10.21990","type":"prefixes"},{"id":"10.21983","type":"prefixes"},{"id":"10.21980","type":"prefixes"},{"id":"10.21986","type":"prefixes"},{"id":"10.5195","type":"prefixes"},{"id":"10.25334","type":"prefixes"},{"id":"10.25337","type":"prefixes"},{"id":"10.25338","type":"prefixes"},{"id":"10.25342","type":"prefixes"},{"id":"10.25349","type":"prefixes"},{"id":"10.25348","type":"prefixes"},{"id":"10.25347","type":"prefixes"},{"id":"10.25346","type":"prefixes"},{"id":"10.25345","type":"prefixes"},{"id":"10.25344","type":"prefixes"},{"id":"10.25352","type":"prefixes"},{"id":"10.25350","type":"prefixes"},{"id":"10.25351","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:45 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:14 GMT
 - request:
     method: get
     uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.7910/dvn/eqtqyo%22&q=10.7910/dvn/eqtqyo&wt=json
@@ -74,7 +74,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 04:30:45 GMT
+      - Wed, 05 Sep 2018 09:01:14 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -91,16 +91,16 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":12},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2017-04-12T19:46:36Z","prefix":"10.7910","dataset_id":"10787370","has_media":false,"datacentre_symbol":"CDL.DATAVERS","datacentre":"CDL.DATAVERS
+      string: '{"responseHeader":{"status":0,"QTime":10},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2017-04-12T19:46:36Z","prefix":"10.7910","dataset_id":"10787370","has_media":false,"datacentre_symbol":"CDL.DATAVERS","datacentre":"CDL.DATAVERS
         - Harvard Dataverse","datacentre_facet":"CDL.DATAVERS - Harvard Dataverse","allocator":"CDL
         - California Digital Library","allocator_facet":"CDL - California Digital
         Library","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","has_metadata":true,"allocator_symbol":"CDL","uploaded":"2017-04-12T19:46:36Z","namespace":"http://datacite.org/schema/kernel-4","minted":"2017-04-12T19:46:37Z","state":"findable","updated":"2017-04-12T19:46:37Z","doi":"10.7910/DVN/EQTQYO","schema_version":"4","creator":["Enos,
         Ryan (Harvard University); Fowler, Anthony (University of Chicago); Vavreck,
         Lynn (UCLA)"],"resourceTypeGeneral":"Dataset","publisher":"Harvard Dataverse","publicationYear":"2017","title":["Replication
         Data for: Increasing Inequality: The Effect of GOTV Mobilization on the Composition
-        of the Electorate"],"resourceType":"","_version_":1610700143300968448,"indexed":"2018-09-04T17:49:18.098Z"}]}}
+        of the Electorate"],"resourceType":"","_version_":1610730313898524673,"indexed":"2018-09-05T01:48:51.022Z"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 04:30:45 GMT
+  recorded_at: Wed, 05 Sep 2018 09:01:14 GMT
 recorded_with: VCR 3.0.3

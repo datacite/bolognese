@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,9 +17,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 May 2018 15:02:06 GMT
+      - Wed, 05 Sep 2018 09:02:50 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
@@ -30,19 +30,19 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"258c3a49bbc303b1229efe2fae9cc9e2"
-      X-Runtime:
-      - '0.466001'
       X-Request-Id:
-      - e92adb49-1e3a-4e5f-9583-91878d158b5d
+      - 626dfe15-fd11-4ecf-921e-b7625710c8e3
+      Etag:
+      - W/"381993dc8a6b0f20960c96a3639c0284"
+      X-Runtime:
+      - '0.049181'
       X-Powered-By:
-      - Phusion Passenger 5.3.1
+      - Phusion Passenger 5.3.4
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.1
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.7554","type":"handles","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}}}'
+      string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
     http_version: 
-  recorded_at: Mon, 21 May 2018 15:02:06 GMT
+  recorded_at: Wed, 05 Sep 2018 09:02:50 GMT
 recorded_with: VCR 3.0.3

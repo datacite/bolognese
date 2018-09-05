@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.25491/8kmc-g314%22&q=10.25491/8kmc-g314&wt=json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Sep 2018 09:01:06 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+      Access-Control-Expose-Headers:
+      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: '{"responseHeader":{"status":0,"QTime":13},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2018-06-06T20:28:13Z","prefix":"10.25491","dataset_id":"15200176","has_media":true,"datacentre_symbol":"DATACITE.GTEX","url":"https://ors.datacite.org/doi:/10.25491/8kmc-g314","datacentre":"DATACITE.GTEX
+        - GTEx","datacentre_facet":"DATACITE.GTEX - GTEx","allocator":"DATACITE -
+        DataCite","allocator_facet":"DATACITE - DataCite","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjU0OTEvOEtNQy1HMzE0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5UaGUgR1RFeCBDb25zb3J0aXVtPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+Q292YXJpYXRlcyB1c2VkIGluIGVRVEwgYW5hbHlzaXMuIEluY2x1ZGVzIGdlbm90eXBpbmcgcHJpbmNpcGFsIGNvbXBvbmVudHMgYW5kIFBFRVIgZmFjdG9yczwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HVEV4PC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE3PC9wdWJsaWNhdGlvblllYXI+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+Z3RleDwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmFubm90YXRpb248L3N1YmplY3Q+CiAgICA8c3ViamVjdD5waGVub3R5cGU8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5nZW5lIHJlZ3VsYXRpb248L3N1YmplY3Q+CiAgICA8c3ViamVjdD50cmFuc2NyaXB0b21pY3M8L3N1YmplY3Q+CiAgPC9zdWJqZWN0cz4KICA8ZnVuZGluZ1JlZmVyZW5jZXM+CiAgICA8ZnVuZGluZ1JlZmVyZW5jZT4KICAgICAgPGZ1bmRlck5hbWU+Q29tbW9uIEZ1bmQgb2YgdGhlIE9mZmljZSBvZiB0aGUgRGlyZWN0b3Igb2YgdGhlIE5JSDwvZnVuZGVyTmFtZT4KICAgICAgPGZ1bmRlcklkZW50aWZpZXIgZnVuZGVySWRlbnRpZmllclR5cGU9IkNyb3NzcmVmIEZ1bmRlciBJRCI+aHR0cDovL2RvaS5vcmcvMTAuMTMwMzkvMTAwMDAwMDUyPC9mdW5kZXJJZGVudGlmaWVyPgogICAgPC9mdW5kaW5nUmVmZXJlbmNlPgogICAgPGZ1bmRpbmdSZWZlcmVuY2U+CiAgICAgIDxmdW5kZXJOYW1lPk5hdGlvbmFsIENhbmNlciBJbnN0aXR1dGUgKE5DSSk8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHA6Ly9kb2kub3JnLzEwLjEzMDM5LzEwMDAwMDA1NDwvZnVuZGVySWRlbnRpZmllcj4KICAgIDwvZnVuZGluZ1JlZmVyZW5jZT4KICAgIDxmdW5kaW5nUmVmZXJlbmNlPgogICAgICA8ZnVuZGVyTmFtZT5OYXRpb25hbCBIdW1hbiBHZW5vbWUgUmVzZWFyY2ggSW5zdGl0dXRlIChOSEdSSSk8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHA6Ly9kb2kub3JnLzEwLjEzMDM5LzEwMDAwMDA1MTwvZnVuZGVySWRlbnRpZmllcj4KICAgIDwvZnVuZGluZ1JlZmVyZW5jZT4KICAgIDxmdW5kaW5nUmVmZXJlbmNlPgogICAgICA8ZnVuZGVyTmFtZT5OYXRpb25hbCBIZWFydCwgTHVuZywgYW5kIEJsb29kIEluc3RpdHV0ZSAoTkhMQkkpPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj5odHRwOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwNTA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgICA8ZnVuZGluZ1JlZmVyZW5jZT4KICAgICAgPGZ1bmRlck5hbWU+TmF0aW9uYWwgSW5zdGl0dXRlIG9uIERydWcgQWJ1c2UgKE5JREEpPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj5odHRwOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwMjY8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgICA8ZnVuZGluZ1JlZmVyZW5jZT4KICAgICAgPGZ1bmRlck5hbWU+TmF0aW9uYWwgSW5zdGl0dXRlIG9mIE1lbnRhbCBIZWFsdGggKE5JTUgpPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj5odHRwOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwMjU8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgICA8ZnVuZGluZ1JlZmVyZW5jZT4KICAgICAgPGZ1bmRlck5hbWU+TmF0aW9uYWwgSW5zdGl0dXRlIG9mIE5ldXJvbG9naWNhbCBEaXNvcmRlcnMgYW5kIFN0cm9rZSAoTklORFMpPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj5odHRwOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwNjU8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgPC9mdW5kaW5nUmVmZXJlbmNlcz4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkNvdmFyaWF0ZXMgdXNlZCBpbiBlUVRMIGFuYWx5c2lzPC9yZXNvdXJjZVR5cGU+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNzwvZGF0ZT4KICA8L2RhdGVzPgogIDxhbHRlcm5hdGVJZGVudGlmaWVycz4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJtZDUiPmM3Yzg5ZmU3MzY2ZDUwY2Q3NTQ0OGFhNjAzYzlkZTU4PC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGlvblR5cGU9IkRvY3VtZW50cyIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiPmh0dHA6Ly9pZGVudGlmaWVycy5vcmcvZGJnYXA6cGhzMDAwNDI0LnY3LnAyPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGlvblR5cGU9IklzRG9jdW1lbnRlZEJ5IiByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSI+aHR0cHM6Ly9kb2kub3JnLzEwLjEwMzgvbmF0dXJlMjQyNzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxzaXplcz4KICAgIDxzaXplPjMuNk08L3NpemU+CiAgPC9zaXplcz4KICA8Zm9ybWF0cz4KICAgIDwvZm9ybWF0cz4KICA8dmVyc2lvbj52NzwvdmVyc2lvbj4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iU2VyaWVzSW5mb3JtYXRpb24iPkdURXg8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","has_metadata":true,"allocator_symbol":"DATACITE","uploaded":"2018-07-25T12:38:20Z","namespace":"http://datacite.org/schema/kernel-4","checked":"2018-08-22T06:59:10Z","minted":"2018-06-06T20:59:10Z","state":"findable","updated":"2018-07-25T12:39:26Z","doi":"10.25491/8KMC-G314","schema_version":"4","date":["2017"],"relatedIdentifier":["Documents:URL:http://identifiers.org/dbgap:phs000424.v7.p2","IsDocumentedBy:DOI:https://doi.org/10.1038/nature24277"],"subject":["gtex","annotation","phenotype","gene
+        regulation","transcriptomics"],"description":["GTEx"],"title":["Covariates
+        used in eQTL analysis. Includes genotyping principal components and PEER factors"],"funderIdentifier":["Crossref
+        Funder ID:http://doi.org/10.13039/100000052","Crossref Funder ID:http://doi.org/10.13039/100000054","Crossref
+        Funder ID:http://doi.org/10.13039/100000051","Crossref Funder ID:http://doi.org/10.13039/100000050","Crossref
+        Funder ID:http://doi.org/10.13039/100000026","Crossref Funder ID:http://doi.org/10.13039/100000025","Crossref
+        Funder ID:http://doi.org/10.13039/100000065"],"dateType":["Issued"],"descriptionType":["SeriesInformation"],"alternateIdentifier":["md5:c7c89fe7366d50cd75448aa603c9de58"],"creator":["The
+        GTEx Consortium"],"resourceTypeGeneral":"Dataset","version":"v7","size":["3.6M"],"publisher":"GTEx","publicationYear":"2017","resourceType":"Covariates
+        used in eQTL analysis","media":["application/gzip:https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz"],"_version_":1610741817605619712,"indexed":"2018-09-05T04:51:41.812Z"}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:01:06 GMT
+recorded_with: VCR 3.0.3

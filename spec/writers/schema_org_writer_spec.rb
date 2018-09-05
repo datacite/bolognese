@@ -120,7 +120,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(json["name"]).to eq("Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
-      expect(json["keywords"]).to eq("GetInfo, Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Development, Growth/Morphology, Laboratory experiment, Mollusca, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(json["keywords"]).to eq("GetInfo, Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
     end
 
     it "author is organization" do
@@ -172,19 +172,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.23725/8na3-9s47")
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("NWD165827.recab.cram")
-      expect(json["author"]).to eq("@type"=>"Organization", "name"=>"TOPMed IRC")
+      expect(json["author"]).to eq("name"=>"TOPMed")
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["identifier"]).to eq(["https://doi.org/10.23725/8na3-9s47",
-        {"@type"=>"PropertyValue",
-         "propertyID"=>"md5",
-         "value"=>"3b33f6b9338fccab0901b7d317577ea3"},
-        {"@type"=>"PropertyValue",
-         "propertyID"=>"minid",
-         "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
-        {"@type"=>"PropertyValue",
-          "propertyID"=>"dataguid",
-          "value"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}])
-      expect(json["contentUrl"]).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
+      expect(json["identifier"]).to eq(
+        ["https://doi.org/10.23725/8na3-9s47",
+           {"@type"=>"PropertyValue",
+            "propertyID"=>"minid",
+            "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
+           {"@type"=>"PropertyValue",
+            "propertyID"=>"dataguid",
+            "value"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"},
+           {"@type"=>"PropertyValue",
+            "propertyID"=>"md5",
+            "value"=>"3b33f6b9338fccab0901b7d317577ea3"}]
+      )
+      expect(json["contentUrl"]).to include("s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram")
     end
 
     it "from schema_org gtex" do

@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://raw.githubusercontent.com/datacite/metadata-reports/master/software/codemeta.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - application/json;charset=UTF-8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Xss-Protection:
+      - 1; mode=block
+      Etag:
+      - '"829d41492381ab4cff071648f8adc8785d1e74bf"'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Cache-Control:
+      - max-age=300
+      X-Geo-Block-List:
+      - ''
+      X-Github-Request-Id:
+      - 6AA4:10D7:277E:2A0E:5B8F9BC5
+      Content-Length:
+      - '1624'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 05 Sep 2018 09:03:02 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-hhn1542-HHN
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1536138183.624639,VS0,VE113
+      Vary:
+      - Authorization,Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Fastly-Request-Id:
+      - b4190ada03b1e2b00485836361c73304017e24e7
+      Expires:
+      - Wed, 05 Sep 2018 09:08:02 GMT
+      Source-Age:
+      - '0'
+    body:
+      encoding: ASCII-8BIT
+      string: "{\n\t\"@context\": \"https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld\",\n\t\"@type\":
+        \"SoftwareSourceCode\",\n\t\"@id\": \"https://doi.org/10.5438/wr0x-e194\",\n\t\"agents\":
+        [\n    {\n      \"@id\": \"https://orcid.org/0000-0003-0077-4738\",\n      \"@type\":
+        \"person\",\n      \"name\": \"Martin Fenner\",\n      \"mustBeCited\": true,\n
+        \     \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    },\n    {\n
+        \     \"@id\": \"https://orcid.org/0000-0001-5934-7525\",\n      \"@type\":
+        \"person\",\n      \"name\": \"Daniel S. Katz\",\n      \"mustBeCited\": true,\n
+        \     \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    },\n    {\n
+        \     \"@id\": \"https://orcid.org/0000-0002-3957-2474\",\n      \"@type\":
+        \"person\",\n      \"name\": \"Arfon Smith\",\n      \"mustBeCited\": true,\n
+        \     \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    },\n    {\n
+        \     \"@id\": \"https://orcid.org/0000-0001-8135-3489\",\n      \"@type\":
+        \"person\",\n      \"name\": \"Lars Holm Nielsen\",\n      \"mustBeCited\":
+        true,\n      \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    }\n
+        \ ],\n\t\"identifier\": \"https://doi.org/10.5438/wr0x-e194\",\n\t\"codeRepository\":
+        \"https://github.com/datacite/metadata-reports\",\n\t\"controlledTem\": \"software\",\n\t\"dateCreated\":
+        \"2018-03-09\",\n\t\"datePublished\": \"2018-05-17\",\n\t\"dateModified\":
+        \"2018-05-17\",\n\t\"description\": \"Analysis of DataCite DOIs registered
+        for software, broken down by repository and over time.\",\n\t\"isAutomatedBuild\":
+        true,\n\t\"licenseId\": \"MIT\",\n\t\"publisher\": \"DataCite\",\n\t\"tags\":
+        [\n\t\t\"doi\",\n\t\t\"software\",\n\t\t\"codemeta\"\n\t],\n\t\"title\": \"DOI
+        Registrations for Software\",\n\t\"programmingLanguage\": {\n\t\t\"name\":
+        \"R\",\n\t\t\"URL\": \"https://www.r-project.org/\"\n\t}\n}\n"
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:03:02 GMT
+recorded_with: VCR 3.0.3

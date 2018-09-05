@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://app.datacite.org/prefixes/10.3980
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Sep 2018 09:02:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - b8c6d03e-3117-484b-b72b-428e1ae0768e
+      Etag:
+      - W/"feb91682cd56bffc71f1169c6c0f263a"
+      X-Runtime:
+      - '0.079642'
+      X-Powered-By:
+      - Phusion Passenger 5.3.4
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.3980","type":"prefixes","attributes":{"registration-agency":"ISTIC","created":null,"updated":"2016-09-20T21:59:03Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
+    http_version: 
+  recorded_at: Wed, 05 Sep 2018 09:02:37 GMT
+recorded_with: VCR 3.0.3
