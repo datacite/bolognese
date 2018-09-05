@@ -198,8 +198,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.2314/coscv1")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.author.length).to eq(2)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Neumann, Janna", "givenName"=>"Janna", "familyName"=>"Neumann")
+      expect(subject.author.length).to eq(14)
+      expect(subject.author.first).to include("type"=>"Person", "name"=>"Lambert Heller", "givenName"=>"Lambert", "familyName"=>"Heller")
     end
 
     it "keywords with attributes" do
@@ -458,8 +458,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.23725/8na3-9s47")
       expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")
-      expect(subject.alternate_identifier).to eq([{"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"}])
-      expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
+      expect(subject.alternate_identifier).to include({"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"})
+      expect(subject.content_url).to include("s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram")
     end
 
     it "empty subject" do

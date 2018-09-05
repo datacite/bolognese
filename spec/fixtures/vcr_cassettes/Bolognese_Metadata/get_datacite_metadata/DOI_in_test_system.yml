@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,9 +17,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 May 2018 15:01:38 GMT
+      - Wed, 05 Sep 2018 04:30:49 GMT
       Content-Type:
-      - application/vnd.api+json; charset=utf-8
+      - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
@@ -30,31 +30,75 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"327973d6dfd964052b23f789a12aa68d"
-      X-Runtime:
-      - '0.013249'
       X-Request-Id:
-      - 915c67cf-319a-44cd-8a35-c5da4f25ed75
+      - 6fa2b77d-28cc-477f-a305-0c2491fbb587
+      Etag:
+      - W/"4cee86bb09008bfa65612322068addfa"
+      X-Runtime:
+      - '0.026319'
       X-Powered-By:
-      - Phusion Passenger 5.3.1
+      - Phusion Passenger 5.3.4
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.1
+      - nginx/1.14.0 + Phusion Passenger 5.3.4
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuMjIwMDIiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMyLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJDYWx0ZWNoIiwic3ltYm9sIjoiVElORC5DQUxURUNIIiwieWVhciI6MjAxNiwiY29udGFjdC1uYW1lIjoiVElORCIsImNvbnRhY3QtZW1haWwiOiJ0ZWNoQHRpbmQuaW8iLCJkb21haW5zIjoiZGF0YS5jYWx0ZWNoLmVkdSIsInVybCI6bnVsbCwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWUsImNyZWF0ZWQiOiIyMDE2LTEyLTE1VDEyOjI5OjU3WiIsInVwZGF0ZWQiOiIyMDE4LTA1LTIxVDAyOjMwOjM1WiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7Im1ldGEiOnt9fSwicHJvdmlkZXIiOnsibWV0YSI6e319LCJyZXBvc2l0b3J5Ijp7Im1ldGEiOnt9fX19LHsiaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IlRJTkQiLCJzeW1ib2wiOiJUSU5EIiwid2Vic2l0ZSI6Imh0dHA6Ly90aW5kLmlvIiwiY29udGFjdC1uYW1lIjoiQXVkdW4gQmrDuHJrw7h5IiwiY29udGFjdC1lbWFpbCI6ImF1ZHVuQHRpbmR0ZWNobm9sb2dpZXMuY29tIiwicGhvbmUiOm51bGwsImRlc2NyaXB0aW9uIjoiVElORCBpcyBhbiBvZmZpY2lhbCBzcGluLW9mZiBmcm9tIHRoZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2ggKENFUk4pLCBwcm92aWRpbmcgc2VydmljZXMgZm9yIGxpYnJhcnkgbWFuYWdlbWVudCBhbmQgZGF0YSBtYW5hZ2VtZW50IGJhc2VkIG9uIENFUk4tZGV2ZWxvcGVkLCBvcGVuIHNvdXJjZSB0ZWNobm9sb2d5LiBFc3RhYmxpc2hlZCBpbiAyMDEzLCBUSU5EIGlzIHByb3ZpZGluZyBpdOKAmXMgc2VydmljZXMgdG8gbGVhZGluZyByZXNlYXJjaCBpbnN0aXR1dGlvbnMgYW5kIElHT3Mgc3VjaCBhcyBDYWx0ZWNoIGFuZCB0aGUgVW5pdGVkIE5hdGlvbnMuIiwiY291bnRyeSI6IkNIIiwibG9nby11cmwiOiJodHRwczovL2Fzc2V0cy5kYXRhY2l0ZS5vcmcvaW1hZ2VzL21lbWJlcnMvdGluZC5wbmciLCJpbnN0aXR1dGlvbi10eXBlIjpudWxsLCJpcy1hY3RpdmUiOnRydWUsImhhcy1wYXNzd29yZCI6dHJ1ZSwiam9pbmVkIjoiMjAxNi0wNi0yNyIsImNyZWF0ZWQiOiIyMDE2LTA3LTExVDE0OjU2OjI2LjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wNS0yMVQwMjoyNTo1Mi4wMDBaIn0sInJlbGF0aW9uc2hpcHMiOnsiY2xpZW50cyI6eyJtZXRhIjp7fX0sInByZWZpeGVzIjp7Im1ldGEiOnt9fX19XX0=
+        eyJkYXRhIjp7ImlkIjoiMTAuMjIwMDIiLCJ0eXBlIjoicHJlZml4ZXMiLCJh
+        dHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIs
+        ImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMyLjAwMFoiLCJ1cGRhdGVk
+        IjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7
+        ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92
+        aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVy
+        cyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlw
+        ZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJDYWx0ZWNoREFU
+        QSIsInN5bWJvbCI6IlRJTkQuQ0FMVEVDSCIsInllYXIiOjIwMTYsImNvbnRh
+        Y3QtbmFtZSI6IlRJTkQiLCJjb250YWN0LWVtYWlsIjoidGVjaEB0aW5kLmlv
+        IiwiZG9tYWlucyI6ImRhdGEuY2FsdGVjaC5lZHUiLCJ1cmwiOm51bGwsImNy
+        ZWF0ZWQiOiIyMDE2LTEyLTE1VDEyOjI5OjU3LjAwMFoiLCJ1cGRhdGVkIjoi
+        MjAxOC0wOC0yNlQwMjozNTo0OS4wMDBaIiwiaXMtYWN0aXZlIjp0cnVlLCJo
+        YXMtcGFzc3dvcmQiOnRydWV9LCJyZWxhdGlvbnNoaXBzIjp7InByb3ZpZGVy
+        Ijp7ImRhdGEiOnsiaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9fSwi
+        cmVwb3NpdG9yeSI6eyJkYXRhIjp7ImlkIjoicjNkMTAwMDEyMzg0IiwidHlw
+        ZSI6InJlcG9zaXRvcmllcyJ9fSwicHJlZml4ZXMiOnsiZGF0YSI6W3siaWQi
+        OiIxMC41MDcyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDAy
+        IiwidHlwZSI6InByZWZpeGVzIn1dfX19LHsiaWQiOiJ0aW5kIiwidHlwZSI6
+        InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IlRJTkQiLCJzeW1i
+        b2wiOiJUSU5EIiwid2Vic2l0ZSI6Imh0dHA6Ly90aW5kLmlvIiwiY29udGFj
+        dC1uYW1lIjoiQXVkdW4gQmrDuHJrw7h5IiwiY29udGFjdC1lbWFpbCI6ImF1
+        ZHVuQHRpbmR0ZWNobm9sb2dpZXMuY29tIiwicGhvbmUiOm51bGwsImRlc2Ny
+        aXB0aW9uIjoiVElORCBpcyBhbiBvZmZpY2lhbCBzcGluLW9mZiBmcm9tIHRo
+        ZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2gg
+        KENFUk4pLCBwcm92aWRpbmcgc2VydmljZXMgZm9yIGxpYnJhcnkgbWFuYWdl
+        bWVudCBhbmQgZGF0YSBtYW5hZ2VtZW50IGJhc2VkIG9uIENFUk4tZGV2ZWxv
+        cGVkLCBvcGVuIHNvdXJjZSB0ZWNobm9sb2d5LiBFc3RhYmxpc2hlZCBpbiAy
+        MDEzLCBUSU5EIGlzIHByb3ZpZGluZyBpdOKAmXMgc2VydmljZXMgdG8gbGVh
+        ZGluZyByZXNlYXJjaCBpbnN0aXR1dGlvbnMgYW5kIElHT3Mgc3VjaCBhcyBD
+        YWx0ZWNoIGFuZCB0aGUgVW5pdGVkIE5hdGlvbnMuIiwicmVnaW9uIjoiRU1F
+        QSIsImNvdW50cnkiOiJDSCIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMu
+        ZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL3RpbmQucG5nIiwiaW5zdGl0
+        dXRpb24tdHlwZSI6bnVsbCwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dv
+        cmQiOnRydWUsImpvaW5lZCI6IjIwMTYtMDYtMjciLCJjcmVhdGVkIjoiMjAx
+        Ni0wNy0xMVQxNDo1NjoyNi4wMDBaIiwidXBkYXRlZCI6IjIwMTgtMDgtMjZU
+        MDI6MjU6NTIuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7
+        ImRhdGEiOlt7ImlkIjoiMTAuNTA3MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsi
+        aWQiOiIxMC42MDgyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIy
+        MDA1IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDAzIiwidHlw
+        ZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDA0IiwidHlwZSI6InByZWZp
+        eGVzIn0seyJpZCI6IjEwLjIyMDAxIiwidHlwZSI6InByZWZpeGVzIn0seyJp
+        ZCI6IjEwLjIyMDAyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjI1
+        ODQ2IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjI1OTM4IiwidHlw
+        ZSI6InByZWZpeGVzIn1dfX19XX0=
     http_version: 
-  recorded_at: Mon, 21 May 2018 15:01:38 GMT
+  recorded_at: Wed, 05 Sep 2018 04:30:49 GMT
 - request:
     method: get
-    uri: https://search.test.datacite.org/api?defType=edismax&fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=10.22002/d1.694&wt=json
+    uri: https://search.test.datacite.org/api?defType=edismax&fq=doi:%2210.22002/d1.694%22&q=10.22002/d1.694&wt=json
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Maremma 4.0.5 - https://github.com/datacite/maremma
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -63,7 +107,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 21 May 2018 15:01:38 GMT
+      - Wed, 05 Sep 2018 04:30:49 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -80,9 +124,13 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":4},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIND.CAL","url":"https://data.caltech.edu/records/694","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"TIND","minted":"2018-01-12T14:42:51Z","state":"findable","updated":"2018-02-16T10:09:12Z","doi":"10.22002/D1.694"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":3},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2018-01-12T14:42:51Z","prefix":"10.22002","dataset_id":"2176212","has_media":false,"datacentre_symbol":"TIND.CAL","url":"https://data.caltech.edu/records/694","datacentre":"TIND.CAL
+        - California Institute of Technology","datacentre_facet":"TIND.CAL - California
+        Institute of Technology","allocator":"TIND - TIND Technologies","allocator_facet":"TIND
+        - TIND Technologies","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","has_metadata":true,"allocator_symbol":"TIND","uploaded":"2018-02-16T10:09:11Z","namespace":"http://datacite.org/schema/kernel-4","minted":"2018-01-12T14:42:51Z","state":"findable","updated":"2018-02-16T10:09:12Z","doi":"10.22002/D1.694","schema_version":"4","date":["2018-01-12"],"creator":["Tester"],"resourceTypeGeneral":"Dataset","spdx":["www.google.com"],"subject":["Test"],"format":[""],"language":"eng","title":["Test
+        license"],"version":"1.0","dateType":["Issued"],"rightsURI":["www.google.com"],"rights":["cc-zero"],"publisher":"CaltechDATA","publicationYear":"2018","resourceType":"","_version_":1610740231418413057,"indexed":"2018-09-05T04:26:29.107Z"}]}}
 
 '
     http_version: 
-  recorded_at: Mon, 21 May 2018 15:01:38 GMT
+  recorded_at: Wed, 05 Sep 2018 04:30:49 GMT
 recorded_with: VCR 3.0.3
