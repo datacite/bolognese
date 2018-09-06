@@ -161,7 +161,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Covariates used in eQTL analysis. Includes genotyping principal components and PEER factors")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
-      expect(json["identifier"]).to eq(["https://doi.org/10.25491/8kmc-g314", {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
+      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.25491/8kmc-g314"},{"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
       expect(json["contentUrl"]).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz"])
     end
 
@@ -175,16 +175,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"]).to eq("name"=>"TOPMed")
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["identifier"]).to eq(
-        ["https://doi.org/10.23725/8na3-9s47",
-           {"@type"=>"PropertyValue",
-            "propertyID"=>"minid",
-            "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
-           {"@type"=>"PropertyValue",
-            "propertyID"=>"dataguid",
-            "value"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"},
-           {"@type"=>"PropertyValue",
-            "propertyID"=>"md5",
-            "value"=>"3b33f6b9338fccab0901b7d317577ea3"}]
+        [{"@type"=>"PropertyValue",
+          "propertyID"=>"doi",
+          "value"=>"https://doi.org/10.23725/8na3-9s47"},
+         {"@type"=>"PropertyValue",
+          "propertyID"=>"minid",
+          "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
+         {"@type"=>"PropertyValue",
+          "propertyID"=>"dataguid",
+          "value"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"},
+         {"@type"=>"PropertyValue",
+          "propertyID"=>"md5",
+          "value"=>"3b33f6b9338fccab0901b7d317577ea3"}]
       )
       expect(json["contentUrl"]).to include("s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram")
     end
@@ -195,7 +197,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/d50j-3083")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["identifier"]).to eq(["https://doi.org/10.25491/d50j-3083", {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"687610993"}])
+      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.25491/d50j-3083"}, {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"687610993"}])
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(json["additionalType"]).to eq("Gene expression matrices")
       expect(json["name"]).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
@@ -237,14 +239,17 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.23725/8na3-9s47")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["identifier"]).to eq(["https://doi.org/10.23725/8na3-9s47",
-        {"@type"=>"PropertyValue",
-         "propertyID"=>"md5",
-         "value"=>"3b33f6b9338fccab0901b7d317577ea3"},
-        {"@type"=>"PropertyValue",
-         "propertyID"=>"minid",
-         "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
-        {"@type"=>"PropertyValue",
+      expect(json["identifier"]).to eq(
+        [{"@type"=>"PropertyValue",
+          "propertyID"=>"doi",
+          "value"=>"https://doi.org/10.23725/8na3-9s47"},
+         {"@type"=>"PropertyValue",
+          "propertyID"=>"md5",
+          "value"=>"3b33f6b9338fccab0901b7d317577ea3"},
+         {"@type"=>"PropertyValue",
+          "propertyID"=>"minid",
+          "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
+         {"@type"=>"PropertyValue",
           "propertyID"=>"dataguid",
           "value"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}])
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")

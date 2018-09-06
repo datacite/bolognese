@@ -535,19 +535,24 @@ module Bolognese
     end
 
     def to_schema_org_identifier(element, options={})
+      ident = { 
+        "@type" => "PropertyValue",
+        "propertyID" => normalize_doi(element) ? "doi" : "url",
+        "value" => element }
+
       if options[:alternate_identifier].present?
-        [identifier] + Array.wrap(options[:alternate_identifier]).map do |ai|
-                         if ai["type"].to_s.downcase == "url"
-                           ai["name"]
-                         else
-                           { 
-                             "@type" => "PropertyValue",
-                             "propertyID" => ai["type"],
-                             "value" => ai["name"] }
-                         end
-                       end
+        [ident] + Array.wrap(options[:alternate_identifier]).map do |ai|
+                    if ai["type"].to_s.downcase == "url"
+                      ai["name"]
+                    else
+                      { 
+                        "@type" => "PropertyValue",
+                        "propertyID" => ai["type"],
+                        "value" => ai["name"] }
+                    end
+                  end
       else
-        identifier
+        ident
       end
     end
 
