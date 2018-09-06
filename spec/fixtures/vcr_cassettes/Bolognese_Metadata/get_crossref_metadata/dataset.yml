@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 09:02:55 GMT
+      - Thu, 06 Sep 2018 07:23:53 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - '01109bdc-0d5d-46b8-a3cd-74b60705bbdd'
+      - cde2cfc2-2139-4033-b373-b1bd807bd393
       Etag:
       - W/"2dd6a762df65af452a927aac2d986c70"
       X-Runtime:
-      - '0.093766'
+      - '0.229956'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -44,7 +44,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:02:55 GMT
+  recorded_at: Thu, 06 Sep 2018 07:23:53 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
@@ -70,7 +70,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Wed, 05 Sep 2018 09:02:55 GMT
+      - Thu, 06 Sep 2018 07:23:53 GMT
       Connection:
       - close
     body:
@@ -94,5 +94,5 @@ http_interactions:
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:02:56 GMT
+  recorded_at: Thu, 06 Sep 2018 07:23:53 GMT
 recorded_with: VCR 3.0.3

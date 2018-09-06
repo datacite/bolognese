@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 09:01:19 GMT
+      - Thu, 06 Sep 2018 07:22:00 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - bae1d8ef-0fca-4c18-ab4e-2823278b9bf1
+      - 3f3abcc2-8c85-476e-8e10-47279e40fbca
       Etag:
       - W/"7cc1656d30bb4e9a5e1b99283b7135a7"
       X-Runtime:
-      - '0.024693'
+      - '0.025866'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -61,10 +61,10 @@ http_interactions:
         of datasets. The current focus of DataCite Netherlands is on promoting the
         use of digital object identifiers for datasets.","region":"EMEA","country":"NL","logo-url":"https://assets.datacite.org/images/members/delft.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-08-26T02:25:51.000Z"},"relationships":{"prefixes":{"data":[{"id":"10.4121","type":"prefixes"},{"id":"10.4233","type":"prefixes"},{"id":"10.5074","type":"prefixes"},{"id":"10.5290","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.6100","type":"prefixes"},{"id":"10.7480","type":"prefixes"},{"id":"10.14284","type":"prefixes"},{"id":"10.15133","type":"prefixes"},{"id":"10.15478","type":"prefixes"},{"id":"10.17027","type":"prefixes"},{"id":"10.17026","type":"prefixes"},{"id":"10.17046","type":"prefixes"},{"id":"10.17195","type":"prefixes"},{"id":"10.18146","type":"prefixes"},{"id":"10.18757","type":"prefixes"},{"id":"10.18758","type":"prefixes"},{"id":"10.21946","type":"prefixes"},{"id":"10.21945","type":"prefixes"},{"id":"10.21944","type":"prefixes"},{"id":"10.21943","type":"prefixes"},{"id":"10.21942","type":"prefixes"},{"id":"10.24415","type":"prefixes"},{"id":"10.24414","type":"prefixes"},{"id":"10.24413","type":"prefixes"},{"id":"10.24417","type":"prefixes"},{"id":"10.24416","type":"prefixes"},{"id":"10.25610","type":"prefixes"},{"id":"10.25609","type":"prefixes"},{"id":"10.25608","type":"prefixes"},{"id":"10.25607","type":"prefixes"},{"id":"10.25606","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:01:19 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:00 GMT
 - request:
     method: get
-    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.4121/uuid:3926db30-f712-4394-aebc-75976070e91f%22&q=10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -79,7 +79,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 09:01:19 GMT
+      - Thu, 06 Sep 2018 07:22:00 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -96,17 +96,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":25},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2012-04-24T08:32:06Z","prefix":"10.4121","dataset_id":"871217","has_media":false,"datacentre_symbol":"DELFT.DATA4TU","url":"https://data.4tu.nl/repository/uuid:3926db30-f712-4394-aebc-75976070e91f","datacentre":"DELFT.DATA4TU
-        - 4TU.Centre for Research Data","datacentre_facet":"DELFT.DATA4TU - 4TU.Centre
-        for Research Data","allocator":"DELFT - TU Delft Library","allocator_facet":"DELFT
-        - TU Delft Library","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC40MTIxL1VVSUQ6MzkyNkRCMzAtRjcxMi00Mzk0LUFFQkMtNzU5NzYwNzBFOTFGPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+dmFuIERvbmdlbiwgQi5GLiAoQm91ZGV3aWpuKTwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMi0zOTc4LTY0NjQ8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5CUEkgQ2hhbGxlbmdlIDIwMTI8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RWluZGhvdmVuIFVuaXZlcnNpdHkgb2YgVGVjaG5vbG9neTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PjAwMCBDb21wdXRlciBzY2llbmNlLCBrbm93bGVkZ2UgJmFtcDsgc3lzdGVtczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkJ1c2luZXNzIFByb2Nlc3MgSW50ZWxsaWdlbmNlIChCUEkpPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj5odHRwOi8vd3d3Lndpbi50dWUubmwvYnBpLzIwMTIvY2hhbGxlbmdlPC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkV2ZW50IGxvZyBvZiBhIGxvYW4gYXBwbGljYXRpb24gcHJvY2VzczwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ik90aGVyIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5FaW5kaG92ZW4gVW5pdmVyc2l0eSBvZiBUZWNobm9sb2d5PC9jb250cmlidXRvck5hbWU+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxsYW5ndWFnZT5ubDwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZUluZm9ybWF0aW9uPSJUZW1wb3JhbCBjb3ZlcmFnZSBvZiB0aGlzIGRhdGFzZXQuIiBkYXRlVHlwZT0iT3RoZXIiPjIwMTEtMTAtMDEvMjAxMi0wMy0xNDwvZGF0ZT4KICA8L2RhdGVzPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdD50ZXh0L3htbDwvZm9ybWF0PgogICAgPGZvcm1hdD5hcHBsaWNhdGlvbi94LWd6aXA8L2Zvcm1hdD4KICA8L2Zvcm1hdHM+CjwvcmVzb3VyY2U+","has_metadata":true,"allocator_symbol":"DELFT","uploaded":"2018-08-28T18:51:44Z","namespace":"http://datacite.org/schema/kernel-4","checked":"2018-09-04T21:39:43Z","minted":"2012-04-24T08:32:02Z","state":"findable","updated":"2018-08-28T18:51:44Z","doi":"10.4121/UUID:3926DB30-F712-4394-AEBC-75976070E91F","schema_version":"4","date":["2011-10-01/2012-03-14"],"relatedIdentifier":["References:URL:http://www.win.tue.nl/bpi/2012/challenge"],"subject":["000
-        Computer science, knowledge & systems","Business Process Intelligence (BPI)"],"description":["Event
-        log of a loan application process"],"language":"nl","title":["BPI Challenge
-        2012"],"contributor":["Eindhoven University of Technology"],"dateType":["Other"],"descriptionType":["Abstract"],"creator":["van
-        Dongen, B.F. (Boudewijn)"],"resourceTypeGeneral":"Dataset","format":["text/xml","application/x-gzip"],"publisher":"Eindhoven
-        University of Technology","publicationYear":"2012","contributorType":["Other"],"nameIdentifier":["ORCID:0000-0002-3978-6464"],"resourceType":"Dataset","_version_":1610728651148492800,"indexed":"2018-09-05T01:22:25.3Z"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"DELFT.DATA4TU","url":"https://data.4tu.nl/repository/uuid:3926db30-f712-4394-aebc-75976070e91f","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC40MTIxL1VVSUQ6MzkyNkRCMzAtRjcxMi00Mzk0LUFFQkMtNzU5NzYwNzBFOTFGPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+dmFuIERvbmdlbiwgQi5GLiAoQm91ZGV3aWpuKTwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMi0zOTc4LTY0NjQ8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5CUEkgQ2hhbGxlbmdlIDIwMTI8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RWluZGhvdmVuIFVuaXZlcnNpdHkgb2YgVGVjaG5vbG9neTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PjAwMCBDb21wdXRlciBzY2llbmNlLCBrbm93bGVkZ2UgJmFtcDsgc3lzdGVtczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkJ1c2luZXNzIFByb2Nlc3MgSW50ZWxsaWdlbmNlIChCUEkpPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj5odHRwOi8vd3d3Lndpbi50dWUubmwvYnBpLzIwMTIvY2hhbGxlbmdlPC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkV2ZW50IGxvZyBvZiBhIGxvYW4gYXBwbGljYXRpb24gcHJvY2VzczwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ik90aGVyIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5FaW5kaG92ZW4gVW5pdmVyc2l0eSBvZiBUZWNobm9sb2d5PC9jb250cmlidXRvck5hbWU+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxsYW5ndWFnZT5ubDwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZUluZm9ybWF0aW9uPSJUZW1wb3JhbCBjb3ZlcmFnZSBvZiB0aGlzIGRhdGFzZXQuIiBkYXRlVHlwZT0iT3RoZXIiPjIwMTEtMTAtMDEvMjAxMi0wMy0xNDwvZGF0ZT4KICA8L2RhdGVzPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdD50ZXh0L3htbDwvZm9ybWF0PgogICAgPGZvcm1hdD5hcHBsaWNhdGlvbi94LWd6aXA8L2Zvcm1hdD4KICA8L2Zvcm1hdHM+CjwvcmVzb3VyY2U+","allocator_symbol":"DELFT","minted":"2012-04-24T08:32:02Z","state":"findable","updated":"2018-08-28T18:51:44Z","doi":"10.4121/UUID:3926DB30-F712-4394-AEBC-75976070E91F"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:01:19 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:00 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.5067/altcy-tj122%22&q=10.5067/altcy-tj122&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5067/altcy-tj122&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 09:03:28 GMT
+      - Thu, 06 Sep 2018 07:24:44 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -34,14 +34,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":12},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2014-01-15T16:06:19Z","prefix":"10.5067","dataset_id":"2739801","has_media":false,"datacentre_symbol":"CDL.NASAGSFC","url":"http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_CYCLES_V2","datacentre":"CDL.NASAGSFC
-        - NASA Goddard Space Flight Center (GSFC)","datacentre_facet":"CDL.NASAGSFC
-        - NASA Goddard Space Flight Center (GSFC)","allocator":"CDL - California Digital
-        Library","allocator_facet":"CDL - California Digital Library","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA2Ny9BTFRDWS1USjEyMjwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkdTRkM8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5JbnRlZ3JhdGVkIE11bHRpLU1pc3Npb24gT2NlYW4gQWx0aW1ldGVyIERhdGEgZm9yIENsaW1hdGUgUmVzZWFyY2ggVmVyc2lvbiAyPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPk5BU0EgUE8uREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMzwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCIvPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","has_metadata":true,"allocator_symbol":"CDL","uploaded":"2018-08-31T15:40:46Z","namespace":"http://datacite.org/schema/kernel-3","minted":"2014-01-15T16:06:20Z","state":"findable","updated":"2018-08-31T15:40:47Z","doi":"10.5067/ALTCY-TJ122","schema_version":"3","creator":["GSFC"],"resourceTypeGeneral":"Dataset","descriptionType":["Abstract"],"publisher":"NASA
-        PO.DAAC","publicationYear":"2013","description":[""],"title":["Integrated
-        Multi-Mission Ocean Altimeter Data for Climate Research Version 2"],"resourceType":"Dataset","_version_":1610728799805112321,"indexed":"2018-09-05T01:24:47.07Z"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.NASAGSFC","url":"http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_CYCLES_V2","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNTA2Ny9BTFRDWS1USjEyMjwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkdTRkM8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5JbnRlZ3JhdGVkIE11bHRpLU1pc3Npb24gT2NlYW4gQWx0aW1ldGVyIERhdGEgZm9yIENsaW1hdGUgUmVzZWFyY2ggVmVyc2lvbiAyPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPk5BU0EgUE8uREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMzwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCIvPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPg==","allocator_symbol":"CDL","minted":"2014-01-15T16:06:20Z","state":"findable","updated":"2018-08-31T15:40:47Z","doi":"10.5067/ALTCY-TJ122"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:29 GMT
+  recorded_at: Thu, 06 Sep 2018 07:24:44 GMT
 recorded_with: VCR 3.0.3

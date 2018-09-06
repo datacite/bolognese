@@ -21,9 +21,9 @@ http_interactions:
       Location:
       - https://schema.org/
       X-Cloud-Trace-Context:
-      - 3558d9b641590f822c390e06df104802
+      - 7d732f907a4a80125df83ceab8b62322
       Date:
-      - Wed, 05 Sep 2018 09:03:21 GMT
+      - Thu, 06 Sep 2018 07:22:52 GMT
       Content-Type:
       - text/html
       Server:
@@ -34,7 +34,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:21 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:52 GMT
 - request:
     method: get
     uri: https://schema.org/
@@ -66,9 +66,9 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-4; Path=/
       X-Cloud-Trace-Context:
-      - 21a7fe136ce574011b3a0a51d984b3a8
+      - 32402e1be01690b8ba1efc06c6e0d643
       Date:
-      - Wed, 05 Sep 2018 09:03:21 GMT
+      - Thu, 06 Sep 2018 07:22:53 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -79,7 +79,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:21 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:53 GMT
 - request:
     method: get
     uri: https://schema.org/docs/jsonldcontext.json
@@ -107,21 +107,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751180905085739a-2472518481625751334json
+      - 24751180906071440a-2472518481625751334json
       Last-Modified:
-      - Wed, 05 Sep 2018 08:57:39 UTC
+      - Thu, 06 Sep 2018 07:14:40 UTC
       Set-Cookie:
       - GOOGAPPUID=3-4; Path=/
       X-Cloud-Trace-Context:
-      - 6bbe52b778b6d8e738843a0833916685
+      - 4b56134301d2e52ecd54532a380825c6
       Date:
-      - Wed, 05 Sep 2018 09:03:24 GMT
+      - Thu, 06 Sep 2018 07:22:53 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '136321'
       Expires:
-      - Wed, 05 Sep 2018 09:03:24 GMT
+      - Thu, 06 Sep 2018 07:22:53 GMT
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
@@ -2454,7 +2454,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:25 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:53 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2476,9 +2476,9 @@ http_interactions:
       Location:
       - https://schema.org/
       X-Cloud-Trace-Context:
-      - a7e9cb892a7136238b6eca6e2d6947e0
+      - 5e6ab1df40e424be0837685924d56d75
       Date:
-      - Wed, 05 Sep 2018 09:03:25 GMT
+      - Thu, 06 Sep 2018 07:22:53 GMT
       Content-Type:
       - text/html
       Server:
@@ -2489,7 +2489,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:25 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:53 GMT
 - request:
     method: get
     uri: https://schema.org/
@@ -2521,9 +2521,9 @@ http_interactions:
       Set-Cookie:
       - GOOGAPPUID=3-4; Path=/
       X-Cloud-Trace-Context:
-      - e28e8a7f5b24e4223c1113a36ea8cd16
+      - 11985cb973446104d96351fc7c327a38
       Date:
-      - Wed, 05 Sep 2018 09:03:25 GMT
+      - Thu, 06 Sep 2018 07:22:54 GMT
       Server:
       - Google Frontend
       Content-Length:
@@ -2534,7 +2534,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:25 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:55 GMT
 - request:
     method: get
     uri: https://schema.org/docs/jsonldcontext.json
@@ -2562,21 +2562,21 @@ http_interactions:
       Content-Type:
       - application/ld+json; charset=utf-8
       Etag:
-      - 24751180905085739a-2472518481625751334json
+      - 24751180906071440a-2472518481625751334json
       Last-Modified:
-      - Wed, 05 Sep 2018 08:57:39 UTC
+      - Thu, 06 Sep 2018 07:14:40 UTC
       Set-Cookie:
       - GOOGAPPUID=3-4; Path=/
       X-Cloud-Trace-Context:
-      - 50c8df4893705574d6e1ddceded1c431
+      - ec9de5639eb4059856de919148a22320
       Date:
-      - Wed, 05 Sep 2018 09:03:26 GMT
+      - Thu, 06 Sep 2018 07:22:57 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '136321'
       Expires:
-      - Wed, 05 Sep 2018 09:03:26 GMT
+      - Thu, 06 Sep 2018 07:22:57 GMT
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
@@ -4909,5 +4909,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:26 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:58 GMT
 recorded_with: VCR 3.0.3

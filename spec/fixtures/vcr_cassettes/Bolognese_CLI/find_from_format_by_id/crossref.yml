@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 09:02:50 GMT
+      - Thu, 06 Sep 2018 07:22:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,11 +31,11 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 626dfe15-fd11-4ecf-921e-b7625710c8e3
+      - f387edef-ecad-4b68-9caf-4e89659f4569
       Etag:
       - W/"381993dc8a6b0f20960c96a3639c0284"
       X-Runtime:
-      - '0.049181'
+      - '0.143397'
       X-Powered-By:
       - Phusion Passenger 5.3.4
       Server:
@@ -44,5 +44,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:02:50 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:30 GMT
 recorded_with: VCR 3.0.3

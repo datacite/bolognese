@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - nginx/1.12.2
       Date:
-      - Wed, 05 Sep 2018 09:01:31 GMT
+      - Thu, 06 Sep 2018 07:22:40 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
@@ -41,12 +41,12 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '4999'
       X-Ratelimit-Reset:
-      - '1536141691'
+      - '1536222161'
       Retry-After:
-      - '3599'
+      - '3600'
       Set-Cookie:
-      - session=b4d317debff6fcf1_5b8f9b6b.opkGYA38PaE66kQNysEeKWxo_eE; Expires=Sat,
-        06-Oct-2018 09:01:31 GMT; Secure; HttpOnly; Path=/
+      - session=65fa7bd0d280fb8d_5b90d5c0.CCbF4rIFFvJQVGTKdi0nZXHJnB0; Expires=Sun,
+        07-Oct-2018 07:22:40 GMT; Secure; HttpOnly; Path=/
     body:
       encoding: ASCII-8BIT
       string: "\n<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n    <meta
@@ -261,7 +261,7 @@ http_interactions:
         \   </table>\n  </div>\n</div>\n\n    </div>\n    <div class=\"col-sm-4 col-md-4
         col-right\">\n\n\n      \n      <div class=\"well\"><!-- Stats -->\n<div class=\"row
         stats-box\">\n  <div id=\"accordion\">\n    <!-- Banner --><div class=\"row\">\n
-        \     <div class=\"col-sm-6\">\n        <span class=\"stats-data\">81</span>\n
+        \     <div class=\"col-sm-6\">\n        <span class=\"stats-data\">85</span>\n
         \     </div>\n      <div class=\"col-sm-6\">\n        <span class=\"stats-data\">7</span>\n
         \     </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n
         \       <i class=\"fa fa-eye \" data-toggle=\"tooltip\" tooltip data-placement=\"top\"
@@ -279,7 +279,7 @@ http_interactions:
         versions</th>\n          <th>This version</th>\n        </tr><tr>\n          <td>Views
         <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip
         data-placement=\"top\" title=\"Total views.\" data-original-title=\"Total
-        views.\"></i></td><td>81</td><td>48</td>\n        </tr>\n        <tr>\n          <td>Downloads
+        views.\"></i></td><td>85</td><td>52</td>\n        </tr>\n        <tr>\n          <td>Downloads
         <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip
         data-placement=\"top\" title=\"Total downloads.\" data-original-title=\"Total
         downloads.\"></i></td><td>7</td><td>3</td>\n        </tr>\n        <tr>\n
@@ -289,7 +289,7 @@ http_interactions:
         \       <tr>\n          <td>Unique views <i class=\"fa fa-question-circle
         text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Views
         in one hour user-sessions are counted only once.\" data-original-title=\"Views
-        in one hour user-sessions are counted only once.\"></i></td><td>69</td><td>46</td>\n
+        in one hour user-sessions are counted only once.\"></i></td><td>73</td><td>50</td>\n
         \       </tr>\n        <tr>\n          <td>Unique downloads <i class=\"fa
         fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\"
         title=\"Downloads in one hour user-sessions are counted only once.\" data-original-title=\"Downloads
@@ -516,5 +516,5 @@ http_interactions:
         g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);\n})();\n</script>\n
         \ </body>\n</html>"
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:01:31 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:40 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://search.datacite.org/api?defType=edismax&fq=doi:%2210.5063/f1m61h5x%22&q=10.5063/f1m61h5x&wt=json
+    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5063/f1m61h5x&wt=json
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 05 Sep 2018 09:03:02 GMT
+      - Thu, 06 Sep 2018 07:22:12 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
@@ -34,17 +34,9 @@ http_interactions:
       - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
     body:
       encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":109},"response":{"numFound":1,"start":0,"docs":[{"is_active":true,"created":"2016-03-12T03:15:03Z","prefix":"10.5063","dataset_id":"7806606","has_media":false,"datacentre_symbol":"CDL.NCEAS","datacentre":"CDL.NCEAS
-        - National Center for Ecological Analysis and Synthesis (NCEAS)","datacentre_facet":"CDL.NCEAS
-        - National Center for Ecological Analysis and Synthesis (NCEAS)","allocator":"CDL
-        - California Digital Library","allocator_facet":"CDL - California Digital
-        Library","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYxSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRlciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMsIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBFZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsgb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9yZXNvdXJjZT4K","has_metadata":true,"allocator_symbol":"CDL","uploaded":"2016-06-18T04:33:32Z","namespace":"http://datacite.org/schema/kernel-3","minted":"2016-03-12T03:15:04Z","state":"findable","updated":"2016-06-18T04:33:34Z","doi":"10.5063/F1M61H5X","schema_version":"3","creator":["Jones,
-        Matthew B.; Slaughter, Peter; Nahf, Rob; Boettiger, Carl ; Jones, Chris; Read,
-        Jordan; Walker, Lauren; Hart, Edmund; Chamberlain, Scott"],"resourceTypeGeneral":"Software","publisher":"KNB
-        Data Repository","publicationYear":"2016","title":["dataone: R interface to
-        the DataONE network of data repositories"],"resourceType":"","_version_":1610728729600851969,"indexed":"2018-09-05T01:23:40.118Z"}]}}
+      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.NCEAS","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYxSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRlciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMsIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBFZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsgb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CDL","minted":"2016-03-12T03:15:04Z","state":"findable","updated":"2016-06-18T04:33:34Z","doi":"10.5063/F1M61H5X"}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:02 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:12 GMT
 recorded_with: VCR 3.0.3

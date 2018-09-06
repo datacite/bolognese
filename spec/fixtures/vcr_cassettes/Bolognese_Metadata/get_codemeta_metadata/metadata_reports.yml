@@ -35,35 +35,35 @@ http_interactions:
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 6AA4:10D7:277E:2A0E:5B8F9BC5
+      - 7534:3F8F:38CDA:3E9B1:5B90D4B8
       Content-Length:
       - '1624'
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 05 Sep 2018 09:03:02 GMT
+      - Thu, 06 Sep 2018 07:22:02 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1542-HHN
+      - cache-fra19142-FRA
       X-Cache:
-      - MISS
+      - HIT
       X-Cache-Hits:
-      - '0'
+      - '1'
       X-Timer:
-      - S1536138183.624639,VS0,VE113
+      - S1536218522.190621,VS0,VE0
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - b4190ada03b1e2b00485836361c73304017e24e7
+      - ee15cecca9d82e156e3c1edeee3ed19fc3133819
       Expires:
-      - Wed, 05 Sep 2018 09:08:02 GMT
+      - Thu, 06 Sep 2018 07:27:02 GMT
       Source-Age:
-      - '0'
+      - '225'
     body:
       encoding: ASCII-8BIT
       string: "{\n\t\"@context\": \"https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld\",\n\t\"@type\":
@@ -90,5 +90,5 @@ http_interactions:
         Registrations for Software\",\n\t\"programmingLanguage\": {\n\t\t\"name\":
         \"R\",\n\t\t\"URL\": \"https://www.r-project.org/\"\n\t}\n}\n"
     http_version: 
-  recorded_at: Wed, 05 Sep 2018 09:03:02 GMT
+  recorded_at: Thu, 06 Sep 2018 07:22:02 GMT
 recorded_with: VCR 3.0.3
