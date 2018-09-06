@@ -162,7 +162,7 @@ module Bolognese
       end
 
       def datacite_funding_reference(meta)
-        Array.wrap(meta.dig("fundingReferences", "fundingReference")).map do |f|
+        Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |f|
           funder_id = parse_attributes(f["funderIdentifier"])
           funder = { "type" => "Organization",
                      "id" => normalize_id(funder_id),

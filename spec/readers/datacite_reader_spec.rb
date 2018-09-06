@@ -569,6 +569,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors).to eq("16:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creatorName': This element is not expected. Expected is ( {http://datacite.org/schema/kernel-4}affiliation ).")
     end
 
+    it "empty funding references" do
+      input = fixture_path + "funding_reference.xml"
+      subject = Bolognese::Metadata.new(input: input, regenerate: false)
+      expect(subject.valid?).to be false
+      expect(subject.funding).to eq("name"=>"Agency for Science, Technology and Research (Singapore)", "type"=>"Organization")
+      expect(subject.errors.first).to eq("31:0: ERROR: Element '{http://datacite.org/schema/kernel-4}fundingReference': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}funderName, {http://datacite.org/schema/kernel-4}funderIdentifier, {http://datacite.org/schema/kernel-4}awardNumber, {http://datacite.org/schema/kernel-4}awardTitle ).")
+    end
+
     it "dissertation" do
       input = "10.3204/desy-2014-01645"
       subject = Bolognese::Metadata.new(input: input)

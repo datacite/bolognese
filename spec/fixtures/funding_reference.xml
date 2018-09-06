@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.7907/G31J-CH52</identifier>
+  <creators>
+    <creator>
+      <creatorName>Singhal,Vipul</creatorName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Modeling, Computation, and Characterization to Accelerate the Development of Synthetic Gene Circuits in Cell-Free Extracts</title>
+  </titles>
+  <publisher>California Institute of Technology</publisher>
+  <publicationYear>2019</publicationYear>
+  <resourceType resourceTypeGeneral="Text">Dissertation</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="Eprint_ID">11161</alternateIdentifier>
+  </alternateIdentifiers>
+  <subjects>
+    <subject>Synthetic Biology</subject>
+    <subject>System Identification</subject>
+    <subject>Control Theory</subject>
+    <subject>Mathematical Modeling</subject>
+    <subject>Chemical Reaction Networks</subject>
+    <subject>Transcription</subject>
+    <subject>Translation</subject>
+    <subject>Gene Regulatory Networks</subject>
+    <subject>Calibration</subject>
+    <subject>Computation and Neural Systems</subject>
+  </subjects>
+  <fundingReferences>
+    <fundingReference/>
+    <fundingReference/>
+    <fundingReference>
+      <funderName>Agency for Science, Technology and Research (Singapore)</funderName>
+    </fundingReference>
+    <fundingReference/>
+  </fundingReferences>
+  <dates>
+    <date dateType="Issued">2019</date>
+  </dates>
+  <version>Final</version>
+  <descriptions>
+    <description descriptionType="Abstract">Synthetic biology may be defined as an attempt at using engineering principles to design and build novel biological functionalities. An important class of such functionalities involves the bottom up design of genetic networks (or 'circuits') to control cellular behavior. Performing design iterations on these circuits in vivo is often a time consuming process. One approach that has been developed to address these long design times is to use E. coli cell extracts as simplified circuit prototyping environments. The analogy with similar approaches in engineering, such as prototyping using wind tunnels and breadboards, may be extended by developing accompanying computer aided design tools. In this thesis, we discuss the development of computational and mathematical tools to accelerate circuit prototyping in the TX-TL cell free prototyping platform, and demonstrate some applications of these tools.
+
+We start by discussing the problem of reducing circuit behavior variability between different batches of TX-TL cell extracts. To this end, we demonstrate a model-based methodology for calibrating extract batches, and for using the calibrations to 'correct' the behavior of genetic circuits between batches. We also look at the interaction of this methodology with the phenomenon of parameter non-identifiability, which occurs when the parameter identification inverse problem has multiple solutions. In particular, we derive conditions under which parameter non-identifiability does not hinder our modeling objectives, and subsequently demonstrate the use of such non-identifiable models in performing data variability reduction. 
+
+Next, we describe txtlsim, a MATLAB Simbiology based toolbox for automatically generating models of genetic circuits in TX-TL, and for using these models for part characterization and circuit behavior prediction. Large genetic circuits can have non-negligible resource usage needs, leading to unintended interactions between circuit nodes arising due to the loading of cellular machinery, transcription factors or other regulatory elements. The usage of consumable resources like nucleotides and amino acids can also have non-trivial effects on complex genetic circuits. These types of effects are handled by the modeling framework of txtlsim in a natural way.
+
+We also highlight mcmc-simbio, a smaller toolbox within txtlsim for performing concurrent Bayesian parameter inference on Simbiology models. Concurrent inference here means that a common set of parameters can be identified using data from an ensemble of different circuits and experiments, with each experiment informing a subset of the parameters. The combination of the concurrence feature with the fact that Markov chain Monte Carlo based Bayesian inference methods allow for the direct visualization of parameter non-identifiability enables the design of ensembles of experiments that reduce such non-identifiability.
+
+Finally, we end with a method for performing model order reduction on transcription and translation elongation models while maintaining the ability of these models to track resource consumption. We show that due to their network topology, our models cannot be brought into the two-timescale form of singular perturbation theory when written in species concentration coordinates. We identify a coordinate system in which singular perturbation theory may be applied to chemical reaction networks more naturally, and use this to achieve the desired model reduction.</description>
+  </descriptions>
+</resource>
