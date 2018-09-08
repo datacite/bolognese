@@ -163,6 +163,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors).to eq("2:0: ERROR: Element '{http://datacite.org/schema/kernel-4}resource': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}resourceType, {http://datacite.org/schema/kernel-4}subjects, {http://datacite.org/schema/kernel-4}contributors, {http://datacite.org/schema/kernel-4}language, {http://datacite.org/schema/kernel-4}alternateIdentifiers, {http://datacite.org/schema/kernel-4}relatedIdentifiers, {http://datacite.org/schema/kernel-4}sizes, {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}rightsList, {http://datacite.org/schema/kernel-4}descriptions ).")
     end
 
+    it "schema 4.0" do
+      input = fixture_path + 'schema_4.0.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      puts subject.errors
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.6071/z7wc73")
+      expect(subject.type).to eq("Dataset")
+      expect(subject.additional_type).to eq("dataset")
+      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.author.length).to eq(6)
+      expect(subject.author.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
+    end
+
     it "author only full name" do
       input = "https://doi.org/10.14457/KMITL.RES.2006.17"
       subject = Bolognese::Metadata.new(input: input)

@@ -338,7 +338,7 @@ Use the complete title of a license and include version information if applicabl
             <xs:sequence>
               <xs:element name="geoLocation" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
-                  <xs:sequence>
+                  <xs:choice maxOccurs="unbounded">
                     <xs:element name="geoLocationPlace" minOccurs="0">
                       <xs:annotation>
                         <xs:documentation>Spatial region or named place where the data was gathered or about which the data is focused.</xs:documentation>
@@ -365,7 +365,7 @@ Use the complete title of a license and include version information if applicabl
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
-                  </xs:sequence>
+                  </xs:choice>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
