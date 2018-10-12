@@ -4,6 +4,9 @@ rvm:
   - 2.4.1
 
 addons:
+  apt:
+    packages:
+      - language-pack-de
   code_climate:
     repo_token: $CODECLIMATE_REPO_TOKEN
 
