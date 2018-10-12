@@ -15,6 +15,9 @@ require 'iso8601'
 require 'jsonlint'
 require 'benchmark_methods'
 require 'gender_detector'
+require 'citeproc/ruby'
+require 'citeproc'
+require 'csl/styles'
 
 require "bolognese/version"
 require "bolognese/metadata"

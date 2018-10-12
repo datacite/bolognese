@@ -66,10 +66,17 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
-      <td><a href='http://gsl-nagoya-u.net/http/pub/citeproc-doc.html'>Citeproc JSON</a></td>
+      <td><a href='https://citationstyles.org/'>Citeproc JSON</a></td>
       <td>citeproc</td>
       <td>application/vnd.citationstyles.csl+json</td>
       <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><a href='https://citationstyles.org/'>Formatted text citation</a></td>
+      <td>citation</td>
+      <td>text/x-bibliography</td>
+      <td>No</td>
       <td>Yes</td>
     </tr>
     <tr>
