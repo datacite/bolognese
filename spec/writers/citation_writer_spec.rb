@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Dataset" do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      expect(subject.citation).to eq("Ollomo, B., Durand, P., Prugnolle, F., Douzery, E. J. P., Arnathau, C., Nkoghe, D., … Renaud, F. (2011). Data from: A new malaria agent in African hominids. (Version 1) [Data set]. Dryad Digital Repository. https://doi.org/10.5061/dryad.8515")
+      expect(subject.citation).to eq("Ollomo, B., Durand, P., Prugnolle, F., Douzery, E. J. P., Arnathau, C., Nkoghe, D., … Renaud, F. (2011). <i>Data from: A new malaria agent in African hominids.</i> (Version 1) [Data set]. Dryad Digital Repository. https://doi.org/10.5061/dryad.8515")
     end
   end
 end
