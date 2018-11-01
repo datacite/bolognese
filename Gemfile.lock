@@ -8,6 +8,7 @@ PATH
       builder (~> 3.2, >= 3.2.2)
       citeproc-ruby (~> 1.1, >= 1.1.10)
       colorize (~> 0.8.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
       csl-styles (~> 1.0, >= 1.0.1.8)
       edtf (~> 3.0, >= 3.0.4)
       gender_detector (~> 0.1.2)
