@@ -44,7 +44,7 @@
         "name": "TOPMed"
       }
     ],
-    "funding": [
+    "funder": [
       {
         "@type": "Organization",
         "@id": "https://doi.org/10.13039/100000050",

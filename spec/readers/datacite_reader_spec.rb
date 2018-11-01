@@ -25,14 +25,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Dataset")
       expect(subject.ris_type).to eq("DATA")
       expect(subject.citeproc_type).to eq("dataset")
-      expect(subject.author.length).to eq(8)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(subject.creator.length).to eq(8)
+      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
-      expect(subject.alternate_identifier).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
-      expect(subject.license).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
+      expect(subject.alternate_identifiers).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
+      expect(subject.rights).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
       expect(subject.date_published).to eq("2011")
-      expect(subject.has_part).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/1"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.is_referenced_by).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1371/journal.ppat.1000446")
+      expect(subject.related_identifiers.length).to eq(6)
+      expect(subject.related_identifiers.last).to eq("id"=>"19478877", "related_identifier_type"=>"PMID", "relation_type"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -48,14 +48,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("RPRT")
       expect(subject.citeproc_type).to eq("article-journal")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.creator).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_identifier).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
+      expect(subject.alternate_identifiers).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.date_modified).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0000-00ss")
-      expect(subject.references).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0012"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.related_identifiers.length).to eq(3)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5438/0000-00ss", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
       expect(subject.publisher).to eq("DataCite")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -69,7 +69,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("ConferencePaper")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Nathaniel Johnston", "givenName"=>"Nathaniel", "familyName"=>"Johnston")
+      expect(subject.creator).to eq("type"=>"Person", "name"=>"Nathaniel Johnston", "givenName"=>"Nathaniel", "familyName"=>"Johnston")
       expect(subject.title).to eq("The Minimum Size of Qubit Unextendible Product Bases")
       expect(subject.description["text"]).to start_with("We investigate the problem of constructing unextendible product bases in the qubit case")
       expect(subject.date_published).to eq("2013")
@@ -86,8 +86,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Audiovisual")
-      expect(subject.author.length).to eq(14)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Haywood, Raphaelle Dawn", "givenName"=>"Raphaelle Dawn", "familyName"=>"Haywood")
+      expect(subject.creator.length).to eq(14)
+      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Haywood, Raphaelle Dawn", "givenName"=>"Raphaelle Dawn", "familyName"=>"Haywood")
       expect(subject.title).to eq("lang"=>"en", "text"=>"Data underpinning - The Sun as a planet-host star: Proxies from SDO images for HARPS radial-velocity variations")
       expect(subject.date_published).to eq("2016")
       expect(subject.publisher).to eq("University of St Andrews")
@@ -104,12 +104,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Software")
       expect(subject.ris_type).to eq("COMP")
       expect(subject.citeproc_type).to eq("article")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
+      expect(subject.creator).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
       expect(subject.title).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.license).to eq([{"id"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}, {"name"=>"Open Access"}])
+      expect(subject.rights).to eq([{"id"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "name"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}, {"name"=>"Open Access"}])
       expect(subject.date_published).to eq("2016-03-27")
-      expect(subject.is_supplement_to).to eq("type"=>"CreativeWork", "id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0", "related_identifier_type"=>"URL", "relation_type"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -123,13 +124,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author.count).to eq(11)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0002-2410-9671", "name"=>"Alexander Junge", "givenName"=>"Alexander", "familyName"=>"Junge")
+      expect(subject.creator.count).to eq(11)
+      expect(subject.creator.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0002-2410-9671", "name"=>"Alexander Junge", "givenName"=>"Alexander", "familyName"=>"Junge")
       expect(subject.title).to eq("RAIN v1")
       expect(subject.description["text"]).to start_with("<b>RAIN: RNA–protein Association and Interaction Networks")
-      expect(subject.license).to eq("id"=>"https://creativecommons.org/licenses/by/4.0", "name"=>"CC-BY")
+      expect(subject.rights).to eq("id"=>"https://creativecommons.org/licenses/by/4.0", "name"=>"CC-BY")
       expect(subject.date_published).to eq("2016")
-      expect(subject.is_identical_to).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.6084/m9.figshare.4234751")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.6084/m9.figshare.4234751", "related_identifier_type"=>"DOI", "relation_type"=>"IsIdenticalTo")
       expect(subject.publisher).to eq("Figshare")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -142,13 +144,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author.length).to eq(4)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn")
+      expect(subject.creator.length).to eq(4)
+      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn")
       expect(subject.title).to eq("Publication Fp7 Funding Acknowledgment - Plos Openaire")
       expect(subject.description["text"]).to start_with("The dataset contains a sample of metadata describing papers")
       expect(subject.date_published).to eq("2013-04-03")
       expect(subject.publisher).to eq("Zenodo")
-      expect(subject.funding).to eq("type"=>"Award", "identifier"=>"246686", "funder"=>{"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"}, "name" => "Open Access Infrastructure for Research in Europe", "url" => "info:eu-repo/grantAgreement/EC/FP7/246686/")
+      expect(subject.funding_references).to eq([{"award_number"=>"246686",
+        "award_title"=>"Open Access Infrastructure for Research in Europe",
+        "award_uri"=>"info:eu-repo/grantAgreement/EC/FP7/246686/",
+        "funder_identifier"=>"https://doi.org/10.13039/501100000780",
+        "funder_identifier_type"=>"Crossref Funder ID",
+        "funder_name"=>"European Commission"}])
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -159,21 +166,57 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("CreativeWork")
       expect(subject.resource_type_general).to be_nil
       expect(subject.valid?).to be false
-      puts subject.errors
       expect(subject.errors).to eq("2:0: ERROR: Element '{http://datacite.org/schema/kernel-4}resource': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}resourceType, {http://datacite.org/schema/kernel-4}subjects, {http://datacite.org/schema/kernel-4}contributors, {http://datacite.org/schema/kernel-4}language, {http://datacite.org/schema/kernel-4}alternateIdentifiers, {http://datacite.org/schema/kernel-4}relatedIdentifiers, {http://datacite.org/schema/kernel-4}sizes, {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}rightsList, {http://datacite.org/schema/kernel-4}descriptions ).")
     end
 
     it "schema 4.0" do
       input = fixture_path + 'schema_4.0.xml'
       subject = Bolognese::Metadata.new(input: input)
-      puts subject.errors
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.6071/z7wc73")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author.length).to eq(6)
-      expect(subject.author.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
+      expect(subject.creator.length).to eq(6)
+      expect(subject.creator.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
+    end
+
+    it "geo_location" do
+      input = fixture_path + 'datacite-example-geolocation.xml'
+      doi = "10.5072/geoPointExample"
+      subject = Bolognese::Metadata.new(input: input, doi: doi)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5072/geopointexample")
+      expect(subject.doi).to eq("10.5072/geopointexample")
+      expect(subject.creator.length).to eq(3)
+      expect(subject.creator.first).to eq("familyName"=>"Schumann", "givenName"=>"Kai", "name"=>"Kai Schumann", "type"=>"Person")
+        expect(subject.title).to eq("Gridded results of swath bathymetric mapping of Disko Bay, Western Greenland, 2007-2008")
+      expect(subject.publisher).to eq("PANGAEA - Data Publisher for Earth & Environmental Science")
+      expect(subject.publication_year).to eq(2011)
+      expect(subject.related_identifiers).to eq([{"id"=>"10.5072/timeseries", "related_identifier_type"=>"DOI", "relation_type"=>"Continues"}])
+      expect(subject.geo_location).to eq([{"geo_location_place"=>"Disko Bay", "geo_location_point"=>{"point_latitude"=>"69.000000", "point_longitude"=>"-52.000000"}}])
+    end
+
+    it "geo_location_box" do
+      input = fixture_path + 'datacite-example-geolocation-2.xml'
+      doi = "10.6071/Z7WC73"
+      subject = Bolognese::Metadata.new(input: input, doi: doi)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.6071/z7wc73")
+      expect(subject.doi).to eq("10.6071/z7wc73")
+      expect(subject.creator.length).to eq(6)
+      expect(subject.creator.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
+        expect(subject.title).to eq("Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek\n      meteorological data, soil moisture and temperature, snow depth and air\n      temperature")
+      expect(subject.publisher).to eq("UC Merced")
+      expect(subject.publication_year).to eq(2013)
+      expect(subject.geo_location).to eq([{"geo_location_box"=>
+        {"east_bound_longitude"=>"-119.182",
+         "north_bound_latitude"=>"37.075",
+         "south_bound_latitude"=>"37.046",
+         "west_bound_longitude"=>"-119.211"},
+         "geo_location_place"=>"Providence Creek (Lower, Upper and P301)",
+         "geo_location_point"=>
+        {"point_latitude"=>"37.047756", "point_longitude"=>"-119.221094"}}])
     end
 
     it "author only full name" do
@@ -182,8 +225,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.14457/kmitl.res.2006.17")
       expect(subject.type).to eq("Dataset")
-      expect(subject.author.length).to eq(1)
-      expect(subject.author.first).to eq(["name", "กัญจนา แซ่เตียว"])
+      expect(subject.creator.length).to eq(1)
+      expect(subject.creator.first).to eq(["name", "กัญจนา แซ่เตียว"])
     end
 
     it "multiple author names in one creatorName" do
@@ -192,7 +235,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/eqtqyo")
       expect(subject.type).to eq("Dataset")
-      expect(subject.author).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
+      expect(subject.creator).to eq("name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)")
     end
 
     it "author with scheme" do
@@ -201,8 +244,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.18429/jacow-ipac2016-tupmy003")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.author.length).to eq(12)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"http://jacow.org/JACoW-00077389", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
+      expect(subject.creator.length).to eq(12)
+      expect(subject.creator.first).to eq("type"=>"Person", "id"=>"http://jacow.org/JACoW-00077389", "name"=>"Masashi Otani", "givenName"=>"Masashi", "familyName"=>"Otani")
     end
 
     it "author with wrong orcid scheme" do
@@ -211,8 +254,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.2314/coscv1")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.author.length).to eq(14)
-      expect(subject.author.first).to include("type"=>"Person", "name"=>"Lambert Heller", "givenName"=>"Lambert", "familyName"=>"Heller")
+      expect(subject.creator.length).to eq(14)
+      expect(subject.creator.first).to include("type"=>"Person", "name"=>"Lambert Heller", "givenName"=>"Lambert", "familyName"=>"Heller")
     end
 
     it "keywords with attributes" do
@@ -231,14 +274,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author.length).to eq(2)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8740-8284", "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
+      expect(subject.creator.length).to eq(2)
+      expect(subject.creator.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8740-8284", "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
       expect(subject.title).to eq("Dataset for \"Direct Evidence for Solid-Like Hydrogen in a Nanoporous Carbon Hydrogen Storage Material at Supercritical Temperatures\"")
       expect(subject.description.first["text"]).to start_with("Dataset for Direct Evidence for Solid-Like Hydrogen")
       expect(subject.date_published).to eq("2015")
       expect(subject.publisher).to eq("University of Bath")
-      expect(subject.funding.length).to eq(5)
-      expect(subject.funding.first).to eq("type"=>"Award", "name"=>"SUPERGEN Hub Funding", "identifier"=>"EP/J016454/1", "funder" => {"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000266", "name"=>"Engineering and Physical Sciences Research Council (EPSRC)"})
+      expect(subject.funding_references.length).to eq(5)
+      expect(subject.funding_references.first).to eq("award_number" => "EP/J016454/1",
+        "award_title" => "SUPERGEN Hub Funding",
+        "award_uri" => "EP/J016454/1",
+        "funder_identifier" => "https://doi.org/10.13039/501100000266",
+        "funder_identifier_type" => "Crossref Funder ID",
+        "funder_name" => "Engineering and Physical Sciences Research Council (EPSRC)")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -253,17 +301,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Collection")
       expect(subject.ris_type).to eq("GEN")
       expect(subject.citeproc_type).to eq("article")
-      expect(subject.author.length).to eq(24)
-      expect(subject.author.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-5331-6592", "name"=>"Farquhar, Adam", "givenName"=>"Adam", "familyName"=>"Farquhar")
+      expect(subject.creator.length).to eq(24)
+      expect(subject.creator.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-5331-6592", "name"=>"Farquhar, Adam", "givenName"=>"Adam", "familyName"=>"Farquhar")
       expect(subject.title).to eq("Technical and Human Infrastructure for Open Research (THOR)")
       expect(subject.description["text"]).to start_with("Five years ago, a global infrastructure")
       expect(subject.date_published).to eq("2015")
       expect(subject.publisher).to eq("DataCite")
-      expect(subject.funding).to eq("type"=>"Award",
-                                    "funder" => {"type"=>"Organization", "id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
-                                    "identifier" => "654039",
-                                    "name" => "THOR – Technical and Human Infrastructure for Open Research",
-                                    "url" => "http://cordis.europa.eu/project/rcn/194927_en.html")
+      expect(subject.funding_references).to eq([{"award_number"=>"654039",
+        "award_title"=>"THOR – Technical and Human Infrastructure for Open Research",
+        "award_uri"=>"http://cordis.europa.eu/project/rcn/194927_en.html",
+        "funder_identifier"=>"https://doi.org/10.13039/501100000780",
+        "funder_identifier_type"=>"Crossref Funder ID",
+        "funder_name"=>"European Commission"}])
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -278,13 +327,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("RPRT")
       expect(subject.citeproc_type).to eq("article-journal")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.creator).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_identifier).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
+      expect(subject.alternate_identifiers).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
       expect(subject.date_published).to eq("2016-12-20")
       expect(subject.publication_year).to eq(2016)
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0000-00ss")
-      expect(subject.references).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/0012"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.related_identifiers.length).to eq(3)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5438/0000-00ss", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
       expect(subject.service_provider).to eq("DataCite")
     end
 
@@ -298,13 +347,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("BOOK")
       expect(subject.citeproc_type).to eq("book")
-      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.creator).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifiers).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
-      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5272/oldertestpub", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf", "resource_type_general"=>"Text")
+      expect(subject.rights).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -320,13 +370,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("BOOK")
       expect(subject.citeproc_type).to eq("book")
-      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.creator).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifiers).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
-      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5272/oldertestpub", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
+      expect(subject.rights).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4.0")
@@ -342,13 +393,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("BOOK")
       expect(subject.citeproc_type).to eq("book")
-      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.creator).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifiers).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
-      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5272/oldertestpub", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
+      expect(subject.rights).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3.0")
@@ -364,12 +416,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("BOOK")
       expect(subject.citeproc_type).to eq("book")
-      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.creator).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifiers).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.publication_year).to eq(2010)
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5272/oldertestpub", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
@@ -383,16 +436,17 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Book")
       expect(subject.additional_type).to eq("Monograph")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
+      expect(subject.creator).to eq([{"type"=>"Person", "name"=>"John Smith", "givenName"=>"John", "familyName"=>"Smith"}, {"name"=>"つまらないものですが"}])
       expect(subject.title).to eq(["Właściwości rzutowań podprzestrzeniowych", {"title_type"=>"TranslatedTitle", "text"=>"Translation of Polish titles"}])
-      expect(subject.alternate_identifier).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
+      expect(subject.alternate_identifiers).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
-      expect(subject.content_size).to eq("256 pages")
-      expect(subject.content_format).to eq("pdf")
+      expect(subject.size).to eq("256 pages")
+      expect(subject.b_format).to eq("pdf")
       expect(subject.content_url).to eq("https://example.org/report.pdf")
       expect(subject.publication_year).to eq(2010)
-      expect(subject.is_part_of).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.5272/oldertestpub")
-      expect(subject.license).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5272/oldertestpub", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf", "resource_type_general"=>"Text")
+      expect(subject.rights).to eq("id"=>"http://creativecommons.org/licenses/by-nd/2.0", "name"=>"Creative Commons Attribution-NoDerivs 2.0 Generic")
       expect(subject.publisher).to eq("Springer")
       expect(subject.service_provider).to eq("DataCite")
     end
@@ -405,8 +459,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.additional_type).to eq("Simulation Tool")
       expect(subject.resource_type_general).to eq("Software")
-      expect(subject.author.length).to eq(5)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Carlos PatiÃ±O", "givenName"=>"Carlos", "familyName"=>"PatiÃ±O")
+      expect(subject.creator.length).to eq(5)
+      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Carlos PatiÃ±O", "givenName"=>"Carlos", "familyName"=>"PatiÃ±O")
       expect(subject.title).to eq("LAMMPS Data-File Generator")
       expect(subject.date_published).to eq("2018")
       expect(subject.publication_year).to eq(2018)
@@ -422,7 +476,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5067/terra+aqua/ceres/cldtyphist_l3.004")
       expect(subject.type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Takmeng Wong", "givenName"=>"Takmeng", "familyName"=>"Wong")
+      expect(subject.creator).to eq("type"=>"Person", "name"=>"Takmeng Wong", "givenName"=>"Takmeng", "familyName"=>"Wong")
       expect(subject.title).to eq("CERES Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4")
       expect(subject.date_published).to eq("2016")
       expect(subject.publisher).to eq("NASA Langley Atmospheric Science Data Center DAAC")
@@ -437,7 +491,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.4232/1.2745")
       expect(subject.type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq("type"=>"Organization", "name"=>"Europäische Kommission")
+      expect(subject.creator).to eq("type"=>"Organization", "name"=>"Europäische Kommission")
       expect(subject.title).to eq([{"lang"=>"de", "text"=>"Flash Eurobarometer 54 (Madrid Summit)"}, {"lang"=>"en", "text"=>"Flash Eurobarometer 54 (Madrid Summit)"}, {"title_type"=>"Subtitle","lang"=>"de", "text"=>"The Common European Currency"}, {"title_type"=>"Subtitle", "lang"=>"en", "text"=>"The Common European Currency"}])
       expect(subject.keywords).to eq([{"subject_scheme"=>"ZA", "text"=>"KAT12 International Institutions, Relations, Conditions"}])
       expect(subject.date_published).to eq("1996")
@@ -454,11 +508,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("Article")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author.length).to eq(3)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"P. Llamas", "givenName"=>"P.", "familyName"=>"Llamas")
+      expect(subject.creator.length).to eq(3)
+      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"P. Llamas", "givenName"=>"P.", "familyName"=>"Llamas")
       expect(subject.title).to eq("Rural Electrification With Hybrid Power Systems Based on Renewables - Technical System Configurations From the Point of View of the European Industry")
       expect(subject.date_published).to eq("2008")
-      expect(subject.container_title).to eq("23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356")
+      expect(subject.periodical).to eq("title"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356", "type"=>"Periodical")
       expect(subject.description["text"]).to start_with("Aim of this paper is the presentation")
       expect(subject.publisher).to eq("WIP-Munich")
       expect(subject.service_provider).to eq("DataCite")
@@ -471,7 +525,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.23725/8na3-9s47")
       expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")
-      expect(subject.alternate_identifier).to include({"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"})
+      expect(subject.alternate_identifiers).to include({"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"})
       expect(subject.content_url).to include("s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram")
     end
 
@@ -483,7 +537,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Disclosure")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq("name"=>"Anonymous")
+      expect(subject.creator).to eq("name"=>"Anonymous")
       expect(subject.title).to eq( "Messung der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen")
       expect(subject.date_published).to eq("2017")
       expect(subject.publisher).to eq("Siemens AG")
@@ -499,7 +553,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Satellite data")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq([{"type"=>"Person",
+      expect(subject.creator).to eq([{"type"=>"Person",
                                      "id"=>"https://orcid.org/0000-0002-0077-5338",
                                      "name"=>"Ronald Van Der A",
                                      "givenName"=>"Ronald",
@@ -538,7 +592,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://handle.test.datacite.org/10.22002/d1.694")
       expect(subject.type).to eq("Dataset")
       expect(subject.resource_type_general).to eq("Dataset")
-      expect(subject.author).to eq("name"=>"Tester")
+      expect(subject.creator).to eq("name"=>"Tester")
       expect(subject.title).to eq("Test license")
       expect(subject.date_published).to eq("2018-01-12")
       expect(subject.publication_year).to eq(2018)
@@ -557,8 +611,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.ris_type).to eq("RPRT")
       expect(subject.citeproc_type).to eq("article-journal")
-      expect(subject.author.length).to eq(5)
-      expect(subject.author.first).to eq("type"=>"Person", "name"=>"Lina Patel", "givenName"=>"Lina", "familyName"=>"Patel")
+      expect(subject.creator.length).to eq(5)
+      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Lina Patel", "givenName"=>"Lina", "familyName"=>"Patel")
       expect(subject.title).to eq("Referee report. For: Gates - add article keywords to the metatags [version 2; referees: 1 approved]")
       expect(subject.date_published).to eq("2018")
       expect(subject.publisher).to eq("Gates Open Research")
@@ -569,7 +623,7 @@ describe Bolognese::Metadata, vcr: true do
     it "missing creator" do
       input = fixture_path + "datacite_missing_creator.xml"
       subject = Bolognese::Metadata.new(input: input, regenerate: true)
-      expect(subject.author).to be_nil
+      expect(subject.creator).to be_nil
       expect(subject.valid?).to be false
       expect(subject.errors).to eq("4:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).")
     end
@@ -577,7 +631,7 @@ describe Bolognese::Metadata, vcr: true do
     it "malformed creator" do
       input = fixture_path + "datacite_malformed_creator.xml"
       subject = Bolognese::Metadata.new(input: input, regenerate: false)
-      expect(subject.author).to be_nil
+      expect(subject.creator).to be_nil
       expect(subject.valid?).to be false
       expect(subject.errors).to eq("16:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creatorName': This element is not expected. Expected is ( {http://datacite.org/schema/kernel-4}affiliation ).")
     end
@@ -586,7 +640,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "funding_reference.xml"
       subject = Bolognese::Metadata.new(input: input, regenerate: false)
       expect(subject.valid?).to be false
-      expect(subject.funding).to eq("name"=>"Agency for Science, Technology and Research (Singapore)", "type"=>"Organization")
+      expect(subject.funding_references).to eq([{"funder_name"=>"Agency for Science, Technology and Research (Singapore)"}])
       expect(subject.errors.first).to eq("31:0: ERROR: Element '{http://datacite.org/schema/kernel-4}fundingReference': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}funderName, {http://datacite.org/schema/kernel-4}funderIdentifier, {http://datacite.org/schema/kernel-4}awardNumber, {http://datacite.org/schema/kernel-4}awardTitle ).")
     end
 
@@ -600,7 +654,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("Thesis")
       expect(subject.bibtex_type).to eq("phdthesis")
       expect(subject.citeproc_type).to eq("thesis")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Heiko Conrad", "givenName"=>"Heiko", "familyName"=>"Conrad")
+      expect(subject.creator).to eq("type"=>"Person", "name"=>"Heiko Conrad", "givenName"=>"Heiko", "familyName"=>"Conrad")
       expect(subject.title).to eq("Dynamics of colloids in molecular glass forming liquids studied via X-ray photon correlation spectroscopy")
       expect(subject.date_published).to eq("2014")
       expect(subject.publisher).to eq("Deutsches Elektronen-Synchrotron, DESY, Hamburg")
@@ -653,7 +707,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.creator).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.publisher).to eq("DataCite")
       expect(subject.publication_year).to eq(2016)
@@ -672,35 +726,17 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
     expect(subject.type).to eq("Dataset")
     expect(subject.additional_type).to eq("DroNc-seq data")
-    expect(subject.author).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
+    expect(subject.creator).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
     expect(subject.title).to eq("DroNc-seq data")
     expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
     expect(subject.date_published).to eq("2017")
-    expect(subject.is_supplement_to).to eq("id"=>"https://doi.org/10.1038/nmeth.4407", "type"=>"CreativeWork")
-    expect(subject.content_format).to eq("application/tar")
-    expect(subject.content_size).to eq("15.7M")
-    expect(subject.container_title).to eq("GTEx")
+    expect(subject.related_identifiers.length).to eq(4)
+    expect(subject.related_identifiers.last).to eq("id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "related_identifier_type"=>"URL", "relation_type"=>"IsPartOf")
+    expect(subject.b_format).to eq("application/tar")
+    expect(subject.size).to eq("15.7M")
+    expect(subject.periodical).to eq("id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "title"=>"GTEx", "type"=>"DataCatalog")
     expect(subject.publisher).to eq("GTEx")
-    expect(subject.funding).to eq([{"id"=>"https://doi.org/10.13039/100000052",
-                                    "name"=>"Common Fund of the Office of the Director of the NIH",
-                                    "type"=>"Organization"},
-                                   {"id"=>"https://doi.org/10.13039/100000054",
-                                    "name"=>"National Cancer Institute (NCI)",
-                                    "type"=>"Organization"},
-                                   {"id"=>"https://doi.org/10.13039/100000051",
-                                    "name"=>"National Human Genome Research Institute (NHGRI)",
-                                    "type"=>"Organization"},
-                                   {"id"=>"https://doi.org/10.13039/100000050",
-                                    "name"=>"National Heart, Lung, and Blood Institute (NHLBI)",
-                                    "type"=>"Organization"},
-                                   {"id"=>"https://doi.org/10.13039/100000026",
-                                    "name"=>"National Institute on Drug Abuse (NIDA)",
-                                    "type"=>"Organization"},
-                                   {"id"=>"https://doi.org/10.13039/100000025",
-                                    "name"=>"National Institute of Mental Health (NIMH)",
-                                    "type"=>"Organization"},
-                                   {"id"=>"https://doi.org/10.13039/100000065",
-                                    "name"=>"National Institute of Neurological Disorders and Stroke (NINDS)",
-                                    "type"=>"Organization"}])
+    expect(subject.funding_references.count).to eq(7)
+    expect(subject.funding_references.first).to eq("funder_identifier"=>"https://doi.org/10.13039/100000052", "funder_identifier_type"=>"Crossref Funder ID", "funder_name"=>"Common Fund of the Office of the Director of the NIH")
   end
 end

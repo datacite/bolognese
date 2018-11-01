@@ -25,7 +25,10 @@ module Bolognese
       "Sound" => "AudioObject",
       "Text" => "ScholarlyArticle",
       "Workflow" => nil,
-      "Other" => "CreativeWork"
+      "Other" => "CreativeWork",
+      # not part of DataCite schema, but used internally
+      "Periodical" => "Periodical",
+      "DataCatalog" => "DataCatalog"
     }
 
     DC_TO_CP_TRANSLATIONS = {
@@ -173,7 +176,6 @@ module Bolognese
       "BlogPosting" => "Text",
       "Chapter" => "Text",
       "Collection" => "Collection",
-      "CreativeWork" => "Other",
       "DataCatalog" => "Dataset",
       "Dataset" => "Dataset",
       "Event" => "Event",
@@ -362,7 +364,7 @@ module Bolognese
         "codemeta"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("ris_type")
         "crosscite"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schema-version").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
@@ -471,11 +473,17 @@ module Bolognese
       "http://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
-    def normalize_ids(ids: nil)
-      Array.wrap(ids).map do |id|
-        { "id" => normalize_id(id["@id"]),
-          "type" => id["@type"] || Metadata::DC_TO_SO_TRANSLATIONS[id["resourceTypeGeneral"]] || "CreativeWork",
-          "title" => id["title"] || id["name"] }.compact
+    def normalize_ids(ids: nil, relation_type: nil)
+      Array.wrap(ids).select { |idx| idx["@id"].present? }.map do |idx|
+        id = normalize_id(idx["@id"])
+        related_identifier_type = doi_from_url(id).present? ? "DOI" : "URL"
+        id = doi_from_url(id) || id
+
+        { "id" => id,
+          "relation_type" => relation_type,
+          "related_identifier_type" => related_identifier_type,
+          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[idx["@type"]],
+          "title" => idx["title"] || idx["name"] }.compact
       end.unwrap
     end
 
@@ -525,13 +533,10 @@ module Bolognese
     def to_schema_org_container(element, options={})
       return nil unless (element.is_a?(Hash) || (element.nil? && options[:container_title].present?))
 
-      mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
-
-      element ||= {}
-      element["type"] = (options[:type] == "Dataset") ? "DataCatalog" : "Periodical"
-      element["title"] ||= options[:container_title]
-
-      map_hash_keys(element: element, mapping: mapping)
+      { 
+        "@id" => element["id"],
+        "@type" => (options[:type] == "Dataset") ? "DataCatalog" : "Periodical",
+        "name" => element["title"] || options[:container_title] }
     end
 
     def to_schema_org_identifier(element, options={})
@@ -540,8 +545,8 @@ module Bolognese
         "propertyID" => normalize_doi(element) ? "doi" : "url",
         "value" => element }
 
-      if options[:alternate_identifier].present?
-        [ident] + Array.wrap(options[:alternate_identifier]).map do |ai|
+      if options[:alternate_identifiers].present?
+        [ident] + Array.wrap(options[:alternate_identifiers]).map do |ai|
                     if ai["type"].to_s.downcase == "url"
                       ai["name"]
                     else
@@ -554,6 +559,67 @@ module Bolognese
       else
         ident
       end
+    end
+
+    def to_schema_org_relation(related_identifiers: nil, relation_type: nil)
+      return nil unless related_identifiers.present? && relation_type.present?
+
+      relation_type = relation_type == "References" ? ["References", "Cites", "Documents"] : [relation_type] 
+
+      Array.wrap(related_identifiers).select { |ri| relation_type.include?(ri["relation_type"]) }.map do |r|
+        if r["related_identifier_type"] == "ISSN" && r["relation_type"] == "IsPartOf"
+          {
+            "@type" => "Periodical",
+            "issn" => r["id"],
+            "name" => r["title"] }.compact
+        else
+        {
+          "@id" => normalize_id(r["id"]),
+          "@type" => DC_TO_SO_TRANSLATIONS[r["resource_type_general"]] || "CreativeWork",
+          "name" => r["title"] }.compact
+        end
+      end.unwrap
+    end
+
+    def to_schema_org_funder(funding_references)
+      return nil unless funding_references.present?
+
+      Array.wrap(funding_references).map do |fr|
+        {
+          "@id" => fr["funder_identifier"],
+          "@type" => "Organization",
+          "name" => fr["funder_name"] }.compact
+      end.unwrap
+    end
+
+    def to_schema_org_spatial_coverage(geo_location)
+      return nil unless geo_location.present?
+
+      Array.wrap(geo_location).map do |gl|
+        if gl.fetch("geo_location_point", nil)
+          { 
+            "@type" => "Place",
+            "geo" => {
+              "@type" => "GeoCoordinates",
+              "address" => gl["geo_location_place"],
+              "latitude" => gl.dig("geo_location_point", "point_latitude"),
+              "longitude" => gl.dig("geo_location_point", "point_longitude")
+            }.compact
+          }
+        elsif gl.fetch("geo_location_box", nil)
+          { 
+            "@type" => "Place",
+            "geo" => {
+              "@type" => "GeoShape",
+              "address" => gl["geo_location_place"],
+              "box" => [gl.dig("geo_location_box", "south_bound_latitude"),
+                        gl.dig("geo_location_box", "west_bound_longitude"),
+                        gl.dig("geo_location_box", "north_bound_latitude"),
+                        gl.dig("geo_location_box", "east_bound_longitude")].join(" ")
+            }.compact
+          }
+        end
+      end.compact.unwrap
     end
 
     def from_schema_org(element)
@@ -574,6 +640,13 @@ module Bolognese
           end
         end
       end.unwrap
+    end
+
+    def to_identifier(identifier)
+      {
+        "@type" => "PropertyValue",
+        "propertyID" => identifier["related_identifier_type"],
+        "value" => identifier["id"] }
     end
 
     def from_citeproc(element)

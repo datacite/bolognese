@@ -12,6 +12,12 @@ module Bolognese
         resource_type_general = meta.fetch("resource-type-general", nil)
         type = Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
         state = meta.fetch("doi", nil).present? ? "findable" : "not_found"
+        related_identifiers = Array.wrap(meta.fetch("related-identifiers", nil)).map do |ri|
+          { "id" => ri["id"],
+            "relation_type" => ri["relation-type"],
+            "related_identifier_type" => ri["related-identifier-type"],
+            "resource_type_general" => ri["resource-type-general"] }.compact
+        end
 
         { "id" => meta.fetch("id", nil),
           "type" => type,
@@ -23,58 +29,29 @@ module Bolognese
           "doi" => validate_doi(meta.fetch("doi", nil)),
           "b_url" => normalize_id(meta.fetch("url", nil)),
           "title" => meta.fetch("title", nil),
-          "alternate_identifier" => meta.fetch("alternate-identifier", nil),
-          "author" => meta.fetch("creator", nil),
+          "alternate_identifiers" => meta.fetch("alternate-identifiers", nil),
+          "creator" => meta.fetch("creator", nil),
           "editor" => meta.fetch("contributor", nil),
           "publisher" => meta.fetch("publisher", nil),
+          "periodical" => meta.fetch("periodical", nil),
           "service_provider" => "DataCite",
-          "is_part_of" => meta.fetch("is_part_of", nil),
-          "has_part" => meta.fetch("has_part", nil),
-          "references" => meta.fetch("references", nil),
-          "is_referenced_by" => meta.fetch("is_referenced_by", nil),
-          "date_created" => meta.fetch("date-created", nil),
-          "date_accepted" => meta.fetch("date-accepted", nil),
-          "date_available" => meta.fetch("date-available", nil),
-          "date_copyrighted" => meta.fetch("date-copyrighted", nil),
-          "date_collected" => meta.fetch("date-collected", nil),
-          "date_submitted" => meta.fetch("date-submitted", nil),
-          "date_valid" => meta.fetch("date-valid", nil),
-          "date_published" => meta.fetch("date-published", nil),
+          "funding_references" => meta.fetch("funding-references", nil),
+          "related_identifiers" => related_identifiers,
+          "dates" => meta.fetch("dates", nil),
+          "date_published" => meta.fetch("date-published", nil) || meta.fetch("publication-year", nil),
           "date_modified" => meta.fetch("date-modified", nil),
           "description" => meta.fetch("description", nil),
-          "license" => meta.fetch("license", nil),
+          "rights" => meta.fetch("rights", nil),
           "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("subject", nil),
           "language" => meta.fetch("language", nil),
-          "content_size" => meta.fetch("size", nil),
-          "content_format" => meta.fetch("format", nil),
+          "size" => meta.fetch("size", nil),
+          "format" => meta.fetch("format", nil),
+          "geo_location" => meta.fetch("geo-location", nil),
           "schema_version" => meta.fetch("schema-version", nil),
           "state" => state
         }
       end
-
-      # def funder
-      #   f = funder_contributor + funding_reference
-      #   f.length > 1 ? f : f.first
-      # end
-      #
-      # def funder_contributor
-      #   Array.wrap(metadata.dig("contributors", "contributor")).reduce([]) do |sum, f|
-      #     if f["contributorType"] == "Funder"
-      #       sum << { "name" => f["contributorName"] }
-      #     else
-      #       sum
-      #     end
-      #   end
-      # end
-      #
-      # def funding_reference
-      #   Array.wrap(metadata.dig("fundingReferences", "fundingReference")).map do |f|
-      #     funder_id = parse_attributes(f["funderIdentifier"])
-      #     { "identifier" => normalize_id(funder_id),
-      #       "name" => f["funderName"] }.compact
-      #   end.uniq
-      # end
     end
   end
 end

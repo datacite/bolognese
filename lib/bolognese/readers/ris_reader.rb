@@ -41,16 +41,24 @@ module Bolognese
 
         doi = validate_doi(meta.fetch("DO", nil))
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
-        container_title = meta.fetch("T2", nil)
         date_parts = meta.fetch("PY", nil).to_s.split("/")
         date_published = get_date_from_parts(*date_parts)
-        is_part_of = if container_title.present?
-                       { "type" => "Periodical",
-                         "title" => container_title,
-                         "issn" => meta.fetch("SN", nil) }.compact
-                     else
-                       nil
-                     end
+        related_identifiers = if meta.fetch("T2", nil).present? && meta.fetch("SN", nil).present?
+          [{ "type" => "Periodical",
+             "id" => meta.fetch("SN", nil),
+             "related_identifier_type" => "ISSN",
+             "relation_type" => "IsPartOf",
+             "title" => meta.fetch("T2", nil), }.compact]
+        else
+          []
+        end
+        periodical = if meta.fetch("T2", nil).present?
+          { "type" => "Periodical",
+            "title" => meta.fetch("T2", nil), 
+            "id" => meta.fetch("SN", nil) }.compact
+        else
+          nil
+        end
         state = doi.present? ? "findable" : "not_found"
 
         { "id" => normalize_doi(doi),
@@ -61,9 +69,10 @@ module Bolognese
           "doi" => doi,
           "b_url" => meta.fetch("UR", nil),
           "title" => meta.fetch("T1", nil),
-          "author" => get_authors(author),
-          "publisher" => meta.fetch("PB", nil),
-          "is_part_of" => is_part_of,
+          "creator" => get_authors(author),
+          "publisher" => meta.fetch("PB", "(:unav)"),
+          "periodical" => periodical,
+          "related_identifiers" => related_identifiers,
           "date_created" => meta.fetch("Y1", nil),
           "date_published" => date_published,
           "date_accessed" => meta.fetch("Y2", nil),

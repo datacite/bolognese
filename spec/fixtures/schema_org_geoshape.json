@@ -1,0 +1,550 @@
+{
+    "@context": "http://schema.org/",
+    "@id": "https://doi.org/10.1594/PANGAEA.842237",
+    "@type": "Dataset",
+    "identifier": "https://doi.org/10.1594/PANGAEA.842237",
+    "url": "https://doi.pangaea.de/10.1594/PANGAEA.842237",
+    "creator": [
+        {
+            "@type": "Organization",
+            "name": "Tara Oceans Consortium, Coordinators"
+        },
+        {
+            "@type": "Organization",
+            "name": "Tara Oceans Expedition, Participants"
+        }
+    ],
+    "name": "Registry of all stations from the Tara Oceans Expedition (2009-2013)",
+    "publisher": {
+        "@type": "Organization",
+        "name": "PANGAEA",
+        "disambiguatingDescription": "Data Publisher for Earth & Environmental Science",
+        "url": "https://www.pangaea.de/"
+    },
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "PANGAEA",
+        "disambiguatingDescription": "Data Publisher for Earth & Environmental Science",
+        "url": "https://www.pangaea.de/"
+    },
+    "datePublished": "2015-02-03",
+    "description": "The Tara Oceans Expedition (2009-2013) sampled the world oceans on board a 36 m long schooner, collecting environmental data and organisms from viruses to planktonic metazoans for later analyses using modern sequencing and state-of-the-art imaging technologies. Tara Oceans Data are particularly suited to study the genetic, morphological and functional diversity of plankton. The present data set is a registry of all stations conducted during the Tara Oceans Expedition (2009-2013). The registry provides details about the scientific interest of each station, including (1) the geographic context, (2) legal context, (3) the environmental features that were targeted, and (4) a detailed account of devices deployed during the station. Uniform resource locators (URLs) offer direct links to the corresponding (1) physical oceanographic context reports, (2) list of samples collected during the station, (3) environmental data published at PANGAEA, and (4) nucleotides data published at the European Nucleotides Archive (EBI-ENA).",
+    "citation": {
+        "@id": "https://doi.org/10.1038/sdata.2015.23",
+        "@type": "PublicationIssue",
+        "identifier": "https://doi.org/10.1038/sdata.2015.23",
+        "url": "https://doi.org/10.1038/sdata.2015.23",
+        "creator": [
+            {
+                "@id": "https://orcid.org/0000-0002-4936-5209",
+                "@type": "Person",
+                "familyName": "Pesant",
+                "givenName": "Stephane",
+                "identifier": "https://orcid.org/0000-0002-4936-5209",
+                "email": "spesant@marum.de"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Not",
+                "givenName": "Fabrice",
+                "email": "fabnot@gmail.com"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Picheral",
+                "givenName": "Marc",
+                "email": "picheral@obs-vlfr.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Kandels-Lewis",
+                "givenName": "Stefanie",
+                "email": "kandels@embl.de"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Le Bescot",
+                "givenName": "Noan",
+                "email": "noan.lebescot@sb-roscoff.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Gorsky",
+                "givenName": "Gabriel",
+                "email": "gorsky@obs-vlfr.fr"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-7473-394X",
+                "@type": "Person",
+                "familyName": "Iudicone",
+                "givenName": "Daniele",
+                "identifier": "https://orcid.org/0000-0002-7473-394X",
+                "email": "iudicone@szn.it"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Karsenti",
+                "givenName": "Eric",
+                "email": "karsenti@embl.de"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-5452-8287",
+                "@type": "Person",
+                "familyName": "Speich",
+                "givenName": "Sabrina",
+                "identifier": "https://orcid.org/0000-0002-5452-8287",
+                "email": "speich@univ-brest.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Troublé",
+                "givenName": "Romain"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Dimier",
+                "givenName": "Céline",
+                "email": "celine.dimier@yahoo.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Searson",
+                "givenName": "Sarah",
+                "email": "sarahsearson@tara5.oceanpost.net"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-3439-0428",
+                "@type": "Person",
+                "familyName": "Acinas",
+                "givenName": "Silvia G",
+                "identifier": "https://orcid.org/0000-0002-3439-0428"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-2627-833X",
+                "@type": "Person",
+                "familyName": "Bork",
+                "givenName": "Peer",
+                "identifier": "https://orcid.org/0000-0002-2627-833X",
+                "email": "bork@embl.de"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-8334-9595",
+                "@type": "Person",
+                "familyName": "Boss",
+                "givenName": "Emmanuel",
+                "identifier": "https://orcid.org/0000-0002-8334-9595",
+                "email": "emmanuel.boss@maine.edu"
+            },
+            {
+                "@id": "https://orcid.org/0000-0003-3835-6187",
+                "@type": "Person",
+                "familyName": "Bowler",
+                "givenName": "Chris",
+                "identifier": "https://orcid.org/0000-0003-3835-6187",
+                "email": "cbowler@biologie.ens.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "De Vargas",
+                "givenName": "Colomban",
+                "email": "vargas@sb-roscoff.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Follows",
+                "givenName": "Michael J",
+                "email": "mick@mit.edu"
+            },
+            {
+                "@id": "https://orcid.org/0000-0001-9323-417X",
+                "@type": "Person",
+                "familyName": "Grimsley",
+                "givenName": "Nigel",
+                "identifier": "https://orcid.org/0000-0001-9323-417X",
+                "email": "nigel.grimsley@obs-banyuls.fr"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-7463-2444",
+                "@type": "Person",
+                "familyName": "Hingamp",
+                "givenName": "Pascal",
+                "identifier": "https://orcid.org/0000-0002-7463-2444",
+                "email": "pascal.hingamp@univmed.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Jaillon",
+                "givenName": "Olivier",
+                "email": "ojaillon@genoscope.cns.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Karp-Boss",
+                "givenName": "Lee",
+                "email": "lee.karp-boss@maine.edu"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Krzic",
+                "givenName": "Uros",
+                "email": "krzic@embl.de"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Ogata",
+                "givenName": "Hiroyuki",
+                "email": "Hiroyuki.Ogata@igs.cnrs-mrs.fr"
+            },
+            {
+                "@id": "https://orcid.org/0000-0002-1337-041X",
+                "@type": "Person",
+                "familyName": "Raes",
+                "givenName": "Jeroen",
+                "identifier": "https://orcid.org/0000-0002-1337-041X",
+                "email": "jeroen.raes@gmail.com"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Reynaud G.",
+                "givenName": "Emmanuel",
+                "email": "emmanuel.reynaud@ucd.ie"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Sardet",
+                "givenName": "Christian",
+                "email": "sardet@obs-vlfr.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Sieracki",
+                "givenName": "Michael",
+                "email": "msieracki@bigelow.org"
+            },
+            {
+                "@id": "https://orcid.org/0000-0001-8935-4531",
+                "@type": "Person",
+                "familyName": "Stemmann",
+                "givenName": "Lars",
+                "identifier": "https://orcid.org/0000-0001-8935-4531",
+                "email": "stemmann@obs-vlfr.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Sullivan",
+                "givenName": "Matthew B"
+            },
+            {
+                "@id": "https://orcid.org/0000-0003-3065-0314",
+                "@type": "Person",
+                "familyName": "Sunagawa",
+                "givenName": "Shinichi",
+                "identifier": "https://orcid.org/0000-0003-3065-0314",
+                "email": "sunagawa@embl.de"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Velayoudon",
+                "givenName": "Didier",
+                "email": "didier.velayoudon@9online.fr"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Weissenbach",
+                "givenName": "Jean"
+            },
+            {
+                "@type": "Person",
+                "familyName": "Wincker",
+                "givenName": "Patrick",
+                "email": "pwincker@genoscope.cns.fr"
+            }
+        ],
+        "name": "Open science resources for the discovery and analysis of Tara Oceans data",
+        "datePublished": "2015",
+        "issueNumber": "2",
+        "pagination": "150023",
+        "isPartOf": {
+            "@type": "CreativeWorkSeries",
+            "name": "Scientific Data"
+        }
+    },
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "name": "Campaign of event"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Station label",
+            "description": "TARA_station#"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Date/Time of event"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Date/Time of event 2"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Latitude of event"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Longitude of event"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Latitude, northbound"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Latitude, southbound"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Longitude, eastbound"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Longitude, westbound"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Time of day",
+            "description": "of sampling effort"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, bathymetric",
+            "unitText": "m",
+            "measurementTechnique": "extracted from IHO-IOC GEBCO Gazetteer of Undersea Feature Names",
+            "description": "mean value"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, bathymetric",
+            "unitText": "m",
+            "measurementTechnique": "extracted from IHO-IOC GEBCO Gazetteer of Undersea Feature Names",
+            "description": "maximum value"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Distance",
+            "unitText": "km",
+            "description": "from coast, minimum"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Geographic name/locality",
+            "measurementTechnique": "Longhurst (2007)",
+            "description": "of marine biomes"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Geographic name/locality",
+            "measurementTechnique": "IHO General Sea Areas (1953) registered at www.marineregions.org",
+            "description": "of ocean and sea regions"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Uniform resource locator/link to reference",
+            "measurementTechnique": "IHO General Sea Areas (1953) registered at www.marineregions.org",
+            "description": "of ocean and sea regions"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Geographic name/locality",
+            "measurementTechnique": "Longhurst (2007) registered at marineregions.org",
+            "description": "of biogeographical provinces"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Uniform resource locator/link to reference",
+            "measurementTechnique": "Longhurst (2007) registered at marineregions.org",
+            "description": "of biogeographical provinces"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Geographic name/locality",
+            "measurementTechnique": "IHO General Sea Areas (1953) registered at www.marineregions.org",
+            "description": "of IHO marine ecoregions and provinces in a search radius=5 degrees"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Geographic name/locality",
+            "measurementTechnique": "codes for Geographical Entities, NATO STANAG 1059 INT (Ed. 9 Ratification, 2005)",
+            "description": "of exclusive economic zone"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Authorisation",
+            "measurementTechnique": "legal request",
+            "description": "to sample in exclusive economic zone"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Uniform resource locator/link to file",
+            "measurementTechnique": "published at PANGAEA, Data Publisher for Earth and Environmental Science",
+            "description": "of authorisation to sample in exclusive economic zone"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "National legislation",
+            "measurementTechnique": "legal request",
+            "description": "regarding national Access and Benefit Sharing (ABS)"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Sampling",
+            "description": "effort ranked on a scale (1, 2 or 3) proportional to nb. dephs sampled"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, nominal",
+            "description": "corresponding to a surface water layer [ENVO:00002042] in the epipelagic mixed layer [ENVO:01000061]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, nominal",
+            "description": "corresponding to a deep chlorophyll maximum layer [ENVO:01000326] in the epipelagic mixed layer [ENVO:01000061]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, nominal",
+            "description": "corresponding to a layer with no specific feature in the epipelagic mixed layer [ENVO:01000061]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, nominal",
+            "description": "corresponding to a mesopelagic layer [ENVO:00000213]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Depth, nominal",
+            "description": "corresponding to an oxygen minimum zone (ENVO:01000065)"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [RADIOMETRE-TSRB]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [SECCHI]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [BUCKET]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [CABLE] [sbe19] [NISKIN]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [CABLE] [sbe9S] [NISKIN]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [RVSS]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [HVP-PUMP]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-SINGLE-5]+[SIEVE-20]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-DOUBLE-20]+[SIEVE-180]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-WPII-50]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-BONGO-180]+[SIEVE-2000]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-WPII-200]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-BONGO-300]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-MULTI-300]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-REGENT-680]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Number",
+            "description": "of events with sampling device [NET-MANTA-500]"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Uniform resource locator/link to file",
+            "measurementTechnique": "published at PANGAEA, Data Publisher for Earth and Environmental Science",
+            "description": "of oceanographic context report (pdf)"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Uniform resource locator/link to reference",
+            "measurementTechnique": "published at PANGAEA, Data Publisher for Earth and Environmental Science",
+            "description": "of related environmental data"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Uniform resource locator/link to reference",
+            "measurementTechnique": "published at the European Nucleotides Archive",
+            "description": "of related nucleotides data"
+        }
+    ],
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoShape",
+            "box": "-64.3088 -168.5182 79.6753 174.9006"
+        }
+    },
+    "temporalCoverage": "2009-09-07T00:00:00/2013-10-27T00:00:00",
+    "inLanguage": "en",
+    "license": "https://creativecommons.org/licenses/by/3.0/",
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "fileFormat": "text/html",
+            "contentUrl": "https://doi.pangaea.de/10.1594/PANGAEA.842237?format=html"
+        },
+        {
+            "@type": "DataDownload",
+            "fileFormat": "text/tab-separated-values",
+            "contentUrl": "https://doi.pangaea.de/10.1594/PANGAEA.842237?format=textfile"
+        }
+    ]
+}

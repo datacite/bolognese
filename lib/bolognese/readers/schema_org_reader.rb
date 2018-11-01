@@ -37,7 +37,7 @@ module Bolognese
 
         identifier = Array.wrap(meta.fetch("identifier", nil))
         if identifier.length > 1
-          alternate_identifier = identifier[1..-1].map do |r|
+          alternate_identifiers = identifier[1..-1].map do |r|
             if r.is_a?(String)
               { "type" => "URL", "name" => r }
             elsif r.is_a?(Hash)
@@ -45,7 +45,7 @@ module Bolognese
             end
           end.unwrap
         else
-          alternate_identifier = nil
+          alternate_identifiers = nil
         end
         identifier = identifier.first
 
@@ -57,24 +57,61 @@ module Bolognese
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
-        included_in_data_catalog = from_schema_org(Array.wrap(meta.fetch("includedInDataCatalog", nil)))
-        included_in_data_catalog = Array.wrap(included_in_data_catalog).reduce([]) do |sum, dc| 
-          sum << { "title" => dc["name"], "url" => dc["url"] } if dc["url"].present?
-          sum
-        end.unwrap
-        is_part_of = schema_org_is_part_of(meta) || included_in_data_catalog
+        ct = (type == "Dataset") ? "includedInDataCatalog" : "Periodical"
+        periodical = if meta.fetch(ct, nil).present?
+          {
+            "type" => (type == "Dataset") ? "DataCatalog" : "Periodical",
+            "title" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "name", first: true),
+            "url" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "url", first: true)
+          }.compact
+        else
+          nil
+        end
 
-        license = {
+        related_identifiers = Array.wrap(schema_org_is_identical_to(meta)) +
+          Array.wrap(schema_org_is_part_of(meta)) +
+          Array.wrap(schema_org_has_part(meta)) +
+          Array.wrap(schema_org_is_previous_version_of(meta)) +
+          Array.wrap(schema_org_is_new_version_of(meta)) +
+          Array.wrap(schema_org_references(meta)) +
+          Array.wrap(schema_org_is_referenced_by(meta)) +
+          Array.wrap(schema_org_is_supplement_to(meta)) +
+          Array.wrap(schema_org_is_supplemented_by(meta))
+
+        rights = {
           "id" => parse_attributes(meta.fetch("license", nil), content: "id", first: true),
           "name" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
         }
 
-        funding = from_schema_org(Array.wrap(meta.fetch("funding", nil)))
+        funding_references = from_schema_org(Array.wrap(meta.fetch("funder", nil)))
+        funding_references = Array.wrap(meta.fetch("funder", nil)).compact.map do |fr|
+          {
+            "funder_name" => fr["name"],
+            "funder_identifier" => fr["@id"],
+            "funder_identifier_type" => fr["@id"].to_s.start_with?("https://doi.org/10.13039") ? "Crossref Funder ID" : nil }.compact
+        end
         date_published = meta.fetch("datePublished", nil)
         state = meta.present? ? "findable" : "not_found"
-        
-        ct = (type == "Dataset") ? "includedInDataCatalog" : "Periodical"
-        container_title = parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "name", first: true)
+        geo_location = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
+          if gl.dig("geo", "box")
+            s, w, n, e = gl.dig("geo", "box").split(" ", 4)
+            geo_location_box = {
+              "west_bound_longitude" => w,
+              "east_bound_longitude" => e,
+              "south_bound_latitude" => s,
+              "north_bound_latitude" => n
+            }.compact.presence
+          else
+            geo_location_box = nil
+          end
+          geo_location_point = { "point_longitude" => gl.dig("geo", "longitude"), "point_latitude" => gl.dig("geo", "latitude") }.compact.presence
+
+          {
+            "geo_location_place" => gl.dig("geo", "address"),
+            "geo_location_point" => geo_location_point,
+            "geo_location_box" => geo_location_box
+          }.compact
+        end
 
         { "id" => id,
           "type" => type,
@@ -85,43 +122,38 @@ module Bolognese
           "resource_type_general" => resource_type_general,
           "doi" => validate_doi(id),
           "identifier" => identifier,
-          "alternate_identifier" => alternate_identifier,
+          "alternate_identifiers" => alternate_identifiers,
           "b_url" => normalize_id(meta.fetch("url", nil)),
           "content_url" => Array.wrap(meta.fetch("contentUrl", nil)).unwrap,
-          "content_size" => meta.fetch("contenSize", nil),
-          "content_format" => Array.wrap(meta.fetch("encodingFormat", nil) || meta.fetch("fileFormat", nil)).unwrap,
+          "size" => meta.fetch("contenSize", nil),
+          "format" => Array.wrap(meta.fetch("encodingFormat", nil) || meta.fetch("fileFormat", nil)).unwrap,
           "title" => meta.fetch("name", nil),
-          "author" => author,
+          "creator" => author,
           "editor" => editor,
           "publisher" => publisher,
           "service_provider" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
-          "container_title" => container_title,
-          "is_identical_to" => schema_org_is_identical_to(meta),
-          "is_part_of" => is_part_of,
-          "has_part" => schema_org_has_part(meta),
-          "references" => schema_org_references(meta),
-          "is_referenced_by" => schema_org_is_referenced_by(meta),
-          "is_supplement_to" => schema_org_is_supplement_to(meta),
-          "is_supplemented_by" => schema_org_is_supplemented_by(meta),
+          "periodical" => periodical,
+          "related_identifiers" => related_identifiers,
           "date_created" => meta.fetch("dateCreated", nil),
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
-          "license" => license,
+          "rights" => rights,
           "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("keywords", nil).to_s.split(", "),
           "state" => state,
           "schema_version" => meta.fetch("schemaVersion", nil),
-          "funding" => funding
+          "funding_references" => funding_references,
+          "geo_location" => geo_location
         }
       end
 
       def schema_org_related_identifier(meta, relation_type: nil)
-        normalize_ids(ids: meta.fetch(relation_type, nil))
+        normalize_ids(ids: meta.fetch(relation_type, nil), relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
       end
 
       def schema_org_reverse_related_identifier(meta, relation_type: nil)
-        normalize_ids(ids: meta.dig("@reverse", relation_type))
+        normalize_ids(ids: meta.dig("@reverse", relation_type), relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
       end
 
       def schema_org_is_identical_to(meta)
@@ -159,6 +191,7 @@ module Bolognese
       def schema_org_is_supplemented_by(meta)
         schema_org_related_identifier(meta, relation_type: "isBasedOn")
       end
+
     end
   end
 end

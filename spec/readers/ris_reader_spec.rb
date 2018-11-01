@@ -32,16 +32,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.b_url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author.length).to eq(5)
-      expect(subject.author.first).to eq("type"=>"Person",
+      expect(subject.creator.length).to eq(5)
+      expect(subject.creator.first).to eq("type"=>"Person",
                                          "name"=>"Martial Sankar",
                                          "givenName"=>"Martial",
                                          "familyName"=>"Sankar")
       expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.description["text"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.date_published).to eq("2014")
-      expect(subject.is_part_of).to eq("type"=>"Periodical", "title"=>"eLife")
-      expect(subject.container_title).to eq("eLife")
+      expect(subject.related_identifiers).to eq([{"id"=>"2050084X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical"}])
+      expect(subject.periodical).to eq("id"=>"2050084X", "title"=>"eLife", "type"=>"Periodical")
     end
 
     it "DOI does not exist" do
@@ -54,7 +54,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.ris_type).to eq("THES")
       expect(subject.type).to eq("Thesis")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq("type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar")
+      expect(subject.creator).to eq("type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar")
       expect(subject.title).to eq("A multiscale analysis of the urban heat island effect")
       expect(subject.description["text"]).to start_with("Designing the climates of cities")
       expect(subject.date_published).to eq("2018-04-25")

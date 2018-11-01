@@ -82,15 +82,13 @@ module Bolognese
           end
         end.unwrap
 
-        container_title = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
-
-        alternate_identifier = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
+        alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
           { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }
         end.unwrap
         description = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
           { "type" => r["descriptionType"], "text" => sanitize(r["__content__"]) }.compact
         end.unwrap
-        license = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
+        rights = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
           { "id" => normalize_url(r["rightsURI"]), "name" => r["__content__"] }.compact
         end.unwrap
         keywords = Array.wrap(meta.dig("subjects", "subject")).map do |k|
@@ -102,13 +100,57 @@ module Bolognese
             { "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "text" => sanitize(k["__content__"]) }.compact
           end
         end.compact
-        dates = Array.wrap(meta.dig("dates", "date"))
+        dates = Array.wrap(meta.dig("dates", "date")).map do |d|
+          {
+            "date" => parse_attributes(d),
+            "date_type" => parse_attributes(d, content: "dateType")
+          }
+        end
         sizes = Array.wrap(meta.dig("sizes", "size")).unwrap
         formats = Array.wrap(meta.dig("formats", "format")).unwrap
-        funding = begin
-          f = datacite_funder_contributor(meta) + datacite_funding_reference(meta)
-          f.length > 1 ? f : f.first
+        funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
+          {
+            "funder_name" => fr["funderName"],
+            "funder_identifier" => normalize_id(parse_attributes(fr["funderIdentifier"])),
+            "funder_identifier_type" => parse_attributes(fr["funderIdentifier"], content: "funderIdentifierType"),
+            "award_number" => parse_attributes(fr["awardNumber"]),
+            "award_uri" => parse_attributes(fr["awardNumber"], content: "awardURI"),
+            "award_title" => fr["awardTitle"] }.compact
         end
+        related_identifiers = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).map do |ri|
+          if ri["relatedIdentifierType"] == "DOI"
+            rid = ri["__content__"].downcase
+          else
+            rid = ri["__content__"]
+          end
+
+          { 
+            "id" => rid,
+            "related_identifier_type" => ri["relatedIdentifierType"],
+            "relation_type" => ri["relationType"],
+            "resource_type_general" => ri["resourceTypeGeneral"]
+          }.compact
+        end
+        geo_location = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
+          if gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String)
+            nil
+          else
+            {
+              "geo_location_place" => gl["geoLocationPlace"],
+              "geo_location_point" => {
+                "point_latitude" => gl.dig("geoLocationPoint", "pointLatitude"),
+                "point_longitude" => gl.dig("geoLocationPoint", "pointLongitude")
+              }.compact.presence,
+              "geo_location_box" => {
+                "west_bound_longitude" => gl.dig("geoLocationBox", "westBoundLongitude"),
+                "east_bound_longitude" => gl.dig("geoLocationBox", "eastBoundLongitude"),
+                "south_bound_latitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
+                "north_bound_latitude" => gl.dig("geoLocationBox", "northBoundLatitude")
+              }.compact.presence
+            }.compact
+          end
+        end
+        periodical = set_periodical(meta)
         state = doi.present? ? "findable" : "not_found"
 
         { "id" => id,
@@ -119,46 +161,48 @@ module Bolognese
           "ris_type" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[additional_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
           "resource_type_general" => resource_type_general,
           "doi" => doi,
-          "alternate_identifier" => alternate_identifier,
+          "alternate_identifiers" => alternate_identifiers,
           "url" => options.fetch(:url, nil),
           "title" => title,
-          "author" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
-          "editor" => get_authors(Array.wrap(meta.dig("contributors", "contributor")).select { |r| r["contributorType"] == "Editor" }),
-          "container_title" => container_title,
-          "publisher" => meta.fetch("publisher", nil),
+          "creator" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
+          "periodical" => periodical,
+          "publisher" => meta.fetch("publisher", "").strip.presence,
           "service_provider" => "DataCite",
-          "funding" => funding,
-          "is_identical_to" => datacite_is_identical_to(meta),
-          "is_part_of" => datacite_is_part_of(meta),
-          "has_part" => datacite_has_part(meta),
-          "references" => datacite_references(meta),
-          "is_referenced_by" => datacite_is_referenced_by(meta),
-          "is_supplement_to" => datacite_is_supplement_to(meta),
-          "is_supplemented_by" => datacite_is_supplemented_by(meta),
-          "date_created" => datacite_date(dates, "Created"),
-          "date_accepted" => datacite_date(dates, "Accepted"),
-          "date_available" => datacite_date(dates, "Available"),
-          "date_copyrighted" => datacite_date(dates, "Copyrights"),
-          "date_collected" => datacite_date(dates, "Collected"),
-          "date_submitted" => datacite_date(dates, "Submitted"),
-          "date_valid" => datacite_date(dates, "Valid"),
+          "funding_references" => funding_references,
+          "dates" => dates,
           "date_published" => datacite_date(dates, "Issued") || meta.fetch("publicationYear", nil),
           "date_modified" => datacite_date(dates, "Updated"),
           "description" => description,
-          "license" => license,
+          "rights" => rights,
           "b_version" => meta.fetch("version", nil),
           "keywords" => keywords,
           "language" => meta.fetch("language", nil),
-          "content_format" => formats,
-          "content_size" => sizes,
+          "geo_location" => geo_location,
+          "related_identifiers" => related_identifiers,
+          "b_format" => formats,
+          "size" => sizes,
           "schema_version" => schema_version,
           "state" => state
         }
       end
 
+      def set_periodical(meta)
+        container_title = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
+        is_part_of = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).find { |ri| ri["relationType"] == "IsPartOf" }.to_h
+
+        if container_title.present? || is_part_of.present?
+          {
+            "type" => meta.dig("resourceType", "resourceTypeGeneral") == "Dataset" ? "DataCatalog" : "Periodical",
+            "id" => is_part_of["relatedIdentifierType"] == "DOI" ? normalize_doi(is_part_of["__content__"]) : is_part_of["__content__"],
+            "title" => container_title,
+            "issn" => is_part_of["relatedIdentifierType"] == "ISSN" ? is_part_of["__content__"] : nil
+          }.compact
+        end
+      end
+
       def datacite_date(dates, date_type)
-        dd = dates.find { |d| d["dateType"] == date_type } || {}
-        dd.fetch("__content__", nil)
+        dd = dates.find { |d| d["date_type"] == date_type } || {}
+        dd.fetch("date", nil)
       end
 
       def datacite_funding_reference(meta)
@@ -199,65 +243,6 @@ module Bolognese
             sum
           end
         end
-      end
-
-      def datacite_related_identifier(meta, relation_type: nil)
-        arr = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).select { |r| %w(DOI URL).include?(r["relatedIdentifierType"]) }
-        arr = arr.select { |r| relation_type.split(" ").include?(r["relationType"]) } if relation_type.present?
-
-        arr.map { |work| { "type" => "CreativeWork", "id" => normalize_id(work["__content__"]) } }.unwrap
-      end
-
-      def datacite_is_identical_to(meta)
-        datacite_related_identifier(meta, relation_type: "IsIdenticalTo")
-      end
-
-      def datacite_is_part_of(meta)
-        datacite_related_identifier(meta, relation_type: "IsPartOf")
-      end
-
-      def datacite_has_part(meta)
-        datacite_related_identifier(meta, relation_type: "HasPart")
-      end
-
-      def datacite_is_previous_version_of(meta)
-        datacite_related_identifier(meta, relation_type: "IsPreviousVersionOf")
-      end
-
-      def datacite_is_new_version_of(meta)
-        datacite_related_identifier(meta, relation_type: "IsNewVersionOf")
-      end
-
-      def datacite_is_variant_form_of(meta)
-        datacite_related_identifier(meta, relation_type: "IsVariantFormOf")
-      end
-
-      def datacite_is_original_form_of(meta)
-        datacite_related_identifier(meta, relation_type: "IsOriginalFormOf")
-      end
-
-      def datacite_references(meta)
-        datacite_related_identifier(meta, relation_type: "References Cites").presence
-      end
-
-      def datacite_is_referenced_by(meta)
-        datacite_related_identifier(meta, relation_type: "IsCitedBy IsReferencedBy").presence
-      end
-
-      def datacite_is_supplement_to(meta)
-        datacite_related_identifier(meta, relation_type: "IsSupplementTo")
-      end
-
-      def datacite_is_supplemented_by(meta)
-        datacite_related_identifier(meta, relation_type: "isSupplementedBy")
-      end
-
-      def datacite_reviews(meta)
-        datacite_related_identifier(meta, relation_type: "Reviews").presence
-      end
-
-      def datacite_is_reviewed_by(meta)
-        datacite_related_identifier(meta, relation_type: "IsReviewedBy").presence
       end
     end
   end

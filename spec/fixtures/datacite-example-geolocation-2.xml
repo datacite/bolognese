@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.6071/Z7WC73</identifier>
+  <creators>
+    <creator>
+      <creatorName>Bales, Roger</creatorName>
+      <affiliation>UC Merced</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Meadows, Matt</creatorName>
+      <affiliation>UC Merced</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Stacy, Erin</creatorName>
+      <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="http://orcid.org/">0000-0002-8862-1404</nameIdentifier>
+      <affiliation>UC Merced</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Conklin, Martha</creatorName>
+      <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="http://orcid.org/">0000-0002-9627-2427</nameIdentifier>
+      <affiliation>UC Merced</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Meng, Xiande</creatorName>
+      <affiliation>UC Merced</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Southern Sierra Critical Zone Observatory, SSCZO</creatorName>
+      <affiliation>NSF</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title>
+      Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek
+      meteorological data, soil moisture and temperature, snow depth and air
+      temperature
+    </title>
+  </titles>
+  <publisher>UC Merced</publisher>
+  <publicationYear>2013</publicationYear>
+  <subjects>
+    <subject>Earth sciences</subject>
+    <subject>soil moisture</subject>
+    <subject>soil temperature</subject>
+    <subject>snow depth</subject>
+    <subject>air temperature</subject>
+    <subject>water balance</subject>
+    <subject>Nevada, Sierra (mountain range)</subject>
+  </subjects>
+  <fundingReferences>
+    <fundingReference>
+      <funderName>
+        National Science Foundation, Division of Earth Sciences, Critical Zone
+        Observatories
+      </funderName>
+      <awardNumber>1331939, 0725097</awardNumber>
+    </fundingReference>
+  </fundingReferences>
+  <contributors>
+    <contributor contributorType="ProjectLeader">
+      <contributorName>Bales, Roger</contributorName>
+      <affiliation>University of California, Merced</affiliation>
+    </contributor>
+    <contributor contributorType="DataCollector">
+      <contributorName>Meadows, Matt</contributorName>
+      <affiliation>University of California, Merced</affiliation>
+    </contributor>
+    <contributor contributorType="DataManager">
+      <contributorName>Meng, Xiande</contributorName>
+      <affiliation>University of California, Merced</affiliation>
+    </contributor>
+    <contributor contributorType="ResearchGroup">
+      <contributorName>Southern Sierra Critical Zone Observatory</contributorName>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Updated">2014-10-17</date>
+    <date dateType="Available">2016-03-14T17:02:02Z</date>
+  </dates>
+  <language>en</language>
+  <resourceType resourceTypeGeneral="Dataset">dataset</resourceType>
+  <sizes>
+    <size>1799269709 bytes</size>
+  </sizes>
+  <version>2</version>
+  <rightsList>
+    <rights rightsURI="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</rights>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Abstract">
+      Snow depth, soil moisture and soil temperature are measured at lower
+      Providence South facing (LowMetS) and North facing (LowMetN), Upper
+      Providence South facing (UpMetS), North facing (UpMetN) and Flat aspect
+      (UpMetF), and Subcatchment basin P301 (P301) with a wireless sensor
+      network, using a Campbell Scientific logger to control peripheral devices.
+      Snow depth is measured in the open, at the drip edge and under canopies.
+      Soil moisture and temperature are measured at 10, 30, 60 and 90 cm depths
+      coincident with the snow depth nodes. 10 watt solar panels provides power
+      for monitoring at 10 minute intervals. Raw data have been processed to
+      level 1 (QA/QC) and level 2 (gap-filled, derived) data. Time period: water
+      year 2008 through water year 2012 (version 1), 2013 to 2016 (version 2).
+    </description>
+    <description descriptionType="Methods">
+      Soil volumetric water content (VWC) and soil temperature measured using
+      Decagon Devices ECHO-TM at depths of 10, 30, 60, an 90 cm below the
+      mineral soil surface. Sensor now equivalent to 5TM
+      (http://www.decagon.com/soil-moisture-sensors/). Distance to snow/soil
+      surface and air temperature measured with Judd Communications ultrasonic
+      depth sensor, using analog control ( http://www.juddcom.com/ ). Data
+      control and storage on Campbell Scientific CR1000 datalogger, using
+      AM16/32B multiplexer ( http://www.campbellsci.com ). Program for data
+      acquisition are located on UC Merced-SNRI digital library (
+      https://eng.ucmerced.edu/snsjho/files/MHWG/Field/Southern...)
+    </description>
+    <description descriptionType="Other">
+      Lower and upper Providence Creek, Subcatchment basin P301.acde: white fir
+      drip edge; acuc: white fir under canopy; cdde: incense-cedar drip edge;
+      cduc: incense-cedar under canopy; open: open canopy; plde: sugar pine drip
+      edge; pluc: sugar pine under canopy; ppde: Ponderosa pine drip; edge ppde:
+      Ponderosa pine drip edge; ppuc: Ponderosa pine under canopy; ppuc:
+      Ponderosa pine under canopy; qkde: black oak drip edge; qkuc: black oak
+      under canopy
+    </description>
+  </descriptions>
+  <geoLocations>
+    <geoLocation>
+      <geoLocationPoint>
+        <pointLatitude>37.047756</pointLatitude>
+        <pointLongitude>-119.221094</pointLongitude>
+      </geoLocationPoint>
+      <geoLocationBox>
+        <westBoundLongitude>-119.211</westBoundLongitude>
+        <eastBoundLongitude>-119.182</eastBoundLongitude>
+        <southBoundLatitude>37.046</southBoundLatitude>
+        <northBoundLatitude>37.075</northBoundLatitude>
+      </geoLocationBox>
+      <geoLocationPlace>Providence Creek (Lower, Upper and P301)</geoLocationPlace>
+    </geoLocation>
+  </geoLocations>
+</resource>

@@ -10,9 +10,10 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
       expect(json["isPartOf"]).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
+      expect(json["periodical"]).to eq("@type"=>"Periodical", "name"=>"eLife", "issn"=>"2050-084X")
       expect(json["citation"].length).to eq(26)
       expect(json["citation"].first).to eq("@id"=>"https://doi.org/10.1038/nature02100", "@type"=>"CreativeWork", "name" => "APL regulates vascular tissue identity in Arabidopsis")
-      expect(json["funding"]).to eq([{"name"=>"SystemsX", "@type"=>"Organization"},
+      expect(json["funder"]).to eq([{"name"=>"SystemsX", "@type"=>"Organization"},
                                      {"name"=>"EMBO",
                                       "@type"=>"Organization",
                                       "@id"=>"https://doi.org/10.13039/501100003043"},
@@ -47,7 +48,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(json["@reverse"]).to eq("citation"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446"}, "isBasedOn"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446"})
+      expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"CreativeWork"}, {"@type"=>"CreativeWork", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
+        "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"CreativeWork"}, {"@type"=>"CreativeWork", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -55,7 +57,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
-      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154"})
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154", "@type"=>"CreativeWork"})
     end
 
     it "rdataone" do
@@ -86,11 +88,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
       expect(json["hasPart"].length).to eq(25)
       expect(json["hasPart"].first).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5281/zenodo.30799")
-      expect(json["funding"]).to eq("@type" => "Award",
-                                    "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
-                                    "identifier" => "654039",
-                                    "name" => "THOR – Technical and Human Infrastructure for Open Research",
-                                    "url" => "http://cordis.europa.eu/project/rcn/194927_en.html")
+      expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/501100000780", "@type"=>"Organization", "name"=>"European Commission")
     end
 
     it "Funding OpenAIRE" do
@@ -98,11 +96,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
-      expect(json["funding"]).to eq("@type" => "Award",
-                                    "funder" => {"@type"=>"Organization", "@id"=>"https://doi.org/10.13039/501100000780", "name"=>"European Commission"},
-                                    "identifier" => "246686",
-                                    "name" => "Open Access Infrastructure for Research in Europe",
-                                    "url" => "info:eu-repo/grantAgreement/EC/FP7/246686/")
+      expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/501100000780", "@type"=>"Organization", "name"=>"European Commission")
     end
 
     it "subject scheme" do
@@ -129,7 +123,6 @@ describe Bolognese::Metadata, vcr: true do
       content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"  
       subject = Bolognese::Metadata.new(input: input, b_url: b_url, content_url: content_url, from: "datacite")
       json = JSON.parse(subject.schema_org)
-      puts json
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
@@ -137,19 +130,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["contentSize"]).to eq("15.7M")
       expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
       expect(json["includedInDataCatalog"]).to eq("@id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "@type"=>"DataCatalog", "name"=>"GTEx")
-      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1038/nmeth.4407"})
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1038/nmeth.4407", "@type"=>"CreativeWork"})
     end
 
     it "series information" do
       input = "10.4229/23RDEUPVSEC2008-5CO.8.3"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
-      expect(json["isPartOf"]).to eq("@type"=>"Periodical", "name"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356")
       expect(json["@id"]).to eq("https://doi.org/10.4229/23rdeupvsec2008-5co.8.3")
       expect(json["@type"]).to eq("ScholarlyArticle")
       expect(json["name"]).to eq("Rural Electrification With Hybrid Power Systems Based on Renewables - Technical System Configurations From the Point of View of the European Industry")
       expect(json["author"].count).to eq(3)
       expect(json["author"].first).to eq("@type"=>"Person", "name"=>"P. Llamas", "givenName"=>"P.", "familyName"=>"Llamas")
+      expect(json["periodical"]).to eq("@type"=>"Periodical", "name"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356")
     end
 
     it "data catalog" do
@@ -191,6 +184,40 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["contentUrl"]).to include("s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram")
     end
 
+    it "geo_location_point" do
+      input = fixture_path + 'datacite-example-geolocation-2.xml'
+      doi = "10.6071/Z7WC73"
+      subject = Bolognese::Metadata.new(input: input, doi: doi)
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.6071/z7wc73")
+      expect(json["@type"]).to eq("Dataset")
+      expect(json["name"]).to eq("Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek\n      meteorological data, soil moisture and temperature, snow depth and air\n      temperature")
+      expect(json["author"].length).to eq(6)
+      expect(json["author"][2]).to eq("@id"=>"https://orcid.org/0000-0002-8862-1404", "@type"=>"Person", "familyName"=>"Stacy", "givenName"=>"Erin", "name"=>"Erin Stacy")
+      expect(json["includedInDataCatalog"]).to be_nil
+      expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoCoordinates", "address"=>"Providence Creek (Lower, Upper and P301)", "latitude"=>"37.047756", "longitude"=>"-119.221094"})
+    end
+
+    it "geo_location_box" do
+      input = "10.1594/PANGAEA.842237"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.842237")
+      expect(json["@type"]).to eq("Dataset")
+      expect(json["name"]).to eq("Registry of all stations from the Tara Oceans Expedition (2009-2013)")
+      expect(json["author"]).to eq([{"@type"=>"Person",
+        "familyName"=>"Tara Oceans Consortium",
+        "givenName"=>"Coordinators",
+        "name"=>"Tara Oceans Consortium, Coordinators"},
+       {"@type"=>"Person",
+        "familyName"=>"Tara Oceans Expedition",
+        "givenName"=>"Participants",
+        "name"=>"Tara Oceans Expedition, Participants"}])
+      expect(json["includedInDataCatalog"]).to be_nil
+      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.1594/pangaea.842237")
+      expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoShape", "box"=>"-64.3088 -168.5182 79.6753 174.9006"})
+    end
+
     it "from schema_org gtex" do
       input = fixture_path + 'schema_org_gtex.json'
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
@@ -209,7 +236,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["schemaVersion"]).to eq("http://datacite.org/schema/kernel-4")
       expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
       expect(json["publisher"]).to eq("@type"=>"Organization", "name"=>"GTEx")
-      expect(json["funding"]).to eq([{"@id"=>"https://doi.org/10.13039/100000052",
+      expect(json["funder"]).to eq([{"@id"=>"https://doi.org/10.13039/100000052",
         "name"=>"Common Fund of the Office of the Director of the NIH",
         "@type"=>"Organization"},
        {"@id"=>"https://doi.org/10.13039/100000054",
@@ -262,7 +289,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["schemaVersion"]).to eq("http://datacite.org/schema/kernel-4")
       expect(json["publisher"]).to eq("@type"=>"Organization", "name"=>"TOPMed")
       expect(json["citation"]).to eq("@id"=>"https://doi.org/10.23725/2g4s-qv04", "@type"=>"Dataset")
-      expect(json["funding"]).to eq("@id"=>"https://doi.org/10.13039/100000050", "@type"=>"Organization", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)")
+      expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/100000050", "@type"=>"Organization", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)")
       expect(json["provider"]).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
   end

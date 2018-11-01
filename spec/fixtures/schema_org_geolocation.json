@@ -1,0 +1,82 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.6071/z7wc73",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "doi",
+    "value": "https://doi.org/10.6071/z7wc73"
+  },
+  "additionalType": "dataset",
+  "name": "Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Roger Bales",
+      "givenName": "Roger",
+      "familyName": "Bales"
+    },
+    {
+      "@type": "Person",
+      "name": "Matt Meadows",
+      "givenName": "Matt",
+      "familyName": "Meadows"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0002-8862-1404",
+      "name": "Erin Stacy",
+      "givenName": "Erin",
+      "familyName": "Stacy"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0002-9627-2427",
+      "name": "Martha Conklin",
+      "givenName": "Martha",
+      "familyName": "Conklin"
+    },
+    {
+      "@type": "Person",
+      "name": "Xiande Meng",
+      "givenName": "Xiande",
+      "familyName": "Meng"
+    },
+    {
+      "@type": "Person",
+      "name": "SSCZO Southern Sierra Critical Zone Observatory",
+      "givenName": "SSCZO",
+      "familyName": "Southern Sierra Critical Zone Observatory"
+    }
+  ],
+  "description": "Snow depth, soil moisture and soil temperature are measured at lower Providence South facing (LowMetS) and North facing (LowMetN), Upper Providence South facing (UpMetS), North facing (UpMetN) and Flat aspect (UpMetF), and Subcatchment basin P301 (P301) with a wireless sensor network, using a Campbell Scientific logger to control peripheral devices. Snow depth is measured in the open, at the drip edge and under canopies. Soil moisture and temperature are measured at 10, 30, 60 and 90 cm depths coincident with the snow depth nodes. 10 watt solar panels provides power for monitoring at 10 minute intervals. Raw data have been processed to level 1 (QA/QC) and level 2 (gap-filled, derived) data. Time period: water year 2008 through water year 2012 (version 1), 2013 to 2016 (version 2).",
+  "license": "https://creativecommons.org/licenses/by/4.0",
+  "version": "2",
+  "keywords": "Earth sciences, soil moisture, soil temperature, snow depth, air temperature, water balance, Nevada, Sierra (mountain range)",
+  "inLanguage": "en",
+  "contentSize": "1799269709 bytes",
+  "datePublished": "2013",
+  "dateModified": "2014-10-17",
+  "spatialCoverage": {
+    "@type": "Place",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "address": "Providence Creek (Lower, Upper and P301)",
+      "latitude": "37.047756",
+      "longitude": "-119.221094"
+    }
+  },
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "publisher": {
+    "@type": "Organization",
+    "name": "UC Merced"
+  },
+  "funder": {
+    "@type": "Organization",
+    "name": "National Science Foundation, Division of Earth Sciences, Critical Zone Observatories"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "DataCite"
+  }
+}

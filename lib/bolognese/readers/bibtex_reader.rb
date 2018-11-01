@@ -39,13 +39,23 @@ module Bolognese
                     "familyName" => a.last }.compact
                 end
 
-        is_part_of = if meta.try(:journal).present?
-                  { "type" => "Periodical",
-                    "title" => meta.journal.to_s,
-                    "issn" => meta.try(:issn).to_s.presence }.compact
-                else
-                  nil
-                end
+        related_identifiers = if meta.try(:journal).present? && meta.try(:issn).to_s.presence
+          [{ "type" => "Periodical",
+             "relation_type" => "IsPartOf",
+             "related_identifier_type" => "ISSN",
+             "title" => meta.journal.to_s,
+             "id" => meta.try(:issn).to_s.presence }.compact]
+        else
+          nil
+        end
+
+        periodical = if meta.try(:journal).present?
+          { "type" => "Periodical",
+            "title" => meta.journal.to_s,
+            "issn" => meta.try(:issn).to_s.presence }.compact
+        else
+          nil
+        end
 
         page_first, page_last = meta.try(:pages).to_s.split("-")
         state = doi.present? ? "findable" : "not_found"
@@ -60,15 +70,16 @@ module Bolognese
           "doi" => doi,
           "b_url" => meta.try(:url).to_s,
           "title" => meta.try(:title).to_s,
-          "author" => author,
+          "creator" => author,
+          "periodical" => periodical,
           "publisher" => meta.try(:publisher).to_s.presence,
-          "is_part_of" => is_part_of,
+          "related_identifiers" => related_identifiers,
           "date_published" => meta.try(:date).to_s.presence,
           "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
           "description" => { "text" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence },
-          "license" => { "id" => meta.try(:copyright).to_s.presence },
+          "rights" => { "id" => meta.try(:copyright).to_s.presence },
           "state" => state
         }
       end

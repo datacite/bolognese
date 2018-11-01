@@ -42,7 +42,7 @@
     "@type": "Dataset",
     "@id": "https://doi.org/10.23725/2g4s-qv04"
   },
-  "funding": {
+  "funder": {
     "@type": "Organization",
     "@id": "https://doi.org/10.13039/100000050",
     "name": "National Heart, Lung, and Blood Institute (NHLBI)"

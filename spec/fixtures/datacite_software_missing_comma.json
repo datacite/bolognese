@@ -13,6 +13,6 @@
   "resource-type-general": "Software",
   "resource-type": "Software",
   "date-published": "2016",
-  "schemaVersion": "http://datacite.org/schema/kernel-3",
+  "schema-version": "http://datacite.org/schema/kernel-3",
   "provider": "DataCite"
 }

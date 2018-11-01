@@ -27,6 +27,11 @@ module Bolognese
         date_published = meta.fetch("datePublished", nil)
         publisher = meta.fetch("publisher", nil)
         state = meta.present? ? "findable" : "not_found"
+        dates = [
+          { "type" => "Issued", "__content__" => "date_published" },
+          { "type" => "Updated", "__content__" => "date_modified" },
+          { "type" => "Created", "__content__" => meta.fetch("datePublished", nil) }
+        ]
 
         { "id" => id,
           "type" => type,
@@ -39,15 +44,15 @@ module Bolognese
           "doi" => validate_doi(id),
           "b_url" => normalize_id(meta.fetch("codeRepository", nil)),
           "title" => meta.fetch("title", nil),
-          "author" => author,
+          "creator" => author,
           "editor" => editor,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
-          "date_created" => meta.fetch("dateCreated", nil),
+          "dates" => meta.fetch("dateCreated", nil),
           "date_published" => date_published,
           "date_modified" => meta.fetch("dateModified", nil),
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
-          "license" => { "id" => meta.fetch("license", nil) },
+          "rights" => { "id" => meta.fetch("license", nil) },
           "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("tags", nil),
           "state" => state

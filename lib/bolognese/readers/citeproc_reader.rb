@@ -39,14 +39,22 @@ module Bolognese
         author = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
         editor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
         date_published = get_date_from_date_parts(meta.fetch("issued", nil))
-        container_title = meta.fetch("container-title", nil)
-        is_part_of = if container_title.present?
-                       { "type" => "Periodical",
-                         "title" => container_title,
-                         "issn" => meta.fetch("ISSN", nil) }.compact
-                     else
-                       nil
-                     end
+        related_identifiers = if meta.fetch("container-title", nil).present? && meta.fetch("ISSN", nil).present?
+          [{ "type" => "Periodical",
+             "relation_type" => "IsPartOf",
+             "related_identifier_type" => "ISSN",
+             "title" => meta.fetch("container-title", nil),
+             "id" => meta.fetch("ISSN", nil) }.compact]
+        else
+          nil
+        end
+        periodical = if meta.fetch("container-title", nil).present?
+          { "type" => "Periodical",
+            "title" => meta.fetch("container-title", nil),
+            "issn" => meta.fetch("ISSN", nil) }.compact
+        else
+          nil
+        end
         id = normalize_id(meta.fetch("id", nil))
         state = id.present? ? "findable" : "not_found"
 
@@ -60,15 +68,15 @@ module Bolognese
           "doi" => doi_from_url(doi),
           "b_url" => normalize_id(meta.fetch("URL", nil)),
           "title" => meta.fetch("title", nil),
-          "author" => author,
-          "container_title" => container_title,
+          "creator" => author,
+          "periodical" => periodical,
           "publisher" => meta.fetch("publisher", nil),
-          "is_part_of" => is_part_of,
+          "related_identifiers" => related_identifiers,
           "date_published" => date_published,
           "volume" => meta.fetch("volume", nil),
           #{}"pagination" => meta.pages.to_s.presence,
           "description" => meta.fetch("abstract", nil).present? ? { "text" => sanitize(meta.fetch("abstract")) } : nil,
-          #{ }"license" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
+          #{ }"rights" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
           "b_version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("categories", nil),
           "state" => state

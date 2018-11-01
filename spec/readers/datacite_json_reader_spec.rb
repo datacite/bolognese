@@ -20,12 +20,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
-      expect(subject.author).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
-      expect(subject.alternate_identifier).to eq("type"=>"Local accession number", "name"=>"MS-49-3632-5083")
+      expect(subject.alternate_identifiers).to eq([{"alternate-identifier"=>"MS-49-3632-5083", "alternate-identifier-type"=>"Local accession number"}])
       expect(subject.date_published).to eq("2016-12-20")
-      expect(subject.is_part_of).to eq("id"=>"https://doi.org/10.5438/0000-00ss")
-      expect(subject.references).to eq([{"id"=>"https://doi.org/10.5438/0012"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0"}])
+      expect(subject.related_identifiers.length).to eq(3)
+      expect(subject.related_identifiers.first).to eq("id"=>"10.5438/0000-00ss", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
+      expect(subject.related_identifiers.last).to eq("id"=>"10.5438/55e5-t5c0", "related_identifier_type"=>"DOI", "relation_type"=>"References")
       expect(subject.service_provider).to eq("DataCite")
     end
 

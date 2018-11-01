@@ -61,22 +61,14 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :contributor,
-                  :spatial_coverage
+    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :contributor
 
-    attr_writer :identifier, :author, :title, :publisher, :license,
-                :date_accepted, :date_available, :date_copyrighted, :date_collected, :date_published,
-                :date_submitted, :date_valid, :date_created, :date_modified, :date_updated, 
-                :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
-                :keywords, :editor, :description, :alternate_identifier, :language, :content_size,
-                :content_format, :schema_version, :has_part, :same_as, :resource_type_general,
-                :is_previous_version_of, :is_new_version_of, :is_cited_by, :cites,
-                :is_supplement_to, :is_supplemented_by, :is_continued_by, :continues,
-                :has_metadata, :is_metadata_for, :is_referenced_by, :references,
-                :is_documented_by, :documents, :is_compiled_by, :compiles,
-                :is_variant_form_of, :is_original_form_of, :is_reviewed_by, :reviews,
-                :is_derived_from, :is_source_of, :format, :funding, :style, :locale, :state,
-                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :content_url, :meta
+    attr_writer :identifier, :creator, :title, :publisher, :rights, :dates, :date_published, :date_modified,
+                :date_updated, :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
+                :keywords, :editor, :description, :alternate_identifiers, :language, :size,
+                :b_format, :schema_version, :resource_type_general, :meta, :periodical,
+                :format, :funding_references, :style, :locale, :state, :geo_location,
+                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :content_url, :related_identifiers
 
     attr_reader :doc, :service_provider, :page_start, :page_end, :related_identifier, :reverse, :name_detector
 
@@ -123,8 +115,8 @@ module Bolognese
       @identifier ||= meta.fetch("id", nil)
     end
 
-    def alternate_identifier
-      @alternate_identifier ||= meta.fetch("alternate_identifier", nil)
+    def alternate_identifiers
+      @alternate_identifiers ||= meta.fetch("alternate_identifiers", nil)
     end
 
     def content_url
@@ -139,8 +131,8 @@ module Bolognese
       @title ||= meta.fetch("title", nil)
     end
 
-    def author
-      @author ||= meta.fetch("author", nil)
+    def creator
+      @creator ||= meta.fetch("creator", nil)
     end
 
     def editor
@@ -155,32 +147,8 @@ module Bolognese
       @service_provider ||= meta.fetch("service_provider", nil)
     end
 
-    def date_created
-      @date_created ||= meta.fetch("date_created", nil)
-    end
-
-    def date_accepted
-      @date_accepted ||= meta.fetch("date_accepted", nil)
-    end
-
-    def date_available
-      @date_available ||= meta.fetch("date_available", nil)
-    end
-
-    def date_copyrighted
-      @date_copyrighted ||= meta.fetch("date_copyrighted", nil)
-    end
-
-    def date_collected
-      @date_collected ||= meta.fetch("date_collected", nil)
-    end
-
-    def date_submitted
-      @date_submitted ||= meta.fetch("date_submitted", nil)
-    end
-
-    def date_valid
-      @date_valid ||= meta.fetch("date_valid", nil)
+    def dates
+      @dates ||= meta.fetch("dates", nil)
     end
 
     def date_published
@@ -191,12 +159,12 @@ module Bolognese
       @date_modified ||= meta.fetch("date_modified", nil)
     end
 
-    def date_registered
-      @date_registered ||= meta.fetch("date_registered", nil)
-    end
-
     def date_updated
       @date_updated ||= meta.fetch("date_updated", nil)
+    end
+
+    def geo_location
+      @geo_location ||= meta.fetch("geo_location", nil)
     end
 
     def volume
@@ -215,8 +183,8 @@ module Bolognese
       @description ||= meta.fetch("description", nil)
     end
 
-    def license
-      @license ||= meta.fetch("license", nil)
+    def rights
+      @rights ||= meta.fetch("rights", nil)
     end
 
     def keywords
@@ -227,82 +195,24 @@ module Bolognese
       @language ||= meta.fetch("language", nil)
     end
 
-    def content_size
-      @content_size ||= meta.fetch("content_size", nil)
+    def size
+      @size ||= meta.fetch("size", nil)
     end
 
-    def content_format
-      @content_format ||= meta.fetch("content_format", nil)
+    def b_format
+      @b_format ||= meta.fetch("b_format", nil)
     end
 
     def schema_version
       @schema_version ||= meta.fetch("schema_version", nil)
     end
 
-    def funding
-      @funding ||= meta.fetch("funding", nil)
+    def funding_references
+      @funding_references ||= meta.fetch("funding_references", nil)
     end
 
-    def is_identical_to
-      meta.fetch("is_identical_to", nil)
-    end
-
-    def is_part_of
-      meta.fetch("is_part_of", nil)
-    end
-
-    def has_part
-      meta.fetch("has_part", nil)
-    end
-
-    def is_previous_version_of
-      meta.fetch("is_previous_of", nil)
-    end
-
-    def is_new_version_of
-      meta.fetch("is_new_version_of", nil)
-    end
-
-    def is_variant_form_of
-      meta.fetch("is_variant_form_of", nil)
-    end
-
-    def is_original_form_of
-      meta.fetch("is_original_form_of", nil)
-    end
-
-    def references
-      meta.fetch("references", nil)
-    end
-
-    def is_referenced_by
-      meta.fetch("is_referenced_by", nil)
-    end
-
-    def is_supplement_to
-      meta.fetch("is_supplement_to", nil)
-    end
-
-    def is_supplemented_by
-      meta.fetch("is_supplemented_by", nil)
-    end
-
-    def reviews
-      meta.fetch("reviews", nil)
-    end
-
-    def is_reviewed_by
-      meta.fetch("is_reviewed_by", nil)
-    end
-
-    def related_identifier_hsh(relation_type)
-      Array.wrap(send(relation_type)).select { |r| r["id"] || r["issn"] }
-        .map { |r| r.merge("relationType" => relation_type.camelize) }
-    end
-
-    def related_identifier
-      relation_types = %w(is_part_of has_part references is_referenced_by is_supplement_to is_supplemented_by)
-      relation_types.reduce([]) { |sum, r| sum += related_identifier_hsh(r) }
+    def related_identifiers
+      @related_identifiers ||= meta.fetch("related_identifiers", nil)
     end
 
     def b_url
@@ -322,8 +232,8 @@ module Bolognese
       date_published.present? ? date_published[0..3].to_i.presence : nil
     end
 
-    def container_title
-      meta.fetch("container_title", nil) || Array.wrap(is_part_of).first.to_h.fetch("title", nil)
+    def periodical
+      @periodical ||= meta.fetch("periodical", nil)
     end
 
     def descriptions
@@ -331,8 +241,16 @@ module Bolognese
     end
 
     def reverse
-      { "citation" => Array.wrap(is_referenced_by).map { |r| { "@id" => r["id"] }}.unwrap,
-        "isBasedOn" => Array.wrap(is_supplement_to).map { |r| { "@id" => r["id"] }}.unwrap }.compact
+      { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relation_type"] == "IsReferencedBy" }.map do |r| 
+        { "@id" => normalize_doi(r["id"]),
+          "@type" => r["resource_type_general"] || "CreativeWork",
+          "identifier" => r["related_identifier_type"] == "DOI" ? nil : to_identifier(r) }.compact
+        end.unwrap,
+        "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relation_type"] == "IsSupplementTo" }.map do |r| 
+          { "@id" => normalize_doi(r["id"]),
+            "@type" => r["resource_type_general"] || "CreativeWork",
+            "identifier" => r["related_identifier_type"] == "DOI" ? nil : to_identifier(r) }.compact
+        end.unwrap }.compact
     end
 
     def graph
@@ -345,12 +263,12 @@ module Bolognese
         "id" => identifier,
         "categories" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
         "language" => language,
-        "author" => to_citeproc(author),
+        "author" => to_citeproc(creator),
         "editor" => to_citeproc(editor),
         "issued" => date_published ? get_date_parts(date_published) : nil,
-        "submitted" => date_submitted ? get_date_parts(date_submitted) : nil,
+        "submitted" => Array.wrap(dates).find { |d| d["type"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(description, content: "text", first: true),
-        "container-title" => container_title,
+        "container-title" => periodical && periodical["title"],
         "DOI" => doi,
         "issue" => issue,
         "page" => [first_page, last_page].compact.join("-").presence,

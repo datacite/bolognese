@@ -45,9 +45,9 @@ module Bolognese
 
     def insert_creators(xml)
       xml.creators do
-        Array.wrap(author).each do |creator|
+        Array.wrap(creator).each do |au|
           xml.creator do
-            insert_person(xml, creator, "creator")
+            insert_person(xml, au, "creator")
           end
         end
       end
@@ -85,7 +85,7 @@ module Bolognese
     end
 
     def insert_publisher(xml)
-      xml.publisher(publisher || container_title)
+      xml.publisher(publisher || periodical && periodical["title"])
     end
 
     def insert_publication_year(xml)
@@ -105,18 +105,17 @@ module Bolognese
     end
 
     def insert_alternate_identifiers(xml)
-      return xml unless alternate_identifier.present?
+      return xml unless alternate_identifiers.present?
 
       xml.alternateIdentifiers do
-        Array.wrap(alternate_identifier).each do |alt|
-          xml.alternateIdentifier(alt["name"], 'alternateIdentifierType' => alt["type"])
+        Array.wrap(alternate_identifiers).each do |alternate_identifier|
+          xml.alternateIdentifier(alternate_identifier["name"], 'alternateIdentifierType' => alternate_identifier["type"])
         end
       end
     end
 
     def insert_dates(xml)
       xml.dates do
-        insert_date(xml, date_created, 'Created') if date_created.present?
         insert_date(xml, date_published, 'Issued') if date_published.present?
         insert_date(xml, date_modified, 'Updated') if date_modified.present?
       end
@@ -127,10 +126,10 @@ module Bolognese
     end
 
     def insert_funding_references(xml)
-      return xml unless Array.wrap(funding).present?
+      return xml unless Array.wrap(funding_references).present?
 
       xml.fundingReferences do
-        Array.wrap(funding).each do |funding_reference|
+        Array.wrap(funding_references).each do |funding_reference|
           xml.fundingReference do
             insert_funding_reference(xml, funding_reference)
           end
@@ -139,8 +138,8 @@ module Bolognese
     end
 
     def insert_funding_reference(xml, funding_reference)
-      xml.funderName(funding_reference["name"]) if funding_reference["name"].present?
-      xml.funderIdentifier(funding_reference["id"], "funderIdentifierType" => "Crossref Funder ID") if funding_reference["id"].present?
+      xml.funderName(funding_reference["funder_name"]) if funding_reference["funder_name"].present?
+      xml.funderIdentifier(funding_reference["funder_identifier"], "funderIdentifierType" => "Crossref Funder ID") if funding_reference["funder_identifier"].present?
     end
 
     def insert_subjects(xml)
@@ -159,43 +158,25 @@ module Bolognese
       xml.version(b_version)
     end
 
-    def rel_identifier
-      Array.wrap(related_identifier).map do |r|
-        related_identifier_type = r["issn"].present? ? "ISSN" : validate_url(r["id"])
-        if related_identifier_type == "ISSN"
-          content = r["issn"]
-        elsif related_identifier_type == "DOI"
-          content = doi_from_url(r["id"])
-        else
-          content = r["id"]
-        end
-
-        { "__content__" => content,
-          "related_identifier_type" => related_identifier_type,
-          "relation_type" => r["relationType"],
-          "resource_type_general" => r["resourceTypeGeneral"] }.compact
-      end
-    end
-
     def insert_related_identifiers(xml)
-      return xml unless rel_identifier.present?
+      return xml unless related_identifiers.present?
 
       xml.relatedIdentifiers do
-        rel_identifier.each do |related_identifier|
+        related_identifiers.each do |related_identifier|
           attributes = {
             'relatedIdentifierType' => related_identifier["related_identifier_type"],
             'relationType' => related_identifier["relation_type"],
             'resourceTypeGeneral' => related_identifier["resource_type_general"] }.compact
-          xml.relatedIdentifier(related_identifier["__content__"], attributes)
+          xml.relatedIdentifier(related_identifier["id"], attributes)
         end
       end
     end
 
     def insert_rights_list(xml)
-      return xml unless license.present?
+      return xml unless rights.present?
 
       xml.rightsList do
-        Array.wrap(license).each do |lic|
+        Array.wrap(rights).each do |lic|
           if lic.is_a?(Hash)
             l = lic
           else
@@ -210,11 +191,11 @@ module Bolognese
     end
 
     def insert_descriptions(xml)
-      return xml unless description.present? || container_title.present?
+      return xml unless description.present? || periodical && periodical["title"].present?
 
       xml.descriptions do
-        if container_title.present?
-          xml.description(container_title, 'descriptionType' => "SeriesInformation")
+        if periodical && periodical["title"].present?
+          xml.description(periodical["title"], 'descriptionType' => "SeriesInformation")
         end
 
         Array.wrap(description).each do |des|

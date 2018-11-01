@@ -195,13 +195,13 @@ describe Bolognese::Metadata, vcr: true do
     it "doi" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/0012"}, {"@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5438/55E5-T5C0"}]
       response = subject.normalize_ids(ids: ids)
-      expect(response).to eq([{"id"=>"https://doi.org/10.5438/0012", "type"=>"CreativeWork"}, {"id"=>"https://doi.org/10.5438/55e5-t5c0", "type"=>"CreativeWork"}])
+      expect(response).to eq([{"id"=>"10.5438/0012", "related_identifier_type"=>"DOI"}, {"id"=>"10.5438/55e5-t5c0", "related_identifier_type"=>"DOI"}])
     end
 
     it "url" do
       ids = [{"@type"=>"CreativeWork", "@id"=>"https://blog.datacite.org/eating-your-own-dog-food/"}]
       response = subject.normalize_ids(ids: ids)
-      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "type" => "CreativeWork")
+      expect(response).to eq("id"=>"https://blog.datacite.org/eating-your-own-dog-food", "related_identifier_type"=>"URL")
     end
   end
 
@@ -238,8 +238,8 @@ describe Bolognese::Metadata, vcr: true do
   context "to_schema_org_identifier" do
     it "with alternate_identifier" do
       identifier = "https://doi.org/10.23725/8na3-9s47"
-      alternate_identifier = [{"type"=>"md5", "name"=>"3b33f6b9338fccab0901b7d317577ea3"}, {"type"=>"minid", "name"=>"ark:/99999/fk41CrU4eszeLUDe"}, {"type"=>"dataguid", "name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}]
-      response = subject.to_schema_org_identifier(identifier, alternate_identifier: alternate_identifier, type: "Dataset")
+      alternate_identifiers = [{"type"=>"md5", "name"=>"3b33f6b9338fccab0901b7d317577ea3"}, {"type"=>"minid", "name"=>"ark:/99999/fk41CrU4eszeLUDe"}, {"type"=>"dataguid", "name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}]
+      response = subject.to_schema_org_identifier(identifier, alternate_identifiers: alternate_identifiers, type: "Dataset")
       expect(response).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.23725/8na3-9s47"},
         {"@type"=>"PropertyValue",
          "propertyID"=>"md5",

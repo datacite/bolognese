@@ -13,11 +13,10 @@ module Bolognese
           "identifier" => identifier,
           "codeRepository" => b_url,
           "title" => title,
-          "agents" => author,
+          "agents" => creator,
           "description" => parse_attributes(description, content: "text", first: true),
           "version" => b_version,
           "tags" => keywords.to_s.split(", ").presence,
-          "dateCreated" => date_created,
           "datePublished" => date_published,
           "dateModified" => date_modified,
           "publisher" => publisher

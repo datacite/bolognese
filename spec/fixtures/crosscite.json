@@ -8,7 +8,7 @@
     "ris_type": "COMP",
     "resource_type_general": "Software",
     "resource_type": "Software",
-    "author": {
+    "creator": {
         "type": "Person",
         "name": "Kristian Garza",
         "givenName": "Kristian",
@@ -18,11 +18,11 @@
     "publisher": "Zenodo",
     "keywords": ["choice architecture", "crossover experiment", "hci"],
     "date_published": "2016-03-27",
-    "alternate_identifier": {
+    "alternate_identifiers": {
         "type": "URL",
         "name": "http://zenodo.org/record/48440"
     },
-    "license": [{
+    "rights": [{
             "name": "Open Access"
         },
         {

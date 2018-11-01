@@ -39,11 +39,11 @@ module Bolognese
       end
 
       def insert_authors(xml)
-        if author.present?
+        if creator.present?
           xml.send("person-group", "person-group-type" => "author") do
-            Array.wrap(author).each do |creator|
+            Array.wrap(creator).each do |au|
               xml.name do
-                insert_contributor(xml, creator)
+                insert_contributor(xml, au)
               end
             end
           end
@@ -77,7 +77,7 @@ module Bolognese
 
       def insert_source(xml)
         if is_article? || is_data? || is_chapter?
-          xml.source(container_title || publisher)
+          xml.source(periodical && periodical["title"] || publisher)
         else
           xml.source(parse_attributes(title, content: "text", first: true))
         end

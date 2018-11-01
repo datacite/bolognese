@@ -115,25 +115,15 @@ describe Bolognese::Metadata, vcr: true do
 
   context "insert_related_identifiers" do
     it "related_identifier" do
-      expect(subject.has_part).to eq([{"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/1"}, {"type"=>"CreativeWork", "id"=>"https://doi.org/10.5061/dryad.8515/2"}])
-      expect(subject.is_referenced_by).to eq("type"=>"CreativeWork", "id"=>"https://doi.org/10.1371/journal.ppat.1000446")
+      expect(subject.related_identifiers.length).to eq(6)
+      expect(subject.related_identifiers.first).to eq("id"=>"10.5061/dryad.8515/1", "related_identifier_type"=>"DOI", "relation_type"=>"HasPart")
     end
 
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq([{"relatedIdentifierType"=>"DOI",
-                                                                              "relationType"=>"HasPart",
-                                                                              "__content__"=>"10.5061/dryad.8515/1"},
-                                                                             {"relatedIdentifierType"=>"DOI",
-                                                                              "relationType"=>"HasPart",
-                                                                              "__content__"=>"10.5061/dryad.8515/2"},
-                                                                             {"relatedIdentifierType"=>"DOI",
-                                                                              "relationType"=>"IsReferencedBy",
-                                                                              "__content__"=>"10.1371/journal.ppat.1000446"},
-                                                                             {"relatedIdentifierType"=>"DOI",
-                                                                              "relationType"=>"IsSupplementTo",
-                                                                              "__content__"=>"10.1371/journal.ppat.1000446"}])
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(6)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("__content__"=>"10.5061/dryad.8515/1", "relatedIdentifierType"=>"DOI", "relationType"=>"HasPart")
     end
   end
 

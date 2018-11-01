@@ -17,8 +17,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[9]).to eq("UR  - https://elifesciences.org/articles/01567")
       expect(ris[10]).to  start_with("AB  - Among various advantages")
       expect(ris[11]).to eq("PY  - 2014")
-      expect(ris[12]).to eq("VL  - 3")
-      expect(ris[13]).to eq("ER  - ")
+      expect(ris[12]).to eq("PB  - (:unav)")
+      expect(ris[13]).to eq("VL  - 3")
+      expect(ris[14]).to eq("SN  - 2050-084X")
+      expect(ris[15]).to eq("ER  - ")
     end
 
     it "with pages" do
@@ -34,10 +36,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[11]).to eq("UR  - http://www.hindawi.com/journals/pm/2012/291294/")
       expect(ris[12]).to start_with("AB  - . To find a statistically significant separation point for the QuantiFERON")
       expect(ris[13]).to eq("PY  - 2012")
-      expect(ris[14]).to eq("VL  - 2012")
-      expect(ris[15]).to eq("SP  - 1")
-      expect(ris[16]).to eq("EP  - 7")
-      expect(ris[17]).to eq("ER  - ")
+      expect(ris[14]).to eq("PB  - (:unav)")
+      expect(ris[15]).to eq("VL  - 2012")
+      expect(ris[16]).to eq("SP  - 1")
+      expect(ris[17]).to eq("EP  - 7")
+      expect(ris[18]).to eq("SN  - 2090-1836")
+      expect(ris[19]).to eq("ER  - ")
     end
 
     it "alternate name" do
@@ -55,7 +59,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[21]).to eq("PY  - 2017")
       expect(ris[22]).to eq("PB  - German Medical Science GMS Publishing House")
       expect(ris[23]).to eq("LA  - en")
-      expect(ris[24]).to eq("ER  - ")
+      expect(ris[24]).to eq("SN  - 2366-5017")
+      expect(ris[25]).to eq("ER  - ")
     end
 
     it "Crossref DOI" do
@@ -72,7 +77,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[11]).to eq("PY  - 2014")
       expect(ris[12]).to eq("PB  - {eLife} Sciences Organisation, Ltd.")
       expect(ris[13]).to eq("VL  - 3")
-      expect(ris[14]).to eq("ER  - ")
+      expect(ris[14]).to eq("SN  - 2050-084X")
+      expect(ris[15]).to eq("ER  - ")
     end
 
     it "BlogPosting" do
@@ -88,7 +94,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[5]).to eq("KW  - datacite")
       expect(ris[8]).to eq("PY  - 2016")
       expect(ris[9]).to eq("PB  - DataCite")
-      expect(ris[10]).to eq("ER  - ")
+      expect(ris[10]).to eq("SN  - 10.5438/0000-00ss")
+      expect(ris[11]).to eq("ER  - ")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -120,7 +127,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[5]).to eq("KW  - datacite")
       expect(ris[8]).to eq("PY  - 2016")
       expect(ris[9]).to eq("PB  - DataCite")
-      expect(ris[10]).to eq("ER  - ")
+      expect(ris[10]).to eq("SN  - 10.5438/0000-00ss")
+      expect(ris[11]).to eq("ER  - ")
     end
 
     it "BlogPosting schema.org" do
@@ -129,14 +137,14 @@ describe Bolognese::Metadata, vcr: true do
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - GEN")
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
-      expect(ris[2]).to eq("T2  - DataCite Blog")
-      expect(ris[3]).to eq("AU  - Fenner, Martin")
-      expect(ris[4]).to eq("DO  - 10.5438/4k3m-nyvg")
-      expect(ris[5]).to eq("UR  - https://blog.datacite.org/eating-your-own-dog-food")
-      expect(ris[6]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
-      expect(ris[7]).to eq("KW  - datacite")
-      expect(ris[11]).to eq("PY  - 2016")
-      expect(ris[12]).to eq("PB  - DataCite")
+      expect(ris[2]).to eq("AU  - Fenner, Martin")
+      expect(ris[3]).to eq("DO  - 10.5438/4k3m-nyvg")
+      expect(ris[4]).to eq("UR  - https://blog.datacite.org/eating-your-own-dog-food")
+      expect(ris[5]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(ris[6]).to eq("KW  - datacite")
+      expect(ris[10]).to eq("PY  - 2016")
+      expect(ris[11]).to eq("PB  - DataCite")
+      expect(ris[12]).to eq("SN  - 10.5438/0000-00ss")
       expect(ris[13]).to eq("ER  - ")
     end
 
