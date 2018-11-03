@@ -98,5 +98,133 @@ module Bolognese
     def errors
       meta.fetch("errors", nil) || datacite_errors(xml: datacite, schema_version: schema_version)
     end
+    
+    def description
+      @description ||= meta.fetch("description", nil)
+    end
+
+    def rights
+      @rights ||= meta.fetch("rights", nil)
+    end
+
+    def keywords
+      @keywords ||= meta.fetch("keywords", nil)
+    end
+
+    def language
+      @language ||= meta.fetch("language", nil)
+    end
+
+    def size
+      @size ||= meta.fetch("size", nil)
+    end
+
+    def b_format
+      @b_format ||= meta.fetch("b_format", nil)
+    end
+
+    def schema_version
+      @schema_version ||= meta.fetch("schema_version", nil)
+    end
+
+    def funding_references
+      @funding_references ||= meta.fetch("funding_references", nil)
+    end
+
+    def related_identifiers
+      @related_identifiers ||= meta.fetch("related_identifiers", nil)
+    end
+
+    def b_url
+      @b_url ||= meta.fetch("b_url", nil)
+    end
+
+    def b_version
+      @b_version ||= meta.fetch("b_version", nil)
+    end
+
+    def publication_year
+      date_published.present? ? date_published[0..3].to_i.presence : nil
+    end
+
+    def periodical
+      @periodical ||= meta.fetch("periodical", nil)
+    end
+
+    def descriptions
+      Array.wrap(description)
+    end
+
+    def geo_location
+      @geo_location ||= meta.fetch("geo_location", nil)
+    end
+
+    def dates
+      @dates ||= meta.fetch("dates", nil)
+    end
+
+    def publisher
+      @publisher ||= meta.fetch("publisher", nil)
+    end
+
+    def alternate_identifiers
+      @alternate_identifiers ||= meta.fetch("alternate_identifiers", nil)
+    end
+
+    def content_url
+      @content_url ||= meta.fetch("content_url", nil)
+    end
+
+    def state
+      @state ||= meta.fetch("state", nil)
+    end
+
+    def identifier
+      @identifier ||= meta.fetch("id", nil)
+    end
+
+    def type
+      @type ||= meta.fetch("type", nil)
+    end
+
+    def additional_type
+      @additional_type ||= meta.fetch("additional_type", nil)
+    end
+
+    def citeproc_type
+      @citeproc_type ||= meta.fetch("citeproc_type", nil)
+    end
+
+    def bibtex_type
+      @bibtex_type ||= meta.fetch("bibtex_type", nil)
+    end
+
+    def ris_type
+      @ris_type ||= meta.fetch("ris_type", nil)
+    end
+
+    def resource_type_general
+      @resource_type_general ||= meta.fetch("resource_type_general", nil)
+    end
+
+    def title
+      @title ||= meta.fetch("title", nil)
+    end
+
+    def creator
+      @creator ||= meta.fetch("creator", nil)
+    end
+
+    def date_published
+      @date_published ||= meta.fetch("date_published", nil)
+    end
+
+    def date_modified
+      @date_modified ||= meta.fetch("date_modified", nil)
+    end
+
+    def date_updated
+      @date_updated ||= meta.fetch("date_updated", nil)
+    end
   end
 end
