@@ -119,9 +119,9 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author is organization" do
       input = fixture_path + 'gtex.xml'
-      b_url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
+      url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
       content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"  
-      subject = Bolognese::Metadata.new(input: input, b_url: b_url, content_url: content_url, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, url: url, content_url: content_url, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")

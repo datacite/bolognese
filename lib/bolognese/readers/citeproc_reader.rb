@@ -66,7 +66,7 @@ module Bolognese
           "ris_type" => CP_TO_RIS_TRANSLATIONS[type] || "GEN",
           "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
           "doi" => doi_from_url(doi),
-          "b_url" => normalize_id(meta.fetch("URL", nil)),
+          "url" => normalize_id(meta.fetch("URL", nil)),
           "title" => meta.fetch("title", nil),
           "creator" => author,
           "periodical" => periodical,
@@ -77,7 +77,7 @@ module Bolognese
           #{}"pagination" => meta.pages.to_s.presence,
           "description" => meta.fetch("abstract", nil).present? ? { "text" => sanitize(meta.fetch("abstract")) } : nil,
           #{ }"rights" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
-          "b_version" => meta.fetch("version", nil),
+          "version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("categories", nil),
           "state" => state
         }

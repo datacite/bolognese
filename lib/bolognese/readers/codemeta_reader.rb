@@ -42,7 +42,7 @@ module Bolognese
           "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
           "identifier" => identifier,
           "doi" => validate_doi(id),
-          "b_url" => normalize_id(meta.fetch("codeRepository", nil)),
+          "url" => normalize_id(meta.fetch("codeRepository", nil)),
           "title" => meta.fetch("title", nil),
           "creator" => author,
           "editor" => editor,
@@ -53,7 +53,7 @@ module Bolognese
           "date_modified" => meta.fetch("dateModified", nil),
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "rights" => { "id" => meta.fetch("license", nil) },
-          "b_version" => meta.fetch("version", nil),
+          "version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("tags", nil),
           "state" => state
         }

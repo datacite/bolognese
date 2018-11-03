@@ -6,7 +6,13 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
-    attr_writer :id, :provider_id, :client_id, :doi
+    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :title, :publisher, :rights, :dates, :date_published, :date_modified,
+                :date_updated, :journal, :volume, :first_page, :last_page, :url, :version, :resource_type_general,
+                :keywords, :editor, :description, :alternate_identifiers, :language, :size,
+                :formats, :schema_version, :resource_type_general, :meta, :periodical,
+                :format, :funding_references, :style, :locale, :state, :geo_location,
+                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :content_url, :related_identifiers
+
 
     def initialize(input: nil, from: nil, **options)
       id = normalize_id(input, options)
@@ -20,7 +26,7 @@ module Bolognese
       elsif input.present? && File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
-          hsh = { "b_url" => options[:b_url],
+          hsh = { "url" => options[:url],
             "state" => options[:state],
             "date_registered" => options[:date_registered],
             "date_updated" => options[:date_updated],
@@ -34,7 +40,7 @@ module Bolognese
           exit 1
         end
       else
-        hsh = { "b_url" => options[:b_url],
+        hsh = { "url" => options[:url],
                 "state" => options[:state],
                 "date_registered" => options[:date_registered],
                 "date_updated" => options[:date_updated],
@@ -57,7 +63,7 @@ module Bolognese
       @sandbox = options[:sandbox]
 
       # options that come from the datacite database
-      @b_url = hsh.to_h["b_url"].presence || options[:b_url].presence
+      @url = hsh.to_h["url"].presence || options[:url].presence
       @state = hsh.to_h["state"].presence
       @date_registered = hsh.to_h["date_registered"].presence
       @date_updated = hsh.to_h["date_updated"].presence
@@ -119,8 +125,8 @@ module Bolognese
       @size ||= meta.fetch("size", nil)
     end
 
-    def b_format
-      @b_format ||= meta.fetch("b_format", nil)
+    def formats
+      @formats ||= meta.fetch("formats", nil)
     end
 
     def schema_version
@@ -135,12 +141,12 @@ module Bolognese
       @related_identifiers ||= meta.fetch("related_identifiers", nil)
     end
 
-    def b_url
-      @b_url ||= meta.fetch("b_url", nil)
+    def url
+      @url ||= meta.fetch("url", nil)
     end
 
-    def b_version
-      @b_version ||= meta.fetch("b_version", nil)
+    def version
+      @version ||= meta.fetch("version", nil)
     end
 
     def publication_year

@@ -19,7 +19,7 @@ describe Bolognese::Metadata, vcr: true do
     it "maremma" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/qeg0-3gm3")
-      expect(subject.b_url).to eq("https://github.com/datacite/maremma")
+      expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
@@ -35,7 +35,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'codemeta.json'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.identifier).to eq("https://doi.org/10.5063/f1m61h5x")
-      expect(subject.b_url).to eq("https://github.com/DataONEorg/rdataone")
+      expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.creator).to eq( [{"type"=>"Person",
                                       "id"=>"http://orcid.org/0000-0003-0077-4738",
@@ -51,7 +51,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("R Interface to the DataONE REST API")
       expect(subject.description["text"]).to start_with("Provides read and write access to data and metadata")
       expect(subject.keywords).to eq(["data sharing", "data repository", "DataONE"])
-      expect(subject.b_version).to eq("2.0.0")
+      expect(subject.version).to eq("2.0.0")
       expect(subject.dates).to eq("2016-05-27")
       expect(subject.date_published).to eq("2016-05-27")
       expect(subject.date_modified).to eq("2016-05-27")
@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/qeg0-3gm3")
-      expect(subject.b_url).to eq("https://github.com/datacite/maremma")
+      expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
@@ -80,7 +80,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/wr0x-e194")
-      expect(subject.b_url).to eq("https://github.com/datacite/metadata-reports")
+      expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
       expect(subject.type).to eq("SoftwareSourceCode")
       expect(subject.creator.size).to eq(4)
       expect(subject.creator.last).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8135-3489", "name"=>"Lars Holm Nielsen", "givenName"=>"Lars Holm", "familyName"=>"Nielsen")

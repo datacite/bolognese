@@ -68,7 +68,7 @@ module Bolognese
           "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
           "additional_type" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
           "doi" => doi,
-          "b_url" => meta.try(:url).to_s,
+          "url" => meta.try(:url).to_s,
           "title" => meta.try(:title).to_s,
           "creator" => author,
           "periodical" => periodical,

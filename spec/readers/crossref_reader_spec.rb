@@ -20,7 +20,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.b_url).to eq("https://elifesciences.org/articles/01567")
+      expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.bibtex_type).to eq("article")
       expect(subject.ris_type).to eq("JOUR")
@@ -55,7 +55,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
-      expect(subject.b_url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
+      expect(subject.url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.bibtex_type).to eq("article")
@@ -83,7 +83,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
-      expect(subject.b_url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
+      expect(subject.url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("PostedContent")
       expect(subject.bibtex_type).to eq("article")
@@ -106,7 +106,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
-      expect(subject.b_url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
+      expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
@@ -129,7 +129,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1155/2012/291294")
-      expect(subject.b_url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
+      expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
@@ -153,7 +153,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
-      expect(subject.b_url).to eq("http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
+      expect(subject.url).to eq("http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")
@@ -172,7 +172,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
-      expect(subject.b_url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
+      expect(subject.url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("SaComponent")
       expect(subject.resource_type_general).to eq("Text")
@@ -195,7 +195,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
-      expect(subject.b_url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
+      expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
       expect(subject.type).to eq("Chapter")
       expect(subject.additional_type).to eq("BookChapter")
       expect(subject.resource_type_general).to eq("Text")
@@ -216,7 +216,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
-      expect(subject.b_url).to eq("http://doi.wiley.com/10.1111/nph.14619")
+      expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
       expect(subject.type).to eq("ScholarlyArticle")
       expect(subject.additional_type).to eq("JournalArticle")
       expect(subject.resource_type_general).to eq("Text")

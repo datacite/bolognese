@@ -153,9 +153,9 @@ module Bolognese
     end
 
     def insert_version(xml)
-      return xml unless b_version.present?
+      return xml unless version.present?
 
-      xml.version(b_version)
+      xml.version(version)
     end
 
     def insert_related_identifiers(xml)

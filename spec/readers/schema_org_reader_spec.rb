@@ -20,7 +20,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
@@ -38,7 +38,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
-      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
     end
 
@@ -49,7 +49,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1196821")
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
-      expect(subject.b_url).to eq("https://zenodo.org/record/1196821")
+      expect(subject.url).to eq("https://zenodo.org/record/1196821")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning task with auditory CS and electrical US")
       expect(subject.creator.size).to eq(6)
@@ -62,7 +62,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.836178")
       expect(subject.doi).to eq("10.1594/pangaea.836178")
-      expect(subject.b_url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
+      expect(subject.url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland")
       expect(subject.creator.size).to eq(8)
@@ -77,7 +77,7 @@ describe Bolognese::Metadata, vcr: true do
     #   #expect(subject.errors).to be true
     #   expect(subject.identifier).to eq("https://doi.org/10.3334/ornldaac/1418")
     #   expect(subject.doi).to eq("10.3334/ornldaac/1418")
-    #   expect(subject.b_url).to eq("https://doi.org/10.3334/ornldaac/1418")
+    #   expect(subject.url).to eq("https://doi.org/10.3334/ornldaac/1418")
     #   expect(subject.type).to eq("DataSet")
     #   expect(subject.title).to eq("AirMOSS: L2/3 Volumetric Soil Moisture Profiles Derived From Radar, 2012-2015")
     #   expect(subject.creator.size).to eq(8)
@@ -116,7 +116,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
@@ -136,13 +136,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.25491/d50j-3083")
       expect(subject.alternate_identifiers).to eq("name"=>"687610993", "type"=>"md5")
-      expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
+      expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("Gene expression matrices")
       expect(subject.creator).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
       expect(subject.title).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
-      expect(subject.b_version).to eq("v7")
+      expect(subject.version).to eq("v7")
       expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
       expect(subject.date_published).to eq("2017")
       expect(subject.periodical).to eq("title"=>"GTEx", "type"=>"DataCatalog")
@@ -158,7 +158,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")
       expect(subject.alternate_identifiers).to eq([{"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"}])
-      expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
+      expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("CRAM file")
@@ -211,7 +211,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.23725/7jg3-v803")
       expect(subject.alternate_identifiers).to eq([{"name"=>"ark:/99999/fk4E1n6n1YHKxPk", "type"=>"minid"}, {"name"=>"dg.4503/01b048d0-e128-4cb0-94e9-b2d2cab7563d", "type"=>"dataguid"}, {"name"=>"f9e72bdf25bf4b4f0e581d9218fec2eb", "type"=>"md5"}])
-      expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
+      expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/44a8837b-4456-5709-b56b-54e23000f13a/NWD100953.recab.cram","gs://topmed-irc-share/public/NWD100953.recab.cram","dos://dos.commons.ucsc-cgp.org/01b048d0-e128-4cb0-94e9-b2d2cab7563d?version=2018-05-26T133719.491772Z"])
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("CRAM file")

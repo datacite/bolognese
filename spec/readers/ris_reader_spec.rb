@@ -30,7 +30,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.b_url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
+      expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person",

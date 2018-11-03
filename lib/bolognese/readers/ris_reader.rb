@@ -67,7 +67,7 @@ module Bolognese
           "ris_type" => ris_type,
           "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
           "doi" => doi,
-          "b_url" => meta.fetch("UR", nil),
+          "url" => meta.fetch("UR", nil),
           "title" => meta.fetch("T1", nil),
           "creator" => get_authors(author),
           "publisher" => meta.fetch("PB", "(:unav)"),

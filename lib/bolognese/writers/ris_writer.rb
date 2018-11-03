@@ -10,7 +10,7 @@ module Bolognese
           "T2" => periodical && periodical["title"],
           "AU" => to_ris(creator),
           "DO" => doi,
-          "UR" => b_url,
+          "UR" => url,
           "AB" => parse_attributes(description, content: "text", first: true),
           "KW" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
           "PY" => publication_year,

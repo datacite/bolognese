@@ -62,15 +62,7 @@ module Bolognese
     include Bolognese::Writers::TurtleWriter
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :contributor
-
-    attr_writer :identifier, :creator, :title, :publisher, :rights, :dates, :date_published, :date_modified,
-                :date_updated, :journal, :volume, :first_page, :last_page, :b_url, :b_version, :resource_type_general,
-                :keywords, :editor, :description, :alternate_identifiers, :language, :size,
-                :b_format, :schema_version, :resource_type_general, :meta, :periodical,
-                :format, :funding_references, :style, :locale, :state, :geo_location,
-                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :content_url, :related_identifiers
-
-    attr_reader :doc, :service_provider, :page_start, :page_end, :related_identifier, :reverse, :name_detector
+    attr_reader :doc, :service_provider, :page_start, :page_end, :reverse, :name_detector
 
     # replace DOI in XML if provided in options
     def raw
@@ -146,8 +138,8 @@ module Bolognese
         "page" => [first_page, last_page].compact.join("-").presence,
         "publisher" => publisher,
         "title" => parse_attributes(title, content: "text", first: true),
-        "URL" => b_url,
-        "version" => b_version,
+        "URL" => url,
+        "version" => version,
         "volume" => volume
       }.compact.symbolize_keys
     end

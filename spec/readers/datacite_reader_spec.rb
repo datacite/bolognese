@@ -19,7 +19,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Dataset" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.additional_type).to eq("DataPackage")
       expect(subject.resource_type_general).to eq("Dataset")
@@ -441,7 +441,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.alternate_identifiers).to eq("type"=>"ISBN", "name"=>"937-0-4523-12357-6")
       expect(subject.date_published).to eq("2010")
       expect(subject.size).to eq("256 pages")
-      expect(subject.b_format).to eq("pdf")
+      expect(subject.formats).to eq("pdf")
       expect(subject.content_url).to eq("https://example.org/report.pdf")
       expect(subject.publication_year).to eq(2010)
       expect(subject.related_identifiers.length).to eq(1)
@@ -568,7 +568,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "givenName"=>"Henk",
                                      "familyName"=>"Eskes"}])
       expect(subject.title).to eq("Multi-Sensor Reanalysis (MSR) of total ozone, version 2")
-      expect(subject.b_version).to eq("2")
+      expect(subject.version).to eq("2")
       expect(subject.date_published).to eq("2015")
       expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")
       expect(subject.service_provider).to eq("DataCite")
@@ -682,7 +682,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("A new malaria agent in African hominids.")
     end
@@ -692,7 +692,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.b_url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.type).to eq("Dataset")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
       expect(subject.state).to eq("registered")
@@ -716,13 +716,13 @@ describe Bolognese::Metadata, vcr: true do
 
   it "GTEx dataset" do
     input = fixture_path + 'gtex.xml'
-    b_url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
+    url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
     content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"
-    subject = Bolognese::Metadata.new(input: input, from: 'datacite', b_url: b_url, content_url: content_url)
+    subject = Bolognese::Metadata.new(input: input, from: 'datacite', url: url, content_url: content_url)
 
     expect(subject.valid?).to be true
     expect(subject.identifier).to eq("https://doi.org/10.25491/9hx8-ke93")
-    expect(subject.b_url).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
+    expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
     expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
     expect(subject.type).to eq("Dataset")
     expect(subject.additional_type).to eq("DroNc-seq data")
@@ -732,7 +732,7 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.date_published).to eq("2017")
     expect(subject.related_identifiers.length).to eq(4)
     expect(subject.related_identifiers.last).to eq("id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "related_identifier_type"=>"URL", "relation_type"=>"IsPartOf")
-    expect(subject.b_format).to eq("application/tar")
+    expect(subject.formats).to eq("application/tar")
     expect(subject.size).to eq("15.7M")
     expect(subject.periodical).to eq("id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "title"=>"GTEx", "type"=>"DataCatalog")
     expect(subject.publisher).to eq("GTEx")

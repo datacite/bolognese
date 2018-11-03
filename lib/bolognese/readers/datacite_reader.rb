@@ -39,7 +39,7 @@ module Bolognese
         end.compact
 
         { "string" => string,
-          "b_url" => attributes.fetch("url", nil),
+          "url" => attributes.fetch("url", nil),
           "state" => attributes.fetch("state", nil),
           "date_registered" => attributes.fetch("minted", nil),
           "date_updated" => attributes.fetch("updated", nil),
@@ -174,12 +174,12 @@ module Bolognese
           "date_modified" => datacite_date(dates, "Updated"),
           "description" => description,
           "rights" => rights,
-          "b_version" => meta.fetch("version", nil),
+          "version" => meta.fetch("version", nil),
           "keywords" => keywords,
           "language" => meta.fetch("language", nil),
           "geo_location" => geo_location,
           "related_identifiers" => related_identifiers,
-          "b_format" => formats,
+          "formats" => formats,
           "size" => sizes,
           "schema_version" => schema_version,
           "state" => state

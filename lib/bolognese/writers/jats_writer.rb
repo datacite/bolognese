@@ -22,7 +22,7 @@ module Bolognese
         insert_issue(xml) if issue.present?
         insert_fpage(xml) if first_page.present?
         insert_lpage(xml) if last_page.present?
-        insert_version(xml) if b_version.present?
+        insert_version(xml) if version.present?
         insert_pub_id(xml)
       end
 
@@ -112,7 +112,7 @@ module Bolognese
       end
 
       def insert_version(xml)
-        xml.version(b_version)
+        xml.version(version)
       end
 
       def insert_pub_id(xml)

@@ -10,7 +10,7 @@ module Bolognese
           bibtex_type: bibtex_type.presence || "misc",
           bibtex_key: identifier,
           doi: doi,
-          url: b_url,
+          url: url,
           author: authors_as_string(creator),
           keywords: keywords.present? ? Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.join(", ") : nil,
           language: language,

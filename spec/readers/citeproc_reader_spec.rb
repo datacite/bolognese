@@ -17,7 +17,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.b_url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.type).to eq("BlogPosting")
       expect(subject.resource_type_general).to eq("Text")
       expect(subject.creator).to eq("type"=>"Person", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
