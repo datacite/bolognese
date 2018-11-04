@@ -18,6 +18,11 @@ module Bolognese
             "related_identifier_type" => ri["related-identifier-type"],
             "resource_type_general" => ri["resource-type-general"] }.compact
         end
+        dates = Array.wrap(meta.fetch("dates", nil)).map do |d|
+          { "date" => d["date"],
+            "date_type" => d["date-type"] }.compact
+        end
+        dates << { "date" => meta.fetch("publication-year", nil), "date_type" => "Issued" } if meta.fetch("publication-year", nil).present? && get_date(dates, "Issued").blank?
 
         { "id" => meta.fetch("id", nil),
           "type" => type,
@@ -37,9 +42,8 @@ module Bolognese
           "service_provider" => "DataCite",
           "funding_references" => meta.fetch("funding-references", nil),
           "related_identifiers" => related_identifiers,
-          "dates" => meta.fetch("dates", nil),
-          "date_published" => meta.fetch("date-published", nil) || meta.fetch("publication-year", nil),
-          "date_modified" => meta.fetch("date-modified", nil),
+          "dates" => dates,
+          "publication_year" => meta.fetch("publication-year", nil),
           "description" => meta.fetch("description", nil),
           "rights" => meta.fetch("rights", nil),
           "version" => meta.fetch("version", nil),

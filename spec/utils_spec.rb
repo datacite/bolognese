@@ -324,6 +324,14 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "get_date" do
+    it "publication date" do
+      dates = [{ "date"=>"2016-12-20", "date_type" => "Issued" }]
+      response = subject.get_date(dates, "Issued")
+      expect(response).to eq("2016-12-20")
+    end
+  end
+
   context "github" do
     it "github_from_url" do
       url = "https://github.com/datacite/bolognese"

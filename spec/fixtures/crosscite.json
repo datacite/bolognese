@@ -17,7 +17,11 @@
     "title": "Analysis Tools for Crossover Experiment of UI using Choice Architecture",
     "publisher": "Zenodo",
     "keywords": ["choice architecture", "crossover experiment", "hci"],
-    "date_published": "2016-03-27",
+    "dates": {
+        "date": "2016-03-27",
+        "date-type": "Issued"
+    },
+    "publication_year": "2016",
     "alternate_identifiers": {
         "type": "URL",
         "name": "http://zenodo.org/record/48440"

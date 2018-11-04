@@ -106,6 +106,7 @@ module Bolognese
             "date_type" => parse_attributes(d, content: "dateType")
           }
         end
+        dates << { "date" => meta.fetch("publicationYear", nil), "date_type" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
         sizes = Array.wrap(meta.dig("sizes", "size")).unwrap
         formats = Array.wrap(meta.dig("formats", "format")).unwrap
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
@@ -170,8 +171,7 @@ module Bolognese
           "service_provider" => "DataCite",
           "funding_references" => funding_references,
           "dates" => dates,
-          "date_published" => datacite_date(dates, "Issued") || meta.fetch("publicationYear", nil),
-          "date_modified" => datacite_date(dates, "Updated"),
+          "publication_year" => meta.fetch("publicationYear", nil),
           "description" => description,
           "rights" => rights,
           "version" => meta.fetch("version", nil),
@@ -198,11 +198,6 @@ module Bolognese
             "issn" => is_part_of["relatedIdentifierType"] == "ISSN" ? is_part_of["__content__"] : nil
           }.compact
         end
-      end
-
-      def datacite_date(dates, date_type)
-        dd = dates.find { |d| d["date_type"] == date_type } || {}
-        dd.fetch("date", nil)
       end
 
       def datacite_funding_reference(meta)

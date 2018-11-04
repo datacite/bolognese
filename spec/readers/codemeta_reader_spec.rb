@@ -25,9 +25,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description["text"]).to start_with("Ruby utility library for network requests")
       expect(subject.keywords).to eq(["faraday", "excon", "net/http"])
-      expect(subject.dates).to eq("2015-11-28")
-      expect(subject.date_published).to eq("2017-02-24")
-      expect(subject.date_modified).to eq("2017-02-24")
+      expect(subject.dates).to eq([{"date"=>"2017-02-24", "date_type"=>"Issued"}, {"date"=>"2015-11-28", "date_type"=>"Created"}, {"date"=>"2017-02-24", "date_type"=>"Updated"}])
+      expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("DataCite")
     end
 
@@ -52,9 +51,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.description["text"]).to start_with("Provides read and write access to data and metadata")
       expect(subject.keywords).to eq(["data sharing", "data repository", "DataONE"])
       expect(subject.version).to eq("2.0.0")
-      expect(subject.dates).to eq("2016-05-27")
-      expect(subject.date_published).to eq("2016-05-27")
-      expect(subject.date_modified).to eq("2016-05-27")
+      expect(subject.dates).to eq([{"date"=>"2016-05-27", "date_type"=>"Issued"}, {"date"=>"2016-05-27", "date_type"=>"Created"}, {"date"=>"2016-05-27", "date_type"=>"Updated"}])
+      expect(subject.publication_year).to eq("2016")
       expect(subject.publisher).to eq("https://cran.r-project.org")
     end
 
@@ -69,9 +67,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description["text"]).to start_with("Simplifies network calls")
       expect(subject.keywords).to eq(["faraday", "excon", "net/http"])
-      expect(subject.dates).to eq("2015-11-28")
-      expect(subject.date_published).to eq("2017-02-24")
-      expect(subject.date_modified).to eq("2017-02-24")
+      expect(subject.dates).to eq([{"date"=>"2017-02-24", "date_type"=>"Issued"}, {"date"=>"2015-11-28", "date_type"=>"Created"}, {"date"=>"2017-02-24", "date_type"=>"Updated"}])
+      expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("DataCite")
     end
 
@@ -87,9 +84,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("DOI Registrations for Software")
       expect(subject.description["text"]).to start_with("Analysis of DataCite DOIs registered for software")
       expect(subject.keywords).to eq(["doi", "software", "codemeta"])
-      expect(subject.dates).to eq("2018-03-09")
-      expect(subject.date_published).to eq("2018-05-17")
-      expect(subject.date_modified).to eq("2018-05-17")
+      expect(subject.dates).to eq([{"date"=>"2018-05-17", "date_type"=>"Issued"}, {"date"=>"2018-03-09", "date_type"=>"Created"}, {"date"=>"2018-05-17", "date_type"=>"Updated"}])
+      expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("DataCite")
     end
   end

@@ -77,7 +77,13 @@ module Bolognese
 
         # Crossref servers run on Eastern Time
         Time.zone = 'Eastern Time (US & Canada)'
-        date_modified = Time.zone.parse(meta.fetch("timestamp", "2018-01-01")).utc.iso8601
+        dates = [
+          { "date" => crossref_date_published(bibliographic_metadata),
+            "date_type" => "Issued" },
+          { "date" => Time.zone.parse(meta.fetch("timestamp", "2018-01-01")).utc.iso8601,
+            "date_type" => "Updated" }
+        ]
+        publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : nil
         state = meta.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
@@ -107,8 +113,8 @@ module Bolognese
           "periodical" => periodical,
           "service_provider" => "Crossref",
           "related_identifiers" => related_identifiers,
-          "date_published" => crossref_date_published(bibliographic_metadata),
-          "date_modified" => date_modified,
+          "dates" => dates,
+          "publication_year" => publication_year,
           "volume" => journal_issue.dig("journal_volume", "volume"),
           "issue" => journal_issue.dig("issue"),
           "first_page" => bibliographic_metadata.dig("pages", "first_page"),

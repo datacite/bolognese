@@ -17,8 +17,8 @@ module Bolognese
           "description" => parse_attributes(description, content: "text", first: true),
           "version" => version,
           "tags" => keywords.to_s.split(", ").presence,
-          "datePublished" => date_published,
-          "dateModified" => date_modified,
+          "datePublished" => get_date(dates, "Issued"),
+          "dateModified" => get_date(dates, "Updated"),
           "publisher" => publisher
         }.compact
         JSON.pretty_generate hsh.presence

@@ -37,7 +37,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(subject.description["text"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.rights["id"]).to eq("http://creativecommons.org/licenses/by/3.0/")
-      expect(subject.date_published).to eq("2014")
+      expect(subject.dates).to eq([{"date"=>"2014", "date_type"=>"Issued"}])
+      expect(subject.publication_year).to eq("2014")
       expect(subject.related_identifiers).to eq([{"id"=>"2050-084X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical"}])
     end
 
@@ -57,7 +58,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator).to eq([{"type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar"}])
       expect(subject.title).to eq("A multiscale analysis of the urban heat island effect: from city averaged temperatures to the energy demand of individual buildings")
       expect(subject.description["text"]).to start_with("Designing the climates of cities")
-      expect(subject.date_published).to eq("2018")
+      expect(subject.dates).to eq([{"date"=>"2018", "date_type"=>"Issued"}])
+      expect(subject.publication_year).to eq("2018")
     end
   end
 end

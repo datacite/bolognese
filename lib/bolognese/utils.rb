@@ -524,6 +524,18 @@ module Bolognese
       nil
     end
 
+    def to_datacite_json(element)
+      Array.wrap(element).each do |e|
+        e.inject({}) {|h, (k,v)| h[k.dasherize] = v; h }
+      end.unwrap
+    end
+
+    def from_datacite_json(element)
+      Array.wrap(element).each do |e|
+        e.inject({}) {|h, (k,v)| h[k.underscore] = v; h }
+      end.unwrap
+    end
+
     def to_schema_org(element)
       mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
 
@@ -797,6 +809,11 @@ module Bolognese
       ISO8601::DateTime.new(iso8601_time).to_time.utc
     rescue
       nil
+    end
+
+    def get_date(dates, date_type)
+      dd = dates.find { |d| d["date_type"] == date_type } || {}
+      dd.fetch("date", nil)
     end
 
     def jsonlint(json)

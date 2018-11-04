@@ -22,7 +22,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator).to eq("type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza")
       expect(subject.title).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.date_published).to eq("2016-03-27")
+      expect(subject.dates).to eq("date"=>"2016-03-27", "date-type"=>"Issued")
+      expect(subject.publication_year).to eq("2016")
     end
 
     it "SoftwareSourceCode as string" do
@@ -35,7 +36,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator).to eq("type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza")
       expect(subject.title).to eq("Analysis Tools for Crossover Experiment of UI using Choice Architecture")
       expect(subject.description["text"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.date_published).to eq("2016-03-27")
+      expect(subject.dates).to eq("date"=>"2016-03-27", "date-type"=>"Issued")
+      expect(subject.publication_year).to eq("2016")
     end
   end
 end

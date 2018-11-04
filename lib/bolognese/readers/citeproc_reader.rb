@@ -36,9 +36,20 @@ module Bolognese
         citeproc_type = meta.fetch("type", nil)
         type = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"
         doi = normalize_doi(meta.fetch("DOI", nil))
-        author = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
+        creator = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
         editor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
-        date_published = get_date_from_date_parts(meta.fetch("issued", nil))
+        dates = if meta.fetch("issued", nil).present?
+          [{ "date" => get_date_from_date_parts(meta.fetch("issued", nil)),
+             "date_type" => "Issued" }]
+        else
+          nil
+        end
+        publication_year = get_date_from_date_parts(meta.fetch("issued", nil)).to_s[0..3]
+        rights = if meta.fetch("copyright", nil)
+          { "id" => normalize_url(meta.fetch("copyright")) }.compact
+        else
+          nil
+        end
         related_identifiers = if meta.fetch("container-title", nil).present? && meta.fetch("ISSN", nil).present?
           [{ "type" => "Periodical",
              "relation_type" => "IsPartOf",
@@ -68,15 +79,16 @@ module Bolognese
           "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("URL", nil)),
           "title" => meta.fetch("title", nil),
-          "creator" => author,
+          "creator" => creator,
           "periodical" => periodical,
           "publisher" => meta.fetch("publisher", nil),
           "related_identifiers" => related_identifiers,
-          "date_published" => date_published,
+          "dates" => dates,
+          "publication_year" => publication_year,
           "volume" => meta.fetch("volume", nil),
           #{}"pagination" => meta.pages.to_s.presence,
           "description" => meta.fetch("abstract", nil).present? ? { "text" => sanitize(meta.fetch("abstract")) } : nil,
-          #{ }"rights" => { "id" => meta.field?(:copyright) && meta.copyright.to_s.presence },
+          "rights" => rights,
           "version" => meta.fetch("version", nil),
           "keywords" => meta.fetch("categories", nil),
           "state" => state

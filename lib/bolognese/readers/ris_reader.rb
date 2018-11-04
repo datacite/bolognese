@@ -42,7 +42,11 @@ module Bolognese
         doi = validate_doi(meta.fetch("DO", nil))
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
         date_parts = meta.fetch("PY", nil).to_s.split("/")
-        date_published = get_date_from_parts(*date_parts)
+        created_date_parts = meta.fetch("Y1", nil).to_s.split("/")
+        dates = []
+        dates << { "date" => get_date_from_parts(*date_parts), "date_type" => "Issued" } if meta.fetch("PY", nil).present?
+        dates << { "date" => get_date_from_parts(*created_date_parts), "date_type" => "Created" } if meta.fetch("Y1", nil).present?
+        publication_year = get_date_from_parts(*date_parts).to_s[0..3]
         related_identifiers = if meta.fetch("T2", nil).present? && meta.fetch("SN", nil).present?
           [{ "type" => "Periodical",
              "id" => meta.fetch("SN", nil),
@@ -73,9 +77,8 @@ module Bolognese
           "publisher" => meta.fetch("PB", "(:unav)"),
           "periodical" => periodical,
           "related_identifiers" => related_identifiers,
-          "date_created" => meta.fetch("Y1", nil),
-          "date_published" => date_published,
-          "date_accessed" => meta.fetch("Y2", nil),
+          "dates" => dates,
+          "publication_year" => publication_year,
           "description" => meta.fetch("AB", nil).present? ? { "text" => sanitize(meta.fetch("AB")) } : nil,
           "volume" => meta.fetch("VL", nil),
           "issue" => meta.fetch("IS", nil),

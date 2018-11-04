@@ -88,9 +88,9 @@ module Bolognese
       end
 
       def insert_publication_date(xml)
-        year, month, day = get_date_parts(date_published).to_h.fetch("date-parts", []).first
+        year, month, day = get_date_parts(get_date(dates, "Issued")).to_h.fetch("date-parts", []).first
 
-        xml.year(year, "iso-8601-date" => date_published)
+        xml.year(year, "iso-8601-date" => get_date(dates, "Issued"))
         xml.month(month.to_s.rjust(2, '0')) if month.present?
         xml.day(day.to_s.rjust(2, '0')) if day.present?
       end

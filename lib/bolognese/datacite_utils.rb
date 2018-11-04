@@ -115,14 +115,13 @@ module Bolognese
     end
 
     def insert_dates(xml)
-      xml.dates do
-        insert_date(xml, date_published, 'Issued') if date_published.present?
-        insert_date(xml, date_modified, 'Updated') if date_modified.present?
-      end
-    end
+      return xml unless Array.wrap(dates).present?
 
-    def insert_date(xml, date, date_type)
-      xml.date(date, 'dateType' => date_type)
+      xml.dates do
+        Array.wrap(dates).each do |date|
+          xml.date(date["date"], 'dateType' => date["date_type"] || "Issued")
+        end
+      end
     end
 
     def insert_funding_references(xml)

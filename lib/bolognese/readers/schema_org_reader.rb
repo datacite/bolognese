@@ -83,14 +83,18 @@ module Bolognese
           "name" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
         }
 
-        funding_references = from_schema_org(Array.wrap(meta.fetch("funder", nil)))
         funding_references = Array.wrap(meta.fetch("funder", nil)).compact.map do |fr|
           {
             "funder_name" => fr["name"],
             "funder_identifier" => fr["@id"],
             "funder_identifier_type" => fr["@id"].to_s.start_with?("https://doi.org/10.13039") ? "Crossref Funder ID" : nil }.compact
         end
-        date_published = meta.fetch("datePublished", nil)
+        dates = []
+        dates << { "date" => meta.fetch("datePublished"), "date_type" => "Issued" } if meta.fetch("datePublished", nil).present?
+        dates << { "date" => meta.fetch("dateCreated"), "date_type" => "Created" } if meta.fetch("dateCreated", nil).present?
+        dates << { "date" => meta.fetch("dateModified"), "date_type" => "Updated" } if meta.fetch("dateModified", nil).present?
+        publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
+        
         state = meta.present? ? "findable" : "not_found"
         geo_location = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
           if gl.dig("geo", "box")
@@ -134,9 +138,8 @@ module Bolognese
           "service_provider" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
           "periodical" => periodical,
           "related_identifiers" => related_identifiers,
-          "date_created" => meta.fetch("dateCreated", nil),
-          "date_published" => date_published,
-          "date_modified" => meta.fetch("dateModified", nil),
+          "publication_year" => publication_year,
+          "dates" => dates,
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "rights" => rights,
           "version" => meta.fetch("version", nil),

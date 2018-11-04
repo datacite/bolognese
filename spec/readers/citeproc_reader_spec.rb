@@ -23,7 +23,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator).to eq("type"=>"Person", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
-      expect(subject.date_published).to eq("2016-12-20")
+      expect(subject.dates).to eq([{"date"=>"2016-12-20", "date_type"=>"Issued"}])
+      expect(subject.publication_year).to eq("2016")
     end
   end
 end

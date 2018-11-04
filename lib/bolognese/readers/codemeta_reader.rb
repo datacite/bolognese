@@ -24,14 +24,13 @@ module Bolognese
         type = meta.fetch("@type", nil)
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
-        date_published = meta.fetch("datePublished", nil)
+        dates = []
+        dates << { "date" => meta.fetch("datePublished"), "date_type" => "Issued" } if meta.fetch("datePublished", nil).present?
+        dates << { "date" => meta.fetch("dateCreated"), "date_type" => "Created" } if meta.fetch("dateCreated", nil).present?
+        dates << { "date" => meta.fetch("dateModified"), "date_type" => "Updated" } if meta.fetch("dateModified", nil).present?
+        publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         publisher = meta.fetch("publisher", nil)
         state = meta.present? ? "findable" : "not_found"
-        dates = [
-          { "type" => "Issued", "__content__" => "date_published" },
-          { "type" => "Updated", "__content__" => "date_modified" },
-          { "type" => "Created", "__content__" => meta.fetch("datePublished", nil) }
-        ]
 
         { "id" => id,
           "type" => type,
@@ -48,9 +47,8 @@ module Bolognese
           "editor" => editor,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
-          "dates" => meta.fetch("dateCreated", nil),
-          "date_published" => date_published,
-          "date_modified" => meta.fetch("dateModified", nil),
+          "dates" => dates,
+          "publication_year" => publication_year,
           "description" => meta.fetch("description", nil).present? ? { "text" => sanitize(meta.fetch("description")) } : nil,
           "rights" => { "id" => meta.fetch("license", nil) },
           "version" => meta.fetch("version", nil),

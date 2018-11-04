@@ -6,8 +6,8 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
-    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :title, :publisher, :rights, :dates, :date_published, :date_modified,
-                :date_updated, :journal, :volume, :first_page, :last_page, :url, :version, :resource_type_general,
+    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :title, :publisher, :rights, :dates, :publication_year,
+                :volume, :first_page, :last_page, :url, :version, :resource_type_general,
                 :keywords, :editor, :description, :alternate_identifiers, :language, :size,
                 :formats, :schema_version, :resource_type_general, :meta, :periodical,
                 :format, :funding_references, :style, :locale, :state, :geo_location,
@@ -150,7 +150,7 @@ module Bolognese
     end
 
     def publication_year
-      date_published.present? ? date_published[0..3].to_i.presence : nil
+      @publication_year ||= meta.fetch("publication_year", nil)
     end
 
     def periodical
@@ -219,18 +219,6 @@ module Bolognese
 
     def creator
       @creator ||= meta.fetch("creator", nil)
-    end
-
-    def date_published
-      @date_published ||= meta.fetch("date_published", nil)
-    end
-
-    def date_modified
-      @date_modified ||= meta.fetch("date_modified", nil)
-    end
-
-    def date_updated
-      @date_updated ||= meta.fetch("date_updated", nil)
     end
   end
 end

@@ -110,7 +110,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
       expect(subject.title).to eq("Recommendation of: ORCID Works Metadata Working Group")
       expect(subject.rights).to eq("id"=>"https://creativecommons.org/publicdomain/zero/1.0", "name"=>"CC-0")
-      expect(subject.date_published).to eq("2017")
+      expect(subject.dates).to eq([{"date"=>"2017-06-28", "date_type"=>"Created"}, {"date"=>"2017-06-28", "date_type"=>"Updated"}, {"date"=>"2017", "date_type"=>"Issued"}])
+      expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -129,7 +130,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
       expect(subject.title).to eq("Recommendation of: ORCID Works Metadata Working Group")
       expect(subject.rights).to eq("id"=>"https://creativecommons.org/publicdomain/zero/1.0", "name"=>"CC-0")
-      expect(subject.date_published).to eq("2017")
+      expect(subject.dates).to eq([{"date"=>"2017-06-28", "date_type"=>"Created"}, {"date"=>"2017-06-28", "date_type"=>"Updated"}, {"date"=>"2017", "date_type"=>"Issued"}])
+      expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
       expect(subject.service_provider).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -149,7 +151,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
       expect(subject.alternate_identifiers).to eq("type"=>"citation", "name"=>"Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.")
       expect(subject.rights).to eq("id"=>"http://creativecommons.org/publicdomain/zero/1.0")
-      expect(subject.date_published).to eq("2011")
+      expect(subject.dates).to eq([{"date"=>"2011", "date_type"=>"Issued"}])
+      expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(6)
       expect(subject.related_identifiers.last).to eq("id"=>"19478877", "related_identifier_type"=>"PMID", "relation_type"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Dryad Digital Repository")
@@ -239,7 +242,7 @@ describe Bolognese::Metadata, vcr: true do
       subject.publisher = "Dryad"
       subject.resource_type_general = "Dataset"
       subject.additional_type = "DataPackage"
-      subject.date_published = "2011"
+      subject.publication_year = "2011"
       subject.state = "findable"
       expect(subject.exists?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})

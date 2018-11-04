@@ -59,6 +59,13 @@ module Bolognese
 
         page_first, page_last = meta.try(:pages).to_s.split("-")
         state = doi.present? ? "findable" : "not_found"
+        dates = if meta.try(:date).present?
+          [{ "date" => meta.date.to_s,
+             "date_type" => "Issued" }]
+        else
+          nil
+        end
+        publication_year =  meta.try(:date).present? ? meta.date.to_s[0..3] : nil
 
         { "id" => normalize_doi(doi),
           "type" => type,
@@ -74,7 +81,8 @@ module Bolognese
           "periodical" => periodical,
           "publisher" => meta.try(:publisher).to_s.presence,
           "related_identifiers" => related_identifiers,
-          "date_published" => meta.try(:date).to_s.presence,
+          "dates" => dates,
+          "publication_year" => publication_year,
           "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
