@@ -7,12 +7,11 @@ module Bolognese
     include Bolognese::MetadataUtils
 
     attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :title, :publisher, :rights, :dates, :publication_year,
-                :volume, :first_page, :last_page, :url, :version, :resource_type_general,
+                :volume, :first_page, :last_page, :url, :version,
                 :keywords, :editor, :description, :alternate_identifiers, :language, :size,
-                :formats, :schema_version, :resource_type_general, :meta, :periodical,
+                :formats, :schema_version, :meta, :periodical,
                 :format, :funding_references, :style, :locale, :state, :geo_location,
-                :type, :additional_type, :citeproc_type, :bibtex_type, :ris_type, :content_url, :related_identifiers
-
+                :types, :content_url, :related_identifiers
 
     def initialize(input: nil, from: nil, **options)
       id = normalize_id(input, options)
@@ -157,10 +156,6 @@ module Bolognese
       @periodical ||= meta.fetch("periodical", nil)
     end
 
-    def descriptions
-      Array.wrap(description)
-    end
-
     def geo_location
       @geo_location ||= meta.fetch("geo_location", nil)
     end
@@ -189,28 +184,8 @@ module Bolognese
       @identifier ||= meta.fetch("id", nil)
     end
 
-    def type
-      @type ||= meta.fetch("type", nil)
-    end
-
-    def additional_type
-      @additional_type ||= meta.fetch("additional_type", nil)
-    end
-
-    def citeproc_type
-      @citeproc_type ||= meta.fetch("citeproc_type", nil)
-    end
-
-    def bibtex_type
-      @bibtex_type ||= meta.fetch("bibtex_type", nil)
-    end
-
-    def ris_type
-      @ris_type ||= meta.fetch("ris_type", nil)
-    end
-
-    def resource_type_general
-      @resource_type_general ||= meta.fetch("resource_type_general", nil)
+    def types
+      @types ||= meta.fetch("types", nil)
     end
 
     def title

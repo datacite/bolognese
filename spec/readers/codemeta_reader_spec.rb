@@ -20,7 +20,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
-      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resource_type_general"=>"Software", "ris"=>"COMP", "type"=>"SoftwareSourceCode")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description["text"]).to start_with("Ruby utility library for network requests")
@@ -35,7 +35,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.identifier).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
-      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resource_type_general"=>"Software", "ris"=>"COMP", "type"=>"SoftwareSourceCode")
       expect(subject.creator).to eq( [{"type"=>"Person",
                                       "id"=>"http://orcid.org/0000-0003-0077-4738",
                                       "name"=>"Matt Jones",
@@ -62,7 +62,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
-      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resource_type_general"=>"Software", "ris"=>"COMP", "type"=>"SoftwareSourceCode")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Maremma: a Ruby library for simplified network calls")
       expect(subject.description["text"]).to start_with("Simplifies network calls")
@@ -78,7 +78,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/wr0x-e194")
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
-      expect(subject.type).to eq("SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resource_type_general"=>"Software", "ris"=>"COMP", "type"=>"SoftwareSourceCode")
       expect(subject.creator.size).to eq(4)
       expect(subject.creator.last).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8135-3489", "name"=>"Lars Holm Nielsen", "givenName"=>"Lars Holm", "familyName"=>"Nielsen")
       expect(subject.title).to eq("DOI Registrations for Software")

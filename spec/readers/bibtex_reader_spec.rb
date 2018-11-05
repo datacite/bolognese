@@ -29,9 +29,8 @@ describe Bolognese::Metadata, vcr: true do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
-      expect(subject.resource_type_general).to eq("Text")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Martial Sankar", "givenName"=>"Martial", "familyName"=>"Sankar")
       expect(subject.title).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
@@ -49,12 +48,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.bibtex_type).to eq("phdthesis")
-      expect(subject.ris_type).to eq("THES")
-      expect(subject.citeproc_type).to eq("thesis")
-      expect(subject.type).to eq("Thesis")
-      expect(subject.resource_type_general).to eq("Text")
-      expect(subject.additional_type).to eq("Dissertation")
+      expect(subject.types).to eq("bibtex"=>"phdthesis", "citeproc"=>"thesis", "resource_type"=>"Dissertation", "resource_type_general"=>"Text", "ris"=>"THES", "type"=>"Thesis")
       expect(subject.creator).to eq([{"type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar"}])
       expect(subject.title).to eq("A multiscale analysis of the urban heat island effect: from city averaged temperatures to the energy demand of individual buildings")
       expect(subject.description["text"]).to start_with("Designing the climates of cities")

@@ -35,6 +35,14 @@ module Bolognese
 
         citeproc_type = meta.fetch("type", nil)
         type = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"
+        types = {
+          "type" => type,
+          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
+          "reource_type" => meta.fetch("additionalType", nil),
+          "citeproc" => citeproc_type,
+          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
+          "ris" => CP_TO_RIS_TRANSLATIONS[type] || "GEN"
+        }.compact
         doi = normalize_doi(meta.fetch("DOI", nil))
         creator = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
         editor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
@@ -70,12 +78,7 @@ module Bolognese
         state = id.present? ? "findable" : "not_found"
 
         { "id" => id,
-          "type" => type,
-          "additional_type" => meta.fetch("additionalType", nil),
-          "citeproc_type" => citeproc_type,
-          "bibtex_type" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
-          "ris_type" => CP_TO_RIS_TRANSLATIONS[type] || "GEN",
-          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
+          "types" => types,
           "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("URL", nil)),
           "title" => meta.fetch("title", nil),

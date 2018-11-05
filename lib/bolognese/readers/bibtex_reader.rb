@@ -30,6 +30,14 @@ module Bolognese
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
         type = BIB_TO_SO_TRANSLATIONS[meta.try(:type).to_s] || "ScholarlyArticle"
+        types = {
+          "type" => type,
+          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
+          "resource_type" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
+          "bibtex" => meta.type.to_s,
+          "citeproc" => BIB_TO_CP_TRANSLATIONS[meta.try(:type).to_s] || "misc",
+          "ris" => BIB_TO_RIS_TRANSLATIONS[meta.try(:type).to_s] || "GEN"
+        }.compact
         doi = meta.try(:doi).to_s.presence
 
         author = Array(meta.try(:author)).map do |a|
@@ -68,12 +76,7 @@ module Bolognese
         publication_year =  meta.try(:date).present? ? meta.date.to_s[0..3] : nil
 
         { "id" => normalize_doi(doi),
-          "type" => type,
-          "bibtex_type" => meta.type.to_s,
-          "citeproc_type" => BIB_TO_CP_TRANSLATIONS[meta.try(:type).to_s] || "misc",
-          "ris_type" => BIB_TO_RIS_TRANSLATIONS[meta.try(:type).to_s] || "GEN",
-          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
-          "additional_type" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
+          "types" => types,
           "doi" => doi,
           "url" => meta.try(:url).to_s,
           "title" => meta.try(:title).to_s,

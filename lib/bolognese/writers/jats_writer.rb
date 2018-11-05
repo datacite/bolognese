@@ -125,7 +125,7 @@ module Bolognese
       end
 
       def publication_type
-        { 'publication-type' => Bolognese::Utils::CR_TO_JATS_TRANSLATIONS[additional_type] || Bolognese::Utils::SO_TO_JATS_TRANSLATIONS[type] }.compact
+        { 'publication-type' => Bolognese::Utils::CR_TO_JATS_TRANSLATIONS[types["resource_type"]] || Bolognese::Utils::SO_TO_JATS_TRANSLATIONS[types["type"]] }.compact
       end
     end
   end

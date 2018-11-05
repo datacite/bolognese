@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
-      expect(crosscite.fetch("resource_type_general")).to eq("Text")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
       expect(crosscite.fetch("title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(crosscite.fetch("related_identifiers").length).to eq(27)
       expect(crosscite.fetch("related_identifiers").first).to eq("id"=>"2050-084X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical")
@@ -24,7 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("resource_type_general")).to eq("Text")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
       expect(crosscite.fetch("creator").count).to eq(7)
       expect(crosscite.fetch("creator")[2]).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-2043-4925", "name"=>"Beatriz Hernandez", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
     end
@@ -40,7 +40,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("resource_type_general")).to eq("Text")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
       expect(crosscite.fetch("title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(crosscite.dig("description", "text")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(crosscite.fetch("creator").count).to eq(5)
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       expect(subject.valid?).to be true
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite["resource_type_general"]).to eq("Text")
+      expect(crosscite["types"]).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resource_type_general"=>"Text", "ris"=>"GEN", "type"=>"BlogPosting")
       expect(crosscite.fetch("title")).to eq("Eating your own Dog Food")
       expect(crosscite.dig("description", "text")).to start_with("Eating your own dog food")
       expect(crosscite.fetch("creator")).to eq("type"=>"Person", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")

@@ -123,7 +123,7 @@ module Bolognese
 
     def citeproc_hsh
       {
-        "type" => citeproc_type,
+        "type" => types["citeproc"],
         "id" => identifier,
         "categories" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
         "language" => language,

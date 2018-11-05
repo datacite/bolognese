@@ -52,6 +52,14 @@ module Bolognese
         id = normalize_id(meta.fetch("@id", nil) || meta.fetch("identifier", nil))
         type = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
+        types = {
+          "type" => type,
+          "resource_type_general" => resource_type_general,
+          "resource_type" => meta.fetch("additionalType", nil),
+          "citeproc" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
+          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
+          "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
+        }.compact
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
         author = get_authors(from_schema_org(Array.wrap(authors)))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
@@ -118,12 +126,7 @@ module Bolognese
         end
 
         { "id" => id,
-          "type" => type,
-          "additional_type" => meta.fetch("additionalType", nil),
-          "citeproc_type" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
-          "bibtex_type" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
-          "ris_type" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
-          "resource_type_general" => resource_type_general,
+          "types" => types,
           "doi" => validate_doi(id),
           "identifier" => identifier,
           "alternate_identifiers" => alternate_identifiers,

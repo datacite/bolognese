@@ -103,9 +103,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.23640/07243.5153971")
-      expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.additional_type).to eq("Paper")
-      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"Paper", "resource_type_general"=>"Text", "ris"=>"RPRT", "type"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(20)
       expect(subject.creator.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
       expect(subject.title).to eq("Recommendation of: ORCID Works Metadata Working Group")
@@ -123,9 +121,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.5072/07243.5153971")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5072/07243.5153971")
-      expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.additional_type).to eq("Paper")
-      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"Paper", "resource_type_general"=>"Text", "ris"=>"RPRT", "type"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(20)
       expect(subject.creator.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
       expect(subject.title).to eq("Recommendation of: ORCID Works Metadata Working Group")
@@ -143,9 +139,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("DataPackage")
-      expect(subject.resource_type_general).to eq("Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"DataPackage", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator.length).to eq(8)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.title).to eq("Data from: A new malaria agent in African hominids.")
@@ -202,7 +196,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "10.5061/DRYAD.8515"
       subject.title = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
-      subject.resource_type_general = "Dataset"
+      subject.types = { "type" => "Dataset", "resource_type_general" => "Dataset" }
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.5061/DRYAD.8515")
@@ -240,10 +234,10 @@ describe Bolognese::Metadata, vcr: true do
       subject.creator = [{"creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}]
       subject.title = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
       subject.publisher = "Dryad"
-      subject.resource_type_general = "Dataset"
-      subject.additional_type = "DataPackage"
+      subject.types = "Dataset"
       subject.publication_year = "2011"
       subject.state = "findable"
+      subject.types = { "type" => "Dataset", "resource_type_general" => "Dataset" }
       expect(subject.exists?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
@@ -295,7 +289,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "123"
       subject.title = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
-      subject.type = "Dataset"
+      subject.types = "Dataset"
       expect(subject.doi).to eq("123")
       expect(subject.valid?).to be false
       expect(subject.errors.first).to start_with("3:0: ERROR: Element '{http://datacite.org/schema/kernel-4}identifier'")

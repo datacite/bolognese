@@ -21,7 +21,6 @@ module Bolognese
         meta = string.present? ? Maremma.from_json(string) : {}
         identifier = meta.fetch("identifier", nil)
         id = normalize_id(meta.fetch("@id", nil) || identifier)
-        type = meta.fetch("@type", nil)
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
         editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         dates = []
@@ -31,14 +30,18 @@ module Bolognese
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         publisher = meta.fetch("publisher", nil)
         state = meta.present? ? "findable" : "not_found"
+        type = meta.fetch("@type", nil)
+        types = {
+          "type" => type,
+          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
+          "resource_type" => meta.fetch("additionalType", nil),
+          "citeproc" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
+          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
+          "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[type] || "GEN"
+        }.compact
 
         { "id" => id,
-          "type" => type,
-          "additional_type" => meta.fetch("additionalType", nil),
-          "citeproc_type" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
-          "bibtex_type" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
-          "ris_type" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[type] || "GEN",
-          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
+          "types" => types,
           "identifier" => identifier,
           "doi" => validate_doi(id),
           "url" => normalize_id(meta.fetch("codeRepository", nil)),

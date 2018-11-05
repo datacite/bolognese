@@ -17,9 +17,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.type).to eq("ScholarlyArticle")
-      expect(subject.additional_type).to eq("BlogPosting")
-      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "ris"=>"GEN", "type"=>"CreativeWork")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.alternate_identifiers).to eq([{"alternate-identifier"=>"MS-49-3632-5083", "alternate-identifier-type"=>"Local accession number"}])

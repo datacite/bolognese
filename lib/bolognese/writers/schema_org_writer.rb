@@ -5,11 +5,11 @@ module Bolognese
     module SchemaOrgWriter
       def schema_hsh
         { "@context" => identifier.present? ? "http://schema.org" : nil,
-          "@type" => type,
+          "@type" => types["type"],
           "@id" => identifier,
           "identifier" => to_schema_org_identifier(identifier, alternate_identifiers: alternate_identifiers),
           "url" => url,
-          "additionalType" => additional_type,
+          "additionalType" => types["resource_type"],
           "name" => parse_attributes(title, content: "text", first: true),
           "author" => to_schema_org(creator),
           "editor" => to_schema_org(editor),
@@ -35,8 +35,8 @@ module Bolognese
           "@reverse" => reverse.presence,
           "contentUrl" => content_url,
           "schemaVersion" => schema_version,
-          "periodical" => (type != "Dataset") && periodical ? to_schema_org(periodical) : nil,
-          "includedInDataCatalog" => (type == "Dataset") && periodical ? to_schema_org(periodical) : nil,
+          "periodical" => (types["type"] != "Dataset") && periodical ? to_schema_org(periodical) : nil,
+          "includedInDataCatalog" => (types["type"] == "Dataset") && periodical ? to_schema_org(periodical) : nil,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
           "funder" => to_schema_org_funder(funding_references),
           "provider" => service_provider.present? ? { "@type" => "Organization", "name" => service_provider } : nil

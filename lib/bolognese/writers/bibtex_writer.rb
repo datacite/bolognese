@@ -7,7 +7,7 @@ module Bolognese
         return nil unless valid?
 
         bib = {
-          bibtex_type: bibtex_type.presence || "misc",
+          bibtex_type: types["bibtex"].presence || "misc",
           bibtex_key: identifier,
           doi: doi,
           url: url,

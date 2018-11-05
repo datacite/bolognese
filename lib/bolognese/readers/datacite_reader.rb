@@ -71,9 +71,19 @@ module Bolognese
         end
 
         doi = doi_from_url(id)
+
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
-        additional_type = meta.fetch("resourceType", {}).fetch("__content__", nil)
-        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[additional_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
+        resource_type = meta.dig("resourceType", "__content__")
+        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
+        types = {
+          "type" => type,
+          "resource_type_general" => resource_type_general,
+          "resource_type" => resource_type,
+          "citeproc" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article",
+          "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
+          "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
+        }.compact
+        
         title = Array.wrap(meta.dig("titles", "title")).map do |r|
           if r.is_a?(String)
             sanitize(r)
@@ -155,12 +165,7 @@ module Bolognese
         state = doi.present? ? "findable" : "not_found"
 
         { "id" => id,
-          "type" => type,
-          "additional_type" => additional_type,
-          "citeproc_type" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[additional_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article",
-          "bibtex_type" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[additional_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
-          "ris_type" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[additional_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN",
-          "resource_type_general" => resource_type_general,
+          "types" => types,
           "doi" => doi,
           "alternate_identifiers" => alternate_identifiers,
           "url" => options.fetch(:url, nil),

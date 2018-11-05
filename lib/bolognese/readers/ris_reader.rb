@@ -38,6 +38,12 @@ module Bolognese
 
         ris_type = meta.fetch("TY", nil) || "GEN"
         type = RIS_TO_SO_TRANSLATIONS[ris_type] || "CreativeWork"
+        types = {
+          "type" => type,
+          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
+          "citeproc" => RIS_TO_CP_TRANSLATIONS[type] || "misc",
+          "ris" => ris_type
+        }.compact
 
         doi = validate_doi(meta.fetch("DO", nil))
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
@@ -66,10 +72,7 @@ module Bolognese
         state = doi.present? ? "findable" : "not_found"
 
         { "id" => normalize_doi(doi),
-          "type" => type,
-          "citeproc_type" => RIS_TO_CP_TRANSLATIONS[type] || "misc",
-          "ris_type" => ris_type,
-          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
+          "types" => types,
           "doi" => doi,
           "url" => meta.fetch("UR", nil),
           "title" => meta.fetch("T1", nil),

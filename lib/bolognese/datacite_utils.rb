@@ -93,12 +93,12 @@ module Bolognese
     end
 
     def res_type
-      { "resource_type_general" => resource_type_general || Metadata::SO_TO_DC_TRANSLATIONS[type] || "Other",
-        "__content__" => additional_type || type }
+      { "resource_type_general" => types["resource_type_general"] || Metadata::SO_TO_DC_TRANSLATIONS[types["type"]] || "Other",
+        "__content__" => types["resource_type"] || types["type"] }
     end
 
     def insert_resource_type(xml)
-      return xml unless type.present?
+      return xml unless types["type"].present?
 
       xml.resourceType(res_type["__content__"],
         'resourceTypeGeneral' => res_type["resource_type_general"])

@@ -5,7 +5,7 @@ module Bolognese
     module RisWriter
       def ris
         {
-          "TY" => ris_type,
+          "TY" => types["ris"],
           "T1" => parse_attributes(title, content: "text", first: true),
           "T2" => periodical && periodical["title"],
           "AU" => to_ris(creator),

@@ -29,9 +29,8 @@ describe Bolognese::Metadata, vcr: true do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.type).to eq("ScholarlyArticle")
+      expect(subject.types).to eq("citeproc"=>"misc", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
-      expect(subject.resource_type_general).to eq("Text")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person",
                                          "name"=>"Martial Sankar",
@@ -52,9 +51,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.ris_type).to eq("THES")
-      expect(subject.type).to eq("Thesis")
-      expect(subject.resource_type_general).to eq("Text")
+      expect(subject.types).to eq("citeproc"=>"misc", "resource_type_general"=>"Text", "ris"=>"THES", "type"=>"Thesis")
       expect(subject.creator).to eq("type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar")
       expect(subject.title).to eq("A multiscale analysis of the urban heat island effect")
       expect(subject.description["text"]).to start_with("Designing the climates of cities")

@@ -31,7 +31,7 @@ module Bolognese
         # report-paper, sa_component, standard
         model = meta.dig("crossref").to_h.keys.first
 
-        additional_type = nil
+        resource_type = nil
         bibliographic_metadata = {}
         program_metadata = {}
         journal_metadata = nil
@@ -44,7 +44,7 @@ module Bolognese
           book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
           bibliographic_metadata = meta.dig("crossref", "book", "content_item").to_h
-          additional_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
+          resource_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
           publisher = book_metadata.dig("publisher", "publisher_name")
         when "conference"
           event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
@@ -56,7 +56,7 @@ module Bolognese
           journal_issue = meta.dig("crossref", "journal", "journal_issue") || {}
           journal_article = meta.dig("crossref", "journal", "journal_article") || {}
 
-          additional_type = if journal_article.present?
+          resource_type = if journal_article.present?
                               "journal_article"
                             elsif journal_issue.present?
                               "journal_issue"
@@ -70,9 +70,16 @@ module Bolognese
           bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
         end
 
-        additional_type = (additional_type || model).to_s.underscore.camelize.presence
-        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[additional_type] || "ScholarlyArticle"
-
+        resource_type = (resource_type || model).to_s.underscore.camelize.presence
+        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type] || "ScholarlyArticle"
+        types = {
+          "type" => type,
+          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
+          "resource_type" => resource_type,
+          "citeproc" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[resource_type] || "article-journal",
+          "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type] || "misc",
+          "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type] || "JOUR"
+        }.compact
         doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase.presence #|| doi_from_url(options[:id])
 
         # Crossref servers run on Eastern Time
@@ -96,12 +103,7 @@ module Bolognese
         end
 
         { "id" => normalize_doi(doi),
-          "type" => type,
-          "additional_type" => additional_type,
-          "citeproc_type" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[additional_type] || "article-journal",
-          "bibtex_type" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[additional_type] || "misc",
-          "ris_type" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[additional_type] || "JOUR",
-          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
+          "types" => types,
           "doi" => doi,
           "url" => bibliographic_metadata.dig("doi_data", "resource"),
           "title" => parse_attributes(bibliographic_metadata.dig("titles", "title")),

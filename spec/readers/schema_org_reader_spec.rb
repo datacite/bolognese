@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
-      expect(subject.type).to eq("BlogPosting")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resource_type_general"=>"Text", "ris"=>"GEN", "type"=>"BlogPosting")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
@@ -39,7 +39,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
-      expect(subject.type).to eq("BlogPosting")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resource_type_general"=>"Text", "ris"=>"GEN", "type"=>"BlogPosting")
     end
 
     it "zenodo" do
@@ -50,7 +50,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1196821")
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
       expect(subject.url).to eq("https://zenodo.org/record/1196821")
-      expect(subject.type).to eq("Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.title).to eq("PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning task with auditory CS and electrical US")
       expect(subject.creator.size).to eq(6)
       expect(subject.creator.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-9688-838X", "name"=>"Matthias Staib", "givenName"=>"Matthias", "familyName"=>"Staib")
@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.836178")
       expect(subject.doi).to eq("10.1594/pangaea.836178")
       expect(subject.url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
-      expect(subject.type).to eq("Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.title).to eq("Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland")
       expect(subject.creator.size).to eq(8)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
@@ -90,7 +90,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
-      expect(subject.type).to eq("Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.title).to eq("Summary data ankylosing spondylitis GWAS")
       expect(subject.periodical).to eq("title"=>"Harvard Dataverse", "type"=>"DataCatalog", "url"=>"https://dataverse.harvard.edu")
       expect(subject.creator).to eq("name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)")
@@ -103,7 +103,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
-      expect(subject.type).to eq("Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.title).to eq("Summary data ankylosing spondylitis GWAS")
       expect(subject.periodical).to eq("title"=>"Harvard Dataverse", "type"=>"DataCatalog", "url"=>"https://dataverse.harvard.edu")
       expect(subject.creator).to eq("name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)")
@@ -117,7 +117,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
-      expect(subject.type).to eq("BlogPosting")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resource_type_general"=>"Text", "ris"=>"GEN", "type"=>"BlogPosting")
       expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner")
       expect(subject.title).to eq("Eating your own Dog Food")
       expect(subject.description["text"]).to start_with("Eating your own dog food")
@@ -138,8 +138,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.alternate_identifiers).to eq("name"=>"687610993", "type"=>"md5")
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
-      expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("Gene expression matrices")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"Gene expression matrices", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
       expect(subject.title).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
       expect(subject.version).to eq("v7")
@@ -161,8 +160,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.alternate_identifiers).to eq([{"name"=>"3b33f6b9338fccab0901b7d317577ea3", "type"=>"md5"}, {"name"=>"ark:/99999/fk41CrU4eszeLUDe", "type"=>"minid"}, {"name"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "type"=>"dataguid"}])
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
-      expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("CRAM file")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"CRAM file", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator).to eq("name"=>"TOPMed IRC", "type"=>"Organization")
       expect(subject.title).to eq("NWD165827.recab.cram")
       expect(subject.keywords).to eq(["topmed", "whole genome sequencing"])
@@ -179,8 +177,7 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.6071/z7wc73")
-      expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"dataset", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator.length).to eq(6)
       expect(subject.creator.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
       expect(subject.title).to eq("Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature")
@@ -198,7 +195,7 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.842237")
-      expect(subject.type).to eq("Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator.length).to eq(2)
       expect(subject.creator.first).to eq("name"=>"Tara Oceans Consortium, Coordinators", "type"=>"Organization")
       expect(subject.title).to eq("Registry of all stations from the Tara Oceans Expedition (2009-2013)")
@@ -217,8 +214,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.alternate_identifiers).to eq([{"name"=>"ark:/99999/fk4E1n6n1YHKxPk", "type"=>"minid"}, {"name"=>"dg.4503/01b048d0-e128-4cb0-94e9-b2d2cab7563d", "type"=>"dataguid"}, {"name"=>"f9e72bdf25bf4b4f0e581d9218fec2eb", "type"=>"md5"}])
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/44a8837b-4456-5709-b56b-54e23000f13a/NWD100953.recab.cram","gs://topmed-irc-share/public/NWD100953.recab.cram","dos://dos.commons.ucsc-cgp.org/01b048d0-e128-4cb0-94e9-b2d2cab7563d?version=2018-05-26T133719.491772Z"])
-      expect(subject.type).to eq("Dataset")
-      expect(subject.additional_type).to eq("CRAM file")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"CRAM file", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator).to eq("name"=>"TOPMed", "type"=>"Organization")
       expect(subject.title).to eq("NWD100953.recab.cram")
       expect(subject.keywords).to eq(["topmed", "whole genome sequencing"])
