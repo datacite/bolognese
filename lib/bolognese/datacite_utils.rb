@@ -148,7 +148,14 @@ module Bolognese
 
       xml.subjects do
         keywords.each do |subject|
-          xml.subject(subject)
+          subject_node = xml.subject(subject['text'])
+          if subject["subject_scheme"].present? then
+            subject_node['subjectScheme'] = subject["subject_scheme"]
+          end
+
+          if subject["scheme_uri"].present? then
+            subject_node['schemeURI'] = subject["scheme_uri"]
+          end
         end
       end
     end
