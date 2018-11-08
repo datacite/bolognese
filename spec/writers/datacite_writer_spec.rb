@@ -243,7 +243,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("identifier", "__content__")).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Dataset")
       expect(datacite.dig("titles", "title")).to eq("Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      
+
     end
 
     it "change license" do
