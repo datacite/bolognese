@@ -97,7 +97,7 @@ module Bolognese
           if k.nil?
             nil
           elsif k.is_a?(String)
-            { "text" => sanitize(k) }
+            sanitize(k)
           else
             { "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "text" => sanitize(k["__content__"]) }.compact
           end
