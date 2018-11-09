@@ -741,7 +741,7 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.types["resource_type"]).to eq("DroNc-seq data")
     expect(subject.creator).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
     expect(subject.title).to eq("DroNc-seq data")
-    expect(subject.keywords).to eq([{"text"=>"gtex"}, {"text"=>"annotation"}, {"text"=>"phenotype"}, {"text"=>"gene regulation"}, {"text"=>"transcriptomics"}])
+    expect(subject.keywords).to eq(["gtex", "annotation", "phenotype", "gene regulation", "transcriptomics"])
     expect(subject.dates).to eq([{"date"=>"2017", "date_type"=>"Issued"}])
     expect(subject.publication_year).to eq("2017")
     expect(subject.related_identifiers.length).to eq(4)
