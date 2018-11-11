@@ -6,11 +6,11 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
-    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :title, :publisher, :rights, :dates, :publication_year,
-                :volume, :first_page, :last_page, :url, :version,
-                :keywords, :editor, :description, :alternate_identifiers, :language, :size,
+    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :title, :publisher, 
+                :rights, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version,
+                :keywords, :contributor, :description, :alternate_identifiers, :language, :size,
                 :formats, :schema_version, :meta, :periodical,
-                :format, :funding_references, :style, :locale, :state, :geo_location,
+                :format, :funding_references, :state, :geo_location,
                 :types, :content_url, :related_identifiers
 
     def initialize(input: nil, from: nil, **options)
@@ -194,6 +194,10 @@ module Bolognese
 
     def creator
       @creator ||= meta.fetch("creator", nil)
+    end
+
+    def contributor
+      @contributor ||= meta.fetch("contributor", nil)
     end
   end
 end

@@ -109,7 +109,7 @@ module Bolognese
           "title" => [{ "text" => parse_attributes(bibliographic_metadata.dig("titles", "title")) }],
           "alternate_identifiers" => crossref_alternate_identifiers(bibliographic_metadata),
           "creator" => crossref_people(bibliographic_metadata, "author"),
-          "editor" => crossref_people(bibliographic_metadata, "editor"),
+          "contributor" => crossref_people(bibliographic_metadata, "editor"),
           "funding_references" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
           "periodical" => periodical,
@@ -170,7 +170,8 @@ module Bolognese
             "id" => parse_attributes(a["ORCID"]),
             "name" => [a["given_name"], a["surname"]].join(" "),
             "givenName" => a["given_name"],
-            "familyName" => a["surname"] }.compact
+            "familyName" => a["surname"],
+            "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
         end.unwrap
       end
 

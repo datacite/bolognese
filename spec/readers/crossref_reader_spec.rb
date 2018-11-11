@@ -53,7 +53,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Markus Ralser", "givenName"=>"Markus", "familyName"=>"Ralser")
-      expect(subject.editor).to eq("type"=>"Person", "name"=>"Guilhem Janbon", "givenName"=>"Guilhem", "familyName"=>"Janbon")
+      expect(subject.contributor).to eq("contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem", "name"=>"Guilhem Janbon", "type"=>"Person")
       expect(subject.title).to eq([{"text"=>"Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes"}])
       expect(subject.rights).to eq([{"id"=>"http://creativecommons.org/licenses/by/4.0"}])
       expect(subject.dates).to eq([{"date"=>"2006-12-20", "date_type"=>"Issued"}, {"date"=>"2017-06-17T12:26:15Z", "date_type"=>"Updated"}])

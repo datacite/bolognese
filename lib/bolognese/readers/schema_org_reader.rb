@@ -62,7 +62,7 @@ module Bolognese
         }.compact
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
         author = get_authors(from_schema_org(Array.wrap(authors)))
-        editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
+        contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
         ct = (type == "Dataset") ? "includedInDataCatalog" : "Periodical"
@@ -136,7 +136,7 @@ module Bolognese
           "formats" => Array.wrap(meta.fetch("encodingFormat", nil) || meta.fetch("fileFormat", nil)).unwrap,
           "title" => meta.fetch("name", nil).present? ? [{ "text" => meta.fetch("name", nil) }] : nil,
           "creator" => author,
-          "editor" => editor,
+          "contributor" => contributor,
           "publisher" => publisher,
           "service_provider" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
           "periodical" => periodical,

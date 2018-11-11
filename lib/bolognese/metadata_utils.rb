@@ -61,8 +61,9 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :contributor
+    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
     attr_reader :doc, :service_provider, :page_start, :page_end, :reverse, :name_detector
+    attr_writer :style, :locale
 
     # replace DOI in XML if provided in options
     def raw
@@ -77,10 +78,6 @@ module Bolognese
 
     def should_passthru
       (from == "datacite") && regenerate.blank? && raw.present?
-    end
-
-    def editor
-      @editor ||= meta.fetch("editor", nil)
     end
 
     def service_provider
@@ -128,7 +125,7 @@ module Bolognese
         "categories" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
         "language" => language,
         "author" => to_citeproc(creator),
-        "editor" => to_citeproc(editor),
+        "contributor" => to_citeproc(contributor),
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
         "submitted" => Array.wrap(dates).find { |d| d["type"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(description, content: "text", first: true),

@@ -40,7 +40,7 @@ module Bolognese
           "title" => meta.fetch("title", nil),
           "alternate_identifiers" => meta.fetch("alternate-identifiers", nil),
           "creator" => meta.fetch("creator", nil),
-          "editor" => meta.fetch("contributor", nil),
+          "contributor" => meta.fetch("contributor", nil),
           "publisher" => meta.fetch("publisher", nil),
           "periodical" => meta.fetch("periodical", nil),
           "service_provider" => "DataCite",

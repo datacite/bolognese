@@ -51,9 +51,9 @@ module Bolognese
       end
 
       def insert_editors(xml)
-        if editor.present?
+        if contributor.present?
           xml.send("person-group", "person-group-type" => "editor") do
-            Array.wrap(editor).each do |creator|
+            Array.wrap(contributor).each do |creator|
               xml.name do
                 insert_contributor(xml, creator)
               end

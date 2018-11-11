@@ -105,7 +105,7 @@ module Bolognese
           if k.nil?
             nil
           elsif k.is_a?(String)
-            sanitize(k)
+            { "text" => sanitize(k) }
           else
             { "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "text" => sanitize(k["__content__"]) }.compact
           end
@@ -171,6 +171,7 @@ module Bolognese
           "url" => options.fetch(:url, nil),
           "title" => title,
           "creator" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
+          "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "periodical" => periodical,
           "publisher" => meta.fetch("publisher", "").strip.presence,
           "service_provider" => "DataCite",

@@ -816,6 +816,10 @@ module Bolognese
       dd.fetch("date", nil)
     end
 
+    def get_contributor(contributor, contributor_type)
+      contributor.select { |c| c["contributor_type"] == contributor_type }
+    end
+
     def jsonlint(json)
       return ["No JSON provided"] unless json.present?
 

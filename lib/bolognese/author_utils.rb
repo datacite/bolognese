@@ -35,13 +35,15 @@ module Bolognese
       family_name = parse_attributes(author.fetch("familyName", nil))
       name = cleanup_author(name)
       name = [family_name, given_name].join(", ") if name.blank? && family_name.present?
+      contributor_type = parse_attributes(author.fetch("contributorType", nil))
 
       author = { "type" => type || "Person",
                  "id" => id,
                  "name" => name,
                  "givenName" => given_name,
                  "familyName" => family_name,
-                 "identifier" => identifier }.compact
+                 "identifier" => identifier,
+                 "contributorType" => contributor_type }.compact
 
       return author if family_name.present?
 
@@ -63,7 +65,8 @@ module Bolognese
           "name" => name,
           "givenName" => given_name,
           "familyName" => family_name,
-          "identifier" => identifier }.compact
+          "identifier" => identifier,
+          "contributorType" => contributor_type }.compact
       else
         { "type" => type, "name" => name }.compact
       end

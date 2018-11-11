@@ -45,7 +45,7 @@ module Bolognese
         }.compact
         doi = normalize_doi(meta.fetch("DOI", nil))
         creator = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
-        editor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
+        contributor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
         dates = if meta.fetch("issued", nil).present?
           [{ "date" => get_date_from_date_parts(meta.fetch("issued", nil)),
              "date_type" => "Issued" }]
@@ -83,6 +83,7 @@ module Bolognese
           "url" => normalize_id(meta.fetch("URL", nil)),
           "title" => [{ "text" => meta.fetch("title", nil) }],
           "creator" => creator,
+          "contributor" => contributor,
           "periodical" => periodical,
           "publisher" => meta.fetch("publisher", nil),
           "related_identifiers" => related_identifiers,

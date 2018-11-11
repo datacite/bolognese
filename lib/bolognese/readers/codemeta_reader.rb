@@ -22,7 +22,7 @@ module Bolognese
         identifier = meta.fetch("identifier", nil)
         id = normalize_id(meta.fetch("@id", nil) || identifier)
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
-        editor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
+        contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         dates = []
         dates << { "date" => meta.fetch("datePublished"), "date_type" => "Issued" } if meta.fetch("datePublished", nil).present?
         dates << { "date" => meta.fetch("dateCreated"), "date_type" => "Created" } if meta.fetch("dateCreated", nil).present?
@@ -47,7 +47,7 @@ module Bolognese
           "url" => normalize_id(meta.fetch("codeRepository", nil)),
           "title" => [{ "text" => meta.fetch("title", nil) }],
           "creator" => author,
-          "editor" => editor,
+          "contributor" => contributor,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
           "dates" => dates,

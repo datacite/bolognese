@@ -54,12 +54,12 @@ module Bolognese
     end
 
     def insert_contributors(xml)
-      return xml unless editor.present?
+      return xml unless contributor.present?
 
       xml.contributors do
-        Array.wrap(editor).each do |contributor|
-          xml.contributor("contributorType" => "Editor") do
-            insert_person(xml, contributor, "contributor")
+        Array.wrap(contributor).each do |con|
+          xml.contributor("contributorType" => con["contributorType"] || "Other") do
+            insert_person(xml, con, "contributor")
           end
         end
       end

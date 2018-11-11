@@ -12,7 +12,7 @@ module Bolognese
           "additionalType" => types["resource_type"],
           "name" => parse_attributes(title, content: "text", first: true),
           "author" => to_schema_org(creator),
-          "editor" => to_schema_org(editor),
+          "editor" => to_schema_org(contributor),
           "description" => parse_attributes(description, content: "text", first: true),
           "license" => Array.wrap(rights).map { |l| l["id"] }.compact.unwrap,
           "version" => version,
