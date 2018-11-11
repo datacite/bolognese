@@ -54,7 +54,7 @@ module Bolognese
         schema_version = Array.wrap(ns).last || "http://datacite.org/schema/kernel-4"
         doc.remove_namespaces!
         string = doc.to_xml(:indent => 2)
-        
+
         meta = Maremma.from_xml(string).to_h.fetch("resource", {})
 
         # validate only when option is set, as this step is expensive and
