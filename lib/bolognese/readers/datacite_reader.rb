@@ -117,8 +117,8 @@ module Bolognese
           }
         end
         dates << { "date" => meta.fetch("publicationYear", nil), "date_type" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
-        sizes = Array.wrap(meta.dig("sizes", "size")).unwrap
-        formats = Array.wrap(meta.dig("formats", "format")).unwrap
+        sizes = Array.wrap(meta.dig("sizes", "size"))
+        formats = Array.wrap(meta.dig("formats", "format"))
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
           {
             "funder_name" => fr["funderName"],

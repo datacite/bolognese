@@ -137,7 +137,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.25491/d50j-3083")
       expect(subject.alternate_identifiers).to eq("name"=>"687610993", "type"=>"md5")
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
-      expect(subject.content_url).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
+      expect(subject.content_url).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"Gene expression matrices", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
       expect(subject.creator).to eq("name"=>"The GTEx Consortium", "type"=>"Organization")
       expect(subject.title).to eq([{"text"=>"Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery"}])

@@ -155,7 +155,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
       expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.25491/8kmc-g314"},{"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
-      expect(json["contentUrl"]).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz"])
+      expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz")
     end
 
     it "alternate identifiers" do
