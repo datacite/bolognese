@@ -79,7 +79,7 @@ module Bolognese
           "types" => types,
           "doi" => doi,
           "url" => meta.try(:url).to_s,
-          "title" => meta.try(:title).to_s,
+          "title" => [{ "text" => meta.try(:title).to_s }],
           "creator" => author,
           "periodical" => periodical,
           "publisher" => meta.try(:publisher).to_s.presence,
@@ -89,8 +89,8 @@ module Bolognese
           "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
-          "description" => { "text" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence },
-          "rights" => { "id" => meta.try(:copyright).to_s.presence },
+          "description" => [{ "text" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence }],
+          "rights" => [{ "id" => meta.try(:copyright).to_s.presence }.compact],
           "state" => state
         }
       end

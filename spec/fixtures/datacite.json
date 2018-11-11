@@ -16,7 +16,9 @@
     "givenName": "Martin",
     "familyName": "Fenner"
   },
-  "title": "Eating your own Dog Food",
+  "title": [{
+    "text": "Eating your own Dog Food"
+  }],
   "publisher": "DataCite",
   "publication-year": "2016",
   "subject": [
@@ -62,10 +64,10 @@
     }
   ],
   "version": "1.0",
-  "description": {
+  "description": [{
     "type": "Abstract",
     "text": "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for..."
-  },
+  }],
   "schema-version": "http://datacite.org/schema/kernel-4",
   "provider": "DataCite"
 }

@@ -106,7 +106,7 @@ module Bolognese
           "types" => types,
           "doi" => doi,
           "url" => bibliographic_metadata.dig("doi_data", "resource"),
-          "title" => parse_attributes(bibliographic_metadata.dig("titles", "title")),
+          "title" => [{ "text" => parse_attributes(bibliographic_metadata.dig("titles", "title")) }],
           "alternate_identifiers" => crossref_alternate_identifiers(bibliographic_metadata),
           "creator" => crossref_people(bibliographic_metadata, "author"),
           "editor" => crossref_people(bibliographic_metadata, "editor"),
@@ -146,14 +146,10 @@ module Bolognese
         end
 
         description = Array.wrap(bibliographic_metadata.dig("description")).map do |r|
-          if abstract.present?
-            { "text" => sanitize(parse_attributes(r)) }.compact
-          else
-            sanitize(parse_attributes(r))
-          end
+          { "type" => "Other", "text" => sanitize(parse_attributes(r)) }.compact
         end
 
-        (abstract + description).unwrap
+        (abstract + description)
       end
 
       def crossref_license(program_metadata)
@@ -161,7 +157,7 @@ module Bolognese
         if access_indicator.present?
           Array.wrap(access_indicator["license_ref"]).map do |license|
             { "id" => normalize_url(parse_attributes(license)) }
-          end.uniq.unwrap
+          end.uniq
         else
           nil
         end

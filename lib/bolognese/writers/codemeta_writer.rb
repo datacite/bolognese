@@ -12,7 +12,7 @@ module Bolognese
           "@id" => identifier,
           "identifier" => identifier,
           "codeRepository" => url,
-          "title" => title,
+          "title" => parse_attributes(title, content: "text", first: true),
           "agents" => creator,
           "description" => parse_attributes(description, content: "text", first: true),
           "version" => version,

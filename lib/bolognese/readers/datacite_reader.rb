@@ -86,21 +86,21 @@ module Bolognese
         
         title = Array.wrap(meta.dig("titles", "title")).map do |r|
           if r.is_a?(String)
-            sanitize(r)
+            { "text" => sanitize(r) }
           else
             { "title_type" => r["titleType"], "lang" => r["lang"], "text" => sanitize(r["__content__"]) }.compact
           end
-        end.unwrap
+        end
 
         alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
           { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }
         end.unwrap
         description = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
-          { "type" => r["descriptionType"], "text" => sanitize(r["__content__"]) }.compact
-        end.unwrap
+          { "type" => r["descriptionType"], "lang" => r["lang"], "text" => sanitize(r["__content__"]) }.compact
+        end
         rights = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
           { "id" => normalize_url(r["rightsURI"]), "name" => r["__content__"] }.compact
-        end.unwrap
+        end
         keywords = Array.wrap(meta.dig("subjects", "subject")).map do |k|
           if k.nil?
             nil

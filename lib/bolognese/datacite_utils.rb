@@ -76,12 +76,18 @@ module Bolognese
 
     def insert_titles(xml)
       xml.titles do
-        insert_title(xml)
-      end
-    end
+        Array.wrap(title).each do |tit|
+          if tit.is_a?(Hash)
+            t = tit
+          else
+            t = {}
+            t["text"] = tit
+          end
 
-    def insert_title(xml)
-      xml.title(title)
+          attributes = { 'lang' => t["lang"], 'titleType' => t["title_type"] }.compact
+          xml.title(t["text"], attributes)
+        end
+      end
     end
 
     def insert_publisher(xml)
@@ -184,7 +190,9 @@ module Bolognese
             l["id"] = normalize_id(lic)
           end
 
-          xml.rights(l["name"], { 'rightsURI' => l["id"] }.compact)
+          attributes = { 'rightsURI' => l["id"] }.compact
+
+          xml.rights(l["name"], attributes)
         end
       end
     end
@@ -206,7 +214,9 @@ module Bolognese
             d["type"] = "Abstract"
           end
 
-          xml.description(d["text"], 'descriptionType' => d["type"] || "Abstract")
+          attributes = { 'lang' => d["lang"], 'descriptionType' => d["type"] || "Abstract" }.compact
+
+          xml.description(d["text"], attributes)
         end
       end
     end
