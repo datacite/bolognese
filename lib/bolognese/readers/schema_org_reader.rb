@@ -39,11 +39,11 @@ module Bolognese
         if identifier.length > 1
           alternate_identifiers = identifier[1..-1].map do |r|
             if r.is_a?(String)
-              { "type" => "URL", "name" => r }
+              { "alternate_identifier_type" => "URL", "alternate_identifier" => r }
             elsif r.is_a?(Hash)
-              { "type" => r["propertyID"], "name" => r["value"] }
+              { "alternate_identifier_type" => r["propertyID"], "alternate_identifier" => r["value"] }
             end
-          end.unwrap
+          end
         else
           alternate_identifiers = nil
         end
@@ -104,7 +104,7 @@ module Bolognese
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         
         state = meta.present? ? "findable" : "not_found"
-        geo_location = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
+        geo_locations = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
           if gl.dig("geo", "box")
             s, w, n, e = gl.dig("geo", "box").split(" ", 4)
             geo_location_box = {
@@ -124,6 +124,9 @@ module Bolognese
             "geo_location_box" => geo_location_box
           }.compact
         end
+        subjects = Array.wrap(meta.fetch("keywords", nil).to_s.split(", ")).map do |s|
+          { "subject" => s }
+        end
 
         { "id" => id,
           "types" => types,
@@ -132,9 +135,9 @@ module Bolognese
           "alternate_identifiers" => alternate_identifiers,
           "url" => normalize_id(meta.fetch("url", nil)),
           "content_url" => Array.wrap(meta.fetch("contentUrl", nil)),
-          "size" => Array.wrap(meta.fetch("contenSize", nil)).presence,
+          "sizes" => Array.wrap(meta.fetch("contenSize", nil)).presence,
           "formats" => Array.wrap(meta.fetch("encodingFormat", nil) || meta.fetch("fileFormat", nil)),
-          "title" => meta.fetch("name", nil).present? ? [{ "text" => meta.fetch("name", nil) }] : nil,
+          "titles" => meta.fetch("name", nil).present? ? [{ "title" => meta.fetch("name", nil) }] : nil,
           "creator" => author,
           "contributor" => contributor,
           "publisher" => publisher,
@@ -143,14 +146,14 @@ module Bolognese
           "related_identifiers" => related_identifiers,
           "publication_year" => publication_year,
           "dates" => dates,
-          "description" => meta.fetch("description", nil).present? ? [{ "text" => sanitize(meta.fetch("description")) }] : nil,
+          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")) }] : nil,
           "rights" => rights,
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("keywords", nil).to_s.split(", "),
+          "subjects" => subjects,
           "state" => state,
           "schema_version" => meta.fetch("schemaVersion", nil),
           "funding_references" => funding_references,
-          "geo_location" => geo_location
+          "geo_locations" => geo_locations
         }
       end
 

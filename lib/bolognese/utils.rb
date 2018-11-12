@@ -479,7 +479,7 @@ module Bolognese
         related_identifier_type = doi_from_url(id).present? ? "DOI" : "URL"
         id = doi_from_url(id) || id
 
-        { "id" => id,
+        { "related_identifier" => id,
           "relation_type" => relation_type,
           "related_identifier_type" => related_identifier_type,
           "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[idx["@type"]],
@@ -524,16 +524,17 @@ module Bolognese
       nil
     end
 
-    def to_datacite_json(element)
-      Array.wrap(element).each do |e|
+    def to_datacite_json(element, options={})
+      a = Array.wrap(element).map do |e|
         e.inject({}) {|h, (k,v)| h[k.dasherize] = v; h }
-      end.unwrap
+      end
+      options[:first] ? a.unwrap : a.presence
     end
 
     def from_datacite_json(element)
-      Array.wrap(element).each do |e|
+      Array.wrap(element).map do |e|
         e.inject({}) {|h, (k,v)| h[k.underscore] = v; h }
-      end.unwrap
+      end
     end
 
     def to_schema_org(element)
@@ -546,7 +547,7 @@ module Bolognese
       return nil unless (element.is_a?(Hash) || (element.nil? && options[:container_title].present?))
 
       { 
-        "@id" => element["id"],
+        "@id" => element["related_identifier"],
         "@type" => (options[:type] == "Dataset") ? "DataCatalog" : "Periodical",
         "name" => element["title"] || options[:container_title] }
     end
@@ -559,13 +560,13 @@ module Bolognese
 
       if options[:alternate_identifiers].present?
         [ident] + Array.wrap(options[:alternate_identifiers]).map do |ai|
-                    if ai["type"].to_s.downcase == "url"
-                      ai["name"]
+                    if ai["alternate_identifier_type"].to_s.downcase == "url"
+                      ai["alternate_identifier"]
                     else
                       { 
                         "@type" => "PropertyValue",
-                        "propertyID" => ai["type"],
-                        "value" => ai["name"] }
+                        "propertyID" => ai["alternate_identifier_type"],
+                        "value" => ai["alternate_identifier"] }
                     end
                   end
       else
@@ -582,11 +583,11 @@ module Bolognese
         if r["related_identifier_type"] == "ISSN" && r["relation_type"] == "IsPartOf"
           {
             "@type" => "Periodical",
-            "issn" => r["id"],
+            "issn" => r["related_identifier"],
             "name" => r["title"] }.compact
         else
         {
-          "@id" => normalize_id(r["id"]),
+          "@id" => normalize_id(r["related_identifier"]),
           "@type" => DC_TO_SO_TRANSLATIONS[r["resource_type_general"]] || "CreativeWork",
           "name" => r["title"] }.compact
         end
@@ -658,7 +659,7 @@ module Bolognese
       {
         "@type" => "PropertyValue",
         "propertyID" => identifier["related_identifier_type"],
-        "value" => identifier["id"] }
+        "value" => identifier["related_identifier"] }
     end
 
     def from_citeproc(element)

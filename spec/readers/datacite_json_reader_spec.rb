@@ -17,17 +17,31 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "ris"=>"GEN", "type"=>"CreativeWork")
-      expect(subject.creator).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
-      expect(subject.title).to eq([{"text"=>"Eating your own Dog Food"}])
-      expect(subject.alternate_identifiers).to eq([{"alternate-identifier"=>"MS-49-3632-5083", "alternate-identifier-type"=>"Local accession number"}])
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"BlogPosting", "resource_type_general"=>"Text", "ris"=>"RPRT", "type"=>"ScholarlyArticle")
+      expect(subject.creator).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
+      expect(subject.alternate_identifiers).to eq([{"alternate_identifier"=>"MS-49-3632-5083", "alternate_identifier_type"=>"Local accession number"}])
       expect(subject.dates).to eq([{"date"=>"2016-12-20", "date_type"=>"Created"}, {"date"=>"2016-12-20", "date_type"=>"Issued"}, {"date"=>"2016-12-20", "date_type"=>"Updated"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
-      expect(subject.related_identifiers.first).to eq("id"=>"10.5438/0000-00ss", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
-      expect(subject.related_identifiers.last).to eq("id"=>"10.5438/55e5-t5c0", "related_identifier_type"=>"DOI", "relation_type"=>"References")
+      expect(subject.related_identifiers.first).to eq("related_identifier"=>"10.5438/0000-00ss", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf")
+      expect(subject.related_identifiers.last).to eq("related_identifier"=>"10.5438/55e5-t5c0", "related_identifier_type"=>"DOI", "relation_type"=>"References")
       expect(subject.service_provider).to eq("DataCite")
     end
+
+    # it "SoftwareSourceCode" do
+    #   input = fixture_path + "datacite_software.json"
+    #   subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+    #   expect(subject.valid?).to be true
+    #   expect(subject.identifier).to eq("https://doi.org/10.5063/f1m61h5x")
+    #   expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "resource_type"=>"Software", "resource_type_general"=>"Software", "ris"=>"COMP", "type"=>"SoftwareSourceCode")
+    #   expect(subject.creator).to eq([{"familyName"=>"Jones", "givenName"=>"Matthew B.", "name"=>"Matthew B. Jones", "type"=>"Person"}])
+    #   expect(subject.titles).to eq([{"title"=>"dataone: R interface to the DataONE network of data repositories"}])
+    #   expect(subject.dates).to eq([{"date"=>"2016", "date_type"=>"Issued"}])
+    #   expect(subject.publication_year).to eq("2016")
+    #   expect(subject.publisher).to eq("KNB Data Repository")
+    #   expect(subject.service_provider).to eq("DataCite")
+    # end
 
     it "SoftwareSourceCode missing_comma" do
       input = fixture_path + "datacite_software_missing_comma.json"

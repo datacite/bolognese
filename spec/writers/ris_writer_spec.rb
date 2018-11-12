@@ -66,6 +66,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
+
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - JOUR")
       expect(ris[1]).to eq("T1  - Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
@@ -119,7 +120,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "datacite.json"
       subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       ris = subject.ris.split("\r\n")
-      expect(ris[0]).to eq("TY  - GEN")
+      expect(ris[0]).to eq("TY  - RPRT")
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
       expect(ris[2]).to eq("AU  - Fenner, Martin")
       expect(ris[3]).to eq("DO  - 10.5438/4k3m-nyvg")

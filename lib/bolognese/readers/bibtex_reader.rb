@@ -52,7 +52,7 @@ module Bolognese
              "relation_type" => "IsPartOf",
              "related_identifier_type" => "ISSN",
              "title" => meta.journal.to_s,
-             "id" => meta.try(:issn).to_s.presence }.compact]
+             "related_identifier" => meta.try(:issn).to_s.presence }.compact]
         else
           nil
         end
@@ -79,7 +79,7 @@ module Bolognese
           "types" => types,
           "doi" => doi,
           "url" => meta.try(:url).to_s,
-          "title" => [{ "text" => meta.try(:title).to_s }],
+          "titles" => [{ "title" => meta.try(:title).to_s }],
           "creator" => author,
           "periodical" => periodical,
           "publisher" => meta.try(:publisher).to_s.presence,
@@ -89,8 +89,8 @@ module Bolognese
           "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
-          "description" => [{ "text" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence }],
-          "rights" => [{ "id" => meta.try(:copyright).to_s.presence }.compact],
+          "descriptions" => [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence }],
+          "rights_list" => [{ "rights_uri" => meta.try(:copyright).to_s.presence }.compact],
           "state" => state
         }
       end

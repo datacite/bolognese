@@ -70,24 +70,27 @@ module Bolognese
           nil
         end
         state = doi.present? ? "findable" : "not_found"
+        subjects = Array.wrap(meta.fetch("KW", nil)).map do |s|
+          { "subject" => s }
+        end
 
         { "id" => normalize_doi(doi),
           "types" => types,
           "doi" => doi,
           "url" => meta.fetch("UR", nil),
-          "title" => meta.fetch("T1", nil).present? ? [{ "text" => meta.fetch("T1", nil) }] : nil,
+          "titles" => meta.fetch("T1", nil).present? ? [{ "title" => meta.fetch("T1", nil) }] : nil,
           "creator" => get_authors(author),
           "publisher" => meta.fetch("PB", "(:unav)"),
           "periodical" => periodical,
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
-          "description" => meta.fetch("AB", nil).present? ? [{ "text" => sanitize(meta.fetch("AB")) }] : nil,
+          "descriptions" => meta.fetch("AB", nil).present? ? [{ "description" => sanitize(meta.fetch("AB")) }] : nil,
           "volume" => meta.fetch("VL", nil),
           "issue" => meta.fetch("IS", nil),
           "first_page" => meta.fetch("SP", nil),
           "last_page" => meta.fetch("EP", nil),
-          "keywords" => meta.fetch("KW", nil),
+          "subjects" => subjects,
           "language" => meta.fetch("LA", nil),
           "state" => state
         }

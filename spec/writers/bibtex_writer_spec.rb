@@ -76,7 +76,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "datacite.json"
       subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(bibtex[:doi]).to eq("10.5438/4k3m-nyvg")
       expect(bibtex[:title]).to eq("Eating your own Dog Food")

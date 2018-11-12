@@ -44,7 +44,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "datacite.json"
       subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("article")
+      expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(json["DOI"]).to eq("10.5438/4k3m-nyvg")
       expect(json["title"]).to eq("Eating your own Dog Food")

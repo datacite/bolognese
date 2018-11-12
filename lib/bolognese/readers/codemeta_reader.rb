@@ -39,23 +39,26 @@ module Bolognese
           "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
           "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[type] || "GEN"
         }.compact
+        subjects = Array.wrap(meta.fetch("tags", nil)).map do |s|
+          { "subject" => s }
+        end
 
         { "id" => id,
           "types" => types,
           "identifier" => identifier,
           "doi" => validate_doi(id),
           "url" => normalize_id(meta.fetch("codeRepository", nil)),
-          "title" => [{ "text" => meta.fetch("title", nil) }],
+          "titles" => [{ "title" => meta.fetch("title", nil) }],
           "creator" => author,
           "contributor" => contributor,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
           "dates" => dates,
           "publication_year" => publication_year,
-          "description" => meta.fetch("description", nil).present? ? [{ "text" => sanitize(meta.fetch("description")) }] : nil,
-          "rights" => [{ "id" => meta.fetch("license", nil) }.compact],
+          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")) }] : nil,
+          "rights_list" => [{ "rights_uri" => meta.fetch("license", nil) }.compact],
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("tags", nil),
+          "subjects" => subjects,
           "state" => state
         }
       end

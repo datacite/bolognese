@@ -58,7 +58,7 @@ module Bolognese
 
       xml.contributors do
         Array.wrap(contributor).each do |con|
-          xml.contributor("contributorType" => con["contributorType"] || "Other") do
+          xml.contributor("contributorType" => con["contributor_type"] || "Other") do
             insert_person(xml, con, "contributor")
           end
         end
@@ -67,8 +67,9 @@ module Bolognese
 
     def insert_person(xml, person, type)
       person_name = person["familyName"].present? ? [person["familyName"], person["givenName"]].compact.join(", ") : person["name"]
+      attributes = person["type"].present? ? { "nameType" => person["type"] + "al" } : {}
 
-      xml.send(type + "Name", person_name)
+      xml.send(type + "Name", person_name, attributes)
       xml.givenName(person["givenName"]) if person["givenName"].present?
       xml.familyName(person["familyName"]) if person["familyName"].present?
       xml.nameIdentifier(person["id"], 'schemeURI' => 'http://orcid.org/', 'nameIdentifierScheme' => 'ORCID') if person["id"].present?
@@ -76,16 +77,16 @@ module Bolognese
 
     def insert_titles(xml)
       xml.titles do
-        Array.wrap(title).each do |tit|
-          if tit.is_a?(Hash)
-            t = tit
+        Array.wrap(titles).each do |title|
+          if title.is_a?(Hash)
+            t = title
           else
             t = {}
-            t["text"] = tit
+            t["title"] = title
           end
 
-          attributes = { 'lang' => t["lang"], 'titleType' => t["title_type"] }.compact
-          xml.title(t["text"], attributes)
+          attributes = { 'titleType' => t["title_type"], 'lang' => t["lang"] }.compact
+          xml.title(t["title"], attributes)
         end
       end
     end
@@ -98,16 +99,11 @@ module Bolognese
       xml.publicationYear(publication_year)
     end
 
-    def res_type
-      { "resource_type_general" => types["resource_type_general"] || Metadata::SO_TO_DC_TRANSLATIONS[types["type"]] || "Other",
-        "__content__" => types["resource_type"] || types["type"] }
-    end
-
     def insert_resource_type(xml)
       return xml unless types["type"].present?
 
-      xml.resourceType(res_type["__content__"],
-        'resourceTypeGeneral' => res_type["resource_type_general"])
+      xml.resourceType(types["resource_type"] || types["type"],
+        'resourceTypeGeneral' => types["resource_type_general"] || Metadata::SO_TO_DC_TRANSLATIONS[types["type"]] || "Other")
     end
 
     def insert_alternate_identifiers(xml)
@@ -115,7 +111,7 @@ module Bolognese
 
       xml.alternateIdentifiers do
         Array.wrap(alternate_identifiers).each do |alternate_identifier|
-          xml.alternateIdentifier(alternate_identifier["name"], 'alternateIdentifierType' => alternate_identifier["type"])
+          xml.alternateIdentifier(alternate_identifier["alternate_identifier"], 'alternateIdentifierType' => alternate_identifier["alternate_identifier_type"])
         end
       end
     end
@@ -125,7 +121,8 @@ module Bolognese
 
       xml.dates do
         Array.wrap(dates).each do |date|
-          xml.date(date["date"], 'dateType' => date["date_type"] || "Issued")
+          attributes = { 'dateType' => date["date_type"] || "Issued", 'dateInformation' => date["date_information"] }.compact
+          xml.date(date["date"], attributes)
         end
       end
     end
@@ -136,36 +133,30 @@ module Bolognese
       xml.fundingReferences do
         Array.wrap(funding_references).each do |funding_reference|
           xml.fundingReference do
-            insert_funding_reference(xml, funding_reference)
+            xml.funderName(funding_reference["funder_name"])
+            xml.funderIdentifier(funding_reference["funder_identifier"], { "funderIdentifierType" => funding_reference["funder_identifier_type"] }.compact) if funding_reference["funder_identifier"].present?
+            xml.awardNumber(funding_reference["award_number"], { "awardURI" => funding_reference["award_uri"] }.compact) if funding_reference["award_number"].present? || funding_reference["award_uri"].present?
+            xml.awardTitle(funding_reference["award_title"]) if funding_reference["award_title"].present?
           end
         end
       end
     end
 
-    def insert_funding_reference(xml, funding_reference)
-      xml.funderName(funding_reference["funder_name"]) if funding_reference["funder_name"].present?
-      xml.funderIdentifier(funding_reference["funder_identifier"], "funderIdentifierType" => "Crossref Funder ID") if funding_reference["funder_identifier"].present?
-    end
-
     def insert_subjects(xml)
-      return xml unless keywords.present?
+      return xml unless subjects.present?
 
       xml.subjects do
-        keywords.each do |subject|
-          if subject.is_a?(String) then
-            # If we've been read from somewhere that it was just a string output that
-            xml.subject(subject)
+        subjects.each do |subject|
+          if subject.is_a?(Hash)
+            s = subject
           else
-            # Otherwise we'll assume a hash and therefore find/add attributes as appropriate
-            subject_node = xml.subject(subject['text'])
-            if subject["subject_scheme"].present? then
-              subject_node['subjectScheme'] = subject["subject_scheme"]
-            end
-
-            if subject["scheme_uri"].present? then
-              subject_node['schemeURI'] = subject["scheme_uri"]
-            end
+            s = {}
+            s["subject"] = subject
           end
+
+          attributes = { "subjectScheme" => s["subject_scheme"], "schemeURI" => s["scheme_uri"], "valueURI" => s["value_uri"], "lang" => s["lang"] }.compact
+
+          xml.subject(s["subject"], attributes)
         end
       end
     end
@@ -185,51 +176,56 @@ module Bolognese
             'relatedIdentifierType' => related_identifier["related_identifier_type"],
             'relationType' => related_identifier["relation_type"],
             'resourceTypeGeneral' => related_identifier["resource_type_general"] }.compact
-          xml.relatedIdentifier(related_identifier["id"], attributes)
+
+          attributes.merge({ 'relatedMetadataScheme' => related_identifier["related_metadata_schema"],
+            'schemeURI' => related_identifier["scheme_uri"],
+            'schemeType' => related_identifier["scheme_type"]}.compact) if %w(HasMetadata IsMetadataFor).include?(related_identifier["relation_type"])
+
+          xml.relatedIdentifier(related_identifier["related_identifier"], attributes)
         end
       end
     end
 
     def insert_rights_list(xml)
-      return xml unless rights.present?
+      return xml unless rights_list.present?
 
       xml.rightsList do
-        Array.wrap(rights).each do |lic|
-          if lic.is_a?(Hash)
-            l = lic
+        Array.wrap(rights_list).each do |rights|
+          if rights.is_a?(Hash)
+            r = rights
           else
-            l = {}
-            l["name"] = lic
-            l["id"] = normalize_id(lic)
+            r = {}
+            r["rights"] = rights
+            r["rights_uri"] = normalize_id(rights)
           end
 
-          attributes = { 'rightsURI' => l["id"] }.compact
+          attributes = { 'rightsURI' => r["rights_uri"], 'lang' => r["lang"] }.compact
 
-          xml.rights(l["name"], attributes)
+          xml.rights(r["rights"], attributes)
         end
       end
     end
 
     def insert_descriptions(xml)
-      return xml unless description.present? || periodical && periodical["title"].present?
+      return xml unless descriptions.present? || periodical && periodical["title"].present?
 
       xml.descriptions do
         if periodical && periodical["title"].present?
           xml.description(periodical["title"], 'descriptionType' => "SeriesInformation")
         end
 
-        Array.wrap(description).each do |des|
-          if des.is_a?(Hash)
-            d = des
+        Array.wrap(descriptions).each do |description|
+          if description.is_a?(Hash)
+            d = description
           else
             d = {}
-            d["text"] = des
-            d["type"] = "Abstract"
+            d["description"] = description
+            d["description_type"] = "Abstract"
           end
 
-          attributes = { 'lang' => d["lang"], 'descriptionType' => d["type"] || "Abstract" }.compact
+          attributes = { 'lang' => d["lang"], 'descriptionType' => d["description_type"] || "Abstract" }.compact
 
-          xml.description(d["text"], attributes)
+          xml.description(d["description"], attributes)
         end
       end
     end

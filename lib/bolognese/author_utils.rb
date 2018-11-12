@@ -105,7 +105,7 @@ module Bolognese
 
     # parse array of author strings into CSL format
     def get_authors(authors)
-      Array.wrap(authors).map { |author| get_one_author(author) }.unwrap
+      Array.wrap(authors).map { |author| get_one_author(author) }.compact
     end
 
     # parse nameIdentifier from DataCite

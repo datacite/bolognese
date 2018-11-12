@@ -103,12 +103,12 @@ module Bolognese
 
     def reverse
       { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relation_type"] == "IsReferencedBy" }.map do |r| 
-        { "@id" => normalize_doi(r["id"]),
+        { "@id" => normalize_doi(r["related_identifier"]),
           "@type" => r["resource_type_general"] || "CreativeWork",
           "identifier" => r["related_identifier_type"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap,
         "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relation_type"] == "IsSupplementTo" }.map do |r| 
-          { "@id" => normalize_doi(r["id"]),
+          { "@id" => normalize_doi(r["related_identifier"]),
             "@type" => r["resource_type_general"] || "CreativeWork",
             "identifier" => r["related_identifier_type"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap }.compact
@@ -122,19 +122,19 @@ module Bolognese
       {
         "type" => types["citeproc"],
         "id" => identifier,
-        "categories" => Array.wrap(keywords).map { |k| parse_attributes(k, content: "text", first: true) }.presence,
+        "categories" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
         "language" => language,
         "author" => to_citeproc(creator),
         "contributor" => to_citeproc(contributor),
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
         "submitted" => Array.wrap(dates).find { |d| d["type"] == "Submitted" }.to_h.fetch("__content__", nil),
-        "abstract" => parse_attributes(description, content: "text", first: true),
+        "abstract" => parse_attributes(descriptions, content: "description", first: true),
         "container-title" => periodical && periodical["title"],
         "DOI" => doi,
         "issue" => issue,
         "page" => [first_page, last_page].compact.join("-").presence,
         "publisher" => publisher,
-        "title" => parse_attributes(title, content: "text", first: true),
+        "title" => parse_attributes(titles, content: "title", first: true),
         "URL" => url,
         "version" => version,
         "volume" => volume

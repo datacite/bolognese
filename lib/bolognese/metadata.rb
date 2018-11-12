@@ -6,11 +6,11 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
-    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :title, :publisher, 
-                :rights, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version,
-                :keywords, :contributor, :description, :alternate_identifiers, :language, :size,
+    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :titles, :publisher, 
+                :rights_list, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version,
+                :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
                 :formats, :schema_version, :meta, :periodical,
-                :format, :funding_references, :state, :geo_location,
+                :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers
 
     def initialize(input: nil, from: nil, **options)
@@ -104,24 +104,24 @@ module Bolognese
       meta.fetch("errors", nil) || datacite_errors(xml: datacite, schema_version: schema_version)
     end
     
-    def description
-      @description ||= meta.fetch("description", nil)
+    def descriptions
+      @descriptions ||= meta.fetch("descriptions", nil)
     end
 
-    def rights
-      @rights ||= meta.fetch("rights", nil)
+    def rights_list
+      @rights_list ||= meta.fetch("rights_list", nil)
     end
 
-    def keywords
-      @keywords ||= meta.fetch("keywords", nil)
+    def subjects
+      @subjects ||= meta.fetch("subjects", nil)
     end
 
     def language
       @language ||= meta.fetch("language", nil)
     end
 
-    def size
-      @size ||= meta.fetch("size", nil)
+    def sizes
+      @sizes ||= meta.fetch("sizes", nil)
     end
 
     def formats
@@ -156,8 +156,8 @@ module Bolognese
       @periodical ||= meta.fetch("periodical", nil)
     end
 
-    def geo_location
-      @geo_location ||= meta.fetch("geo_location", nil)
+    def geo_locations
+      @geo_locations ||= meta.fetch("geo_locations", nil)
     end
 
     def dates
@@ -188,8 +188,8 @@ module Bolognese
       @types ||= meta.fetch("types", nil)
     end
 
-    def title
-      @title ||= meta.fetch("title", nil)
+    def titles
+      @titles ||= meta.fetch("titles", nil)
     end
 
     def creator

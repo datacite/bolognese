@@ -106,7 +106,7 @@ module Bolognese
           "types" => types,
           "doi" => doi,
           "url" => bibliographic_metadata.dig("doi_data", "resource"),
-          "title" => [{ "text" => parse_attributes(bibliographic_metadata.dig("titles", "title")) }],
+          "titles" => [{ "title" => parse_attributes(bibliographic_metadata.dig("titles", "title")) }],
           "alternate_identifiers" => crossref_alternate_identifiers(bibliographic_metadata),
           "creator" => crossref_people(bibliographic_metadata, "author"),
           "contributor" => crossref_people(bibliographic_metadata, "editor"),
@@ -121,12 +121,12 @@ module Bolognese
           "issue" => journal_issue.dig("issue"),
           "first_page" => bibliographic_metadata.dig("pages", "first_page"),
           "last_page" => bibliographic_metadata.dig("pages", "last_page"),
-          "description" => crossref_description(bibliographic_metadata),
-          "rights" => crossref_license(program_metadata),
+          "descriptions" => crossref_description(bibliographic_metadata),
+          "rights_list" => crossref_license(program_metadata),
           "version" => nil,
-          "keywords" => nil,
+          "subjects" => nil,
           "language" => nil,
-          "size" => nil,
+          "sizes" => nil,
           "schema_version" => nil,
           "state" => state
         }
@@ -134,19 +134,21 @@ module Bolognese
 
       def crossref_alternate_identifiers(bibliographic_metadata)
         if bibliographic_metadata.fetch("publisher_item", nil).present?
-          parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number"))
+          { "alternate_identifier" => parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number")),
+            "alternate_identifier_type" => "Publisher ID" }
         else
-          parse_attributes(bibliographic_metadata.fetch("item_number", nil))
+          { "alternate_identifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
+            "alternate_identifier_type" => "Publisher ID" }
         end
       end
 
       def crossref_description(bibliographic_metadata)
         abstract = Array.wrap(bibliographic_metadata.dig("abstract")).map do |r|
-          { "type" => "Abstract", "text" => sanitize(parse_attributes(r, content: 'p')) }.compact
+          { "description_type" => "Abstract", "description" => sanitize(parse_attributes(r, content: 'p')) }.compact
         end
 
         description = Array.wrap(bibliographic_metadata.dig("description")).map do |r|
-          { "type" => "Other", "text" => sanitize(parse_attributes(r)) }.compact
+          { "description_type" => "Other", "description" => sanitize(parse_attributes(r)) }.compact
         end
 
         (abstract + description)
@@ -156,7 +158,7 @@ module Bolognese
         access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
         if access_indicator.present?
           Array.wrap(access_indicator["license_ref"]).map do |license|
-            { "id" => normalize_url(parse_attributes(license)) }
+            { "rights_uri" => normalize_url(parse_attributes(license)) }
           end.uniq
         else
           nil
@@ -179,13 +181,17 @@ module Bolognese
         fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
         Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
           f = Array.wrap(f.fetch("assertion", nil)).first
+          funder_identifier = normalize_id(f.dig("assertion", "__content__"))
+          funder_identifier_type = funder_identifier.present? ?  "Crossref Funder ID" : nil
+          award_title = f.fetch("awardTitle", nil).present? ? f.fetch("awardTitle") : nil
 
-          { "funder_identifier" => normalize_id(f.dig("assertion", "__content__")),
-            "funder_name" => f.dig("__content__").strip,
-            "award_title" => f.fetch("awardTitle", nil),
+          { "funder_identifier" => funder_identifier,
+            "funder_identifier_type" => funder_identifier_type,
+            "funder_name" => f.fetch("__content__", "").strip,
+            "award_title" => award_title,
             "award_number" => f.dig("awardNumber", "__content__"),
             "award_uri" => f.dig("awardNumber", "awardURI") }.compact
-        end.unwrap
+        end
       end
 
       def crossref_date_published(bibliographic_metadata)
@@ -200,7 +206,7 @@ module Bolognese
 
       def crossref_is_part_of(model_metadata)
         if model_metadata.present? && model_metadata.fetch("issn", nil).present?
-          { "id" => parse_attributes(model_metadata.fetch("issn", nil), first: true),
+          { "related_identifier" => parse_attributes(model_metadata.fetch("issn", nil), first: true),
             "relation_type" => "IsPartOf",
             "related_identifier_type" => "ISSN",
             "type" => "Periodical",
@@ -214,7 +220,7 @@ module Bolognese
         refs = bibliographic_metadata.dig("citation_list", "citation")
         Array.wrap(refs).select { |a| a["doi"].present? }.map do |c|
           if c["doi"].present?
-            { "id" => parse_attributes(c["doi"]).downcase,
+            { "related_identifier" => parse_attributes(c["doi"]).downcase,
               "relation_type" => "References",
               "related_identifier_type" => "DOI",
               "title" => c["article_title"] }.compact

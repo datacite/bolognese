@@ -19,7 +19,7 @@ describe Bolognese::Metadata, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_creators(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("creators", "creator").first).to eq("creatorName"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(response.dig("creators", "creator").first).to eq("creatorName"=>{"__content__"=>"Ollomo, Benjamin", "nameType"=>"Personal"}, "familyName"=>"Ollomo", "givenName"=>"Benjamin")
     end
   end
 
@@ -117,7 +117,7 @@ describe Bolognese::Metadata, vcr: true do
   context "insert_related_identifiers" do
     it "related_identifier" do
       expect(subject.related_identifiers.length).to eq(6)
-      expect(subject.related_identifiers.first).to eq("id"=>"10.5061/dryad.8515/1", "related_identifier_type"=>"DOI", "relation_type"=>"HasPart")
+      expect(subject.related_identifiers.first).to eq("related_identifier"=>"10.5061/dryad.8515/1", "related_identifier_type"=>"DOI", "relation_type"=>"HasPart")
     end
 
     it "insert" do

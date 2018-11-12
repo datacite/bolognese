@@ -84,37 +84,38 @@ module Bolognese
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
         
-        title = Array.wrap(meta.dig("titles", "title")).map do |r|
+        titles = Array.wrap(meta.dig("titles", "title")).map do |r|
           if r.is_a?(String)
-            { "text" => sanitize(r) }
+            { "title" => sanitize(r) }
           else
-            { "title_type" => r["titleType"], "lang" => r["lang"], "text" => sanitize(r["__content__"]) }.compact
+            { "title" => sanitize(r["__content__"]), "title_type" => r["titleType"], "lang" => r["lang"] }.compact
           end
         end
 
         alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-          { "type" => r["alternateIdentifierType"], "name" => r["__content__"] }
-        end.unwrap
-        description = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
-          { "type" => r["descriptionType"], "lang" => r["lang"], "text" => sanitize(r["__content__"]) }.compact
+          { "alternate_identifier_type" => r["alternateIdentifierType"], "alternate_identifier" => r["__content__"] }
         end
-        rights = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
-          { "id" => normalize_url(r["rightsURI"]), "name" => r["__content__"] }.compact
+        descriptions = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
+          { "description" => sanitize(r["__content__"]), "description_type" => r["descriptionType"], "lang" => r["lang"] }.compact
         end
-        keywords = Array.wrap(meta.dig("subjects", "subject")).map do |k|
+        rights_list = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
+          { "rights" => r["__content__"], "rights_uri" => normalize_url(r["rightsURI"]), "lang" => r["lang"] }.compact
+        end
+        subjects = Array.wrap(meta.dig("subjects", "subject")).map do |k|
           if k.nil?
             nil
           elsif k.is_a?(String)
-            { "text" => sanitize(k) }
+            { "subject" => sanitize(k) }
           else
-            { "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "text" => sanitize(k["__content__"]) }.compact
+            { "subject" => sanitize(k["__content__"]), "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "value_uri" => k["valueURI"], "lang" => k["lang"] }.compact
           end
         end.compact
         dates = Array.wrap(meta.dig("dates", "date")).map do |d|
           {
             "date" => parse_attributes(d),
-            "date_type" => parse_attributes(d, content: "dateType")
-          }
+            "date_type" => parse_attributes(d, content: "dateType"),
+            "date_information" => parse_attributes(d, content: "dateInformation")
+          }.compact
         end
         dates << { "date" => meta.fetch("publicationYear", nil), "date_type" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
         sizes = Array.wrap(meta.dig("sizes", "size"))
@@ -130,24 +131,26 @@ module Bolognese
         end
         related_identifiers = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).map do |ri|
           if ri["relatedIdentifierType"] == "DOI"
-            rid = ri["__content__"].downcase
+            rid = ri["__content__"].to_s.downcase
           else
             rid = ri["__content__"]
           end
 
           { 
-            "id" => rid,
+            "related_identifier" => rid,
             "related_identifier_type" => ri["relatedIdentifierType"],
             "relation_type" => ri["relationType"],
-            "resource_type_general" => ri["resourceTypeGeneral"]
+            "resource_type_general" => ri["resourceTypeGeneral"],
+            "related_metadata_scheme" => ri["relatedMetadataScheme"],
+            "scheme_uri" => ri["schemeURI"],
+            "scheme_type" => ri["schemeType"]
           }.compact
         end
-        geo_location = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
+        geo_locations = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
           if gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String)
             nil
           else
             {
-              "geo_location_place" => gl["geoLocationPlace"],
               "geo_location_point" => {
                 "point_latitude" => gl.dig("geoLocationPoint", "pointLatitude"),
                 "point_longitude" => gl.dig("geoLocationPoint", "pointLongitude")
@@ -157,7 +160,8 @@ module Bolognese
                 "east_bound_longitude" => gl.dig("geoLocationBox", "eastBoundLongitude"),
                 "south_bound_latitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
                 "north_bound_latitude" => gl.dig("geoLocationBox", "northBoundLatitude")
-              }.compact.presence
+              }.compact.presence,
+              "geo_location_place" => gl["geoLocationPlace"],
             }.compact
           end
         end
@@ -169,7 +173,7 @@ module Bolognese
           "doi" => doi,
           "alternate_identifiers" => alternate_identifiers,
           "url" => options.fetch(:url, nil),
-          "title" => title,
+          "titles" => titles,
           "creator" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "periodical" => periodical,
@@ -178,15 +182,15 @@ module Bolognese
           "funding_references" => funding_references,
           "dates" => dates,
           "publication_year" => meta.fetch("publicationYear", nil),
-          "description" => description,
-          "rights" => rights,
+          "descriptions" => descriptions,
+          "rights_list" => rights_list,
           "version" => meta.fetch("version", nil),
-          "keywords" => keywords,
+          "subjects" => subjects,
           "language" => meta.fetch("language", nil),
-          "geo_location" => geo_location,
+          "geo_locations" => geo_locations,
           "related_identifiers" => related_identifiers,
           "formats" => formats,
-          "size" => sizes,
+          "sizes" => sizes,
           "schema_version" => schema_version,
           "state" => state
         }
@@ -203,46 +207,6 @@ module Bolognese
             "title" => container_title,
             "issn" => is_part_of["relatedIdentifierType"] == "ISSN" ? is_part_of["__content__"] : nil
           }.compact
-        end
-      end
-
-      def datacite_funding_reference(meta)
-        Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |f|
-          funder_id = parse_attributes(f["funderIdentifier"])
-          funder = { "type" => "Organization",
-                     "id" => normalize_id(funder_id),
-                     "name" => f["funderName"] }.compact
-          if f["awardNumber"].present? || f["awardTitle"].present?
-            { "type" => "Award",
-              "name" => f.fetch("awardTitle", nil),
-              "identifier" => f["awardNumber"].is_a?(Hash) ? f.dig("awardNumber", "__content__") : f["awardNumber"],
-              "url" => f["awardNumber"].is_a?(Hash) ? f.dig("awardNumber", "awardURI") : nil,
-              "funder" => funder }.compact
-          else
-            funder
-          end
-        end.uniq
-      end
-
-      def datacite_funder_contributor(meta)
-        Array.wrap(meta.dig("contributors", "contributor")).reduce([]) do |sum, f|
-          if f["contributorType"] == "Funder"
-            # handle special case of OpenAIRE metadata
-            id = f.dig("nameIdentifier", "__content__").to_s.start_with?("info:eu-repo/grantAgreement/EC") ? "https://doi.org/10.13039/501100000780" : nil
-
-            funder = { "type" => "Organization",
-                       "id" => id,
-                       "name" => f["contributorName"] }.compact
-            if f.dig("nameIdentifier", "nameIdentifierScheme") == "info"
-              sum << { "type" => "Award",
-                       "identifier" => f.dig("nameIdentifier", "__content__").split("/").last,
-                       "funder" => funder }
-            else
-              sum << funder
-            end
-          else
-            sum
-          end
         end
       end
     end

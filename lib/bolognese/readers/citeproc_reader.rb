@@ -53,8 +53,8 @@ module Bolognese
           nil
         end
         publication_year = get_date_from_date_parts(meta.fetch("issued", nil)).to_s[0..3]
-        rights = if meta.fetch("copyright", nil)
-          [{ "id" => normalize_url(meta.fetch("copyright")) }.compact]
+        rights_list = if meta.fetch("copyright", nil)
+          [{ "rights_uri" => normalize_url(meta.fetch("copyright")) }.compact]
         else
           nil
         end
@@ -76,12 +76,15 @@ module Bolognese
         end
         id = normalize_id(meta.fetch("id", nil))
         state = id.present? ? "findable" : "not_found"
+        subjects = Array.wrap(meta.fetch("categories")).map do |s|
+          { "subject" => s }
+        end
 
         { "id" => id,
           "types" => types,
           "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("URL", nil)),
-          "title" => [{ "text" => meta.fetch("title", nil) }],
+          "titles" => [{ "title" => meta.fetch("title", nil) }],
           "creator" => creator,
           "contributor" => contributor,
           "periodical" => periodical,
@@ -91,10 +94,10 @@ module Bolognese
           "publication_year" => publication_year,
           "volume" => meta.fetch("volume", nil),
           #{}"pagination" => meta.pages.to_s.presence,
-          "description" => meta.fetch("abstract", nil).present? ? [{ "text" => sanitize(meta.fetch("abstract")) }] : [],
-          "rights" => rights,
+          "descriptions" => meta.fetch("abstract", nil).present? ? [{ "description" => sanitize(meta.fetch("abstract")) }] : [],
+          "rights_list" => rights_list,
           "version" => meta.fetch("version", nil),
-          "keywords" => meta.fetch("categories", nil),
+          "subjects" => subjects,
           "state" => state
         }
       end
