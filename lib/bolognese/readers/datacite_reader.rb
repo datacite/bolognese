@@ -177,7 +177,7 @@ module Bolognese
           "creator" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "periodical" => periodical,
-          "publisher" => meta.fetch("publisher", "").strip.presence,
+          "publisher" => meta.fetch("publisher", nil).to_s.strip.presence,
           "source" => "DataCite",
           "funding_references" => funding_references,
           "dates" => dates,

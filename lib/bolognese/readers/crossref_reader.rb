@@ -187,7 +187,7 @@ module Bolognese
 
           { "funderIdentifier" => funder_identifier,
             "funderIdentifierType" => funder_identifier_type,
-            "funderName" => f.fetch("__content__", "").strip,
+            "funderName" => f.fetch("__content__", nil).to_s.strip.presence,
             "awardTitle" => award_title,
             "awardNumber" => f.dig("awardNumber", "__content__"),
             "awardUri" => f.dig("awardNumber", "awardURI") }.compact
