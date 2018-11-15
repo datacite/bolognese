@@ -5,16 +5,16 @@ module Bolognese
     module SchemaOrgWriter
       def schema_hsh
         { "@context" => identifier.present? ? "http://schema.org" : nil,
-          "@type" => types["type"],
+          "@type" => types["schemaOrg"],
           "@id" => identifier,
           "identifier" => to_schema_org_identifier(identifier, alternate_identifiers: alternate_identifiers),
           "url" => url,
-          "additionalType" => types["resource_type"],
+          "additionalType" => types["resourceType"],
           "name" => parse_attributes(titles, content: "title", first: true),
           "author" => to_schema_org(creator),
           "editor" => to_schema_org(contributor),
           "description" => parse_attributes(descriptions, content: "description", first: true),
-          "license" => Array.wrap(rights_list).map { |l| l["rights_uri"] }.compact.unwrap,
+          "license" => Array.wrap(rights_list).map { |l| l["rightsUri"] }.compact.unwrap,
           "version" => version,
           "keywords" => subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.join(", ") : nil,
           "inLanguage" => language,
@@ -35,11 +35,11 @@ module Bolognese
           "@reverse" => reverse.presence,
           "contentUrl" => Array.wrap(content_url).unwrap,
           "schemaVersion" => schema_version,
-          "periodical" => (types["type"] != "Dataset") && periodical ? to_schema_org(periodical) : nil,
-          "includedInDataCatalog" => (types["type"] == "Dataset") && periodical ? to_schema_org(periodical) : nil,
+          "periodical" => (types["schemaOrg"] != "Dataset") && periodical ? to_schema_org(periodical) : nil,
+          "includedInDataCatalog" => (types["schemaOrg"] == "Dataset") && periodical ? to_schema_org(periodical) : nil,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
           "funder" => to_schema_org_funder(funding_references),
-          "provider" => service_provider.present? ? { "@type" => "Organization", "name" => service_provider } : nil
+          "provider" => source.present? ? { "@type" => "Organization", "name" => source } : nil
         }.compact.presence
       end
 

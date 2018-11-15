@@ -29,11 +29,11 @@ module Bolognese
       def read_bibtex(string: nil, **options)
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
-        type = BIB_TO_SO_TRANSLATIONS[meta.try(:type).to_s] || "ScholarlyArticle"
+        schema_org = BIB_TO_SO_TRANSLATIONS[meta.try(:type).to_s] || "ScholarlyArticle"
         types = {
-          "type" => type,
-          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[type],
+          "resourceTypeGeneral" => Metadata::SO_TO_DC_TRANSLATIONS[schema_org],
           "resource_type" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
+          "schemaOrg" => schema_org,
           "bibtex" => meta.type.to_s,
           "citeproc" => BIB_TO_CP_TRANSLATIONS[meta.try(:type).to_s] || "misc",
           "ris" => BIB_TO_RIS_TRANSLATIONS[meta.try(:type).to_s] || "GEN"
@@ -49,10 +49,10 @@ module Bolognese
 
         related_identifiers = if meta.try(:journal).present? && meta.try(:issn).to_s.presence
           [{ "type" => "Periodical",
-             "relation_type" => "IsPartOf",
-             "related_identifier_type" => "ISSN",
+             "relationType" => "IsPartOf",
+             "relatedIdentifierType" => "ISSN",
              "title" => meta.journal.to_s,
-             "related_identifier" => meta.try(:issn).to_s.presence }.compact]
+             "relatedIdentifier" => meta.try(:issn).to_s.presence }.compact]
         else
           nil
         end
@@ -69,7 +69,7 @@ module Bolognese
         state = doi.present? ? "findable" : "not_found"
         dates = if meta.try(:date).present?
           [{ "date" => meta.date.to_s,
-             "date_type" => "Issued" }]
+             "dateType" => "Issued" }]
         else
           nil
         end
@@ -89,8 +89,8 @@ module Bolognese
           "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
-          "descriptions" => [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence }],
-          "rights_list" => [{ "rights_uri" => meta.try(:copyright).to_s.presence }.compact],
+          "descriptions" => [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }],
+          "rights_list" => [{ "rightsUri" => meta.try(:copyright).to_s.presence }.compact],
           "state" => state
         }
       end

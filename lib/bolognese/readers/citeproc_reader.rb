@@ -34,36 +34,36 @@ module Bolognese
         meta = string.present? ? Maremma.from_json(string) : {}
 
         citeproc_type = meta.fetch("type", nil)
-        type = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"
+        schema_org = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"
         types = {
-          "type" => type,
-          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
-          "reource_type" => meta.fetch("additionalType", nil),
+          "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
+          "reourceType" => meta.fetch("additionalType", nil),
+          "schemaOrg" => schema_org,
           "citeproc" => citeproc_type,
-          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
-          "ris" => CP_TO_RIS_TRANSLATIONS[type] || "GEN"
+          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[schema_org] || "misc",
+          "ris" => CP_TO_RIS_TRANSLATIONS[schema_org] || "GEN"
         }.compact
         doi = normalize_doi(meta.fetch("DOI", nil))
         creator = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
         contributor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
         dates = if meta.fetch("issued", nil).present?
           [{ "date" => get_date_from_date_parts(meta.fetch("issued", nil)),
-             "date_type" => "Issued" }]
+             "dateType" => "Issued" }]
         else
           nil
         end
         publication_year = get_date_from_date_parts(meta.fetch("issued", nil)).to_s[0..3]
         rights_list = if meta.fetch("copyright", nil)
-          [{ "rights_uri" => normalize_url(meta.fetch("copyright")) }.compact]
+          [{ "rightsUri" => normalize_url(meta.fetch("copyright")) }.compact]
         else
           nil
         end
         related_identifiers = if meta.fetch("container-title", nil).present? && meta.fetch("ISSN", nil).present?
           [{ "type" => "Periodical",
-             "relation_type" => "IsPartOf",
-             "related_identifier_type" => "ISSN",
+             "relationType" => "IsPartOf",
+             "relatedIdentifierType" => "ISSN",
              "title" => meta.fetch("container-title", nil),
-             "id" => meta.fetch("ISSN", nil) }.compact]
+             "relatedIdentifier" => meta.fetch("ISSN", nil) }.compact]
         else
           nil
         end
@@ -94,7 +94,7 @@ module Bolognese
           "publication_year" => publication_year,
           "volume" => meta.fetch("volume", nil),
           #{}"pagination" => meta.pages.to_s.presence,
-          "descriptions" => meta.fetch("abstract", nil).present? ? [{ "description" => sanitize(meta.fetch("abstract")) }] : [],
+          "descriptions" => meta.fetch("abstract", nil).present? ? [{ "description" => sanitize(meta.fetch("abstract")), "descriptionType" => "Abstract" }] : [],
           "rights_list" => rights_list,
           "version" => meta.fetch("version", nil),
           "subjects" => subjects,

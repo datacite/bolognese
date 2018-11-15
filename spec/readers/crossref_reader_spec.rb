@@ -19,32 +19,29 @@ describe Bolognese::Metadata, vcr: true do
     it "DOI with data citation" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Martial Sankar", "givenName"=>"Martial", "familyName"=>"Sankar")
-      expect(subject.rights_list).to eq([{"rights_uri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
-      expect(subject.dates).to eq([{"date"=>"2014-02-11", "date_type"=>"Issued"}, {"date"=>"2018-08-23T13:41:49Z", "date_type"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2014-02-11", "dateType"=>"Issued"}, {"date"=>"2018-08-23T13:41:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.periodical).to eq("issn"=>"2050-084X", "title"=>"eLife", "type"=>"Periodical")
       expect(subject.related_identifiers.length).to eq(27)
-      expect(subject.related_identifiers.first).to eq("related_identifier"=>"2050-084X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical")
-      expect(subject.related_identifiers.last).to eq("related_identifier" => "10.1038/ncb2764",
-                                                     "related_identifier_type" => "DOI",
-                                                     "relation_type" => "References",
-                                                     "title" => "A screen for morphological complexity identifies regulators of switch-like transitions between discrete cell shapes")
-      expect(subject.funding_references).to eq([{"funder_name"=>"SystemsX"},
-        {"funder_identifier"=>"https://doi.org/10.13039/501100003043",
-         "funder_identifier_type"=>"Crossref Funder ID",
-         "funder_name"=>"EMBO"},
-        {"funder_identifier"=>"https://doi.org/10.13039/501100001711",
-         "funder_identifier_type"=>"Crossref Funder ID",
-         "funder_name"=>"Swiss National Science Foundation"},
-        {"funder_identifier"=>"https://doi.org/10.13039/501100006390",
-         "funder_identifier_type"=>"Crossref Funder ID",
-         "funder_name"=>"University of Lausanne"}])
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1038/ncb2764", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(subject.funding_references).to eq([{"funderName"=>"SystemsX"},
+        {"funderIdentifier"=>"https://doi.org/10.13039/501100003043",
+         "funderIdentifierType"=>"Crossref Funder ID",
+         "funderName"=>"EMBO"},
+        {"funderIdentifier"=>"https://doi.org/10.13039/501100001711",
+         "funderIdentifierType"=>"Crossref Funder ID",
+         "funderName"=>"Swiss National Science Foundation"},
+        {"funderIdentifier"=>"https://doi.org/10.13039/501100006390",
+         "funderIdentifierType"=>"Crossref Funder ID",
+         "funderName"=>"University of Lausanne"}])
+      expect(subject.source).to eq("Crossref")
     end
 
     it "journal article" do
@@ -53,20 +50,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
       expect(subject.url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Markus Ralser", "givenName"=>"Markus", "familyName"=>"Ralser")
       expect(subject.contributor).to eq("contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem", "name"=>"Guilhem Janbon", "type"=>"Person")
       expect(subject.titles).to eq([{"title"=>"Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes"}])
-      expect(subject.rights_list).to eq([{"rights_uri"=>"http://creativecommons.org/licenses/by/4.0"}])
-      expect(subject.dates).to eq([{"date"=>"2006-12-20", "date_type"=>"Issued"}, {"date"=>"2017-06-17T12:26:15Z", "date_type"=>"Updated"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.dates).to eq([{"date"=>"2006-12-20", "dateType"=>"Issued"}, {"date"=>"2017-06-17T12:26:15Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2006")
       expect(subject.first_page).to eq("e30")
       expect(subject.related_identifiers.length).to eq(62)
-      expect(subject.related_identifiers.first).to eq("related_identifier"=>"1932-6203", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"PLoS ONE", "type"=>"Periodical")
-      expect(subject.related_identifiers.last).to eq("related_identifier"=>"10.1056/nejm199109123251104", "relation_type"=>"References", "related_identifier_type"=>"DOI", "title"=>"Efficacy of statewide neonatal screening for cystic fibrosis by assay of trypsinogen concentrations.")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1932-6203", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1056/nejm199109123251104", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"1932-6203", "title"=>"PLoS ONE", "type"=>"Periodical")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "posted_content" do
@@ -75,16 +72,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
       expect(subject.url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"PostedContent", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"PostedContent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.count).to eq(11)
       expect(subject.creator.last).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4060-7360", "name"=>"Timothy Clark", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.titles).to eq([{"title"=>"A Data Citation Roadmap for Scholarly Data Repositories"}])
-      expect(subject.alternate_identifiers).to eq("alternate_identifier"=>"biorxiv;097196v2", "alternate_identifier_type"=>"Publisher ID")
+      expect(subject.alternate_identifiers).to eq("alternateIdentifier"=>"biorxiv;097196v2", "alternateIdentifierType"=>"Publisher ID")
       expect(subject.descriptions.first["description"]).to start_with("This article presents a practical roadmap")
-      expect(subject.dates).to eq([{"date"=>"2017-10-09", "date_type"=>"Issued"}, {"date"=>"2017-10-10T05:10:49Z", "date_type"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2017-10-09", "dateType"=>"Issued"}, {"date"=>"2017-10-10T05:10:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("bioRxiv")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "DOI with SICI DOI" do
@@ -93,19 +90,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
       expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator).to eq([{"type"=>"Person", "name"=>"A. Fenton", "givenName"=>"A.", "familyName"=>"Fenton"}, {"type"=>"Person", "name"=>"S. A. Rands", "givenName"=>"S. A.", "familyName"=>"Rands"}])
-      expect(subject.rights_list).to eq([{"rights_uri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}])
       expect(subject.titles).to eq([{"title"=>"THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES"}])
-      expect(subject.dates).to eq([{"date"=>"2006-11", "date_type"=>"Issued"}, {"date"=>"2018-08-02T21:20:01Z", "date_type"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2006-11", "dateType"=>"Issued"}, {"date"=>"2018-08-02T21:20:01Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2006")
       expect(subject.first_page).to eq("2832")
       expect(subject.last_page).to eq("2841")
       expect(subject.related_identifiers.length).to eq(34)
-      expect(subject.related_identifiers.first).to eq("related_identifier"=>"0012-9658", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"Ecology", "type"=>"Periodical")
-      expect(subject.related_identifiers.last).to eq("related_identifier"=>"10.1098/rspb.2002.2213", "related_identifier_type"=>"DOI", "relation_type"=>"References")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0012-9658", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1098/rspb.2002.2213", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"0012-9658", "title"=>"Ecology", "type"=>"Periodical")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "DOI with ORCID ID" do
@@ -114,20 +111,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(7)
       expect(subject.creator[2]).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-2043-4925", "name"=>"Beatriz Hernandez", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
-      expect(subject.rights_list).to eq([{"rights_uri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
       expect(subject.titles).to eq([{"title"=>"Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers"}])
-      expect(subject.dates).to eq([{"date"=>"2012", "date_type"=>"Issued"}, {"date"=>"2016-08-02T18:42:41Z", "date_type"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2012", "dateType"=>"Issued"}, {"date"=>"2016-08-02T18:42:41Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2012")
       expect(subject.first_page).to eq("1")
       expect(subject.last_page).to eq("7")
       expect(subject.related_identifiers.length).to eq(18)
-      expect(subject.related_identifiers.first).to eq("related_identifier"=>"2090-1836", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"Pulmonary Medicine", "type"=>"Periodical")
-      expect(subject.related_identifiers.last).to eq("related_identifier"=>"10.1378/chest.12-0045", "related_identifier_type"=>"DOI", "relation_type"=>"References")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2090-1836", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1378/chest.12-0045", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"2090-1836", "title"=>"Pulmonary Medicine", "type"=>"Periodical")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "date in future" do
@@ -136,15 +133,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
       expect(subject.url).to eq("http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(10)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Sarah E. Beck", "givenName"=>"Sarah E.", "familyName"=>"Beck")
       expect(subject.titles).to eq([{"title"=>"Paving the path to HIV neurotherapy: Predicting SIV CNS disease"}])
-      expect(subject.dates).to eq([{"date"=>"2015-07", "date_type"=>"Issued"}, {"date"=>"2017-06-23T08:44:48Z", "date_type"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2015-07", "dateType"=>"Issued"}, {"date"=>"2017-06-23T08:44:48Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
-      expect(subject.related_identifiers).to eq([{"related_identifier"=>"00142999", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"European Journal of Pharmacology", "type"=>"Periodical"}])
+      expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"00142999", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection"}])
       expect(subject.periodical).to eq("issn"=>"00142999", "title"=>"European Journal of Pharmacology", "type"=>"Periodical")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "dataset" do
@@ -153,15 +150,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
       expect(subject.url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resource_type"=>"SaComponent", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"SaComponent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(2)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"G. Fermi", "givenName"=>"G.", "familyName"=>"Fermi")
       expect(subject.titles).to eq([{"title"=>"THE CRYSTAL STRUCTURE OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION"}])
-      expect(subject.descriptions).to eq([{"description"=>"x-ray diffraction structure", "description_type"=>"Other"}])
-      expect(subject.dates).to eq([{"date"=>"1984-07-17", "date_type"=>"Issued"}, {"date"=>"2014-05-27T16:45:59Z", "date_type"=>"Updated"}])
+      expect(subject.descriptions).to eq([{"description"=>"x-ray diffraction structure", "descriptionType"=>"Other"}])
+      expect(subject.dates).to eq([{"date"=>"1984-07-17", "dateType"=>"Issued"}, {"date"=>"2014-05-27T16:45:59Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("1984")
       expect(subject.publisher).to eq("(:unav)")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "book chapter" do
@@ -170,14 +167,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
-      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resource_type"=>"BookChapter", "resource_type_general"=>"Text", "ris"=>"CHAP", "type"=>"Chapter")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creator.length).to eq(2)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Ronald L. Diercks", "givenName"=>"Ronald L.", "familyName"=>"Diercks")
       expect(subject.titles).to eq([{"title"=>"Clinical Symptoms and Physical Examinations"}])
-      expect(subject.dates).to eq([{"date"=>"2015", "date_type"=>"Issued"}, {"date"=>"2015-04-14T02:31:13Z", "date_type"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2015", "dateType"=>"Issued"}, {"date"=>"2015-04-14T02:31:13Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Springer Berlin Heidelberg")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "journal article with" do
@@ -186,18 +183,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq(input)
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(3)
       expect(subject.creator.first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0002-4156-3761", "name"=>"Nico Dissmeyer", "givenName"=>"Nico", "familyName"=>"Dissmeyer")
       expect(subject.titles).to eq([{"title"=>"Life and death of proteins after protease cleavage: protein degradation by the N-end rule pathway"}])
-      expect(subject.rights_list).to eq([{"rights_uri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}, {"rights_uri"=>"http://onlinelibrary.wiley.com/termsAndConditions"}])
-      expect(subject.dates).to eq([{"date"=>"2018-05", "date_type"=>"Issued"}, {"date"=>"2018-08-07T05:52:14Z", "date_type"=>"Updated"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}, {"rightsUri"=>"http://onlinelibrary.wiley.com/termsAndConditions"}])
+      expect(subject.dates).to eq([{"date"=>"2018-05", "dateType"=>"Issued"}, {"date"=>"2018-08-07T05:52:14Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.related_identifiers.length).to eq(49)
-      expect(subject.related_identifiers.first).to eq("related_identifier"=>"0028646X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"New Phytologist", "type"=>"Periodical")
-      expect(subject.related_identifiers.last).to eq("related_identifier"=>"10.1002/pmic.201400530", "relation_type"=>"References", "related_identifier_type"=>"DOI", "title"=>"Quantitative proteomics analysis of the Arg/N-end rule pathway of targeted degradation in Arabidopsis roots")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0028646X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/pmic.201400530", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"0028646X", "title"=>"New Phytologist", "type"=>"Periodical")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
     end
 
     it "not found error" do
@@ -206,7 +203,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567x")
       expect(subject.doi).to eq("10.7554/elife.01567x")
-      expect(subject.service_provider).to eq("Crossref")
+      expect(subject.source).to eq("Crossref")
       expect(subject.state).to eq("not_found")
     end
   end

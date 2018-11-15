@@ -9,7 +9,7 @@ module Bolognese
     attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version,
                 :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
-                :formats, :schema_version, :meta, :periodical,
+                :formats, :schema_version, :meta, :periodical, :source,
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers
 
@@ -174,6 +174,10 @@ module Bolognese
 
     def content_url
       @content_url ||= meta.fetch("content_url", nil)
+    end
+
+    def source
+      @source ||= meta.fetch("source", nil)
     end
 
     def state

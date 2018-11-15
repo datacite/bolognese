@@ -9,22 +9,19 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
-      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(crosscite.fetch("related_identifiers").length).to eq(27)
-      expect(crosscite.fetch("related_identifiers").first).to eq("related_identifier"=>"2050-084X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical")
-      expect(crosscite.fetch("related_identifiers").last).to eq("related_identifier" => "10.1038/ncb2764",
-        "related_identifier_type" => "DOI",
-        "relation_type" => "References",
-        "title" => "A screen for morphological complexity identifies regulators of switch-like transitions between discrete cell shapes")
-      expect(crosscite.fetch("rights_list")).to eq([{"rights_uri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(crosscite.fetch("related_identifiers").first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(crosscite.fetch("related_identifiers").last).to eq("relatedIdentifier"=>"10.1038/ncb2764", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(crosscite.fetch("rights_list")).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
     end
 
     it "with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("creator").count).to eq(7)
       expect(crosscite.fetch("creator")[2]).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-2043-4925", "name"=>"Beatriz Hernandez", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
     end
@@ -40,7 +37,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"JournalArticle", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Text", "resource_type"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(crosscite.fetch("creator").count).to eq(5)
@@ -52,7 +49,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       expect(subject.valid?).to be true
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite["types"]).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resource_type_general"=>"Text", "ris"=>"GEN", "type"=>"BlogPosting")
+      expect(crosscite["types"]).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
       expect(crosscite.fetch("creator")).to eq([{"type"=>"Person", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
@@ -76,7 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(crosscite.fetch("creator").length).to eq(8)
       expect(crosscite.fetch("creator").first).to eq("type"=>"Person", "familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Benjamin Ollomo")
-      expect(crosscite.fetch("dates")).to eq([{"date"=>"2011", "date_type"=>"Issued"}])
+      expect(crosscite.fetch("dates")).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(crosscite.fetch("publication_year")).to eq("2011")
       expect(crosscite.fetch("provider_id")).to eq("DRYAD")
       expect(crosscite.fetch("client_id")).to eq("DRYAD.DRYAD")
@@ -97,8 +94,8 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(crosscite.fetch("related_identifiers").count).to eq(3)
-      expect(crosscite.fetch("related_identifiers").first).to eq("related_identifier"=>"10.5438/0000-00ss", "related_identifier_type"=>"DOI", "relation_type"=>"IsPartOf", "resource_type_general"=>"Text", "title"=>"DataCite Blog")
-      expect(crosscite.fetch("related_identifiers").last).to eq("related_identifier"=>"10.5438/55e5-t5c0", "related_identifier_type"=>"DOI", "relation_type"=>"References")
+      expect(crosscite.fetch("related_identifiers").first).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
+      expect(crosscite.fetch("related_identifiers").last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
     end
   end
 end

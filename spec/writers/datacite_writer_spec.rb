@@ -12,7 +12,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(27)
-      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "__content__"=>"2050-084X")
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "__content__"=>"2050-084X", "resourceTypeGeneral"=>"Collection")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")[1]).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"References", "__content__"=>"10.1038/nature02100")
       expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0"})
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
@@ -37,7 +37,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("contributors", "contributor")).to eq("contributorName"=>{"__content__"=>"Janbon, Guilhem", "nameType"=>"Personal"}, "contributorType"=>"Other", "familyName"=>"Janbon", "givenName"=>"Guilhem")
+      expect(datacite.dig("contributors", "contributor")).to eq("contributorName"=>{"__content__"=>"Janbon, Guilhem", "nameType"=>"Personal"}, "contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem")
     end
 
     it "Crossref DOI" do
@@ -103,15 +103,15 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.23640/07243.5153971")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"Paper", "resource_type_general"=>"Text", "ris"=>"RPRT", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(20)
       expect(subject.creator.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
-      expect(subject.rights_list).to eq([{"rights_uri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
-      expect(subject.dates).to eq([{"date"=>"2017-06-28", "date_type"=>"Created"}, {"date"=>"2017-06-28", "date_type"=>"Updated"}, {"date"=>"2017", "date_type"=>"Issued"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
+      expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.source).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -121,15 +121,15 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.5072/07243.5153971")
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5072/07243.5153971")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource_type"=>"Paper", "resource_type_general"=>"Text", "ris"=>"RPRT", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creator.length).to eq(20)
       expect(subject.creator.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
-      expect(subject.rights_list).to eq([{"rights_uri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
-      expect(subject.dates).to eq([{"date"=>"2017-06-28", "date_type"=>"Created"}, {"date"=>"2017-06-28", "date_type"=>"Updated"}, {"date"=>"2017", "date_type"=>"Issued"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
+      expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.source).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -139,18 +139,18 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resource_type"=>"DataPackage", "resource_type_general"=>"Dataset", "ris"=>"DATA", "type"=>"Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"DataPackage", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creator.length).to eq(8)
       expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
-      expect(subject.alternate_identifiers).to eq([{"alternate_identifier"=> "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.", "alternate_identifier_type"=>"citation"}])
-      expect(subject.rights_list).to eq([{"rights_uri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
-      expect(subject.dates).to eq([{"date"=>"2011", "date_type"=>"Issued"}])
+      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=> "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.", "alternateIdentifierType"=>"citation"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
+      expect(subject.dates).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(6)
-      expect(subject.related_identifiers.last).to eq("related_identifier"=>"19478877", "related_identifier_type"=>"PMID", "relation_type"=>"IsSupplementTo")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Dryad Digital Repository")
-      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.source).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -173,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.identifier).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
-      expect(subject.service_provider).to eq("DataCite")
+      expect(subject.source).to eq("DataCite")
       expect(subject.state).to eq("not_found")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
@@ -195,15 +195,15 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "10.5061/DRYAD.8515"
-      subject.titles = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
-      subject.types = { "type" => "Dataset", "resource_type_general" => "Dataset" }
+      subject.titles = [{ "title" => "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth" }]
+      subject.types = { "schemaOrg" => "Dataset", "resourceTypeGeneral" => "Dataset" }
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.5061/DRYAD.8515")
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Dataset")
       expect(datacite.dig("titles", "title")).to eq("Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(27)
-      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "__content__"=>"2050-084X")
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("__content__"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")[1]).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"References", "__content__"=>"10.1038/nature02100")
       expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0"})
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
@@ -232,12 +232,10 @@ describe Bolognese::Metadata, vcr: true do
       input = nil
       subject = Bolognese::Metadata.new(input: input, doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       subject.creator = [{"creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}]
-      subject.titles = [ "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth" ]
-      subject.publisher = "Dryad"
-      subject.types = "Dataset"
+      subject.titles = [{ "title" => "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth" }]
+      subject.types = { "schemaOrg" => "Dataset", "resourceTypeGeneral" => "Dataset" }
       subject.publication_year = "2011"
       subject.state = "findable"
-      subject.types = { "type" => "Dataset", "resource_type_general" => "Dataset" }
       expect(subject.exists?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
@@ -252,13 +250,13 @@ describe Bolognese::Metadata, vcr: true do
       subject.rights_list = [{ "rights_uri" => "https://creativecommons.org/licenses/by-nc-sa/4.0", "rights" => "Creative Commons Attribution-NonCommercial-ShareAlike" }]
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "__content__"=>"Creative Commons Attribution-NonCommercial-ShareAlike")
+      expect(datacite.dig("rightsList", "rights")).to eq("Creative Commons Attribution-NonCommercial-ShareAlike")
     end
 
     it "change license url" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
-      subject.rights_list = [{ "rights_uri" => "https://creativecommons.org/licenses/by-nc-sa/4.0" }]
+      subject.rights_list = [{ "rightsUri" => "https://creativecommons.org/licenses/by-nc-sa/4.0" }]
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by-nc-sa/4.0")

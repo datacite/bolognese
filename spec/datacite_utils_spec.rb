@@ -117,7 +117,7 @@ describe Bolognese::Metadata, vcr: true do
   context "insert_related_identifiers" do
     it "related_identifier" do
       expect(subject.related_identifiers.length).to eq(6)
-      expect(subject.related_identifiers.first).to eq("related_identifier"=>"10.5061/dryad.8515/1", "related_identifier_type"=>"DOI", "relation_type"=>"HasPart")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.5061/dryad.8515/1", "relatedIdentifierType"=>"DOI", "relationType"=>"HasPart")
     end
 
     it "insert" do

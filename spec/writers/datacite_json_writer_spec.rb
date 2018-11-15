@@ -9,11 +9,11 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource-type"=>"JournalArticle", "resource-type-general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
-      expect(datacite.fetch("related-identifiers").length).to eq(27)
-      expect(datacite.fetch("related-identifiers").first).to eq("related-identifier"=>"2050-084X", "related-identifier-type"=>"ISSN", "relation-type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical")
-      expect(datacite.fetch("rights-list")).to eq([{"rights-uri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(datacite.fetch("relatedIdentifiers").length).to eq(27)
+      expect(datacite.fetch("relatedIdentifiers").first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(datacite.fetch("rightsList")).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
     end
 
     it "with ORCID ID" do
@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("url")).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource-type"=>"JournalArticle", "resource-type-general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("creator").length).to eq(7)
       expect(datacite.fetch("creator").first).to eq("type"=>"Person", "name"=>"Wendy Thanassi", "givenName"=>"Wendy", "familyName"=>"Thanassi")
     end
@@ -30,7 +30,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       datacite = JSON.parse(subject.datacite_json)
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource-type"=>"JournalArticle", "resource-type-general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource-type"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.fetch("creator").length).to eq(5)
@@ -41,7 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "citeproc.json"
       subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       datacite = JSON.parse(subject.datacite_json)
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resource-type-general"=>"Text", "ris"=>"GEN", "type"=>"BlogPosting")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
       expect(datacite.fetch("creator")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Martin Fenner", "type"=>"Person"}])
@@ -71,8 +71,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
-      expect(datacite.fetch("related-identifiers").count).to eq(3)
-      expect(datacite.fetch("related-identifiers").first).to eq("related-identifier"=>"10.5438/0000-00ss", "related-identifier-type"=>"DOI", "relation-type"=>"IsPartOf", "resource-type-general"=>"Text", "title"=>"DataCite Blog")
+      expect(datacite.fetch("relatedIdentifiers").count).to eq(3)
+      expect(datacite.fetch("relatedIdentifiers").first).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
     end
   end
 end

@@ -362,7 +362,7 @@ module Bolognese
         "schema_org"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context") == ("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
         "codemeta"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schema-version").to_s.start_with?("http://datacite.org/schema/kernel")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("types")
         "crosscite"
@@ -479,11 +479,10 @@ module Bolognese
         related_identifier_type = doi_from_url(id).present? ? "DOI" : "URL"
         id = doi_from_url(id) || id
 
-        { "related_identifier" => id,
-          "relation_type" => relation_type,
-          "related_identifier_type" => related_identifier_type,
-          "resource_type_general" => Metadata::SO_TO_DC_TRANSLATIONS[idx["@type"]],
-          "title" => idx["title"] || idx["name"] }.compact
+        { "relatedIdentifier" => id,
+          "relationType" => relation_type,
+          "relatedIdentifierType" => related_identifier_type,
+          "resourceTypeGeneral" => Metadata::SO_TO_DC_TRANSLATIONS[idx["@type"]] }.compact
       end.unwrap
     end
 
@@ -547,7 +546,7 @@ module Bolognese
       return nil unless (element.is_a?(Hash) || (element.nil? && options[:container_title].present?))
 
       { 
-        "@id" => element["related_identifier"],
+        "@id" => element["relatedIdentifier"],
         "@type" => (options[:type] == "Dataset") ? "DataCatalog" : "Periodical",
         "name" => element["title"] || options[:container_title] }
     end
@@ -560,13 +559,13 @@ module Bolognese
 
       if options[:alternate_identifiers].present?
         [ident] + Array.wrap(options[:alternate_identifiers]).map do |ai|
-                    if ai["alternate_identifier_type"].to_s.downcase == "url"
-                      ai["alternate_identifier"]
+                    if ai["alternateIdentifierType"].to_s.downcase == "url"
+                      ai["alternateIdentifier"]
                     else
                       { 
                         "@type" => "PropertyValue",
-                        "propertyID" => ai["alternate_identifier_type"],
-                        "value" => ai["alternate_identifier"] }
+                        "propertyID" => ai["alternateIdentifierType"],
+                        "value" => ai["alternateIdentifier"] }
                     end
                   end
       else
@@ -579,17 +578,15 @@ module Bolognese
 
       relation_type = relation_type == "References" ? ["References", "Cites", "Documents"] : [relation_type] 
 
-      Array.wrap(related_identifiers).select { |ri| relation_type.include?(ri["relation_type"]) }.map do |r|
-        if r["related_identifier_type"] == "ISSN" && r["relation_type"] == "IsPartOf"
+      Array.wrap(related_identifiers).select { |ri| relation_type.include?(ri["relationType"]) }.map do |r|
+        if r["relatedIdentifierType"] == "ISSN" && r["relationType"] == "IsPartOf"
           {
             "@type" => "Periodical",
-            "issn" => r["related_identifier"],
-            "name" => r["title"] }.compact
+            "issn" => r["relatedIdentifier"] }.compact
         else
         {
-          "@id" => normalize_id(r["related_identifier"]),
-          "@type" => DC_TO_SO_TRANSLATIONS[r["resource_type_general"]] || "CreativeWork",
-          "name" => r["title"] }.compact
+          "@id" => normalize_id(r["relatedIdentifier"]),
+          "@type" => DC_TO_SO_TRANSLATIONS[r["resourceTypeGeneral"]] || "CreativeWork" }.compact
         end
       end.unwrap
     end
@@ -599,9 +596,9 @@ module Bolognese
 
       Array.wrap(funding_references).map do |fr|
         {
-          "@id" => fr["funder_identifier"],
+          "@id" => fr["funderIdentifier"],
           "@type" => "Organization",
-          "name" => fr["funder_name"] }.compact
+          "name" => fr["funderName"] }.compact
       end.unwrap
     end
 
@@ -609,26 +606,26 @@ module Bolognese
       return nil unless geo_location.present?
 
       Array.wrap(geo_location).map do |gl|
-        if gl.fetch("geo_location_point", nil)
+        if gl.fetch("geoLocationPoint", nil)
           { 
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoCoordinates",
-              "address" => gl["geo_location_place"],
-              "latitude" => gl.dig("geo_location_point", "point_latitude"),
-              "longitude" => gl.dig("geo_location_point", "point_longitude")
+              "address" => gl["geoLocationPlace"],
+              "latitude" => gl.dig("geoLocationPoint", "pointLatitude"),
+              "longitude" => gl.dig("geoLocationPoint", "pointLongitude")
             }.compact
           }
-        elsif gl.fetch("geo_location_box", nil)
+        elsif gl.fetch("geoLocationBox", nil)
           { 
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoShape",
-              "address" => gl["geo_location_place"],
-              "box" => [gl.dig("geo_location_box", "south_bound_latitude"),
-                        gl.dig("geo_location_box", "west_bound_longitude"),
-                        gl.dig("geo_location_box", "north_bound_latitude"),
-                        gl.dig("geo_location_box", "east_bound_longitude")].join(" ")
+              "address" => gl["geoLocationPlace"],
+              "box" => [gl.dig("geoLocationBox", "southBoundLatitude"),
+                        gl.dig("geoLocationBox", "westBoundLongitude"),
+                        gl.dig("geoLocationBox", "northBoundLatitude"),
+                        gl.dig("geoLocationBox", "eastBoundLongitude")].join(" ")
             }.compact
           }
         end
@@ -658,8 +655,8 @@ module Bolognese
     def to_identifier(identifier)
       {
         "@type" => "PropertyValue",
-        "propertyID" => identifier["related_identifier_type"],
-        "value" => identifier["related_identifier"] }
+        "propertyID" => identifier["relatedIdentifierType"],
+        "value" => identifier["relatedIdentifier"] }
     end
 
     def from_citeproc(element)
@@ -813,12 +810,12 @@ module Bolognese
     end
 
     def get_date(dates, date_type)
-      dd = dates.find { |d| d["date_type"] == date_type } || {}
+      dd = dates.find { |d| d["dateType"] == date_type } || {}
       dd.fetch("date", nil)
     end
 
     def get_contributor(contributor, contributor_type)
-      contributor.select { |c| c["contributor_type"] == contributor_type }
+      contributor.select { |c| c["contributorType"] == contributor_type }
     end
 
     def jsonlint(json)

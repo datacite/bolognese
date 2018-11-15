@@ -62,7 +62,7 @@ module Bolognese
     include Bolognese::Writers::TurtleWriter
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
-    attr_reader :doc, :service_provider, :page_start, :page_end, :reverse, :name_detector
+    attr_reader :doc, :page_start, :page_end, :reverse, :name_detector
     attr_writer :style, :locale
 
     # replace DOI in XML if provided in options
@@ -78,10 +78,6 @@ module Bolognese
 
     def should_passthru
       (from == "datacite") && regenerate.blank? && raw.present?
-    end
-
-    def service_provider
-      @service_provider ||= meta.fetch("service_provider", nil)
     end
 
     def volume
@@ -102,15 +98,15 @@ module Bolognese
     end
 
     def reverse
-      { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relation_type"] == "IsReferencedBy" }.map do |r| 
-        { "@id" => normalize_doi(r["related_identifier"]),
-          "@type" => r["resource_type_general"] || "CreativeWork",
-          "identifier" => r["related_identifier_type"] == "DOI" ? nil : to_identifier(r) }.compact
+      { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsReferencedBy" }.map do |r| 
+        { "@id" => normalize_doi(r["relatedIdentifier"]),
+          "@type" => r["resourceTypeGeneral"] || "CreativeWork",
+          "identifier" => r["relatedIdentifierType"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap,
-        "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relation_type"] == "IsSupplementTo" }.map do |r| 
-          { "@id" => normalize_doi(r["related_identifier"]),
-            "@type" => r["resource_type_general"] || "CreativeWork",
-            "identifier" => r["related_identifier_type"] == "DOI" ? nil : to_identifier(r) }.compact
+        "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsSupplementTo" }.map do |r| 
+          { "@id" => normalize_doi(r["relatedIdentifier"]),
+            "@type" => r["resourceTypeGeneral"] || "CreativeWork",
+            "identifier" => r["relatedIdentifierType"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap }.compact
     end
 
@@ -127,7 +123,7 @@ module Bolognese
         "author" => to_citeproc(creator),
         "contributor" => to_citeproc(contributor),
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
-        "submitted" => Array.wrap(dates).find { |d| d["type"] == "Submitted" }.to_h.fetch("__content__", nil),
+        "submitted" => Array.wrap(dates).find { |d| d["dateType"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(descriptions, content: "description", first: true),
         "container-title" => periodical && periodical["title"],
         "DOI" => doi,

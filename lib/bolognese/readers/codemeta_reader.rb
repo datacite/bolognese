@@ -24,20 +24,20 @@ module Bolognese
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
         contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         dates = []
-        dates << { "date" => meta.fetch("datePublished"), "date_type" => "Issued" } if meta.fetch("datePublished", nil).present?
-        dates << { "date" => meta.fetch("dateCreated"), "date_type" => "Created" } if meta.fetch("dateCreated", nil).present?
-        dates << { "date" => meta.fetch("dateModified"), "date_type" => "Updated" } if meta.fetch("dateModified", nil).present?
+        dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if meta.fetch("datePublished", nil).present?
+        dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if meta.fetch("dateCreated", nil).present?
+        dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         publisher = meta.fetch("publisher", nil)
         state = meta.present? ? "findable" : "not_found"
-        type = meta.fetch("@type", nil)
+        schema_org = meta.fetch("@type", nil)
         types = {
-          "type" => type,
-          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
-          "resource_type" => meta.fetch("additionalType", nil),
-          "citeproc" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
-          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
-          "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[type] || "GEN"
+          "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
+          "resourceType" => meta.fetch("additionalType", nil),
+          "schemaOrg" => schema_org,
+          "citeproc" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[schema_org] || "article-journal",
+          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[schema_org] || "misc",
+          "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[schema_org] || "GEN"
         }.compact
         subjects = Array.wrap(meta.fetch("tags", nil)).map do |s|
           { "subject" => s }
@@ -55,8 +55,8 @@ module Bolognese
           #{}"is_part_of" => is_part_of,
           "dates" => dates,
           "publication_year" => publication_year,
-          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")) }] : nil,
-          "rights_list" => [{ "rights_uri" => meta.fetch("license", nil) }.compact],
+          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
+          "rights_list" => [{ "rightsUri" => meta.fetch("license", nil) }.compact],
           "version" => meta.fetch("version", nil),
           "subjects" => subjects,
           "state" => state

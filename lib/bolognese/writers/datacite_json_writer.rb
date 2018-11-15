@@ -16,21 +16,21 @@ module Bolognese
           "subjects" => to_datacite_json(subjects),
           "contributor" => contributor,
           "dates" => to_datacite_json(dates),
-          "publication-year" => publication_year,
+          "publicationYear" => publication_year,
           "language" => language,
-          "alternate-identifiers" => to_datacite_json(alternate_identifiers),
-          "related-identifiers" => to_datacite_json(related_identifiers),
+          "alternateIdentifiers" => to_datacite_json(alternate_identifiers),
+          "relatedIdentifiers" => to_datacite_json(related_identifiers),
           "sizes" => sizes,
           "formats" => formats,
           "version" => version,
-          "rights-list" => to_datacite_json(rights_list),
+          "rightsList" => to_datacite_json(rights_list),
           "descriptions" => to_datacite_json(descriptions),
-          "geo-locations" => to_datacite_json(geo_locations),
-          "funding-references" => to_datacite_json(funding_references),
-          "schema-version" => schema_version,
-          "provider-id" => provider_id,
-          "client-id" => client_id,
-          "provider" => service_provider
+          "geoLocations" => to_datacite_json(geo_locations),
+          "fundingReferences" => to_datacite_json(funding_references),
+          "schemaVersion" => schema_version,
+          "providerId" => provider_id,
+          "clientIsd" => client_id,
+          "source" => source
         }.compact
         JSON.pretty_generate hsh.presence
       end

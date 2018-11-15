@@ -20,7 +20,7 @@ module Bolognese
           "IS" => issue,
           "SP" => first_page,
           "EP" => last_page,
-          "SN" => Array.wrap(related_identifiers).find { |ri| ri["relation_type"] == "IsPartOf" }.to_h.fetch("related_identifier", nil),
+          "SN" => Array.wrap(related_identifiers).find { |ri| ri["relationType"] == "IsPartOf" }.to_h.fetch("relatedIdentifier", nil),
           "ER" => ""
         }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k}  - #{vi}" }.join("\r\n") : "#{k}  - #{v}" }.join("\r\n")
       end

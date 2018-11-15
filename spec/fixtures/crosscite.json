@@ -2,9 +2,9 @@
     "id": "https://doi.org/10.5281/zenodo.48440",
     "doi": "10.5281/zenodo.48440",
     "types":{
-        "type": "SoftwareSourceCode",
-        "resource_type_general": "Software",
-        "resource_type": "Software",
+        "resourceTypeGeneral": "Software",
+        "resourceType": "Software",
+        "schemaOrg": "SoftwareSourceCode",
         "citeproc": "other",
         "bibtex": "misc",
         "ris": "COMP"
@@ -32,23 +32,23 @@
     ],
     "dates": {
         "date": "2016-03-27",
-        "date-type": "Issued"
+        "dateType": "Issued"
     },
     "publication_year": "2016",
     "alternate_identifiers": [{
-        "alternative_identifier_type": "URL",
-        "alternative_identifier": "http://zenodo.org/record/48440"
+        "alternativeIdentifierType": "URL",
+        "alternativeIdentifier": "http://zenodo.org/record/48440"
     }],
     "rights_list": [{
             "rights": "Open Access"
         },
         {
-            "rights_uri": "https://creativecommons.org/licenses/by-nc-sa/4.0",
+            "rightsUri": "https://creativecommons.org/licenses/by-nc-sa/4.0",
             "rights": "Creative Commons Attribution-NonCommercial-ShareAlike"
         }
     ],
     "descriptions": [{
-        "description_type": "Abstract",
+        "descriptionType": "Abstract",
         "description": "This tools are used to analyse the data produced by the Crosssover Experiment I designed to test Choice Architecture techniques as UI interventions in a SEEk4Science data catalogue. It contains:\n\n- Data structures for the experimental data.<br>\n- Visualisation functions<br>\n- Analysis functions\n\n## Installation\n\n- R<br>\n- python<br>\n- ipython 4\n\nClone and use.\n\n## Usage\n\n<br>\n```python<br>\nsource('parallel_plot.r')<br>\nwith(z, parallelset(trt,response, freq=count, alpha=0.2))<br>\n```\n\n<br>\n## Contributing\n\n1. Fork it!<br>\n2. Create your feature branch: `git checkout -b my-new-feature`<br>\n3. Commit your changes: `git commit -am 'Add some feature'`<br>\n4. Push to the branch: `git push origin my-new-feature`<br>\n5. Submit a pull request :D\n\n<br>\n## License\n\nThis work supports my PhD Thesis at University of Manchester."
     }],
     "schema_version": "http://datacite.org/schema/kernel-4",

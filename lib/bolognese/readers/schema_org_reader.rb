@@ -39,9 +39,9 @@ module Bolognese
         if identifier.length > 1
           alternate_identifiers = identifier[1..-1].map do |r|
             if r.is_a?(String)
-              { "alternate_identifier_type" => "URL", "alternate_identifier" => r }
+              { "alternateIdentifierType" => "URL", "alternateIdentifier" => r }
             elsif r.is_a?(Hash)
-              { "alternate_identifier_type" => r["propertyID"], "alternate_identifier" => r["value"] }
+              { "alternateIdentifierType" => r["propertyID"], "alternateIdentifier" => r["value"] }
             end
           end
         else
@@ -50,14 +50,14 @@ module Bolognese
         identifier = identifier.first
 
         id = normalize_id(meta.fetch("@id", nil) || meta.fetch("identifier", nil))
-        type = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
-        resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type]
+        schema_org = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
+        resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org]
         types = {
-          "type" => type,
-          "resource_type_general" => resource_type_general,
-          "resource_type" => meta.fetch("additionalType", nil),
-          "citeproc" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article-journal",
-          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
+          "resourceTypeGeneral" => resource_type_general,
+          "resourceType" => meta.fetch("additionalType", nil),
+          "schemaOrg" => schema_org,
+          "citeproc" => Bolognese::Utils::SO_TO_CP_TRANSLATIONS[schema_org] || "article-journal",
+          "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[schema_org] || "misc",
           "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
@@ -65,10 +65,10 @@ module Bolognese
         contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
-        ct = (type == "Dataset") ? "includedInDataCatalog" : "Periodical"
+        ct = (schema_org == "Dataset") ? "includedInDataCatalog" : "Periodical"
         periodical = if meta.fetch(ct, nil).present?
           {
-            "type" => (type == "Dataset") ? "DataCatalog" : "Periodical",
+            "type" => (schema_org == "Dataset") ? "DataCatalog" : "Periodical",
             "title" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "name", first: true),
             "url" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "url", first: true)
           }.compact
@@ -86,21 +86,26 @@ module Bolognese
           Array.wrap(schema_org_is_supplement_to(meta)) +
           Array.wrap(schema_org_is_supplemented_by(meta))
 
-        rights = {
-          "id" => parse_attributes(meta.fetch("license", nil), content: "id", first: true),
-          "name" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
+        rights_list = {
+          "rightsUri" => parse_attributes(meta.fetch("license", nil), content: "id", first: true),
+          "rights" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
         }
 
         funding_references = Array.wrap(meta.fetch("funder", nil)).compact.map do |fr|
-          {
-            "funder_name" => fr["name"],
-            "funder_identifier" => fr["@id"],
-            "funder_identifier_type" => fr["@id"].to_s.start_with?("https://doi.org/10.13039") ? "Crossref Funder ID" : nil }.compact
+          if fr["@id"].present?
+            {
+              "funderName" => fr["name"],
+              "funderIdentifier" => fr["@id"],
+              "funderIdentifierType" => fr["@id"].to_s.start_with?("https://doi.org/10.13039") ? "Crossref Funder ID" : "Other" }.compact
+          else
+            {
+              "funderName" => fr["name"] }.compact
+          end
         end
         dates = []
-        dates << { "date" => meta.fetch("datePublished"), "date_type" => "Issued" } if meta.fetch("datePublished", nil).present?
-        dates << { "date" => meta.fetch("dateCreated"), "date_type" => "Created" } if meta.fetch("dateCreated", nil).present?
-        dates << { "date" => meta.fetch("dateModified"), "date_type" => "Updated" } if meta.fetch("dateModified", nil).present?
+        dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if meta.fetch("datePublished", nil).present?
+        dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if meta.fetch("dateCreated", nil).present?
+        dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         
         state = meta.present? ? "findable" : "not_found"
@@ -108,20 +113,20 @@ module Bolognese
           if gl.dig("geo", "box")
             s, w, n, e = gl.dig("geo", "box").split(" ", 4)
             geo_location_box = {
-              "west_bound_longitude" => w,
-              "east_bound_longitude" => e,
-              "south_bound_latitude" => s,
-              "north_bound_latitude" => n
+              "westBoundLongitude" => w,
+              "eastBoundLongitude" => e,
+              "southBoundLatitude" => s,
+              "northBoundLatitude" => n
             }.compact.presence
           else
             geo_location_box = nil
           end
-          geo_location_point = { "point_longitude" => gl.dig("geo", "longitude"), "point_latitude" => gl.dig("geo", "latitude") }.compact.presence
+          geo_location_point = { "pointLongitude" => gl.dig("geo", "longitude"), "pointLatitude" => gl.dig("geo", "latitude") }.compact.presence
 
           {
-            "geo_location_place" => gl.dig("geo", "address"),
-            "geo_location_point" => geo_location_point,
-            "geo_location_box" => geo_location_box
+            "geoLocationPlace" => gl.dig("geo", "address"),
+            "geoLocationPoint" => geo_location_point,
+            "geoLocationBox" => geo_location_box
           }.compact
         end
         subjects = Array.wrap(meta.fetch("keywords", nil).to_s.split(", ")).map do |s|
@@ -141,13 +146,13 @@ module Bolognese
           "creator" => author,
           "contributor" => contributor,
           "publisher" => publisher,
-          "service_provider" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
+          "source" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
           "periodical" => periodical,
           "related_identifiers" => related_identifiers,
           "publication_year" => publication_year,
           "dates" => dates,
-          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")) }] : nil,
-          "rights" => rights,
+          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
+          "rights_list" => rights_list,
           "version" => meta.fetch("version", nil),
           "subjects" => subjects,
           "state" => state,

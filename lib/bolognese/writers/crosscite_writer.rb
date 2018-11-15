@@ -34,7 +34,7 @@ module Bolognese
           "schema_version" => schema_version,
           "provider_id" => provider_id,
           "client_id" => client_id,
-          "provider" => service_provider,
+          "source" => source,
           "state" => state
         }.compact
         JSON.pretty_generate hsh.presence

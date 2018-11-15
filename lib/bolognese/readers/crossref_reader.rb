@@ -71,11 +71,11 @@ module Bolognese
         end
 
         resource_type = (resource_type || model).to_s.underscore.camelize.presence
-        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type] || "ScholarlyArticle"
+        schema_org = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type] || "ScholarlyArticle"
         types = {
-          "type" => type,
-          "resource_type_general" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[type],
-          "resource_type" => resource_type,
+          "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
+          "resourceType" => resource_type,
+          "schemaOrg" => schema_org,
           "citeproc" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[resource_type] || "article-journal",
           "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type] || "misc",
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type] || "JOUR"
@@ -86,9 +86,9 @@ module Bolognese
         Time.zone = 'Eastern Time (US & Canada)'
         dates = [
           { "date" => crossref_date_published(bibliographic_metadata),
-            "date_type" => "Issued" },
+            "dateType" => "Issued" },
           { "date" => Time.zone.parse(meta.fetch("timestamp", "2018-01-01")).utc.iso8601,
-            "date_type" => "Updated" }
+            "dateType" => "Updated" }
         ]
         publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : nil
         state = meta.present? ? "findable" : "not_found"
@@ -113,7 +113,7 @@ module Bolognese
           "funding_references" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
           "periodical" => periodical,
-          "service_provider" => "Crossref",
+          "source" => "Crossref",
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
@@ -134,21 +134,21 @@ module Bolognese
 
       def crossref_alternate_identifiers(bibliographic_metadata)
         if bibliographic_metadata.fetch("publisher_item", nil).present?
-          { "alternate_identifier" => parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number")),
-            "alternate_identifier_type" => "Publisher ID" }
+          { "alternateIdentifier" => parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number")),
+            "alternateIdentifierType" => "Publisher ID" }
         else
-          { "alternate_identifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
-            "alternate_identifier_type" => "Publisher ID" }
+          { "alternateIdentifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
+            "alternateIdentifierType" => "Publisher ID" }
         end
       end
 
       def crossref_description(bibliographic_metadata)
         abstract = Array.wrap(bibliographic_metadata.dig("abstract")).map do |r|
-          { "description_type" => "Abstract", "description" => sanitize(parse_attributes(r, content: 'p')) }.compact
+          { "descriptionType" => "Abstract", "description" => sanitize(parse_attributes(r, content: 'p')) }.compact
         end
 
         description = Array.wrap(bibliographic_metadata.dig("description")).map do |r|
-          { "description_type" => "Other", "description" => sanitize(parse_attributes(r)) }.compact
+          { "descriptionType" => "Other", "description" => sanitize(parse_attributes(r)) }.compact
         end
 
         (abstract + description)
@@ -158,7 +158,7 @@ module Bolognese
         access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
         if access_indicator.present?
           Array.wrap(access_indicator["license_ref"]).map do |license|
-            { "rights_uri" => normalize_url(parse_attributes(license)) }
+            { "rightsUri" => normalize_url(parse_attributes(license)) }
           end.uniq
         else
           nil
@@ -185,12 +185,12 @@ module Bolognese
           funder_identifier_type = funder_identifier.present? ?  "Crossref Funder ID" : nil
           award_title = f.fetch("awardTitle", nil).present? ? f.fetch("awardTitle") : nil
 
-          { "funder_identifier" => funder_identifier,
-            "funder_identifier_type" => funder_identifier_type,
-            "funder_name" => f.fetch("__content__", "").strip,
-            "award_title" => award_title,
-            "award_number" => f.dig("awardNumber", "__content__"),
-            "award_uri" => f.dig("awardNumber", "awardURI") }.compact
+          { "funderIdentifier" => funder_identifier,
+            "funderIdentifierType" => funder_identifier_type,
+            "funderName" => f.fetch("__content__", "").strip,
+            "awardTitle" => award_title,
+            "awardNumber" => f.dig("awardNumber", "__content__"),
+            "awardUri" => f.dig("awardNumber", "awardURI") }.compact
         end
       end
 
@@ -206,11 +206,10 @@ module Bolognese
 
       def crossref_is_part_of(model_metadata)
         if model_metadata.present? && model_metadata.fetch("issn", nil).present?
-          { "related_identifier" => parse_attributes(model_metadata.fetch("issn", nil), first: true),
-            "relation_type" => "IsPartOf",
-            "related_identifier_type" => "ISSN",
-            "type" => "Periodical",
-            "title" => model_metadata["full_title"] }.compact
+          { "relatedIdentifier" => parse_attributes(model_metadata.fetch("issn", nil), first: true),
+            "relationType" => "IsPartOf",
+            "relatedIdentifierType" => "ISSN",
+            "resourceTypeGeneral" => "Collection" }.compact
         else
           nil
         end
@@ -220,10 +219,9 @@ module Bolognese
         refs = bibliographic_metadata.dig("citation_list", "citation")
         Array.wrap(refs).select { |a| a["doi"].present? }.map do |c|
           if c["doi"].present?
-            { "related_identifier" => parse_attributes(c["doi"]).downcase,
-              "relation_type" => "References",
-              "related_identifier_type" => "DOI",
-              "title" => c["article_title"] }.compact
+            { "relatedIdentifier" => parse_attributes(c["doi"]).downcase,
+              "relationType" => "References",
+              "relatedIdentifierType" => "DOI" }.compact
           else
             nil
           end

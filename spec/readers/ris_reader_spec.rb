@@ -29,7 +29,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("citeproc"=>"misc", "resource_type_general"=>"Text", "ris"=>"JOUR", "type"=>"ScholarlyArticle")
+      expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.creator.length).to eq(5)
       expect(subject.creator.first).to eq("type"=>"Person",
@@ -38,9 +38,9 @@ describe Bolognese::Metadata, vcr: true do
                                          "familyName"=>"Sankar")
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(subject.descriptions.first["description"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
-      expect(subject.dates).to eq([{"date"=>"2014", "date_type"=>"Issued"}])
+      expect(subject.dates).to eq([{"date"=>"2014", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2014")
-      expect(subject.related_identifiers).to eq([{"id"=>"2050084X", "related_identifier_type"=>"ISSN", "relation_type"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical"}])
+      expect(subject.related_identifiers).to eq([{"id"=>"2050084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical"}])
       expect(subject.periodical).to eq("id"=>"2050084X", "title"=>"eLife", "type"=>"Periodical")
     end
 
@@ -51,11 +51,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("citeproc"=>"misc", "resource_type_general"=>"Text", "ris"=>"THES", "type"=>"Thesis")
+      expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"THES", "schemaOrg"=>"Thesis")
       expect(subject.creator).to eq([{"type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar"}])
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect"}])
       expect(subject.descriptions.first["description"]).to start_with("Designing the climates of cities")
-      expect(subject.dates).to eq([{"date"=>"2018-04-25", "date_type"=>"Issued"}, {"date"=>"2018-04-25", "date_type"=>"Created"}])
+      expect(subject.dates).to eq([{"date"=>"2018-04-25", "dateType"=>"Issued"}, {"date"=>"2018-04-25", "dateType"=>"Created"}])
       expect(subject.publication_year).to eq("2018")
     end
   end

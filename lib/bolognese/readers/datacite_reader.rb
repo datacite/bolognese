@@ -74,13 +74,13 @@ module Bolognese
 
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         resource_type = meta.dig("resourceType", "__content__")
-        type = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
+        schema_org = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_SO_TRANSLATIONS[resource_type_general.to_s.dasherize] || "CreativeWork"
         types = {
-          "type" => type,
-          "resource_type_general" => resource_type_general,
-          "resource_type" => resource_type,
-          "citeproc" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_CP_TRANSLATIONS[type] || "article",
-          "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[type] || "misc",
+          "resourceTypeGeneral" => resource_type_general,
+          "resourceType" => resource_type,
+          "schemaOrg" => schema_org,
+          "citeproc" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_CP_TRANSLATIONS[schema_org] || "article",
+          "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[schema_org] || "misc",
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
         
@@ -88,18 +88,18 @@ module Bolognese
           if r.is_a?(String)
             { "title" => sanitize(r) }
           else
-            { "title" => sanitize(r["__content__"]), "title_type" => r["titleType"], "lang" => r["lang"] }.compact
+            { "title" => sanitize(r["__content__"]), "titleType" => r["titleType"], "lang" => r["lang"] }.compact
           end
         end
 
         alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-          { "alternate_identifier_type" => r["alternateIdentifierType"], "alternate_identifier" => r["__content__"] }
+          { "alternateIdentifierType" => r["alternateIdentifierType"], "alternateIdentifier" => r["__content__"] }
         end
         descriptions = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
-          { "description" => sanitize(r["__content__"]), "description_type" => r["descriptionType"], "lang" => r["lang"] }.compact
+          { "description" => sanitize(r["__content__"]), "descriptionType" => r["descriptionType"], "lang" => r["lang"] }.compact
         end
         rights_list = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
-          { "rights" => r["__content__"], "rights_uri" => normalize_url(r["rightsURI"]), "lang" => r["lang"] }.compact
+          { "rights" => r["__content__"], "rightsUri" => normalize_url(r["rightsURI"]), "lang" => r["lang"] }.compact
         end
         subjects = Array.wrap(meta.dig("subjects", "subject")).map do |k|
           if k.nil?
@@ -107,27 +107,27 @@ module Bolognese
           elsif k.is_a?(String)
             { "subject" => sanitize(k) }
           else
-            { "subject" => sanitize(k["__content__"]), "subject_scheme" => k["subjectScheme"], "scheme_uri" => k["schemeURI"], "value_uri" => k["valueURI"], "lang" => k["lang"] }.compact
+            { "subject" => sanitize(k["__content__"]), "subjectScheme" => k["subjectScheme"], "schemeUri" => k["schemeURI"], "valueUri" => k["valueURI"], "lang" => k["lang"] }.compact
           end
         end.compact
         dates = Array.wrap(meta.dig("dates", "date")).map do |d|
           {
             "date" => parse_attributes(d),
-            "date_type" => parse_attributes(d, content: "dateType"),
-            "date_information" => parse_attributes(d, content: "dateInformation")
+            "dateType" => parse_attributes(d, content: "dateType"),
+            "dateInformation" => parse_attributes(d, content: "dateInformation")
           }.compact
         end
-        dates << { "date" => meta.fetch("publicationYear", nil), "date_type" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
+        dates << { "date" => meta.fetch("publicationYear", nil), "dateType" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
         sizes = Array.wrap(meta.dig("sizes", "size"))
         formats = Array.wrap(meta.dig("formats", "format"))
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
           {
-            "funder_name" => fr["funderName"],
-            "funder_identifier" => normalize_id(parse_attributes(fr["funderIdentifier"])),
-            "funder_identifier_type" => parse_attributes(fr["funderIdentifier"], content: "funderIdentifierType"),
-            "award_number" => parse_attributes(fr["awardNumber"]),
-            "award_uri" => parse_attributes(fr["awardNumber"], content: "awardURI"),
-            "award_title" => fr["awardTitle"] }.compact
+            "funderName" => fr["funderName"],
+            "funderIdentifier" => normalize_id(parse_attributes(fr["funderIdentifier"])),
+            "funderIdentifierType" => parse_attributes(fr["funderIdentifier"], content: "funderIdentifierType"),
+            "awardNumber" => parse_attributes(fr["awardNumber"]),
+            "awardUri" => parse_attributes(fr["awardNumber"], content: "awardURI"),
+            "awardTitle" => fr["awardTitle"] }.compact
         end
         related_identifiers = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).map do |ri|
           if ri["relatedIdentifierType"] == "DOI"
@@ -137,13 +137,13 @@ module Bolognese
           end
 
           { 
-            "related_identifier" => rid,
-            "related_identifier_type" => ri["relatedIdentifierType"],
-            "relation_type" => ri["relationType"],
-            "resource_type_general" => ri["resourceTypeGeneral"],
-            "related_metadata_scheme" => ri["relatedMetadataScheme"],
-            "scheme_uri" => ri["schemeURI"],
-            "scheme_type" => ri["schemeType"]
+            "relatedIdentifier" => rid,
+            "relatedIdentifierType" => ri["relatedIdentifierType"],
+            "relationType" => ri["relationType"],
+            "resourceTypeGeneral" => ri["resourceTypeGeneral"],
+            "relatedMetadataScheme" => ri["relatedMetadataScheme"],
+            "schemeUri" => ri["schemeURI"],
+            "schemeType" => ri["schemeType"]
           }.compact
         end
         geo_locations = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
@@ -151,17 +151,17 @@ module Bolognese
             nil
           else
             {
-              "geo_location_point" => {
-                "point_latitude" => gl.dig("geoLocationPoint", "pointLatitude"),
-                "point_longitude" => gl.dig("geoLocationPoint", "pointLongitude")
+              "geoLocationPoint" => {
+                "pointLatitude" => gl.dig("geoLocationPoint", "pointLatitude"),
+                "pointLongitude" => gl.dig("geoLocationPoint", "pointLongitude")
               }.compact.presence,
-              "geo_location_box" => {
-                "west_bound_longitude" => gl.dig("geoLocationBox", "westBoundLongitude"),
-                "east_bound_longitude" => gl.dig("geoLocationBox", "eastBoundLongitude"),
-                "south_bound_latitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
-                "north_bound_latitude" => gl.dig("geoLocationBox", "northBoundLatitude")
+              "geoLocationBox" => {
+                "westBoundLongitude" => gl.dig("geoLocationBox", "westBoundLongitude"),
+                "eastBoundLongitude" => gl.dig("geoLocationBox", "eastBoundLongitude"),
+                "southBoundLatitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
+                "northBoundLatitude" => gl.dig("geoLocationBox", "northBoundLatitude")
               }.compact.presence,
-              "geo_location_place" => gl["geoLocationPlace"],
+              "geoLocationPlace" => gl["geoLocationPlace"],
             }.compact
           end
         end
@@ -178,7 +178,7 @@ module Bolognese
           "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "periodical" => periodical,
           "publisher" => meta.fetch("publisher", "").strip.presence,
-          "service_provider" => "DataCite",
+          "source" => "DataCite",
           "funding_references" => funding_references,
           "dates" => dates,
           "publication_year" => meta.fetch("publicationYear", nil),
