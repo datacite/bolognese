@@ -161,7 +161,7 @@ module Bolognese
                 "southBoundLatitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
                 "northBoundLatitude" => gl.dig("geoLocationBox", "northBoundLatitude")
               }.compact.presence,
-              "geoLocationPlace" => gl["geoLocationPlace"],
+              "geoLocationPlace" => parse_attributes(gl["geoLocationPlace"], first: true).to_s.strip.presence
             }.compact
           end
         end.compact
@@ -177,16 +177,16 @@ module Bolognese
           "creator" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "periodical" => periodical,
-          "publisher" => meta.fetch("publisher", nil).to_s.strip.presence,
+          "publisher" => parse_attributes(meta.fetch("publisher", nil), first: true).to_s.strip.presence,
           "source" => "DataCite",
           "funding_references" => funding_references,
           "dates" => dates,
-          "publication_year" => meta.fetch("publicationYear", nil).to_s.presence,
+          "publication_year" => parse_attributes(meta.fetch("publicationYear", nil), first: true).to_s.strip.presence,
           "descriptions" => descriptions,
           "rights_list" => rights_list,
           "version" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
-          "language" => meta.fetch("language", nil).to_s.presence,
+          "language" => parse_attributes(meta.fetch("language", nil), first: true).to_s.strip.presence,
           "geo_locations" => geo_locations,
           "related_identifiers" => related_identifiers,
           "formats" => formats,

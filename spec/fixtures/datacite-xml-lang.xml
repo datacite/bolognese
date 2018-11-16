@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resource
+    xmlns="http://datacite.org/schema/kernel-4"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+    <identifier identifierType="DOI">10.15770/EUM_SAF_OSI_9999</identifier>
+    <creators>
+        <creator>
+            <creatorName>SAF on Ocean and Sea Ice</creatorName>
+        </creator>
+        <creator>
+            <creatorName>OSI SAF</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title xml:lang="en">DOI Test 2 title content</title>
+        <title xml:lang="en">AAPP</title>
+    </titles>
+    <publisher>OSI SAF</publisher>
+    <publicationYear>2004</publicationYear>
+    <resourceType resourceTypeGeneral="Collection">Climate Data Record</resourceType>
+    <dates>
+        <date dateType="Created">2004-01-19</date>
+        <date dateType="Valid">2004-01-19/2015-12-31</date>
+    </dates>
+    <language>en</language>
+    <relatedIdentifiers>
+        <relatedIdentifier relatedIdentifierType="URL" relationType="HasMetadata" relatedMetadataScheme="http://schemas.opengis.net/iso/19139/20060504/gmd/gmd.xsd" schemeURI="http://schemas.opengis.net/csw/2.0.2/csw.xsd" schemeType="xsd">https://eumetsat.eggits.net/elastic-csw/download/EO:EUM:CM:MSG:DOI_TEST_2</relatedIdentifier>
+        <relatedIdentifier relatedIdentifierType="URL" relationType="IsDocumentedBy" schemeType="text/html">https://eumetsat.eggits.net/nextgen-pn/product/EO:EUM:CM:MSG:DOI_TEST_2</relatedIdentifier>
+    </relatedIdentifiers>
+    <rightsList>
+        <rights>copyright</rights>
+    </rightsList>
+    <descriptions>
+        <description descriptionType="Methods" xml:lang="en">This is the DOI TEST 2 product where this is the description field content.</description>
+    </descriptions>
+    <geoLocations>
+        <geoLocation>
+            <geoLocationBox>
+                <westBoundLongitude>-70.0</westBoundLongitude>
+                <eastBoundLongitude>70.0</eastBoundLongitude>
+                <southBoundLatitude>-70.0</southBoundLatitude>
+                <northBoundLatitude>70.0</northBoundLatitude>
+            </geoLocationBox>
+        </geoLocation>
+        <geoLocation>
+            <geoLocationPlace
+                xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">Regional
+            </geoLocationPlace>
+        </geoLocation>
+    </geoLocations>
+</resource>

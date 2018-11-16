@@ -180,9 +180,9 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'datacite-multiple-language.xml'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.types["schemaOrg"]).to eq("Collection")
-      expect(subject.language).to eq("[\"de\", \"en\"]")
-      expect(subject.publisher).to eq("[\"Universitätsbibliothek Tübingen\", \"University Library Tübingen\"]")
-      expect(subject.publication_year).to eq("[\"2015\", \"2016\"]")
+      expect(subject.language).to eq("de")
+      expect(subject.publisher).to eq("Universitätsbibliothek Tübingen")
+      expect(subject.publication_year).to eq("2015")
       expect(subject.valid?).to be false
       expect(subject.errors).to eq("13:0: ERROR: Element '{http://datacite.org/schema/kernel-2.2}publisher': This element is not expected. Expected is ( {http://datacite.org/schema/kernel-2.2}publicationYear ).")
     end
@@ -193,6 +193,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.geo_locations).to eq([{"geoLocationPoint"=>{"pointLatitude"=>"-11.64583333", "pointLongitude"=>"-68.2975"}}])
+    end
+
+    it "xml:lang attribute" do
+      input = fixture_path + 'datacite-xml-lang.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.types["schemaOrg"]).to eq("Collection")
+      expect(subject.titles).to eq([{"lang"=>"en", "title"=>"DOI Test 2 title content"}, {"lang"=>"en", "title"=>"AAPP"}])
+      expect(subject.descriptions).to eq([{"description"=>"This is the DOI TEST 2 product where this is the description field content.", "descriptionType"=>"Methods", "lang"=>"en"}])
+      expect(subject.geo_locations).to eq([{"geoLocationBox"=>{"eastBoundLongitude"=>"70.0", "northBoundLatitude"=>"70.0", "southBoundLatitude"=>"-70.0", "westBoundLongitude"=>"-70.0"}}, {"geoLocationPlace"=>"Regional"}])
     end
 
     it "schema 4.0" do
