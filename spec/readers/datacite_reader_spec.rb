@@ -72,6 +72,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceTypeGeneral"]).to eq("Text")
       expect(subject.creator).to eq([{"type"=>"Person", "name"=>"Nathaniel Johnston", "givenName"=>"Nathaniel", "familyName"=>"Johnston"}])
       expect(subject.titles).to eq([{"title"=>"The Minimum Size of Qubit Unextendible Product Bases"}])
+      expect(subject.alternate_identifiers).to eq([])
       expect(subject.descriptions.first["description"]).to start_with("We investigate the problem of constructing unextendible product bases in the qubit case")
       expect(subject.dates).to eq([{"date"=>"2013-11-05", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")

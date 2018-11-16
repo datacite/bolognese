@@ -93,8 +93,8 @@ module Bolognese
         end
 
         alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-          { "alternateIdentifierType" => r["alternateIdentifierType"], "alternateIdentifier" => r["__content__"] }
-        end
+          { "alternateIdentifierType" => r["alternateIdentifierType"], "alternateIdentifier" => r["__content__"].presence }.compact
+        end.compact
         descriptions = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
           { "description" => sanitize(r["__content__"]), "descriptionType" => r["descriptionType"], "lang" => r["lang"] }.compact
         end
