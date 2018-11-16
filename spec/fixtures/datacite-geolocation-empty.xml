@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.1594/IEDA/111185</identifier>
+  <creators>
+    <creator>
+      <creatorName>Carlos P Carvajal</creatorName>
+      <givenName>Carlos</givenName>
+      <familyName>Carvajal</familyName>
+    </creator>
+    <creator>
+      <creatorName>Gerilyn S Soreghan</creatorName>
+      <givenName>Gerilyn</givenName>
+      <familyName>Soreghan</familyName>
+    </creator>
+    <creator>
+      <creatorName>Peter E Isaacson</creatorName>
+      <givenName>Peter</givenName>
+      <familyName>Isaacson</familyName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Geochemical and grain-size analyses of atmospheric dusts from Pennsylvanian carbonates of the Copacabana Formation (Madre de Dios Basin, Bolivia)</title>
+  </titles>
+  <publisher>EarthChem</publisher>
+  <publicationYear>2018</publicationYear>
+  <subjects>
+    <subject subjectScheme="coverage scope">Global</subject>
+  </subjects>
+  <dates>
+    <date dateType="Available">2018-06-21</date>
+    <date dateType="Created">2018-06-20</date>
+  </dates>
+  <language>en</language>
+  <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="URL">http://www.earthchem.org/library/browse/view?id=1185</alternateIdentifier>
+  </alternateIdentifiers>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsReferencedBy">10.1016/j.gr.2018.02.007</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0001</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0002</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0003</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0004</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0005</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0006</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0007</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0008</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0009</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000A</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000B</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000C</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000D</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000E</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000F</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000G</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000H</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000I</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000J</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000K</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000L</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000M</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000N</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000O</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000P</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000Q</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000R</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000S</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000T</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000U</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000V</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000W</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000X</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000Y</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM000Z</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0010</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0011</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0012</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0013</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0014</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0015</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0016</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0017</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0018</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0019</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001A</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001B</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001C</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001D</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001E</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001F</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001G</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001H</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001I</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001J</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001K</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001L</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001M</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001N</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001O</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001P</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001Q</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001R</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001S</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001T</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001U</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001V</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001W</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001X</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001Y</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM001Z</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0020</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0021</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0022</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0023</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0024</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0025</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0026</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0027</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0028</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM0029</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002A</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002B</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002C</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002D</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002E</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002F</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002G</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002H</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002I</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002J</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="IGSN" relationType="References">IEBMM002K</relatedIdentifier>
+  </relatedIdentifiers>
+  <formats>
+    <format>application/vnd.ms-excel</format>
+  </formats>
+  <version>1.0</version>
+  <rightsList>
+    <rights rightsURI="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-NonCommercial-Share Alike 3.0 United States [CC BY-NC-SA 3.0]</rights>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Abstract">This dataset documents the geochemical and grain-size characteristics of atmospheric dust from Pennsylvanian carbonates of the Copacabana Formation, recovered in core (Mobil-Oxy Manuripi X-1) from the Madre de Dios basin (Bolivia), within southern mid-latitudes (~35˚S) of western Gondwana. Provenance indicates two discrete sources of atmospheric input–a western volcanic arc source and eastern continental source, recording both westerly (zonal) and easterly (katabatic) wind directions.</description>
+    <description descriptionType="Other">Carvajal, C.P., Soreghan, G. S, Isaacson, P. E., Hinnov, L.A., Hamilton, M. A., Heavens, N.G., (2018) Climatic and volcanic events recorded in atmospheric dust from the Late Pennsylvanian Copacabana Formation (Bolivia) of Western Gondwana. Gondwana Research, v 58, p 105-121.</description>
+  </descriptions>
+  <fundingReferences>
+    <fundingReference>
+      <awardNumber awardURI="http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=1338331">1338331</awardNumber>
+      <funderName>National Science Foundation</funderName>
+    </fundingReference>
+  </fundingReferences>
+  <geoLocations>
+    <geoLocation/>
+    <geoLocation>
+      <geoLocationPoint>
+        <pointLongitude>-68.2975</pointLongitude>
+        <pointLatitude>-11.64583333</pointLatitude>
+      </geoLocationPoint>
+    </geoLocation>
+  </geoLocations>
+</resource>

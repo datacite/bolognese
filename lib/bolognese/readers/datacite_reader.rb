@@ -147,7 +147,7 @@ module Bolognese
           }.compact
         end
         geo_locations = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
-          if gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String)
+          if !gl.is_a?(Hash) || gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String)
             nil
           else
             {
@@ -164,7 +164,7 @@ module Bolognese
               "geoLocationPlace" => gl["geoLocationPlace"],
             }.compact
           end
-        end
+        end.compact
         periodical = set_periodical(meta)
         state = doi.present? ? "findable" : "not_found"
 
@@ -172,7 +172,7 @@ module Bolognese
           "types" => types,
           "doi" => doi,
           "alternate_identifiers" => alternate_identifiers,
-          "url" => options.fetch(:url, nil),
+          "url" => options.fetch(:url, nil).to_s.strip.presence,
           "titles" => titles,
           "creator" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
@@ -181,12 +181,12 @@ module Bolognese
           "source" => "DataCite",
           "funding_references" => funding_references,
           "dates" => dates,
-          "publication_year" => meta.fetch("publicationYear", nil),
+          "publication_year" => meta.fetch("publicationYear", nil).to_s.presence,
           "descriptions" => descriptions,
           "rights_list" => rights_list,
-          "version" => meta.fetch("version", nil),
+          "version" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
-          "language" => meta.fetch("language", nil),
+          "language" => meta.fetch("language", nil).to_s.presence,
           "geo_locations" => geo_locations,
           "related_identifiers" => related_identifiers,
           "formats" => formats,

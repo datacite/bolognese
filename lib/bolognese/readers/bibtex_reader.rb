@@ -78,8 +78,8 @@ module Bolognese
         { "id" => normalize_doi(doi),
           "types" => types,
           "doi" => doi,
-          "url" => meta.try(:url).to_s,
-          "titles" => [{ "title" => meta.try(:title).to_s }],
+          "url" => meta.try(:url).to_s.presence,
+          "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],
           "creator" => author,
           "periodical" => periodical,
           "publisher" => meta.try(:publisher).to_s.presence,
@@ -89,8 +89,8 @@ module Bolognese
           "volume" => meta.try(:volume).to_s.presence,
           "page_first" => page_first,
           "page_last" => page_last,
-          "descriptions" => [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }],
-          "rights_list" => [{ "rightsUri" => meta.try(:copyright).to_s.presence }.compact],
+          "descriptions" => meta.try(:abstract).present? ? [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }] : [],
+          "rights_list" =>  meta.try(:copyright).present? ? [{ "rightsUri" => meta.try(:copyright).to_s.presence }.compact] : [],
           "state" => state
         }
       end

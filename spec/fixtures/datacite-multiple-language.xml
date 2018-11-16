@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-2.2" xmlns:dspace="http://www.dspace.org/xmlns/dspace/dim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd">
+  <identifier identifierType="DOI">10.15496/PUBLIKATION-11792</identifier>
+  <creators>
+    <creator>
+      <creatorName>Ong, Peter Emanuel</creatorName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Koronare Vasomotionsstörungen bei Patienten mit Angina pectoris und nicht-stenosierten Koronararterien</title>
+  </titles>
+  <publisher>Universitätsbibliothek Tübingen</publisher>
+  <publisher>University Library Tübingen</publisher>
+  <publicationYear>2015</publicationYear>
+  <publicationYear>2016</publicationYear>
+  <subjects>
+    <subject subjectScheme="ddc">610</subject>
+  </subjects>
+  <contributors>
+    <contributor contributorType="DataManager">
+      <contributorName>Universitätsbibliothek Tübingen</contributorName>
+    </contributor>
+    <contributor contributorType="HostingInstitution">
+      <contributorName>Universitätsbibliothek Tübingen</contributorName>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Issued">2016-06-09</date>
+    <date dateType="Available">2016-06-09</date>
+    <date dateType="Issued">2015</date>
+  </dates>
+  <language>de</language>
+  <language>en</language>
+  <resourceType resourceTypeGeneral="Collection">Habilitation</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="uri">http://hdl.handle.net/10900/70377</alternateIdentifier>
+  </alternateIdentifiers>
+</resource>

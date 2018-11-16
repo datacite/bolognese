@@ -176,6 +176,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors).to eq("2:0: ERROR: Element '{http://datacite.org/schema/kernel-4}resource': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}resourceType, {http://datacite.org/schema/kernel-4}subjects, {http://datacite.org/schema/kernel-4}contributors, {http://datacite.org/schema/kernel-4}language, {http://datacite.org/schema/kernel-4}alternateIdentifiers, {http://datacite.org/schema/kernel-4}relatedIdentifiers, {http://datacite.org/schema/kernel-4}sizes, {http://datacite.org/schema/kernel-4}formats, {http://datacite.org/schema/kernel-4}rightsList, {http://datacite.org/schema/kernel-4}descriptions ).")
     end
 
+    it "multiple languages" do
+      input = fixture_path + 'datacite-multiple-language.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.types["schemaOrg"]).to eq("Collection")
+      expect(subject.language).to eq("[\"de\", \"en\"]")
+      expect(subject.publisher).to eq("[\"Universitätsbibliothek Tübingen\", \"University Library Tübingen\"]")
+      expect(subject.publication_year).to eq("[\"2015\", \"2016\"]")
+      expect(subject.valid?).to be false
+      expect(subject.errors).to eq("13:0: ERROR: Element '{http://datacite.org/schema/kernel-2.2}publisher': This element is not expected. Expected is ( {http://datacite.org/schema/kernel-2.2}publicationYear ).")
+    end
+
+    it "geo_location empty" do
+      input = fixture_path + 'datacite-geolocation-empty.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.geo_locations).to eq([{"geoLocationPoint"=>{"pointLatitude"=>"-11.64583333", "pointLongitude"=>"-68.2975"}}])
+    end
+
     it "schema 4.0" do
       input = fixture_path + 'schema_4.0.xml'
       subject = Bolognese::Metadata.new(input: input)

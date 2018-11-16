@@ -153,10 +153,10 @@ module Bolognese
           "dates" => dates,
           "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
           "rights_list" => rights_list,
-          "version" => meta.fetch("version", nil),
+          "version" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
           "state" => state,
-          "schema_version" => meta.fetch("schemaVersion", nil),
+          "schema_version" => meta.fetch("schemaVersion", nil).to_s.presence,
           "funding_references" => funding_references,
           "geo_locations" => geo_locations
         }
