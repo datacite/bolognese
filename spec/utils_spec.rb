@@ -215,7 +215,7 @@ describe Bolognese::Metadata, vcr: true do
     it "uri" do
       url = "info:eu-repo/semantics/openAccess"
       response = subject.normalize_url(url)
-      expect(response).to be_nil
+      expect(response).to eq("info:eu-repo/semantics/openAccess")
     end
   end
 

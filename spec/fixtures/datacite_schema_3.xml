@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-3" xmlns:dim="http://www.dspace.org/xmlns/dspace/dim" xmlns:dryad="http://purl.org/dryad/terms/" xmlns:dspace="http://www.dspace.org/xmlns/dspace/dim" xmlns:mets="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd">
+  <identifier identifierType="DOI">10.5061/DRYAD.8515</identifier>
+  <version>1</version>
+  <creators>
+    <creator>
+      <creatorName>Ollomo, Benjamin</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Durand, Patrick</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Prugnolle, Franck</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Douzery, Emmanuel J. P.</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Arnathau, Céline</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Nkoghe, Dieudonné</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Leroy, Eric</creatorName>
+    </creator>
+    <creator>
+      <creatorName>Renaud, François</creatorName>
+    </creator>
+  </creators>
+  <titles>
+    <title>Data from: A new malaria agent in African hominids.</title>
+  </titles>
+  <publisher>Dryad Digital Repository</publisher>
+  <publicationYear>2011</publicationYear>
+  <subjects>
+    <subject>Phylogeny</subject>
+    <subject>Malaria</subject>
+    <subject>Parasites</subject>
+    <subject>Taxonomy</subject>
+    <subject>Mitochondrial genome</subject>
+    <subject>Africa</subject>
+    <subject>Plasmodium</subject>
+  </subjects>
+  <resourceType resourceTypeGeneral="Dataset">DataPackage</resourceType>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="citation">Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.</alternateIdentifier>
+  </alternateIdentifiers>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="HasPart">10.5061/DRYAD.8515/1</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="HasPart">10.5061/DRYAD.8515/2</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsReferencedBy">10.1371/JOURNAL.PPAT.1000446</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="PMID" relationType="IsReferencedBy">19478877</relatedIdentifier>
+  </relatedIdentifiers>
+  <rightsList>
+    <rights rightsURI="http://creativecommons.org/publicdomain/zero/1.0/" />
+  </rightsList>
+</resource>

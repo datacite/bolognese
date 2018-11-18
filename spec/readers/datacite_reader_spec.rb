@@ -111,7 +111,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creator).to eq([{"type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza"}])
       expect(subject.titles).to eq([{"title"=>"Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture"}])
       expect(subject.descriptions.first["description"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/licenses/by-nc-sa/4.0", "rights"=>"Creative Commons Attribution-NonCommercial-ShareAlike"}, {"rights"=>"Open Access"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution-NonCommercial-ShareAlike", "rightsUri"=>"https://creativecommons.org/licenses/by-nc-sa/4.0"},{"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
       expect(subject.dates).to eq([{"date"=>"2016-03-27", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(1)
@@ -418,6 +418,31 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4.0")
     end
 
+    it "Schema 3 from string" do
+      input = fixture_path + "datacite_schema_3.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.types["resourceType"]).to eq("DataPackage")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
+      expect(subject.types["ris"]).to eq("DATA")
+      expect(subject.types["citeproc"]).to eq("dataset")
+      expect(subject.creator.length).to eq(8)
+      expect(subject.creator.last).to eq("familyName"=>"Renaud", "givenName"=>"François", "name"=>"François Renaud", "type"=>"Person")
+      expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
+      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=>
+        "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
+        "alternateIdentifierType"=>"citation"}])
+      expect(subject.publication_year).to eq("2011")
+      expect(subject.related_identifiers.length).to eq(4)
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsReferencedBy")
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
+      expect(subject.publisher).to eq("Dryad Digital Repository")
+      expect(subject.source).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
     it "Schema 3.0 from string" do
       input = fixture_path + "datacite-example-complicated-v3.0.xml"
       subject = Bolognese::Metadata.new(input: input)
@@ -550,7 +575,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2008-11-01", "dateType"=>"Valid"}, {"date"=>"2008", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2008")
       expect(subject.periodical).to eq("title"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356", "type"=>"Periodical")
-      expect(subject.descriptions.first["description"]).to start_with("Aim of this paper is the presentation")
+      expect(subject.descriptions[1]["description"]).to start_with("Aim of this paper is the presentation")
       expect(subject.publisher).to eq("WIP-Munich")
       expect(subject.source).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
@@ -658,6 +683,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Gates Open Research")
       expect(subject.source).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "multiple rights" do
+      input = fixture_path + "datacite-multiple-rights.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.rights_list).to eq([{"rights"=>"info:eu-repo/semantics/openAccess"}, {"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
     end
 
     it "missing creator" do

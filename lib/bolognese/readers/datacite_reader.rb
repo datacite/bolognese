@@ -85,24 +85,38 @@ module Bolognese
         }.compact
         
         titles = Array.wrap(meta.dig("titles", "title")).map do |r|
-          if r.is_a?(String)
+          if r.blank?
+            nil
+          elsif r.is_a?(String)
             { "title" => sanitize(r) }
           else
             { "title" => sanitize(r["__content__"]), "titleType" => r["titleType"], "lang" => r["lang"] }.compact
           end
-        end
+        end.compact
 
         alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
           { "alternateIdentifierType" => r["alternateIdentifierType"], "alternateIdentifier" => r["__content__"].presence }.compact
         end.compact
-        descriptions = Array.wrap(meta.dig("descriptions", "description")).select { |r| r["descriptionType"] != "SeriesInformation" }.map do |r|
-          { "description" => sanitize(r["__content__"]), "descriptionType" => r["descriptionType"], "lang" => r["lang"] }.compact
-        end
+        descriptions = Array.wrap(meta.dig("descriptions", "description")).map do |r|
+          if r.blank?
+            nil
+          elsif r.is_a?(String)
+            { "description" => sanitize(r), "descriptionType" => "Abstract" }
+          elsif r.is_a?(Hash)
+            { "description" => sanitize(r["__content__"]), "descriptionType" => r["descriptionType"], "lang" => r["lang"] }.compact
+          end
+        end.compact
         rights_list = Array.wrap(meta.dig("rightsList", "rights")).map do |r|
-          { "rights" => r["__content__"], "rightsUri" => normalize_url(r["rightsURI"]), "lang" => r["lang"] }.compact
-        end
+          if r.blank?
+            nil
+          elsif r.is_a?(String)
+            { "rights" => r }
+          elsif r.is_a?(Hash)
+            { "rights" => r["__content__"], "rightsUri" => normalize_url(r["rightsURI"]), "lang" => r["lang"] }.compact
+          end
+        end.compact
         subjects = Array.wrap(meta.dig("subjects", "subject")).map do |k|
-          if k.nil?
+          if k.blank?
             nil
           elsif k.is_a?(String)
             { "subject" => sanitize(k) }
@@ -116,7 +130,7 @@ module Bolognese
             "dateType" => parse_attributes(d, content: "dateType"),
             "dateInformation" => parse_attributes(d, content: "dateInformation")
           }.compact
-        end
+        end.compact
         dates << { "date" => meta.fetch("publicationYear", nil), "dateType" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
         sizes = Array.wrap(meta.dig("sizes", "size"))
         formats = Array.wrap(meta.dig("formats", "format"))

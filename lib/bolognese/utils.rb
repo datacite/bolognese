@@ -455,9 +455,13 @@ module Bolognese
     def normalize_url(id)
       return nil unless id.present?
 
+      # handle info URIs
+      return id if id.to_s.start_with?("info")
+
       # check for valid HTTP uri
       uri = Addressable::URI.parse(id)
-      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
+
+      return nil unless uri && uri.host && %w(http https ftp).include?(uri.scheme)
 
       # clean up URL
       PostRank::URI.clean(id)
