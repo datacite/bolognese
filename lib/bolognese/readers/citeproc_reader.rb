@@ -76,7 +76,7 @@ module Bolognese
         end
         id = normalize_id(meta.fetch("id", nil))
         state = id.present? ? "findable" : "not_found"
-        subjects = Array.wrap(meta.fetch("categories")).map do |s|
+        subjects = Array.wrap(meta.fetch("categories", nil)).map do |s|
           { "subject" => s }
         end
 

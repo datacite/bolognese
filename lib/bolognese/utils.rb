@@ -391,6 +391,8 @@ module Bolognese
       elsif BibTeX.parse(string).first
         "bibtex"
       end
+    rescue BibTeX::ParseError => error
+      nil
     end
 
     def orcid_from_url(url)
