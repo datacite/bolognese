@@ -125,7 +125,7 @@ module Bolognese
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
         "submitted" => Array.wrap(dates).find { |d| d["dateType"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(descriptions, content: "description", first: true),
-        "container-title" => periodical && periodical["title"],
+        "container-title" => periodical.present? ? periodical["title"] : publisher,
         "DOI" => doi,
         "issue" => issue,
         "page" => [first_page, last_page].compact.join("-").presence,
