@@ -92,6 +92,16 @@ module Bolognese
       @last_page ||= meta.fetch("last_page", nil)
     end
 
+    def container_title
+      if periodical.present?
+        periodical["title"]
+      elsif types["citeproc"] == "article-journal"
+        publisher
+      else
+        nil
+      end
+    end
+
     # recognize given name. Can be loaded once as ::NameDetector, e.g. in a Rails initializer
     def name_detector
       @name_detector ||= defined?(::NameDetector) ? ::NameDetector : nil
@@ -125,7 +135,7 @@ module Bolognese
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
         "submitted" => Array.wrap(dates).find { |d| d["dateType"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(descriptions, content: "description", first: true),
-        "container-title" => periodical.present? ? periodical["title"] : publisher,
+        "container-title" => container_title,
         "DOI" => doi,
         "issue" => issue,
         "page" => [first_page, last_page].compact.join("-").presence,
