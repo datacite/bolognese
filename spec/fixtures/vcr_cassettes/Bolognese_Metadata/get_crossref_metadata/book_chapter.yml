@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/prefixes/10.1007
+    uri: https://api.datacite.org/prefixes/10.1007
     body:
       encoding: US-ASCII
       string: ''
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.1007","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:23:44 GMT
 - request:
     method: get
@@ -129,6 +129,6 @@ http_interactions:
         \             <item crawler=\"iParadigms\">\r\n                <resource>http://link.springer.com/content/pdf/10.1007/978-3-662-46370-3_13</resource>\r\n
         \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
         \       </content_item>\r\n      </book>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:23:44 GMT
 recorded_with: VCR 3.0.3

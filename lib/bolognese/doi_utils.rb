@@ -46,7 +46,7 @@ module Bolognese
       prefix = validate_prefix(doi)
       return nil if prefix.blank?
 
-      url = "https://app.datacite.org/prefixes/#{prefix}"
+      url = "https://api.datacite.org/prefixes/#{prefix}"
       result = Maremma.get(url)
 
       result.body.fetch("data", {}).fetch('attributes', {}).fetch('registration-agency', nil)
