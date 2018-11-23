@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/prefixes/10.3980
+    uri: https://api.datacite.org/prefixes/10.3980
     body:
       encoding: US-ASCII
       string: ''
@@ -43,6 +43,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.3980","type":"prefixes","attributes":{"registration-agency":"ISTIC","created":null,"updated":"2016-09-20T21:59:03Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:22:28 GMT
 recorded_with: VCR 3.0.3

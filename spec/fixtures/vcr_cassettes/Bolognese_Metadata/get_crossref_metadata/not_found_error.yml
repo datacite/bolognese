@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/prefixes/10.7554
+    uri: https://api.datacite.org/prefixes/10.7554
     body:
       encoding: US-ASCII
       string: ''
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:23:45 GMT
 - request:
     method: get
@@ -78,6 +78,6 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record>\r\n
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:23:45 GMT
 recorded_with: VCR 3.0.3

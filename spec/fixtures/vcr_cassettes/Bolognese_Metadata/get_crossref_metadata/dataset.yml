@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://app.datacite.org/prefixes/10.2210
+    uri: https://api.datacite.org/prefixes/10.2210
     body:
       encoding: US-ASCII
       string: ''
@@ -43,7 +43,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:23:53 GMT
 - request:
     method: get
@@ -93,6 +93,6 @@ http_interactions:
         \             <resource>ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz</resource>\r\n
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
-    http_version: 
+    http_version:
   recorded_at: Thu, 06 Sep 2018 07:23:53 GMT
 recorded_with: VCR 3.0.3

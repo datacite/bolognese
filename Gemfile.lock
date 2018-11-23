@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (0.15.3)
+    bolognese (0.15.6)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -77,7 +77,7 @@ GEM
       concurrent-ruby (~> 1.0)
     hashdiff (0.3.7)
     htmlentities (4.3.4)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     iso8601 (0.9.1)
     json (2.1.0)
@@ -89,7 +89,7 @@ GEM
       trollop (~> 2)
     latex-decode (0.3.1)
     link_header (0.0.8)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     maremma (4.1.1)
@@ -120,7 +120,7 @@ GEM
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rake (12.3.1)
-    rdf (3.0.4)
+    rdf (3.0.5)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
     rdf-aggregate-repo (2.2.1)
@@ -195,4 +195,4 @@ DEPENDENCIES
   webmock (~> 3.0, >= 3.0.1)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
