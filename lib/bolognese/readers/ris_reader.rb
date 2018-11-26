@@ -34,6 +34,8 @@ module Bolognese
       }
 
       def read_ris(string: nil, **options)
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         meta = ris_meta(string: string)
 
         ris_type = meta.fetch("TY", nil) || "GEN"
@@ -69,7 +71,7 @@ module Bolognese
         else
           nil
         end
-        state = doi.present? ? "findable" : "not_found"
+        state = doi.present? || read_options.present? ? "findable" : "not_found"
         subjects = Array.wrap(meta.fetch("KW", nil)).map do |s|
           { "subject" => s }
         end
@@ -93,7 +95,7 @@ module Bolognese
           "subjects" => subjects,
           "language" => meta.fetch("LA", nil),
           "state" => state
-        }
+        }.merge(read_options)
       end
 
       def ris_meta(string: nil)

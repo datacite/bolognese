@@ -7,9 +7,11 @@ module Bolognese
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        state = meta.fetch("doi", nil).present? ? "findable" : "not_found"
+        state = meta.fetch("doi", nil).present? || read_options.present? ? "findable" : "not_found"
 
         dates = Array.wrap(meta.fetch("dates", nil)).map do |d|
           { "date" => d["date"],
@@ -51,7 +53,7 @@ module Bolognese
           "geo_locations" => meta.fetch("geoLocations", nil),
           "schema_version" => meta.fetch("schemaVersion", nil),
           "state" => state
-        }
+        }.merge(read_options)
       end
     end
   end

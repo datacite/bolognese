@@ -31,6 +31,8 @@ module Bolognese
           return { "errors" => errors } if errors.present?
         end
 
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         meta = string.present? ? Maremma.from_json(string) : {}
 
         citeproc_type = meta.fetch("type", nil)
@@ -75,7 +77,7 @@ module Bolognese
           nil
         end
         id = normalize_id(meta.fetch("id", nil))
-        state = id.present? ? "findable" : "not_found"
+        state = id.present? || read_options.present? ? "findable" : "not_found"
         subjects = Array.wrap(meta.fetch("categories", nil)).map do |s|
           { "subject" => s }
         end
@@ -99,7 +101,7 @@ module Bolognese
           "version" => meta.fetch("version", nil),
           "subjects" => subjects,
           "state" => state
-        }
+        }.merge(read_options)
       end
     end
   end

@@ -76,28 +76,31 @@ module Bolognese
       @content_url = hsh.to_h["content_url"].presence
 
       # set attributes directly
-      @creator = options[:creator]
-      @contributor = options[:contributor]
-      @titles = options[:titles]
-      @types = options[:types]
-      @alternate_identifiers = options[:alternate_identifiers]
-      @periodical = options[:periodical]
-      @publisher = options[:publisher]
-      @funding_references = options[:funding_references]
-      @dates = options[:dates]
-      @publication_year = options[:publication_year]
-      @descriptions = options[:descriptions]
-      @rights_list = options[:rights_list]
-      @version = options[:version]
-      @subjects = options[:subjects]
-      @language = options[:language]
-      @geo_locations = options[:geo_locations]
-      @related_identifiers = options[:related_identifiers]
-      @formats = options[:formats]
-      @sizes = options[:sizes]
+      read_options = options.slice(
+        :sandbox,
+        :creator,
+        :contributor,
+        :titles,
+        :types,
+        :alternate_identifiers,
+        :periodical,
+        :publisher,
+        :funding_references,
+        :dates,
+        :publication_year,
+        :descriptions,
+        :rights_list,
+        :version,
+        :subjects,
+        :language,
+        :geo_locations,
+        :related_identifiers,
+        :formats,
+        :sizes
+      ).compact
 
       # generate name for method to call dynamically
-      @meta = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox]) : {}
+      @meta = @from.present? ? send("read_" + @from, { string: string }.merge(read_options)) : {}
       @identifier = normalize_doi(options[:doi] || input, options) || @meta.fetch("id", nil) || @meta.fetch("identifier", nil)
     end
 

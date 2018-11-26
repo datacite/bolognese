@@ -20,6 +20,8 @@ module Bolognese
       end
 
       def read_crossref(string: nil, **options)
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         if string.present?
           m = Maremma.from_xml(string).dig("doi_records", "doi_record") || {}
           meta = m.dig("crossref", "error").nil? ? m : {}
@@ -91,7 +93,7 @@ module Bolognese
             "dateType" => "Updated" }
         ]
         publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : nil
-        state = meta.present? ? "findable" : "not_found"
+        state = meta.present? || read_options.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
         periodical = if journal_metadata.present?
@@ -129,7 +131,7 @@ module Bolognese
           "sizes" => nil,
           "schema_version" => nil,
           "state" => state
-        }
+        }.merge(read_options)
       end
 
       def crossref_alternate_identifiers(bibliographic_metadata)

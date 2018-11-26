@@ -27,6 +27,8 @@ module Bolognese
       }
 
       def read_bibtex(string: nil, **options)
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
         schema_org = BIB_TO_SO_TRANSLATIONS[meta.try(:type).to_s] || "ScholarlyArticle"
@@ -66,7 +68,7 @@ module Bolognese
         end
 
         page_first, page_last = meta.try(:pages).to_s.split("-")
-        state = doi.present? ? "findable" : "not_found"
+        state = doi.present? || read_options.present? ? "findable" : "not_found"
         dates = if meta.try(:date).present?
           [{ "date" => meta.date.to_s,
              "dateType" => "Issued" }]
@@ -92,7 +94,7 @@ module Bolognese
           "descriptions" => meta.try(:abstract).present? ? [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }] : [],
           "rights_list" =>  meta.try(:copyright).present? ? [{ "rightsUri" => meta.try(:copyright).to_s.presence }.compact] : [],
           "state" => state
-        }
+        }.merge(read_options)
       end
     end
   end

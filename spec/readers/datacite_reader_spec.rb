@@ -185,6 +185,7 @@ describe Bolognese::Metadata, vcr: true do
           "funderName"=>"European Commission"}],
         types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
       
+      expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.5281/zenodo.1239")
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
@@ -203,6 +204,7 @@ describe Bolognese::Metadata, vcr: true do
         "funderName"=>"European Commission"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+      expect(subject.state).to eq("findable")
     end
 
     it "missing resource_type_general" do

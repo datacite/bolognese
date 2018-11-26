@@ -18,6 +18,8 @@ module Bolognese
           return { "errors" => errors } if errors.present?
         end
 
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         meta = string.present? ? Maremma.from_json(string) : {}
         identifier = meta.fetch("identifier", nil)
         id = normalize_id(meta.fetch("@id", nil) || identifier)
@@ -29,7 +31,7 @@ module Bolognese
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         publisher = meta.fetch("publisher", nil)
-        state = meta.present? ? "findable" : "not_found"
+        state = meta.present? || read_options.present? ? "findable" : "not_found"
         schema_org = meta.fetch("@type", nil)
         types = {
           "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
@@ -60,7 +62,7 @@ module Bolognese
           "version" => meta.fetch("version", nil),
           "subjects" => subjects,
           "state" => state
-        }
+        }.merge(read_options)
       end
 
       # def related_identifiers(relation_type)

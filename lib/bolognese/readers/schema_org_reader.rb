@@ -33,6 +33,8 @@ module Bolognese
           return { "errors" => errors } if errors.present?
         end
 
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         meta = string.present? ? Maremma.from_json(string) : {}
 
         identifier = Array.wrap(meta.fetch("identifier", nil))
@@ -108,7 +110,7 @@ module Bolognese
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
         
-        state = meta.present? ? "findable" : "not_found"
+        state = meta.present? || read_options.present? ? "findable" : "not_found"
         geo_locations = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
           if gl.dig("geo", "box")
             s, w, n, e = gl.dig("geo", "box").split(" ", 4)
@@ -159,7 +161,7 @@ module Bolognese
           "schema_version" => meta.fetch("schemaVersion", nil).to_s.presence,
           "funding_references" => funding_references,
           "geo_locations" => geo_locations
-        }
+        }.merge(read_options)
       end
 
       def schema_org_related_identifier(meta, relation_type: nil)

@@ -229,5 +229,42 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("TOPMed")
       expect(subject.funding_references).to eq([{"funderIdentifier"=>"https://doi.org/10.13039/100000050", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"National Heart, Lung, and Blood Institute (NHLBI)"}])
     end
+
+    it "from attributes" do
+      subject = Bolognese::Metadata.new(input: nil,
+        from: "schema_org",
+        doi: "10.5281/zenodo.1239",
+        creator: [{"type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn"}],
+        titles: [{ "title" => "Publication Fp7 Funding Acknowledgment - Plos Openaire" }],
+        descriptions: [{ "description" => "The dataset contains a sample of metadata describing papers" }],
+        publisher: "Zenodo",
+        publication_year: "2013",
+        dates: [{"date"=>"2013-04-03", "dateType"=>"Issued"}],
+        funding_references: [{"awardNumber"=>"246686",
+          "awardTitle"=>"Open Access Infrastructure for Research in Europe",
+          "awardUri"=>"info:eu-repo/grantAgreement/EC/FP7/246686/",
+          "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
+          "funderIdentifierType"=>"Crossref Funder ID",
+          "funderName"=>"European Commission"}],
+        types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
+      
+      expect(subject.valid?).to be true
+      expect(subject.doi).to eq("10.5281/zenodo.1239")
+      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1239")
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
+      expect(subject.creator).to eq([{"familyName"=>"Jahn", "givenName"=>"Najko", "name"=>"Jahn, Najko", "type"=>"Person"}])
+      expect(subject.titles).to eq([{"title"=>"Publication Fp7 Funding Acknowledgment - Plos Openaire"}])
+      expect(subject.descriptions.first["description"]).to start_with("The dataset contains a sample of metadata describing papers")
+      expect(subject.dates).to eq([{"date"=>"2013-04-03", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2013")
+      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.funding_references).to eq([{"awardNumber"=>"246686",
+        "awardTitle"=>"Open Access Infrastructure for Research in Europe",
+        "awardUri"=>"info:eu-repo/grantAgreement/EC/FP7/246686/",
+        "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
+        "funderIdentifierType"=>"Crossref Funder ID",
+        "funderName"=>"European Commission"}])
+    end
   end
 end

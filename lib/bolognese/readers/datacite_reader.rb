@@ -49,6 +49,8 @@ module Bolognese
       end
 
       def read_datacite(string: nil, **options)
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+
         doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
         ns = doc.collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
         schema_version = Array.wrap(ns).last || "http://datacite.org/schema/kernel-4"
@@ -180,7 +182,7 @@ module Bolognese
           end
         end.compact
         periodical = set_periodical(meta)
-        state = doi.present? ? "findable" : "not_found"
+        state = doi.present? || read_options.present? ? "findable" : "not_found"
 
         { "id" => id,
           "types" => types,
@@ -207,7 +209,7 @@ module Bolognese
           "sizes" => sizes,
           "schema_version" => schema_version,
           "state" => state
-        }
+        }.merge(read_options)
       end
 
       def set_periodical(meta)
