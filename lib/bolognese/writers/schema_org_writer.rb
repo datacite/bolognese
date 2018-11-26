@@ -39,7 +39,7 @@ module Bolognese
           "includedInDataCatalog" => (types["schemaOrg"] == "Dataset") && periodical ? to_schema_org(periodical) : nil,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
           "funder" => to_schema_org_funder(funding_references),
-          "provider" => source.present? ? { "@type" => "Organization", "name" => source } : nil
+          "provider" => agency.present? ? { "@type" => "Organization", "name" => agency } : nil
         }.compact.presence
       end
 

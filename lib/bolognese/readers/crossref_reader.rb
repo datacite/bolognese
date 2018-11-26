@@ -113,7 +113,7 @@ module Bolognese
           "funding_references" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
           "periodical" => periodical,
-          "source" => "Crossref",
+          "agency" => "Crossref",
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,

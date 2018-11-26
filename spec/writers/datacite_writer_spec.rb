@@ -111,7 +111,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -129,7 +129,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -150,7 +150,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(6)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Dryad Digital Repository")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -173,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.identifier).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.state).to eq("not_found")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")

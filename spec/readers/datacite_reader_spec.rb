@@ -34,7 +34,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(6)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Dryad Digital Repository")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -58,7 +58,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.publisher).to eq("DataCite")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -77,7 +77,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2013-11-05", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")
       expect(subject.publisher).to eq("Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.1")
     end
 
@@ -95,7 +95,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2016-01-20", "dateType"=>"Available"}, {"date"=>"2016", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.publisher).to eq("University of St Andrews")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -117,7 +117,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0", "relatedIdentifierType"=>"URL", "relationType"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Zenodo")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -139,7 +139,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.6084/m9.figshare.4234751", "relatedIdentifierType"=>"DOI", "relationType"=>"IsIdenticalTo")
       expect(subject.publisher).to eq("Figshare")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
@@ -163,7 +163,45 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"}])
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "from attributes" do
+      subject = Bolognese::Metadata.new(input: nil,
+        from: "datacite",
+        doi: "10.5281/zenodo.1239",
+        creator: [{"type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn"}],
+        titles: [{ "title" => "Publication Fp7 Funding Acknowledgment - Plos Openaire" }],
+        descriptions: [{ "description" => "The dataset contains a sample of metadata describing papers" }],
+        publisher: "Zenodo",
+        publication_year: "2013",
+        dates: [{"date"=>"2013-04-03", "dateType"=>"Issued"}],
+        funding_references: [{"awardNumber"=>"246686",
+          "awardTitle"=>"Open Access Infrastructure for Research in Europe",
+          "awardUri"=>"info:eu-repo/grantAgreement/EC/FP7/246686/",
+          "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
+          "funderIdentifierType"=>"Crossref Funder ID",
+          "funderName"=>"European Commission"}],
+        types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
+      
+      expect(subject.doi).to eq("10.5281/zenodo.1239")
+      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1239")
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
+      expect(subject.creator).to eq([{"familyName"=>"Jahn", "givenName"=>"Najko", "name"=>"Jahn, Najko", "type"=>"Person"}])
+      expect(subject.titles).to eq([{"title"=>"Publication Fp7 Funding Acknowledgment - Plos Openaire"}])
+      expect(subject.descriptions.first["description"]).to start_with("The dataset contains a sample of metadata describing papers")
+      expect(subject.dates).to eq([{"date"=>"2013-04-03", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2013")
+      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.funding_references).to eq([{"awardNumber"=>"246686",
+        "awardTitle"=>"Open Access Infrastructure for Research in Europe",
+        "awardUri"=>"info:eu-repo/grantAgreement/EC/FP7/246686/",
+        "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
+        "funderIdentifierType"=>"Crossref Funder ID",
+        "funderName"=>"European Commission"}])
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -323,7 +361,7 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier" => "https://doi.org/10.13039/501100000266",
         "funderIdentifierType" => "Crossref Funder ID",
         "funderName" => "Engineering and Physical Sciences Research Council (EPSRC)")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -349,7 +387,7 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"}])
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -370,7 +408,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
     end
 
     it "Schema 4.1 from string" do
@@ -392,7 +430,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
       expect(subject.rights_list).to eq([{"lang"=>"eng", "rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
       expect(subject.publisher).to eq("Springer")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -414,7 +452,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
       expect(subject.publisher).to eq("Springer")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4.0")
     end
 
@@ -439,7 +477,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsReferencedBy")
       expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
       expect(subject.publisher).to eq("Dryad Digital Repository")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
@@ -461,7 +499,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
       expect(subject.publisher).to eq("Springer")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3.0")
     end
 
@@ -483,7 +521,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.publisher).to eq("Springer")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
     end
 
@@ -508,7 +546,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
       expect(subject.rights_list).to eq([{"lang"=>"eng", "rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
       expect(subject.publisher).to eq("Springer")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
     end
 
     it "namespaced xml from string" do
@@ -525,7 +563,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2018-07-18", "dateType"=>"Valid"}, {"date"=>"2018-07-18", "dateType"=>"Accepted"}, {"date"=>"2018", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("nanoHUB")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
     end
 
@@ -540,7 +578,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"CERES Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.publisher).to eq("NASA Langley Atmospheric Science Data Center DAAC")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -557,7 +595,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"1995-12", "dateType"=>"Collected"}, {"date"=>"1996", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("1996")
       expect(subject.publisher).to eq("GESIS Data Archive")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -577,7 +615,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.periodical).to eq("title"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356", "type"=>"Periodical")
       expect(subject.descriptions[1]["description"]).to start_with("Aim of this paper is the presentation")
       expect(subject.publisher).to eq("WIP-Munich")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
     end
 
@@ -605,7 +643,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"07.04.2017", "dateType"=>"Available"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Siemens AG")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
@@ -636,7 +674,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2014-04-25", "dateType"=>"Available"}, {"date"=>"1970-04-01 / (:tba)", "dateType"=>"Collected"}, {"date"=>"2015", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
@@ -646,7 +684,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.identifier).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.state).to eq("not_found")
     end
 
@@ -662,7 +700,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2018-01-12", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("CaltechDATA")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
       expect(subject.state).to eq("findable")
     end
@@ -681,7 +719,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Referee report. For: Gates - add article keywords to the metatags [version 2; referees: 1 approved]"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Gates Open Research")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 
@@ -733,7 +771,7 @@ describe Bolognese::Metadata, vcr: true do
         {"date"=>"2009-10-01/2014-01-23", "dateType"=>"Created"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.publisher).to eq("Deutsches Elektronen-Synchrotron, DESY, Hamburg")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
     end
 

@@ -26,7 +26,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.source).to eq("DataCite")
+      expect(subject.agency).to eq("DataCite")
     end
 
     # it "SoftwareSourceCode" do
@@ -40,7 +40,7 @@ describe Bolognese::Metadata, vcr: true do
     #   expect(subject.dates).to eq([{"date"=>"2016", "date_type"=>"Issued"}])
     #   expect(subject.publication_year).to eq("2016")
     #   expect(subject.publisher).to eq("KNB Data Repository")
-    #   expect(subject.source).to eq("DataCite")
+    #   expect(subject.agency).to eq("DataCite")
     # end
 
     it "SoftwareSourceCode missing_comma" do

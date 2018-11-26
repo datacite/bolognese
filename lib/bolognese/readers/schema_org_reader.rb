@@ -146,7 +146,7 @@ module Bolognese
           "creator" => author,
           "contributor" => contributor,
           "publisher" => publisher,
-          "source" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
+          "agency" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
           "periodical" => periodical,
           "related_identifiers" => related_identifiers,
           "publication_year" => publication_year,

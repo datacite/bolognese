@@ -9,7 +9,7 @@ module Bolognese
     attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version,
                 :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
-                :formats, :schema_version, :meta, :periodical, :source,
+                :formats, :schema_version, :meta, :periodical, :agency,
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers
 
@@ -45,7 +45,12 @@ module Bolognese
                 "date_updated" => options[:date_updated],
                 "provider_id" => options[:provider_id],
                 "client_id" => options[:client_id],
-                "content_url" => options[:content_url] }
+                "content_url" => options[:content_url],
+                "creator" => options[:creator],
+                "contributor" => options[:creator],
+                "titles" => options[:titles],
+                "publisher" => options[:publisher],
+                "publication_year" => options[:publication_year] }
         string = input
         @from = from || find_from_format(string: string)
       end
@@ -69,6 +74,27 @@ module Bolognese
       @provider_id = hsh.to_h["provider_id"].presence
       @client_id = hsh.to_h["client_id"].presence
       @content_url = hsh.to_h["content_url"].presence
+
+      # set attributes directly
+      @creator = options[:creator]
+      @contributor = options[:contributor]
+      @titles = options[:titles]
+      @types = options[:types]
+      @alternate_identifiers = options[:alternate_identifiers]
+      @periodical = options[:periodical]
+      @publisher = options[:publisher]
+      @funding_references = options[:funding_references]
+      @dates = options[:dates]
+      @publication_year = options[:publication_year]
+      @descriptions = options[:descriptions]
+      @rights_list = options[:rights_list]
+      @version = options[:version]
+      @subjects = options[:subjects]
+      @language = options[:language]
+      @geo_locations = options[:geo_locations]
+      @related_identifiers = options[:related_identifiers]
+      @formats = options[:formats]
+      @sizes = options[:sizes]
 
       # generate name for method to call dynamically
       @meta = @from.present? ? send("read_" + @from, string: string, sandbox: options[:sandbox]) : {}
@@ -176,8 +202,8 @@ module Bolognese
       @content_url ||= meta.fetch("content_url", nil)
     end
 
-    def source
-      @source ||= meta.fetch("source", nil)
+    def agency
+      @agency ||= meta.fetch("agency", nil)
     end
 
     def state

@@ -192,7 +192,7 @@ module Bolognese
           "contributor" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "periodical" => periodical,
           "publisher" => parse_attributes(meta.fetch("publisher", nil), first: true).to_s.strip.presence,
-          "source" => "DataCite",
+          "agency" => "DataCite",
           "funding_references" => funding_references,
           "dates" => dates,
           "publication_year" => parse_attributes(meta.fetch("publicationYear", nil), first: true).to_s.strip.presence,

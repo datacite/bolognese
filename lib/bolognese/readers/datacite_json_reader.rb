@@ -36,7 +36,7 @@ module Bolognese
           "contributor" => meta.fetch("contributor", nil),
           "publisher" => meta.fetch("publisher", nil),
           "periodical" => meta.fetch("periodical", nil),
-          "source" => "DataCite",
+          "agency" => "DataCite",
           "funding_references" => meta.fetch("fundingReferences", nil),
           "related_identifiers" => Array.wrap(meta.fetch("relatedIdentifiers", nil)),
           "dates" => dates,

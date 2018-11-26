@@ -41,7 +41,7 @@ describe Bolognese::Metadata, vcr: true do
         {"funderIdentifier"=>"https://doi.org/10.13039/501100006390",
          "funderIdentifierType"=>"Crossref Funder ID",
          "funderName"=>"University of Lausanne"}])
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "journal article" do
@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1932-6203", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1056/nejm199109123251104", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"1932-6203", "title"=>"PLoS ONE", "type"=>"Periodical")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "posted_content" do
@@ -81,7 +81,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2017-10-09", "dateType"=>"Issued"}, {"date"=>"2017-10-10T05:10:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("bioRxiv")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "DOI with SICI DOI" do
@@ -102,7 +102,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0012-9658", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1098/rspb.2002.2213", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"0012-9658", "title"=>"Ecology", "type"=>"Periodical")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "DOI with ORCID ID" do
@@ -124,7 +124,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2090-1836", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1378/chest.12-0045", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"2090-1836", "title"=>"Pulmonary Medicine", "type"=>"Periodical")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "date in future" do
@@ -141,7 +141,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2015")
       expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"00142999", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection"}])
       expect(subject.periodical).to eq("issn"=>"00142999", "title"=>"European Journal of Pharmacology", "type"=>"Periodical")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "dataset" do
@@ -158,7 +158,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"1984-07-17", "dateType"=>"Issued"}, {"date"=>"2014-05-27T16:45:59Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("1984")
       expect(subject.publisher).to eq("(:unav)")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "book chapter" do
@@ -174,7 +174,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2015", "dateType"=>"Issued"}, {"date"=>"2015-04-14T02:31:13Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Springer Berlin Heidelberg")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "journal article with" do
@@ -194,7 +194,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0028646X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/pmic.201400530", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.periodical).to eq("issn"=>"0028646X", "title"=>"New Phytologist", "type"=>"Periodical")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "not found error" do
@@ -203,7 +203,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567x")
       expect(subject.doi).to eq("10.7554/elife.01567x")
-      expect(subject.source).to eq("Crossref")
+      expect(subject.agency).to eq("Crossref")
       expect(subject.state).to eq("not_found")
     end
   end
