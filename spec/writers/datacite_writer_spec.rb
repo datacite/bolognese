@@ -287,7 +287,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "123"
       subject.titles = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
-      subject.types = "Dataset"
+      subject.types = { "schemaOrg" => "Dataset", "resourceTypeGeneral" => "Dataset" }
       expect(subject.doi).to eq("123")
       expect(subject.valid?).to be false
       expect(subject.errors.first).to start_with("3:0: ERROR: Element '{http://datacite.org/schema/kernel-4}identifier'")

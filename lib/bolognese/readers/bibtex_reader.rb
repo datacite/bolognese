@@ -34,7 +34,7 @@ module Bolognese
         schema_org = BIB_TO_SO_TRANSLATIONS[meta.try(:type).to_s] || "ScholarlyArticle"
         types = {
           "resourceTypeGeneral" => Metadata::SO_TO_DC_TRANSLATIONS[schema_org],
-          "resource_type" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
+          "resourceType" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
           "schemaOrg" => schema_org,
           "bibtex" => meta.type.to_s,
           "citeproc" => BIB_TO_CP_TRANSLATIONS[meta.try(:type).to_s] || "misc",

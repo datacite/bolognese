@@ -30,7 +30,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       datacite = JSON.parse(subject.datacite_json)
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resource-type"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.fetch("creator").length).to eq(5)

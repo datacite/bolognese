@@ -52,8 +52,12 @@ module Bolognese
         read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
 
         doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
-        ns = doc.collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
-        schema_version = Array.wrap(ns).last || "http://datacite.org/schema/kernel-4"
+        if read_options.present?
+          schema_version = "http://datacite.org/schema/kernel-4"
+        else
+          ns = doc.collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
+          schema_version = Array.wrap(ns).last || "http://datacite.org/schema/kernel-4"
+        end
         doc.remove_namespaces!
         string = doc.to_xml(:indent => 2)
 
