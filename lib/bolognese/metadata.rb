@@ -77,7 +77,6 @@ module Bolognese
 
       # set attributes directly
       read_options = options.slice(
-        :sandbox,
         :creator,
         :contributor,
         :titles,
@@ -100,7 +99,7 @@ module Bolognese
       ).compact
 
       # generate name for method to call dynamically
-      @meta = @from.present? ? send("read_" + @from, { string: string }.merge(read_options)) : {}
+      @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox] }.merge(read_options)) : {}
       @identifier = normalize_doi(options[:doi] || input, options) || @meta.fetch("id", nil) || @meta.fetch("identifier", nil)
     end
 

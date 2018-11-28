@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.0.23)
+    bolognese (1.0.24)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -169,7 +169,7 @@ GEM
     temple (0.8.0)
     thor (0.20.3)
     thread_safe (0.3.6)
-    tilt (2.0.8)
+    tilt (2.0.9)
     trollop (2.9.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
