@@ -61,9 +61,8 @@ module Bolognese
     include Bolognese::Writers::SchemaOrgWriter
     include Bolognese::Writers::TurtleWriter
 
-    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
-    attr_reader :doc, :page_start, :page_end, :reverse, :name_detector
-    attr_writer :style, :locale
+    attr_reader :name_detector, :reverse
+    attr_writer :first_page, :last_page
 
     # replace DOI in XML if provided in options
     def raw

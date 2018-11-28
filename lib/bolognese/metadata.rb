@@ -6,12 +6,14 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
+    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
+    attr_reader :doc, :page_start, :page_end
     attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :titles, :publisher, 
-                :rights_list, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version_info,
+                :rights_list, :dates, :publication_year, :volume, :url, :version_info,
                 :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
                 :formats, :schema_version, :meta, :periodical, :agency,
                 :format, :funding_references, :state, :geo_locations,
-                :types, :content_url, :related_identifiers
+                :types, :content_url, :related_identifiers, :style, :locale
 
     def initialize(input: nil, from: nil, **options)
       id = normalize_id(input, options)
