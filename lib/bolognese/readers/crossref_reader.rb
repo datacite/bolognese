@@ -20,7 +20,7 @@ module Bolognese
       end
 
       def read_crossref(string: nil, **options)
-        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:string, :sandbox))
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
 
         if string.present?
           m = Maremma.from_xml(string).dig("doi_records", "doi_record") || {}

@@ -707,6 +707,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.state).to eq("findable")
     end
 
+    it "DOI in test system schema 3" do
+      input = "10.21956/wellcomeopenres.25947.r17364"
+      subject = Bolognese::Metadata.new(input: input, doi: input, sandbox: true)
+      expect(subject.valid?).to be true
+      expect(subject.identifier).to eq("https://handle.test.datacite.org/10.21956/wellcomeopenres.25947.r17364")
+      expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Text")
+      expect(subject.creator).to eq([{"name"=>"Fran2 Levy"}])
+      expect(subject.titles).to eq([{"title"=>"Referee report. For: FL Regression Wellcome [version 1; referees: retracted]"}])
+      expect(subject.dates).to eq([{"date"=>"2018", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("F1000 Research Limited")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.state).to eq("findable")
+    end
+
     it "Referee report in test system" do
       input = "10.21956/gatesopenres.530.r190"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
