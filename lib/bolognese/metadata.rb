@@ -7,7 +7,7 @@ module Bolognese
     include Bolognese::MetadataUtils
 
     attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :titles, :publisher, 
-                :rights_list, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version,
+                :rights_list, :dates, :publication_year, :volume, :first_page, :last_page, :url, :version_info,
                 :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
                 :formats, :schema_version, :meta, :periodical, :agency,
                 :format, :funding_references, :state, :geo_locations,
@@ -90,7 +90,7 @@ module Bolognese
         :publication_year,
         :descriptions,
         :rights_list,
-        :version,
+        :version_info,
         :subjects,
         :language,
         :geo_locations,
@@ -173,8 +173,8 @@ module Bolognese
       @url ||= meta.fetch("url", nil)
     end
 
-    def version
-      @version ||= meta.fetch("version", nil)
+    def version_info
+      @version_info ||= meta.fetch("version_info", nil)
     end
 
     def publication_year

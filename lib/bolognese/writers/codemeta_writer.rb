@@ -15,7 +15,7 @@ module Bolognese
           "title" => parse_attributes(titles, content: "title", first: true),
           "agents" => creator,
           "description" => parse_attributes(descriptions, content: "description", first: true),
-          "version" => version,
+          "version" => version_info,
           "tags" => subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) } : nil,
           "datePublished" => get_date(dates, "Issued"),
           "dateModified" => get_date(dates, "Updated"),

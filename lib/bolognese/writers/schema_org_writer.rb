@@ -15,7 +15,7 @@ module Bolognese
           "editor" => to_schema_org(contributor),
           "description" => parse_attributes(descriptions, content: "description", first: true),
           "license" => Array.wrap(rights_list).map { |l| l["rightsUri"] }.compact.unwrap,
-          "version" => version,
+          "version" => version_info,
           "keywords" => subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.join(", ") : nil,
           "inLanguage" => language,
           "contentSize" => Array.wrap(sizes).unwrap,

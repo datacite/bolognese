@@ -45,7 +45,7 @@ module Bolognese
           "publication_year" => meta.fetch("publicationYear", nil),
           "descriptions" => meta.fetch("descriptions", nil),
           "rights_list" => meta.fetch("rightsList", nil),
-          "version" => meta.fetch("version", nil),
+          "version_info" => meta.fetch("version", nil),
           "subjects" => meta.fetch("subjects", nil),
           "language" => meta.fetch("language", nil),
           "sizes" => meta.fetch("sizes", nil),

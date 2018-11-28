@@ -672,7 +672,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "givenName"=>"Henk",
                                      "familyName"=>"Eskes"}])
       expect(subject.titles).to eq([{"title"=>"Multi-Sensor Reanalysis (MSR) of total ozone, version 2"}])
-      expect(subject.version).to eq("2")
+      expect(subject.version_info).to eq("2")
       expect(subject.dates).to eq([{"date"=>"2014-04-25", "dateType"=>"Available"}, {"date"=>"1970-04-01 / (:tba)", "dateType"=>"Collected"}, {"date"=>"2015", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")

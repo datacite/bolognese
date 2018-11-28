@@ -21,7 +21,7 @@ module Bolognese
           "alternate_identifiers" => alternate_identifiers,
           "sizes" => sizes,
           "formats" => formats,
-          "version" => version,
+          "version" => version_info,
           "rights_list" => rights_list,
           "descriptions" => descriptions,
           "volume" => volume,

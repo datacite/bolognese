@@ -22,7 +22,7 @@ module Bolognese
           "relatedIdentifiers" => to_datacite_json(related_identifiers),
           "sizes" => sizes,
           "formats" => formats,
-          "version" => version,
+          "version" => version_info,
           "rightsList" => to_datacite_json(rights_list),
           "descriptions" => to_datacite_json(descriptions),
           "geoLocations" => to_datacite_json(geo_locations),

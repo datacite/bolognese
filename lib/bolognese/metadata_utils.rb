@@ -142,7 +142,7 @@ module Bolognese
         "publisher" => publisher,
         "title" => parse_attributes(titles, content: "title", first: true),
         "URL" => url,
-        "version" => version,
+        "version" => version_info,
         "volume" => volume
       }.compact.symbolize_keys
     end
