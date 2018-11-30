@@ -5,7 +5,7 @@
     "resource-type": "Software"
   },
   "doi": "10.5063/F1M61H5X",
-  "creator": [{
+  "creators": [{
     "type": "Person",
     "name": "Matthew B. Jones",
     "givenName": "Matthew B.",
@@ -17,5 +17,5 @@
   "publisher": "KNB Data Repository",
   "publication-year": "2016",
   "schema-version": "http://datacite.org/schema/kernel-3",
-  "provider": "DataCite"
+  "agency": "DataCite"
 }

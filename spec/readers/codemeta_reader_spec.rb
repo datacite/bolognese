@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creator).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
       expect(subject.descriptions.first["description"]).to start_with("Ruby utility library for network requests")
       expect(subject.subjects).to eq([{"subject"=>"faraday"}, {"subject"=>"excon"}, {"subject"=>"net/http"}])
@@ -36,7 +36,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creator).to eq( [{"type"=>"Person",
+      expect(subject.creators).to eq( [{"type"=>"Person",
                                       "id"=>"http://orcid.org/0000-0003-0077-4738",
                                       "name"=>"Matt Jones",
                                       "givenName"=>"Matt",
@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creator).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
       expect(subject.descriptions.first["description"]).to start_with("Simplifies network calls")
       expect(subject.subjects).to eq([{"subject"=>"faraday"}, {"subject"=>"excon"}, {"subject"=>"net/http"}])
@@ -79,8 +79,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5438/wr0x-e194")
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creator.size).to eq(4)
-      expect(subject.creator.last).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8135-3489", "name"=>"Lars Holm Nielsen", "givenName"=>"Lars Holm", "familyName"=>"Nielsen")
+      expect(subject.creators.size).to eq(4)
+      expect(subject.creators.last).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-8135-3489", "name"=>"Lars Holm Nielsen", "givenName"=>"Lars Holm", "familyName"=>"Nielsen")
       expect(subject.titles).to eq([{"title"=>"DOI Registrations for Software"}])
       expect(subject.descriptions.first["description"]).to start_with("Analysis of DataCite DOIs registered for software")
       expect(subject.subjects).to eq([{"subject"=>"doi"}, {"subject"=>"software"}, {"subject"=>"codemeta"}])

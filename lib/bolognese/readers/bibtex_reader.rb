@@ -82,7 +82,7 @@ module Bolognese
           "doi" => doi,
           "url" => meta.try(:url).to_s.presence,
           "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],
-          "creator" => author,
+          "creators" => author,
           "periodical" => periodical,
           "publisher" => meta.try(:publisher).to_s.presence,
           "related_identifiers" => related_identifiers,

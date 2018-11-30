@@ -81,7 +81,7 @@ module Bolognese
           "doi" => doi,
           "url" => meta.fetch("UR", nil),
           "titles" => meta.fetch("T1", nil).present? ? [{ "title" => meta.fetch("T1", nil) }] : nil,
-          "creator" => get_authors(author),
+          "creators" => get_authors(author),
           "publisher" => meta.fetch("PB", "(:unav)"),
           "periodical" => periodical,
           "related_identifiers" => related_identifiers,

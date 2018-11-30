@@ -11,7 +11,7 @@ module Bolognese
           bibtex_key: identifier,
           doi: doi,
           url: url,
-          author: authors_as_string(creator),
+          author: authors_as_string(creators),
           keywords: subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.join(", ") : nil,
           language: language,
           title: parse_attributes(titles, content: "title", first: true),

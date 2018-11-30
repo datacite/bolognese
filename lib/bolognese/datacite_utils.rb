@@ -45,7 +45,7 @@ module Bolognese
 
     def insert_creators(xml)
       xml.creators do
-        Array.wrap(creator).each do |au|
+        Array.wrap(creators).each do |au|
           xml.creator do
             insert_person(xml, au, "creator")
           end
@@ -54,10 +54,10 @@ module Bolognese
     end
 
     def insert_contributors(xml)
-      return xml unless contributor.present?
+      return xml unless contributors.present?
 
       xml.contributors do
-        Array.wrap(contributor).each do |con|
+        Array.wrap(contributors).each do |con|
           xml.contributor("contributorType" => con["contributorType"] || "Other") do
             insert_person(xml, con, "contributor")
           end

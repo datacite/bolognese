@@ -8,7 +8,7 @@ module Bolognese
           "TY" => types["ris"],
           "T1" => parse_attributes(titles, content: "title", first: true),
           "T2" => periodical && periodical["title"],
-          "AU" => to_ris(creator),
+          "AU" => to_ris(creators),
           "DO" => doi,
           "UR" => url,
           "AB" => parse_attributes(descriptions, content: "description", first: true),

@@ -18,7 +18,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"other", "resourceType"=>"Software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creator).to eq([{"type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza"}])
       expect(subject.titles).to eq([{"title"=>"Analysis Tools for Crossover Experiment of UI using Choice Architecture"}])
       expect(subject.descriptions.first["description"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.dates).to eq("date"=>"2016-03-27", "dateType"=>"Issued")
@@ -31,7 +31,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"other", "resourceType"=>"Software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creator).to eq([{"type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "familyName" => "Garza", "givenName" => "Kristian", "name" => "Kristian Garza"}])
       expect(subject.titles).to eq([{"title"=>"Analysis Tools for Crossover Experiment of UI using Choice Architecture"}])
       expect(subject.descriptions.first["description"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.dates).to eq("date"=>"2016-03-27", "dateType"=>"Issued")

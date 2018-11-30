@@ -22,7 +22,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
-      expect(subject.creator).to eq([{"type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")
       expect(subject.subjects).to eq([{"subject"=>"datacite"}, {"subject"=>"doi"}, {"subject"=>"metadata"}, {"subject"=>"featured"}])
@@ -52,8 +52,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://zenodo.org/record/1196821")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning task with auditory CS and electrical US"}])
-      expect(subject.creator.size).to eq(6)
-      expect(subject.creator.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-9688-838X", "name"=>"Matthias Staib", "givenName"=>"Matthias", "familyName"=>"Staib")
+      expect(subject.creators.size).to eq(6)
+      expect(subject.creators.first).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0001-9688-838X", "name"=>"Matthias Staib", "givenName"=>"Matthias", "familyName"=>"Staib")
     end
 
     it "pangaea" do
@@ -65,8 +65,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland"}])
-      expect(subject.creator.size).to eq(8)
-      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
+      expect(subject.creators.size).to eq(8)
+      expect(subject.creators.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
     end
 
     # service doesn't return html to script
@@ -80,8 +80,8 @@ describe Bolognese::Metadata, vcr: true do
     #   expect(subject.url).to eq("https://doi.org/10.3334/ornldaac/1418")
     #   expect(subject.type).to eq("DataSet")
     #   expect(subject.title).to eq("AirMOSS: L2/3 Volumetric Soil Moisture Profiles Derived From Radar, 2012-2015")
-    #   expect(subject.creator.size).to eq(8)
-    #   expect(subject.creator.first).to eq("type"=>"Person", "name"=>"M. MOGHADDAM", "givenName"=>"M.", "familyName"=>"MOGHADDAM")
+    #   expect(subject.creators.size).to eq(8)
+    #   expect(subject.creators.first).to eq("type"=>"Person", "name"=>"M. MOGHADDAM", "givenName"=>"M.", "familyName"=>"MOGHADDAM")
     # end
 
     it "harvard dataverse" do
@@ -93,7 +93,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
       expect(subject.periodical).to eq("title"=>"Harvard Dataverse", "type"=>"DataCatalog", "url"=>"https://dataverse.harvard.edu")
-      expect(subject.creator).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
+      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
       expect(subject.schema_version).to eq("https://schema.org/version/3.3")
     end
 
@@ -106,7 +106,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
       expect(subject.periodical).to eq("title"=>"Harvard Dataverse", "type"=>"DataCatalog", "url"=>"https://dataverse.harvard.edu")
-      expect(subject.creator).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
+      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
     end
   end
 
@@ -118,7 +118,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
-      expect(subject.creator).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")
       expect(subject.subjects).to eq([{"subject"=>"datacite"}, {"subject"=>"doi"}, {"subject"=>"metadata"}, {"subject"=>"featured"}])
@@ -139,7 +139,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(subject.content_url).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"Gene expression matrices", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creator).to eq([{"name"=>"The GTEx Consortium", "type"=>"Organization"}])
+      expect(subject.creators).to eq([{"name"=>"The GTEx Consortium", "type"=>"Organization"}])
       expect(subject.titles).to eq([{"title"=>"Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery"}])
       expect(subject.version_info).to eq("v7")
       expect(subject.subjects).to eq([{"subject"=>"gtex"}, {"subject"=>"annotation"}, {"subject"=>"phenotype"}, {"subject"=>"gene regulation"}, {"subject"=>"transcriptomics"}])
@@ -160,7 +160,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"CRAM file", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creator).to eq([{"name"=>"TOPMed IRC", "type"=>"Organization"}])
+      expect(subject.creators).to eq([{"name"=>"TOPMed IRC", "type"=>"Organization"}])
       expect(subject.titles).to eq([{"title"=>"NWD165827.recab.cram"}])
       expect(subject.subjects).to eq([{"subject"=>"topmed"}, {"subject"=>"whole genome sequencing"}])
       expect(subject.dates).to eq([{"date"=>"2017-11-30", "dateType"=>"Issued"}])
@@ -177,8 +177,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.6071/z7wc73")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creator.length).to eq(6)
-      expect(subject.creator.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
+      expect(subject.creators.length).to eq(6)
+      expect(subject.creators.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
       expect(subject.titles).to eq([{"title"=>"Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature"}])
       expect(subject.subjects).to eq([{"subject"=>"Earth sciences"},
         {"subject"=>"soil moisture"},
@@ -202,8 +202,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.842237")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creator.length).to eq(2)
-      expect(subject.creator.first).to eq("name"=>"Tara Oceans Consortium, Coordinators", "type"=>"Organization")
+      expect(subject.creators.length).to eq(2)
+      expect(subject.creators.first).to eq("name"=>"Tara Oceans Consortium, Coordinators", "type"=>"Organization")
       expect(subject.titles).to eq([{"title"=>"Registry of all stations from the Tara Oceans Expedition (2009-2013)"}])
       expect(subject.dates).to eq([{"date"=>"2015-02-03", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
@@ -221,7 +221,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/44a8837b-4456-5709-b56b-54e23000f13a/NWD100953.recab.cram","gs://topmed-irc-share/public/NWD100953.recab.cram","dos://dos.commons.ucsc-cgp.org/01b048d0-e128-4cb0-94e9-b2d2cab7563d?version=2018-05-26T133719.491772Z"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"CRAM file", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creator).to eq([{"name"=>"TOPMed", "type"=>"Organization"}])
+      expect(subject.creators).to eq([{"name"=>"TOPMed", "type"=>"Organization"}])
       expect(subject.titles).to eq([{"title"=>"NWD100953.recab.cram"}])
       expect(subject.subjects).to eq([{"subject"=>"topmed"}, {"subject"=>"whole genome sequencing"}])
       expect(subject.dates).to eq([{"date"=>"2017-11-30", "dateType"=>"Issued"}])
@@ -234,7 +234,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: nil,
         from: "schema_org",
         doi: "10.5281/zenodo.1239",
-        creator: [{"type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn"}],
+        creators: [{"type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn"}],
         titles: [{ "title" => "Publication Fp7 Funding Acknowledgment - Plos Openaire" }],
         descriptions: [{ "description" => "The dataset contains a sample of metadata describing papers" }],
         publisher: "Zenodo",
@@ -253,7 +253,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
-      expect(subject.creator).to eq([{"familyName"=>"Jahn", "givenName"=>"Najko", "name"=>"Jahn, Najko", "type"=>"Person"}])
+      expect(subject.creators).to eq([{"familyName"=>"Jahn", "givenName"=>"Najko", "name"=>"Jahn, Najko", "type"=>"Person"}])
       expect(subject.titles).to eq([{"title"=>"Publication Fp7 Funding Acknowledgment - Plos Openaire"}])
       expect(subject.descriptions.first["description"]).to start_with("The dataset contains a sample of metadata describing papers")
       expect(subject.dates).to eq([{"date"=>"2013-04-03", "dateType"=>"Issued"}])

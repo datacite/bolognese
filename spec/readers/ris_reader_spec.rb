@@ -31,8 +31,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
-      expect(subject.creator.length).to eq(5)
-      expect(subject.creator.first).to eq("type"=>"Person",
+      expect(subject.creators.length).to eq(5)
+      expect(subject.creators.first).to eq("type"=>"Person",
                                          "name"=>"Martial Sankar",
                                          "givenName"=>"Martial",
                                          "familyName"=>"Sankar")
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.state).to eq("not_found")
       expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"THES", "schemaOrg"=>"Thesis")
-      expect(subject.creator).to eq([{"type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar"}])
+      expect(subject.creators).to eq([{"type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar"}])
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect"}])
       expect(subject.descriptions.first["description"]).to start_with("Designing the climates of cities")
       expect(subject.dates).to eq([{"date"=>"2018-04-25", "dateType"=>"Issued"}, {"date"=>"2018-04-25", "dateType"=>"Created"}])

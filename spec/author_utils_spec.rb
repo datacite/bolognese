@@ -146,7 +146,7 @@ describe Bolognese::Metadata, vcr: true do
     it "only familyName and givenName" do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
-      expect(subject.creator.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
+      expect(subject.creators.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
     end
   end
 
@@ -196,12 +196,12 @@ describe Bolognese::Metadata, vcr: true do
                                        "name"=>"University of California, Santa Barbara"}] }
 
     it "author" do
-      response = subject.authors_as_string(subject.creator)
+      response = subject.authors_as_string(subject.creators)
       expect(response).to eq("Fenner, Martin and Crosas, Mercè and Grethe, Jeffrey and Kennedy, David and Hermjakob, Henning and Rocca-Serra, Philippe and Durand, Gustavo and Berjon, Robin and Karcher, Sebastian and Martone, Maryann and Clark, Timothy")
     end
 
     it "single author" do
-      response = subject.authors_as_string(subject.creator.first)
+      response = subject.authors_as_string(subject.creators.first)
       expect(response).to eq("Fenner, Martin")
     end
 

@@ -46,8 +46,8 @@ module Bolognese
           "ris" => CP_TO_RIS_TRANSLATIONS[schema_org] || "GEN"
         }.compact
         doi = normalize_doi(meta.fetch("DOI", nil))
-        creator = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
-        contributor = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
+        creators = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
+        contributors = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
         dates = if meta.fetch("issued", nil).present?
           [{ "date" => get_date_from_date_parts(meta.fetch("issued", nil)),
              "dateType" => "Issued" }]
@@ -87,8 +87,8 @@ module Bolognese
           "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("URL", nil)),
           "titles" => [{ "title" => meta.fetch("title", nil) }],
-          "creator" => creator,
-          "contributor" => contributor,
+          "creators" => creators,
+          "contributors" => contributors,
           "periodical" => periodical,
           "publisher" => meta.fetch("publisher", nil),
           "related_identifiers" => related_identifiers,

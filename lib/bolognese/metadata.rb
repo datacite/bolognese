@@ -8,7 +8,7 @@ module Bolognese
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
     attr_reader :doc, :page_start, :page_end
-    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creator, :contributor, :titles, :publisher, 
+    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creators, :contributors, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :url, :version_info,
                 :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
                 :formats, :schema_version, :meta, :periodical, :agency,
@@ -48,8 +48,8 @@ module Bolognese
                 "provider_id" => options[:provider_id],
                 "client_id" => options[:client_id],
                 "content_url" => options[:content_url],
-                "creator" => options[:creator],
-                "contributor" => options[:creator],
+                "creators" => options[:creators],
+                "contributors" => options[:creators],
                 "titles" => options[:titles],
                 "publisher" => options[:publisher],
                 "publication_year" => options[:publication_year] }
@@ -79,8 +79,8 @@ module Bolognese
 
       # set attributes directly
       read_options = options.slice(
-        :creator,
-        :contributor,
+        :creators,
+        :contributors,
         :titles,
         :types,
         :alternate_identifiers,
@@ -226,12 +226,12 @@ module Bolognese
       @titles ||= meta.fetch("titles", nil)
     end
 
-    def creator
-      @creator ||= meta.fetch("creator", nil)
+    def creators
+      @creators ||= meta.fetch("creators", nil)
     end
 
-    def contributor
-      @contributor ||= meta.fetch("contributor", nil)
+    def contributors
+      @contributors ||= meta.fetch("contributors", nil)
     end
   end
 end

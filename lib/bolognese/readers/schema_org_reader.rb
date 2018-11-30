@@ -63,8 +63,8 @@ module Bolognese
           "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
-        author = get_authors(from_schema_org(Array.wrap(authors)))
-        contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
+        creators = get_authors(from_schema_org(Array.wrap(authors)))
+        contributors = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
         ct = (schema_org == "Dataset") ? "includedInDataCatalog" : "Periodical"
@@ -145,8 +145,8 @@ module Bolognese
           "sizes" => Array.wrap(meta.fetch("contenSize", nil)).presence,
           "formats" => Array.wrap(meta.fetch("encodingFormat", nil) || meta.fetch("fileFormat", nil)),
           "titles" => meta.fetch("name", nil).present? ? [{ "title" => meta.fetch("name", nil) }] : nil,
-          "creator" => author,
-          "contributor" => contributor,
+          "creators" => creators,
+          "contributors" => contributors,
           "publisher" => publisher,
           "agency" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
           "periodical" => periodical,

@@ -13,7 +13,7 @@ module Bolognese
           "identifier" => identifier,
           "codeRepository" => url,
           "title" => parse_attributes(titles, content: "title", first: true),
-          "agents" => creator,
+          "agents" => creators,
           "description" => parse_attributes(descriptions, content: "description", first: true),
           "version" => version_info,
           "tags" => subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) } : nil,
