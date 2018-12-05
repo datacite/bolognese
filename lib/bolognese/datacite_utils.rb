@@ -85,7 +85,7 @@ module Bolognese
             t["title"] = title
           end
 
-          attributes = { 'titleType' => t["titleType"], 'lang' => t["lang"] }.compact
+          attributes = { 'titleType' => t["titleType"], 'xml:lang' => t["lang"] }.compact
           xml.title(t["title"], attributes)
         end
       end
@@ -154,7 +154,7 @@ module Bolognese
             s["subject"] = subject
           end
 
-          attributes = { "subjectScheme" => s["subjectScheme"], "schemeURI" => s["schemeUri"], "valueURI" => s["valueUri"], "lang" => s["lang"] }.compact
+          attributes = { "subjectScheme" => s["subjectScheme"], "schemeURI" => s["schemeUri"], "valueURI" => s["valueUri"], "xml:lang" => s["lang"] }.compact
 
           xml.subject(s["subject"], attributes)
         end
@@ -199,7 +199,7 @@ module Bolognese
             r["rightsUri"] = normalize_id(rights)
           end
 
-          attributes = { 'rightsURI' => r["rightsUri"], 'lang' => r["lang"] }.compact
+          attributes = { 'rightsURI' => r["rightsUri"], 'xml:lang' => r["lang"] }.compact
 
           xml.rights(r["rights"], attributes)
         end
@@ -223,7 +223,7 @@ module Bolognese
             d["descriptionType"] = "Abstract"
           end
 
-          attributes = { 'lang' => d["lang"], 'descriptionType' => d["descriptionType"] || "Abstract" }.compact
+          attributes = { 'xml:lang' => d["lang"], 'descriptionType' => d["descriptionType"] || "Abstract" }.compact
 
           xml.description(d["description"], attributes)
         end
