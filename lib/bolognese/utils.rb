@@ -611,19 +611,20 @@ module Bolognese
     def to_schema_org_spatial_coverage(geo_location)
       return nil unless geo_location.present?
 
-      Array.wrap(geo_location).map do |gl|
+      Array.wrap(geo_location).reduce([]) do |sum, gl|
         if gl.fetch("geoLocationPoint", nil)
-          { 
+          sum << { 
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoCoordinates",
               "address" => gl["geoLocationPlace"],
               "latitude" => gl.dig("geoLocationPoint", "pointLatitude"),
-              "longitude" => gl.dig("geoLocationPoint", "pointLongitude")
-            }.compact
-          }
-        elsif gl.fetch("geoLocationBox", nil)
-          { 
+              "longitude" => gl.dig("geoLocationPoint", "pointLongitude") }
+          }.compact
+        end
+
+        if gl.fetch("geoLocationBox", nil)
+          sum << { 
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoShape",
@@ -631,11 +632,33 @@ module Bolognese
               "box" => [gl.dig("geoLocationBox", "southBoundLatitude"),
                         gl.dig("geoLocationBox", "westBoundLongitude"),
                         gl.dig("geoLocationBox", "northBoundLatitude"),
-                        gl.dig("geoLocationBox", "eastBoundLongitude")].join(" ")
-            }.compact
+                        gl.dig("geoLocationBox", "eastBoundLongitude")].compact.join(" ").presence }.compact
+          }.compact
+        end
+
+        if gl.fetch("geoLocationPolygon", nil)
+          sum << { 
+            "@type" => "Place",
+            "geo" => {
+              "@type" => "GeoShape",
+              "address" => gl["geoLocationPlace"],
+              "polygon" => Array.wrap(gl.dig("geoLocationPolygon")).map do |glp| 
+                [glp.dig("polygonPoint", "pointLongitude"), glp.dig("polygonPoint", "pointLatitude")].compact
+              end.compact }
           }
         end
-      end.compact.unwrap
+
+        if gl.fetch("geoLocationPlace", nil) && !gl.fetch("geoLocationPoint", nil) && !gl.fetch("geoLocationBox", nil) && !gl.fetch("geoLocationPolygon", nil)
+          sum << { 
+            "@type" => "Place",
+            "geo" => {
+              "@type" => "GeoCoordinates",
+              "address" => gl["geoLocationPlace"] }
+          }.compact
+        end
+        
+        sum
+      end.unwrap
     end
 
     def from_schema_org(element)

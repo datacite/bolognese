@@ -167,7 +167,7 @@ module Bolognese
           }.compact
         end
         geo_locations = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
-          if !gl.is_a?(Hash) || gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String)
+          if !gl.is_a?(Hash) || gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String) || gl["geoLocationPolygon"].is_a?(String)
             nil
           else
             {
@@ -181,6 +181,7 @@ module Bolognese
                 "southBoundLatitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
                 "northBoundLatitude" => gl.dig("geoLocationBox", "northBoundLatitude")
               }.compact.presence,
+              "geoLocationPolygon" => Array.wrap(gl.dig("geoLocationPolygon", "polygonPoint")).map { |glp| { "polygonPoint" => glp } }.compact.presence,
               "geoLocationPlace" => parse_attributes(gl["geoLocationPlace"], first: true).to_s.strip.presence
             }.compact
           end

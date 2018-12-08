@@ -872,4 +872,23 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.funding_references.count).to eq(7)
     expect(subject.funding_references.first).to eq("funderIdentifier"=>"https://doi.org/10.13039/100000052", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"Common Fund of the Office of the Director of the NIH")
   end
+
+  it "geo_location_polygon" do
+    input = fixture_path + 'datacite-example-polygon-v4.1.xml'
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.identifier).to eq("https://doi.org/10.5072/example-polygon")
+    expect(subject.types["schemaOrg"]).to eq("Dataset")
+    expect(subject.types["resourceType"]).to eq("Dataset")
+    expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
+    expect(subject.types["ris"]).to eq("DATA")
+    expect(subject.types["citeproc"]).to eq("dataset")
+    expect(subject.creators.first).to eq("familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer", "type"=>"Person")
+    expect(subject.titles).to eq([{"lang"=>"en", "title"=>"Meteo measurements at the Sand Motor"}])
+    expect(subject.publication_year).to eq("2017")
+    expect(subject.publisher).to eq("4TU.Centre for Research Data")
+    expect(subject.agency).to eq("DataCite")
+    expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    expect(subject.geo_locations.first["geoLocationPlace"]).to eq("Zandmotor, sand suppletion area on the Dutch coast.")
+    expect(subject.geo_locations.first["geoLocationPolygon"].first).to eq("polygonPoint"=>{"pointLatitude"=>"52.03913926329928", "pointLongitude"=>"4.1738852605822"})
+  end
 end

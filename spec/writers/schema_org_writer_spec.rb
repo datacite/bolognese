@@ -195,7 +195,17 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"].length).to eq(6)
       expect(json["author"][2]).to eq("@id"=>"https://orcid.org/0000-0002-8862-1404", "@type"=>"Person", "familyName"=>"Stacy", "givenName"=>"Erin", "name"=>"Erin Stacy")
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoCoordinates", "address"=>"Providence Creek (Lower, Upper and P301)", "latitude"=>"37.047756", "longitude"=>"-119.221094"})
+      expect(json["spatialCoverage"]).to eq([{"@type"=>"Place",
+        "geo"=>
+        {"@type"=>"GeoCoordinates",
+         "address"=>"Providence Creek (Lower, Upper and P301)",
+         "latitude"=>"37.047756",
+         "longitude"=>"-119.221094"}},
+        {"@type"=>"Place",
+         "geo"=>
+        {"@type"=>"GeoShape",
+         "address"=>"Providence Creek (Lower, Upper and P301)",
+         "box"=>"37.046 -119.211 37.075 -119.182"}}])
     end
 
     it "geo_location_box" do
@@ -216,6 +226,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.1594/pangaea.842237")
       expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoShape", "box"=>"-64.3088 -168.5182 79.6753 174.9006"})
+    end
+
+    it "geo_location_polygon" do
+      input = fixture_path + 'datacite-example-polygon-v4.1.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5072/example-polygon")
+      expect(json["@type"]).to eq("Dataset")
+      expect(json["name"]).to eq("Meteo measurements at the Sand Motor")
+      expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer")
+      expect(json["includedInDataCatalog"]).to be_nil
+      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.5072/example-polygon")
+      expect(json["spatialCoverage"].dig("geo", "polygon").length).to eq(34)
+      expect(json["spatialCoverage"].dig("geo", "polygon").first).to eq(["4.1738852605822", "52.03913926329928"])
     end
 
     it "from schema_org gtex" do
