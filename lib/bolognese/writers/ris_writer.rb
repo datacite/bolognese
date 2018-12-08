@@ -7,7 +7,7 @@ module Bolognese
         {
           "TY" => types["ris"],
           "T1" => parse_attributes(titles, content: "title", first: true),
-          "T2" => periodical && periodical["title"],
+          "T2" => container && container["title"],
           "AU" => to_ris(creators),
           "DO" => doi,
           "UR" => url,
@@ -16,10 +16,10 @@ module Bolognese
           "PY" => publication_year,
           "PB" => publisher,
           "LA" => language,
-          "VL" => volume,
-          "IS" => issue,
-          "SP" => first_page,
-          "EP" => last_page,
+          "VL" => container.to_h["volume"],
+          "IS" => container.to_h["issue"],
+          "SP" => container.to_h["firstPage"],
+          "EP" => container.to_h["lastPage"],
           "SN" => Array.wrap(related_identifiers).find { |ri| ri["relationType"] == "IsPartOf" }.to_h.fetch("relatedIdentifier", nil),
           "ER" => ""
         }.compact.map { |k, v| v.is_a?(Array) ? v.map { |vi| "#{k}  - #{vi}" }.join("\r\n") : "#{k}  - #{v}" }.join("\r\n")

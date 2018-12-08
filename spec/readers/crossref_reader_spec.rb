@@ -27,7 +27,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(subject.dates).to eq([{"date"=>"2014-02-11", "dateType"=>"Issued"}, {"date"=>"2018-08-23T13:41:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2014")
-      expect(subject.periodical).to eq("issn"=>"2050-084X", "title"=>"eLife", "type"=>"Periodical")
+      expect(subject.container).to eq("identifier"=>"2050-084X", "identifierType"=>"ISSN", "title"=>"eLife", "type"=>"Journal", "volume"=>"3")
       expect(subject.related_identifiers.length).to eq(27)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1038/ncb2764", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
@@ -58,11 +58,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/4.0"}])
       expect(subject.dates).to eq([{"date"=>"2006-12-20", "dateType"=>"Issued"}, {"date"=>"2017-06-17T12:26:15Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2006")
-      expect(subject.first_page).to eq("e30")
       expect(subject.related_identifiers.length).to eq(62)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1932-6203", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1056/nejm199109123251104", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.periodical).to eq("issn"=>"1932-6203", "title"=>"PLoS ONE", "type"=>"Periodical")
+      expect(subject.container).to eq("firstPage"=>"e30", "identifier"=>"1932-6203", "identifierType"=>"ISSN", "issue"=>"1", "title"=>"PLoS ONE", "type"=>"Journal", "volume"=>"1")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -96,12 +95,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"THE IMPACT OF PARASITE MANIPULATION AND PREDATOR FORAGING BEHAVIOR ON PREDATOR–PREY COMMUNITIES"}])
       expect(subject.dates).to eq([{"date"=>"2006-11", "dateType"=>"Issued"}, {"date"=>"2018-08-02T21:20:01Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2006")
-      expect(subject.first_page).to eq("2832")
-      expect(subject.last_page).to eq("2841")
       expect(subject.related_identifiers.length).to eq(34)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0012-9658", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1098/rspb.2002.2213", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.periodical).to eq("issn"=>"0012-9658", "title"=>"Ecology", "type"=>"Periodical")
+      expect(subject.container).to eq("firstPage"=>"2832", "identifier"=>"0012-9658", "identifierType"=>"ISSN", "issue"=>"11", "lastPage"=>"2841", "title"=>"Ecology", "type"=>"Journal", "volume"=>"87")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -118,12 +115,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers"}])
       expect(subject.dates).to eq([{"date"=>"2012", "dateType"=>"Issued"}, {"date"=>"2016-08-02T18:42:41Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2012")
-      expect(subject.first_page).to eq("1")
-      expect(subject.last_page).to eq("7")
       expect(subject.related_identifiers.length).to eq(18)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2090-1836", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1378/chest.12-0045", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.periodical).to eq("issn"=>"2090-1836", "title"=>"Pulmonary Medicine", "type"=>"Periodical")
+      expect(subject.container).to eq("firstPage"=>"1", "identifier"=>"2090-1836", "identifierType"=>"ISSN", "lastPage"=>"7", "title"=>"Pulmonary Medicine", "type"=>"Journal", "volume"=>"2012")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -140,7 +135,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2015-07", "dateType"=>"Issued"}, {"date"=>"2017-06-23T08:44:48Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"00142999", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection"}])
-      expect(subject.periodical).to eq("issn"=>"00142999", "title"=>"European Journal of Pharmacology", "type"=>"Periodical")
+      expect(subject.container).to eq("firstPage"=>"303", "identifier"=>"00142999", "identifierType"=>"ISSN", "lastPage"=>"312", "title"=>"European Journal of Pharmacology", "type"=>"Journal", "volume"=>"759")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -193,7 +188,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(49)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0028646X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/pmic.201400530", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.periodical).to eq("issn"=>"0028646X", "title"=>"New Phytologist", "type"=>"Periodical")
+      expect(subject.container).to eq("firstPage"=>"929", "identifier"=>"0028646X", "identifierType"=>"ISSN", "issue"=>"3", "lastPage"=>"935", "title"=>"New Phytologist", "type"=>"Journal", "volume"=>"218")
       expect(subject.agency).to eq("Crossref")
     end
 

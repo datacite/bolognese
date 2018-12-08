@@ -69,10 +69,19 @@ module Bolognese
         else
           nil
         end
-        periodical = if meta.fetch("container-title", nil).present?
+        container = if meta.fetch("container-title", nil).present?
+          first_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip).first : nil
+          last_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip).last : nil
+
           { "type" => "Periodical",
             "title" => meta.fetch("container-title", nil),
-            "issn" => meta.fetch("ISSN", nil) }.compact
+            "identifier" => meta.fetch("ISSN", nil),
+            "identifierType" => meta.fetch("ISSN", nil).present? ? "ISSN" : nil,
+            "volume" => meta.fetch("volume", nil),
+            "issue" => meta.fetch("issue", nil),
+            "firstPage" => first_page,
+            "lastPage" => last_page
+           }.compact
         else
           nil
         end
@@ -89,13 +98,11 @@ module Bolognese
           "titles" => [{ "title" => meta.fetch("title", nil) }],
           "creators" => creators,
           "contributors" => contributors,
-          "periodical" => periodical,
+          "container" => container,
           "publisher" => meta.fetch("publisher", nil),
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
-          "volume" => meta.fetch("volume", nil),
-          #{}"pagination" => meta.pages.to_s.presence,
           "descriptions" => meta.fetch("abstract", nil).present? ? [{ "description" => sanitize(meta.fetch("abstract")), "descriptionType" => "Abstract" }] : [],
           "rights_list" => rights_list,
           "version_info" => meta.fetch("version", nil),

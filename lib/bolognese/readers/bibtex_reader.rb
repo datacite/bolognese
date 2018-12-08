@@ -59,15 +59,21 @@ module Bolognese
           nil
         end
 
-        periodical = if meta.try(:journal).present?
-          { "type" => "Periodical",
+        container = if meta.try(:journal).present?
+          first_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip).first : nil
+          last_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip).last : nil
+          
+          { "type" => "Journal",
             "title" => meta.journal.to_s,
-            "issn" => meta.try(:issn).to_s.presence }.compact
+            "identifier" => meta.try(:issn).to_s.presence,
+            "identifierType" => meta.try(:issn).present? ? "ISSN" : nil,
+            "volume" => meta.try(:volume).to_s.presence,
+            "firstPage" => first_page,
+            "lastPage" => last_page }.compact
         else
           nil
         end
 
-        page_first, page_last = meta.try(:pages).to_s.split("-")
         state = doi.present? || read_options.present? ? "findable" : "not_found"
         dates = if meta.try(:date).present?
           [{ "date" => meta.date.to_s,
@@ -83,14 +89,11 @@ module Bolognese
           "url" => meta.try(:url).to_s.presence,
           "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],
           "creators" => author,
-          "periodical" => periodical,
+          "container" => container,
           "publisher" => meta.try(:publisher).to_s.presence,
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
-          "volume" => meta.try(:volume).to_s.presence,
-          "page_first" => page_first,
-          "page_last" => page_last,
           "descriptions" => meta.try(:abstract).present? ? [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }] : [],
           "rights_list" =>  meta.try(:copyright).present? ? [{ "rightsUri" => meta.try(:copyright).to_s.presence }.compact] : [],
           "state" => state

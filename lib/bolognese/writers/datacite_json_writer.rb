@@ -11,7 +11,7 @@ module Bolognese
           "creators" => creators,
           "titles" => titles,
           "publisher" => publisher,
-          "periodical" => periodical,
+          "container" => container,
           "types" => to_datacite_json(types, first: true),
           "subjects" => to_datacite_json(subjects),
           "contributors" => contributors,

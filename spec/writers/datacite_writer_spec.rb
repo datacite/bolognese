@@ -47,7 +47,7 @@ describe Bolognese::Metadata, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"eLife", "descriptionType"=>"SeriesInformation")
+      expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"eLife; volume 3", "descriptionType"=>"SeriesInformation")
       expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.dig("creators", "creator").count).to eq(5)
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>{"__content__"=>"Sankar, Martial", "nameType"=>"Personal"}, "familyName"=>"Sankar", "givenName"=>"Martial")
@@ -216,7 +216,7 @@ describe Bolognese::Metadata, vcr: true do
       subject.descriptions = { "description" => "This is an abstract." }
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("descriptions", "description")).to eq([{"__content__"=>"eLife", "descriptionType"=>"SeriesInformation"}, {"__content__"=>"This is an abstract.", "descriptionType"=>"Abstract"}])
+      expect(datacite.dig("descriptions", "description")).to eq( [{"__content__"=>"eLife; volume 3", "descriptionType"=>"SeriesInformation"}, {"__content__"=>"This is an abstract.", "descriptionType"=>"Abstract"}])
     end
 
     it "change description no input" do

@@ -41,7 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2014", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.related_identifiers).to eq([{"id"=>"2050084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical"}])
-      expect(subject.periodical).to eq("id"=>"2050084X", "title"=>"eLife", "type"=>"Periodical")
+      expect(subject.container).to eq("identifier"=>"2050084X", "title"=>"eLife", "type"=>"Journal", "volume"=>"3")
     end
 
     it "DOI does not exist" do

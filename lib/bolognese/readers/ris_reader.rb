@@ -64,10 +64,14 @@ module Bolognese
         else
           []
         end
-        periodical = if meta.fetch("T2", nil).present?
-          { "type" => "Periodical",
+        container = if meta.fetch("T2", nil).present?
+          { "type" => "Journal",
             "title" => meta.fetch("T2", nil), 
-            "id" => meta.fetch("SN", nil) }.compact
+            "identifier" => meta.fetch("SN", nil),
+            "volume" => meta.fetch("VL", nil),
+            "issue" => meta.fetch("IS", nil),
+            "firstPage" => meta.fetch("SP", nil),
+            "lastPage" => meta.fetch("EP", nil) }.compact
         else
           nil
         end
@@ -83,15 +87,11 @@ module Bolognese
           "titles" => meta.fetch("T1", nil).present? ? [{ "title" => meta.fetch("T1", nil) }] : nil,
           "creators" => get_authors(author),
           "publisher" => meta.fetch("PB", "(:unav)"),
-          "periodical" => periodical,
+          "container" => container,
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
           "descriptions" => meta.fetch("AB", nil).present? ? [{ "description" => sanitize(meta.fetch("AB")), "descriptionType" => "Abstract" }] : nil,
-          "volume" => meta.fetch("VL", nil),
-          "issue" => meta.fetch("IS", nil),
-          "first_page" => meta.fetch("SP", nil),
-          "last_page" => meta.fetch("EP", nil),
           "subjects" => subjects,
           "language" => meta.fetch("LA", nil),
           "state" => state

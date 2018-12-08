@@ -12,7 +12,7 @@ module Bolognese
           "creators" => creators,
           "titles" => titles,
           "publisher" => publisher,
-          "periodical" => periodical,
+          "container" => container,
           "subjects" => subjects,
           "contributors" => contributors,
           "dates" => dates,

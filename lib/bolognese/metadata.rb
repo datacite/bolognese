@@ -11,7 +11,7 @@ module Bolognese
     attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creators, :contributors, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :url, :version_info,
                 :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
-                :formats, :schema_version, :meta, :periodical, :agency,
+                :formats, :schema_version, :meta, :container, :agency,
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers, :style, :locale
 
@@ -84,7 +84,7 @@ module Bolognese
         :titles,
         :types,
         :alternate_identifiers,
-        :periodical,
+        :container,
         :publisher,
         :funding_references,
         :dates,
@@ -182,8 +182,8 @@ module Bolognese
       @publication_year ||= meta.fetch("publication_year", nil)
     end
 
-    def periodical
-      @periodical ||= meta.fetch("periodical", nil)
+    def container
+      @container ||= meta.fetch("container", nil)
     end
 
     def geo_locations

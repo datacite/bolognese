@@ -92,7 +92,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
-      expect(subject.periodical).to eq("title"=>"Harvard Dataverse", "type"=>"DataCatalog", "url"=>"https://dataverse.harvard.edu")
+      expect(subject.container).to eq("identifier"=>"https://dataverse.harvard.edu", "identifierType"=>"URL", "title"=>"Harvard Dataverse", "type"=>"DataRepository")
       expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
       expect(subject.schema_version).to eq("https://schema.org/version/3.3")
     end
@@ -105,7 +105,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
-      expect(subject.periodical).to eq("title"=>"Harvard Dataverse", "type"=>"DataCatalog", "url"=>"https://dataverse.harvard.edu")
+      expect(subject.container).to eq("identifier"=>"https://dataverse.harvard.edu", "identifierType"=>"URL", "title"=>"Harvard Dataverse", "type"=>"DataRepository")
       expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
     end
   end
@@ -145,7 +145,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.subjects).to eq([{"subject"=>"gtex"}, {"subject"=>"annotation"}, {"subject"=>"phenotype"}, {"subject"=>"gene regulation"}, {"subject"=>"transcriptomics"}])
       expect(subject.dates).to eq([{"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
-      expect(subject.periodical).to eq("title"=>"GTEx", "type"=>"DataCatalog")
+      expect(subject.container).to eq("title"=>"GTEx", "type"=>"DataRepository")
       expect(subject.publisher).to eq("GTEx")
       expect(subject.funding_references.length).to eq(7)
       expect(subject.funding_references.first).to eq("funderIdentifier"=>"https://doi.org/10.13039/100000052", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"Common Fund of the Office of the Director of the NIH")

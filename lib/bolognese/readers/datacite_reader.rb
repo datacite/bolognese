@@ -185,7 +185,7 @@ module Bolognese
             }.compact
           end
         end.compact
-        periodical = set_periodical(meta)
+        container = set_container(meta)
         state = doi.present? || read_options.present? ? "findable" : "not_found"
 
         { "id" => id,
@@ -196,7 +196,7 @@ module Bolognese
           "titles" => titles,
           "creators" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributors" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
-          "periodical" => periodical,
+          "container" => container,
           "publisher" => parse_attributes(meta.fetch("publisher", nil), first: true).to_s.strip.presence,
           "agency" => "DataCite",
           "funding_references" => funding_references,
@@ -216,17 +216,19 @@ module Bolognese
         }.merge(read_options)
       end
 
-      def set_periodical(meta)
+      def set_container(meta)
         container_title = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
         is_part_of = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).find { |ri| ri["relationType"] == "IsPartOf" }.to_h
 
         if container_title.present? || is_part_of.present?
           {
-            "type" => meta.dig("resourceType", "resourceTypeGeneral") == "Dataset" ? "DataCatalog" : "Periodical",
-            "id" => is_part_of["relatedIdentifierType"] == "DOI" ? normalize_doi(is_part_of["__content__"]) : is_part_of["__content__"],
-            "title" => container_title,
-            "issn" => is_part_of["relatedIdentifierType"] == "ISSN" ? is_part_of["__content__"] : nil
+            "type" => meta.dig("resourceType", "resourceTypeGeneral") == "Dataset" ? "DataRepository" : "Periodical",
+            "identifier" => is_part_of["__content__"],
+            "identifierType" => is_part_of["relatedIdentifierType"],
+            "title" => container_title
           }.compact
+        else
+          {}
         end
       end
     end

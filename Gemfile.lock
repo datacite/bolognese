@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.0.29)
+    bolognese (1.0.30)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -120,7 +120,7 @@ GEM
     rack (2.0.6)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
-    rake (12.3.1)
+    rake (12.3.2)
     rdf (3.0.7)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)

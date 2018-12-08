@@ -18,10 +18,10 @@ module Bolognese
         insert_source(xml)
         insert_publisher_name(xml) if publisher.present? && !is_data?
         insert_publication_date(xml)
-        insert_volume(xml) if volume.present?
-        insert_issue(xml) if issue.present?
-        insert_fpage(xml) if first_page.present?
-        insert_lpage(xml) if last_page.present?
+        insert_volume(xml) if container.to_h["volume"].present?
+        insert_issue(xml) if container.to_h["issue"].present?
+        insert_fpage(xml) if container.to_h["firstPage"].present?
+        insert_lpage(xml) if container.to_h["lastPage"].present?
         insert_version(xml) if version_info.present?
         insert_pub_id(xml)
       end
@@ -77,7 +77,7 @@ module Bolognese
 
       def insert_source(xml)
         if is_article? || is_data? || is_chapter?
-          xml.source(periodical && periodical["title"] || publisher)
+          xml.source(container && container["title"] || publisher)
         else
           xml.source(parse_attributes(titles, content: "title", first: true))
         end
@@ -96,19 +96,19 @@ module Bolognese
       end
 
       def insert_volume(xml)
-        xml.volume(volume)
+        xml.volume(container["volume"])
       end
 
       def insert_issue(xml)
-        xml.issue(issue)
+        xml.issue(container["issue"])
       end
 
       def insert_fpage(xml)
-        xml.fpage(first_page)
+        xml.fpage(container["firstPage"])
       end
 
       def insert_lpage(xml)
-        xml.lpage(last_page)
+        xml.lpage(container["lastPage"])
       end
 
       def insert_version(xml)

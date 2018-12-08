@@ -96,10 +96,17 @@ module Bolognese
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
-        periodical = if journal_metadata.present?
-            { "type" => "Periodical",
-              "issn" => parse_attributes(journal_metadata.fetch("issn", nil), first: true),
-              "title" => journal_metadata["full_title"] }.compact
+        container = if journal_metadata.present? || book_metadata.present?
+          issn = parse_attributes(journal_metadata.to_h.fetch("issn", nil), first: true)
+
+          { "type" => "Journal",
+            "identifier" => issn,
+            "identifierType" => issn.present? ? "ISSN" : nil,
+            "title" => journal_metadata.to_h["full_title"],
+            "volume" => journal_issue.dig("journal_volume", "volume"),
+            "issue" => journal_issue.dig("issue"),
+            "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
+            "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
         else
           nil
         end
@@ -114,15 +121,11 @@ module Bolognese
           "contributors" => crossref_people(bibliographic_metadata, "editor"),
           "funding_references" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
-          "periodical" => periodical,
+          "container" => container,
           "agency" => "Crossref",
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
-          "volume" => journal_issue.dig("journal_volume", "volume"),
-          "issue" => journal_issue.dig("issue"),
-          "first_page" => bibliographic_metadata.dig("pages", "first_page"),
-          "last_page" => bibliographic_metadata.dig("pages", "last_page"),
           "descriptions" => crossref_description(bibliographic_metadata),
           "rights_list" => crossref_license(program_metadata),
           "version_info" => nil,

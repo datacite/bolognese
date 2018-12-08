@@ -552,9 +552,9 @@ module Bolognese
       return nil unless (element.is_a?(Hash) || (element.nil? && options[:container_title].present?))
 
       { 
-        "@id" => element["relatedIdentifier"],
+        "@id" => element["identifier"],
         "@type" => (options[:type] == "Dataset") ? "DataCatalog" : "Periodical",
-        "name" => element["title"] || options[:container_title] }
+        "name" => element["title"] || options[:container_title] }.compact
     end
 
     def to_schema_org_identifier(element, options={})

@@ -68,14 +68,21 @@ module Bolognese
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
         ct = (schema_org == "Dataset") ? "includedInDataCatalog" : "Periodical"
-        periodical = if meta.fetch(ct, nil).present?
+        container = if meta.fetch(ct, nil).present?
+          url =  parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "url", first: true)
+          
           {
-            "type" => (schema_org == "Dataset") ? "DataCatalog" : "Periodical",
+            "type" => (schema_org == "Dataset") ? "DataRepository" : "Periodical",
             "title" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "name", first: true),
-            "url" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "url", first: true)
+            "identifier" => url,
+            "identifierType" => url.present? ? "URL" : nil,
+            "volume" => meta.fetch("volumeNumber", nil),
+            "issue" => meta.fetch("issueNumber", nil),
+            "firstPage" => meta.fetch("pageStart", nil),
+            "lastPage" => meta.fetch("pageEnd", nil)
           }.compact
         else
-          nil
+          {}
         end
 
         related_identifiers = Array.wrap(schema_org_is_identical_to(meta)) +
@@ -149,7 +156,7 @@ module Bolognese
           "contributors" => contributors,
           "publisher" => publisher,
           "agency" => parse_attributes(meta.fetch("provider", nil), content: "name", first: true),
-          "periodical" => periodical,
+          "container" => container,
           "related_identifiers" => related_identifiers,
           "publication_year" => publication_year,
           "dates" => dates,

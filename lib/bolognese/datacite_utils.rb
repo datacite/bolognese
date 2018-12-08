@@ -92,7 +92,7 @@ module Bolognese
     end
 
     def insert_publisher(xml)
-      xml.publisher(publisher || periodical && periodical["title"])
+      xml.publisher(publisher || container && container["title"])
     end
 
     def insert_publication_year(xml)
@@ -207,11 +207,16 @@ module Bolognese
     end
 
     def insert_descriptions(xml)
-      return xml unless descriptions.present? || periodical && periodical["title"].present?
+      return xml unless descriptions.present? || container && container["title"].present?
 
       xml.descriptions do
-        if periodical && periodical["title"].present?
-          xml.description(periodical["title"], 'descriptionType' => "SeriesInformation")
+        if container && container["title"].present?
+          series_information = [container["title"]]
+          series_information << "volume #{container["volume"]}" if container["volume"].present?
+          series_information << "issue #{container["issue"]}" if container["issue"].present?
+          series_information << "pages " + [container["firstPage"], container["lastPage"]].compact.join("-") if container["firstPage"].present?
+          series_information = series_information.compact.join("; ")
+          xml.description(series_information, 'descriptionType' => "SeriesInformation")
         end
 
         Array.wrap(descriptions).each do |description|

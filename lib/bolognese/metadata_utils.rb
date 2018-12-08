@@ -62,7 +62,6 @@ module Bolognese
     include Bolognese::Writers::TurtleWriter
 
     attr_reader :name_detector, :reverse
-    attr_writer :first_page, :last_page
 
     # replace DOI in XML if provided in options
     def raw
@@ -92,8 +91,8 @@ module Bolognese
     end
 
     def container_title
-      if periodical.present?
-        periodical["title"]
+      if container.present?
+        container["title"]
       elsif types["citeproc"] == "article-journal"
         publisher
       else
@@ -124,6 +123,8 @@ module Bolognese
     end
 
     def citeproc_hsh
+      page = container.to_h["firstPage"].present? ? [container["firstPage"], container["lastPage"]].join("-") : nil
+
       {
         "type" => types["citeproc"],
         "id" => identifier,
@@ -136,13 +137,13 @@ module Bolognese
         "abstract" => parse_attributes(descriptions, content: "description", first: true),
         "container-title" => container_title,
         "DOI" => doi,
-        "issue" => issue,
-        "page" => [first_page, last_page].compact.join("-").presence,
+        "volume" => container.to_h["volume"],
+        "issue" => container.to_h["issue"],
+        "page" => page,
         "publisher" => publisher,
         "title" => parse_attributes(titles, content: "title", first: true),
         "URL" => url,
-        "version" => version_info,
-        "volume" => volume
+        "version" => version_info
       }.compact.symbolize_keys
     end
 
