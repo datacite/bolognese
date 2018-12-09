@@ -13,36 +13,42 @@ module Bolognese
     }
 
     def get_one_author(author)
-      if author.fetch("creatorName", nil).is_a?(Array)
-        # malformed XML
-        return nil
-      elsif author.fetch("type", nil).present?
-        type = author.fetch("type").titleize
-      elsif author.fetch("creatorName", nil).is_a?(Hash)
-        type = author.dig("creatorName", "nameType") == "Organizational" ? "Organization" : "Person"
-      else
-        type = nil
-      end
+      # malformed XML
+      return nil if author.fetch("creatorName", nil).is_a?(Array)
 
-      name_identifiers = get_name_identifiers(author)
-      id = author.fetch("id", nil).presence || name_identifiers.first
-      identifier = name_identifiers.length > 1 ? name_identifiers.unwrap : nil
       name = parse_attributes(author.fetch("creatorName", nil)) ||
-             parse_attributes(author.fetch("contributorName", nil)) ||
-             author.fetch("name", nil)
-
+             parse_attributes(author.fetch("contributorName", nil))
       given_name = parse_attributes(author.fetch("givenName", nil))
       family_name = parse_attributes(author.fetch("familyName", nil))
       name = cleanup_author(name)
-      name = [family_name, given_name].join(", ") if name.blank? && family_name.present?
+      name = [family_name, given_name].join(", ") if family_name.present? && given_name.present?
       contributor_type = parse_attributes(author.fetch("contributorType", nil))
 
-      author = { "type" => type || "Person",
-                 "id" => id,
+      name_type = parse_attributes(author.fetch("creatorName", nil), content: "nameType", first: true) || parse_attributes(author.fetch("contributorName", nil), content: "nameType", first: true)
+      name_type = family_name.present? ? "Personal" : nil if name_type.blank?
+
+      name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).map do |ni|
+        if ni["nameIdentifierScheme"] == "ORCID"
+          { 
+            "nameIdentifier" => normalize_orcid(ni["__content__"]),
+            "nameIdentifierScheme" => "ORCID" }.compact
+        elsif ni["schemeURI"].present?
+          { 
+            "nameIdentifier" => ni["schemeURI"].to_s + ni["__content__"].to_s,
+            "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
+        else
+          { 
+            "nameIdentifier" => ni["__content__"],
+            "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
+        end
+      end.presence
+
+      author = { "nameType" => name_type,
                  "name" => name,
                  "givenName" => given_name,
                  "familyName" => family_name,
-                 "identifier" => identifier,
+                 "nameIdentifiers" => name_identifiers,
+                 "affiliation" => parse_attributes(author.fetch("affiliation", nil), first: true),
                  "contributorType" => contributor_type }.compact
 
       return author if family_name.present?
@@ -54,21 +60,21 @@ module Bolognese
         if parsed_name.present?
           given_name = parsed_name.given
           family_name = parsed_name.family
-          name = [given_name, family_name].join(" ")
+          name = [family_name, given_name].join(", ")
         else
           given_name = nil
           family_name = nil
         end
 
-        { "type" => "Person",
-          "id" => id,
+        { "nameType" => "Personal",
           "name" => name,
           "givenName" => given_name,
           "familyName" => family_name,
-          "identifier" => identifier,
+          "nameIdentifiers" => name_identifiers,
+          "affiliation" => parse_attributes(author.fetch("affiliation", nil), first: true),
           "contributorType" => contributor_type }.compact
       else
-        { "type" => type, "name" => name }.compact
+        { "nameType" => name_type, "name" => name }.compact
       end
     end
 
@@ -87,8 +93,8 @@ module Bolognese
     end
 
     def is_personal_name?(author)
-      return false if author.fetch("type", "").downcase == "organization"
-      return true if author.fetch("id", "").start_with?("https://orcid.org") ||
+      return false if author.fetch("nameType", nil) == "Organizational"
+      return true if Array.wrap(author.fetch("nameIdentifiers", nil)).find { |a| a["nameIdentifierScheme"] == "ORCID" }.present? ||
                      author.fetch("familyName", "").present? ||
                      (author.fetch("name", "").include?(",") &&
                      author.fetch("name", "").exclude?(";")) ||
@@ -106,35 +112,6 @@ module Bolognese
     # parse array of author strings into CSL format
     def get_authors(authors)
       Array.wrap(authors).map { |author| get_one_author(author) }.compact
-    end
-
-    # parse nameIdentifier from DataCite
-    def get_name_identifiers(author)
-      name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).reduce([]) do |sum, n|
-        n = { "__content__" => n } if n.is_a?(String)
-
-        scheme = n.fetch("nameIdentifierScheme", nil)
-        scheme_uri = n.fetch("schemeURI", nil) || IDENTIFIER_SCHEME_URIS.fetch(scheme, "https://orcid.org")
-        scheme_uri = "https://orcid.org/" if validate_orcid_scheme(scheme_uri)
-        scheme_uri << '/' unless scheme_uri.present? && scheme_uri.end_with?('/')
-
-        identifier = n.fetch("__content__", nil)
-        if scheme_uri == "https://orcid.org/"
-          identifier = validate_orcid(identifier)
-        else
-          identifier = identifier.gsub(" ", "-")
-        end
-
-        if identifier.present? && scheme_uri.present?
-          sum << scheme_uri + identifier
-        else
-          sum
-        end
-      end
-
-      # return array of name identifiers, ORCID ID is first element if multiple
-      name_identifiers.select { |n| n.start_with?("https://orcid.org") } +
-      name_identifiers.reject { |n| n.start_with?("https://orcid.org") }
     end
 
     def authors_as_string(authors)

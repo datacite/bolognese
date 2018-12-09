@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("creators").count).to eq(7)
-      expect(crosscite.fetch("creators")[2]).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-2043-4925", "name"=>"Beatriz Hernandez", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
+      expect(crosscite.fetch("creators")[2]).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2043-4925", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Hernandez, Beatriz", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
     end
 
     # it "with editor" do
@@ -41,7 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(crosscite.fetch("creators").count).to eq(5)
-      expect(crosscite.fetch("creators").first).to eq("type"=>"Person", "name"=>"Martial Sankar", "givenName"=>"Martial", "familyName"=>"Sankar")
+      expect(crosscite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite["types"]).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
-      expect(crosscite.fetch("creators")).to eq([{"type"=>"Person", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(crosscite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameType"=>"Personal"}])
     end
 
     it "rdataone" do
@@ -61,7 +61,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
-      expect(crosscite["creators"].last).to eq("type"=>"Organization", "name"=>"University Of California, Santa Barbara")
+      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara")
       expect(crosscite["version"]).to eq("2.0.0")
     end
 
@@ -72,7 +72,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("url")).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(crosscite.fetch("creators").length).to eq(8)
-      expect(crosscite.fetch("creators").first).to eq("type"=>"Person", "familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Benjamin Ollomo")
+      expect(crosscite.fetch("creators").first).to eq("familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Ollomo, Benjamin", "nameType" => "Personal")
       expect(crosscite.fetch("dates")).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(crosscite.fetch("publication_year")).to eq("2011")
       expect(crosscite.fetch("provider_id")).to eq("DRYAD")
@@ -84,7 +84,14 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("titles")).to eq( [{"title"=>"Maremma: a Ruby library for simplified network calls"}])
-      expect(crosscite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "type"=>"Person"}])
+      expect(crosscite.fetch("creators")).to eq([{"affiliation"=>"DataCite",
+        "familyName"=>"Fenner",
+        "givenName"=>"Martin",
+        "name"=>"Fenner, Martin",
+        "nameIdentifiers"=>
+          [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
+            "nameIdentifierScheme"=>"ORCID"}],
+        "nameType"=>"Personal"}])
     end
 
     it "with data citation schema.org" do

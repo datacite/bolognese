@@ -54,7 +54,7 @@ module Bolognese
         id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
         doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
 
-        author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
+        author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "creatorName" => a } }
         date_parts = meta.fetch("PY", nil).to_s.split("/")
         created_date_parts = meta.fetch("Y1", nil).to_s.split("/")
         dates = []

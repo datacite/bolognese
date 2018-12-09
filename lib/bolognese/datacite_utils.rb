@@ -67,12 +67,14 @@ module Bolognese
 
     def insert_person(xml, person, type)
       person_name = person["familyName"].present? ? [person["familyName"], person["givenName"]].compact.join(", ") : person["name"]
-      attributes = person["type"].present? ? { "nameType" => person["type"] + "al" } : {}
+      attributes = { "nameType" => person["nameType"] }.compact
 
       xml.send(type + "Name", person_name, attributes)
       xml.givenName(person["givenName"]) if person["givenName"].present?
       xml.familyName(person["familyName"]) if person["familyName"].present?
-      xml.nameIdentifier(person["id"], 'schemeURI' => 'http://orcid.org/', 'nameIdentifierScheme' => 'ORCID') if person["id"].present?
+      Array.wrap(person["nameIdentifiers"]).each do |ni|
+        xml.nameIdentifier(ni["nameIdentifier"], 'nameIdentifierScheme' => ni["nameIdentifierScheme"])
+      end
     end
 
     def insert_titles(xml)

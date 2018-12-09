@@ -425,12 +425,12 @@ module Bolognese
     def parse_attributes(element, options={})
       content = options[:content] || "__content__"
 
-      if element.is_a?(String)
-        element
+      if element.is_a?(String) && options[:content].nil?
+        CGI.unescapeHTML(element)
       elsif element.is_a?(Hash)
-        element.fetch(content, nil)
+        element.fetch( CGI.unescapeHTML(content), nil)
       elsif element.is_a?(Array)
-        a = element.map { |e| e.is_a?(Hash) ? e.fetch(content, nil) : e }.uniq
+        a = element.map { |e| e.is_a?(Hash) ? e.fetch( CGI.unescapeHTML(content), nil) : e }.uniq
         a = options[:first] ? a.first : a.unwrap
       else
         nil
@@ -476,7 +476,7 @@ module Bolognese
       return nil unless orcid.present?
 
       # turn ORCID ID into URL
-      "http://orcid.org/" + Addressable::URI.encode(orcid)
+      "https://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
     def normalize_ids(ids: nil, relation_type: nil)
@@ -546,6 +546,26 @@ module Bolognese
       mapping = { "type" => "@type", "id" => "@id", "title" => "name" }
 
       map_hash_keys(element: element, mapping: mapping)
+    end
+
+    def to_schema_org_creators(element)
+      element = Array.wrap(element).map do |c|
+        c["affiliation"] = { "@type" => "Organization", "name" => c["affiliation"] } if c["affiliation"].present?
+        c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
+        c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
+        c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]
+        c.except("nameIdentifiers", "nameType").compact
+      end.unwrap
+    end
+
+    def to_schema_org_contributors(element)
+      element = Array.wrap(element).map do |c|
+        c["affiliation"] = { "@type" => "Organization", "name" => c["affiliation"] } if c["affiliation"].present?
+        c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
+        c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
+        c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]
+        c.except("nameIdentifiers", "nameType").compact
+      end.unwrap
     end
 
     def to_schema_org_container(element, options={})
@@ -654,6 +674,22 @@ module Bolognese
       map_hash_keys(element: element, mapping: mapping)
     end
 
+    def from_schema_org_creators(element)
+      element = Array.wrap(element).map do |c|
+        c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID" }] if normalize_orcid(c["@id"])
+        c["creatorName"] = { "nameType" => c["@type"].present? ? c["@type"].titleize + "al" : nil, "__content__" => c["name"] }.compact
+        c.except("@id", "@type", "name") 
+      end
+    end
+
+    def from_schema_org_contributors(element)
+      element = Array.wrap(element).map do |c|
+        c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID" }] if normalize_orcid(c["@id"])
+        c["contributorName"] = { "nameType" => c["@type"].present? ? c["@type"].titleize + "al" : nil, "__content__" => c["name"] }.compact
+        c.except("@id", "@type", "name") 
+      end
+    end
+
     def map_hash_keys(element: nil, mapping: nil)
       Array.wrap(element).map do |a|
         a.map {|k, v| [mapping.fetch(k, k), v] }.reduce({}) do |hsh, (k, v)|
@@ -695,7 +731,7 @@ module Bolognese
         a["family"] = a["familyName"]
         a["given"] = a["givenName"]
         a["literal"] = a["name"] unless a["familyName"].present?
-        a.except("type", "@type", "id", "@id", "name", "familyName", "givenName").compact
+        a.except("nameType", "type", "@type", "id", "@id", "name", "familyName", "givenName", "affiliation", "nameIdentifiers").compact
       end.presence
     end
 
@@ -869,7 +905,7 @@ module Bolognese
 
     def get_series_information(str)
       return {} unless str.present?
-      
+
       str = str.split(",").map(&:strip)
 
       title = str.first

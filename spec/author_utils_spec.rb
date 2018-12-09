@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
 
   context "is_personal_name?" do
     it "has type organization" do
-      author = {"email"=>"info@ucop.edu", "name"=>"University of California, Santa Barbara", "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"}, "type"=>"organization" }
+      author = {"email"=>"info@ucop.edu", "name"=>"University of California, Santa Barbara", "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"}, "nameType"=>"Organizational" }
       expect(subject.is_personal_name?(author)).to be false
     end
 
@@ -18,6 +18,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.is_personal_name?(author)).to be true
     end
 
+    it "has orcid id" do
+      author = { "creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"0000-0003-1419-2405"}}
+      expect(subject.is_personal_name?(author)).to be true
+    end
     it "has family name" do
       author = {"givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }
       expect(subject.is_personal_name?(author)).to be true
@@ -45,7 +49,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
+      expect(response).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner")
     end
 
     it "has name in sort-order" do
@@ -53,7 +57,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
     end
 
     it "has name in display-order" do
@@ -61,7 +65,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "name"=>"Kristian Garza", "givenName"=>"Kristian", "familyName"=>"Garza")
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Garza, Kristian", "givenName"=>"Kristian", "familyName"=>"Garza")
     end
 
     it "has name in display-order with ORCID" do
@@ -69,7 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4881-1606", "name"=>"Andrea Bedini", "givenName"=>"Andrea", "familyName"=>"Bedini")
+      expect(response).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-4881-1606", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Bedini, Andrea", "givenName"=>"Andrea", "familyName"=>"Bedini")
     end
 
     it "has name in Thai" do
@@ -94,13 +98,13 @@ describe Bolognese::Metadata, vcr: true do
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_authors(meta.dig("creators", "creator"))
       expect(response.length).to eq(1000)
-      expect(response.first).to eq("type"=>"Person", "name"=>"Jaroslav Adam", "givenName"=>"Jaroslav", "familyName"=>"Adam")
+      expect(response.first).to eq("nameType"=>"Personal", "name"=>"Adam, Jaroslav", "givenName"=>"Jaroslav", "familyName"=>"Adam", "affiliation" => "Prague, Tech. U.")
     end
 
     it "is organization" do
-      author = {"email"=>"info@ucop.edu", "name"=>"University of California, Santa Barbara", "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"}, "type"=>"organization" }
+      author = {"email"=>"info@ucop.edu", "creatorName"=> { "__content__" => "University of California, Santa Barbara", "nameType" => "Organizational" }, "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"} }
       response = subject.get_one_author(author)
-      expect(response).to eq("type"=>"Organization", "name"=>"University Of California, Santa Barbara")
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"University Of California, Santa Barbara")
     end
 
     it "name with affiliation" do
@@ -108,7 +112,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Organization", "name"=>"Dr. Störi, Kunstsalon")
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"Dr. Störi, Kunstsalon")
     end
 
     it "name with affiliation and country" do
@@ -124,7 +128,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("type"=>"Person", "name"=>"H. C. Schumacher", "givenName"=>"H. C.", "familyName"=>"Schumacher")
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Schumacher, H. C.", "givenName"=>"H. C.", "familyName"=>"Schumacher")
     end
 
     it "multiple name_identifier" do
@@ -132,7 +136,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Person", "id"=>"https://orcid.org/0000-0003-4514-4211", "name"=>"Thomas Dubos", "givenName"=>"Thomas", "familyName"=>"Dubos", "identifier"=>["https://orcid.org/0000-0003-4514-4211", "http://isni.org/isni/0000-0003-5752-6882"])
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Dubos, Thomas", "givenName"=>"Thomas", "familyName"=>"Dubos", "affiliation" => "École Polytechnique\nLaboratoire de Météorologie Dynamique", "nameIdentifiers" => [{"nameIdentifier"=>"http://isni.org/isni/0000 0003 5752 6882", "nameIdentifierScheme"=>"ISNI"}, {"nameIdentifier"=>"https://orcid.org/0000-0003-4514-4211", "nameIdentifierScheme"=>"ORCID"}])
     end
 
     it "nameType organizational" do
@@ -140,47 +144,13 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("type"=>"Organization", "name"=>"The GTEx Consortium")
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"The GTEx Consortium")
     end
 
     it "only familyName and givenName" do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
-      expect(subject.creators.first).to eq("type"=>"Person", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
-    end
-  end
-
-  context "get_name_identifiers" do
-    it "has ORCID" do
-      input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
-      response = subject.get_name_identifiers(meta.dig("creators", "creator"))
-      expect(response).to eq(["https://orcid.org/0000-0003-1419-2405"])
-    end
-
-    it "has no ORCID" do
-      input = "https://doi.org/10.4230/lipics.tqc.2013.93"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
-      response = subject.get_name_identifiers(meta.dig("creators", "creator"))
-      expect(response).to be_empty
-    end
-
-    it "has jacow.org scheme" do
-      input = "https://doi.org/10.18429/JACOW-IPAC2016-TUPMY003"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
-      response = subject.get_name_identifiers(meta.dig("creators", "creator").first)
-      expect(response).to eq(["http://jacow.org/JACoW-00077389"])
-    end
-
-    it "has multiple name_identifier" do
-      input = "https://doi.org/10.24350/CIRM.V.19028803"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
-      response = subject.get_name_identifiers(meta.dig("creators", "creator"))
-      expect(response).to eq(["https://orcid.org/0000-0003-4514-4211", "http://isni.org/isni/0000-0003-5752-6882"])
+      expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
     end
   end
 

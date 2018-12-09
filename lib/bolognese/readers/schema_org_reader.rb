@@ -61,8 +61,8 @@ module Bolognese
           "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
-        creators = get_authors(from_schema_org(Array.wrap(authors)))
-        contributors = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
+        creators = get_authors(from_schema_org_creators(Array.wrap(authors)))
+        contributors = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("editor", nil))))
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
         ct = (schema_org == "Dataset") ? "includedInDataCatalog" : "Periodical"

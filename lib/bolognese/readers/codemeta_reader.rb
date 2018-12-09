@@ -36,8 +36,8 @@ module Bolognese
         id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
         doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
 
-        author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
-        contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
+        creators = get_authors(from_schema_org_creators(Array.wrap(meta.fetch("agents", nil))))
+        contributors = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("editor", nil))))
         dates = []
         dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if meta.fetch("datePublished", nil).present?
         dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if meta.fetch("dateCreated", nil).present?
@@ -64,8 +64,8 @@ module Bolognese
           "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("codeRepository", nil)),
           "titles" => [{ "title" => meta.fetch("title", nil) }],
-          "creators" => author,
-          "contributors" => contributor,
+          "creators" => creators,
+          "contributors" => contributors,
           "publisher" => publisher,
           #{}"is_part_of" => is_part_of,
           "dates" => dates,

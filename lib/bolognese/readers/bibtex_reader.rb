@@ -42,9 +42,9 @@ module Bolognese
         }.compact
         doi = meta.try(:doi).to_s.presence || options[:doi]
 
-        author = Array(meta.try(:author)).map do |a|
-          { "type" => "Person",
-            "name" => [a.first, a.last].join(" "),
+        creators = Array(meta.try(:author)).map do |a|
+          { "nameType" => "Personal",
+            "name" => [a.last, a.first].join(", "),
             "givenName" => a.first,
             "familyName" => a.last }.compact
         end
@@ -89,7 +89,7 @@ module Bolognese
           "doi" => doi,
           "url" => meta.try(:url).to_s.presence,
           "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],
-          "creators" => author,
+          "creators" => creators,
           "container" => container,
           "publisher" => meta.try(:publisher).to_s.presence,
           "related_identifiers" => related_identifiers,

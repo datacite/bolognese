@@ -71,7 +71,7 @@ describe Bolognese::CLI do
 
       it 'to datacite_json' do
         subject.options = { to: "datacite_json" }
-        expect { subject.convert input }.to output(/François Renaud/).to_stdout
+        expect { subject.convert input }.to output(/Renaud, François/).to_stdout
       end
 
       it 'to citation' do

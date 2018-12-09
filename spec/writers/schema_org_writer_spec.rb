@@ -32,7 +32,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["name"]).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(json["author"]).to eq("name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-0077-4738")
+      expect(json["author"]).to eq("name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner", "@type"=>"Person", "@id"=>"https://orcid.org/0000-0003-0077-4738", "affiliation" => {"@type"=>"Organization", "name"=>"DataCite"})
     end
 
     it "Schema.org JSON" do
@@ -71,12 +71,14 @@ describe Bolognese::Metadata, vcr: true do
                                      "givenName"=>"Matt",
                                      "familyName"=>"Jones",
                                      "@type"=>"Person",
-                                     "@id"=>"http://orcid.org/0000-0003-0077-4738"},
+                                     "@id"=>"https://orcid.org/0000-0003-0077-4738",
+                                     "affiliation"=>{"@type"=>"Organization", "name"=>"NCEAS"}},
                                     {"name"=>"Peter Slaughter",
                                      "givenName"=>"Peter",
                                      "familyName"=>"Slaughter",
                                      "@type"=>"Person",
-                                     "@id"=>"http://orcid.org/0000-0002-2192-403X"},
+                                     "@id"=>"https://orcid.org/0000-0002-2192-403X",
+                                     "affiliation"=>{"@type"=>"Organization", "name"=>"NCEAS"}},
                                     {"name"=>"University Of California, Santa Barbara", "@type"=>"Organization"}])
       expect(json["version"]).to eq("2.0.0")
     end
@@ -193,7 +195,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek\n      meteorological data, soil moisture and temperature, snow depth and air\n      temperature")
       expect(json["author"].length).to eq(6)
-      expect(json["author"][2]).to eq("@id"=>"https://orcid.org/0000-0002-8862-1404", "@type"=>"Person", "familyName"=>"Stacy", "givenName"=>"Erin", "name"=>"Erin Stacy")
+      expect(json["author"][2]).to eq("@id"=>"https://orcid.org/0000-0002-8862-1404", "@type"=>"Person", "familyName"=>"Stacy", "givenName"=>"Erin", "name"=>"Erin Stacy", "affiliation" => {"@type"=>"Organization", "name"=>"UC Merced"})
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["spatialCoverage"]).to eq([{"@type"=>"Place",
         "geo"=>
@@ -218,11 +220,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"]).to eq([{"@type"=>"Person",
         "familyName"=>"Tara Oceans Consortium",
         "givenName"=>"Coordinators",
-        "name"=>"Tara Oceans Consortium, Coordinators"},
+        "name"=>"Coordinators Tara Oceans Consortium"},
        {"@type"=>"Person",
         "familyName"=>"Tara Oceans Expedition",
         "givenName"=>"Participants",
-        "name"=>"Tara Oceans Expedition, Participants"}])
+        "name"=>"Participants Tara Oceans Expedition"}])
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.1594/pangaea.842237")
       expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoShape", "box"=>"-64.3088 -168.5182 79.6753 174.9006"})

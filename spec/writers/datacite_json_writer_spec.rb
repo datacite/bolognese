@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("url")).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("creators").length).to eq(7)
-      expect(datacite.fetch("creators").first).to eq("type"=>"Person", "name"=>"Wendy Thanassi", "givenName"=>"Wendy", "familyName"=>"Thanassi")
+      expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi")
     end
 
     it "Crossref DOI" do
@@ -34,7 +34,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.fetch("creators").length).to eq(5)
-      expect(datacite.fetch("creators").first).to eq("type"=>"Person", "name"=>"Martial Sankar", "givenName"=>"Martial", "familyName"=>"Sankar")
+      expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -44,7 +44,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
-      expect(datacite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Martin Fenner", "type"=>"Person"}])
+      expect(datacite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameType"=>"Personal"}])
     end
 
     it "rdataone" do
@@ -53,7 +53,8 @@ describe Bolognese::Metadata, vcr: true do
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(datacite.fetch("creators").length).to eq(3)
-      expect(datacite.fetch("creators").first).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Matt Jones", "givenName"=>"Matt", "familyName"=>"Jones")
+      expect(datacite.fetch("creators").first).to eq("affiliation"=>"NCEAS", "nameType"=>"Personal", "name" => "Jones, Matt",
+        "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID"}], "givenName"=>"Matt", "familyName"=>"Jones")
       expect(datacite.fetch("version")).to eq("2.0.0")
     end
 
@@ -62,7 +63,14 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
-      expect(datacite.fetch("creators")).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-0077-4738", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(datacite.fetch("creators")).to eq([{"affiliation"=>"DataCite",
+        "familyName"=>"Fenner",
+        "givenName"=>"Martin",
+        "name"=>"Fenner, Martin",
+        "nameIdentifiers"=>
+         [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
+           "nameIdentifierScheme"=>"ORCID"}],
+        "nameType"=>"Personal"}])
     end
 
     it "with data citation schema.org" do

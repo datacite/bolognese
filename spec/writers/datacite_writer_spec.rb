@@ -29,7 +29,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("creators", "creator")[2]).to eq("creatorName" => {"__content__"=>"Hernandez, Beatriz", "nameType"=>"Personal"},
         "familyName" => "Hernandez",
         "givenName" => "Beatriz",
-        "nameIdentifier" => {"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-2043-4925"})
+        "nameIdentifier" => {"nameIdentifierScheme"=>"ORCID", "__content__"=>"https://orcid.org/0000-0003-2043-4925"})
     end
 
     it "with editor" do
@@ -75,16 +75,14 @@ describe Bolognese::Metadata, vcr: true do
                                                           "givenName"=>"Matt",
                                                           "familyName"=>"Jones",
                                                           "nameIdentifier"=>
-                                                         {"schemeURI"=>"http://orcid.org/",
-                                                          "nameIdentifierScheme"=>"ORCID",
-                                                          "__content__"=>"http://orcid.org/0000-0003-0077-4738"}},
+                                                         {"nameIdentifierScheme"=>"ORCID",
+                                                          "__content__"=>"https://orcid.org/0000-0003-0077-4738"}},
                                                          {"creatorName"=>{"__content__"=>"Slaughter, Peter", "nameType"=>"Personal"},
                                                            "givenName"=>"Peter",
                                                            "familyName"=>"Slaughter",
                                                           "nameIdentifier"=>
-                                                         {"schemeURI"=>"http://orcid.org/",
-                                                          "nameIdentifierScheme"=>"ORCID",
-                                                          "__content__"=>"http://orcid.org/0000-0002-2192-403X"}},
+                                                         {"nameIdentifierScheme"=>"ORCID",
+                                                          "__content__"=>"https://orcid.org/0000-0002-2192-403X"}},
                                                          {"creatorName"=>{"__content__"=>"University Of California, Santa Barbara", "nameType"=>"Organizational"}}])
       expect(datacite.fetch("version")).to eq("2.0.0")
     end
@@ -95,7 +93,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(datacite.dig("creators", "creator")).to eq("creatorName"=> {"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"schemeURI"=>"http://orcid.org/", "nameIdentifierScheme"=>"ORCID", "__content__"=>"http://orcid.org/0000-0003-0077-4738"})
+      expect(datacite.dig("creators", "creator")).to eq("creatorName"=> {"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"__content__"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID"})
     end
 
     it "Text pass-thru" do
@@ -105,7 +103,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23640/07243.5153971", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
-      expect(subject.creators.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID"}], "name" => "Paglione, Laura")
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
       expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
@@ -123,7 +121,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/07243.5153971", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
-      expect(subject.creators.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
+      expect(subject.creators.first).to eq("nameType" => "Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID"}], "name" => "Paglione, Laura")
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
       expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
@@ -140,7 +138,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"DataPackage", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(8)
-      expect(subject.creators.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5061/dryad.8515", "identifierType"=>"DOI"},
         {"identifier"=>
