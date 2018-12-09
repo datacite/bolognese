@@ -121,7 +121,7 @@ module Bolognese
     end
 
     def exists?
-      (@state || meta.fetch("state", "not_found")) != "not_found"
+      (@state || meta.fetch("state", nil)) != "not_found"
     end
 
     def valid?

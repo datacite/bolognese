@@ -72,7 +72,7 @@ module Bolognese
           bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
         end
 
-        resource_type = (resource_type || model).to_s.underscore.camelize.presence
+        resource_type = (resource_type || model).to_s.underscore.camelcase.presence
         schema_org = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type] || "ScholarlyArticle"
         types = {
           "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
