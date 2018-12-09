@@ -9,8 +9,8 @@ module Bolognese
         hsh = {
           "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
           "@type" => types["schemaOrg"],
-          "@id" => identifier,
-          "identifier" => identifier,
+          "@id" => id,
+          "identifier" => to_schema_org_identifiers(identifiers),
           "codeRepository" => url,
           "title" => parse_attributes(titles, content: "title", first: true),
           "agents" => creators,

@@ -21,8 +21,21 @@ module Bolognese
         read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
 
         meta = string.present? ? Maremma.from_json(string) : {}
-        identifier = meta.fetch("identifier", nil)
-        id = normalize_id(meta.fetch("@id", nil) || identifier)
+
+        identifiers = ([meta.fetch("@id", nil)] + Array.wrap(meta.fetch("identifier", nil))).map do |r|
+          r = normalize_id(r) if r.is_a?(String)
+          if r.is_a?(String) && r.start_with?("https://doi.org")
+            { "identifierType" => "DOI", "identifier" => r }
+          elsif r.is_a?(String)
+              { "identifierType" => "URL", "identifier" => r }
+          elsif r.is_a?(Hash)
+            { "identifierType" => get_identifier_type(r["propertyID"]), "identifier" => r["value"] }
+          end
+        end.compact.uniq
+
+        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
+        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
+
         author = get_authors(from_schema_org(Array.wrap(meta.fetch("agents", nil))))
         contributor = get_authors(from_schema_org(Array.wrap(meta.fetch("editor", nil))))
         dates = []
@@ -47,8 +60,8 @@ module Bolognese
 
         { "id" => id,
           "types" => types,
-          "identifier" => identifier,
-          "doi" => validate_doi(id),
+          "identifiers" => identifiers,
+          "doi" => doi_from_url(doi),
           "url" => normalize_id(meta.fetch("codeRepository", nil)),
           "titles" => [{ "title" => meta.fetch("title", nil) }],
           "creators" => author,

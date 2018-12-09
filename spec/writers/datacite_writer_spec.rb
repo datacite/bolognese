@@ -102,7 +102,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.23640/07243.5153971")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23640/07243.5153971", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
       expect(subject.creators.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
@@ -120,7 +120,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.5072/07243.5153971")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5072/07243.5153971")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/07243.5153971", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
       expect(subject.creators.first).to eq("type"=>"Person", "familyName" => "Paglione", "givenName" => "Laura", "id" => "https://orcid.org/0000-0003-3188-6273", "name" => "Laura Paglione")
@@ -138,12 +138,14 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"DataPackage", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(8)
       expect(subject.creators.first).to eq("type"=>"Person", "name"=>"Benjamin Ollomo", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
       expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
-      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=> "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.", "alternateIdentifierType"=>"citation"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5061/dryad.8515", "identifierType"=>"DOI"},
+        {"identifier"=>
+         "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
+         "identifierType"=>"citation"}])
       expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
       expect(subject.dates).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2011")
@@ -171,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be false
-      expect(subject.identifier).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.agency).to eq("DataCite")
       expect(subject.state).to eq("not_found")

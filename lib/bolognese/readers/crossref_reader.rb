@@ -82,7 +82,6 @@ module Bolognese
           "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type] || "misc",
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type] || "JOUR"
         }.compact
-        doi = bibliographic_metadata.dig("doi_data", "doi").to_s.downcase.presence #|| doi_from_url(options[:id])
 
         # Crossref servers run on Eastern Time
         Time.zone = 'Eastern Time (US & Canada)'
@@ -111,12 +110,17 @@ module Bolognese
           nil
         end
 
-        { "id" => normalize_doi(doi),
+        identifiers = [{ "identifierType" => "DOI", "identifier" => normalize_doi(options[:doi] || options[:id] || bibliographic_metadata.dig("doi_data", "doi")) }, crossref_alternate_identifiers(bibliographic_metadata)].compact
+
+        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
+        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
+
+        { "id" => id,
           "types" => types,
-          "doi" => doi,
+          "doi" => doi_from_url(doi),
           "url" => bibliographic_metadata.dig("doi_data", "resource"),
           "titles" => [{ "title" => parse_attributes(bibliographic_metadata.dig("titles", "title")) }],
-          "alternate_identifiers" => crossref_alternate_identifiers(bibliographic_metadata),
+          "identifiers" => identifiers,
           "creators" => crossref_people(bibliographic_metadata, "author"),
           "contributors" => crossref_people(bibliographic_metadata, "editor"),
           "funding_references" => crossref_funding_reference(program_metadata),
@@ -138,12 +142,12 @@ module Bolognese
       end
 
       def crossref_alternate_identifiers(bibliographic_metadata)
-        if bibliographic_metadata.fetch("publisher_item", nil).present?
-          { "alternateIdentifier" => parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number")),
-            "alternateIdentifierType" => "Publisher ID" }
-        else
-          { "alternateIdentifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
-            "alternateIdentifierType" => "Publisher ID" }
+        if bibliographic_metadata.dig("publisher_item", "item_number").present?
+          { "identifier" => parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number")),
+            "identifierType" => "Publisher ID" }
+        elsif parse_attributes(bibliographic_metadata.fetch("item_number", nil)).present?
+          { "identifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
+            "identifierType" => "Publisher ID" }
         end
       end
 

@@ -5,7 +5,7 @@ module Bolognese
     module CrossciteWriter
       def crosscite
         hsh = {
-          "id" => identifier,
+          "id" => id,
           "doi" => doi,
           "url" => url,
           "types" => types,
@@ -18,16 +18,12 @@ module Bolognese
           "dates" => dates,
           "publication_year" => publication_year,
           "language" => language,
-          "alternate_identifiers" => alternate_identifiers,
+          "identifiers" => identifiers,
           "sizes" => sizes,
           "formats" => formats,
           "version" => version_info,
           "rights_list" => rights_list,
           "descriptions" => descriptions,
-          "volume" => volume,
-          "issue" => issue,
-          "first_page" => first_page,
-          "last_page" => last_page,
           "geo_locations" => geo_locations,
           "funding_references" => funding_references,
           "related_identifiers" => related_identifiers,

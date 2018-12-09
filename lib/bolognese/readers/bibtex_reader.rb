@@ -40,14 +40,14 @@ module Bolognese
           "citeproc" => BIB_TO_CP_TRANSLATIONS[meta.try(:type).to_s] || "misc",
           "ris" => BIB_TO_RIS_TRANSLATIONS[meta.try(:type).to_s] || "GEN"
         }.compact
-        doi = meta.try(:doi).to_s.presence
+        doi = meta.try(:doi).to_s.presence || options[:doi]
 
         author = Array(meta.try(:author)).map do |a|
-                  { "type" => "Person",
-                    "name" => [a.first, a.last].join(" "),
-                    "givenName" => a.first,
-                    "familyName" => a.last }.compact
-                end
+          { "type" => "Person",
+            "name" => [a.first, a.last].join(" "),
+            "givenName" => a.first,
+            "familyName" => a.last }.compact
+        end
 
         related_identifiers = if meta.try(:journal).present? && meta.try(:issn).to_s.presence
           [{ "type" => "Periodical",
@@ -74,7 +74,7 @@ module Bolognese
           nil
         end
 
-        state = doi.present? || read_options.present? ? "findable" : "not_found"
+        state = meta.try(:doi).to_s.present? || read_options.present? ? "findable" : "not_found"
         dates = if meta.try(:date).present?
           [{ "date" => meta.date.to_s,
              "dateType" => "Issued" }]
@@ -85,6 +85,7 @@ module Bolognese
 
         { "id" => normalize_doi(doi),
           "types" => types,
+          "identifiers" => [{ "identifier" => normalize_doi(doi), "identifierType" => "DOI" }],
           "doi" => doi,
           "url" => meta.try(:url).to_s.presence,
           "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],

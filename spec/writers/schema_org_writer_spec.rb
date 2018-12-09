@@ -154,7 +154,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Covariates used in eQTL analysis. Includes genotyping principal components and PEER factors")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
-      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.25491/8kmc-g314"},{"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
+      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.25491/8kmc-g314"},{"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
       expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz")
     end
 
@@ -169,7 +169,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["identifier"]).to eq(
         [{"@type"=>"PropertyValue",
-          "propertyID"=>"doi",
+          "propertyID"=>"DOI",
           "value"=>"https://doi.org/10.23725/8na3-9s47"},
          {"@type"=>"PropertyValue",
           "propertyID"=>"minid",
@@ -224,7 +224,7 @@ describe Bolognese::Metadata, vcr: true do
         "givenName"=>"Participants",
         "name"=>"Tara Oceans Expedition, Participants"}])
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.1594/pangaea.842237")
+      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.1594/pangaea.842237")
       expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoShape", "box"=>"-64.3088 -168.5182 79.6753 174.9006"})
     end
 
@@ -237,7 +237,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Meteo measurements at the Sand Motor")
       expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer")
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.5072/example-polygon")
+      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.5072/example-polygon")
       expect(json["spatialCoverage"].dig("geo", "polygon").length).to eq(34)
       expect(json["spatialCoverage"].dig("geo", "polygon").first).to eq(["4.1738852605822", "52.03913926329928"])
     end
@@ -248,7 +248,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/d50j-3083")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.25491/d50j-3083"}, {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"687610993"}])
+      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.25491/d50j-3083"}, {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"687610993"}])
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(json["additionalType"]).to eq("Gene expression matrices")
       expect(json["name"]).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
@@ -292,7 +292,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@type"]).to eq("Dataset")
       expect(json["identifier"]).to eq(
         [{"@type"=>"PropertyValue",
-          "propertyID"=>"doi",
+          "propertyID"=>"DOI",
           "value"=>"https://doi.org/10.23725/8na3-9s47"},
          {"@type"=>"PropertyValue",
           "propertyID"=>"md5",

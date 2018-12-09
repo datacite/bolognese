@@ -37,21 +37,19 @@ module Bolognese
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        identifier = Array.wrap(meta.fetch("identifier", nil))
-        if identifier.length > 1
-          alternate_identifiers = identifier[1..-1].map do |r|
-            if r.is_a?(String)
-              { "alternateIdentifierType" => "URL", "alternateIdentifier" => r }
-            elsif r.is_a?(Hash)
-              { "alternateIdentifierType" => r["propertyID"], "alternateIdentifier" => r["value"] }
-            end
+        identifiers = ([options[:doi] || meta.fetch("@id", nil)] + Array.wrap(meta.fetch("identifier", nil))).map do |r|
+          r = normalize_id(r) if r.is_a?(String)
+          if r.is_a?(String) && r.start_with?("https://doi.org")
+            { "identifierType" => "DOI", "identifier" => r }
+          elsif r.is_a?(String)
+              { "identifierType" => "URL", "identifier" => r }
+          elsif r.is_a?(Hash)
+            { "identifierType" => get_identifier_type(r["propertyID"]), "identifier" => r["value"] }
           end
-        else
-          alternate_identifiers = nil
-        end
-        identifier = identifier.first
+        end.compact.uniq
 
-        id = normalize_id(meta.fetch("@id", nil) || meta.fetch("identifier", nil))
+        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
+
         schema_org = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org]
         types = {
@@ -145,8 +143,7 @@ module Bolognese
         { "id" => id,
           "types" => types,
           "doi" => validate_doi(id),
-          "identifier" => identifier,
-          "alternate_identifiers" => alternate_identifiers,
+          "identifiers" => identifiers,
           "url" => normalize_id(meta.fetch("url", nil)),
           "content_url" => Array.wrap(meta.fetch("contentUrl", nil)),
           "sizes" => Array.wrap(meta.fetch("contenSize", nil)).presence,

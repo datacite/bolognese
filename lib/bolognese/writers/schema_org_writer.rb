@@ -4,10 +4,10 @@ module Bolognese
   module Writers
     module SchemaOrgWriter
       def schema_hsh
-        { "@context" => identifier.present? ? "http://schema.org" : nil,
+        { "@context" => "http://schema.org",
           "@type" => types["schemaOrg"],
-          "@id" => identifier,
-          "identifier" => to_schema_org_identifier(identifier, alternate_identifiers: alternate_identifiers),
+          "@id" => id,
+          "identifier" => to_schema_org_identifiers(identifiers),
           "url" => url,
           "additionalType" => types["resourceType"],
           "name" => parse_attributes(titles, content: "title", first: true),

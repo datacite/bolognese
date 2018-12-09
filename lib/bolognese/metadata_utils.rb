@@ -78,18 +78,6 @@ module Bolognese
       (from == "datacite") && regenerate.blank? && raw.present?
     end
 
-    def volume
-      @volume ||= meta.fetch("volume", nil)
-    end
-
-    def first_page
-      @first_page ||= meta.fetch("first_page", nil)
-    end
-
-    def last_page
-      @last_page ||= meta.fetch("last_page", nil)
-    end
-
     def container_title
       if container.present?
         container["title"]
@@ -127,7 +115,7 @@ module Bolognese
 
       {
         "type" => types["citeproc"],
-        "id" => identifier,
+        "id" => id,
         "categories" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
         "language" => language,
         "author" => to_citeproc(creators),

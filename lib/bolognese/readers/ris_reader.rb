@@ -47,7 +47,13 @@ module Bolognese
           "ris" => ris_type
         }.compact
 
-        doi = validate_doi(meta.fetch("DO", nil))
+        identifiers = [normalize_doi(options[:doi]) || normalize_doi(meta.fetch("DO", nil))].map do |r|
+          { "identifierType" => "DOI", "identifier" => normalize_id(r) }
+        end.compact
+
+        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
+        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
+
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "name" => a } }
         date_parts = meta.fetch("PY", nil).to_s.split("/")
         created_date_parts = meta.fetch("Y1", nil).to_s.split("/")
@@ -75,14 +81,15 @@ module Bolognese
         else
           nil
         end
-        state = doi.present? || read_options.present? ? "findable" : "not_found"
+        state = meta.fetch("DO", nil).present? || read_options.present? ? "findable" : "not_found"
         subjects = Array.wrap(meta.fetch("KW", nil)).map do |s|
           { "subject" => s }
         end
 
-        { "id" => normalize_doi(doi),
+        { "id" => id,
           "types" => types,
-          "doi" => doi,
+          "identifiers" => identifiers,
+          "doi" => doi_from_url(doi),
           "url" => meta.fetch("UR", nil),
           "titles" => meta.fetch("T1", nil).present? ? [{ "title" => meta.fetch("T1", nil) }] : nil,
           "creators" => get_authors(author),

@@ -107,11 +107,12 @@ module Bolognese
     end
 
     def insert_alternate_identifiers(xml)
+      alternate_identifiers = Array.wrap(identifiers).select { |r| r["identifierType"] != "DOI" }
       return xml unless alternate_identifiers.present?
 
       xml.alternateIdentifiers do
         Array.wrap(alternate_identifiers).each do |alternate_identifier|
-          xml.alternateIdentifier(alternate_identifier["alternateIdentifier"], 'alternateIdentifierType' => alternate_identifier["alternateIdentifierType"])
+          xml.alternateIdentifier(alternate_identifier["identifier"], 'alternateIdentifierType' => alternate_identifier["identifierType"])
         end
       end
     end

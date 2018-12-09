@@ -15,7 +15,7 @@ describe Bolognese::Metadata, vcr: true do
     it "string" do
       Bolognese::Metadata.new(input: IO.read(input).strip)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
     end
   end
 
@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get bibtex metadata" do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Text", "resourceType"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.creators.length).to eq(5)
@@ -47,7 +47,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, doi: doi)
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
-      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"phdthesis", "citeproc"=>"thesis", "resourceTypeGeneral"=>"Text", "resourceType"=>"Dissertation", "ris"=>"THES", "schemaOrg"=>"Thesis")
       expect(subject.creators).to eq([{"type"=>"Person", "name"=>"Y. Toparlar", "givenName"=>"Y.", "familyName"=>"Toparlar"}])
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect: from city averaged temperatures to the energy demand of individual buildings"}])

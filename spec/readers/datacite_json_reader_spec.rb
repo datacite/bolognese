@@ -16,11 +16,10 @@ describe Bolognese::Metadata, vcr: true do
   context "get datacite_json metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"BlogPosting", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
-      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=>"MS-49-3632-5083", "alternateIdentifierType"=>"Local accession number"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4K3M-NYVG", "identifierType"=>"DOI"}, {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Created"}, {"date"=>"2016-12-20", "dateType"=>"Issued"}, {"date"=>"2016-12-20", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)

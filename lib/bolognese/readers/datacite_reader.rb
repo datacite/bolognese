@@ -76,7 +76,11 @@ module Bolognese
           id = normalize_doi(meta.dig("identifier", "__content__") || options[:id], sandbox: options[:sandbox])
         end
 
-        doi = doi_from_url(id)
+        identifiers = [{ "identifierType" => "DOI", "identifier" => id }] + Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
+          { "identifierType" => get_identifier_type(r["alternateIdentifierType"]), "identifier" => r["__content__"].presence }.compact
+        end.compact
+
+        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
 
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         resource_type = meta.dig("resourceType", "__content__")
@@ -100,9 +104,6 @@ module Bolognese
           end
         end.compact
 
-        alternate_identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-          { "alternateIdentifierType" => r["alternateIdentifierType"], "alternateIdentifier" => r["__content__"].presence }.compact
-        end.compact
         descriptions = Array.wrap(meta.dig("descriptions", "description")).map do |r|
           if r.blank?
             nil
@@ -191,8 +192,8 @@ module Bolognese
 
         { "id" => id,
           "types" => types,
-          "doi" => doi,
-          "alternate_identifiers" => alternate_identifiers,
+          "doi" => doi_from_url(doi),
+          "identifiers" => identifiers,
           "url" => options.fetch(:url, nil).to_s.strip.presence,
           "titles" => titles,
           "creators" => get_authors(Array.wrap(meta.dig("creators", "creator"))),

@@ -19,7 +19,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get schema_org metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(subject.creators).to eq([{"type"=>"Person", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
@@ -36,7 +36,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting with new DOI" do
       subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5438/0000-00ss")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/0000-00ss", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.5438/0000-00ss")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
@@ -47,7 +47,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.errors.size).to eq(2)
       expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
-      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1196821")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1196821", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
       expect(subject.url).to eq("https://zenodo.org/record/1196821")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
@@ -60,7 +60,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.836178")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1594/pangaea.836178", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.1594/pangaea.836178")
       expect(subject.url).to eq("https://doi.pangaea.de/10.1594/PANGAEA.836178")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
@@ -88,7 +88,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJ7XSO"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7910/dvn/nj7xso", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
@@ -101,7 +101,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://identifiers.org/doi/10.7910/DVN/NJ7XSO"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.7910/dvn/nj7xso")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7910/dvn/nj7xso", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
@@ -115,7 +115,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'schema_org.json'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Martin Fenner", "givenName"=>"Martin", "familyName"=>"Fenner"}])
@@ -134,8 +134,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.25491/d50j-3083")
-      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=>"687610993", "alternateIdentifierType"=>"md5"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.25491/d50j-3083", "identifierType"=>"DOI"}, {"identifier"=>"687610993", "identifierType"=>"md5"}])
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(subject.content_url).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"Gene expression matrices", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
@@ -155,8 +154,10 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'schema_org_topmed.json'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.23725/8na3-9s47")
-      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=>"3b33f6b9338fccab0901b7d317577ea3","alternateIdentifierType"=>"md5"},{"alternateIdentifier"=>"ark:/99999/fk41CrU4eszeLUDe","alternateIdentifierType"=>"minid"},{"alternateIdentifier"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "alternateIdentifierType"=>"dataguid"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23725/8na3-9s47", "identifierType"=>"DOI"},
+        {"identifier"=>"3b33f6b9338fccab0901b7d317577ea3", "identifierType"=>"md5"},
+        {"identifier"=>"ark:/99999/fk41CrU4eszeLUDe", "identifierType"=>"minid"},
+        {"identifier"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7", "identifierType"=>"dataguid"}])
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"CRAM file", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
@@ -175,7 +176,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.6071/z7wc73")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(6)
       expect(subject.creators.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
@@ -200,7 +201,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.1594/pangaea.842237")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1594/pangaea.842237", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("name"=>"Tara Oceans Consortium, Coordinators", "type"=>"Organization")
@@ -216,8 +217,11 @@ describe Bolognese::Metadata, vcr: true do
       input = JSON.parse(data).first.to_json
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.23725/7jg3-v803")
-      expect(subject.alternate_identifiers).to eq([{"alternateIdentifier"=>"ark:/99999/fk4E1n6n1YHKxPk","alternateIdentifierType"=>"minid"},{"alternateIdentifier"=>"dg.4503/01b048d0-e128-4cb0-94e9-b2d2cab7563d","alternateIdentifierType"=>"dataguid"},{"alternateIdentifier"=>"f9e72bdf25bf4b4f0e581d9218fec2eb","alternateIdentifierType"=>"md5"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23725/7jg3-v803", "identifierType"=>"DOI"},
+        {"identifier"=>"ark:/99999/fk4E1n6n1YHKxPk", "identifierType"=>"minid"},
+        {"identifier"=>"dg.4503/01b048d0-e128-4cb0-94e9-b2d2cab7563d",
+         "identifierType"=>"dataguid"},
+        {"identifier"=>"f9e72bdf25bf4b4f0e581d9218fec2eb", "identifierType"=>"md5"}])
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/44a8837b-4456-5709-b56b-54e23000f13a/NWD100953.recab.cram","gs://topmed-irc-share/public/NWD100953.recab.cram","dos://dos.commons.ucsc-cgp.org/01b048d0-e128-4cb0-94e9-b2d2cab7563d?version=2018-05-26T133719.491772Z"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"CRAM file", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
@@ -250,7 +254,7 @@ describe Bolognese::Metadata, vcr: true do
       
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.5281/zenodo.1239")
-      expect(subject.identifier).to eq("https://doi.org/10.5281/zenodo.1239")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1239", "identifierType"=>"DOI"}])
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
       expect(subject.creators).to eq([{"familyName"=>"Jahn", "givenName"=>"Najko", "name"=>"Jahn, Najko", "type"=>"Person"}])

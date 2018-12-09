@@ -5,7 +5,7 @@ module Bolognese
     module DataciteJsonWriter
       def datacite_json
         hsh = {
-          "id" => identifier,
+          "id" => id,
           "doi" => doi,
           "url" => url,
           "creators" => creators,
@@ -18,7 +18,7 @@ module Bolognese
           "dates" => to_datacite_json(dates),
           "publicationYear" => publication_year,
           "language" => language,
-          "alternateIdentifiers" => to_datacite_json(alternate_identifiers),
+          "identifiers" => to_datacite_json(identifiers),
           "relatedIdentifiers" => to_datacite_json(related_identifiers),
           "sizes" => sizes,
           "formats" => formats,

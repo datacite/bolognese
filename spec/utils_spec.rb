@@ -235,12 +235,11 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
-  context "to_schema_org_identifier" do
-    it "with alternate_identifier" do
-      identifier = "https://doi.org/10.23725/8na3-9s47"
-      alternate_identifiers = [{"alternateIdentifierType"=>"md5", "alternateIdentifier"=>"3b33f6b9338fccab0901b7d317577ea3"}, {"alternateIdentifierType"=>"minid", "alternateIdentifier"=>"ark:/99999/fk41CrU4eszeLUDe"}, {"alternateIdentifierType"=>"dataguid", "alternateIdentifier"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}]
-      response = subject.to_schema_org_identifier(identifier, alternate_identifiers: alternate_identifiers, type: "Dataset")
-      expect(response).to eq([{"@type"=>"PropertyValue", "propertyID"=>"doi", "value"=>"https://doi.org/10.23725/8na3-9s47"},
+  context "to_schema_org_identifiers" do
+    it "with identifiers" do
+      identifiers = [{"identifier" => "https://doi.org/10.23725/8na3-9s47", "identifierType" => "DOI"}, {"identifierType"=>"md5", "identifier"=>"3b33f6b9338fccab0901b7d317577ea3"}, {"identifierType"=>"minid", "identifier"=>"ark:/99999/fk41CrU4eszeLUDe"}, {"identifierType"=>"dataguid", "identifier"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}]
+      response = subject.to_schema_org_identifiers(identifiers, type: "Dataset")
+      expect(response).to eq([{"@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.23725/8na3-9s47"},
         {"@type"=>"PropertyValue",
          "propertyID"=>"md5",
          "value"=>"3b33f6b9338fccab0901b7d317577ea3"},

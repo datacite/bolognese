@@ -18,7 +18,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get crossref metadata" do
     it "DOI with data citation" do
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}, {"identifier"=>"e01567", "identifierType"=>"Publisher ID"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.creators.length).to eq(5)
@@ -48,7 +48,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq(input)
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1371/journal.pone.0000030", "identifierType"=>"DOI"}, {"identifier"=>"10.1371/journal.pone.0000030", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(5)
@@ -69,13 +69,12 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1101/097196"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq(input)
       expect(subject.url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"PostedContent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.count).to eq(11)
       expect(subject.creators.last).to eq("type"=>"Person", "id"=>"http://orcid.org/0000-0003-4060-7360", "name"=>"Timothy Clark", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.titles).to eq([{"title"=>"A Data Citation Roadmap for Scholarly Data Repositories"}])
-      expect(subject.alternate_identifiers).to eq("alternateIdentifier"=>"biorxiv;097196v2", "alternateIdentifierType"=>"Publisher ID")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1101/097196", "identifierType"=>"DOI"}, {"identifier"=>"biorxiv;097196v2", "identifierType"=>"Publisher ID"}])
       expect(subject.descriptions.first["description"]).to start_with("This article presents a practical roadmap")
       expect(subject.dates).to eq([{"date"=>"2017-10-09", "dateType"=>"Issued"}, {"date"=>"2017-10-10T05:10:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2017")
@@ -87,7 +86,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.1890/0012-9658(2006)87%5B2832:tiopma%5D2.0.co;2")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1890/0012-9658(2006)87%255b2832:tiopma%255d2.0.co;2", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"type"=>"Person", "name"=>"A. Fenton", "givenName"=>"A.", "familyName"=>"Fenton"}, {"type"=>"Person", "name"=>"S. A. Rands", "givenName"=>"S. A.", "familyName"=>"Rands"}])
@@ -106,7 +105,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.1155/2012/291294")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1155/2012/291294", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(7)
@@ -126,7 +125,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1016/j.ejphar.2015.03.018"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq(input)
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1016/j.ejphar.2015.03.018", "identifierType"=>"DOI"}, {"identifier"=>"S0014299915002332", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("http://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(10)
@@ -143,7 +142,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.2210/pdb4hhb/pdb"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2210/pdb4hhb/pdb", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"SaComponent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(2)
@@ -160,7 +159,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1007/978-3-662-46370-3_13"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1007/978-3-662-46370-3_13", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
       expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators.length).to eq(2)
@@ -176,7 +175,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq(input)
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1111/nph.14619", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(3)
@@ -196,7 +195,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.7554/elife.01567x"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
-      expect(subject.identifier).to eq("https://doi.org/10.7554/elife.01567x")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567x", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.7554/elife.01567x")
       expect(subject.agency).to eq("Crossref")
       expect(subject.state).to eq("not_found")

@@ -557,26 +557,13 @@ module Bolognese
         "name" => element["title"] || options[:container_title] }.compact
     end
 
-    def to_schema_org_identifier(element, options={})
-      ident = { 
-        "@type" => "PropertyValue",
-        "propertyID" => normalize_doi(element) ? "doi" : "url",
-        "value" => element }
-
-      if options[:alternate_identifiers].present?
-        [ident] + Array.wrap(options[:alternate_identifiers]).map do |ai|
-                    if ai["alternateIdentifierType"].to_s.downcase == "url"
-                      ai["alternateIdentifier"]
-                    else
-                      { 
-                        "@type" => "PropertyValue",
-                        "propertyID" => ai["alternateIdentifierType"],
-                        "value" => ai["alternateIdentifier"] }
-                    end
-                  end
-      else
-        ident
-      end
+    def to_schema_org_identifiers(element, options={})
+      Array.wrap(element).map do |ai|
+        { 
+          "@type" => "PropertyValue",
+          "propertyID" => ai["identifierType"],
+          "value" => ai["identifier"] }
+      end.unwrap
     end
 
     def to_schema_org_relation(related_identifiers: nil, relation_type: nil)
@@ -656,7 +643,7 @@ module Bolognese
               "address" => gl["geoLocationPlace"] }
           }.compact
         end
-        
+
         sum
       end.unwrap
     end
@@ -839,12 +826,45 @@ module Bolognese
     end
 
     def get_date(dates, date_type)
-      dd = dates.find { |d| d["dateType"] == date_type } || {}
+      dd = Array.wrap(dates).find { |d| d["dateType"] == date_type } || {}
       dd.fetch("date", nil)
     end
 
     def get_contributor(contributor, contributor_type)
       contributor.select { |c| c["contributorType"] == contributor_type }
+    end
+
+    def get_identifier(identifiers, identifier_type)
+      id = Array.wrap(identifiers).find { |i| i["identifierType"] == identifier_type } || {}
+      id.fetch("identifier", nil)
+    end
+
+    def get_identifier_type(identifier_type)
+      identifierTypes = {
+        "ark" => "ARK",
+        "arxiv" => "arXiv",
+        "bibcode" => "bibcode",
+        "doi" => "DOI",
+        "ean13" => "EAN13",
+        "eissn" => "EISSN",
+        "handle" => "Handle",
+        "igsn" => "IGSN",
+        "isbn" => "ISBN",
+        "issn" => "ISSN",
+        "istc" => "ISTC",
+        "lissn" => "LISSN",
+        "lsid" => "LSID",
+        "pmid" => "PMID",
+        "purl" => "PURL",
+        "upc" => "UPC",
+        "url" => "URL",
+        "urn" => "URN",
+        "md5" => "md5",
+        "minid" => "minid",
+        "dataguid" => "dataguid"
+      }
+
+      identifierTypes[identifier_type.downcase] || identifier_type
     end
 
     def jsonlint(json)

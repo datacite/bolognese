@@ -8,9 +8,9 @@ module Bolognese
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
     attr_reader :doc, :page_start, :page_end
-    attr_writer :id, :provider_id, :client_id, :doi, :identifier, :creators, :contributors, :titles, :publisher, 
+    attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :url, :version_info,
-                :subjects, :contributor, :descriptions, :alternate_identifiers, :language, :sizes,
+                :subjects, :contributor, :descriptions, :language, :sizes,
                 :formats, :schema_version, :meta, :container, :agency,
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers, :style, :locale
@@ -49,7 +49,7 @@ module Bolognese
                 "client_id" => options[:client_id],
                 "content_url" => options[:content_url],
                 "creators" => options[:creators],
-                "contributors" => options[:creators],
+                "contributors" => options[:contributors],
                 "titles" => options[:titles],
                 "publisher" => options[:publisher],
                 "publication_year" => options[:publication_year] }
@@ -83,7 +83,7 @@ module Bolognese
         :contributors,
         :titles,
         :types,
-        :alternate_identifiers,
+        :identifiers,
         :container,
         :publisher,
         :funding_references,
@@ -101,8 +101,7 @@ module Bolognese
       ).compact
 
       # generate name for method to call dynamically
-      @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox] }.merge(read_options)) : {}
-      @identifier = normalize_doi(options[:doi] || input, options) || @meta.fetch("id", nil) || @meta.fetch("identifier", nil)
+      @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id }.merge(read_options)) : {}
     end
 
     def id
@@ -110,7 +109,7 @@ module Bolognese
     end
 
     def doi
-      @doi ||= @identifier.present? ? doi_from_url(@identifier) : meta.fetch("doi", nil)
+      @doi ||= meta.fetch("doi", nil)
     end
 
     def provider_id
@@ -198,8 +197,8 @@ module Bolognese
       @publisher ||= meta.fetch("publisher", nil)
     end
 
-    def alternate_identifiers
-      @alternate_identifiers ||= meta.fetch("alternate_identifiers", nil)
+    def identifiers
+      @identifiers ||= meta.fetch("identifiers", nil)
     end
 
     def content_url
@@ -212,10 +211,6 @@ module Bolognese
 
     def state
       @state ||= meta.fetch("state", nil)
-    end
-
-    def identifier
-      @identifier ||= meta.fetch("id", nil)
     end
 
     def types

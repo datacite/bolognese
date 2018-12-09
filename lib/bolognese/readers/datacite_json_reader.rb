@@ -33,7 +33,7 @@ module Bolognese
           "doi" => validate_doi(meta.fetch("doi", nil)),
           "url" => normalize_id(meta.fetch("url", nil)),
           "titles" => meta.fetch("titles", nil),
-          "alternate_identifiers" => Array.wrap(meta.fetch("alternateIdentifiers", nil)),
+          "identifiers" => Array.wrap(meta.fetch("identifiers", nil)),
           "creators" => meta.fetch("creators", nil),
           "contributors" => meta.fetch("contributors", nil),
           "publisher" => meta.fetch("publisher", nil),

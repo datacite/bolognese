@@ -16,7 +16,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get citeproc metadata" do
     it "BlogPosting" do
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(subject.creators).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Martin Fenner", "type"=>"Person"}])
@@ -32,7 +32,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "citeproc-no-categories.json"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifier).to eq("https://doi.org/10.5072/4k3m-nyvg")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/4k3m-nyvg", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(subject.creators).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Martin Fenner", "type"=>"Person"}])
