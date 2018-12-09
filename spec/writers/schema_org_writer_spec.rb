@@ -142,7 +142,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Rural Electrification With Hybrid Power Systems Based on Renewables - Technical System Configurations From the Point of View of the European Industry")
       expect(json["author"].count).to eq(3)
       expect(json["author"].first).to eq("@type"=>"Person", "name"=>"P. Llamas", "givenName"=>"P.", "familyName"=>"Llamas")
-      expect(json["periodical"]).to eq("@type"=>"Periodical", "name"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356")
+      expect(json["periodical"]).to eq("@type"=>"Series", "firstPage"=>"Spain; 3353", "lastPage"=>"3356", "name"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition", "volume"=>"1-5 September 2008")
     end
 
     it "data catalog" do

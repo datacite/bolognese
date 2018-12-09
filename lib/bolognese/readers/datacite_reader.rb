@@ -219,15 +219,21 @@ module Bolognese
       end
 
       def set_container(meta)
-        container_title = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
+        series_information = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
+        si = get_series_information(series_information)
+
         is_part_of = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).find { |ri| ri["relationType"] == "IsPartOf" }.to_h
 
-        if container_title.present? || is_part_of.present?
+        if si["title"].present? || is_part_of.present?
           {
-            "type" => meta.dig("resourceType", "resourceTypeGeneral") == "Dataset" ? "DataRepository" : "Periodical",
+            "type" => meta.dig("resourceType", "resourceTypeGeneral") == "Dataset" ? "DataRepository" : "Series",
             "identifier" => is_part_of["__content__"],
             "identifierType" => is_part_of["relatedIdentifierType"],
-            "title" => container_title
+            "title" => si["title"],
+            "volume" => si["volume"],
+            "issue" => si["issue"],
+            "firstPage" => si["firstPage"],
+            "lastPage" => si["lastPage"]
           }.compact
         else
           {}

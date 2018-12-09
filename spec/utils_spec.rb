@@ -331,6 +331,38 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "get_series_information" do
+    it "only title" do
+      str = nil
+      response = subject.get_series_information(str)
+      expect(response).to eq({})
+    end
+
+    it "only title" do
+      str = "DataCite Blog"
+      response = subject.get_series_information(str)
+      expect(response).to eq("title"=>"DataCite Blog")
+    end
+
+    it "title and pages" do
+      str = "DataCite Blog, 1-3"
+      response = subject.get_series_information(str)
+      expect(response).to eq("firstPage"=>"1", "lastPage"=>"3", "title"=>"DataCite Blog")
+    end
+
+    it "title, volume and pages" do
+      str = "DataCite Blog, 7, 1-3"
+      response = subject.get_series_information(str)
+      expect(response).to eq("firstPage"=>"1", "lastPage"=>"3", "title"=>"DataCite Blog", "volume"=>"7")
+    end
+
+    it "title, volume, issue and pages" do
+      str = "DataCite Blog, 7(11), 1-3"
+      response = subject.get_series_information(str)
+      expect(response).to eq("firstPage"=>"1", "issue"=>"11", "lastPage"=>"3", "title"=>"DataCite Blog", "volume"=>"7")
+    end
+  end
+
   context "github" do
     it "github_from_url" do
       url = "https://github.com/datacite/bolognese"

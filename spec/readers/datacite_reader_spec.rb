@@ -258,6 +258,34 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Roger Bales", "type"=>"Person")
     end
 
+    it "series_information" do
+      input = fixture_path + 'datacite-seriesinformation.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}, {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
+      expect(subject.creators.length).to eq(1)
+      expect(subject.creators.first).to eq("familyName"=>"Fenner", "givenName"=>"Martin", "id"=>"https://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "type"=>"Person")
+      expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
+      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publication_year).to eq("2016")
+      expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"10.5438/0012",
+        "relatedIdentifierType"=>"DOI",
+        "relationType"=>"References"},
+       {"relatedIdentifier"=>"10.5438/55e5-t5c0",
+        "relatedIdentifierType"=>"DOI",
+        "relationType"=>"References"},
+       {"relatedIdentifier"=>"10.5438/0000-00ss",
+        "relatedIdentifierType"=>"DOI",
+        "relationType"=>"IsPartOf"}])
+      expect(subject.descriptions).to eq([{"description"=>"DataCite Blog, 2(9), 3-4",
+        "descriptionType"=>"SeriesInformation",
+        "lang"=>"en"},
+       {"description"=>
+        "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...",
+        "descriptionType"=>"Abstract"}])
+      expect(subject.container).to eq("firstPage"=>"3", "identifier"=>"10.5438/0000-00SS", "identifierType"=>"DOI", "issue"=>"9", "lastPage"=>"4", "title"=>"DataCite Blog", "type"=>"Series", "volume"=>"2")
+    end
+
     it "geo_location" do
       input = fixture_path + 'datacite-example-geolocation.xml'
       doi = "10.5072/geoPointExample"
@@ -611,7 +639,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Rural Electrification With Hybrid Power Systems Based on Renewables - Technical System Configurations From the Point of View of the European Industry"}])
       expect(subject.dates).to eq([{"date"=>"2008-11-01", "dateType"=>"Valid"}, {"date"=>"2008", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2008")
-      expect(subject.container).to eq("title"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition, 1-5 September 2008, Valencia, Spain; 3353-3356", "type"=>"Periodical")
+      expect(subject.container).to eq("firstPage"=>"Spain; 3353", "lastPage"=>"3356", "title"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition", "type"=>"Series", "volume"=>"1-5 September 2008")
       expect(subject.descriptions[1]["description"]).to start_with("Aim of this paper is the presentation")
       expect(subject.publisher).to eq("WIP-Munich")
       expect(subject.agency).to eq("DataCite")
