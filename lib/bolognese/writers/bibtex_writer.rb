@@ -10,7 +10,7 @@ module Bolognese
 
         bib = {
           bibtex_type: types["bibtex"].presence || "misc",
-          bibtex_key: id,
+          bibtex_key: normalize_doi(doi),
           doi: doi,
           url: url,
           author: authors_as_string(creators),

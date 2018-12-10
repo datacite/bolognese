@@ -115,7 +115,7 @@ module Bolognese
 
       {
         "type" => types["citeproc"],
-        "id" => id,
+        "id" => normalize_doi(doi),
         "categories" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
         "language" => language,
         "author" => to_citeproc(creators),
@@ -137,7 +137,7 @@ module Bolognese
 
     def crosscite_hsh
       {
-        "id" => id,
+        "id" => normalize_doi(doi),
         "doi" => doi,
         "url" => url,
         "types" => types,
