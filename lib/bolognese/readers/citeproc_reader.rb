@@ -70,8 +70,8 @@ module Bolognese
           nil
         end
         container = if meta.fetch("container-title", nil).present?
-          first_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip).first : nil
-          last_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip).last : nil
+          first_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip)[0] : nil
+          last_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip)[1] : nil
 
           { "type" => "Periodical",
             "title" => meta.fetch("container-title", nil),

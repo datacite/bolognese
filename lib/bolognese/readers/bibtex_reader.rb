@@ -60,8 +60,8 @@ module Bolognese
         end
 
         container = if meta.try(:journal).present?
-          first_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip).first : nil
-          last_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip).last : nil
+          first_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[0] : nil
+          last_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[1] : nil
           
           { "type" => "Journal",
             "title" => meta.journal.to_s,
