@@ -77,7 +77,9 @@ module Bolognese
         end
 
         identifiers = [{ "identifierType" => "DOI", "identifier" => id }] + Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
-          { "identifierType" => get_identifier_type(r["alternateIdentifierType"]), "identifier" => r["__content__"].presence }.compact
+          if r["__content__"].present?
+            { "identifierType" => get_identifier_type(r["alternateIdentifierType"]), "identifier" => r["__content__"] }
+          end
         end.compact
 
         doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)

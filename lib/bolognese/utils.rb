@@ -876,6 +876,8 @@ module Bolognese
     end
 
     def get_identifier_type(identifier_type)
+      return nil unless identifier_type.present?
+
       identifierTypes = {
         "ark" => "ARK",
         "arxiv" => "arXiv",
@@ -913,8 +915,8 @@ module Bolognese
       volume = volume_issue.present? ? volume_issue[0].presence || volume_issue[2].presence : nil
       issue = volume_issue.present? ? volume_issue[1][1...-1].presence : nil
       pages = str.length > 1 ? str.last : nil
-      first_page = pages.present? ? pages.split("-").map(&:strip).first : nil
-      last_page = pages.present? ? pages.split("-").map(&:strip).last : nil
+      first_page = pages.present? ? pages.split("-").map(&:strip)[0] : nil
+      last_page = pages.present? ? pages.split("-").map(&:strip)[1] : nil
 
       { 
         "title" => title,

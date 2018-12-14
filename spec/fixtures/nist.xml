@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-3" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd">
+  <identifier identifierType="DOI">https://doi.org/10.5072/M32163</identifier>
+  <creators>
+    <creator>
+      <creatorName nameType="personal">William Turner</creatorName>
+      <givenName>William</givenName>
+      <familyName>Turner</familyName>
+      <affiliation>National Institute of Standards and Technology</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title>Peter Auto Dataset 501</title>
+  </titles>
+  <publisher>National Institute of Standards and Technology</publisher>
+  <publicationYear>2018</publicationYear>
+  <subjects>
+    <subject>Einstein</subject>
+  </subjects>
+  <dates>
+    <date dateType="Updated">2018-10-30</date>
+  </dates>
+  <language>en</language>
+  <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+  <rightsList>
+    <rights rightsURI="https://www.nist.gov/director/licensing">NIST Licensing</rights>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Abstract">This is to overturn Einstein's Relativity Theory.</description>
+  </descriptions>
+  <alternateIdentifiers alternateIdentifierType="text">
+    <alternateIdentifier>7CE9D6400C0A30C9E053B357068182C92163</alternateIdentifier>
+  </alternateIdentifiers>
+</resource>

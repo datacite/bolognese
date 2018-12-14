@@ -246,6 +246,17 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.geo_locations).to eq([{"geoLocationBox"=>{"eastBoundLongitude"=>"70.0", "northBoundLatitude"=>"70.0", "southBoundLatitude"=>"-70.0", "westBoundLongitude"=>"-70.0"}}, {"geoLocationPlace"=>"Regional"}])
     end
 
+    it "wrong attributes" do
+      input = fixture_path + 'nist.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/m32163", "identifierType"=>"DOI"}])
+      expect(subject.titles).to eq([{"title"=>"Peter Auto Dataset 501"}])
+      expect(subject.descriptions).to eq([{"description"=>"This is to overturn Einstein's Relativity Theory.", "descriptionType"=>"Abstract"}])
+      expect(subject.valid?).to be false
+      expect(subject.errors.length).to eq(4)
+      expect(subject.errors.last).to eq("32:0: ERROR: Element '{http://datacite.org/schema/kernel-3}alternateIdentifier': The attribute 'alternateIdentifierType' is required but missing.")
+    end
+
     it "schema 4.0" do
       input = fixture_path + 'schema_4.0.xml'
       subject = Bolognese::Metadata.new(input: input)
