@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.3980
+    uri: https://doi.org/ra/10.3980
     body:
       encoding: US-ASCII
       string: ''
@@ -14,35 +14,34 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:22:28 GMT
+      - Sat, 29 Dec 2018 07:53:00 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '51'
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      X-Request-Id:
-      - b054d79a-1ccd-467b-9c82-a1cbd72b4456
-      Etag:
-      - W/"feb91682cd56bffc71f1169c6c0f263a"
-      X-Runtime:
-      - '0.129441'
-      X-Powered-By:
-      - Phusion Passenger 5.3.4
+      Set-Cookie:
+      - __cfduid=d1607fe96918271b073395c864eb880e71546069979; expires=Sun, 29-Dec-19
+        07:52:59 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - cloudflare
+      Cf-Ray:
+      - 490ab0be3c342324-FRA
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.3980","type":"prefixes","attributes":{"registration-agency":"ISTIC","created":null,"updated":"2016-09-20T21:59:03Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:22:28 GMT
+      string: |-
+        [
+          {
+            "DOI": "10.3980",
+            "RA": "ISTIC"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:53:00 GMT
 recorded_with: VCR 3.0.3

@@ -75,8 +75,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("creators").first).to eq("familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Ollomo, Benjamin", "nameType" => "Personal")
       expect(crosscite.fetch("dates")).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(crosscite.fetch("publication_year")).to eq("2011")
-      expect(crosscite.fetch("provider_id")).to eq("DRYAD")
-      expect(crosscite.fetch("client_id")).to eq("DRYAD.DRYAD")
+      expect(crosscite.fetch("provider_id")).to eq("dryad")
+      expect(crosscite.fetch("client_id")).to eq("dryad.dryad")
     end
 
     it "maremma" do

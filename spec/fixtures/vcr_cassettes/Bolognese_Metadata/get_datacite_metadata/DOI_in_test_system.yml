@@ -2,7 +2,51 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.22002
+    uri: https://doi.org/ra/10.22002
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 29 Dec 2018 08:18:59 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '55'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc0d0ec0bc1a2504cd5e2668c7fd770841546071539; expires=Sun, 29-Dec-19
+        08:18:59 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 490ad6cfcb542768-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.22002",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 08:18:59 GMT
+- request:
+    method: get
+    uri: https://api.test.datacite.org/dois/10.22002/d1.694
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:21:51 GMT
+      - Sat, 29 Dec 2018 08:18:59 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,59 +74,27 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 119dc3f7-b31b-4173-9570-ac0ae4368e5f
       Etag:
-      - W/"4cee86bb09008bfa65612322068addfa"
+      - W/"5692462468768246f80b9f0b19944bf8"
       X-Runtime:
-      - '0.021009'
+      - '0.015769'
+      X-Request-Id:
+      - 2904509d-da61-4aae-a480-f44559f8dfa5
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuMjIwMDIiLCJ0eXBlIjoicHJlZml4ZXMiLCJhdHRyaWJ1dGVzIjp7InJlZ2lzdHJhdGlvbi1hZ2VuY3kiOiJEYXRhQ2l0ZSIsImNyZWF0ZWQiOiIyMDE2LTA1LTMxVDE0OjAyOjMyLjAwMFoiLCJ1cGRhdGVkIjpudWxsfSwicmVsYXRpb25zaGlwcyI6eyJjbGllbnRzIjp7ImRhdGEiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9XX19fSwiaW5jbHVkZWQiOlt7ImlkIjoidGluZC5jYWx0ZWNoIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJDYWx0ZWNoREFUQSIsInN5bWJvbCI6IlRJTkQuQ0FMVEVDSCIsInllYXIiOjIwMTYsImNvbnRhY3QtbmFtZSI6IlRJTkQiLCJjb250YWN0LWVtYWlsIjoidGVjaEB0aW5kLmlvIiwiZG9tYWlucyI6ImRhdGEuY2FsdGVjaC5lZHUiLCJ1cmwiOm51bGwsImNyZWF0ZWQiOiIyMDE2LTEyLTE1VDEyOjI5OjU3LjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wOC0yNlQwMjozNTo0OS4wMDBaIiwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWV9LCJyZWxhdGlvbnNoaXBzIjp7InByb3ZpZGVyIjp7ImRhdGEiOnsiaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyJ9fSwicmVwb3NpdG9yeSI6eyJkYXRhIjp7ImlkIjoicjNkMTAwMDEyMzg0IiwidHlwZSI6InJlcG9zaXRvcmllcyJ9fSwicHJlZml4ZXMiOnsiZGF0YSI6W3siaWQiOiIxMC41MDcyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDAyIiwidHlwZSI6InByZWZpeGVzIn1dfX19LHsiaWQiOiJ0aW5kIiwidHlwZSI6InByb3ZpZGVycyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IlRJTkQiLCJzeW1ib2wiOiJUSU5EIiwid2Vic2l0ZSI6Imh0dHA6Ly90aW5kLmlvIiwiY29udGFjdC1uYW1lIjoiQXVkdW4gQmrDuHJrw7h5IiwiY29udGFjdC1lbWFpbCI6ImF1ZHVuQHRpbmR0ZWNobm9sb2dpZXMuY29tIiwicGhvbmUiOm51bGwsImRlc2NyaXB0aW9uIjoiVElORCBpcyBhbiBvZmZpY2lhbCBzcGluLW9mZiBmcm9tIHRoZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2ggKENFUk4pLCBwcm92aWRpbmcgc2VydmljZXMgZm9yIGxpYnJhcnkgbWFuYWdlbWVudCBhbmQgZGF0YSBtYW5hZ2VtZW50IGJhc2VkIG9uIENFUk4tZGV2ZWxvcGVkLCBvcGVuIHNvdXJjZSB0ZWNobm9sb2d5LiBFc3RhYmxpc2hlZCBpbiAyMDEzLCBUSU5EIGlzIHByb3ZpZGluZyBpdOKAmXMgc2VydmljZXMgdG8gbGVhZGluZyByZXNlYXJjaCBpbnN0aXR1dGlvbnMgYW5kIElHT3Mgc3VjaCBhcyBDYWx0ZWNoIGFuZCB0aGUgVW5pdGVkIE5hdGlvbnMuIiwicmVnaW9uIjoiRU1FQSIsImNvdW50cnkiOiJDSCIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMuZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL3RpbmQucG5nIiwiaW5zdGl0dXRpb24tdHlwZSI6bnVsbCwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWUsImpvaW5lZCI6IjIwMTYtMDYtMjciLCJjcmVhdGVkIjoiMjAxNi0wNy0xMVQxNDo1NjoyNi4wMDBaIiwidXBkYXRlZCI6IjIwMTgtMDgtMjZUMDI6MjU6NTIuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7InByZWZpeGVzIjp7ImRhdGEiOlt7ImlkIjoiMTAuNTA3MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC42MDgyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDA1IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDAzIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDA0IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDAxIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjIyMDAyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjI1ODQ2IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjI1OTM4IiwidHlwZSI6InByZWZpeGVzIn1dfX19XX0=
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:51 GMT
-- request:
-    method: get
-    uri: https://search.test.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.22002/d1.694&wt=json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 06 Sep 2018 07:21:51 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Connection:
-      - keep-alive
-      Server:
-      - nginx/1.10.3 (Ubuntu)
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-    body:
-      encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"TIND.CAL","url":"https://data.caltech.edu/records/694","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","allocator_symbol":"TIND","minted":"2018-01-12T14:42:51Z","state":"findable","updated":"2018-02-16T10:09:12Z","doi":"10.22002/D1.694"}]}}
-
-'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:51 GMT
+      string: '{"data":{"id":"10.22002/d1.694","type":"dois","attributes":{"doi":"10.22002/d1.694","prefix":"10.22002","suffix":"d1.694","identifiers":[{"identifier":"https://handle.test.datacite.org/10.22002/d1.694","identifierType":"DOI"}],"creators":[{"name":"Tester"}],"titles":[{"title":"Test
+        license"}],"publisher":"CaltechDATA","container":{},"publicationYear":2018,"subjects":[{"subject":"Test"}],"contributors":[],"dates":[{"date":"2018-01-12","dateType":"Issued"}],"language":"eng","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"cc-zero"}],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","url":"https://data.caltech.edu/records/694","contentUrl":null,"metadataVersion":4,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"created":"2018-01-12T14:42:51.000Z","registered":"2018-01-12T14:42:51.000Z","updated":"2018-12-29T08:05:03.000Z"},"relationships":{"client":{"data":{"id":"tind.cal","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"tind.cal","type":"clients","attributes":{"name":"CaltechDATA","symbol":"TIND.CAL","year":2016,"contactName":"tech@tind.io","contactEmail":"tech@tind.io","description":"CaltechDATA
+        is an institutional data repository for Caltech.  Caltech library runs the
+        repository to preserve the accomplishments of Caltech researchers and share
+        their results with the world.  Caltech-associated researchers can upload data,
+        link data with their publications, and assign a permanent DOI so that others
+        can reference the data set.  The repository also preserves software and has
+        automatic Github integration. All files present in the repository are open
+        access or embargoed, and all metadata is always available to the public.","domains":"tind.io","url":"https://data.caltech.edu","created":"2016-10-25T15:16:46.000Z","updated":"2018-11-24T17:50:29.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tind","type":"providers"}},"repository":{"data":{"id":"10.17616/R3SW99","type":"repositories"}},"prefixes":{"data":[{"id":"10.5072","type":"prefixes"},{"id":"10.22002","type":"prefixes"}]}}}]}'
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 08:18:59 GMT
 recorded_with: VCR 3.0.3

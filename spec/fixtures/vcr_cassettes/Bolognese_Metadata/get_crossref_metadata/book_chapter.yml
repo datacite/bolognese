@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.1007
+    uri: https://doi.org/ra/10.1007
     body:
       encoding: US-ASCII
       string: ''
@@ -14,37 +14,36 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:23:44 GMT
+      - Sat, 29 Dec 2018 07:52:33 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      X-Request-Id:
-      - 529dd825-3298-4cde-bc05-cf39e59412c7
-      Etag:
-      - W/"0f55b0f379d47b71b3dda4f8bae6b2b8"
-      X-Runtime:
-      - '0.137111'
-      X-Powered-By:
-      - Phusion Passenger 5.3.4
+      Set-Cookie:
+      - __cfduid=df69b6e120cf27d183dd73231184190e41546069953; expires=Sun, 29-Dec-19
+        07:52:33 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - cloudflare
+      Cf-Ray:
+      - 490ab01b2901231e-FRA
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.1007","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:45:22Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:23:44 GMT
+      string: |-
+        [
+          {
+            "DOI": "10.1007",
+            "RA": "Crossref"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:33 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.1007/978-3-662-46370-3_13&noredirect=true&pid=tech@datacite.org
@@ -64,13 +63,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs4-1
+      - qs5-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Thu, 06 Sep 2018 07:23:43 GMT
+      - Sat, 29 Dec 2018 07:52:33 GMT
       Connection:
       - close
     body:
@@ -129,6 +128,6 @@ http_interactions:
         \             <item crawler=\"iParadigms\">\r\n                <resource>http://link.springer.com/content/pdf/10.1007/978-3-662-46370-3_13</resource>\r\n
         \             </item>\r\n            </collection>\r\n          </doi_data>\r\n
         \       </content_item>\r\n      </book>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:23:44 GMT
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:34 GMT
 recorded_with: VCR 3.0.3

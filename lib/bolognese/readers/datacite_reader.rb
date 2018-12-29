@@ -6,15 +6,9 @@ module Bolognese
       def get_datacite(id: nil, **options)
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
-        search_url = doi_search(id, options)
-        doi = doi_from_url(id)
-        params = { q: "doi:#{doi}",
-                   fl: "doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated",
-                   wt: "json" }
-        search_url += "?" + URI.encode_www_form(params)
-
-        response = Maremma.get search_url
-        attributes = response.body.dig("data", "response", "docs").first
+        api_url = doi_api_url(id, options)
+        response = Maremma.get api_url
+        attributes = response.body.dig("data", "attributes")
         return { "string" => nil, "state" => "not_found" } unless attributes.present?
 
         string = attributes.fetch('xml', nil)
@@ -34,17 +28,21 @@ module Bolognese
           string = doc.to_xml(:indent => 2)
         end
 
-        content_url = Array.wrap(attributes.fetch("media", nil)).map do |media|
-          media.split(":", 2).last
+        client = Array.wrap(response.body.fetch("included", nil)).find { |m| m["type"] == "clients" }
+        client_id = client.to_h.fetch("id", nil)
+        provider_id = Array.wrap(client.to_h.fetch("relationships", nil)).find { |m| m["provider"].present? }.to_h.dig("provider", "data", "id")
+
+        content_url = attributes.fetch("contentUrl", nil) || Array.wrap(response.body.fetch("included", nil)).select { |m| m["type"] == "media" }.map do |m|
+          m.dig("attributes", "url")
         end.compact
 
         { "string" => string,
           "url" => attributes.fetch("url", nil),
           "state" => attributes.fetch("state", nil),
-          "date_registered" => attributes.fetch("minted", nil),
+          "date_registered" => attributes.fetch("registered", nil),
           "date_updated" => attributes.fetch("updated", nil),
-          "provider_id" => attributes.fetch("allocator_symbol", nil),
-          "client_id" => attributes.fetch("datacentre_symbol", nil),
+          "provider_id" => provider_id,
+          "client_id" => client_id,
           "content_url" => content_url }
       end
 

@@ -2,7 +2,51 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5281
+    uri: https://doi.org/ra/10.5281
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 29 Dec 2018 07:52:14 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d3570753c27fc706c8b6ceaabe2a2b1561546069934; expires=Sun, 29-Dec-19
+        07:52:14 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 490aafa4fd30235a-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.5281",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:14 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.5281/zenodo.1239
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:21:56 GMT
+      - Sat, 29 Dec 2018 07:52:15 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,58 +75,36 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - e369da45-e521-45a9-b41e-e994a732ce7c
+      - 5ad58c01-5b76-4e42-84e5-c300ebb69867
       Etag:
-      - W/"f9a485d503cac9b03e7d366fcc10031e"
+      - W/"f9e3ce73f34b970b4a60051b3242f9e1"
       X-Runtime:
-      - '0.019712'
+      - '0.070612'
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuNTI4MSIsInR5cGUiOiJwcmVmaXhlcyIsImF0dHJpYnV0ZXMiOnsicmVnaXN0cmF0aW9uLWFnZW5jeSI6IkRhdGFDaXRlIiwiY3JlYXRlZCI6IjIwMTAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsInVwZGF0ZWQiOm51bGx9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsiZGF0YSI6W3siaWQiOiJjZXJuLnplbm9kbyIsInR5cGUiOiJjbGllbnRzIn1dfSwicHJvdmlkZXJzIjp7ImRhdGEiOlt7ImlkIjoiY2VybiIsInR5cGUiOiJwcm92aWRlcnMifV19fX0sImluY2x1ZGVkIjpbeyJpZCI6ImNlcm4uemVub2RvIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJaRU5PRE8gLSBSZXNlYXJjaC4gU2hhcmVkLiIsInN5bWJvbCI6IkNFUk4uWkVOT0RPIiwieWVhciI6MjAxMywiY29udGFjdC1uYW1lIjoiTGFycyBIb2xtIE5pZWxzZW4iLCJjb250YWN0LWVtYWlsIjoibGFycy5ob2xtLm5pZWxzZW5AY2Vybi5jaCIsImRvbWFpbnMiOiJvcGVuYWlyZS5jZXJuLmNoLHplbm9kby5vcmciLCJ1cmwiOm51bGwsImNyZWF0ZWQiOiIyMDEzLTAxLTI4VDEyOjA3OjQ4LjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wOC0yNlQwMjozNToxNS4wMDBaIiwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWV9LCJyZWxhdGlvbnNoaXBzIjp7InByb3ZpZGVyIjp7ImRhdGEiOnsiaWQiOiJjZXJuIiwidHlwZSI6InByb3ZpZGVycyJ9fSwicmVwb3NpdG9yeSI6eyJkYXRhIjp7ImlkIjoicjNkMTAwMDEwNDY4IiwidHlwZSI6InJlcG9zaXRvcmllcyJ9fSwicHJlZml4ZXMiOnsiZGF0YSI6W3siaWQiOiIxMC41MjgxIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjUwNzIiLCJ0eXBlIjoicHJlZml4ZXMifV19fX0seyJpZCI6ImNlcm4iLCJ0eXBlIjoicHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiQ0VSTiAtIEV1cm9wZWFuIE9yZ2FuaXphdGlvbiBmb3IgTnVjbGVhciBSZXNlYXJjaCIsInN5bWJvbCI6IkNFUk4iLCJ3ZWJzaXRlIjoiaHR0cDovL2RvaS53ZWIuY2Vybi5jaC8iLCJjb250YWN0LW5hbWUiOiJTw7xuamUgRGFsbG1laWVyLVRpZXNzZW4iLCJjb250YWN0LWVtYWlsIjoic3VuamUuZGFsbG1laWVyLXRpZXNzZW5AY2Vybi5jaCIsInBob25lIjpudWxsLCJkZXNjcmlwdGlvbiI6IkNFUk4sIHRoZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2gsIGlzIHRoZSB3b3JsZCdzIGxhcmdlc3QgcGFydGljbGUgcGh5c2ljcyBsYWJvcmF0b3J5LiBGb3VuZGVkIGluIDE5NTQgYW5kIGJhc2VkIG9uIHRoZSBGcmFuY28tU3dpc3MgYm9yZGVyIG5lYXIgR2VuZXZhLCBpdCB3YXMgb25lIG9mIEV1cm9wZSdzIGZpcnN0IGpvaW50IHZlbnR1cmVzIGFuZCBub3cgaGFzIDIxIG1lbWJlciBzdGF0ZXMgYW5kIG1vcmUgdGhhbiA1MCBjb29wZXJhdGlvbiBhZ3JlZW1lbnRzIGFuZCBzY2llbnRpZmljIGNvbnRhY3RzIHdpdGggb3RoZXIgY291bnRyaWVzLlxuXG5BdCBDRVJOLCBwaHlzaWNpc3RzIGFuZCBlbmdpbmVlcnMgcHJvYmUgdGhlIGZ1bmRhbWVudGFsIHN0cnVjdHVyZSBvZiB0aGUgdW5pdmVyc2UuIFRoZXkgdXNlIHRoZSB3b3JsZCdzIGxhcmdlc3QgYW5kIG1vc3QgY29tcGxleCBzY2llbnRpZmljIGluc3RydW1lbnQsIHRoZSBMYXJnZSBIYWRyb24gQ29sbGlkZXIgKExIQyksIHRvIHN0dWR5IHRoZSBiYXNpYyBjb25zdGl0dWVudHMgb2YgbWF0dGVyLiBUaGUgcmVzdWx0cyBvZiB0aGVpciBleHBlcmltZW50YWwgYW5kIHRoZW9yZXRpY2FsIHdvcmsgYXJlIHB1YmxpY2x5IGF2YWlsYWJsZSBmb2xsb3dpbmcgQ0VSTidzIE9wZW4gQWNjZXNzIFBvbGljeS5cblxuQ0VSTiBzZXJ2aWNlcyBpbXBsZW1lbnRpbmcgRE9JcyBhcmUgaXRzIGluc3RpdHV0aW9uYWwgcmVwb3NpdG9yeSAoQ0RTLCBDRVJOIERvY3VtZW50IFNlcnZlcik7IElOU1BJUkUtSEVQLCBhIGRpZ2l0YWwgbGlicmFyeSBmb3IgdGhlIGZpZWxkIG9mIEhpZ2gtRW5lcmd5IFBoeXNpY3MgcnVuIGluIGNvbGxhYm9yYXRpb24gd2l0aCBvdGhlciBpbnN0aXR1dGlvbnM7IG9yIHRoZSBDRVJOIE9wZW4gRGF0YSBQb3J0YWwsIHdoaWNoIHByb3ZpZGVzIGhpZ2ggbGV2ZWwgYW5kIGFuYWx5emFibGUgZGF0YSBhbmQgc29mdHdhcmUgZnJvbSB0aGUgTEhDIGV4cGVyaW1lbnRzLlxuXG5GdXJ0aGVybW9yZSwgQ0VSTiBpcyBhbHNvIHByb3ZpZGluZyBET0lzIHRvIFpFTk9ETywgYSBtdWx0aWRpc2NpcGxpbmFyeSBkYXRhIHJlcG9zaXRvcnkgZm9yIHRoZSDigJxsb25nIHRhaWzigJ0gb2YgcmVzZWFyY2ggcmVzdWx0cy4gSXQgYWxsb3dzIHJlc2VhcmNoZXJzIHRvIHNoYXJlIGFuZCBwcmVzZXJ2ZSB0aGVpciBvdXRwdXQgaW5kZXBlbmRlbnQgb2Ygc2l6ZSwgdHlwZSBvZiBtYXRlcmlhbCBvciBkaXNjaXBsaW5lLiIsInJlZ2lvbiI6IkVNRUEiLCJjb3VudHJ5IjoiQ0giLCJsb2dvLXVybCI6Imh0dHBzOi8vYXNzZXRzLmRhdGFjaXRlLm9yZy9pbWFnZXMvbWVtYmVycy9jZXJuLnBuZyIsImluc3RpdHV0aW9uLXR5cGUiOm51bGwsImlzLWFjdGl2ZSI6dHJ1ZSwiaGFzLXBhc3N3b3JkIjp0cnVlLCJqb2luZWQiOiIyMDE0LTAzLTI1IiwiY3JlYXRlZCI6IjIwMTQtMDQtMTBUMTM6NDE6NDQuMDAwWiIsInVwZGF0ZWQiOiIyMDE4LTA4LTI2VDAyOjI1OjUxLjAwMFoifSwicmVsYXRpb25zaGlwcyI6eyJwcmVmaXhlcyI6eyJkYXRhIjpbeyJpZCI6IjEwLjUyODEiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTE3MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41MDcyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjc0ODMiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNzQ4NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzE4MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzE4MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODQyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODQyOSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzczMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzczMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzczMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzcyNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzcyNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyNSIsInR5cGUiOiJwcmVmaXhlcyJ9XX19fV19
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:56 GMT
-- request:
-    method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.1239&wt=json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 06 Sep 2018 07:21:57 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Connection:
-      - keep-alive
-      Server:
-      - nginx/1.10.3 (Ubuntu)
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-    body:
-      encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CERN.ZENODO","url":"https://zenodo.org/record/1239","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL1pFTk9ETy4xMjM5PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+SmFobiwgTmFqa288L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPk5hamtvPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkphaG48L2ZhbWlseU5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbj5CaWVsZWZlbGQgVW5pdmVyc2l0eSBMaWJyYXJ5PC9hZmZpbGlhdGlvbj4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+RmVubmVyLCBNYXJ0aW48L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPk1hcnRpbjwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5GZW5uZXI8L2ZhbWlseU5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbj5QTE9TIEFydGljbGUgTGV2ZWwgTWV0cmljcywgUHVibGljIExpYnJhcnkgb2YgU2NpZW5jZTwvYWZmaWxpYXRpb24+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkRpbWl0cm9wb3Vsb3MsIEhhcnJ5PC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5IYXJyeTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5EaW1pdHJvcG91bG9zPC9mYW1pbHlOYW1lPgogICAgICA8YWZmaWxpYXRpb24+TWFEZ0lLIExhYiwgVW5pdmVyc2l0eSBvZiBBdGhlbnM8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5TY2hpcnJ3YWdlbiwgSm9jaGVuPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5Kb2NoZW48L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+U2NoaXJyd2FnZW48L2ZhbWlseU5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbj5CaWVsZWZlbGQgVW5pdmVyc2l0eSBMaWJyYXJ5PC9hZmZpbGlhdGlvbj4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UHVibGljYXRpb24gRnA3IEZ1bmRpbmcgQWNrbm93bGVkZ21lbnQgLSBQbG9zIE9wZW5haXJlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlplbm9kbzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMzwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PkFydGljbGUtTGV2ZWwgTWV0cmljczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkRhdGEgbWluaW5nPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+U3RhdGlzdGljYWwgQ29tcHV0aW5nIExhbmd1YWdlIFI8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5mdW5kZWQgcmVzZWFyY2ggcHVibGljYXRpb25zPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxMy0wNC0wMzwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbjwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ii8+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9InVybCI+aHR0cHM6Ly96ZW5vZG8ub3JnL3JlY29yZC8xMjM5PC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL3B1YmxpY2RvbWFpbi96ZXJvLzEuMC8iPkNyZWF0aXZlIENvbW1vbnMgWmVybyAtIENDMCAxLjA8L3JpZ2h0cz4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJpbmZvOmV1LXJlcG8vc2VtYW50aWNzL29wZW5BY2Nlc3MiPk9wZW4gQWNjZXNzPC9yaWdodHM+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VGhlIGRhdGFzZXQgY29udGFpbnMgYSBzYW1wbGUgb2YgbWV0YWRhdGEgZGVzY3JpYmluZyBwYXBlcnMgcHVibGlzaGVkIGluIFBMT1MgYW5kIHRoZWlyIGlkZW50aWZpZWQgZ3JhbnQgYWdyZWVtZW50IG51bWJlciBvZiBGUDcgcHJvamVjdHMuIEEgc2Vjb25kIGZpbGUgc2hvd3MgdGhlIGZyZXF1ZW5jeSBvZiBGUDcgZ3JhbnRzLiBUaGUgc2FtcGxlIHdhcyBjcmVhdGVkIGluIEp1bHkgMjAxMi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgogIDxmdW5kaW5nUmVmZXJlbmNlcz4KICAgIDxmdW5kaW5nUmVmZXJlbmNlPgogICAgICA8ZnVuZGVyTmFtZT5FdXJvcGVhbiBDb21taXNzaW9uPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj4xMC4xMzAzOS81MDExMDAwMDA3ODA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICAgIDxhd2FyZE51bWJlciBhd2FyZFVSST0iaW5mbzpldS1yZXBvL2dyYW50QWdyZWVtZW50L0VDL0ZQNy8yNDY2ODYvIj4yNDY2ODY8L2F3YXJkTnVtYmVyPgogICAgICA8YXdhcmRUaXRsZT5PcGVuIEFjY2VzcyBJbmZyYXN0cnVjdHVyZSBmb3IgUmVzZWFyY2ggaW4gRXVyb3BlPC9hd2FyZFRpdGxlPgogICAgPC9mdW5kaW5nUmVmZXJlbmNlPgogIDwvZnVuZGluZ1JlZmVyZW5jZXM+CjwvcmVzb3VyY2U+Cg==","allocator_symbol":"CERN","minted":"2013-04-03T09:52:22Z","state":"findable","updated":"2018-05-05T13:07:46Z","doi":"10.5281/ZENODO.1239"}]}}
-
-'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:57 GMT
+      string: '{"data":{"id":"10.5281/zenodo.1239","type":"dois","attributes":{"doi":"10.5281/zenodo.1239","prefix":"10.5281","suffix":"zenodo.1239","identifiers":[{"identifier":"https://doi.org/10.5281/zenodo.1239","identifierType":"DOI"},{"identifier":"https://zenodo.org/record/1239","identifierType":"URL"}],"creators":[{"name":"Jahn,
+        Najko","nameType":"Personal","givenName":"Najko","familyName":"Jahn","affiliation":"Bielefeld
+        University Library"},{"name":"Fenner, Martin","nameType":"Personal","givenName":"Martin","familyName":"Fenner","affiliation":"PLOS
+        Article Level Metrics, Public Library of Science"},{"name":"Dimitropoulos,
+        Harry","nameType":"Personal","givenName":"Harry","familyName":"Dimitropoulos","affiliation":"MaDgIK
+        Lab, University of Athens"},{"name":"Schirrwagen, Jochen","nameType":"Personal","givenName":"Jochen","familyName":"Schirrwagen","affiliation":"Bielefeld
+        University Library"}],"titles":[{"title":"Publication Fp7 Funding Acknowledgment
+        - Plos Openaire"}],"publisher":"Zenodo","container":{},"publicationYear":2013,"subjects":[{"subject":"Article-Level
+        Metrics"},{"subject":"Data mining"},{"subject":"Statistical Computing Language
+        R"},{"subject":"funded research publications"}],"contributors":[],"dates":[{"date":"2013-04-03","dateType":"Issued"}],"language":"en","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"Creative
+        Commons Zero - CC0 1.0","rightsUri":"https://creativecommons.org/publicdomain/zero/1.0"},{"rights":"Open
+        Access","rightsUri":"info:eu-repo/semantics/openAccess"}],"descriptions":[{"description":"The
+        dataset contains a sample of metadata describing papers published in PLOS
+        and their identified grant agreement number of FP7 projects. A second file
+        shows the frequency of FP7 grants. The sample was created in July 2012.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[{"awardUri":"info:eu-repo/grantAgreement/EC/FP7/246686/","awardTitle":"Open
+        Access Infrastructure for Research in Europe","funderName":"European Commission","awardNumber":"246686","funderIdentifier":"https://doi.org/10.13039/501100000780","funderIdentifierType":"Crossref
+        Funder ID"}],"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL1pFTk9ETy4xMjM5PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+SmFobiwgTmFqa288L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPk5hamtvPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkphaG48L2ZhbWlseU5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbj5CaWVsZWZlbGQgVW5pdmVyc2l0eSBMaWJyYXJ5PC9hZmZpbGlhdGlvbj4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+RmVubmVyLCBNYXJ0aW48L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPk1hcnRpbjwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5GZW5uZXI8L2ZhbWlseU5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbj5QTE9TIEFydGljbGUgTGV2ZWwgTWV0cmljcywgUHVibGljIExpYnJhcnkgb2YgU2NpZW5jZTwvYWZmaWxpYXRpb24+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkRpbWl0cm9wb3Vsb3MsIEhhcnJ5PC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5IYXJyeTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5EaW1pdHJvcG91bG9zPC9mYW1pbHlOYW1lPgogICAgICA8YWZmaWxpYXRpb24+TWFEZ0lLIExhYiwgVW5pdmVyc2l0eSBvZiBBdGhlbnM8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5TY2hpcnJ3YWdlbiwgSm9jaGVuPC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5Kb2NoZW48L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+U2NoaXJyd2FnZW48L2ZhbWlseU5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbj5CaWVsZWZlbGQgVW5pdmVyc2l0eSBMaWJyYXJ5PC9hZmZpbGlhdGlvbj4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UHVibGljYXRpb24gRnA3IEZ1bmRpbmcgQWNrbm93bGVkZ21lbnQgLSBQbG9zIE9wZW5haXJlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlplbm9kbzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMzwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PkFydGljbGUtTGV2ZWwgTWV0cmljczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkRhdGEgbWluaW5nPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+U3RhdGlzdGljYWwgQ29tcHV0aW5nIExhbmd1YWdlIFI8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5mdW5kZWQgcmVzZWFyY2ggcHVibGljYXRpb25zPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxMy0wNC0wMzwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbjwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ii8+CiAgPGFsdGVybmF0ZUlkZW50aWZpZXJzPgogICAgPGFsdGVybmF0ZUlkZW50aWZpZXIgYWx0ZXJuYXRlSWRlbnRpZmllclR5cGU9InVybCI+aHR0cHM6Ly96ZW5vZG8ub3JnL3JlY29yZC8xMjM5PC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL3B1YmxpY2RvbWFpbi96ZXJvLzEuMC8iPkNyZWF0aXZlIENvbW1vbnMgWmVybyAtIENDMCAxLjA8L3JpZ2h0cz4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJpbmZvOmV1LXJlcG8vc2VtYW50aWNzL29wZW5BY2Nlc3MiPk9wZW4gQWNjZXNzPC9yaWdodHM+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VGhlIGRhdGFzZXQgY29udGFpbnMgYSBzYW1wbGUgb2YgbWV0YWRhdGEgZGVzY3JpYmluZyBwYXBlcnMgcHVibGlzaGVkIGluIFBMT1MgYW5kIHRoZWlyIGlkZW50aWZpZWQgZ3JhbnQgYWdyZWVtZW50IG51bWJlciBvZiBGUDcgcHJvamVjdHMuIEEgc2Vjb25kIGZpbGUgc2hvd3MgdGhlIGZyZXF1ZW5jeSBvZiBGUDcgZ3JhbnRzLiBUaGUgc2FtcGxlIHdhcyBjcmVhdGVkIGluIEp1bHkgMjAxMi48L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgogIDxmdW5kaW5nUmVmZXJlbmNlcz4KICAgIDxmdW5kaW5nUmVmZXJlbmNlPgogICAgICA8ZnVuZGVyTmFtZT5FdXJvcGVhbiBDb21taXNzaW9uPC9mdW5kZXJOYW1lPgogICAgICA8ZnVuZGVySWRlbnRpZmllciBmdW5kZXJJZGVudGlmaWVyVHlwZT0iQ3Jvc3NyZWYgRnVuZGVyIElEIj4xMC4xMzAzOS81MDExMDAwMDA3ODA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICAgIDxhd2FyZE51bWJlciBhd2FyZFVSST0iaW5mbzpldS1yZXBvL2dyYW50QWdyZWVtZW50L0VDL0ZQNy8yNDY2ODYvIj4yNDY2ODY8L2F3YXJkTnVtYmVyPgogICAgICA8YXdhcmRUaXRsZT5PcGVuIEFjY2VzcyBJbmZyYXN0cnVjdHVyZSBmb3IgUmVzZWFyY2ggaW4gRXVyb3BlPC9hd2FyZFRpdGxlPgogICAgPC9mdW5kaW5nUmVmZXJlbmNlPgogIDwvZnVuZGluZ1JlZmVyZW5jZXM+CjwvcmVzb3VyY2U+Cg==","url":"https://zenodo.org/record/1239","contentUrl":null,"metadataVersion":6,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"created":"2013-04-03T09:52:22.000Z","registered":"2013-04-03T09:52:22.000Z","updated":"2018-05-05T13:07:46.000Z"},"relationships":{"client":{"data":{"id":"cern.zenodo","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"cern.zenodo","type":"clients","attributes":{"name":"ZENODO
+        - Research. Shared.","symbol":"CERN.ZENODO","year":2013,"contactName":"Lars
+        Holm Nielsen","contactEmail":"lars.holm.nielsen@cern.ch","description":null,"domains":"openaire.cern.ch,zenodo.org","url":"https://zenodo.org/","created":"2013-01-28T12:07:48.000Z","updated":"2018-12-26T10:38:09.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cern","type":"providers"}},"repository":{"data":{"id":"10.17616/R3QP53","type":"repositories"}},"prefixes":{"data":[{"id":"10.5281","type":"prefixes"},{"id":"10.5072","type":"prefixes"}]}}}]}'
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:15 GMT
 recorded_with: VCR 3.0.3

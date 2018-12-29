@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.7554
+    uri: https://doi.org/ra/10.7554
     body:
       encoding: US-ASCII
       string: ''
@@ -14,37 +14,36 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:23:45 GMT
+      - Sat, 29 Dec 2018 07:52:32 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      X-Request-Id:
-      - 8dd57082-bd2a-4ab3-875e-f4f1870cc1c8
-      Etag:
-      - W/"381993dc8a6b0f20960c96a3639c0284"
-      X-Runtime:
-      - '0.136866'
-      X-Powered-By:
-      - Phusion Passenger 5.3.4
+      Set-Cookie:
+      - __cfduid=d2fde538f3740beecde02d3bfc92f94691546069952; expires=Sun, 29-Dec-19
+        07:52:32 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - cloudflare
+      Cf-Ray:
+      - 490ab0136c532738-FRA
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.7554","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T21:07:27Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:23:45 GMT
+      string: |-
+        [
+          {
+            "DOI": "10.7554",
+            "RA": "Crossref"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:32 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.7554/elife.01567x&noredirect=true&pid=tech@datacite.org
@@ -70,7 +69,7 @@ http_interactions:
       Content-Language:
       - en-US
       Date:
-      - Thu, 06 Sep 2018 07:23:45 GMT
+      - Sat, 29 Dec 2018 07:52:32 GMT
       Connection:
       - close
     body:
@@ -78,6 +77,6 @@ http_interactions:
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record>\r\n
         \   <crossref>\r\n      <error>doi:10.7554/elife.01567x</error>\r\n    </crossref>\r\n
         \ </doi_record>\r\n</doi_records>"
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:23:45 GMT
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:32 GMT
 recorded_with: VCR 3.0.3

@@ -21,9 +21,9 @@ http_interactions:
       Location:
       - https://schema.org/
       X-Cloud-Trace-Context:
-      - 8c7afb5d9fb62857a027c4e7b28c45f7
+      - 12596b6a7362ab036e2f71ddcf592dbd
       Date:
-      - Thu, 06 Sep 2018 07:22:50 GMT
+      - Sat, 29 Dec 2018 07:53:07 GMT
       Content-Type:
       - text/html
       Server:
@@ -34,7 +34,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 06 Sep 2018 07:22:50 GMT
+  recorded_at: Sat, 29 Dec 2018 07:53:07 GMT
 - request:
     method: get
     uri: https://schema.org/
@@ -59,27 +59,27 @@ http_interactions:
       - "*"
       Location:
       - https://schema.org/docs/jsonldcontext.json
-      Cache-Control:
-      - private, max-age=600
       Vary:
       - Accept, Accept-Encoding
-      Set-Cookie:
-      - GOOGAPPUID=3-4; Path=/
       X-Cloud-Trace-Context:
-      - ebf28108065f9bdbc1c7529357ea0a42
+      - ed6b54069fda497a66774a73de7096b0
       Date:
-      - Thu, 06 Sep 2018 07:22:50 GMT
+      - Sat, 29 Dec 2018 07:53:05 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
+      Cache-Control:
+      - public, max-age=600
+      Age:
+      - '2'
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 06 Sep 2018 07:22:51 GMT
+  recorded_at: Sat, 29 Dec 2018 07:53:07 GMT
 - request:
     method: get
     uri: https://schema.org/docs/jsonldcontext.json
@@ -100,28 +100,26 @@ http_interactions:
     headers:
       Access-Control-Allow-Origin:
       - "*"
-      Cache-Control:
-      - private, max-age=600
+      Content-Type:
+      - application/ld+json
       Vary:
       - Accept, Accept-Encoding
-      Content-Type:
-      - application/ld+json; charset=utf-8
       Etag:
-      - 24751180906071440a-2472518481625751334json
+      - d61d9aceb39f0342f4dc4c54cb30baf4
       Last-Modified:
-      - Thu, 06 Sep 2018 07:14:40 UTC
-      Set-Cookie:
-      - GOOGAPPUID=3-4; Path=/
+      - Thu, 27 Sep 2018 13:34:07 GMT
       X-Cloud-Trace-Context:
-      - 397ed836cc3eeedf4fab1d41bd9f4ddc
+      - '09467b5c1d892ff0029659f133e1bb26'
       Date:
-      - Thu, 06 Sep 2018 07:22:51 GMT
+      - Sat, 29 Dec 2018 07:53:06 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '136321'
-      Expires:
-      - Thu, 06 Sep 2018 07:22:51 GMT
+      - '136698'
+      Cache-Control:
+      - public, max-age=600
+      Age:
+      - '1'
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
@@ -539,6 +537,8 @@ http_interactions:
                 "FourWheelDriveConfiguration": {"@id": "schema:FourWheelDriveConfiguration"},
                 "Friday": {"@id": "schema:Friday"},
                 "FrontWheelDriveConfiguration": {"@id": "schema:FrontWheelDriveConfiguration"},
+                "FundingAgency": {"@id": "schema:FundingAgency"},
+                "FundingScheme": {"@id": "schema:FundingScheme"},
                 "Fungus": {"@id": "schema:Fungus"},
                 "FurnitureStore": {"@id": "schema:FurnitureStore"},
                 "Game": {"@id": "schema:Game"},
@@ -567,6 +567,7 @@ http_interactions:
                 "GovernmentOrganization": {"@id": "schema:GovernmentOrganization"},
                 "GovernmentPermit": {"@id": "schema:GovernmentPermit"},
                 "GovernmentService": {"@id": "schema:GovernmentService"},
+                "Grant": {"@id": "schema:Grant"},
                 "GraphicNovel": {"@id": "schema:GraphicNovel"},
                 "GroceryStore": {"@id": "schema:GroceryStore"},
                 "GroupBoardingPolicy": {"@id": "schema:GroupBoardingPolicy"},
@@ -756,6 +757,7 @@ http_interactions:
                 "Monday": {"@id": "schema:Monday"},
                 "MonetaryAmount": {"@id": "schema:MonetaryAmount"},
                 "MonetaryAmountDistribution": {"@id": "schema:MonetaryAmountDistribution"},
+                "MonetaryGrant": {"@id": "schema:MonetaryGrant"},
                 "MoneyTransfer": {"@id": "schema:MoneyTransfer"},
                 "MortgageLoan": {"@id": "schema:MortgageLoan"},
                 "Mosque": {"@id": "schema:Mosque"},
@@ -945,6 +947,7 @@ http_interactions:
                 "ProfessionalService": {"@id": "schema:ProfessionalService"},
                 "ProfilePage": {"@id": "schema:ProfilePage"},
                 "ProgramMembership": {"@id": "schema:ProgramMembership"},
+                "Project": {"@id": "schema:Project"},
                 "Property": {"@id": "schema:Property"},
                 "PropertyValue": {"@id": "schema:PropertyValue"},
                 "PropertyValueSpecification": {"@id": "schema:PropertyValueSpecification"},
@@ -1006,6 +1009,7 @@ http_interactions:
                 "Report": {"@id": "schema:Report"},
                 "ReportageNewsArticle": {"@id": "schema:ReportageNewsArticle"},
                 "ReportedDoseSchedule": {"@id": "schema:ReportedDoseSchedule"},
+                "ResearchProject": {"@id": "schema:ResearchProject"},
                 "Reservation": {"@id": "schema:Reservation"},
                 "ReservationCancelled": {"@id": "schema:ReservationCancelled"},
                 "ReservationConfirmed": {"@id": "schema:ReservationConfirmed"},
@@ -1686,6 +1690,7 @@ http_interactions:
                 "fuelType": { "@id": "schema:fuelType", "@type": "@id"},
                 "function": { "@id": "schema:function"},
                 "functionalClass": { "@id": "schema:functionalClass"},
+                "fundedItem": { "@id": "schema:fundedItem"},
                 "funder": { "@id": "schema:funder"},
                 "game": { "@id": "schema:game"},
                 "gameItem": { "@id": "schema:gameItem"},
@@ -2454,7 +2459,7 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Thu, 06 Sep 2018 07:22:51 GMT
+  recorded_at: Sat, 29 Dec 2018 07:53:07 GMT
 - request:
     method: get
     uri: http://schema.org/
@@ -2476,9 +2481,9 @@ http_interactions:
       Location:
       - https://schema.org/
       X-Cloud-Trace-Context:
-      - 1389de83eb9a23d4b5aaf088a81f6b30
+      - 9316b994a36cc6c416f89849fdbac280
       Date:
-      - Thu, 06 Sep 2018 07:22:51 GMT
+      - Sat, 29 Dec 2018 07:53:07 GMT
       Content-Type:
       - text/html
       Server:
@@ -2489,7 +2494,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 06 Sep 2018 07:22:51 GMT
+  recorded_at: Sat, 29 Dec 2018 07:53:07 GMT
 - request:
     method: get
     uri: https://schema.org/
@@ -2514,27 +2519,27 @@ http_interactions:
       - "*"
       Location:
       - https://schema.org/docs/jsonldcontext.json
-      Cache-Control:
-      - private, max-age=600
       Vary:
       - Accept, Accept-Encoding
-      Set-Cookie:
-      - GOOGAPPUID=3-4; Path=/
       X-Cloud-Trace-Context:
-      - 22cd4f45b5bbd584c662565d32c37081
+      - ed6b54069fda497a66774a73de7096b0
       Date:
-      - Thu, 06 Sep 2018 07:22:51 GMT
+      - Sat, 29 Dec 2018 07:53:05 GMT
       Server:
       - Google Frontend
       Content-Length:
       - '0'
+      Cache-Control:
+      - public, max-age=600
+      Age:
+      - '2'
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 06 Sep 2018 07:22:52 GMT
+  recorded_at: Sat, 29 Dec 2018 07:53:07 GMT
 - request:
     method: get
     uri: https://schema.org/docs/jsonldcontext.json
@@ -2555,28 +2560,26 @@ http_interactions:
     headers:
       Access-Control-Allow-Origin:
       - "*"
-      Cache-Control:
-      - private, max-age=600
+      Content-Type:
+      - application/ld+json
       Vary:
       - Accept, Accept-Encoding
-      Content-Type:
-      - application/ld+json; charset=utf-8
       Etag:
-      - 24751180906071440a-2472518481625751334json
+      - d61d9aceb39f0342f4dc4c54cb30baf4
       Last-Modified:
-      - Thu, 06 Sep 2018 07:14:40 UTC
-      Set-Cookie:
-      - GOOGAPPUID=3-4; Path=/
+      - Thu, 27 Sep 2018 13:34:07 GMT
       X-Cloud-Trace-Context:
-      - 0b94c7be21e5fd4a9415f2af46f2dafa
+      - '09467b5c1d892ff0029659f133e1bb26'
       Date:
-      - Thu, 06 Sep 2018 07:22:52 GMT
+      - Sat, 29 Dec 2018 07:53:06 GMT
       Server:
       - Google Frontend
       Content-Length:
-      - '136321'
-      Expires:
-      - Thu, 06 Sep 2018 07:22:52 GMT
+      - '136698'
+      Cache-Control:
+      - public, max-age=600
+      Age:
+      - '1'
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
@@ -2994,6 +2997,8 @@ http_interactions:
                 "FourWheelDriveConfiguration": {"@id": "schema:FourWheelDriveConfiguration"},
                 "Friday": {"@id": "schema:Friday"},
                 "FrontWheelDriveConfiguration": {"@id": "schema:FrontWheelDriveConfiguration"},
+                "FundingAgency": {"@id": "schema:FundingAgency"},
+                "FundingScheme": {"@id": "schema:FundingScheme"},
                 "Fungus": {"@id": "schema:Fungus"},
                 "FurnitureStore": {"@id": "schema:FurnitureStore"},
                 "Game": {"@id": "schema:Game"},
@@ -3022,6 +3027,7 @@ http_interactions:
                 "GovernmentOrganization": {"@id": "schema:GovernmentOrganization"},
                 "GovernmentPermit": {"@id": "schema:GovernmentPermit"},
                 "GovernmentService": {"@id": "schema:GovernmentService"},
+                "Grant": {"@id": "schema:Grant"},
                 "GraphicNovel": {"@id": "schema:GraphicNovel"},
                 "GroceryStore": {"@id": "schema:GroceryStore"},
                 "GroupBoardingPolicy": {"@id": "schema:GroupBoardingPolicy"},
@@ -3211,6 +3217,7 @@ http_interactions:
                 "Monday": {"@id": "schema:Monday"},
                 "MonetaryAmount": {"@id": "schema:MonetaryAmount"},
                 "MonetaryAmountDistribution": {"@id": "schema:MonetaryAmountDistribution"},
+                "MonetaryGrant": {"@id": "schema:MonetaryGrant"},
                 "MoneyTransfer": {"@id": "schema:MoneyTransfer"},
                 "MortgageLoan": {"@id": "schema:MortgageLoan"},
                 "Mosque": {"@id": "schema:Mosque"},
@@ -3400,6 +3407,7 @@ http_interactions:
                 "ProfessionalService": {"@id": "schema:ProfessionalService"},
                 "ProfilePage": {"@id": "schema:ProfilePage"},
                 "ProgramMembership": {"@id": "schema:ProgramMembership"},
+                "Project": {"@id": "schema:Project"},
                 "Property": {"@id": "schema:Property"},
                 "PropertyValue": {"@id": "schema:PropertyValue"},
                 "PropertyValueSpecification": {"@id": "schema:PropertyValueSpecification"},
@@ -3461,6 +3469,7 @@ http_interactions:
                 "Report": {"@id": "schema:Report"},
                 "ReportageNewsArticle": {"@id": "schema:ReportageNewsArticle"},
                 "ReportedDoseSchedule": {"@id": "schema:ReportedDoseSchedule"},
+                "ResearchProject": {"@id": "schema:ResearchProject"},
                 "Reservation": {"@id": "schema:Reservation"},
                 "ReservationCancelled": {"@id": "schema:ReservationCancelled"},
                 "ReservationConfirmed": {"@id": "schema:ReservationConfirmed"},
@@ -4141,6 +4150,7 @@ http_interactions:
                 "fuelType": { "@id": "schema:fuelType", "@type": "@id"},
                 "function": { "@id": "schema:function"},
                 "functionalClass": { "@id": "schema:functionalClass"},
+                "fundedItem": { "@id": "schema:fundedItem"},
                 "funder": { "@id": "schema:funder"},
                 "game": { "@id": "schema:game"},
                 "gameItem": { "@id": "schema:gameItem"},
@@ -4909,5 +4919,5 @@ http_interactions:
             }
         }
     http_version: 
-  recorded_at: Thu, 06 Sep 2018 07:22:52 GMT
+  recorded_at: Sat, 29 Dec 2018 07:53:07 GMT
 recorded_with: VCR 3.0.3

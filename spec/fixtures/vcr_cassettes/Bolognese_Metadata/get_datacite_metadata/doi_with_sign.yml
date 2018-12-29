@@ -2,7 +2,51 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5067
+    uri: https://doi.org/ra/10.5067
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 29 Dec 2018 07:52:17 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db892e4b46db246a2a411001735907cca1546069936; expires=Sun, 29-Dec-19
+        07:52:16 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 490aafb22f612768-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.5067",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:17 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.5067/terra+aqua/ceres/cldtyphist_l3.004
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:22:01 GMT
+      - Sat, 29 Dec 2018 07:52:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,69 +75,23 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 6f44a6c2-8d41-4bab-ab4b-5db11ec9cac4
+      - e9b714f5-5df0-43cb-8aa5-27753b616e22
       Etag:
-      - W/"b6c77c2c576da5a6fa1c8f2448d8a57e"
+      - W/"d47d8a8bf9830040235fd4445091ec74"
       X-Runtime:
-      - '0.032115'
+      - '0.024939'
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5067","type":"prefixes","attributes":{"registration-agency":"DataCite","created":"2010-01-01T00:00:00.000Z","updated":null},"relationships":{"clients":{"data":[{"id":"cdl.nasagsfc","type":"clients"}]},"providers":{"data":[{"id":"cdl","type":"providers"}]}}},"included":[{"id":"cdl.nasagsfc","type":"clients","attributes":{"name":"NASA
-        Goddard Space Flight Center (GSFC)","symbol":"CDL.NASAGSFC","year":2012,"contact-name":"EZID
-        Support Desk","contact-email":"ezid@ucop.edu","domains":"*","url":null,"created":"2012-01-25T16:36:03.000Z","updated":"2018-08-26T02:35:10.000Z","is-active":true,"has-password":true},"relationships":{"provider":{"data":{"id":"cdl","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.5072","type":"prefixes"}]}}},{"id":"cdl","type":"providers","attributes":{"name":"California
-        Digital Library","symbol":"CDL","website":"http://ezid.cdlib.org","contact-name":"EZID
-        Support Desk","contact-email":"ezid@ucop.edu","phone":null,"description":"California
-        Digital Library (CDL) handles scholarly information at every stage of its
-        life. CDL provides technology and expertise to help the University of California
-        (UC) collect, publish, access, and preserve its full range of information
-        resources. CDL partners with organizations outside the UCs on far-reaching
-        problems.\n\nCDL offers DataCite DOIs to University of California scholars
-        and researchers via the EZID service. EZID is also available as a general
-        identifier service to help educational, non-profit, governmental and commercial
-        clients create and manage globally unique identifiers for data and other sources.","region":"AMER","country":"US","logo-url":"https://assets.datacite.org/images/members/cdl.png","institution-type":null,"is-active":true,"has-password":true,"joined":"2009-12-01","created":"2010-01-01T00:00:00.000Z","updated":"2018-08-26T02:25:51.000Z"},"relationships":{"prefixes":{"data":[{"id":"10.5062","type":"prefixes"},{"id":"10.5063","type":"prefixes"},{"id":"10.5064","type":"prefixes"},{"id":"10.5065","type":"prefixes"},{"id":"10.5067","type":"prefixes"},{"id":"10.5068","type":"prefixes"},{"id":"10.5069","type":"prefixes"},{"id":"10.5070","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.6067","type":"prefixes"},{"id":"10.6071","type":"prefixes"},{"id":"10.6072","type":"prefixes"},{"id":"10.6074","type":"prefixes"},{"id":"10.6075","type":"prefixes"},{"id":"10.6076","type":"prefixes"},{"id":"10.6078","type":"prefixes"},{"id":"10.6079","type":"prefixes"},{"id":"10.6080","type":"prefixes"},{"id":"10.6081","type":"prefixes"},{"id":"10.6085","type":"prefixes"},{"id":"10.6086","type":"prefixes"},{"id":"10.3334","type":"prefixes"},{"id":"10.7265","type":"prefixes"},{"id":"10.7266","type":"prefixes"},{"id":"10.7268","type":"prefixes"},{"id":"10.7269","type":"prefixes"},{"id":"10.7270","type":"prefixes"},{"id":"10.7271","type":"prefixes"},{"id":"10.7272","type":"prefixes"},{"id":"10.7276","type":"prefixes"},{"id":"10.7278","type":"prefixes"},{"id":"10.7279","type":"prefixes"},{"id":"10.7280","type":"prefixes"},{"id":"10.7281","type":"prefixes"},{"id":"10.7282","type":"prefixes"},{"id":"10.7283","type":"prefixes"},{"id":"10.7284","type":"prefixes"},{"id":"10.7285","type":"prefixes"},{"id":"10.7286","type":"prefixes"},{"id":"10.7288","type":"prefixes"},{"id":"10.7289","type":"prefixes"},{"id":"10.7290","type":"prefixes"},{"id":"10.7291","type":"prefixes"},{"id":"10.7292","type":"prefixes"},{"id":"10.7293","type":"prefixes"},{"id":"10.7295","type":"prefixes"},{"id":"10.7296","type":"prefixes"},{"id":"10.7297","type":"prefixes"},{"id":"10.7298","type":"prefixes"},{"id":"10.7299","type":"prefixes"},{"id":"10.7300","type":"prefixes"},{"id":"10.7303","type":"prefixes"},{"id":"10.4246","type":"prefixes"},{"id":"10.7908","type":"prefixes"},{"id":"10.7910","type":"prefixes"},{"id":"10.7911","type":"prefixes"},{"id":"10.7913","type":"prefixes"},{"id":"10.7914","type":"prefixes"},{"id":"10.7916","type":"prefixes"},{"id":"10.7917","type":"prefixes"},{"id":"10.7918","type":"prefixes"},{"id":"10.7919","type":"prefixes"},{"id":"10.7920","type":"prefixes"},{"id":"10.7921","type":"prefixes"},{"id":"10.7922","type":"prefixes"},{"id":"10.7924","type":"prefixes"},{"id":"10.7925","type":"prefixes"},{"id":"10.7927","type":"prefixes"},{"id":"10.7928","type":"prefixes"},{"id":"10.7929","type":"prefixes"},{"id":"10.7930","type":"prefixes"},{"id":"10.7931","type":"prefixes"},{"id":"10.7932","type":"prefixes"},{"id":"10.7933","type":"prefixes"},{"id":"10.7934","type":"prefixes"},{"id":"10.7936","type":"prefixes"},{"id":"10.7937","type":"prefixes"},{"id":"10.7939","type":"prefixes"},{"id":"10.7940","type":"prefixes"},{"id":"10.7941","type":"prefixes"},{"id":"10.7942","type":"prefixes"},{"id":"10.7943","type":"prefixes"},{"id":"10.7944","type":"prefixes"},{"id":"10.7945","type":"prefixes"},{"id":"10.7946","type":"prefixes"},{"id":"10.13022","type":"prefixes"},{"id":"10.13026","type":"prefixes"},{"id":"10.13025","type":"prefixes"},{"id":"10.13027","type":"prefixes"},{"id":"10.15147","type":"prefixes"},{"id":"10.15146","type":"prefixes"},{"id":"10.15142","type":"prefixes"},{"id":"10.15144","type":"prefixes"},{"id":"10.15145","type":"prefixes"},{"id":"10.15140","type":"prefixes"},{"id":"10.15141","type":"prefixes"},{"id":"10.15139","type":"prefixes"},{"id":"10.15138","type":"prefixes"},{"id":"10.1184","type":"prefixes"},{"id":"10.15788","type":"prefixes"},{"id":"10.15787","type":"prefixes"},{"id":"10.15785","type":"prefixes"},{"id":"10.15784","type":"prefixes"},{"id":"10.15779","type":"prefixes"},{"id":"10.15780","type":"prefixes"},{"id":"10.15781","type":"prefixes"},{"id":"10.15782","type":"prefixes"},{"id":"10.17612","type":"prefixes"},{"id":"10.17613","type":"prefixes"},{"id":"10.17610","type":"prefixes"},{"id":"10.17611","type":"prefixes"},{"id":"10.17614","type":"prefixes"},{"id":"10.17615","type":"prefixes"},{"id":"10.17602","type":"prefixes"},{"id":"10.17603","type":"prefixes"},{"id":"10.17606","type":"prefixes"},{"id":"10.17908","type":"prefixes"},{"id":"10.17916","type":"prefixes"},{"id":"10.17915","type":"prefixes"},{"id":"10.17918","type":"prefixes"},{"id":"10.17919","type":"prefixes"},{"id":"10.17910","type":"prefixes"},{"id":"10.17911","type":"prefixes"},{"id":"10.17913","type":"prefixes"},{"id":"10.17920","type":"prefixes"},{"id":"10.18125","type":"prefixes"},{"id":"10.18123","type":"prefixes"},{"id":"10.18124","type":"prefixes"},{"id":"10.18119","type":"prefixes"},{"id":"10.18118","type":"prefixes"},{"id":"10.18117","type":"prefixes"},{"id":"10.18115","type":"prefixes"},{"id":"10.18431","type":"prefixes"},{"id":"10.18436","type":"prefixes"},{"id":"10.18437","type":"prefixes"},{"id":"10.18439","type":"prefixes"},{"id":"10.18737","type":"prefixes"},{"id":"10.18736","type":"prefixes"},{"id":"10.18739","type":"prefixes"},{"id":"10.18734","type":"prefixes"},{"id":"10.20353","type":"prefixes"},{"id":"10.20354","type":"prefixes"},{"id":"10.20352","type":"prefixes"},{"id":"10.20357","type":"prefixes"},{"id":"10.20358","type":"prefixes"},{"id":"10.20359","type":"prefixes"},{"id":"10.21228","type":"prefixes"},{"id":"10.21229","type":"prefixes"},{"id":"10.21224","type":"prefixes"},{"id":"10.21222","type":"prefixes"},{"id":"10.21223","type":"prefixes"},{"id":"10.21221","type":"prefixes"},{"id":"10.21237","type":"prefixes"},{"id":"10.21238","type":"prefixes"},{"id":"10.21239","type":"prefixes"},{"id":"10.21236","type":"prefixes"},{"id":"10.21430","type":"prefixes"},{"id":"10.21433","type":"prefixes"},{"id":"10.21431","type":"prefixes"},{"id":"10.21420","type":"prefixes"},{"id":"10.21421","type":"prefixes"},{"id":"10.21422","type":"prefixes"},{"id":"10.21423","type":"prefixes"},{"id":"10.21424","type":"prefixes"},{"id":"10.21425","type":"prefixes"},{"id":"10.21426","type":"prefixes"},{"id":"10.21427","type":"prefixes"},{"id":"10.21428","type":"prefixes"},{"id":"10.21418","type":"prefixes"},{"id":"10.21415","type":"prefixes"},{"id":"10.21416","type":"prefixes"},{"id":"10.21414","type":"prefixes"},{"id":"10.21972","type":"prefixes"},{"id":"10.21973","type":"prefixes"},{"id":"10.21975","type":"prefixes"},{"id":"10.21976","type":"prefixes"},{"id":"10.21977","type":"prefixes"},{"id":"10.21978","type":"prefixes"},{"id":"10.21990","type":"prefixes"},{"id":"10.21983","type":"prefixes"},{"id":"10.21980","type":"prefixes"},{"id":"10.21986","type":"prefixes"},{"id":"10.5195","type":"prefixes"},{"id":"10.25334","type":"prefixes"},{"id":"10.25337","type":"prefixes"},{"id":"10.25338","type":"prefixes"},{"id":"10.25342","type":"prefixes"},{"id":"10.25349","type":"prefixes"},{"id":"10.25348","type":"prefixes"},{"id":"10.25347","type":"prefixes"},{"id":"10.25346","type":"prefixes"},{"id":"10.25345","type":"prefixes"},{"id":"10.25344","type":"prefixes"},{"id":"10.25352","type":"prefixes"},{"id":"10.25350","type":"prefixes"},{"id":"10.25351","type":"prefixes"}]}}}]}'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:22:01 GMT
-- request:
-    method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5067/terra%2Baqua/ceres/cldtyphist_l3.004&wt=json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 06 Sep 2018 07:22:01 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Connection:
-      - keep-alive
-      Server:
-      - nginx/1.10.3 (Ubuntu)
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-    body:
-      encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":0},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CDL.NASAGSFC","url":"https://eosweb.larc.nasa.gov/project/ceres/cldtyphist_ed4a","xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDY3L1RFUlJBK0FRVUEvQ0VSRVMvQ0xEVFlQSElTVF9MMy4wMDQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Xb25nLFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5DRVJFUyBMZXZlbCAzIENsb3VkIFR5cGUgSGlzdG9yZ3JhbSBUZXJyYStBcXVhIEhERiBmaWxlIC0gRWRpdGlvbjQ8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+TkFTQSBMYW5nbGV5IEF0bW9zcGhlcmljIFNjaWVuY2UgRGF0YSBDZW50ZXIgREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPgo=","allocator_symbol":"CDL","minted":"2017-01-04T22:48:07Z","state":"findable","updated":"2018-04-19T18:57:20Z","doi":"10.5067/TERRA+AQUA/CERES/CLDTYPHIST_L3.004"}]}}
-
-'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:22:01 GMT
+      string: '{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"dois","attributes":{"doi":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","prefix":"10.5067","suffix":"terra+aqua/ceres/cldtyphist_l3.004","identifiers":[{"identifier":"https://doi.org/10.5067/terra+aqua/ceres/cldtyphist_l3.004","identifierType":"DOI"}],"creators":[{"name":"Wong,
+        Takmeng","nameType":"Personal","givenName":"Takmeng","familyName":"Wong"}],"titles":[{"title":"CERES
+        Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4"}],"publisher":"NASA
+        Langley Atmospheric Science Data Center DAAC","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDY3L1RFUlJBK0FRVUEvQ0VSRVMvQ0xEVFlQSElTVF9MMy4wMDQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Xb25nLFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5DRVJFUyBMZXZlbCAzIENsb3VkIFR5cGUgSGlzdG9yZ3JhbSBUZXJyYStBcXVhIEhERiBmaWxlIC0gRWRpdGlvbjQ8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+TkFTQSBMYW5nbGV5IEF0bW9zcGhlcmljIFNjaWVuY2UgRGF0YSBDZW50ZXIgREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPgo=","url":"https://eosweb.larc.nasa.gov/project/ceres/cldtyphist_ed4a","contentUrl":null,"metadataVersion":8,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"created":"2017-01-04T22:48:06.000Z","registered":"2017-01-04T22:48:07.000Z","updated":"2018-09-18T07:59:11.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
+        Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"contactName":"Lalit
+        Wanchoo","contactEmail":"lalit.wanchoo@nasa.gov","description":null,"domains":"*","url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2018-12-26T10:03:16.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:17 GMT
 recorded_with: VCR 3.0.3

@@ -54,13 +54,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[2]).to eq("T2  - GMS Journal for Medical Education; 34(2):Doc25")
       expect(ris[3]).to eq("AU  - Huber-Lang, Markus")
       expect(ris[9]).to eq("DO  - 10.3205/zma001102")
-      expect(ris[10]).to start_with("AB  - Objective: Competence orientation")
-      expect(ris[11]).to eq("KW  - medical competence")
-      expect(ris[21]).to eq("PY  - 2017")
-      expect(ris[22]).to eq("PB  - German Medical Science GMS Publishing House")
-      expect(ris[23]).to eq("LA  - en")
-      expect(ris[24]).to eq("SN  - 2366-5017")
-      expect(ris[25]).to eq("ER  - ")
+      expect(ris[10]).to eq("UR  - http://www.egms.de/en/journals/zma/2017-34/zma001102.shtml")
+      expect(ris[11]).to start_with("AB  - Objective: Competence orientation")
+      expect(ris[12]).to eq("KW  - medical competence")
+      expect(ris[22]).to eq("PY  - 2017")
+      expect(ris[23]).to eq("PB  - German Medical Science GMS Publishing House")
+      expect(ris[24]).to eq("LA  - en")
+      expect(ris[25]).to eq("SN  - 2366-5017")
+      expect(ris[26]).to eq("ER  - ")
     end
 
     it "Crossref DOI" do
@@ -91,12 +92,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
       expect(ris[2]).to eq("AU  - Fenner, Martin")
       expect(ris[3]).to eq("DO  - 10.5438/4k3m-nyvg")
-      expect(ris[4]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
-      expect(ris[5]).to eq("KW  - datacite")
-      expect(ris[8]).to eq("PY  - 2016")
-      expect(ris[9]).to eq("PB  - DataCite")
-      expect(ris[10]).to eq("SN  - 10.5438/0000-00ss")
-      expect(ris[11]).to eq("ER  - ")
+      expect(ris[4]).to eq("UR  - https://blog.datacite.org/eating-your-own-dog-food/")
+      expect(ris[5]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(ris[6]).to eq("KW  - datacite")
+      expect(ris[9]).to eq("PY  - 2016")
+      expect(ris[10]).to eq("PB  - DataCite")
+      expect(ris[11]).to eq("SN  - 10.5438/0000-00ss")
+      expect(ris[12]).to eq("ER  - ")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -190,12 +192,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris).to include("AU  - Kurihara, Haruko")
       expect(ris).to include("DO  - 10.1594/pangaea.721193")
       expect(ris).to include("UR  - https://doi.pangaea.de/10.1594/PANGAEA.721193")
-      expect(ris).to include("KW  - GetInfo")
       expect(ris).to include("KW  - Animalia")
       expect(ris).to include("KW  - Bottles or small containers/Aquaria ( 20 L)")
       expect(ris).to include("PY  - 2007")
       expect(ris).to include("PB  - PANGAEA - Data Publisher for Earth & Environmental Science")
-      expect(ris).to include("LA  - eng")
+      expect(ris).to include("LA  - en")
       expect(ris.last).to eq("ER  - ")
     end
   end

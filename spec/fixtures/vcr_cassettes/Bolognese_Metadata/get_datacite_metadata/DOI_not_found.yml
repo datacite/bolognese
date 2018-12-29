@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.4124
+    uri: https://doi.org/ra/10.4124
     body:
       encoding: US-ASCII
       string: ''
@@ -14,75 +14,76 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:21:52 GMT
+      - Sat, 29 Dec 2018 07:52:25 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d3e9af2549faa34fb49441458896bbd211546069945; expires=Sun, 29-Dec-19
+        07:52:25 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 490aafe7396d236c-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.4124",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:25 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sat, 29 Dec 2018 07:52:25 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
       - keep-alive
       Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
+      - 404 Not Found
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 7e444a4c-9a7c-4e1a-961a-6b68ca34a162
-      Etag:
-      - W/"3868a65292ee8ee9d7a8343e933561ec"
+      - 48295f1e-7f81-46a3-90f8-2d87e58f0cb3
       X-Runtime:
-      - '0.021463'
+      - '0.005414'
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuNDEyNCIsInR5cGUiOiJwcmVmaXhlcyIsImF0dHJpYnV0ZXMiOnsicmVnaXN0cmF0aW9uLWFnZW5jeSI6IkRhdGFDaXRlIiwiY3JlYXRlZCI6IjIwMTAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsInVwZGF0ZWQiOm51bGx9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsiZGF0YSI6W3siaWQiOiJibC5vbGQtYXBpIiwidHlwZSI6ImNsaWVudHMifV19LCJwcm92aWRlcnMiOnsiZGF0YSI6W3siaWQiOiJibCIsInR5cGUiOiJwcm92aWRlcnMifV19fX0sImluY2x1ZGVkIjpbeyJpZCI6ImJsLm9sZC1hcGkiLCJ0eXBlIjoiY2xpZW50cyIsImF0dHJpYnV0ZXMiOnsibmFtZSI6IkJMJ3MgRE9JIHNlcnZpY2UgcHJvdG90eXBlIiwic3ltYm9sIjoiQkwuT0xELUFQSSIsInllYXIiOjIwMTIsImNvbnRhY3QtbmFtZSI6IlJhY2hhZWwgS290YXJza2kiLCJjb250YWN0LWVtYWlsIjoiZGF0YXNldHNAYmwudWsiLCJkb21haW5zIjoiYmwudWsiLCJ1cmwiOm51bGwsImNyZWF0ZWQiOiIyMDEyLTAxLTEwVDE2OjQxOjEyLjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wOC0yNlQwMjozNToxMC4wMDBaIiwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOmZhbHNlfSwicmVsYXRpb25zaGlwcyI6eyJwcm92aWRlciI6eyJkYXRhIjp7ImlkIjoiYmwiLCJ0eXBlIjoicHJvdmlkZXJzIn19LCJwcmVmaXhlcyI6eyJkYXRhIjpbeyJpZCI6IjEwLjQxMjQiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTA3MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzYzNiIsInR5cGUiOiJwcmVmaXhlcyJ9XX19fSx7ImlkIjoiYmwiLCJ0eXBlIjoicHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiQnJpdGlzaCBMaWJyYXJ5Iiwic3ltYm9sIjoiQkwiLCJ3ZWJzaXRlIjoiaHR0cDovL3d3dy5ibC51ay9kYXRhc2V0cyIsImNvbnRhY3QtbmFtZSI6IlJhY2hhZWwgS290YXJza2kiLCJjb250YWN0LWVtYWlsIjoiZGF0YXNldHNAYmwudWsiLCJwaG9uZSI6Iis0NCAoMCkgMjA3IDQxMiA3MTY3IiwiZGVzY3JpcHRpb24iOiJUaGUgQnJpdGlzaCBMaWJyYXJ5IGlzIHRoZSBuYXRpb25hbCBsaWJyYXJ5IG9mIHRoZSBVbml0ZWQgS2luZ2RvbSBhbmQgYSBmb3VuZGluZyBtZW1iZXIgb2YgRGF0YUNpdGUuIEFzIERhdGFDaXRl4oCZcyBvbmx5IG1lbWJlciBpbiB0aGUgVW5pdGVkIEtpbmdkb20sIHdlIGFyZSB3b3JraW5nIHdpdGggVUsgb3JnYW5pc2F0aW9ucyB0byBlbnN1cmUgdGhhdCBkYXRhIGdlbmVyYXRlZCBieSByZXNlYXJjaGVycyBpcyBmaW5kYWJsZSBhbmQgY2l0YWJsZSBzbyB0aGF0IGl0cyBpbXBhY3Qgb24gdGhlIGdsb2JhbCByZXNlYXJjaCBsYW5kc2NhcGUgaXMgcmVjb2duaXNlZC4gV2Ugd29yayB3aXRoIGEgcmFuZ2Ugb2Ygb3JnYW5pc2F0aW9ucyB3aG8gbWFuYWdlIGFuZCBhcmNoaXZlIGRhdGEsIGZyb20gZ292ZXJubWVudCBib2RpZXMgdG8gY2hhcml0aWVzLCB1bml2ZXJzaXRpZXMgYW5kIHB1Ymxpc2hlcnMuIElmIHlvdSBtYW5hZ2UgZGF0YSBpbiB0aGUgVUsgYW5kIHdvdWxkIGxpa2UgdG8gZmluZCBvdXQgbW9yZSBhYm91dCBEYXRhQ2l0ZSwgcGxlYXNlIGNvbnRhY3QgdXMgZGlyZWN0bHkuIiwicmVnaW9uIjoiRU1FQSIsImNvdW50cnkiOiJHQiIsImxvZ28tdXJsIjoiaHR0cHM6Ly9hc3NldHMuZGF0YWNpdGUub3JnL2ltYWdlcy9tZW1iZXJzL2JsLnBuZyIsImluc3RpdHV0aW9uLXR5cGUiOm51bGwsImlzLWFjdGl2ZSI6dHJ1ZSwiaGFzLXBhc3N3b3JkIjp0cnVlLCJqb2luZWQiOiIyMDA5LTEyLTAxIiwiY3JlYXRlZCI6IjIwMTAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsInVwZGF0ZWQiOiIyMDE4LTA4LTI2VDAyOjI1OjUxLjAwMFoifSwicmVsYXRpb25zaGlwcyI6eyJwcmVmaXhlcyI6eyJkYXRhIjpbeyJpZCI6IjEwLjQxMjQiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTI1NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41MjU2IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjUyNTciLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTI1OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41MjU5IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjUyODciLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTUxNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41NTE4IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjU1MTkiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTUyMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41NTIxIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjU1MjIiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTUyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41NTI0IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjU1MjUiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTUyNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41Mjg1IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjUyODQiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTI4NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41MDcyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjc0ODYiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNzQ4NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC43NDg4IiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjc0ODkiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNzQ5MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNDQ2OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNDQ2OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNDQ2NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNDQ2NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNDQ2NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEzMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEzMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEzMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyOSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyOCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNTEyNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAyOSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAyOCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzAzNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzOSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzOCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzYzMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg3MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzg2MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODc0NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODc0NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODc0NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODc0MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODc0MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMDM5MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMDM5MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMDM5MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMDM5NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMDM5MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTI1MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTI1NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTI1MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTI1MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTI1MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTk1NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTk1NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTk1MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTk1NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMTk1NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMjAyMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzYzNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzYzNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzYzNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzYzNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM4MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM4MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM4NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM4NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM4MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM4MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM3OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM3NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM3OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNDM3NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTYwMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTYwMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTYwMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwOCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTYwMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTYwNSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTYwNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTUwMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTQ5OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTU2NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg2OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3NSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg3OSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1MyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1NiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1NyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1OCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTg1OSIsInR5cGUiOiJwcmVmaXhlcyJ9XX19fV19
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:53 GMT
-- request:
-    method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1&wt=json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 06 Sep 2018 07:21:56 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Connection:
-      - keep-alive
-      Server:
-      - nginx/1.10.3 (Ubuntu)
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-    body:
-      encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":0,"start":0,"docs":[]}}
-
-'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:56 GMT
+      string: '{"errors":[{"status":"404","title":"The resource you are looking for
+        doesn''t exist."}]}'
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:25 GMT
 recorded_with: VCR 3.0.3

@@ -27,7 +27,8 @@ module Bolognese
       elsif input.present? && File.exist?(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
-          hsh = { "url" => options[:url],
+          hsh = { 
+            "url" => options[:url],
             "state" => options[:state],
             "date_registered" => options[:date_registered],
             "date_updated" => options[:date_updated],
@@ -41,18 +42,19 @@ module Bolognese
           exit 1
         end
       else
-        hsh = { "url" => options[:url],
-                "state" => options[:state],
-                "date_registered" => options[:date_registered],
-                "date_updated" => options[:date_updated],
-                "provider_id" => options[:provider_id],
-                "client_id" => options[:client_id],
-                "content_url" => options[:content_url],
-                "creators" => options[:creators],
-                "contributors" => options[:contributors],
-                "titles" => options[:titles],
-                "publisher" => options[:publisher],
-                "publication_year" => options[:publication_year] }
+        hsh = { 
+          "url" => options[:url],
+          "state" => options[:state],
+          "date_registered" => options[:date_registered],
+          "date_updated" => options[:date_updated],
+          "provider_id" => options[:provider_id],
+          "client_id" => options[:client_id],
+          "content_url" => options[:content_url],
+          "creators" => options[:creators],
+          "contributors" => options[:contributors],
+          "titles" => options[:titles],
+          "publisher" => options[:publisher],
+          "publication_year" => options[:publication_year] }
         string = input
         @from = from || find_from_format(string: string)
       end

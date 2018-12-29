@@ -2,7 +2,51 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.5281
+    uri: https://doi.org/ra/10.5281
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 29 Dec 2018 07:52:17 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dfd7435e883be47cc94bb1915adffa8c91546069937; expires=Sun, 29-Dec-19
+        07:52:17 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 490aafb4bbcf235a-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.5281",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:17 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.5281/zenodo.48440
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:21:50 GMT
+      - Sat, 29 Dec 2018 07:52:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,58 +75,36 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 54b644ba-8803-4e28-9059-d6967f5eca18
+      - 7a21f37a-7e53-4883-a23c-b24e9b714523
       Etag:
-      - W/"f9a485d503cac9b03e7d366fcc10031e"
+      - W/"2faec2583d0607beb70525298cfc8588"
       X-Runtime:
-      - '0.025864'
+      - '0.028752'
       X-Powered-By:
-      - Phusion Passenger 5.3.4
+      - Phusion Passenger 6.0.0
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - nginx/1.15.7 + Phusion Passenger 6.0.0
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        eyJkYXRhIjp7ImlkIjoiMTAuNTI4MSIsInR5cGUiOiJwcmVmaXhlcyIsImF0dHJpYnV0ZXMiOnsicmVnaXN0cmF0aW9uLWFnZW5jeSI6IkRhdGFDaXRlIiwiY3JlYXRlZCI6IjIwMTAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsInVwZGF0ZWQiOm51bGx9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudHMiOnsiZGF0YSI6W3siaWQiOiJjZXJuLnplbm9kbyIsInR5cGUiOiJjbGllbnRzIn1dfSwicHJvdmlkZXJzIjp7ImRhdGEiOlt7ImlkIjoiY2VybiIsInR5cGUiOiJwcm92aWRlcnMifV19fX0sImluY2x1ZGVkIjpbeyJpZCI6ImNlcm4uemVub2RvIiwidHlwZSI6ImNsaWVudHMiLCJhdHRyaWJ1dGVzIjp7Im5hbWUiOiJaRU5PRE8gLSBSZXNlYXJjaC4gU2hhcmVkLiIsInN5bWJvbCI6IkNFUk4uWkVOT0RPIiwieWVhciI6MjAxMywiY29udGFjdC1uYW1lIjoiTGFycyBIb2xtIE5pZWxzZW4iLCJjb250YWN0LWVtYWlsIjoibGFycy5ob2xtLm5pZWxzZW5AY2Vybi5jaCIsImRvbWFpbnMiOiJvcGVuYWlyZS5jZXJuLmNoLHplbm9kby5vcmciLCJ1cmwiOm51bGwsImNyZWF0ZWQiOiIyMDEzLTAxLTI4VDEyOjA3OjQ4LjAwMFoiLCJ1cGRhdGVkIjoiMjAxOC0wOC0yNlQwMjozNToxNS4wMDBaIiwiaXMtYWN0aXZlIjp0cnVlLCJoYXMtcGFzc3dvcmQiOnRydWV9LCJyZWxhdGlvbnNoaXBzIjp7InByb3ZpZGVyIjp7ImRhdGEiOnsiaWQiOiJjZXJuIiwidHlwZSI6InByb3ZpZGVycyJ9fSwicmVwb3NpdG9yeSI6eyJkYXRhIjp7ImlkIjoicjNkMTAwMDEwNDY4IiwidHlwZSI6InJlcG9zaXRvcmllcyJ9fSwicHJlZml4ZXMiOnsiZGF0YSI6W3siaWQiOiIxMC41MjgxIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjUwNzIiLCJ0eXBlIjoicHJlZml4ZXMifV19fX0seyJpZCI6ImNlcm4iLCJ0eXBlIjoicHJvdmlkZXJzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiQ0VSTiAtIEV1cm9wZWFuIE9yZ2FuaXphdGlvbiBmb3IgTnVjbGVhciBSZXNlYXJjaCIsInN5bWJvbCI6IkNFUk4iLCJ3ZWJzaXRlIjoiaHR0cDovL2RvaS53ZWIuY2Vybi5jaC8iLCJjb250YWN0LW5hbWUiOiJTw7xuamUgRGFsbG1laWVyLVRpZXNzZW4iLCJjb250YWN0LWVtYWlsIjoic3VuamUuZGFsbG1laWVyLXRpZXNzZW5AY2Vybi5jaCIsInBob25lIjpudWxsLCJkZXNjcmlwdGlvbiI6IkNFUk4sIHRoZSBFdXJvcGVhbiBPcmdhbml6YXRpb24gZm9yIE51Y2xlYXIgUmVzZWFyY2gsIGlzIHRoZSB3b3JsZCdzIGxhcmdlc3QgcGFydGljbGUgcGh5c2ljcyBsYWJvcmF0b3J5LiBGb3VuZGVkIGluIDE5NTQgYW5kIGJhc2VkIG9uIHRoZSBGcmFuY28tU3dpc3MgYm9yZGVyIG5lYXIgR2VuZXZhLCBpdCB3YXMgb25lIG9mIEV1cm9wZSdzIGZpcnN0IGpvaW50IHZlbnR1cmVzIGFuZCBub3cgaGFzIDIxIG1lbWJlciBzdGF0ZXMgYW5kIG1vcmUgdGhhbiA1MCBjb29wZXJhdGlvbiBhZ3JlZW1lbnRzIGFuZCBzY2llbnRpZmljIGNvbnRhY3RzIHdpdGggb3RoZXIgY291bnRyaWVzLlxuXG5BdCBDRVJOLCBwaHlzaWNpc3RzIGFuZCBlbmdpbmVlcnMgcHJvYmUgdGhlIGZ1bmRhbWVudGFsIHN0cnVjdHVyZSBvZiB0aGUgdW5pdmVyc2UuIFRoZXkgdXNlIHRoZSB3b3JsZCdzIGxhcmdlc3QgYW5kIG1vc3QgY29tcGxleCBzY2llbnRpZmljIGluc3RydW1lbnQsIHRoZSBMYXJnZSBIYWRyb24gQ29sbGlkZXIgKExIQyksIHRvIHN0dWR5IHRoZSBiYXNpYyBjb25zdGl0dWVudHMgb2YgbWF0dGVyLiBUaGUgcmVzdWx0cyBvZiB0aGVpciBleHBlcmltZW50YWwgYW5kIHRoZW9yZXRpY2FsIHdvcmsgYXJlIHB1YmxpY2x5IGF2YWlsYWJsZSBmb2xsb3dpbmcgQ0VSTidzIE9wZW4gQWNjZXNzIFBvbGljeS5cblxuQ0VSTiBzZXJ2aWNlcyBpbXBsZW1lbnRpbmcgRE9JcyBhcmUgaXRzIGluc3RpdHV0aW9uYWwgcmVwb3NpdG9yeSAoQ0RTLCBDRVJOIERvY3VtZW50IFNlcnZlcik7IElOU1BJUkUtSEVQLCBhIGRpZ2l0YWwgbGlicmFyeSBmb3IgdGhlIGZpZWxkIG9mIEhpZ2gtRW5lcmd5IFBoeXNpY3MgcnVuIGluIGNvbGxhYm9yYXRpb24gd2l0aCBvdGhlciBpbnN0aXR1dGlvbnM7IG9yIHRoZSBDRVJOIE9wZW4gRGF0YSBQb3J0YWwsIHdoaWNoIHByb3ZpZGVzIGhpZ2ggbGV2ZWwgYW5kIGFuYWx5emFibGUgZGF0YSBhbmQgc29mdHdhcmUgZnJvbSB0aGUgTEhDIGV4cGVyaW1lbnRzLlxuXG5GdXJ0aGVybW9yZSwgQ0VSTiBpcyBhbHNvIHByb3ZpZGluZyBET0lzIHRvIFpFTk9ETywgYSBtdWx0aWRpc2NpcGxpbmFyeSBkYXRhIHJlcG9zaXRvcnkgZm9yIHRoZSDigJxsb25nIHRhaWzigJ0gb2YgcmVzZWFyY2ggcmVzdWx0cy4gSXQgYWxsb3dzIHJlc2VhcmNoZXJzIHRvIHNoYXJlIGFuZCBwcmVzZXJ2ZSB0aGVpciBvdXRwdXQgaW5kZXBlbmRlbnQgb2Ygc2l6ZSwgdHlwZSBvZiBtYXRlcmlhbCBvciBkaXNjaXBsaW5lLiIsInJlZ2lvbiI6IkVNRUEiLCJjb3VudHJ5IjoiQ0giLCJsb2dvLXVybCI6Imh0dHBzOi8vYXNzZXRzLmRhdGFjaXRlLm9yZy9pbWFnZXMvbWVtYmVycy9jZXJuLnBuZyIsImluc3RpdHV0aW9uLXR5cGUiOm51bGwsImlzLWFjdGl2ZSI6dHJ1ZSwiaGFzLXBhc3N3b3JkIjp0cnVlLCJqb2luZWQiOiIyMDE0LTAzLTI1IiwiY3JlYXRlZCI6IjIwMTQtMDQtMTBUMTM6NDE6NDQuMDAwWiIsInVwZGF0ZWQiOiIyMDE4LTA4LTI2VDAyOjI1OjUxLjAwMFoifSwicmVsYXRpb25zaGlwcyI6eyJwcmVmaXhlcyI6eyJkYXRhIjpbeyJpZCI6IjEwLjUyODEiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNTE3MCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC41MDcyIiwidHlwZSI6InByZWZpeGVzIn0seyJpZCI6IjEwLjc0ODMiLCJ0eXBlIjoicHJlZml4ZXMifSx7ImlkIjoiMTAuNzQ4NCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzE4MSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xNzE4MiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODQyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4xODQyOSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzczMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzczMCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzczMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzcyNiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yMzcyNyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyNCIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyMyIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyMiIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyMSIsInR5cGUiOiJwcmVmaXhlcyJ9LHsiaWQiOiIxMC4yNTMyNSIsInR5cGUiOiJwcmVmaXhlcyJ9XX19fV19
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:50 GMT
-- request:
-    method: get
-    uri: https://search.datacite.org/api?fl=doi,url,xml,state,allocator_symbol,datacentre_symbol,media,minted,updated&q=doi:10.5281/zenodo.48440&wt=json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
-      Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 06 Sep 2018 07:21:50 GMT
-      Content-Type:
-      - application/json;charset=UTF-8
-      Connection:
-      - keep-alive
-      Server:
-      - nginx/1.10.3 (Ubuntu)
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Methods:
-      - GET, POST, PUT, DELETE, OPTIONS
-      Access-Control-Allow-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-      Access-Control-Expose-Headers:
-      - DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,Authorization
-    body:
-      encoding: ASCII-8BIT
-      string: '{"responseHeader":{"status":0,"QTime":1},"response":{"numFound":1,"start":0,"docs":[{"datacentre_symbol":"CERN.ZENODO","url":"https://zenodo.org/record/48440","xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL3plbm9kby40ODQ0MDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPktyaXN0aWFuIEdhcnphPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+QW5hbHlzaXMgVG9vbHMgRm9yIENyb3Nzb3ZlciBFeHBlcmltZW50IE9mIFVpIFVzaW5nIENob2ljZSBBcmNoaXRlY3R1cmU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+WmVub2RvPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE2PC9wdWJsaWNhdGlvblllYXI+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+Y2hvaWNlIGFyY2hpdGVjdHVyZTwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmNyb3Nzb3ZlciBleHBlcmltZW50PC9zdWJqZWN0PgogICAgPHN1YmplY3Q+aGNpPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0wMy0yNzwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0idXJsIj5odHRwczovL3plbm9kby5vcmcvcmVjb3JkLzQ4NDQwPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJJc1N1cHBsZW1lbnRUbyI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPnYxLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8iPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24tTm9uQ29tbWVyY2lhbC1TaGFyZUFsaWtlPC9yaWdodHM+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaW5mbzpldS1yZXBvL3NlbWFudGljcy9vcGVuQWNjZXNzIj5PcGVuIEFjY2VzczwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0OyZhbXA7bmJzcDsmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHRvb2xzIGFyZSB1c2VkIHRvIGFuYWx5c2UgdGhlIGRhdGEgcHJvZHVjZWQgYnkgdGhlIENyb3Nzc292ZXIgRXhwZXJpbWVudCBJIGRlc2lnbmVkIHRvIHRlc3QgQ2hvaWNlIEFyY2hpdGVjdHVyZSB0ZWNobmlxdWVzIGFzIFVJIGludGVydmVudGlvbnMgaW4gYSBTRUVrNFNjaWVuY2UgZGF0YSBjYXRhbG9ndWUuIEl0IGNvbnRhaW5zOiZsdDsvcCZndDsKCiZsdDtwJmd0Oy0gRGF0YSBzdHJ1Y3R1cmVzIGZvciB0aGUgZXhwZXJpbWVudGFsIGRhdGEuJmx0O2JyIC8mZ3Q7Ci0gVmlzdWFsaXNhdGlvbiBmdW5jdGlvbnMmbHQ7YnIgLyZndDsKLSBBbmFseXNpcyBmdW5jdGlvbnMmbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBJbnN0YWxsYXRpb24mbHQ7L3AmZ3Q7CgombHQ7cCZndDstIFImbHQ7YnIgLyZndDsKLSBweXRob24mbHQ7YnIgLyZndDsKLSBpcHl0aG9uIDQmbHQ7L3AmZ3Q7CgombHQ7cCZndDtDbG9uZSBhbmQgdXNlLiZsdDsvcCZndDsKCiZsdDtwJmd0OyMjIFVzYWdlJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CmBgYHB5dGhvbiZsdDticiAvJmd0Owpzb3VyY2UoJmFtcDsjMzk7cGFyYWxsZWxfcGxvdC5yJmFtcDsjMzk7KSZsdDticiAvJmd0Owp3aXRoKHosIHBhcmFsbGVsc2V0KHRydCxyZXNwb25zZSwgZnJlcT1jb3VudCwgYWxwaGE9MC4yKSkmbHQ7YnIgLyZndDsKYGBgJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIENvbnRyaWJ1dGluZyZsdDsvcCZndDsKCiZsdDtwJmd0OzEuIEZvcmsgaXQhJmx0O2JyIC8mZ3Q7CjIuIENyZWF0ZSB5b3VyIGZlYXR1cmUgYnJhbmNoOiBgZ2l0IGNoZWNrb3V0IC1iIG15LW5ldy1mZWF0dXJlYCZsdDticiAvJmd0OwozLiBDb21taXQgeW91ciBjaGFuZ2VzOiBgZ2l0IGNvbW1pdCAtYW0gJmFtcDsjMzk7QWRkIHNvbWUgZmVhdHVyZSZhbXA7IzM5O2AmbHQ7YnIgLyZndDsKNC4gUHVzaCB0byB0aGUgYnJhbmNoOiBgZ2l0IHB1c2ggb3JpZ2luIG15LW5ldy1mZWF0dXJlYCZsdDticiAvJmd0Owo1LiBTdWJtaXQgYSBwdWxsIHJlcXVlc3QgOkQmbHQ7L3AmZ3Q7CgombHQ7cCZndDsmbHQ7YnIgLyZndDsKIyMgTGljZW5zZSZsdDsvcCZndDsKCiZsdDtwJmd0O1RoaXMgd29yayBzdXBwb3J0cyBteSBQaEQgVGhlc2lzIGF0IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3Rlci4mbHQ7L3AmZ3Q7PC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","allocator_symbol":"CERN","minted":"2016-03-27T22:18:38Z","state":"findable","updated":"2018-05-04T23:56:33Z","doi":"10.5281/ZENODO.48440"}]}}
-
-'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:21:50 GMT
+      string: '{"data":{"id":"10.5281/zenodo.48440","type":"dois","attributes":{"doi":"10.5281/zenodo.48440","prefix":"10.5281","suffix":"zenodo.48440","identifiers":[{"identifier":"https://doi.org/10.5281/zenodo.48440","identifierType":"DOI"},{"identifier":"https://zenodo.org/record/48440","identifierType":"URL"}],"creators":[{"name":"Garza,
+        Kristian","nameType":"Personal","givenName":"Kristian","familyName":"Garza"}],"titles":[{"title":"Analysis
+        Tools For Crossover Experiment Of Ui Using Choice Architecture"}],"publisher":"Zenodo","container":{},"publicationYear":2016,"subjects":[{"subject":"choice
+        architecture"},{"subject":"crossover experiment"},{"subject":"hci"}],"contributors":[],"dates":[{"date":"2016-03-27","dateType":"Issued"}],"language":null,"types":{"ris":"COMP","bibtex":"misc","citeproc":"article","schemaOrg":"SoftwareSourceCode","resourceTypeGeneral":"Software"},"relatedIdentifiers":[{"relationType":"IsSupplementTo","relatedIdentifier":"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0","relatedIdentifierType":"URL"}],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"Creative
+        Commons Attribution-NonCommercial-ShareAlike","rightsUri":"https://creativecommons.org/licenses/by-nc-sa/4.0"},{"rights":"Open
+        Access","rightsUri":"info:eu-repo/semantics/openAccess"}],"descriptions":[{"description":"This
+        tools are used to analyse the data produced by the Crosssover Experiment I
+        designed to test Choice Architecture techniques as UI interventions in a SEEk4Science
+        data catalogue. It contains:\n\n- Data structures for the experimental data.<br>\n-
+        Visualisation functions<br>\n- Analysis functions\n\n## Installation\n\n-
+        R<br>\n- python<br>\n- ipython 4\n\nClone and use.\n\n## Usage\n\n<br>\n```python<br>\nsource(''parallel_plot.r'')<br>\nwith(z,
+        parallelset(trt,response, freq=count, alpha=0.2))<br>\n```\n\n<br>\n## Contributing\n\n1.
+        Fork it!<br>\n2. Create your feature branch: `git checkout -b my-new-feature`<br>\n3.
+        Commit your changes: `git commit -am ''Add some feature''`<br>\n4. Push to
+        the branch: `git push origin my-new-feature`<br>\n5. Submit a pull request
+        :D\n\n<br>\n## License\n\nThis work supports my PhD Thesis at University of
+        Manchester.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL3plbm9kby40ODQ0MDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPktyaXN0aWFuIEdhcnphPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+QW5hbHlzaXMgVG9vbHMgRm9yIENyb3Nzb3ZlciBFeHBlcmltZW50IE9mIFVpIFVzaW5nIENob2ljZSBBcmNoaXRlY3R1cmU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+WmVub2RvPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE2PC9wdWJsaWNhdGlvblllYXI+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+Y2hvaWNlIGFyY2hpdGVjdHVyZTwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmNyb3Nzb3ZlciBleHBlcmltZW50PC9zdWJqZWN0PgogICAgPHN1YmplY3Q+aGNpPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0wMy0yNzwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0idXJsIj5odHRwczovL3plbm9kby5vcmcvcmVjb3JkLzQ4NDQwPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJJc1N1cHBsZW1lbnRUbyI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPnYxLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8iPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24tTm9uQ29tbWVyY2lhbC1TaGFyZUFsaWtlPC9yaWdodHM+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaW5mbzpldS1yZXBvL3NlbWFudGljcy9vcGVuQWNjZXNzIj5PcGVuIEFjY2VzczwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0OyZhbXA7bmJzcDsmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHRvb2xzIGFyZSB1c2VkIHRvIGFuYWx5c2UgdGhlIGRhdGEgcHJvZHVjZWQgYnkgdGhlIENyb3Nzc292ZXIgRXhwZXJpbWVudCBJIGRlc2lnbmVkIHRvIHRlc3QgQ2hvaWNlIEFyY2hpdGVjdHVyZSB0ZWNobmlxdWVzIGFzIFVJIGludGVydmVudGlvbnMgaW4gYSBTRUVrNFNjaWVuY2UgZGF0YSBjYXRhbG9ndWUuIEl0IGNvbnRhaW5zOiZsdDsvcCZndDsKCiZsdDtwJmd0Oy0gRGF0YSBzdHJ1Y3R1cmVzIGZvciB0aGUgZXhwZXJpbWVudGFsIGRhdGEuJmx0O2JyIC8mZ3Q7Ci0gVmlzdWFsaXNhdGlvbiBmdW5jdGlvbnMmbHQ7YnIgLyZndDsKLSBBbmFseXNpcyBmdW5jdGlvbnMmbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBJbnN0YWxsYXRpb24mbHQ7L3AmZ3Q7CgombHQ7cCZndDstIFImbHQ7YnIgLyZndDsKLSBweXRob24mbHQ7YnIgLyZndDsKLSBpcHl0aG9uIDQmbHQ7L3AmZ3Q7CgombHQ7cCZndDtDbG9uZSBhbmQgdXNlLiZsdDsvcCZndDsKCiZsdDtwJmd0OyMjIFVzYWdlJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CmBgYHB5dGhvbiZsdDticiAvJmd0Owpzb3VyY2UoJmFtcDsjMzk7cGFyYWxsZWxfcGxvdC5yJmFtcDsjMzk7KSZsdDticiAvJmd0Owp3aXRoKHosIHBhcmFsbGVsc2V0KHRydCxyZXNwb25zZSwgZnJlcT1jb3VudCwgYWxwaGE9MC4yKSkmbHQ7YnIgLyZndDsKYGBgJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIENvbnRyaWJ1dGluZyZsdDsvcCZndDsKCiZsdDtwJmd0OzEuIEZvcmsgaXQhJmx0O2JyIC8mZ3Q7CjIuIENyZWF0ZSB5b3VyIGZlYXR1cmUgYnJhbmNoOiBgZ2l0IGNoZWNrb3V0IC1iIG15LW5ldy1mZWF0dXJlYCZsdDticiAvJmd0OwozLiBDb21taXQgeW91ciBjaGFuZ2VzOiBgZ2l0IGNvbW1pdCAtYW0gJmFtcDsjMzk7QWRkIHNvbWUgZmVhdHVyZSZhbXA7IzM5O2AmbHQ7YnIgLyZndDsKNC4gUHVzaCB0byB0aGUgYnJhbmNoOiBgZ2l0IHB1c2ggb3JpZ2luIG15LW5ldy1mZWF0dXJlYCZsdDticiAvJmd0Owo1LiBTdWJtaXQgYSBwdWxsIHJlcXVlc3QgOkQmbHQ7L3AmZ3Q7CgombHQ7cCZndDsmbHQ7YnIgLyZndDsKIyMgTGljZW5zZSZsdDsvcCZndDsKCiZsdDtwJmd0O1RoaXMgd29yayBzdXBwb3J0cyBteSBQaEQgVGhlc2lzIGF0IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3Rlci4mbHQ7L3AmZ3Q7PC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","url":"https://zenodo.org/record/48440","contentUrl":null,"metadataVersion":10,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"created":"2016-03-27T22:18:37.000Z","registered":"2016-03-27T22:18:38.000Z","updated":"2018-05-04T23:56:33.000Z"},"relationships":{"client":{"data":{"id":"cern.zenodo","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"cern.zenodo","type":"clients","attributes":{"name":"ZENODO
+        - Research. Shared.","symbol":"CERN.ZENODO","year":2013,"contactName":"Lars
+        Holm Nielsen","contactEmail":"lars.holm.nielsen@cern.ch","description":null,"domains":"openaire.cern.ch,zenodo.org","url":"https://zenodo.org/","created":"2013-01-28T12:07:48.000Z","updated":"2018-12-26T10:38:09.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cern","type":"providers"}},"repository":{"data":{"id":"10.17616/R3QP53","type":"repositories"}},"prefixes":{"data":[{"id":"10.5281","type":"prefixes"},{"id":"10.5072","type":"prefixes"}]}}}]}'
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:17 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/prefixes/10.2210
+    uri: https://doi.org/ra/10.2210
     body:
       encoding: US-ASCII
       string: ''
@@ -14,37 +14,36 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Thu, 06 Sep 2018 07:23:53 GMT
+      - Sat, 29 Dec 2018 07:52:33 GMT
       Content-Type:
-      - application/json; charset=utf-8
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
       Connection:
       - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      X-Request-Id:
-      - cde2cfc2-2139-4033-b373-b1bd807bd393
-      Etag:
-      - W/"2dd6a762df65af452a927aac2d986c70"
-      X-Runtime:
-      - '0.229956'
-      X-Powered-By:
-      - Phusion Passenger 5.3.4
+      Set-Cookie:
+      - __cfduid=d2b689ff56ad5a6984ac1ab6b7a182ecc1546069952; expires=Sun, 29-Dec-19
+        07:52:32 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
-      - nginx/1.14.0 + Phusion Passenger 5.3.4
+      - cloudflare
+      Cf-Ray:
+      - 490ab015bf99231e-FRA
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.2210","type":"prefixes","attributes":{"registration-agency":"Crossref","created":null,"updated":"2016-09-21T20:59:47Z"},"relationships":{"clients":{"data":[]},"providers":{"data":[]}}},"included":[]}'
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:23:53 GMT
+      string: |-
+        [
+          {
+            "DOI": "10.2210",
+            "RA": "Crossref"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:33 GMT
 - request:
     method: get
     uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.2210/pdb4hhb/pdb&noredirect=true&pid=tech@datacite.org
@@ -64,13 +63,13 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Crossref-Deployment-Name:
-      - qs3-1
+      - cr6-1
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Language:
       - en-US
       Date:
-      - Thu, 06 Sep 2018 07:23:53 GMT
+      - Sat, 29 Dec 2018 07:52:33 GMT
       Connection:
       - close
     body:
@@ -93,6 +92,6 @@ http_interactions:
         \             <resource>ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz</resource>\r\n
         \           </doi_data>\r\n          </component>\r\n        </component_list>\r\n
         \     </sa_component>\r\n    </crossref>\r\n  </doi_record>\r\n</doi_records>"
-    http_version:
-  recorded_at: Thu, 06 Sep 2018 07:23:53 GMT
+    http_version: 
+  recorded_at: Sat, 29 Dec 2018 07:52:33 GMT
 recorded_with: VCR 3.0.3
