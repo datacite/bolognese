@@ -71,6 +71,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
     end
 
+    it "ornl" do
+      input = "https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3334/ornldaac/1339", "identifierType"=>"DOI"}])
+      expect(subject.doi).to eq("10.3334/ornldaac/1339")
+      expect(subject.url).to eq("https://doi.org/10.3334/ornldaac/1339")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "ris"=>"GEN", "schemaOrg"=>"DataSet")
+      expect(subject.titles).to eq([{"title"=>"Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA"}])
+      expect(subject.creators.size).to eq(12)
+      expect(subject.creators.first).to eq("familyName"=>"MOGHADDAM", "givenName"=>"M.", "name"=>"MOGHADDAM, M.", "nameType"=>"Personal")
+    end
+
     # service doesn't return html to script
     # it "ornl daac" do
     #   input = "https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1418"

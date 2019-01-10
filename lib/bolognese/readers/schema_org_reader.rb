@@ -16,7 +16,7 @@ module Bolognese
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
         id = normalize_id(id)
-        response = Maremma.get(id, host: true)
+        response = Maremma.get(id)
         doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
 
         # workaround for xhtml documents
