@@ -16,7 +16,7 @@ module Bolognese
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
         id = normalize_id(id)
-        response = Maremma.get(id)
+        response = Maremma.get(id, host: true)
         doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
 
         # workaround for xhtml documents
@@ -68,7 +68,7 @@ module Bolognese
         ct = (schema_org == "Dataset") ? "includedInDataCatalog" : "Periodical"
         container = if meta.fetch(ct, nil).present?
           url =  parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "url", first: true)
-          
+
           {
             "type" => (schema_org == "Dataset") ? "DataRepository" : "Periodical",
             "title" => parse_attributes(from_schema_org(meta.fetch(ct, nil)), content: "name", first: true),
@@ -114,7 +114,7 @@ module Bolognese
         dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if meta.fetch("dateCreated", nil).present?
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
-        
+
         state = meta.present? || read_options.present? ? "findable" : "not_found"
         geo_locations = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
           if gl.dig("geo", "box")
