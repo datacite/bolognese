@@ -2,13 +2,88 @@
 http_interactions:
 - request:
     method: get
+    uri: https://doi.org/10.3334/ornldaac/1339
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 302
+      message: ''
+    headers:
+      Date:
+      - Thu, 10 Jan 2019 20:16:16 GMT
+      Content-Type:
+      - text/html;charset=utf-8
+      Content-Length:
+      - '187'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7b5b32dd3b95a6b197a80bb4d8c9fb3c1547151376; expires=Fri, 10-Jan-20
+        20:16:16 GMT; path=/; domain=.doi.org; HttpOnly
+      Expires:
+      - Thu, 10 Jan 2019 20:23:01 GMT
+      Location:
+      - http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
+      Vary:
+      - Accept
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4971d204fc8140a0-HAM
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        <html><head><title>Handle Redirect</title></head>
+        <body><a href="http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339">http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339</a></body></html>
+    http_version: 
+  recorded_at: Thu, 10 Jan 2019 20:16:16 GMT
+- request:
+    method: get
+    uri: http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 301
+      message: Moved permanently
+    headers:
+      Location:
+      - https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
+      Connection:
+      - close
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Thu, 10 Jan 2019 20:16:16 GMT
+- request:
+    method: get
     uri: https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +92,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Jan 2019 18:45:58 GMT
+      - Thu, 10 Jan 2019 20:16:17 GMT
       Server:
       - Apache/2.4.6 (Red Hat Enterprise Linux)
       Strict-Transport-Security:
@@ -871,5 +946,5 @@ http_interactions:
         targets: [1] }\n        ],\n        order: [[0, \"asc\"]]\n      } );\n\n
         \ } );\n</script>\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Thu, 10 Jan 2019 18:45:59 GMT
+  recorded_at: Thu, 10 Jan 2019 20:16:17 GMT
 recorded_with: VCR 3.0.3

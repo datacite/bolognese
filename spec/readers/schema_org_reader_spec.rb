@@ -72,7 +72,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "ornl" do
-      input = "https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339"
+      input = "https://doi.org/10.3334/ornldaac/1339"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3334/ornldaac/1339", "identifierType"=>"DOI"}])
@@ -83,21 +83,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.size).to eq(12)
       expect(subject.creators.first).to eq("familyName"=>"MOGHADDAM", "givenName"=>"M.", "name"=>"MOGHADDAM, M.", "nameType"=>"Personal")
     end
-
-    # service doesn't return html to script
-    # it "ornl daac" do
-    #   input = "https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1418"
-    #   subject = Bolognese::Metadata.new(input: input, from: "schema_org")
-    #   subject.id = "https://doi.org/10.3334/ornldaac/1418"
-    #   #expect(subject.errors).to be true
-    #   expect(subject.identifier).to eq("https://doi.org/10.3334/ornldaac/1418")
-    #   expect(subject.doi).to eq("10.3334/ornldaac/1418")
-    #   expect(subject.url).to eq("https://doi.org/10.3334/ornldaac/1418")
-    #   expect(subject.type).to eq("DataSet")
-    #   expect(subject.title).to eq("AirMOSS: L2/3 Volumetric Soil Moisture Profiles Derived From Radar, 2012-2015")
-    #   expect(subject.creators.size).to eq(8)
-    #   expect(subject.creators.first).to eq("type"=>"Person", "name"=>"M. MOGHADDAM", "givenName"=>"M.", "familyName"=>"MOGHADDAM")
-    # end
 
     it "harvard dataverse" do
       input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJ7XSO"
