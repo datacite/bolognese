@@ -94,6 +94,13 @@ Bolognese reads and/or writes these metadata formats:
       <td>Yes</td>
     </tr>
     <tr>
+      <td><a href='https://en.wikipedia.org/wiki/Comma-separated_values'>CSV</a></td>
+      <td>csv</td>
+      <td>text/csv</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
       <td><a href='http://en.wikipedia.org/wiki/BibTeX'>BibTeX</a></td>
       <td>bibtex</td>
       <td>application/x-bibtex</td>

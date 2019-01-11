@@ -21,6 +21,7 @@ require_relative 'writers/citeproc_writer'
 require_relative 'writers/codemeta_writer'
 require_relative 'writers/crosscite_writer'
 require_relative 'writers/crossref_writer'
+require_relative 'writers/csv_writer'
 require_relative 'writers/datacite_writer'
 require_relative 'writers/datacite_json_writer'
 require_relative 'writers/jats_writer'
@@ -53,6 +54,7 @@ module Bolognese
     include Bolognese::Writers::CodemetaWriter
     include Bolognese::Writers::CrossciteWriter
     include Bolognese::Writers::CrossrefWriter
+    include Bolognese::Writers::CsvWriter
     include Bolognese::Writers::DataciteWriter
     include Bolognese::Writers::DataciteJsonWriter
     include Bolognese::Writers::JatsWriter
