@@ -13,7 +13,7 @@ module Bolognese
                 :subjects, :contributor, :descriptions, :language, :sizes,
                 :formats, :schema_version, :meta, :container, :agency,
                 :format, :funding_references, :state, :geo_locations,
-                :types, :content_url, :related_identifiers, :style, :locale
+                :types, :content_url, :related_identifiers, :style, :locale, :date_registered
 
     def initialize(input: nil, from: nil, **options)
       id = normalize_id(input, options)
@@ -213,6 +213,10 @@ module Bolognese
 
     def state
       @state ||= meta.fetch("state", nil)
+    end
+
+    def date_registered
+      @date_registered ||= meta.fetch("date_registered", nil)
     end
 
     def types

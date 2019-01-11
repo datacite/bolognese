@@ -2,7 +2,7 @@ module Bolognese
   module Writers
     module CsvWriter
       require "csv"
-      
+
       def csv
         return nil unless valid?
 
@@ -12,6 +12,9 @@ module Bolognese
           doi: doi,
           url: url,
           year: publication_year,
+          registered: get_iso8601_date(date_registered),
+          state: state,
+          resource_type_general: types["resourceTypeGeneral"],
           bibtex_type: types["bibtex"].presence || "misc",
           title: parse_attributes(titles, content: "title", first: true),
           author: authors_as_string(creators),
@@ -19,9 +22,7 @@ module Bolognese
           journal: container && container["title"],
           volume: container.to_h["volume"],
           issue: container.to_h["issue"],
-          pages: pages,
-          language: language,
-          keywords: subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.join(", ") : nil
+          pages: pages
         }.values
 
         CSV.generate { |csv| csv << bib }

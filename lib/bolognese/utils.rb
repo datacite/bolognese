@@ -833,6 +833,12 @@ module Bolognese
       { 'date-parts' => [[year.to_i, month.to_i, day.to_i].reject { |part| part == 0 }] }
     end
 
+    def get_iso8601_date(iso8601_time)
+      return nil if iso8601_time.nil?
+      
+      iso8601_time[0..9]
+    end
+
     def get_year_month(iso8601_time)
       return [] if iso8601_time.nil?
 
