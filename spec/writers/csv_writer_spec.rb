@@ -11,15 +11,14 @@ describe Bolognese::Metadata, vcr: true do
       
       expect(csv[0]).to eq("10.7554/elife.01567")
       expect(csv[1]).to eq("https://elifesciences.org/articles/01567")
-      expect(csv[2]).to eq("2014")
-      expect(csv[3]).to be_nil
-      expect(csv[4]).to eq("findable")
-      expect(csv[5]).to eq("Text")
-      expect(csv[6]).to eq("article")
-      expect(csv[7]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      expect(csv[8]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
-      expect(csv[9]).to eq("(:unav)")
-      expect(csv[10]).to eq("eLife")
+      expect(csv[2]).to be_nil
+      expect(csv[3]).to eq("findable")
+      expect(csv[4]).to eq("Text")
+      expect(csv[5]).to eq("JournalArticle")
+      expect(csv[6]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
+      expect(csv[7]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
+      expect(csv[8]).to eq("(:unav)")
+      expect(csv[9]).to eq("2014")
     end
 
     it "with pages" do
@@ -29,18 +28,14 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(csv[0]).to eq("10.1155/2012/291294")
       expect(csv[1]).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(csv[2]).to eq("2012")
-      expect(csv[3]).to be_nil
-      expect(csv[4]).to eq("findable")
-      expect(csv[5]).to eq("Text")
-      expect(csv[6]).to eq("article")
-      expect(csv[7]).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
-      expect(csv[8]).to eq("Thanassi, Wendy and Noda, Art and Hernandez, Beatriz and Newell, Jeffery and Terpeluk, Paul and Marder, David and Yesavage, Jerome A.")
-      expect(csv[9]).to eq("(:unav)")
-      expect(csv[10]).to eq("Pulmonary Medicine")
-      expect(csv[11]).to eq("2012")
-      expect(csv[12]).to be_nil
-      expect(csv[13]).to eq("1-7")
+      expect(csv[2]).to be_nil
+      expect(csv[3]).to eq("findable")
+      expect(csv[4]).to eq("Text")
+      expect(csv[5]).to eq("JournalArticle")
+      expect(csv[6]).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
+      expect(csv[7]).to eq("Thanassi, Wendy and Noda, Art and Hernandez, Beatriz and Newell, Jeffery and Terpeluk, Paul and Marder, David and Yesavage, Jerome A.")
+      expect(csv[8]).to eq("(:unav)")
+      expect(csv[9]).to eq("2012")
     end
 
     it "text" do
@@ -51,15 +46,13 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(csv[0]).to eq("10.17173/pretest8")
       expect(csv[1]).to eq("http://pretest.gesis.org/Pretest/DoiId/10.17173/pretest8")
-      expect(csv[2]).to eq("2014")
-      expect(csv[3]).to eq("2016-06-01")
-      expect(csv[4]).to eq("findable")
-      expect(csv[5]).to eq("Text")
-      expect(csv[6]).to eq("article")
-      expect(csv[7]).to eq("PIAAC-Longitudinal (PIAAC-L) 2015")
-      expect(csv[8]).to eq("Lenzner, T. and Neuert, C. and Otto, W. and Landrock, U. and Menold, N.")
-      expect(csv[9]).to eq("GESIS – Pretest Lab")
-      expect(csv[10]).to eq("GESIS Projektbericht")
+      expect(csv[2]).to eq("2016-06-01")
+      expect(csv[3]).to eq("findable")
+      expect(csv[4]).to eq("Text")
+      expect(csv[5]).to eq("Pretestbericht")
+      expect(csv[6]).to eq("PIAAC-Longitudinal (PIAAC-L) 2015")
+      expect(csv[7]).to eq("Lenzner, T. and Neuert, C. and Otto, W. and Landrock, U. and Menold, N.")
+      expect(csv[9]).to eq("2014")
     end
 
     it "climate data" do
@@ -70,14 +63,14 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(csv[0]).to eq("10.5067/altcy-tj122")
       expect(csv[1]).to eq("http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_CYCLES_V2")
-      expect(csv[2]).to eq("2012")
-      expect(csv[3]).to eq("2014-01-15")
-      expect(csv[4]).to eq("findable")
-      expect(csv[5]).to eq("Dataset")
-      expect(csv[6]).to eq("misc")
-      expect(csv[7]).to eq("Integrated Multi-Mission Ocean Altimeter Data for Climate Research Version 2")
-      expect(csv[8]).to eq("{GSFC}")
-      expect(csv[9]).to eq("NASA Physical Oceanography DAAC")
+      expect(csv[2]).to eq("2014-01-15")
+      expect(csv[3]).to eq("findable")
+      expect(csv[4]).to eq("Dataset")
+      expect(csv[5]).to be_nil
+      expect(csv[6]).to eq("Integrated Multi-Mission Ocean Altimeter Data for Climate Research Version 2")
+      expect(csv[7]).to eq("{GSFC}")
+      expect(csv[8]).to eq("NASA Physical Oceanography DAAC")
+      expect(csv[9]).to eq("2012")
     end
     
     it "maremma" do
@@ -87,14 +80,14 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(csv[0]).to eq("10.5438/qeg0-3gm3")
       expect(csv[1]).to eq("https://github.com/datacite/maremma")
-      expect(csv[2]).to eq("2017")
-      expect(csv[3]).to be_nil
-      expect(csv[4]).to eq("findable")
-      expect(csv[5]).to eq("Software")
-      expect(csv[6]).to eq("misc")
-      expect(csv[7]).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(csv[8]).to eq("Fenner, Martin")
-      expect(csv[9]).to eq("DataCite")
+      expect(csv[2]).to be_nil
+      expect(csv[3]).to eq("findable")
+      expect(csv[4]).to eq("Software")
+      expect(csv[5]).to be_nil
+      expect(csv[6]).to eq("Maremma: a Ruby library for simplified network calls")
+      expect(csv[7]).to eq("Fenner, Martin")
+      expect(csv[8]).to eq("DataCite")
+      expect(csv[9]).to eq("2017")
     end
   end
 end
