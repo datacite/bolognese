@@ -87,6 +87,28 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("version")).to eq("2.0.0")
     end
 
+    it "rdataone and codemeta_v2" do
+      input = fixture_path + 'codemeta_v2.json'
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+      expect(subject.valid?).to be true
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
+      expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>{"__content__"=>"Jones, Matt", "nameType"=>"Personal"},
+                                                          "givenName"=>"Matt",
+                                                          "familyName"=>"Jones",
+                                                          "nameIdentifier"=>
+                                                         {"nameIdentifierScheme"=>"ORCID",
+                                                          "__content__"=>"https://orcid.org/0000-0003-0077-4738"}},
+                                                         {"creatorName"=>{"__content__"=>"Slaughter, Peter", "nameType"=>"Personal"},
+                                                           "givenName"=>"Peter",
+                                                           "familyName"=>"Slaughter",
+                                                          "nameIdentifier"=>
+                                                         {"nameIdentifierScheme"=>"ORCID",
+                                                          "__content__"=>"https://orcid.org/0000-0002-2192-403X"}},
+                                                         {"creatorName"=>{"__content__"=>"University Of California, Santa Barbara", "nameType"=>"Organizational"}}])
+      expect(datacite.fetch("version")).to eq("2.0.0")
+    end
+
     it "maremma" do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
