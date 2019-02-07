@@ -65,6 +65,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite["version"]).to eq("2.0.0")
     end
 
+    it "rdataone codemeta v2" do
+      input = fixture_path + 'codemeta_v2.json'
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+      crosscite = JSON.parse(subject.crosscite)
+      expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
+      expect(crosscite["creators"].length).to eq(3)
+      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara")
+      expect(crosscite["version"]).to eq("2.0.0")
+    end
+
     it "datacite database attributes" do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
