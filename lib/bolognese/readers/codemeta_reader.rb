@@ -36,9 +36,10 @@ module Bolognese
         id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
         doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
 
-        creators =  meta.fetch("agents", nil).nil? ? get_authors(from_schema_org_creators(Array.wrap(meta.fetch("authors", nil)))) : get_authors(from_schema_org_creators(Array.wrap(meta.fetch("agents", nil)))) 
-        
-        # creators = get_authors(from_schema_org_creators(Array.wrap(meta.fetch("authors", nil))))
+        has_agents = meta.fetch("agents", nil)
+        authors =  has_agents.nil? ? meta.fetch("authors", nil) : has_agents
+        creators = get_authors(from_schema_org_creators(Array.wrap(authors)))
+
         contributors = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("editor", nil))))
         dates = []
         dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if meta.fetch("datePublished", nil).present?
@@ -60,7 +61,9 @@ module Bolognese
           { "subject" => s }
         end
 
-        titles =  meta.fetch("title", nil).nil? ?  [{ "title" => meta.fetch("name", nil) }] : [{ "title" => meta.fetch("title", nil) }]  
+        has_title = meta.fetch("title", nil)
+
+        titles =  has_title.nil? ?  [{ "title" => meta.fetch("name", nil) }] : [{ "title" => has_title }]  
 
         { "id" => id,
           "types" => types,
