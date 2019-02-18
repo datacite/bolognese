@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -19,11 +19,11 @@ http_interactions:
       Server:
       - nginx/1.12.2
       Date:
-      - Sat, 29 Dec 2018 07:52:50 GMT
+      - Mon, 18 Feb 2019 09:08:29 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '38820'
+      - '43595'
       Vary:
       - Accept-Encoding
       X-Frame-Options:
@@ -41,14 +41,14 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '4999'
       X-Ratelimit-Reset:
-      - '1546073569'
+      - '1550484508'
       Retry-After:
       - '3598'
       Set-Cookie:
-      - session=2e2c5663eafbaa98_5c2727d2.uAezBV9bZXSkX7kXv4lJkT79KXk; Expires=Tue,
-        29-Jan-2019 07:52:50 GMT; Secure; HttpOnly; Path=/
+      - session=7ca8258b744458e4_5c6a760d.wdeVqEcnQcgp7acQXe7sPFJFGhg; Expires=Thu,
+        21-Mar-2019 09:08:29 GMT; Secure; HttpOnly; Path=/
       X-Request-Id:
-      - ab43afffafa2048e753065f71c46bb8f
+      - a36f70e7d38ac8dd7a149916ead1726b
     body:
       encoding: ASCII-8BIT
       string: "\n<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n    <meta
@@ -64,7 +64,7 @@ http_interactions:
         \   <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/static/apple-touch-icon-72-precomposed.png\"/>\n
         \   <link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/static/apple-touch-icon-57-precomposed.png\"/>\n<link
         href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,100,italic\"
-        rel=\"stylesheet\">\n<link href=\"/static/gen/zenodo.375b7429.css\" rel=\"stylesheet\">\n<!--
+        rel=\"stylesheet\">\n<link href=\"/static/gen/zenodo.d488fac6.css\" rel=\"stylesheet\">\n<!--
         HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
         -->\n<!--[if lt IE 9]>\n  <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n
         \ <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n<![endif]-->\n
@@ -263,15 +263,66 @@ http_interactions:
         \       <td class=\"nowrap\">3.9 kB</td>\n        <td class=\"nowrap\"><span
         class=\"pull-right\"><a class=\"btn btn-xs btn-default\" href=\"/record/1196821/files/README.txt?download=1\"><i
         class=\"fa fa-download\"></i> Download</a></span></td>\n      </tr></tbody>\n
-        \   </table>\n  </div>\n</div>\n\n\n    </div>\n    <div class=\"col-sm-4
-        col-md-4 col-right\">\n\n\n      \n      <div class=\"well\"><!-- Stats -->\n<div
-        class=\"row stats-box\">\n  <div id=\"accordion\">\n    <!-- Banner --><div
-        class=\"row\">\n      <div class=\"col-sm-6\">\n        <span class=\"stats-data\">922</span>\n
-        \     </div>\n      <div class=\"col-sm-6\">\n        <span class=\"stats-data\">178</span>\n
-        \     </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6\">\n
-        \       <i class=\"fa fa-eye \" data-toggle=\"tooltip\" tooltip data-placement=\"top\"
-        title=\"Total views.\" data-original-title=\"Total views.\"></i> views\n      </div>\n
-        \     <div class=\"col-sm-6\">\n        <i class=\"fa fa-download \" data-toggle=\"tooltip\"
+        \   </table>\n  </div>\n</div>\n\n\n\n<div id=\"citations\">\n  <invenio-search\n
+        \  disable-url-handler=\"true\"\n   search-endpoint=\"https://zenodo-broker-qa.web.cern.ch/api/relationships\"\n
+        \  search-extra-params='{\"page\": 1, \"size\": \"10\", \"group_by\": \"version\"}'\n
+        \  search-hidden-params='{\"id\": \"10.5281/zenodo.1196821\", \"relation\":
+        \"isCitedBy\", \"scheme\": \"doi\"}'\n   search-headers='{\"Accept\": \"application/json\"}'
+        >\n    <div class=\"panel panel-default\" id=\"citation\">\n      <div class=\"panel-heading\">\n
+        \       <!-- Beta ribbon -->\n        <div class=\"row\" style=\"margin-bottom:
+        -15px;\">\n          <div class=\"col-sm-1\">\n            <div class=\"ribbon-wrapper-green\">\n
+        \             <a href=\"https://help.zenodo.org/#citations\" target=\"_blank\"
+        rel=\"noopener noreferrer\">\n                <div class=\"corner-ribbon top-left
+        ribbon-green\">Beta</div>\n              </a>\n            </div>\n          </div>\n
+        \         <div class=\"col-sm-11\" style=\"margin-top: 5px;\">\n            <a
+        class=\"panel-toggle\" data-toggle=\"collapse\" href=\"#collapseCitations\"
+        style=\"margin-left:-25px;\">\n              Citations\n              <small
+        class=\"text-muted\">\n                <invenio-search-count\n                template=\"/static/templates/citations/count.html\">\n
+        \               </invenio-search-count>\n              </small>\n              <span
+        class=\"pull-right show-on-collapsed\"><i class=\"fa fa-chevron-right\"></i></span>\n
+        \             <span class=\"pull-right hide-on-collapsed\"><i class=\"fa fa-chevron-down\"></i></span>\n
+        \           </a>\n          </div>\n        </div>\n\n        <!-- Without
+        beta ribbon -->\n        <!--<a class=\"panel-toggle\" data-toggle=\"collapse\"
+        href=\"#collapseCitations\">-->\n          <!--Citations-->\n          <!--<small
+        class=\"text-muted\">-->\n            <!--<invenio-search-count-->\n            <!--template=\"/static/templates/citations/count.html\">-->\n
+        \           <!--</invenio-search-count>-->\n          <!--</small>-->\n          <!--<span
+        class=\"pull-right show-on-collapsed\"><i class=\"fa fa-chevron-right\"></i></span>-->\n
+        \         <!--<span class=\"pull-right hide-on-collapsed\"><i class=\"fa fa-chevron-down\"></i></span>-->\n
+        \       <!--</a>-->\n\n      </div>\n      <div id=\"collapseCitations\" class=\"collapse
+        in\">\n        <div class=\"search-page\">\n          <div class=\"container-fluid
+        facets\">\n            <div class=\"row\">\n              <div class=\"col-sm-9\">\n
+        \               <invenio-search-facets\n                   ng-init=\"vm.record_id='10.5281/zenodo.1196821';
+        vm.version_id='10.5281/zenodo.1039580'\"\n                   template=\"/static/templates/citations/facets.html\">\n
+        \               </invenio-search-facets>\n              </div>\n              <div
+        class=\"col-sm-3\">\n                <invenio-search-bar\n                  template=\"/static/templates/invenio_search_ui/searchbar.html\"\n
+        \                 placeholder=\"Search\">\n                </invenio-search-bar>\n
+        \             </div>\n            </div>\n          </div>\n          <div
+        class=\"container-fluid\">\n          <invenio-search-error\n            template=\"/static/templates/zenodo_search_ui/error.html\"\n
+        \           message=\"Error\">\n          </invenio-search-error>\n          </div>\n
+        \         <invenio-search-results\n           template=\"/static/templates/citations/results.html\">\n
+        \         </invenio-search-results>\n          <div class=\"row\">\n            <div
+        class=\"col-md-2 col-sm-12\">\n            </div>\n            <div class=\"col-md-7
+        col-sm-12 text-center\">\n              <invenio-search-pagination\n                template=\"/static/templates/citations/pagination.html\">\n
+        \             </invenio-search-pagination>\n            </div>\n            <div
+        class=\"col-md-3 col-sm-12\" style=\"padding-top: 5px;\">\n              <invenio-search-select-box\n
+        \                sort-key=\"size\"\n                 available-options='{\n
+        \                 \"options\": [\n                     {\n                       \"title\":
+        \"10\",\n                       \"value\": \"10\"\n                     },\n
+        \                    {\n                       \"title\": \"20\",\n                       \"value\":
+        \"20\"\n                     },\n                     {\n                       \"title\":
+        \"50\",\n                       \"value\": \"50\"\n                     }\n
+        \                 ]}'\n                 template=\"/static/templates/citations/selectbox.html\">\n
+        \               </invenio-search-select-box>\n            </div>\n          </div>\n
+        \     </div>\n    </div>\n    </div>\n  </invenio-search>\n</div>\n\n    </div>\n
+        \   <div class=\"col-sm-4 col-md-4 col-right\">\n\n\n      \n      <div class=\"well\"><!--
+        Stats -->\n<div class=\"row stats-box\">\n  <div id=\"accordion\">\n    <!--
+        Banner --><div class=\"row\">\n      <div class=\"col-sm-6\">\n        <span
+        class=\"stats-data\">1,015</span>\n      </div>\n      <div class=\"col-sm-6\">\n
+        \       <span class=\"stats-data\">202</span>\n      </div>\n    </div>\n
+        \   <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <i class=\"fa
+        fa-eye \" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Total
+        views.\" data-original-title=\"Total views.\"></i> views\n      </div>\n      <div
+        class=\"col-sm-6\">\n        <i class=\"fa fa-download \" data-toggle=\"tooltip\"
         tooltip data-placement=\"top\" title=\"Total downloads.\" data-original-title=\"Total
         downloads.\"></i> downloads\n      </div>\n    </div>\n\n    <!-- Collapsed
         details -->\n    <div id=\"toggle-stats\" class=\"row\">\n      <div class=\"col-sm-12\">\n
@@ -284,21 +335,21 @@ http_interactions:
         versions</th>\n          <th>This version</th>\n        </tr><tr>\n          <td>Views
         <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip
         data-placement=\"top\" title=\"Total views.\" data-original-title=\"Total
-        views.\"></i></td><td>922</td><td>187</td>\n        </tr>\n        <tr>\n
+        views.\"></i></td><td>1,015</td><td>218</td>\n        </tr>\n        <tr>\n
         \         <td>Downloads <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\"
         tooltip data-placement=\"top\" title=\"Total downloads.\" data-original-title=\"Total
-        downloads.\"></i></td><td>178</td><td>46</td>\n        </tr>\n        <tr>\n
+        downloads.\"></i></td><td>202</td><td>52</td>\n        </tr>\n        <tr>\n
         \         <td>Data volume <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\"
         tooltip data-placement=\"top\" title=\"Total download volume.\" data-original-title=\"Total
-        download volume.\"></i></td><td>21.4 GB</td><td>10.0 GB</td>\n        </tr>\n
+        download volume.\"></i></td><td>22.3 GB</td><td>10.9 GB</td>\n        </tr>\n
         \       <tr>\n          <td>Unique views <i class=\"fa fa-question-circle
         text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Views
         in one hour user-sessions are counted only once.\" data-original-title=\"Views
-        in one hour user-sessions are counted only once.\"></i></td><td>671</td><td>153</td>\n
+        in one hour user-sessions are counted only once.\"></i></td><td>740</td><td>183</td>\n
         \       </tr>\n        <tr>\n          <td>Unique downloads <i class=\"fa
         fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\"
         title=\"Downloads in one hour user-sessions are counted only once.\" data-original-title=\"Downloads
-        in one hour user-sessions are counted only once.\"></i></td><td>76</td><td>24</td>\n
+        in one hour user-sessions are counted only once.\"></i></td><td>92</td><td>28</td>\n
         \       </tr>\n      </table>\n      <div class=\"row\">\n        <a href=\"https://help.zenodo.org/#statistics\">More
         info on how stats are collected.</a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--
         Altmetric -->\n  \n<div class=\"altmetric-embed\" data-badge-type=\"donut\"
@@ -483,11 +534,11 @@ http_interactions:
         and 10 Hz frequency, resulting in a total US duration of 0.5 s. SOA betwen
         the CS and US was 3.5 s. The ITI was randomly determined on each trial to
         be 7, 9, or 11 s.</p>\", \n  \"distribution\": [\n    {\n      \"@type\":
-        \"DataDownload\", \n      \"contentUrl\": \"https://www.zenodo.org:443/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/Data.zip\",
+        \"DataDownload\", \n      \"contentUrl\": \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/Data.zip\",
         \n      \"fileFormat\": \"zip\"\n    }, \n    {\n      \"@type\": \"DataDownload\",
-        \n      \"contentUrl\": \"https://www.zenodo.org:443/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/excludes.txt\",
+        \n      \"contentUrl\": \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/excludes.txt\",
         \n      \"fileFormat\": \"txt\"\n    }, \n    {\n      \"@type\": \"DataDownload\",
-        \n      \"contentUrl\": \"https://www.zenodo.org:443/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/README.txt\",
+        \n      \"contentUrl\": \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/README.txt\",
         \n      \"fileFormat\": \"txt\"\n    }\n  ], \n  \"identifier\": \"https://doi.org/10.5281/zenodo.1196821\",
         \n  \"inLanguage\": {\n    \"@type\": \"Language\", \n    \"alternateName\":
         \"eng\", \n    \"name\": \"English\"\n  }, \n  \"keywords\": [\n    \"Pupil
@@ -498,7 +549,7 @@ http_interactions:
         \n  \"name\": \"PsPM-SC4B: SCR, ECG, EMG, PSR and respiration measurements
         in a delay fear conditioning task with auditory CS and electrical US\", \n
         \ \"url\": \"https://zenodo.org/record/1196821\", \n  \"version\": \"1.0.2\"\n}</script>\n\n<script
-        src=\"/static/gen/zenodo.6935708a.js\"></script>\n<script type=\"text/javascript\"
+        src=\"/static/gen/zenodo.60c4ee65.js\"></script>\n<script type=\"text/javascript\"
         src=\"//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>\n<script
         src=\"/static/gen/zenodo.search.cd696cd5.js\"></script>\n<script type=\"text/javascript\">var
         addthis_config = {\"data_track_addressbar\": true};</script>\n<script type=\"text/javascript\">\n
@@ -506,8 +557,12 @@ http_interactions:
         \   \"jquery\",\n    'typeahead.js',\n    'bloodhound',\n    \"node_modules/angular/angular\",\n
         \   \"node_modules/invenio-csl-js/dist/invenio-csl-js\",\n    \"node_modules/invenio-search-js/dist/invenio-search-js\",\n
         \   \"js/zenodo/module\"\n    ], function(typeahead, Bloodhound) {\n      angular.element(document).ready(function()
-        {\n\n        angular.bootstrap(document.getElementById(\"citations\"), [\n
-        \           'invenioSearch',\n            'zenodo.filters'\n          ]\n
+        {\n\n        // FIXME: This is already defined in js/zenodo_deposit/filters.js.\n
+        \       // It should be moved to a common place...\n        angular.module('zenodo.filters').filter('limitToEllipsis',
+        function () {\n          return function(text, n) {\n            return (text.length
+        > n) ? text.substr(0, n-1) + '&hellip;' : text;\n          };\n        });\n\n
+        \       angular.bootstrap(document.getElementById(\"citations\"), [\n            'invenioSearch',\n
+        \           'zenodo.filters',\n            'mgcrea.ngStrap.tooltip',\n          ]\n
         \       );\n\n        angular.bootstrap(document.getElementById(\"invenio-csl\"),
         [\n            'invenioCsl',\n          ]\n        );\n      });\n    }\n
         \ );\n  require([\n    \"jquery\",\n    \"js/zenodo/functions\",\n    ], function($,
@@ -527,5 +582,5 @@ http_interactions:
         g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);\n})();\n</script>\n
         \ </body>\n</html>"
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:50 GMT
+  recorded_at: Mon, 18 Feb 2019 09:08:29 GMT
 recorded_with: VCR 3.0.3

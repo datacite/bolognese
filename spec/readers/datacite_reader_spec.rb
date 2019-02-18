@@ -432,6 +432,26 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
+    it "Funding empty awardTitle" do
+      input = "https://doi.org/10.26102/2310-6018/2019.24.1.006"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.26102/2310-6018/2019.24.1.006", "identifierType"=>"DOI"}])
+      expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
+      expect(subject.types["resourceType"]).to eq("Journal Article")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Text")
+      expect(subject.creators.length).to eq(2)
+      expect(subject.creators.first).to eq("affiliation"=>"Тверская государственная сельскохозяйственная академия", "familyName"=>"Ганичева", "givenName"=>"А.В.", "name"=>"Ганичева, А.В.", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"МОДЕЛЬ СИСТЕМНОЙ ДИНАМИКИ ПРОЦЕССА ОБУЧЕНИЯ"}, {"title"=>"MODEL OF SYSTEM DYNAMICS OF PROCESS OF TRAINING", "titleType"=>"TranslatedTitle"}])
+      expect(subject.descriptions.first["description"]).to start_with("Актуальность данной работы обусловлена важностью учета в учебном процессе личностных качеств обучаем")
+      expect(subject.publication_year).to eq("2019")
+      expect(subject.publisher).to eq("МОДЕЛИРОВАНИЕ, ОПТИМИЗАЦИЯ И ИНФОРМАЦИОННЫЕ ТЕХНОЛОГИИ")
+      expect(subject.funding_references.length).to eq(1)
+      expect(subject.funding_references.first).to eq("awardNumber"=>"проект № 170100728", "funderName"=>"РФФИ")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
+
     it "BlogPosting from string" do
       input = fixture_path + "datacite.xml"
       subject = Bolognese::Metadata.new(input: input)

@@ -45,6 +45,7 @@ describe Bolognese::Metadata, vcr: true do
     it "zenodo" do
       input = "https://www.zenodo.org/record/1196821"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      expect(subject.valid?).to be false
       expect(subject.errors.size).to eq(2)
       expect(subject.errors.first).to eq("43:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1196821", "identifierType"=>"DOI"}])
@@ -56,6 +57,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("name" => "Staib, Matthias",
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-9688-838X", "nameIdentifierScheme"=>"ORCID"}],
         "nameType" => "Personal", "givenName"=>"Matthias", "familyName"=>"Staib", "affiliation" => "University of Zurich, Zurich, Switzerland")
+      expect(subject.publisher).to be_nil
+      expect(subject.publication_year).to eq("2018")
     end
 
     it "pangaea" do
@@ -69,6 +72,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland"}])
       expect(subject.creators.size).to eq(8)
       expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
+      expect(subject.publisher).to eq("PANGAEA")
+      expect(subject.publication_year).to eq("2014")
     end
 
     it "ornl" do
