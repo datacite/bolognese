@@ -71,13 +71,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
-      expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>{"__content__"=>"Jones, Matt", "nameType"=>"Personal"},
+      expect(datacite.dig("creators", "creator")).to eq([{"affiliation"=>"NCEAS", "creatorName"=>{"__content__"=>"Jones, Matt", "nameType"=>"Personal"},
                                                           "givenName"=>"Matt",
                                                           "familyName"=>"Jones",
                                                           "nameIdentifier"=>
                                                          {"nameIdentifierScheme"=>"ORCID",
                                                           "__content__"=>"https://orcid.org/0000-0003-0077-4738"}},
-                                                         {"creatorName"=>{"__content__"=>"Slaughter, Peter", "nameType"=>"Personal"},
+                                                         {"affiliation"=>"NCEAS", "creatorName"=>{"__content__"=>"Slaughter, Peter", "nameType"=>"Personal"},
                                                            "givenName"=>"Peter",
                                                            "familyName"=>"Slaughter",
                                                           "nameIdentifier"=>
@@ -93,13 +93,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
-      expect(datacite.dig("creators", "creator")).to eq([{"creatorName"=>{"__content__"=>"Jones, Matt", "nameType"=>"Personal"},
+      expect(datacite.dig("creators", "creator")).to eq([{"affiliation"=>"NCEAS", "creatorName"=>{"__content__"=>"Jones, Matt", "nameType"=>"Personal"},
                                                           "givenName"=>"Matt",
                                                           "familyName"=>"Jones",
                                                           "nameIdentifier"=>
                                                          {"nameIdentifierScheme"=>"ORCID",
                                                           "__content__"=>"https://orcid.org/0000-0003-0077-4738"}},
-                                                         {"creatorName"=>{"__content__"=>"Slaughter, Peter", "nameType"=>"Personal"},
+                                                         {"affiliation"=>"NCEAS", "creatorName"=>{"__content__"=>"Slaughter, Peter", "nameType"=>"Personal"},
                                                            "givenName"=>"Peter",
                                                            "familyName"=>"Slaughter",
                                                           "nameIdentifier"=>
@@ -115,7 +115,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
-      expect(datacite.dig("creators", "creator")).to eq("creatorName"=> {"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"__content__"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID"})
+      expect(datacite.dig("creators", "creator")).to eq("affiliation"=>"DataCite", "creatorName"=> {"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"__content__"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID"})
     end
 
     it "Text pass-thru" do
@@ -177,6 +177,28 @@ describe Bolognese::Metadata, vcr: true do
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+    end
+
+    it "Affiliation" do
+      input = fixture_path + 'datacite-example-geolocation-2.xml'
+      doi = "10.6071/Z7WC73"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
+      expect(subject.valid?).to be true
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
+      expect(subject.creators.length).to eq(6)
+      expect(subject.creators.first).to eq("affiliation"=>"UC Merced", "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek\n      meteorological data, soil moisture and temperature, snow depth and air\n      temperature"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International (CC BY 4.0)", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.dates).to eq([{"date"=>"2014-10-17", "dateType"=>"Updated"}, {"date"=>"2016-03-14T17:02:02Z", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2013")
+      expect(subject.publisher).to eq("UC Merced")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+      expect(datacite.dig("creators", "creator", 0, "affiliation")).to eq("UC Merced")
     end
 
     it "with data citation schema.org" do
