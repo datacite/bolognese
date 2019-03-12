@@ -54,7 +54,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("titles")).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(datacite.fetch("creators").length).to eq(3)
       expect(datacite.fetch("creators").first).to eq("affiliation"=>"NCEAS", "nameType"=>"Personal", "name" => "Jones, Matt",
-        "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID"}], "givenName"=>"Matt", "familyName"=>"Jones")
+        "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "givenName"=>"Matt", "familyName"=>"Jones")
       expect(datacite.fetch("version")).to eq("2.0.0")
     end
 
@@ -69,7 +69,7 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Fenner, Martin",
         "nameIdentifiers"=>
          [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
-           "nameIdentifierScheme"=>"ORCID"}],
+           "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"}])
     end
 

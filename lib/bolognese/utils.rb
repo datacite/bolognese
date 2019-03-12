@@ -676,7 +676,7 @@ module Bolognese
 
     def from_schema_org_creators(element)
       element = Array.wrap(element).map do |c|
-        c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID" }] if normalize_orcid(c["@id"])
+        c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID", "schemeUri" => "https://orcid.org" }] if normalize_orcid(c["@id"])
         c["creatorName"] = { "nameType" => c["@type"].present? ? c["@type"].titleize + "al" : nil, "__content__" => c["name"] }.compact
         c.except("@id", "@type", "name") 
       end
@@ -684,7 +684,7 @@ module Bolognese
 
     def from_schema_org_contributors(element)
       element = Array.wrap(element).map do |c|
-        c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID" }] if normalize_orcid(c["@id"])
+        c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID", "schemeUri" => "https://orcid.org" }] if normalize_orcid(c["@id"])
         c["contributorName"] = { "nameType" => c["@type"].present? ? c["@type"].titleize + "al" : nil, "__content__" => c["name"] }.compact
         c.except("@id", "@type", "name") 
       end

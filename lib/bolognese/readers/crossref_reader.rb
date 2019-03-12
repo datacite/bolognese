@@ -177,7 +177,7 @@ module Bolognese
       def crossref_people(bibliographic_metadata, contributor_role)
         person = bibliographic_metadata.dig("contributors", "person_name")
         Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
-          name_identifiers = normalize_orcid(parse_attributes(a["ORCID"])).present? ? [{ "nameIdentifier" => normalize_orcid(parse_attributes(a["ORCID"])), "nameIdentifierScheme" => "ORCID" }] : nil
+          name_identifiers = normalize_orcid(parse_attributes(a["ORCID"])).present? ? [{ "nameIdentifier" => normalize_orcid(parse_attributes(a["ORCID"])), "nameIdentifierScheme" => "ORCID", "schemeUri"=>"https://orcid.org" }] : nil
           { "nameType" => "Personal",
             "nameIdentifiers" => name_identifiers,
             "name" => [a["surname"], a["given_name"]].join(", "),

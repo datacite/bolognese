@@ -27,7 +27,8 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Fenner, Martin",
         "nameIdentifiers"=>
           [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
-            "nameIdentifierScheme"=>"ORCID"}],
+            "nameIdentifierScheme"=>"ORCID",
+            "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
       expect(subject.descriptions.first["description"]).to start_with("Ruby utility library for network requests")
@@ -49,7 +50,8 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Jones, Matt",
         "nameIdentifiers"=>
           [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
-            "nameIdentifierScheme"=>"ORCID"}],
+            "nameIdentifierScheme"=>"ORCID",
+            "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"},
        {"affiliation"=>"NCEAS",
         "familyName"=>"Slaughter",
@@ -57,7 +59,8 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Slaughter, Peter",
         "nameIdentifiers"=>
           [{"nameIdentifier"=>"https://orcid.org/0000-0002-2192-403X",
-            "nameIdentifierScheme"=>"ORCID"}],
+            "nameIdentifierScheme"=>"ORCID",
+            "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"},
        {"name"=>"University Of California, Santa Barbara",
         "nameType"=>"Organizational"}])
@@ -83,7 +86,8 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Fenner, Martin",
         "nameIdentifiers"=>
           [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
-            "nameIdentifierScheme"=>"ORCID"}],
+            "nameIdentifierScheme"=>"ORCID",
+            "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
       expect(subject.descriptions.first["description"]).to start_with("Simplifies network calls")
@@ -101,7 +105,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.size).to eq(4)
-      expect(subject.creators.last).to eq("familyName" => "Nielsen", "givenName" => "Lars Holm","name" => "Nielsen, Lars Holm", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8135-3489", "nameIdentifierScheme"=>"ORCID"}], "nameType" => "Personal")
+      expect(subject.creators.last).to eq("familyName" => "Nielsen", "givenName" => "Lars Holm","name" => "Nielsen, Lars Holm", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8135-3489", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType" => "Personal")
       expect(subject.titles).to eq([{"title"=>"DOI Registrations for Software"}])
       expect(subject.descriptions.first["description"]).to start_with("Analysis of DataCite DOIs registered for software")
       expect(subject.subjects).to eq([{"subject"=>"doi"}, {"subject"=>"software"}, {"subject"=>"codemeta"}])

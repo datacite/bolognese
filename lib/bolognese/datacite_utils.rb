@@ -72,7 +72,7 @@ module Bolognese
       xml.givenName(person["givenName"]) if person["givenName"].present?
       xml.familyName(person["familyName"]) if person["familyName"].present?
       Array.wrap(person["nameIdentifiers"]).each do |ni|
-        xml.nameIdentifier(ni["nameIdentifier"], 'nameIdentifierScheme' => ni["nameIdentifierScheme"])
+        xml.nameIdentifier(ni["nameIdentifier"], 'nameIdentifierScheme' => ni["nameIdentifierScheme"], 'schemeURI' => ni["schemeUri"])
       end
       xml.affiliation(person["affiliation"]) if person["affiliation"].present?
     end

@@ -50,7 +50,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("RPRT")
       expect(subject.types["bibtex"]).to eq("article")
       expect(subject.types["citeproc"]).to eq("article-journal")
-      expect(subject.creators).to eq([{"nameType"=>"Personal", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"nameType"=>"Personal", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}, {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")
@@ -129,7 +129,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceType"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
       expect(subject.creators.count).to eq(11)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-2410-9671", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Junge, Alexander", "givenName"=>"Alexander", "familyName"=>"Junge")
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-2410-9671", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Junge, Alexander", "givenName"=>"Alexander", "familyName"=>"Junge")
       expect(subject.titles).to eq([{"title"=>"RAIN v1"}])
       expect(subject.descriptions.first["description"]).to start_with("<b>RAIN: RNA–protein Association and Interaction Networks")
       expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/licenses/by/4.0", "rights"=>"CC-BY"}])
@@ -275,7 +275,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}, {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.creators.length).to eq(1)
-      expect(subject.creators.first).to eq("familyName"=>"Fenner", "givenName"=>"Martin", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Fenner, Martin", "nameType"=>"Personal")
+      expect(subject.creators.first).to eq("familyName"=>"Fenner", "givenName"=>"Martin", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Fenner, Martin", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.publisher).to eq("DataCite")
       expect(subject.publication_year).to eq("2016")
@@ -361,7 +361,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.18429/jacow-ipac2016-tupmy003", "identifierType"=>"DOI"}])
       expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
       expect(subject.creators.length).to eq(12)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"http://jacow.org/JACoW-00077389", "nameIdentifierScheme"=>"JACoW-ID"}], "name"=>"Otani, Masashi", "givenName"=>"Masashi", "familyName"=>"Otani", "affiliation" => "KEK, Tsukuba, Japan")
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"http://jacow.org/JACoW-00077389", "nameIdentifierScheme"=>"JACoW-ID", "schemeUri"=>"http://jacow.org/"}], "name"=>"Otani, Masashi", "givenName"=>"Masashi", "familyName"=>"Otani", "affiliation" => "KEK, Tsukuba, Japan")
     end
 
     it "author with wrong orcid scheme" do
@@ -371,7 +371,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2314/coscv1", "identifierType"=>"DOI"}])
       expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
       expect(subject.creators.length).to eq(14)
-      expect(subject.creators.first).to include("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0232-7085", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Heller, Lambert", "givenName"=>"Lambert", "familyName"=>"Heller")
+      expect(subject.creators.first).to include("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0232-7085", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Heller, Lambert", "givenName"=>"Lambert", "familyName"=>"Heller")
     end
 
     it "keywords with attributes" do
@@ -391,7 +391,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceType"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
       expect(subject.creators.length).to eq(2)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8740-8284", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8740-8284", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Bimbo, Nuno", "givenName"=>"Nuno", "familyName"=>"Bimbo")
       expect(subject.titles).to eq([{"title"=>"Dataset for \"Direct Evidence for Solid-Like Hydrogen in a Nanoporous Carbon Hydrogen Storage Material at Supercritical Temperatures\""}])
       expect(subject.descriptions.first["description"]).to start_with("Dataset for Direct Evidence for Solid-Like Hydrogen")
       expect(subject.publication_year).to eq("2015")
@@ -417,7 +417,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("GEN")
       expect(subject.types["citeproc"]).to eq("article")
       expect(subject.creators.length).to eq(24)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-5331-6592", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Farquhar, Adam", "givenName"=>"Adam", "familyName"=>"Farquhar", "affiliation" => "British Library")
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-5331-6592", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Farquhar, Adam", "givenName"=>"Adam", "familyName"=>"Farquhar", "affiliation" => "British Library")
       expect(subject.titles).to eq([{"title"=>"Technical and Human Infrastructure for Open Research (THOR)"}])
       expect(subject.descriptions.first["description"]).to start_with("Five years ago, a global infrastructure")
       expect(subject.publication_year).to eq("2015")
@@ -461,7 +461,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceTypeGeneral"]).to eq("Text")
       expect(subject.types["ris"]).to eq("RPRT")
       expect(subject.types["citeproc"]).to eq("article-journal")
-      expect(subject.creators).to eq([{"nameType"=>"Personal", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"nameType"=>"Personal", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}, {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Created"}, {"date"=>"2016-12-20", "dateType"=>"Issued"}, {"date"=>"2016-12-20", "dateType"=>"Updated"}])
@@ -715,7 +715,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators).to eq([{"nameType"=>"Personal",
                                        "nameIdentifiers"=>
                                          [{"nameIdentifier"=>"https://orcid.org/0000-0002-0077-5338",
-                                           "nameIdentifierScheme"=>"ORCID"}],
+                                           "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
                                      "name"=>"Van Der A, Ronald",
                                      "givenName"=>"Ronald",
                                      "familyName"=>"Van Der A",
@@ -729,7 +729,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "name"=>"Eskes, Henk",
                                      "givenName"=>"Henk",
                                      "familyName"=>"Eskes",
-                                     "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0002-8743-4455", "nameIdentifierScheme"=>"ORCID"}],
+                                     "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0002-8743-4455", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
                                      "affiliation"=>"Royal Netherlands Meteorological Institute (KNMI)"}])
       expect(subject.titles).to eq([{"title"=>"Multi-Sensor Reanalysis (MSR) of total ozone, version 2"}])
       expect(subject.version_info).to eq("2")
@@ -906,7 +906,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5061/dryad.8515", "identifierType"=>"DOI"},
         {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.creators).to eq([{"nameType"=>"Personal", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.creators).to eq([{"nameType"=>"Personal", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.publisher).to eq("DataCite")
       expect(subject.publication_year).to eq("2016")

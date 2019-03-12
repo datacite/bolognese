@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("creators").count).to eq(7)
-      expect(crosscite.fetch("creators")[2]).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2043-4925", "nameIdentifierScheme"=>"ORCID"}], "name"=>"Hernandez, Beatriz", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
+      expect(crosscite.fetch("creators")[2]).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2043-4925", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Hernandez, Beatriz", "givenName"=>"Beatriz", "familyName"=>"Hernandez")
     end
 
     # it "with editor" do
@@ -100,7 +100,7 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Fenner, Martin",
         "nameIdentifiers"=>
           [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
-            "nameIdentifierScheme"=>"ORCID"}],
+            "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"}])
     end
 

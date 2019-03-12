@@ -31,14 +31,17 @@ module Bolognese
         if ni["nameIdentifierScheme"] == "ORCID"
           { 
             "nameIdentifier" => normalize_orcid(ni["__content__"]),
+            "schemeUri" => "https://orcid.org",
             "nameIdentifierScheme" => "ORCID" }.compact
         elsif ni["schemeURI"].present?
           { 
             "nameIdentifier" => ni["schemeURI"].to_s + ni["__content__"].to_s,
+            "schemeUri" => ni["schemeURI"].to_s,
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
         else
           { 
             "nameIdentifier" => ni["__content__"],
+            "schemeUri" => "Other",
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
         end
       end.presence
