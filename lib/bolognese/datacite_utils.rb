@@ -214,11 +214,10 @@ module Bolognese
 
       xml.descriptions do
         if container && container["title"].present?
-          title = [container["title"]]
-          volume = "#{container["volume"]}" if container["volume"].present?
-          volume += "(#{container["issue"]})" if container["issue"].present?
+          issue = container["issue"].present? ? "(#{container["issue"]})" : nil
+          volume_issue = container["volume"].present? ? [container["volume"], issue].join("") : nil
           pages = [container["firstPage"], container["lastPage"]].compact.join("-") if container["firstPage"].present?
-          series_information = [title, volume, pages].compact.join(", ")
+          series_information = [container["title"], volume_issue, pages].compact.join(", ")
           xml.description(series_information, 'descriptionType' => "SeriesInformation")
         end
 
