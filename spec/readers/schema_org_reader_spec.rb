@@ -240,6 +240,28 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.funding_references).to eq([{"funderIdentifier"=>"https://doi.org/10.13039/100000050", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"National Heart, Lung, and Blood Institute (NHLBI)"}])
     end
 
+    it "aida dataset" do
+      input = fixture_path + 'aida.json'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23698/aida/drov", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("https://doi.aida.medtech4health.se/10.23698/aida/drov")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
+      # expect(subject.creators).to eq([{"familyName"=>"Lindman", "givenName"=>"Karin", "name"=>"Lindman, Karin", "nameIdentifiers"=>[{"nameIdentifier"=> "https://orcid.org/0000-0003-1298-517X", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType"=>"Personal"}])
+      expect(subject.titles).to eq([{"title"=>"Ovary data from the Visual Sweden project DROID"}])
+      expect(subject.version_info).to eq("1.0")
+      expect(subject.subjects).to eq([{"subject"=>"pathology"}, {"subject"=>"whole slide imaging"}, {"subject"=>"annotated"}])
+      expect(subject.dates).to eq([{"date"=>"2019-01-09", "dateType"=>"Issued"}, {"date"=>"2019-01-09", "dateType"=>"Created"}, {"date"=>"2019-01-09", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2019")
+      expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
+      expect(subject.publisher).to eq("AIDA")
+      puts subject.rights_list
+      expect(subject.rights_list).to eq({"rights"=>"Restricted access", "rightsUri"=>"https://datasets.aida.medtech4health.se/10.23698/aida/drov#license"})
+      expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
+    end
+
+
     it "from attributes" do
       subject = Bolognese::Metadata.new(input: nil,
         from: "schema_org",

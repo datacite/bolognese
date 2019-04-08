@@ -1,0 +1,82 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.23698/aida/drov",
+  "name": "Ovary data from the Visual Sweden project DROID",
+  "about": "Pathology",
+  "url": "https://doi.aida.medtech4health.se/10.23698/aida/drov",
+  "author": [{
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0003-1298-517X",
+    "givenName": "Karin",
+    "familyName": "Lindman",
+    "name": "Karin Lindman"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/",
+    "givenName": "Jerónimo",
+    "familyName": "Rose",
+    "name": "Jerónimo F. Rose"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/",
+    "givenName": "Martin",
+    "familyName": "Lindvall",
+    "name": "Martin Lindvall"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0001-7250-234X",
+    "givenName": "Caroline",
+    "familyName": "Bivik Stadler",
+    "name": "Caroline Bivik Stadler"
+  }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "AIDA"
+  },
+  "copyrightYear": 2019,
+  "copyrightHolder": [{
+    "@type": "Organization",
+    "name": "Linköping University",
+    "url": "https://liu.se/"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0002-9368-0177",
+    "givenName": "Claes",
+    "familyName": "Lundström",
+    "name": "Claes Lundström"
+  }],
+  "provider": [{
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0002-0128-870X",
+    "name": "Karin Lindman",
+    "email": "Karin.Lindman@regionostergotland.se"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0002-9368-0177",
+    "name": "Claes Lundstrom",
+    "email": "claes.lundstrom@liu.se"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0001-7250-234X",
+    "givenName": "Caroline",
+    "familyName": "Bivik Stadler",
+    "name": "Caroline Bivik Stadler"
+  }, {
+    "@type": "Person",
+    "@id": "https://orcid.org/0000-0001-6443-3604",
+    "name": "Joel Hedlund",
+    "email": "joel.hedlund@liu.se"
+  }],
+  "dateCreated": "2019-01-09",
+  "datePublished": "2019-01-09",
+  "dateModified": "2019-01-09",
+  "keywords": "pathology, whole slide imaging, annotated",
+  "version": "1.0",
+  "description": "This dataset consists of 174 WSI ovary whole slide images (WSI): 158\nmalignant and 16 benign. Eight of the most common, histological definable\ntumour types were annotated: high grade serous carcinoma (HGSC), low grade\nserous carcinoma (LGSC), clear cell carcinoma (CC), endometrioid\nadenocarcinoma (EN), metastastic serous carcinoma (MS), metastatic other\n(MO), serous borderline tumor (SB) and mucinous borderline tumor (MB). Also\nnormal ovarian tissue were annotated. 11258 separate annotations were made.\nFor the benign structures only the epithelial structures, stroma and support\ntissue were annotated.\n",
+  "license": {
+    "name": "Restricted access",
+    "id": "https://datasets.aida.medtech4health.se/10.23698/aida/drov#license"
+  },
+  "citation": null
+}
