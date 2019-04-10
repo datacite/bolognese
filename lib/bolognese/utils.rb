@@ -550,7 +550,7 @@ module Bolognese
 
     def to_schema_org_creators(element)
       element = Array.wrap(element).map do |c|
-        c["affiliation"] = { "@type" => "Organization", "name" => c["affiliation"] } if c["affiliation"].present?
+        c["affiliation"] = { "@type" => "Organization", "name" => Array.wrap(c["affiliation"]).first } if c["affiliation"].present?
         c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
         c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
         c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]
@@ -560,7 +560,7 @@ module Bolognese
 
     def to_schema_org_contributors(element)
       element = Array.wrap(element).map do |c|
-        c["affiliation"] = { "@type" => "Organization", "name" => c["affiliation"] } if c["affiliation"].present?
+        c["affiliation"] = { "@type" => "Organization", "name" => Array.wrap(c["affiliation"]).first } if c["affiliation"].present?
         c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
         c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
         c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]

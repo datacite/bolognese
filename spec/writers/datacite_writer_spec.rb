@@ -190,7 +190,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(6)
-      expect(subject.creators.first).to eq("affiliation"=>"UC Merced", "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal")
+      expect(subject.creators.first).to eq("affiliation"=>["UC Merced", "NSF"], "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek\n      meteorological data, soil moisture and temperature, snow depth and air\n      temperature"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International (CC BY 4.0)", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
@@ -202,7 +202,7 @@ describe Bolognese::Metadata, vcr: true do
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
-      expect(datacite.dig("creators", "creator", 0, "affiliation")).to eq("UC Merced")
+      expect(datacite.dig("creators", "creator", 0, "affiliation")).to eq(["UC Merced", "NSF"])
     end
 
     it "with data citation schema.org" do

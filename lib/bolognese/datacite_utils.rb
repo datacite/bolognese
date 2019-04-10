@@ -75,7 +75,9 @@ module Bolognese
       Array.wrap(person["nameIdentifiers"]).each do |ni|
         xml.nameIdentifier(ni["nameIdentifier"], 'nameIdentifierScheme' => ni["nameIdentifierScheme"], 'schemeURI' => ni["schemeUri"])
       end
-      xml.affiliation(person["affiliation"]) if person["affiliation"].present?
+      Array.wrap(person["affiliation"]).each do |affiliation|
+        xml.affiliation(affiliation) 
+      end
     end
 
     def insert_titles(xml)

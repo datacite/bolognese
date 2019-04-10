@@ -51,7 +51,7 @@ module Bolognese
                  "givenName" => given_name,
                  "familyName" => family_name,
                  "nameIdentifiers" => name_identifiers,
-                 "affiliation" => parse_attributes(author.fetch("affiliation", nil), first: true),
+                 "affiliation" => parse_attributes(author.fetch("affiliation", nil)),
                  "contributorType" => contributor_type }.compact
 
       return author if family_name.present?
@@ -74,7 +74,7 @@ module Bolognese
           "givenName" => given_name,
           "familyName" => family_name,
           "nameIdentifiers" => name_identifiers,
-          "affiliation" => parse_attributes(author.fetch("affiliation", nil), first: true),
+          "affiliation" => parse_attributes(author.fetch("affiliation", nil)),
           "contributorType" => contributor_type }.compact
       else
         { "nameType" => name_type, "name" => name }.compact
