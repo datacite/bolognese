@@ -187,7 +187,7 @@ module Bolognese
             }.compact
           end
         end.compact
-        container = set_container(meta)
+
         state = doi.present? || read_options.present? ? "findable" : "not_found"
 
         { "id" => id,
@@ -198,7 +198,7 @@ module Bolognese
           "titles" => titles,
           "creators" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributors" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
-          "container" => container,
+          "container" => set_container(meta),
           "publisher" => parse_attributes(meta.fetch("publisher", nil), first: true).to_s.strip.presence,
           "agency" => "DataCite",
           "funding_references" => funding_references,

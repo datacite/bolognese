@@ -236,6 +236,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.geo_locations).to eq([{"geoLocationPoint"=>{"pointLatitude"=>"-11.64583333", "pointLongitude"=>"-68.2975"}}])
     end
 
+    it "geo_location in separate input" do
+      input = fixture_path + 'datacite-geolocation-empty.xml'
+      geo_locations = [{"geoLocationPoint"=>{"pointLatitude"=>"49.0850736", "pointLongitude"=>"-123.3300992"}}]
+      subject = Bolognese::Metadata.new(input: input, geo_locations: geo_locations)
+      expect(subject.valid?).to be true
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.geo_locations).to eq(geo_locations)
+
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("geoLocations")).to eq("geoLocation"=>{"geoLocationPoint"=>{"pointLatitude"=>"49.0850736", "pointLongitude"=>"-123.3300992"}})
+    end
+
     it "xml:lang attribute" do
       input = fixture_path + 'datacite-xml-lang.xml'
       subject = Bolognese::Metadata.new(input: input)

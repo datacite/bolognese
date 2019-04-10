@@ -67,7 +67,6 @@ module Bolognese
       @style = options[:style]
       @locale = options[:locale]
 
-      @regenerate = options[:regenerate]
       @sandbox = options[:sandbox]
 
       # options that come from the datacite database
@@ -101,6 +100,8 @@ module Bolognese
         :formats,
         :sizes
       ).compact
+
+      @regenerate = options[:regenerate] || read_options.present?
 
       # generate name for method to call dynamically
       @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id }.merge(read_options)) : {}

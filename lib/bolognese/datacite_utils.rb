@@ -31,12 +31,13 @@ module Bolognese
       insert_alternate_identifiers(xml)
       insert_subjects(xml)
       insert_contributors(xml)
-      insert_funding_references(xml)
       insert_dates(xml)
       insert_related_identifiers(xml)
       insert_version(xml)
       insert_rights_list(xml)
       insert_descriptions(xml)
+      insert_geo_locations(xml)
+      insert_funding_references(xml)
     end
 
     def insert_identifier(xml)
@@ -233,6 +234,45 @@ module Bolognese
           attributes = { 'xml:lang' => d["lang"], 'descriptionType' => d["descriptionType"] || "Abstract" }.compact
 
           xml.description(d["description"], attributes)
+        end
+      end
+    end
+
+    def insert_geo_locations(xml)
+      return xml unless geo_locations.present?
+
+      xml.geoLocations do
+        geo_locations.each do |geo_location|
+          xml.geoLocation do
+            xml.geoLocationPlace(geo_location["geoLocationPlace"]) if geo_location["geoLocationPlace"]
+
+            if geo_location["geoLocationPoint"]
+              xml.geoLocationPoint do
+                xml.pointLatitude(geo_location.dig("geoLocationPoint", "pointLatitude"))
+                xml.pointLongitude(geo_location.dig("geoLocationPoint", "pointLongitude"))
+              end
+            end
+
+            if geo_location["geoLocationBox"]
+              xml.geoLocationBox do
+                xml.westBoundLongitude(geo_location.dig("geoLocationBox", "westBoundLongitude"))
+                xml.eastBoundLongitude(geo_location.dig("geoLocationBox", "eastBoundLongitude"))
+                xml.southBoundLatitude(geo_location.dig("geoLocationBox", "southBoundLatitude"))
+                xml.northBoundLatitude(geo_location.dig("geoLocationBox", "northBoundLatitude"))
+              end
+            end
+
+            if geo_location["geoLocationPolygon"]
+              xml.geoLocationPolygon do
+                geo_location["geoLocationPolygon"].each do |polygon_point|
+                  xml.polygonPoint do
+                    xml.pointLatitude(polygon_point["pointLatitude"])
+                    xml.pointLongitude(polygon_point["pointLongitude"])
+                  end
+                end
+              end
+            end
+          end
         end
       end
     end
