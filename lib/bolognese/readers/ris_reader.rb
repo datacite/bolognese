@@ -108,7 +108,7 @@ module Bolognese
       def ris_meta(string: nil)
         h = Hash.new { |h,k| h[k] = [] }
         string.split("\n").reduce(h) do |sum, line|
-          k, v = line.split("-")
+          k, v = line.split("-",2)
           h[k.strip] << v.to_s.strip
           sum
         end.map { |k,v| [k, v.unwrap] }.to_h.compact
