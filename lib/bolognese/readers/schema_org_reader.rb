@@ -61,7 +61,10 @@ module Bolognese
           "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
         authors = meta.fetch("author", nil) || meta.fetch("creator", nil)
-        creators = get_authors(from_schema_org_creators(Array.wrap(authors)))
+        # Authors should be an object, if it's just a plain string don't try and parse it.
+        if not authors.is_a?(String)
+          creators = get_authors(from_schema_org_creators(Array.wrap(authors)))
+        end
         contributors = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("editor", nil))))
         publisher = parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
 
