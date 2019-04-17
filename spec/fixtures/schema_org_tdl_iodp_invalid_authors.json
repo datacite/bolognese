@@ -3,23 +3,6 @@
     "@type": "DataSet",
     "name": "Bulk density (GRA)",
     "description": "Hole U1480A GRA - Bulk density (GRA) for Expedition 362 Hole U1480A",
-    "creator": {
-        "@type": "Organization",
-        "name": "International Ocean Discovery Program",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "College Station",
-            "addressRegion": "TX",
-            "postalCode": "77845",
-            "streetAddress": "1000 Discovery Drive"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "data librarian",
-            "email": "data_librarian@iodp.tamu.edu"
-        },
-        "url": "http://web.iodp.tamu.edu/"
-    },
     "includedInDataCatalog": {
         "@type": "DataCatalog",
         "name": "web.iodp.tamu.edu/publish"
