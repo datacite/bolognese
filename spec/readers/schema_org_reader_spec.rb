@@ -177,6 +177,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.funding_references).to eq([{"funderIdentifier"=>"https://doi.org/10.13039/100000050", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"National Heart, Lung, and Blood Institute (NHLBI)"}])
     end
 
+    it "tdl_iodp dataset" do
+      input = fixture_path + 'schema_org_tdl_iodp_invalid_authors.json'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be false
+     end
+
     it "geolocation" do
       input = fixture_path + 'schema_org_geolocation.json'
       subject = Bolognese::Metadata.new(input: input)
@@ -278,7 +284,7 @@ describe Bolognese::Metadata, vcr: true do
           "funderIdentifierType"=>"Crossref Funder ID",
           "funderName"=>"European Commission"}],
         types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
-      
+
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.5281/zenodo.1239")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1239", "identifierType"=>"DOI"}])
