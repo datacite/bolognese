@@ -1,0 +1,25 @@
+{
+    "@context": "http://schema.org",
+    "@type": "DataSet",
+    "name": "Bulk density (GRA)",
+    "description": "Hole U1480A GRA - Bulk density (GRA) for Expedition 362 Hole U1480A",
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "web.iodp.tamu.edu/publish"
+    },
+    "author": "McNeill, L.C., Dugan, B., Petronotis, K.E., Backman, J., Bourlange, S., Chemale, F., Chen, W., Colson, T.A., Frederik, M.C.G., Guèrin, G., Hamahashi, M., Henstock, T., House, B.M., Hüpers, A., Jeppson, T.N., Kachovich, S., Kenigsberg, A.R., Kuranaga, M., Kutterolf, S., Milliken, K.L., Mitchison, F.L., Mukoyoshi, H., Nair, N., Owari, S., Pickering, K.T., Pouderoux, H.F.A., Yehua, S., Song, I., Torres, M.E., Vannucchi, P., Vrolijk, P.J., Yang, T., and Zhao, X.",
+    "keywords": "International Ocean Discovery Program, IODP, JOIDES Resolution, Expedition 362, Site U1480, Hole U1480A, Bulk density (GRA), Sumatra Seismogenic Zone",
+    "encodingFormat": "text/csv",
+    "issn": "World Wide Web: 2377-3189",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "dateCreated": "2019.04.10.11.16.32",
+    "datePublished": "2019.04.10",
+    "spatialCoverage": {
+        "@type": "Place",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "91.60580166666666",
+            "longitude": "3.0340783333333334"
+        }
+    }
+}
