@@ -6,7 +6,7 @@ module Bolognese
       def schema_hsh
         { "@context" => "http://schema.org",
           "@type" => types["schemaOrg"],
-          "@id" => id,
+          "@id" => normalize_doi(doi),
           "identifier" => to_schema_org_identifiers(identifiers),
           "url" => url,
           "additionalType" => types["resourceType"],
