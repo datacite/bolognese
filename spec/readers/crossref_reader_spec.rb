@@ -138,6 +138,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "vor with url" do
+      input = "https://doi.org/10.1038/hdy.2013.26"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1038/hdy.2013.26", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://www.nature.com/articles/hdy201326")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(2)
+      expect(subject.creators.first).to eq("familyName"=>"Gross", "givenName"=>"J B", "name"=>"Gross, J B", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Albinism in phylogenetically and geographically distinct populations of Astyanax cavefish arises through the same loss-of-function Oca2 allele"}])
+      expect(subject.dates).to eq([{"date"=>"2013-04-10", "dateType"=>"Issued"}, {"date"=>"2019-04-16T16:25:36Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2013")
+      expect(subject.related_identifiers.size).to eq(35)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0018-067X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.container).to eq("firstPage"=>"122", "identifier"=>"0018-067X", "identifierType"=>"ISSN", "issue"=>"2", "lastPage"=>"130", "title"=>"Heredity", "type"=>"Journal", "volume"=>"111")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "dataset" do
       input = "10.2210/pdb4hhb/pdb"
       subject = Bolognese::Metadata.new(input: input)
