@@ -48,7 +48,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"CreativeWork"}, {"@type"=>"CreativeWork", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
+      expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
         "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
     end
 

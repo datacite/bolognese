@@ -98,7 +98,7 @@ module Bolognese
     def reverse
       { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsReferencedBy" }.map do |r| 
         { "@id" => normalize_doi(r["relatedIdentifier"]),
-          "@type" => r["resourceTypeGeneral"] || "CreativeWork",
+          "@type" => r["resourceTypeGeneral"] || "ScholarlyArticle",
           "identifier" => r["relatedIdentifierType"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap,
         "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsSupplementTo" }.map do |r| 
