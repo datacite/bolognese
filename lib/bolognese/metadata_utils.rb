@@ -103,7 +103,7 @@ module Bolognese
         end.unwrap,
         "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsSupplementTo" }.map do |r| 
           { "@id" => normalize_doi(r["relatedIdentifier"]),
-            "@type" => r["resourceTypeGeneral"] || "ScholarlyArticle", 
+            "@type" => r["resourceTypeGeneral"] || "ScholarlyArticle",
             "identifier" => r["relatedIdentifierType"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap }.compact
     end
