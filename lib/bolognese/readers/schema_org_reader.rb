@@ -5,11 +5,22 @@ module Bolognese
     module SchemaOrgReader
       SO_TO_DC_RELATION_TYPES = {
         "citation" => "References",
+        "isBasedOn" => "IsSupplementedBy",
         "sameAs" => "IsIdenticalTo",
         "isPartOf" => "IsPartOf",
         "hasPart" => "HasPart",
         "isPredecessor" => "IsPreviousVersionOf",
         "isSuccessor" => "IsNewVersionOf"
+      }
+
+      SO_TO_DC_REVERSE_RELATION_TYPES = {
+        "citation" => "IsReferencedBy",
+        "isBasedOn" => "IsSupplementTo",
+        "sameAs" => "IsIdenticalTo",
+        "isPartOf" => "HasPart",
+        "hasPart" => "IsPartOf",
+        "isPredecessor" => "IsNewVersionOf",
+        "isSuccessor" => "IsPreviousVersionOf"
       }
 
       def get_schema_org(id: nil, **options)
@@ -176,7 +187,7 @@ module Bolognese
       end
 
       def schema_org_reverse_related_identifier(meta, relation_type: nil)
-        normalize_ids(ids: meta.dig("@reverse", relation_type), relation_type: SO_TO_DC_RELATION_TYPES[relation_type])
+        normalize_ids(ids: meta.dig("@reverse", relation_type), relation_type: SO_TO_DC_REVERSE_RELATION_TYPES[relation_type])
       end
 
       def schema_org_is_identical_to(meta)

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:19 GMT
+      - Wed, 03 Jul 2019 19:25:30 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d35c574225a2de60f00451ec422de55671546069938; expires=Sun, 29-Dec-19
-        07:52:18 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d7f10dd2279cefb1d353df346acb0aa251562181930; expires=Thu, 02-Jul-20
+        19:25:30 GMT; path=/; domain=.doi.org; HttpOnly
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 490aafbe693b2336-FRA
+      - 4f0b3ee96a1db7db-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -43,7 +43,7 @@ http_interactions:
           }
         ]
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:19 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:30 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.4230/lipics.tqc.2013.93
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:19 GMT
+      - Wed, 03 Jul 2019 19:25:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -75,15 +75,15 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 3cc3876d-013a-4fb4-8279-2d50aec1a4ce
+      - e726bde0-c143-40b7-948d-e3707c9ea2d2
       Etag:
-      - W/"1ef0dc64924d17b7ce5800945792c9e0"
+      - W/"da62d90220fea6014eb63d26d93c0361"
       X-Runtime:
-      - '0.024278'
+      - '0.021261'
       X-Powered-By:
-      - Phusion Passenger 6.0.0
+      - Phusion Passenger 6.0.2
       Server:
-      - nginx/1.15.7 + Phusion Passenger 6.0.0
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.4230/lipics.tqc.2013.93","type":"dois","attributes":{"doi":"10.4230/lipics.tqc.2013.93","prefix":"10.4230","suffix":"lipics.tqc.2013.93","identifiers":[{"identifier":"https://doi.org/10.4230/lipics.tqc.2013.93","identifierType":"DOI"}],"creators":[{"name":"Johnston,
@@ -99,8 +99,8 @@ http_interactions:
         when the number of parties is a multiple of 4 greater than 4 itself. We construct
         small unextendible product bases in all of the remaining open cases, and we
         use graph theory techniques to produce a computer-assisted proof that our
-        constructions are indeed the smallest possible.","descriptionType":"Other"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"http://drops.dagstuhl.de/opus/volltexte/2013/4317/","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-2.1","source":null,"isActive":true,"state":"findable","reason":null,"created":"2013-11-13T13:42:17.000Z","registered":"2013-11-13T13:42:17.000Z","updated":"2013-11-13T13:42:17.000Z"},"relationships":{"client":{"data":{"id":"tib.dagst","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"tib.dagst","type":"clients","attributes":{"name":"Dagstuhl","symbol":"TIB.DAGST","year":2011,"contactName":"Michael
-        Wagner","contactEmail":"michael.wagner@dagstuhl.de","description":null,"domains":"dagstuhl.de","url":null,"created":"2011-06-08T14:27:35.000Z","updated":"2018-08-26T02:35:06.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tib","type":"providers"}},"prefixes":{"data":[{"id":"10.4230","type":"prefixes"},{"id":"10.5072","type":"prefixes"}]}}}]}'
+        constructions are indeed the smallest possible.","descriptionType":"Other"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"http://drops.dagstuhl.de/opus/volltexte/2013/4317/","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-2.1","source":null,"isActive":true,"state":"findable","reason":null,"created":"2013-11-13T08:42:17.000-05:00","registered":"2013-11-13T08:42:17.000-05:00","published":"2013","updated":"2013-11-13T08:42:17.000-05:00"},"relationships":{"client":{"data":{"id":"tib.dagst","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"tib.dagst","type":"clients","attributes":{"name":"Dagstuhl","symbol":"TIB.DAGST","year":2011,"contactName":"Michael
+        Wagner","contactEmail":"michael.wagner@dagstuhl.de","description":null,"domains":"dagstuhl.de","url":null,"created":"2011-06-08T10:27:35.000-04:00","updated":"2018-08-25T22:35:06.000-04:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tib","type":"providers"}},"prefixes":{"data":[{"id":"10.4230","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:19 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:30 GMT
 recorded_with: VCR 3.0.3

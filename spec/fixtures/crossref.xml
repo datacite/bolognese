@@ -1,742 +1,606 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doi_records>
-  <doi_record owner="10.1371" timestamp="2016-12-31 22:37:08">
-    <crossref>
-      <journal>
-        <journal_metadata language="en">
-          <full_title>PLoS ONE</full_title>
-          <abbrev_title>PLoS ONE</abbrev_title>
-          <issn media_type="electronic">1932-6203</issn>
-        </journal_metadata>
-        <journal_issue>
-          <publication_date media_type="online">
-            <month>12</month>
-            <day>20</day>
-            <year>2006</year>
-          </publication_date>
-          <journal_volume>
-            <volume>1</volume>
-          </journal_volume>
-          <issue>1</issue>
-        </journal_issue>
-        <journal_article publication_type="full_text">
-          <titles>
-            <title>Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes</title>
-          </titles>
-          <contributors>
-            <person_name contributor_role="author" sequence="first">
-              <given_name>Markus</given_name>
-              <surname>Ralser</surname>
-            </person_name>
-            <person_name contributor_role="author" sequence="additional">
-              <given_name>Gino</given_name>
-              <surname>Heeren</surname>
-            </person_name>
-            <person_name contributor_role="author" sequence="additional">
-              <given_name>Michael</given_name>
-              <surname>Breitenbach</surname>
-            </person_name>
-            <person_name contributor_role="author" sequence="additional">
-              <given_name>Hans</given_name>
-              <surname>Lehrach</surname>
-            </person_name>
-            <person_name contributor_role="author" sequence="additional">
-              <given_name>Sylvia</given_name>
-              <surname>Krobitsch</surname>
-            </person_name>
-            <person_name contributor_role="editor" sequence="first">
-              <given_name>Guilhem</given_name>
-              <surname>Janbon</surname>
-            </person_name>
-          </contributors>
-          <publication_date media_type="online">
-            <month>12</month>
-            <day>20</day>
-            <year>2006</year>
-          </publication_date>
-          <pages>
-            <first_page>e30</first_page>
-          </pages>
-          <publisher_item>
-            <item_number>10.1371/journal.pone.0000030</item_number>
-          </publisher_item>
-          <crossmark>
-            <crossmark_version>1</crossmark_version>
-            <crossmark_policy>10.1371/journal.pone.corrections_policy</crossmark_policy>
-            <crossmark_domains>
-              <crossmark_domain>
-                <domain>www.plosone.org</domain>
-              </crossmark_domain>
-            </crossmark_domains>
-            <crossmark_domain_exclusive>false</crossmark_domain_exclusive>
-            <custom_metadata>
-              <program name="AccessIndicators">
-                <license_ref>http://creativecommons.org/licenses/by/4.0/</license_ref>
-              </program>
-            </custom_metadata>
-          </crossmark>
-          <doi_data>
-            <doi>10.1371/journal.pone.0000030</doi>
-            <timestamp>20161231025645</timestamp>
-            <resource>http://dx.plos.org/10.1371/journal.pone.0000030</resource>
-            <collection property="crawler-based">
-              <item crawler="iParadigms">
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030</resource>
-              </item>
-            </collection>
-          </doi_data>
-          <citation_list>
-            <citation key="ref1">
-              <journal_title>N Engl J Med</journal_title>
-              <author>AS Schneider</author>
-              <volume>272</volume>
-              <first_page>229</first_page>
-              <cYear>1965</cYear>
-              <article_title>Hereditary Hemolytic Anemia with Triosephosphate Isomerase Deficiency.</article_title>
-            </citation>
-            <citation key="ref2">
-              <journal_title>Baillieres Best Pract Res Clin Haematol</journal_title>
-              <author>AS Schneider</author>
-              <volume>13</volume>
-              <first_page>119</first_page>
-              <cYear>2000</cYear>
-              <article_title>Triosephosphate isomerase deficiency: historical perspectives and molecular aspects.</article_title>
-            </citation>
-            <citation key="ref3">
-              <journal_title>Blood Cells Mol Dis</journal_title>
-              <author>A Schneider</author>
-              <volume>22</volume>
-              <first_page>82</first_page>
-              <cYear>1996</cYear>
-              <article_title>Hematologically important mutations: triosephosphate isomerase.</article_title>
-            </citation>
-            <citation key="ref4">
-              <journal_title>Biochem Soc Trans</journal_title>
-              <author>J Olah</author>
-              <volume>30</volume>
-              <first_page>30</first_page>
-              <cYear>2002</cYear>
-              <article_title>Triosephosphate isomerase deficiency: a neurodegenerative misfolding disease.</article_title>
-            </citation>
-            <citation key="ref5">
-              <journal_title>Am J Hum Genet</journal_title>
-              <author>M Watanabe</author>
-              <volume>58</volume>
-              <first_page>308</first_page>
-              <cYear>1996</cYear>
-              <article_title>Molecular analysis of a series of alleles in humans with reduced activity at the triosephosphate isomerase locus.</article_title>
-            </citation>
-            <citation key="ref6">
-              <journal_title>Ann Hum Genet</journal_title>
-              <author>HW Mohrenweiser</author>
-              <volume>51 ( Pt 4)</volume>
-              <first_page>303</first_page>
-              <cYear>1987</cYear>
-              <article_title>Frequency and distribution of rare electrophoretic mobility variants in a population of human newborns in Ann Arbor, Michigan.</article_title>
-            </citation>
-            <citation key="ref7">
-              <journal_title>Pediatr Res</journal_title>
-              <author>HW Mohrenweiser</author>
-              <volume>16</volume>
-              <first_page>960</first_page>
-              <cYear>1982</cYear>
-              <article_title>Elevated frequency of carriers for triosephosphate isomerase deficiency in newborn infants.</article_title>
-            </citation>
-            <citation key="ref8">
-              <journal_title>Hum Genet</journal_title>
-              <author>SW Eber</author>
-              <volume>67</volume>
-              <first_page>336</first_page>
-              <cYear>1984</cYear>
-              <article_title>Prevalence of partial deficiency of red cell triosephosphate isomerase in Germany–a study of 3000 people.</article_title>
-            </citation>
-            <citation key="ref9">
-              <journal_title>Am J Hum Genet</journal_title>
-              <author>JV Neel</author>
-              <volume>42</volume>
-              <first_page>663</first_page>
-              <cYear>1988</cYear>
-              <article_title>Search for mutations altering protein charge and/or function in children of atomic bomb survivors: final report.</article_title>
-            </citation>
-            <citation key="ref10">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>HW Mohrenweiser</author>
-              <volume>78</volume>
-              <first_page>5046</first_page>
-              <cYear>1981</cYear>
-              <article_title>Frequency of enzyme deficiency variants in erythrocytes of newborn infants.</article_title>
-            </citation>
-            <citation key="ref11">
-              <journal_title>Eur J Clin Invest</journal_title>
-              <author>SW Eber</author>
-              <volume>9</volume>
-              <first_page>195</first_page>
-              <cYear>1979</cYear>
-              <article_title>Hereditary deficiency of triosephosphate isomerase in four unrelated families.</article_title>
-            </citation>
-            <citation key="ref12">
-              <journal_title>Genetics</journal_title>
-              <author>S Merkle</author>
-              <volume>123</volume>
-              <first_page>837</first_page>
-              <cYear>1989</cYear>
-              <article_title>Characterization of triosephosphate isomerase mutants with reduced enzyme activity in Mus musculus.</article_title>
-            </citation>
-            <citation key="ref13">
-              <journal_title>J Theor Biol</journal_title>
-              <author>F Orosz</author>
-              <volume>182</volume>
-              <first_page>437</first_page>
-              <cYear>1996</cYear>
-              <article_title>Triosephosphate isomerase deficiency: predictions and facts.</article_title>
-            </citation>
-            <citation key="ref14">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>IO Daar</author>
-              <volume>83</volume>
-              <first_page>7903</first_page>
-              <cYear>1986</cYear>
-              <article_title>Human triose-phosphate isomerase deficiency: a single amino acid substitution results in a thermolabile enzyme.</article_title>
-            </citation>
-            <citation key="ref15">
-              <journal_title>Hum Mutat</journal_title>
-              <author>R Arya</author>
-              <volume>10</volume>
-              <first_page>290</first_page>
-              <cYear>1997</cYear>
-              <article_title>Evidence for founder effect of the Glu104Asp substitution and identification of new mutations in triosephosphate isomerase deficiency.</article_title>
-            </citation>
-            <citation key="ref16">
-              <journal_title>Hum Genet</journal_title>
-              <author>BA Perry</author>
-              <volume>88</volume>
-              <first_page>634</first_page>
-              <cYear>1992</cYear>
-              <article_title>Human triosephosphate isomerase: substitution of Arg for Gly at position 122 in a thermolabile electromorph variant, TPI-Manchester.</article_title>
-            </citation>
-            <citation key="ref17">
-              <journal_title>Blood</journal_title>
-              <author>C Valentin</author>
-              <volume>96</volume>
-              <first_page>1130</first_page>
-              <cYear>2000</cYear>
-              <article_title>Triose phosphate isomerase deficiency in 3 French families: two novel null alleles, a frameshift mutation (TPI Alfortville) and an alteration in the initiation codon (TPI Paris).</article_title>
-            </citation>
-            <citation key="ref18">
-              <journal_title>Am J Hum Genet</journal_title>
-              <author>ML Chang</author>
-              <volume>52</volume>
-              <first_page>1260</first_page>
-              <cYear>1993</cYear>
-              <article_title>Human triosephosphate isomerase deficiency resulting from mutation of Phe-240.</article_title>
-            </citation>
-            <citation key="ref19">
-              <journal_title>Hum Genet</journal_title>
-              <author>S Hollan</author>
-              <volume>92</volume>
-              <first_page>486</first_page>
-              <cYear>1993</cYear>
-              <article_title>Hereditary triosephosphate isomerase (TPI) deficiency: two severely affected brothers one with and one without neurological symptoms.</article_title>
-            </citation>
-            <citation key="ref20">
-              <journal_title>C R Seances Soc Biol Fil</journal_title>
-              <author>S Hollan</author>
-              <volume>192</volume>
-              <first_page>929</first_page>
-              <cYear>1998</cYear>
-              <article_title>[Glycolytic enzyme defects and neurodegeneration].</article_title>
-            </citation>
-            <citation key="ref21">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>S Hollan</author>
-              <volume>94</volume>
-              <first_page>10362</first_page>
-              <cYear>1997</cYear>
-              <article_title>Search for the pathogenesis of the differing phenotype in two compound heterozygote Hungarian brothers with the same genotypic triosephosphate isomerase deficiency.</article_title>
-            </citation>
-            <citation key="ref22">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>S Hollan</author>
-              <volume>92</volume>
-              <first_page>268</first_page>
-              <cYear>1995</cYear>
-              <article_title>Erythrocyte lipids in triose-phosphate isomerase deficiency.</article_title>
-            </citation>
-            <citation key="ref23">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>F Orosz</author>
-              <volume>97</volume>
-              <first_page>1026</first_page>
-              <cYear>2000</cYear>
-              <article_title>Enhanced association of mutant triosephosphate isomerase to red cell membranes and to brain microtubules.</article_title>
-            </citation>
-            <citation key="ref24">
-              <journal_title>Gene</journal_title>
-              <author>D Mumberg</author>
-              <volume>156</volume>
-              <first_page>119</first_page>
-              <cYear>1995</cYear>
-              <article_title>Yeast vectors for the controlled expression of heterologous proteins in different genetic backgrounds.</article_title>
-            </citation>
-            <citation key="ref25">
-              <journal_title>Biochem Biophys Res Commun</journal_title>
-              <author>M Ralser</author>
-              <volume>347</volume>
-              <first_page>747</first_page>
-              <cYear>2006</cYear>
-              <article_title>An efficient and economic enhancer mix for PCR.</article_title>
-            </citation>
-            <citation key="ref26">
-              <journal_title>Yeast</journal_title>
-              <author>CB Brachmann</author>
-              <volume>14</volume>
-              <first_page>115</first_page>
-              <cYear>1998</cYear>
-              <article_title>Designer deletion strains derived from &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt; S288C: a useful set of strains and plasmids for PCR-mediated gene disruption and other applications.</article_title>
-            </citation>
-            <citation key="ref27">
-              <journal_title>Mol Cell</journal_title>
-              <author>H Goehler</author>
-              <volume>15</volume>
-              <first_page>853</first_page>
-              <cYear>2004</cYear>
-              <article_title>A protein interaction network links GIT1, an enhancer of huntingtin aggregation, to Huntington&amp;apos;s disease.</article_title>
-            </citation>
-            <citation key="ref28">
-              <journal_title>Curr Genet</journal_title>
-              <author>RH Schiestl</author>
-              <volume>16</volume>
-              <first_page>339</first_page>
-              <cYear>1989</cYear>
-              <article_title>High efficiency transformation of intact yeast cells using single stranded nucleic acids as a carrier.</article_title>
-            </citation>
-            <citation key="ref29">
-              <journal_title>Biotechnol Prog</journal_title>
-              <author>C Compagno</author>
-              <volume>12</volume>
-              <first_page>591</first_page>
-              <cYear>1996</cYear>
-              <article_title>Glycerol production in a triose phosphate isomerase deficient mutant of &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
-            </citation>
-            <citation key="ref30">
-              <journal_title>Appl Environ Microbiol</journal_title>
-              <author>KM Overkamp</author>
-              <volume>68</volume>
-              <first_page>2814</first_page>
-              <cYear>2002</cYear>
-              <article_title>Metabolic engineering of glycerol production in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
-            </citation>
-            <citation key="ref31">
-              <journal_title>J Bacteriol</journal_title>
-              <author>M Ciriacy</author>
-              <volume>139</volume>
-              <first_page>152</first_page>
-              <cYear>1979</cYear>
-              <article_title>Physiological effects of seven different blocks in glycolysis in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
-            </citation>
-            <citation key="ref32">
-              <journal_title>Arch Biochem Biophys</journal_title>
-              <author>R Yamaji</author>
-              <volume>423</volume>
-              <first_page>332</first_page>
-              <cYear>2004</cYear>
-              <article_title>Hypoxic up-regulation of triosephosphate isomerase expression in mouse brain capillary endothelial cells.</article_title>
-            </citation>
-            <citation key="ref33">
-              <journal_title>BMC Biotechnol</journal_title>
-              <author>S Harju</author>
-              <volume>4</volume>
-              <first_page>8</first_page>
-              <cYear>2004</cYear>
-              <article_title>Rapid isolation of yeast genomic DNA: Bust n&amp;apos; Grab.</article_title>
-            </citation>
-            <citation key="ref34">
-              <journal_title>Hum Mol Genet</journal_title>
-              <author>M Ralser</author>
-              <volume>14</volume>
-              <first_page>2893</first_page>
-              <cYear>2005</cYear>
-              <article_title>Ataxin-2 and huntingtin interact with endophilin-A complexes to function in plastin-associated pathways.</article_title>
-            </citation>
-            <citation key="ref35">
-              <journal_title>FEMS Yeast Res</journal_title>
-              <author>G Heeren</author>
-              <volume>5</volume>
-              <first_page>157</first_page>
-              <cYear>2004</cYear>
-              <article_title>The role of respiration, reactive oxygen species and oxidative stress in mother cell-specific ageing of yeast strains defective in the RAS signalling pathway.</article_title>
-            </citation>
-            <citation key="ref36">
-              <journal_title>Biotechniques</journal_title>
-              <author>M Ralser</author>
-              <volume>39</volume>
-              <first_page>165</first_page>
-              <cYear>2005</cYear>
-              <article_title>Generation of a yeast two-hybrid strain suitable for competitive protein binding analysis.</article_title>
-            </citation>
-            <citation key="ref37">
-              <journal_title>J Biol Chem</journal_title>
-              <author>PK Maitra</author>
-              <volume>246</volume>
-              <first_page>475</first_page>
-              <cYear>1971</cYear>
-              <article_title>A kinetic study of glycolytic enzyme synthesis in yeast.</article_title>
-            </citation>
-            <citation key="ref38">
-              <journal_title>Acta Crystallograph Sect F Struct Biol Cryst Commun</journal_title>
-              <author>T Kinoshita</author>
-              <volume>61</volume>
-              <first_page>346</first_page>
-              <cYear>2005</cYear>
-              <article_title>Structure of a high-resolution crystal form of human triosephosphate isomerase: improvement of crystals using the gel-tube method.</article_title>
-            </citation>
-            <citation key="ref39">
-              <journal_title>J Biol Chem</journal_title>
-              <author>Y Shi</author>
-              <volume>280</volume>
-              <first_page>41805</first_page>
-              <cYear>2005</cYear>
-              <article_title>Genetic perturbation of glycolysis results in inhibition of de novo inositol biosynthesis.</article_title>
-            </citation>
-            <citation key="ref40">
-              <journal_title>Blood</journal_title>
-              <author>F Orosz</author>
-              <volume>98</volume>
-              <first_page>3106</first_page>
-              <cYear>2001</cYear>
-              <article_title>Distinct behavior of mutant triosephosphate isomerase in hemolysate and in isolated form: molecular basis of enzyme deficiency.</article_title>
-            </citation>
-            <citation key="ref41">
-              <journal_title>Mol Genet Genomics</journal_title>
-              <author>AV Kochetov</author>
-              <volume>270</volume>
-              <first_page>442</first_page>
-              <cYear>2003</cYear>
-              <article_title>Interrelations between the efficiency of translation start sites and other sequence features of yeast mRNAs.</article_title>
-            </citation>
-            <citation key="ref42">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>M Kozak</author>
-              <volume>92</volume>
-              <first_page>2662</first_page>
-              <cYear>1995</cYear>
-              <article_title>Adherence to the first-AUG rule when a second AUG codon follows closely upon the first.</article_title>
-            </citation>
-            <citation key="ref43">
-              <journal_title>Mol Genet Genomics</journal_title>
-              <author>AV Kochetov</author>
-              <volume>273</volume>
-              <first_page>491</first_page>
-              <cYear>2005</cYear>
-              <article_title>The role of alternative translation start sites in the generation of human protein diversity.</article_title>
-            </citation>
-            <citation key="ref44">
-              <journal_title>Proc Int Conf Intell Syst Mol Biol</journal_title>
-              <author>AG Pedersen</author>
-              <volume>5</volume>
-              <first_page>226</first_page>
-              <cYear>1997</cYear>
-              <article_title>Neural network prediction of translation initiation sites in eukaryotes: perspectives for EST and genome analysis.</article_title>
-            </citation>
-            <citation key="ref45">
-              <journal_title>Gene</journal_title>
-              <author>CI Gonzalez</author>
-              <volume>274</volume>
-              <first_page>15</first_page>
-              <cYear>2001</cYear>
-              <article_title>Nonsense-mediated mRNA decay in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
-            </citation>
-            <citation key="ref46">
-              <journal_title>Mol Cell Biol</journal_title>
-              <author>J Estojak</author>
-              <volume>15</volume>
-              <first_page>5820</first_page>
-              <cYear>1995</cYear>
-              <article_title>Correlation of two-hybrid affinity data with in vitro measurements.</article_title>
-            </citation>
-            <citation key="ref47">
-              <journal_title>Anal Biochem</journal_title>
-              <author>IG Serebriiskii</author>
-              <volume>285</volume>
-              <first_page>1</first_page>
-              <cYear>2000</cYear>
-              <article_title>Uses of lacZ to study gene function: evaluation of beta-galactosidase assays employed in the yeast two-hybrid system.</article_title>
-            </citation>
-            <citation key="ref48">
-              <journal_title>Mol Microbiol</journal_title>
-              <author>P Laun</author>
-              <volume>39</volume>
-              <first_page>1166</first_page>
-              <cYear>2001</cYear>
-              <article_title>Aged mother cells of &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt; show markers of oxidative stress and apoptosis.</article_title>
-            </citation>
-            <citation key="ref49">
-              <journal_title>J Cell Biol</journal_title>
-              <author>F Madeo</author>
-              <volume>145</volume>
-              <first_page>757</first_page>
-              <cYear>1999</cYear>
-              <article_title>Oxygen stress: a regulator of apoptosis in yeast.</article_title>
-            </citation>
-            <citation key="ref50">
-              <journal_title>Proc Soc Exp Biol Med</journal_title>
-              <author>RA Floyd</author>
-              <volume>222</volume>
-              <first_page>236</first_page>
-              <cYear>1999</cYear>
-              <article_title>Antioxidants, oxidative stress, and degenerative neurological disorders.</article_title>
-            </citation>
-            <citation key="ref51">
-              <journal_title>Eur J Pediatr</journal_title>
-              <author>SW Eber</author>
-              <volume>150</volume>
-              <first_page>761</first_page>
-              <cYear>1991</cYear>
-              <article_title>Triosephosphate isomerase deficiency: haemolytic anaemia, myopathy with altered mitochondria and mental retardation due to a new variant with accelerated enzyme catabolism and diminished specific activity.</article_title>
-            </citation>
-            <citation key="ref52">
-              <journal_title>J Biol Chem</journal_title>
-              <author>J Jung</author>
-              <volume>277</volume>
-              <first_page>48931</first_page>
-              <cYear>2002</cYear>
-              <article_title>Interaction of cofilin with triose-phosphate isomerase contributes glycolytic fuel for Na,K-ATPase via Rho-mediated signaling pathway.</article_title>
-            </citation>
-            <citation key="ref53">
-              <journal_title>J Biol Chem</journal_title>
-              <author>TH Sawyer</author>
-              <volume>247</volume>
-              <first_page>6499</first_page>
-              <cYear>1972</cYear>
-              <article_title>Studies on human triosephosphate isomerase. II. Nature of the electrophoretic multiplicity in erythrocytes.</article_title>
-            </citation>
-            <citation key="ref54">
-              <journal_title>Comp Biochem Physiol B</journal_title>
-              <author>RM Snapka</author>
-              <volume>49</volume>
-              <first_page>733</first_page>
-              <cYear>1974</cYear>
-              <article_title>Comparison of the electrophoretic properties of triosephosphate isomerases of various tissues and species.</article_title>
-            </citation>
-            <citation key="ref55">
-              <journal_title>Nucleic Acids Res</journal_title>
-              <author>S Stamm</author>
-              <volume>34</volume>
-              <first_page>D46</first_page>
-              <cYear>2006</cYear>
-              <article_title>ASD: a bioinformatics resource on alternative splicing.</article_title>
-            </citation>
-            <citation key="ref56">
-              <journal_title>J Neurochem</journal_title>
-              <author>IH Henn</author>
-              <volume>92</volume>
-              <first_page>114</first_page>
-              <cYear>2005</cYear>
-              <article_title>Pathogenic mutations inactivate parkin by distinct mechanisms.</article_title>
-            </citation>
-            <citation key="ref57">
-              <journal_title>Med Hypotheses</journal_title>
-              <author>GP Concepcion</author>
-              <volume>65</volume>
-              <first_page>865</first_page>
-              <cYear>2005</cYear>
-              <article_title>The codon for the methionine at position 129 (M129) in the human prion protein provides an alternative initiation site for translation and renders individuals homozygous for M129 more susceptible to prion disease.</article_title>
-            </citation>
-            <citation key="ref58">
-              <journal_title>Oncogene</journal_title>
-              <author>J Liu</author>
-              <volume>19</volume>
-              <first_page>2767</first_page>
-              <cYear>2000</cYear>
-              <article_title>Initiation of translation from a downstream in-frame AUG codon on BRCA1 can generate the novel isoform protein DeltaBRCA1(17aa).</article_title>
-            </citation>
-            <citation key="ref59">
-              <journal_title>Trends Biochem Sci</journal_title>
-              <author>NJ Marianayagam</author>
-              <volume>29</volume>
-              <first_page>618</first_page>
-              <cYear>2004</cYear>
-              <article_title>The power of two: protein dimerization in biology.</article_title>
-            </citation>
-            <citation key="ref60">
-              <journal_title>Biochem J</journal_title>
-              <author>J Olah</author>
-              <volume>392</volume>
-              <first_page>675</first_page>
-              <cYear>2005</cYear>
-              <article_title>Triosephosphate isomerase deficiency: consequences of an inherited mutation at mRNA, protein and metabolic levels.</article_title>
-            </citation>
-            <citation key="ref61">
-              <journal_title>Biochem Biophys Res Commun</journal_title>
-              <author>NS Kosower</author>
-              <volume>37</volume>
-              <first_page>593</first_page>
-              <cYear>1969</cYear>
-              <article_title>Diamide, a new reagent for the intracellular oxidation of glutathione to the disulfide.</article_title>
-            </citation>
-            <citation key="ref62">
-              <journal_title>Methods Enzymol</journal_title>
-              <author>NS Kosower</author>
-              <volume>251</volume>
-              <first_page>123</first_page>
-              <cYear>1995</cYear>
-              <article_title>Diamide: an oxidant probe for thiols.</article_title>
-            </citation>
-            <citation key="ref63">
-              <journal_title>Proc Natl Acad Sci U S A</journal_title>
-              <author>GW Thorpe</author>
-              <volume>101</volume>
-              <first_page>6564</first_page>
-              <cYear>2004</cYear>
-              <article_title>Cells have distinct mechanisms to maintain protection against different reactive oxygen species: oxidative-stress-response genes.</article_title>
-            </citation>
-            <citation key="ref64">
-              <journal_title>Biochem J</journal_title>
-              <author>D Shenton</author>
-              <volume>374</volume>
-              <first_page>513</first_page>
-              <cYear>2003</cYear>
-              <article_title>Protein S-thiolation targets glycolysis and protein synthesis in response to oxidative stress in the yeast &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;.</article_title>
-            </citation>
-            <citation key="ref65">
-              <journal_title>Faseb J</journal_title>
-              <author>C Colussi</author>
-              <volume>14</volume>
-              <first_page>2266</first_page>
-              <cYear>2000</cYear>
-              <article_title>H2O2-induced block of glycolysis as an active ADP-ribosylation reaction protecting cells from apoptosis.</article_title>
-            </citation>
-            <citation key="ref66">
-              <journal_title>Free Radic Biol Med</journal_title>
-              <author>VM Costa</author>
-              <volume>33</volume>
-              <first_page>1507</first_page>
-              <cYear>2002</cYear>
-              <article_title>Hydrogen peroxide-induced carbonylation of key metabolic enzymes in &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt;: the involvement of the oxidative stress response regulators Yap1 and Skn7.</article_title>
-            </citation>
-            <citation key="ref67">
-              <journal_title>Mol Cell Biol</journal_title>
-              <author>CM Grant</author>
-              <volume>19</volume>
-              <first_page>2650</first_page>
-              <cYear>1999</cYear>
-              <article_title>Differential protein S-thiolation of glyceraldehyde-3-phosphate dehydrogenase isoenzymes influences sensitivity to oxidative stress.</article_title>
-            </citation>
-            <citation key="ref68">
-              <journal_title>Eur J Biochem</journal_title>
-              <author>I Schuppe-Koistinen</author>
-              <volume>221</volume>
-              <first_page>1033</first_page>
-              <cYear>1994</cYear>
-              <article_title>S-thiolation of human endothelial cell glyceraldehyde-3-phosphate dehydrogenase after hydrogen peroxide treatment.</article_title>
-            </citation>
-            <citation key="ref69">
-              <journal_title>J Biol Chem</journal_title>
-              <author>V Ravichandran</author>
-              <volume>269</volume>
-              <first_page>25010</first_page>
-              <cYear>1994</cYear>
-              <article_title>S-thiolation of glyceraldehyde-3-phosphate dehydrogenase induced by the phagocytosis-associated respiratory burst in blood monocytes.</article_title>
-            </citation>
-            <citation key="ref70">
-              <journal_title>Curr Genet</journal_title>
-              <author>B Krems</author>
-              <volume>27</volume>
-              <first_page>427</first_page>
-              <cYear>1995</cYear>
-              <article_title>Mutants of &lt;italic&gt;Saccharomyces cerevisiae&lt;/italic&gt; sensitive to oxidative and osmotic stress.</article_title>
-            </citation>
-            <citation key="ref71">
-              <journal_title>Annu Rev Plant Biol</journal_title>
-              <author>BB Buchanan</author>
-              <volume>56</volume>
-              <first_page>187</first_page>
-              <cYear>2005</cYear>
-              <article_title>Redox regulation: a broadening horizon.</article_title>
-            </citation>
-            <citation key="ref72">
-              <journal_title>Antioxid Redox Signal</journal_title>
-              <author>A Holmgren</author>
-              <volume>2</volume>
-              <first_page>811</first_page>
-              <cYear>2000</cYear>
-              <article_title>Antioxidant function of thioredoxin and glutaredoxin systems.</article_title>
-            </citation>
-            <citation key="ref73">
-              <journal_title>N Engl J Med</journal_title>
-              <author>KB Hammond</author>
-              <volume>325</volume>
-              <first_page>769</first_page>
-              <cYear>1991</cYear>
-              <article_title>Efficacy of statewide neonatal screening for cystic fibrosis by assay of trypsinogen concentrations.</article_title>
-            </citation>
-          </citation_list>
-          <component_list>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g001</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g001</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g002</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g002</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g003</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g003</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g004</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g004</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g005</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g005</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g006</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g006</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g007</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g007</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <description />
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.g008</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.g008</resource>
-              </doi_data>
-            </component>
-            <component parent_relation="isPartOf">
-              <doi_data>
-                <doi>10.1371/journal.pone.0000030.s001</doi>
-                <resource>http://dx.plos.org/10.1371/journal.pone.0000030.s001</resource>
-              </doi_data>
-            </component>
-          </component_list>
-        </journal_article>
-      </journal>
-    </crossref>
-  </doi_record>
-</doi_records>
+<crossref_result xmlns="http://www.crossref.org/qrschema/3.0" version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/qrschema/3.0 http://www.crossref.org/schemas/crossref_query_output3.0.xsd">
+  <query_result>
+    <head>
+      <doi_batch_id>none</doi_batch_id>
+    </head>
+    <body>
+      <query status="resolved">
+        <doi type="journal_article">10.7554/eLife.01567</doi>
+        <crm-item name="publisher-name" type="string">eLife Sciences Publications, Ltd</crm-item>
+        <crm-item name="prefix-name" type="string">eLife Sciences Publications, Ltd.</crm-item>
+        <crm-item name="member-id" type="number">4374</crm-item>
+        <crm-item name="citation-id" type="number">67124617</crm-item>
+        <crm-item name="journal-id" type="number">189365</crm-item>
+        <crm-item name="deposit-timestamp" type="number">20180823133646</crm-item>
+        <crm-item name="owner-prefix" type="string">10.7554</crm-item>
+        <crm-item name="last-update" type="date">2018-08-23T13:41:49Z</crm-item>
+        <crm-item name="created" type="date">2014-02-11T16:29:04Z</crm-item>
+        <crm-item name="citedby-count" type="number">13</crm-item>
+        <doi_record>
+          <crossref xmlns="http://www.crossref.org/xschema/1.1" xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd">
+            <journal>
+              <journal_metadata language="en">
+                <full_title>eLife</full_title>
+                <issn media_type="electronic">2050-084X</issn>
+              </journal_metadata>
+              <journal_issue>
+                <publication_date media_type="online">
+                  <month>02</month>
+                  <day>11</day>
+                  <year>2014</year>
+                </publication_date>
+                <journal_volume>
+                  <volume>3</volume>
+                </journal_volume>
+              </journal_issue>
+              <journal_article publication_type="full_text" reference_distribution_opts="any">
+                <titles>
+                  <title>Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth</title>
+                </titles>
+                <contributors>
+                  <person_name contributor_role="author" sequence="first">
+                    <given_name>Martial</given_name>
+                    <surname>Sankar</surname>
+                    <affiliation>Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Kaisa</given_name>
+                    <surname>Nieminen</surname>
+                    <affiliation>Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Laura</given_name>
+                    <surname>Ragni</surname>
+                    <affiliation>Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Ioannis</given_name>
+                    <surname>Xenarios</surname>
+                    <affiliation>Vital-IT, Swiss Institute of Bioinformatics, Lausanne, Switzerland</affiliation>
+                  </person_name>
+                  <person_name contributor_role="author" sequence="additional">
+                    <given_name>Christian S</given_name>
+                    <surname>Hardtke</surname>
+                    <affiliation>Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland</affiliation>
+                  </person_name>
+                </contributors>
+                <jats:abstract xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1">
+                  <jats:p>Among various advantages, their small size makes model organisms preferred subjects of investigation. Yet, even in model systems detailed analysis of numerous developmental processes at cellular level is severely hampered by their scale. For instance, secondary growth of Arabidopsis hypocotyls creates a radial pattern of highly specialized tissues that comprises several thousand cells starting from a few dozen. This dynamic process is difficult to follow because of its scale and because it can only be investigated invasively, precluding comprehensive understanding of the cell proliferation, differentiation, and patterning events involved. To overcome such limitation, we established an automated quantitative histology approach. We acquired hypocotyl cross-sections from tiled high-resolution images and extracted their information content using custom high-throughput image processing and segmentation. Coupled with automated cell type recognition through machine learning, we could establish a cellular resolution atlas that reveals vascular morphodynamics during secondary growth, for example equidistant phloem pole formation.</jats:p>
+                </jats:abstract>
+                <jats:abstract xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1" abstract-type="executive-summary">
+                  <jats:p>Our understanding of the living world has been advanced greatly by studies of ‘model organisms’, such as mice, zebrafish, and fruit flies. Studying these creatures has been crucial to uncovering the genes that control how our bodies develop and grow, and also to discover the genetic basis of diseases such as cancer.</jats:p>
+                  <jats:p>Thale cress—or Arabidopsis thaliana to give its formal name—is the model organism of choice for many plant biologists. This tiny weed has been widely studied because it can complete its lifecycle, from seed to seed, in about 6 weeks, and because its relatively small genome simplifies the search for genes that control specific traits. However, as with other much-studied model systems, understanding the changes that underpin the development of some of the more complex tissues in Arabidopsis has been severely hampered by the shear number of cells involved.</jats:p>
+                  <jats:p>After it has emerged from the seed, the plant’s first stem will develop from a few dozen cells in width to several thousand cells with highly specialized tissues arranged in a complex pattern of concentric circles. Although this stem thickening process represents a major developmental change in many plants—from Arabidopsis to oak trees—it has been under-researched. This is partly because it involves so many different cells, and also because it can only be observed in thin sections cut out of the plant’s stem.</jats:p>
+                  <jats:p>Now Sankar, Nieminen, Ragni et al. have developed a novel approach, termed ‘automated quantitative histology’, to overcome these problems. This strategy involves ‘teaching’ a computer to automatically recognize different plant cells and to measure their important features in high-resolution images of tissue sections. The resulting ‘map’ of the developing stem—which required over 800 hr of computing time to complete—reveals the changes to cells and tissues as they develop that allow the transport of water, sugars and nutrients between the above- and below-ground organs. Sankar, Nieminen, Ragni et al. suggest that their novel approach could, in the future, also be applied to study the development of other tissues and organisms, including animals.</jats:p>
+                </jats:abstract>
+                <publication_date media_type="online">
+                  <month>02</month>
+                  <day>11</day>
+                  <year>2014</year>
+                </publication_date>
+                <publisher_item>
+                  <item_number item_number_type="article_number">e01567</item_number>
+                  <identifier id_type="doi">10.7554/eLife.01567</identifier>
+                </publisher_item>
+                <fr:program xmlns:fr="http://www.crossref.org/fundref.xsd" name="fundref">
+                  <fr:assertion name="fundgroup">
+                    <fr:assertion name="funder_name">SystemsX</fr:assertion>
+                  </fr:assertion>
+                  <fr:assertion name="fundgroup">
+                    <fr:assertion name="funder_name">EMBO longterm post-doctoral fellowships</fr:assertion>
+                  </fr:assertion>
+                  <fr:assertion name="fundgroup">
+                    <fr:assertion name="funder_name">Marie Heim-Voegtlin</fr:assertion>
+                  </fr:assertion>
+                  <fr:assertion name="fundgroup">
+                    <fr:assertion name="funder_name">
+                      University of Lausanne
+                      <fr:assertion name="funder_identifier" provider="crossref">501100006390</fr:assertion>
+                    </fr:assertion>
+                  </fr:assertion>
+                </fr:program>
+                <ai:program xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" name="AccessIndicators">
+                  <ai:license_ref applies_to="vor">http://creativecommons.org/licenses/by/3.0/</ai:license_ref>
+                  <ai:license_ref applies_to="am">http://creativecommons.org/licenses/by/3.0/</ai:license_ref>
+                  <ai:license_ref applies_to="tdm">http://creativecommons.org/licenses/by/3.0/</ai:license_ref>
+                </ai:program>
+                <crossmark>
+                  <crossmark_version>1</crossmark_version>
+                  <crossmark_policy>eLifesciences</crossmark_policy>
+                  <crossmark_domains>
+                    <crossmark_domain>
+                      <domain>www.elifesciences.org</domain>
+                    </crossmark_domain>
+                  </crossmark_domains>
+                  <crossmark_domain_exclusive>false</crossmark_domain_exclusive>
+                  <custom_metadata>
+                    <assertion name="received" label="Received" group_name="publication_history" group_label="Publication History" order="0">2013-09-20</assertion>
+                    <assertion name="accepted" label="Accepted" group_name="publication_history" group_label="Publication History" order="1">2013-12-24</assertion>
+                    <assertion name="published" label="Published" group_name="publication_history" group_label="Publication History" order="2">2014-02-11</assertion>
+                    <fr:program xmlns:fr="http://www.crossref.org/fundref.xsd" name="fundref">
+                      <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">SystemsX</fr:assertion>
+                      </fr:assertion>
+                      <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">
+                          EMBO
+                          <fr:assertion name="funder_identifier">http://dx.doi.org/10.13039/501100003043</fr:assertion>
+                        </fr:assertion>
+                      </fr:assertion>
+                      <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">
+                          Swiss National Science Foundation
+                          <fr:assertion name="funder_identifier">http://dx.doi.org/10.13039/501100001711</fr:assertion>
+                        </fr:assertion>
+                      </fr:assertion>
+                      <fr:assertion name="fundgroup">
+                        <fr:assertion name="funder_name">
+                          University of Lausanne
+                          <fr:assertion name="funder_identifier" provider="crossref">http://dx.doi.org/10.13039/501100006390</fr:assertion>
+                        </fr:assertion>
+                      </fr:assertion>
+                    </fr:program>
+                    <ai:program xmlns:ai="http://www.crossref.org/AccessIndicators.xsd" name="AccessIndicators">
+                      <ai:license_ref applies_to="vor">http://creativecommons.org/licenses/by/3.0/</ai:license_ref>
+                      <ai:license_ref applies_to="am">http://creativecommons.org/licenses/by/3.0/</ai:license_ref>
+                      <ai:license_ref applies_to="tdm">http://creativecommons.org/licenses/by/3.0/</ai:license_ref>
+                    </ai:program>
+                  </custom_metadata>
+                </crossmark>
+                <rel:program xmlns:rel="http://www.crossref.org/relations.xsd">
+                  <rel:related_item>
+                    <rel:description>Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth</rel:description>
+                    <rel:inter_work_relation identifier-type="doi" relationship-type="isSupplementedBy">10.5061/dryad.b835k</rel:inter_work_relation>
+                  </rel:related_item>
+                </rel:program>
+                <archive_locations>
+                  <archive name="CLOCKSS" />
+                </archive_locations>
+                <doi_data>
+                  <doi>10.7554/eLife.01567</doi>
+                  <resource>https://elifesciences.org/articles/01567</resource>
+                  <collection property="text-mining">
+                    <item>
+                      <resource mime_type="application/pdf">https://cdn.elifesciences.org/articles/01567/elife-01567-v1.pdf</resource>
+                    </item>
+                    <item>
+                      <resource mime_type="application/xml">https://cdn.elifesciences.org/articles/01567/elife-01567-v1.xml</resource>
+                    </item>
+                  </collection>
+                </doi_data>
+                <citation_list>
+                  <citation key="bib1">
+                    <journal_title>Nature</journal_title>
+                    <author>Bonke</author>
+                    <volume>426</volume>
+                    <first_page>181</first_page>
+                    <cYear>2003</cYear>
+                    <article_title>APL regulates vascular tissue identity in Arabidopsis</article_title>
+                    <doi>10.1038/nature02100</doi>
+                  </citation>
+                  <citation key="bib2">
+                    <journal_title>Genetics</journal_title>
+                    <author>Brenner</author>
+                    <volume>182</volume>
+                    <first_page>413</first_page>
+                    <cYear>2009</cYear>
+                    <article_title>In the beginning was the worm</article_title>
+                    <doi>10.1534/genetics.109.104976</doi>
+                  </citation>
+                  <citation key="bib3">
+                    <journal_title>Physiologia Plantarum</journal_title>
+                    <author>Chaffey</author>
+                    <volume>114</volume>
+                    <first_page>594</first_page>
+                    <cYear>2002</cYear>
+                    <article_title>Secondary xylem development in Arabidopsis: a model for wood formation</article_title>
+                    <doi>10.1034/j.1399-3054.2002.1140413.x</doi>
+                  </citation>
+                  <citation key="bib4">
+                    <journal_title>Neural computation</journal_title>
+                    <author>Chang</author>
+                    <volume>13</volume>
+                    <first_page>2119</first_page>
+                    <cYear>2001</cYear>
+                    <article_title>Training nu-support vector classifiers: theory and algorithms</article_title>
+                    <doi>10.1162/089976601750399335</doi>
+                  </citation>
+                  <citation key="bib5">
+                    <journal_title>Machine Learning</journal_title>
+                    <author>Cortes</author>
+                    <volume>20</volume>
+                    <first_page>273</first_page>
+                    <cYear>1995</cYear>
+                    <doi provider="crossref">10.1007/BF00994018</doi>
+                    <article_title>Support-vector Networks</article_title>
+                  </citation>
+                  <citation key="bib6">
+                    <journal_title>Development</journal_title>
+                    <author>Dolan</author>
+                    <volume>119</volume>
+                    <first_page>71</first_page>
+                    <cYear>1993</cYear>
+                    <article_title>Cellular organisation of the Arabidopsis thaliana root</article_title>
+                  </citation>
+                  <citation key="bib7">
+                    <journal_title>Seminars in Cell &amp; Developmental Biology</journal_title>
+                    <author>Elo</author>
+                    <volume>20</volume>
+                    <first_page>1097</first_page>
+                    <cYear>2009</cYear>
+                    <article_title>Stem cell function during plant vascular development</article_title>
+                    <doi>10.1016/j.semcdb.2009.09.009</doi>
+                  </citation>
+                  <citation key="bib8">
+                    <journal_title>Development</journal_title>
+                    <author>Etchells</author>
+                    <volume>140</volume>
+                    <first_page>2224</first_page>
+                    <cYear>2013</cYear>
+                    <article_title>WOX4 and WOX14 act downstream of the PXY receptor kinase to regulate plant vascular proliferation independently of any role in vascular organisation</article_title>
+                    <doi>10.1242/dev.091314</doi>
+                  </citation>
+                  <citation key="bib9">
+                    <journal_title>PLOS Genetics</journal_title>
+                    <author>Etchells</author>
+                    <volume>8</volume>
+                    <first_page>e1002997</first_page>
+                    <cYear>2012</cYear>
+                    <article_title>Plant vascular cell division is maintained by an interaction between PXY and ethylene signalling</article_title>
+                    <doi>10.1371/journal.pgen.1002997</doi>
+                  </citation>
+                  <citation key="bib10">
+                    <journal_title>Molecular Systems Biology</journal_title>
+                    <author>Fuchs</author>
+                    <volume>6</volume>
+                    <first_page>370</first_page>
+                    <cYear>2010</cYear>
+                    <article_title>Clustering phenotype populations by genome-wide RNAi and multiparametric imaging</article_title>
+                    <doi>10.1038/msb.2010.25</doi>
+                  </citation>
+                  <citation key="bib11">
+                    <journal_title>Bio Systems</journal_title>
+                    <author>Granqvist</author>
+                    <volume>110</volume>
+                    <first_page>60</first_page>
+                    <cYear>2012</cYear>
+                    <article_title>BaSAR-A tool in R for frequency detection</article_title>
+                    <doi>10.1016/j.biosystems.2012.07.004</doi>
+                  </citation>
+                  <citation key="bib12">
+                    <journal_title>Current Opinion in Plant Biology</journal_title>
+                    <author>Groover</author>
+                    <volume>9</volume>
+                    <first_page>55</first_page>
+                    <cYear>2006</cYear>
+                    <article_title>Developmental mechanisms regulating secondary growth in woody plants</article_title>
+                    <doi>10.1016/j.pbi.2005.11.013</doi>
+                  </citation>
+                  <citation key="bib13">
+                    <journal_title>Plant Cell</journal_title>
+                    <author>Hirakawa</author>
+                    <volume>22</volume>
+                    <first_page>2618</first_page>
+                    <cYear>2010</cYear>
+                    <article_title>TDIF peptide signaling regulates vascular stem cell proliferation via the WOX4 homeobox gene in Arabidopsis</article_title>
+                    <doi>10.1105/tpc.110.076083</doi>
+                  </citation>
+                  <citation key="bib14">
+                    <journal_title>Proceedings of the National Academy of Sciences of the United States of America</journal_title>
+                    <author>Hirakawa</author>
+                    <volume>105</volume>
+                    <first_page>15208</first_page>
+                    <cYear>2008</cYear>
+                    <article_title>Non-cell-autonomous control of vascular stem cell fate by a CLE peptide/receptor system</article_title>
+                    <doi>10.1073/pnas.0808444105</doi>
+                  </citation>
+                  <citation key="bib15">
+                    <journal_title>Cell</journal_title>
+                    <author>Meyerowitz</author>
+                    <volume>56</volume>
+                    <first_page>263</first_page>
+                    <cYear>1989</cYear>
+                    <article_title>Arabidopsis, a useful weed</article_title>
+                    <doi>10.1016/0092-8674(89)90900-8</doi>
+                  </citation>
+                  <citation key="bib16">
+                    <journal_title>Science</journal_title>
+                    <author>Meyerowitz</author>
+                    <volume>295</volume>
+                    <first_page>1482</first_page>
+                    <cYear>2002</cYear>
+                    <article_title>Plants compared to animals: the broadest comparative study of development</article_title>
+                    <doi>10.1126/science.1066609</doi>
+                  </citation>
+                  <citation key="bib17">
+                    <journal_title>Plant Physiol</journal_title>
+                    <author>Nieminen</author>
+                    <volume>135</volume>
+                    <first_page>653</first_page>
+                    <cYear>2004</cYear>
+                    <article_title>A weed for wood? Arabidopsis as a genetic model for xylem development</article_title>
+                    <doi>10.1104/pp.104.040212</doi>
+                  </citation>
+                  <citation key="bib18">
+                    <journal_title>Nature Biotechnology</journal_title>
+                    <author>Noble</author>
+                    <volume>24</volume>
+                    <first_page>1565</first_page>
+                    <cYear>2006</cYear>
+                    <article_title>What is a support vector machine?</article_title>
+                    <doi>10.1038/nbt1206-1565</doi>
+                  </citation>
+                  <citation key="bib19">
+                    <journal_title>Proceedings of the National Academy of Sciences of the United States of America</journal_title>
+                    <author>Olson</author>
+                    <volume>77</volume>
+                    <first_page>1516</first_page>
+                    <cYear>1980</cYear>
+                    <article_title>Classification of cultured mammalian cells by shape analysis and pattern recognition</article_title>
+                    <doi>10.1073/pnas.77.3.1516</doi>
+                  </citation>
+                  <citation key="bib20">
+                    <journal_title>Bioinformatics</journal_title>
+                    <author>Pau</author>
+                    <volume>26</volume>
+                    <first_page>979</first_page>
+                    <cYear>2010</cYear>
+                    <article_title>EBImage–an R package for image processing with applications to cellular phenotypes</article_title>
+                    <doi>10.1093/bioinformatics/btq046</doi>
+                  </citation>
+                  <citation key="bib21">
+                    <journal_title>Plant Cell</journal_title>
+                    <author>Ragni</author>
+                    <volume>23</volume>
+                    <first_page>1322</first_page>
+                    <cYear>2011</cYear>
+                    <article_title>Mobile gibberellin directly stimulates Arabidopsis hypocotyl xylem expansion</article_title>
+                    <doi>10.1105/tpc.111.084020</doi>
+                  </citation>
+                  <citation key="bib22">
+                    <journal_title>Dryad Digital Repository</journal_title>
+                    <author>Sankar</author>
+                    <cYear>2014</cYear>
+                    <article_title>Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth</article_title>
+                    <doi>10.5061/dryad.b835k</doi>
+                  </citation>
+                  <citation key="bib23">
+                    <journal_title>Current Biology</journal_title>
+                    <author>Sibout</author>
+                    <volume>18</volume>
+                    <first_page>458</first_page>
+                    <cYear>2008</cYear>
+                    <article_title>Flowering as a condition for xylem expansion in Arabidopsis hypocotyl and root</article_title>
+                    <doi>10.1016/j.cub.2008.02.070</doi>
+                  </citation>
+                  <citation key="bib24">
+                    <journal_title>The New Phytologist</journal_title>
+                    <author>Spicer</author>
+                    <volume>186</volume>
+                    <first_page>577</first_page>
+                    <cYear>2010</cYear>
+                    <article_title>Evolution of development of vascular cambia and secondary growth</article_title>
+                    <doi>10.1111/j.1469-8137.2010.03236.x</doi>
+                  </citation>
+                  <citation key="bib25">
+                    <journal_title>Machine Vision and Applications</journal_title>
+                    <author>Theriault</author>
+                    <volume>23</volume>
+                    <first_page>659</first_page>
+                    <cYear>2012</cYear>
+                    <article_title>Cell morphology classification and clutter mitigation in phase-contrast microscopy images using machine learning</article_title>
+                    <doi>10.1007/s00138-011-0345-9</doi>
+                  </citation>
+                  <citation key="bib26">
+                    <journal_title>Cell</journal_title>
+                    <author>Uyttewaal</author>
+                    <volume>149</volume>
+                    <first_page>439</first_page>
+                    <cYear>2012</cYear>
+                    <article_title>Mechanical stress acts via katanin to amplify differences in growth rate between adjacent cells in Arabidopsis</article_title>
+                    <doi>10.1016/j.cell.2012.02.048</doi>
+                  </citation>
+                  <citation key="bib27">
+                    <journal_title>Nature Cell Biology</journal_title>
+                    <author>Yin</author>
+                    <volume>15</volume>
+                    <first_page>860</first_page>
+                    <cYear>2013</cYear>
+                    <article_title>A screen for morphological complexity identifies regulators of switch-like transitions between discrete cell shapes</article_title>
+                    <doi>10.1038/ncb2764</doi>
+                  </citation>
+                </citation_list>
+                <component_list>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Abstract</title>
+                    </titles>
+                    <format mime_type="text/plain" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.001</doi>
+                      <resource>https://elifesciences.org/articles/01567#abstract</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>eLife digest</title>
+                    </titles>
+                    <format mime_type="text/plain" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.002</doi>
+                      <resource>https://elifesciences.org/articles/01567#digest</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 1. Cellular level analysis of Arabidopsis hypocotyl secondary growth.</title>
+                      <subtitle>(A) Light microscopy of cross sections obtained from Arabidopsis hypocotyls (organ position illustrated for a 9-day-old seedling, lower left) at 9 dag (upper left) and 35 dag (right). Size bars are 100 μm. Blue GUS staining due to the presence of an APL::GUS reporter gene in this Col-0 background line marks phloem bundles. (B) Overview of the developmental series (time points and distinct samples per genotype) analyzed in this study. (C) Example of a high-resolution hypocotyl section image assembled from 11 × 11 tiles. (D) The same image after pre-processing and binarization, and (E) subsequent segmentation using a watershed algorithm. (F) Number of mis-segmented cells as determined by careful visual inspection in 12 sections, plotted against the total number of cells per section (log scale).</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.003</doi>
+                      <resource>https://elifesciences.org/articles/01567#fig1</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 2. The ‘Quantitative Histology’ approach.</title>
+                      <subtitle>(A) Overview of the computational pipeline from image acquisition to analysis. (B) ‘Phenoprints’ for the different genotypes and developmental stages.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.004</doi>
+                      <resource>https://elifesciences.org/articles/01567#fig2</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 2—figure supplement 1. An example of classifier selection through V-fold cross validation.</title>
+                      <subtitle>The green arrow points out the selected feature combination according to the criteria of minimum number of features with the highest performance and the lowest variation (the radiusV feature was excluded due to its putative variation in tissue location).</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.005</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#fig2s1</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 3. Progression of tissue proliferation.</title>
+                      <subtitle>(A) Principal component analysis (PCA) of the phenoprints shown in Figure 2B, performed with normalized values (Supplementary file 4). The inlay screeplot displays the proportion of total variation explained by each principal component. (B–E) Comparative plots of parameter progression in the two genotypes. In (D), xylem represents combined vessel, parenchyma, and fiber cells, phloem represents combined phloem parenchyma and bundle cells. Error bars indicate standard error.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.006</doi>
+                      <resource>https://elifesciences.org/articles/01567#fig3</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 4. Bimodal distribution of incline angle according to position.</title>
+                      <subtitle>(A and B) Spatial distribution of cell incline angle illustrates the vascular organization in Ler (B) as compared to Col-0 (A) at later stages of development, for example 30 dag. The size of the disc increases with the area of the cell. Blue color indicates radial cell orientation, red orthoradial. (C and D) Violin plots of incline angle distribution, illustrating increasingly bimodal distribution coincident with refined vascular organization and different dynamics of the process in the two genotypes.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.007</doi>
+                      <resource>https://elifesciences.org/articles/01567#fig4</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 4—figure supplement 1. An illustration of the incline angle.</title>
+                      <subtitle>The incline is the angle between the section radius through the center of an ellipse fit to a cell and the major axis of that ellipse extended towards the x axis.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.008</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#fig4s1</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 5. Distinct local organization of incline angle during hypocotyl secondary growth progression.</title>
+                      <subtitle>(A–J) Density plots of cell incline angle vs radial position for the two genotypes at the indicated developmental stages, representing all cells across all sections for a given time point. The red lines represent the fit of these cloud distributions with locally weighted linear regression (i.e., lowess), revealing the essential data trends. All sections were normalized from 0.0 (the manually defined center) to 1.0 (the average radius in a set of sections as determined by the average distance of the outermost cells from the center for individual sections). Box plots indicate the quartiles of the radian distribution for each cell-type class and are placed at the average position of the cell type with respect to the y axis. Outliers are shown as circles.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.009</doi>
+                      <resource>https://elifesciences.org/articles/01567#fig5</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 5—figure supplement 1. Analysis of cell number in defined xylem regions of different size.</title>
+                      <subtitle>Cell number in a circle of 200–500 pixels around the section centers for Col-0. Cell count in a constant area of xylem over time across all averaged across all sections.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.010</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#fig5s1</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Figure 6. Mapping of phloem pole patterning.</title>
+                      <subtitle>(A) Example of Gaussian kernel density estimate of the location of predicted phloem bundles cells in a 30 dag Col-0 section. High density represents phloem poles. (B) Example of an analysis of emerging phloem pole position in a 30 dag Col-0 section. The plot represents a pixel intensity map after noise reduction along a circular region of interest across the emerging phloem poles. Intensity peaks are due to GUS staining conferred to phloem bundles by an APL::GUS reporter construct. (C) Probability density function of the data shown in (B) obtained from an automated Bayesian model. The dominant single peak indicates a constant arc distance of ca. 62 pixel between the phloem poles.</subtitle>
+                    </titles>
+                    <format mime_type="image/tiff" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.011</doi>
+                      <resource>https://elifesciences.org/articles/01567#fig6</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Supplementary file 1.</title>
+                      <subtitle>(A) An explanation of the extracted parameters that describe the cellular features. (B) Summary information of the hand-labeled training set for supervised machine learning. (C) Definition of the classifiers selected for analysis. (D) Summary of the classifier parameters for supervised machine learning. (E) Overview of the cell type classes recognized by the supervised machine learning approach and their assignment codes used in Data Files 3 and 4.</subtitle>
+                    </titles>
+                    <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.012</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#SD1-data</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Supplementary file 2.</title>
+                      <subtitle>Quality control files for the Col-0 sections.</subtitle>
+                    </titles>
+                    <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.013</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#SD2-data</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Supplementary file 3.</title>
+                      <subtitle>Quality control files for the Ler sections.</subtitle>
+                    </titles>
+                    <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.014</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#SD3-data</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Supplementary file 4.</title>
+                      <subtitle>The normalized values of the phenoprints (Figure 2B) used for PCA.</subtitle>
+                    </titles>
+                    <format mime_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.015</doi>
+                      <resource>https://elifesciences.org/articles/01567/figures#SD4-data</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Decision letter</title>
+                    </titles>
+                    <format mime_type="text/plain" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.016</doi>
+                      <resource>https://elifesciences.org/articles/01567#SA1</resource>
+                    </doi_data>
+                  </component>
+                  <component parent_relation="isPartOf">
+                    <titles>
+                      <title>Author response</title>
+                    </titles>
+                    <format mime_type="text/plain" />
+                    <doi_data>
+                      <doi>10.7554/eLife.01567.017</doi>
+                      <resource>https://elifesciences.org/articles/01567#SA2</resource>
+                    </doi_data>
+                  </component>
+                </component_list>
+              </journal_article>
+            </journal>
+          </crossref>
+        </doi_record>
+      </query>
+    </body>
+  </query_result>
+</crossref_result>

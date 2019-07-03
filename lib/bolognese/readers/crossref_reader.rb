@@ -4,14 +4,11 @@ module Bolognese
   module Readers
     module CrossrefReader
       # CrossRef types from https://api.crossref.org/types
-
-      CONTACT_EMAIL = "tech@datacite.org"
-
       def get_crossref(id: nil, **options)
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
         doi = doi_from_url(id)
-        url = "http://www.crossref.org/openurl/?id=doi:#{doi}&noredirect=true&pid=#{CONTACT_EMAIL}&format=unixref"
+        url = "https://api.crossref.org/works/#{doi}/transform/application/vnd.crossref.unixsd+xml"
         response = Maremma.get(url, accept: "text/xml", raw: true)
         string = response.body.fetch("data", nil)
         string = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
@@ -23,22 +20,26 @@ module Bolognese
         read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
 
         if string.present?
-          m = Maremma.from_xml(string).dig("doi_records", "doi_record") || {}
-          meta = m.dig("crossref", "error").nil? ? m : {}
+          m = Maremma.from_xml(string).dig("crossref_result", "query_result", "body", "query", "doi_record") || {}
+          meta = m.dig("doi_record", "crossref", "error").nil? ? m : {}
+
+          # query contains information from outside metadata schema, e.g. publisher name
+          query = Maremma.from_xml(string).dig("crossref_result", "query_result", "body", "query") || {}
         else
           meta = {}
+          query = {}
         end
 
         # model should be one of book, conference, database, dissertation, journal, peer_review, posted_content,
         # report-paper, sa_component, standard
-        model = meta.dig("crossref").to_h.keys.first
+        model = meta.dig("crossref").to_h.keys.last
 
         resource_type = nil
         bibliographic_metadata = {}
         program_metadata = {}
         journal_metadata = nil
         journal_issue = {}
-        publisher = "(:unav)"
+        publisher = query.dig("crm_item", 0)
 
         case model
         when "book"
@@ -83,14 +84,11 @@ module Bolognese
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type] || "JOUR"
         }.compact
 
-        # Crossref servers run on Eastern Time
-        Time.zone = 'Eastern Time (US & Canada)'
+        date_updated = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "last-update" }
+        date_updated = { "date" => date_updated.fetch("__content__", nil), "dateType" => "Updated" } if date_updated.present?
         dates = [
-          { "date" => crossref_date_published(bibliographic_metadata),
-            "dateType" => "Issued" },
-          { "date" => Time.zone.parse(meta.fetch("timestamp", "2018-01-01")).utc.iso8601,
-            "dateType" => "Updated" }
-        ]
+          { "date" => crossref_date_published(bibliographic_metadata), "dateType" => "Issued" }, date_updated
+        ].compact
         publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : nil
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 

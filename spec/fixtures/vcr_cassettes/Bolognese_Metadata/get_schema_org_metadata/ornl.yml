@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Thu, 10 Jan 2019 20:16:16 GMT
+      - Wed, 03 Jul 2019 19:24:40 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
@@ -25,27 +25,27 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d7b5b32dd3b95a6b197a80bb4d8c9fb3c1547151376; expires=Fri, 10-Jan-20
-        20:16:16 GMT; path=/; domain=.doi.org; HttpOnly
-      Expires:
-      - Thu, 10 Jan 2019 20:23:01 GMT
-      Location:
-      - http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
+      - __cfduid=dfe7ff57802eb62e981674c628b2e250d1562181880; expires=Thu, 02-Jul-20
+        19:24:40 GMT; path=/; domain=.doi.org; HttpOnly
       Vary:
       - Accept
+      Location:
+      - http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
+      Expires:
+      - Wed, 03 Jul 2019 19:29:18 GMT
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 4971d204fc8140a0-HAM
+      - 4f0b3db10fcf68ca-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339">http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339</a></body></html>
     http_version: 
-  recorded_at: Thu, 10 Jan 2019 20:16:16 GMT
+  recorded_at: Wed, 03 Jul 2019 19:24:40 GMT
 - request:
     method: get
     uri: http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
@@ -54,27 +54,38 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
     status:
-      code: 301
-      message: Moved permanently
+      code: 302
+      message: Found
     headers:
+      Date:
+      - Wed, 03 Jul 2019 19:24:44 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000
       Location:
       - https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
-      Connection:
-      - close
-      Cache-Control:
-      - no-cache
-      Pragma:
-      - no-cache
+      Content-Length:
+      - '236'
+      Content-Type:
+      - text/html; charset=iso-8859-1
     body:
       encoding: ASCII-8BIT
-      string: ''
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>302 Found</title>
+        </head><body>
+        <h1>Found</h1>
+        <p>The document has moved <a href="https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339">here</a>.</p>
+        </body></html>
     http_version: 
-  recorded_at: Thu, 10 Jan 2019 20:16:16 GMT
+  recorded_at: Wed, 03 Jul 2019 19:24:44 GMT
 - request:
     method: get
     uri: https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
@@ -83,7 +94,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -92,17 +103,15 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 10 Jan 2019 20:16:17 GMT
+      - Wed, 03 Jul 2019 19:24:46 GMT
       Server:
-      - Apache/2.4.6 (Red Hat Enterprise Linux)
+      - Apache
       Strict-Transport-Security:
-      - max-age=31536000, max-age=31622400
+      - max-age=31536000
       Vary:
       - Accept-Encoding
       Content-Type:
       - text/html; charset=ISO-8859-1
-      Set-Cookie:
-      - ddadfg211qkdloqpa=ffffffffa3530d0945525d5f4f58455e445a4a42378b;Version=1;path=/;secure;httponly
     body:
       encoding: ASCII-8BIT
       string: "\n<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n<meta http-equiv=\"X-UA-Compatible\"
@@ -131,7 +140,9 @@ http_interactions:
         Profiles and Temperature Data from SoilSCAPE Sites, USA, https://doi.org/10.3334/ORNLDAAC/1339</title>\n<link
         rel=\"stylesheet\" href=\"/js/datatables/datatables.ornldaacCustom.min.css\">\n<link
         rel=\"stylesheet\" href=\"/css/new.css\">\n<link rel=\"stylesheet\" href=\"/css/datasetlister.min.css\">\n<script
-        type=\"application/ld+json\">{\"sourceOrganization\":\"ORNL DAAC\",\"creator\":[{\"name\":\"MOGHADDAM,
+        type=\"application/ld+json\">{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"sourceOrganization\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"creator\":[{\"name\":\"MOGHADDAM,
         M.\",\"@type\":\"Person\"},{\"name\":\"SILVA, A.\",\"@type\":\"Person\"},{\"name\":\"CLEWLEY,
         D.\",\"@type\":\"Person\"},{\"name\":\"AKBAR, R.\",\"@type\":\"Person\"},{\"name\":\"HUSSAINI,
         S.A.\",\"@type\":\"Person\"},{\"name\":\"Whitcomb, J.\",\"@type\":\"Person\"},{\"name\":\"DEVARAKONDA,
@@ -142,14 +153,14 @@ http_interactions:
         AirMOSS\",\" SMAP\",\"LAND SURFACE > SOILS > SOIL TEMPERATURE\",\"LAND SURFACE
         > SOILS > SOIL MOISTURE/WATER CONTENT\",\"FIELD INVESTIGATION\"],\"spatialCoverage\":{\"geo\":{\"box\":\"31.7355
         -120.99 42.299 -83.663\",\"@type\":\"GeoShape\"},\"@type\":\"Place\"},\"url\":\"https://doi.org/10.3334/ORNLDAAC/1339\",\"about\":{\"url\":\"https://daac.ornl.gov/LAND_VAL/guides/SoilSCAPE.html\",\"name\":\"User
-        Guide\",\"@type\":\"WebPage\"},\"publisher\":{\"logo\":\"https://daac.ornl.gov/graphics/daac_logo.png\",\"contactPoint\":{\"email\":\"uso@daac.ornl.gov\",\"telephone\":\"+18652413952\",\"contactType\":\"customer
+        Guide\",\"image\":\"https://daac.ornl.gov/daac_logo.png\",\"@type\":\"WebPage\"},\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"contactPoint\":{\"email\":\"uso@daac.ornl.gov\",\"telephone\":\"+18652413952\",\"contactType\":\"customer
         support\",\"name\":\"ORNL DAAC User Support Office\",\"@type\":\"ContactPoint\"},\"name\":\"ORNL
         DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"@type\":\"DataSet\",\"citation\":\"Moghaddam,
         M., A.R. Silva, D. Clewley, R. Akbar, S.A. Hussaini, J. Whitcomb, R. Devarakonda,
         R. Shrestha, R.B. Cook, G. Prakash, S.K. Santhana Vannan, and A.G. Boyer.
         2017. Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA.
-        ORNL DAAC, Oak Ridge, Tennessee, USA. https://doi.org/10.3334/ORNLDAAC/1339\",\"dateCreated\":\"2017-07-20\",\"locationCreated\":\"Oak
-        Ridge, Tennessee, USA\",\"thumbnailUrl\":\"\",\"temporalCoverage\":\"2011-08-03/2019-01-03\",\"version\":\"1\",\"name\":\"Soil
+        ORNL DAAC, Oak Ridge, Tennessee, USA. https://doi.org/10.3334/ORNLDAAC/1339\",\"dateCreated\":\"2016-11-22\",\"locationCreated\":\"Oak
+        Ridge, Tennessee, USA\",\"thumbnailUrl\":\"\",\"temporalCoverage\":\"2011-08-03/2019-06-24\",\"version\":\"1\",\"name\":\"Soil
         Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA\",\"description\":\"This
         data set contains in-situ soil moisture profile and soil temperature data
         collected at 20-minute intervals at SoilSCAPE (Soil moisture Sensing Controller
@@ -167,24 +178,36 @@ http_interactions:
         soil moisture at high temporal resolution and validation of remote sensing
         estimates of soil moisture at regional (airborne, e.g. NASA's Airborne Microwave
         Observation of Subcanopy and Subsurface Mission - AirMOSS) and national (spaceborne,
-        e.g. NASA's Soil Moisture Active Passive - SMAP) scales.\",\"sameAs\":\"https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339\",\"distribution\":[{\"url\":\"https://daac.ornl.gov/daacdata/eos_land_val/SoilSCAPE/\",\"name\":\"Direct
+        e.g. NASA's Soil Moisture Active Passive - SMAP) scales.\",\"sameAs\":\"https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339\",\"distribution\":[{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"url\":\"https://daac.ornl.gov/daacdata/eos_land_val/SoilSCAPE/\",\"name\":\"Direct
         Access: Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites,
-        USA\",\"description\":\"This link allows direct data access via Earthdata
-        Login to: Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites,
-        USA\",\"@type\":\"DataDownload\"},{\"contentSize\":\"385.0MB\",\"url\":\"https://daac.ornl.gov/cgi-bin/download.pl?ds_id=1339&source=schema_org_metadata\",\"name\":\"Download
-        Dataset: Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites,
-        USA\",\"description\":\"Download entire dataset bundle: Soil Moisture Profiles
-        and Temperature Data from SoilSCAPE Sites, USA\",\"@type\":\"DataDownload\"},{\"url\":\"https://thredds.daac.ornl.gov/thredds/catalog/ornldaac/1339/catalog.html\",\"name\":\"TDS
+        USA\",\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"encodingFormat\":\"netCDF\",\"description\":\"This
+        link allows direct data access via Earthdata Login to: Soil Moisture Profiles
+        and Temperature Data from SoilSCAPE Sites, USA\",\"@type\":\"DataDownload\"},{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"contentSize\":\"388.8
+        MB\",\"name\":\"Download Dataset: Soil Moisture Profiles and Temperature Data
+        from SoilSCAPE Sites, USA\",\"description\":\"Download entire dataset bundle:
+        Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA\",\"url\":\"https://daac.ornl.gov/cgi-bin/download.pl?ds_id=1339&source=schema_org_metadata\",\"encodingFormat\":\"netCDF\",\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"@type\":\"DataDownload\"},{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"url\":\"https://thredds.daac.ornl.gov/thredds/catalog/ornldaac/1339/catalog.html\",\"name\":\"TDS
         (THREDDS Data Server) location for: Soil Moisture Profiles and Temperature
-        Data from SoilSCAPE Sites, USA\",\"description\":\"The ORNL DAAC's Thematic
-        Real-time Environmental Distributed Data Services (THREDDS) Data Server (TDS)
-        serves the ontents of selected ORNL DAAC datasets through a catalog service
-        and several data access services, that allow users to find and access datasets
-        of interest from within a simple, hierarchal catalog within a web browser
-        or a compatible client software.\",\"@type\":\"DataDownload\"}],\"datePublished\":\"2017-07-20\",\"includedInDataCatalog\":[{\"url\":\"https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=6\",\"name\":\"EOS
-        Land Validation\",\"@type\":\"DataCatalog\"},{\"url\":\"https://search.earthdata.nasa.gov/search\",\"name\":\"NASA
-        Earthdata Search\",\"@type\":\"DataCatalog\"}],\"@context\":\"https://schema.org\",\"@id\":\"https://doi.org/10.3334/ORNLDAAC/1339\"}</script>\n<meta
-        name=\"citation_publication_date\" content=\"2017-07-20\">\n<meta name=\"citation_author\"
+        Data from SoilSCAPE Sites, USA\",\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"encodingFormat\":\"netCDF\",\"description\":\"The
+        ORNL DAAC's Thematic Real-time Environmental Distributed Data Services (THREDDS)
+        Data Server (TDS) serves the ontents of selected ORNL DAAC datasets through
+        a catalog service and several data access services, that allow users to find
+        and access datasets of interest from within a simple, hierarchal catalog within
+        a web browser or a compatible client software.\",\"@type\":\"DataDownload\"}],\"datePublished\":\"2016-11-22\",\"includedInDataCatalog\":[{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"url\":\"https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=6\",\"name\":\"EOS
+        Land Validation\",\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"@type\":\"DataCatalog\"},{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"url\":\"https://search.earthdata.nasa.gov/search\",\"name\":\"NASA
+        Earthdata Search\",\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"@type\":\"DataCatalog\"}],\"@context\":\"https://schema.org\",\"@id\":\"https://doi.org/10.3334/ORNLDAAC/1339\"}</script><script
+        type=\"application/ld+json\">{\"@context\": \"http://schema.org/\",\"@type\":
+        \"Organization\",\"url\": \"https://daac.ornl.gov\",\"logo\": \"https://daac.ornl.gov/daac_logo.png\"}</script>\n<meta
+        name=\"citation_publication_date\" content=\"2016-11-22\">\n<meta name=\"citation_author\"
         content=\"MOGHADDAM, M.;SILVA, A.;CLEWLEY, D.;AKBAR, R.;HUSSAINI, S.A.;Whitcomb,
         J.;DEVARAKONDA, R.;Shrestha, R.;COOK, R.B.;PRAKASH, G.;SANTHANA VANNAN, S.K.;BOYER,
         A.G.\">\n<meta name=\"citation_title\" content=\"Soil Moisture Profiles and
@@ -205,18 +228,15 @@ http_interactions:
         ORNL DAAC</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/who.shtml\"><span>Who
         We Are</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/partners.html\"><span>Partners</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/UWG/publicuwg.shtml\"><span>User Working Group</span></a></li>
-        -->\n\t\t\t<!-- <li><a href=\"/biogeochem.shtml\"><span>Biogeochemical Dynamics</span></a></li>
+        -->\n\t\t\t<!-- <li><a href=\"/about/biogeochem/\"><span>Biogeochemical Dynamics</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/citation_policy.html\"><span>Data Citation
-        Policy</span></a></li> -->\n\t\t\t<li><a href=\"/about#whoweare\"><span>Who
-        We Are</span></a></li>\n\t\t\t<li><a href=\"/about#partners\"><span>Partners</span></a></li>\n\t\t\t<li><a
-        href=\"/about#uwg\"><span>User Working Group</span></a></li>\n\t\t\t<li><a
-        href=\"/about#citation_policy\"><span>Data Citation Policy</span></a></li>\n\t\t\t<li><a
-        href=\"https://daac-news.ornl.gov/\"><span>News</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
+        Policy</span></a></li> -->\n\t\t\t<li><a href=\"/about#mission\"><span>Mission</span></a></li>\n\t\t\t<li><a
+        href=\"/about#partners\"><span>Partners</span></a></li>\n\t\t\t<li><a href=\"/about#uwg\"><span>User
+        Working Group</span></a></li>\n\t\t\t<li><a href=\"/about#citation_policy\"><span>Citation
+        Policy</span></a></li>\n\t\t\t<li><a href=\"https://daac-news.ornl.gov/\"><span>News</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
         <li class=\"top\"><a href=\"/about/about_us.html\"><span>About Us</span></a></li>
         -->\n\t<li class=\"top\"><a href=\"/get_data/\" class=\"top_link\"><span class=\"down\">Get
-        Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!-- <li><a href=\"/cgi-bin/catalog.pl?s\"><span>All
-        Projects</span></a></li> -->\n\t\t\t<!--<li><a href=\"/cgi-bin/catalog.pl?l\"><span>Complete
-        Dataset List</span></a></li>-->\n\t\t\t<!--<li><a href=\"/get_data#datasearch\"
+        Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!--<li><a href=\"/get_data#datasearch\"
         class=\"fly\"><span>Search for Data</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
         href=\"/doi_search_page.shtml\"><span>Search by DOI</span></a></li>\n\t\t\t\t\t<li><a
         href=\"/doi.pl\"><span>DOI Search Results</span></a></li>\n\t\t\t\t\t<li><a
@@ -270,7 +290,10 @@ http_interactions:
         href=\"/cgi-bin/dataset_lister.pl?p=38\"><span>AfriSAR</span></a></li>\n\t\t\t\t\t<li><a
         href=\"/cgi-bin/dataset_lister.pl?p=39\"><span>Atmospheric Tomography Mission
         (ATom)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=4\"><span>Accelerated
-        Canopy Chemistry Program (ACCP)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=5\"><span>Climate
+        Canopy Chemistry Program (ACCP)</span></a></li>\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=40\"><span>Global
+        Ecosystem Dynamics Investigation (GEDI)</span></a></li> -->\n\t\t\t\t\t<!--
+        <li><a href=\"/cgi-bin/dataset_lister.pl?p=41\"><span>Delta-X</span></a></li>
+        -->\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=5\"><span>Climate
         Collection</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=6\"><span>EOS
         Land Validation</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=7\"><span>First
         ISLSCP Field Experiment (FIFE)</span></a></li>\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=8\"><span>First
@@ -392,49 +415,51 @@ http_interactions:
         eui-badge--md\">N: 42.30</li><li class=\"coverage-badge eui-badge--md\">S:
         31.74</li><li class=\"coverage-badge eui-badge--md\">E: -83.66</li><li class=\"coverage-badge
         eui-badge--md\">W: -120.99</li></ol><h3 class=\"coverage\">Temporal Coverage</h3><span
-        class=\"coverage-badge eui-badge--md\">2011-08-03 to 2019-01-03</span></aside>
+        class=\"coverage-badge eui-badge--md\">2011-08-03 to 2019-06-24</span></aside>
         \   <h2 class=\"dsoverview\">Overview</h2>\n    <div class=\"dsoverview\">\n
         \   <table id=\"ds_overview_table\"><tbody>\n<tr><th scope=\"row\">DOI</th><td>https://doi.org/10.3334/ORNLDAAC/1339</td></tr>\n<tr><th
         scope=\"row\">Projects</th><td><ul class=\"associated-projects\"><li><a href=\"/cgi-bin/dataset_lister.pl?p=6\"><span
         class=\"eui-badge--md primary-project\">EOS LAND VAL</span></a></li><li><span
-        class=\"eui-badge--md\">AirMOSS</span></li></ul></td></tr><tr><th scope=\"row\">Release
-        Date</th><td>2017-07-20</td></tr><tr><th scope=\"row\">Usage</th><td title=\"117619
-        total files since 2016-10-06\">959 downloads</td></tr><tr><th scope=\"row\">Citations</th><td><a
-        href=\"/cgi-bin/show_pubs.pl?ds=1339\">3 publications cited this dataset</a></td></tr>
-        \   </tbody></table>\n    </div>\n<div class=\"action_links\"><a class=\"eui-btn--green
-        eui-btn--pill eui-btn--lg\" title=\"Sign-in to download\" href=\"javascript:alert('Sign-in
-        to download data')\"><i class=\"fa fa-download pad-right\" aria-hidden=\"true\"></i>Download
-        Data<span>385.0MB</span></a><a class=\"eui-btn--blue eui-btn--lg\" href=\"/LAND_VAL/guides/SoilSCAPE.html\"><i
-        class=\"fa fa-file-text pad-right\" aria-hidden=\"true\"></i>User Guide</a><a
-        class=\"eui-btn--lg\" href=\"#resources\"><i class=\"fa fa-level-down pad-right\"
-        aria-hidden=\"true\"></i>Resources</a></div>    <h2 class=\"map_wrap\">Description</h2>\n
-        \   <p id=\"description\" class=\"map_wrap\">This data set contains in-situ
-        soil moisture profile and soil temperature data collected at 20-minute intervals
-        at SoilSCAPE (Soil moisture Sensing Controller and oPtimal Estimator) project
-        sites in four states (California, Arizona, Oklahoma, and Michigan) in the
-        United States. SoilSCAPE used wireless sensor technology to acquire high temporal
-        resolution soil moisture and temperature data at up to 12 sites over varying
-        durations since August 2011. At its maximum, the network consisted of over
-        200 wireless sensor installations (nodes), with a range of 6 to 27 nodes per
-        site. The soil moisture sensors (EC-5 and 5-TM from Decagon Devices) were
-        installed at three to four depths, nominally at 5, 20, and 50 cm below the
-        surface. Soil conditions (e.g., hard soil or rocks) may have limited sensor
-        placement. Temperature sensors were installed at 5 cm depth at six of the
-        sites. Data collection started in August 2011 and continues at eight sites
-        through the present. The data enables estimation of local-scale soil moisture
-        at high temporal resolution and validation of remote sensing estimates of
-        soil moisture at regional (airborne, e.g. NASA's Airborne Microwave Observation
-        of Subcanopy and Subsurface Mission - AirMOSS) and national (spaceborne, e.g.
-        NASA's Soil Moisture Active Passive - SMAP) scales.</p>\n<h2>Science Keywords</h2><div
-        id=\"science_keywords\"><ul class=\"arrow-tag-group-list\"><li class=\"arrow-tag-group-item\">LAND
-        SURFACE</li><li class=\"arrow-tag-group-item\">SOILS</li><li class=\"arrow-tag-group-item\">SOIL
-        TEMPERATURE</li></ul><ul class=\"arrow-tag-group-list\"><li class=\"arrow-tag-group-item\">LAND
-        SURFACE</li><li class=\"arrow-tag-group-item\">SOILS</li><li class=\"arrow-tag-group-item\">SOIL
-        MOISTURE/WATER CONTENT</li></ul></div><h2>Citation</h2><div class=\"citation_formats\"><strong>Download
-        citation from Datacite</strong><br><a href=\"https://data.datacite.org/application/x-research-info-systems/10.3334/ORNLDAAC/1339\"
+        class=\"eui-badge--md\">AirMOSS</span></li></ul></td></tr><tr><th scope=\"row\">Published</th><td>2016-11-22</td></tr><tr><th
+        scope=\"row\">Updated</th><td>2017-07-20</td></tr><tr><th scope=\"row\">Usage</th><td
+        title=\"143752 total files since 2016-10-06\">1163 downloads</td></tr><tr><th
+        scope=\"row\">Citations</th><td><a href=\"/cgi-bin/show_pubs.pl?ds=1339\">3
+        publications cited this dataset</a></td></tr>    </tbody></table>\n    </div>\n<div
+        class=\"action_links\"><a class=\"eui-btn--green eui-btn--pill eui-btn--lg\"
+        title=\"Sign-in to download\" href=\"javascript:alert('Sign-in to download
+        data')\"><i class=\"fa fa-download pad-right\" aria-hidden=\"true\"></i>Download
+        Data<span>388.8 MB</span></a><a class=\"eui-btn--blue eui-btn--lg\" title=\"\"
+        href=\"/LAND_VAL/guides/SoilSCAPE.html\"><i class=\"fa fa-file-text pad-right\"
+        aria-hidden=\"true\"></i>User Guide</a><a class=\"eui-btn--lg eui-btn--lg\"
+        title=\"\" href=\"#resources\"><i class=\"fa fa-level-down pad-right\" aria-hidden=\"true\"></i>Resources</a></div>
+        \   <h2 class=\"map_wrap\">Description</h2>\n    <p id=\"description\" class=\"map_wrap\">This
+        data set contains in-situ soil moisture profile and soil temperature data
+        collected at 20-minute intervals at SoilSCAPE (Soil moisture Sensing Controller
+        and oPtimal Estimator) project sites in four states (California, Arizona,
+        Oklahoma, and Michigan) in the United States. SoilSCAPE used wireless sensor
+        technology to acquire high temporal resolution soil moisture and temperature
+        data at up to 12 sites over varying durations since August 2011. At its maximum,
+        the network consisted of over 200 wireless sensor installations (nodes), with
+        a range of 6 to 27 nodes per site. The soil moisture sensors (EC-5 and 5-TM
+        from Decagon Devices) were installed at three to four depths, nominally at
+        5, 20, and 50 cm below the surface. Soil conditions (e.g., hard soil or rocks)
+        may have limited sensor placement. Temperature sensors were installed at 5
+        cm depth at six of the sites. Data collection started in August 2011 and continues
+        at eight sites through the present. The data enables estimation of local-scale
+        soil moisture at high temporal resolution and validation of remote sensing
+        estimates of soil moisture at regional (airborne, e.g. NASA's Airborne Microwave
+        Observation of Subcanopy and Subsurface Mission - AirMOSS) and national (spaceborne,
+        e.g. NASA's Soil Moisture Active Passive - SMAP) scales.</p>\n<h2>Science
+        Keywords</h2><div id=\"science_keywords\"><ul class=\"arrow-tag-group-list\"><li
+        class=\"arrow-tag-group-item\">LAND SURFACE</li><li class=\"arrow-tag-group-item\">SOILS</li><li
+        class=\"arrow-tag-group-item\">SOIL TEMPERATURE</li></ul><ul class=\"arrow-tag-group-list\"><li
+        class=\"arrow-tag-group-item\">LAND SURFACE</li><li class=\"arrow-tag-group-item\">SOILS</li><li
+        class=\"arrow-tag-group-item\">SOIL MOISTURE/WATER CONTENT</li></ul></div><h2>Citation</h2><div
+        class=\"citation_formats\"><strong>Download citation from Datacite</strong><br><a
+        href=\"https://api.datacite.org/dois/application/x-research-info-systems/10.3334/ORNLDAAC/1339\"
         download=\"1339.ris\"\n            class=\"eui-btn--blue eui-btn--sm\" title=\"download
         RIS formatted citation\">RIS<i\n            class=\"fa fa-download pad-left\"
-        aria-hidden=\"true\"></i></a><a href=\"https://data.datacite.org/application/x-bibtex/10.3334/ORNLDAAC/1339\"
+        aria-hidden=\"true\"></i></a><a href=\"https://api.datacite.org/dois/application/x-bibtex/10.3334/ORNLDAAC/1339\"
         class=\"eui-btn--blue eui-btn--sm\"\n            title=\"download BibTex formatted
         citation\">BibTex<i class=\"fa fa-download pad-left\" aria-hidden=\"true\"></i></a><a
         href=\"https://search.datacite.org/works/10.3334/ORNLDAAC/1339\" class=\"pad-left\"
@@ -450,279 +475,16 @@ http_interactions:
         our <a href=\"/citation_policy.html\">Data Citations and Acknowledgements</a>\n
         \       policy for more information.</p></div><h2 class=\"clear_both\">Data
         Files</h2>\n        <p>\n        <a href=\"/cgi-bin/urs/urs_logon_initiate.pl\">Sign
-        in</a> to download files.\n        </p>\n<table id=\"file_list\" class=\"list
-        tablesorter\"><thead>\n<tr><th id=\"listh\">Data File (Granule)</th><th>Size</th><th>Dates</th><th>Lat</th><th>Lon</th></tr>\n</thead>\n<tbody><tr><td
-        headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n900.nc\n</td><td>9.8MB\n</td><td>2013-07-05
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n901.nc\n</td><td>8.3MB\n</td><td>2013-07-06
-        to 2017-12-09\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n902.nc\n</td><td>7.4MB\n</td><td>2013-07-06
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n903.nc\n</td><td>9.0MB\n</td><td>2013-07-06
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n904.nc\n</td><td>9.0MB\n</td><td>2013-07-06
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n905.nc\n</td><td>7.2MB\n</td><td>2013-07-06
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n906.nc\n</td><td>9.5MB\n</td><td>2013-07-06
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n907.nc\n</td><td>8.5MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n908.nc\n</td><td>7.3MB\n</td><td>2013-07-06
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n909.nc\n</td><td>7.4MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.90</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n910.nc\n</td><td>5.0MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n911.nc\n</td><td>9.0MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n912.nc\n</td><td>8.6MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n913.nc\n</td><td>9.7MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n914.nc\n</td><td>9.0MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n915.nc\n</td><td>7.0MB\n</td><td>2013-07-07
-        to 2018-12-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand1STonzi_CA_n916.nc\n</td><td>7.5MB\n</td><td>2013-07-07
-        to 2018-11-30\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1000.nc\n</td><td>7.6MB\n</td><td>2013-07-08
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1017.nc\n</td><td>4.7MB\n</td><td>2013-07-09
-        to 2018-05-20\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1018.nc\n</td><td>7.5MB\n</td><td>2013-07-08
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1019.nc\n</td><td>7.6MB\n</td><td>2013-07-10
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1020.nc\n</td><td>6.6MB\n</td><td>2013-07-09
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1021.nc\n</td><td>4.7MB\n</td><td>2013-07-09
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1022.nc\n</td><td>6.6MB\n</td><td>2013-07-09
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1023.nc\n</td><td>5.1MB\n</td><td>2013-07-08
-        to 2018-06-15\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1024.nc\n</td><td>4.9MB\n</td><td>2013-07-09
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1025.nc\n</td><td>6.2MB\n</td><td>2013-07-10
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1026.nc\n</td><td>5.2MB\n</td><td>2013-07-08
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1027.nc\n</td><td>7.6MB\n</td><td>2013-07-08
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1028.nc\n</td><td>5.1MB\n</td><td>2013-07-08
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1029.nc\n</td><td>6.5MB\n</td><td>2013-07-08
-        to 2018-07-06\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1030.nc\n</td><td>3.6MB\n</td><td>2013-07-08
-        to 2018-06-20\n</td><td>38.39</td><td>-120.91</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand2STonzi_CA_n1031.nc\n</td><td>4.1MB\n</td><td>2013-07-09
-        to 2018-07-06\n</td><td>38.39</td><td>-120.90</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand3NTonzi_CA_n1200.nc\n</td><td>1.1MB\n</td><td>2015-11-02
-        to 2018-08-28\n</td><td>38.47</td><td>-120.99</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand3NTonzi_CA_n1201.nc\n</td><td>804.8KB\n</td><td>2015-11-02
-        to 2018-04-23\n</td><td>38.47</td><td>-120.99</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand3NTonzi_CA_n1202.nc\n</td><td>784.9KB\n</td><td>2016-01-17
-        to 2018-07-09\n</td><td>38.47</td><td>-120.99</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand3NTonzi_CA_n1204.nc\n</td><td>672.6KB\n</td><td>2015-11-02
-        to 2018-08-28\n</td><td>38.47</td><td>-120.99</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand3NTonzi_CA_n1205.nc\n</td><td>1.0MB\n</td><td>2015-11-02
-        to 2018-08-28\n</td><td>38.47</td><td>-120.99</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_BLMLand3NTonzi_CA_n1206.nc\n</td><td>907.3KB\n</td><td>2015-11-02
-        to 2018-08-28\n</td><td>38.47</td><td>-120.99</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n101.nc\n</td><td>9.3MB\n</td><td>2011-09-01
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n102.nc\n</td><td>4.6MB\n</td><td>2011-10-14
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n103.nc\n</td><td>8.3MB\n</td><td>2011-09-01
-        to 2016-01-22\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n104.nc\n</td><td>5.4MB\n</td><td>2011-10-15
-        to 2015-05-26\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n105.nc\n</td><td>5.3MB\n</td><td>2011-09-01
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n106.nc\n</td><td>9.9MB\n</td><td>2012-04-16
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n107.nc\n</td><td>6.6MB\n</td><td>2011-08-26
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n108.nc\n</td><td>8.7MB\n</td><td>2011-10-14
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n109.nc\n</td><td>7.2MB\n</td><td>2011-09-01
-        to 2016-05-13\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n110.nc\n</td><td>4.4MB\n</td><td>2011-10-14
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n111.nc\n</td><td>3.9MB\n</td><td>2011-09-01
-        to 2016-04-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n112.nc\n</td><td>3.4MB\n</td><td>2011-09-01
-        to 2016-05-18\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n113.nc\n</td><td>6.8MB\n</td><td>2011-10-14
-        to 2015-07-04\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n114.nc\n</td><td>8.1MB\n</td><td>2011-10-16
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n115.nc\n</td><td>5.8MB\n</td><td>2011-10-15
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n116.nc\n</td><td>8.8MB\n</td><td>2011-08-27
-        to 2016-08-14\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n117.nc\n</td><td>5.9MB\n</td><td>2011-08-27
-        to 2016-03-23\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n118.nc\n</td><td>2.3MB\n</td><td>2011-10-14
-        to 2015-11-18\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n119.nc\n</td><td>6.7MB\n</td><td>2012-06-02
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n120.nc\n</td><td>5.0MB\n</td><td>2011-08-26
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Canton_OK_n121.nc\n</td><td>8.5MB\n</td><td>2011-09-01
-        to 2016-06-11\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1400.nc\n</td><td>6.7MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1401.nc\n</td><td>6.1MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1402.nc\n</td><td>6.5MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1403.nc\n</td><td>6.7MB\n</td><td>2015-08-16
-        to 2018-12-07\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1404.nc\n</td><td>3.6MB\n</td><td>2015-08-16
-        to 2017-12-14\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1405.nc\n</td><td>5.6MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1406.nc\n</td><td>4.9MB\n</td><td>2015-08-16
-        to 2018-10-06\n</td><td>31.74</td><td>-109.94</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1407.nc\n</td><td>5.1MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1408.nc\n</td><td>6.7MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Kendall_AZ_n1409.nc\n</td><td>5.3MB\n</td><td>2015-08-16
-        to 2019-01-03\n</td><td>31.74</td><td>-109.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1500.nc\n</td><td>6.3MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1501.nc\n</td><td>5.1MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1502.nc\n</td><td>6.6MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1503.nc\n</td><td>6.5MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1504.nc\n</td><td>5.5MB\n</td><td>2015-08-17
-        to 2018-11-05\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1505.nc\n</td><td>6.3MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1506.nc\n</td><td>5.1MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_LuckyHills_AZ_n1507.nc\n</td><td>6.0MB\n</td><td>2015-08-17
-        to 2019-01-03\n</td><td>31.74</td><td>-110.05</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n200.nc\n</td><td>7.9MB\n</td><td>2011-08-03
-        to 2014-06-14\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n202.nc\n</td><td>2.2MB\n</td><td>2011-08-05
-        to 2012-08-02\n</td><td>42.30</td><td>-83.67</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n203.nc\n</td><td>1.5MB\n</td><td>2011-08-05
-        to 2012-07-22\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n204.nc\n</td><td>1.8MB\n</td><td>2011-08-04
-        to 2013-05-17\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n206.nc\n</td><td>682.0KB\n</td><td>2011-08-21
-        to 2012-04-16\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n207.nc\n</td><td>3.7MB\n</td><td>2011-08-04
-        to 2013-08-20\n</td><td>42.30</td><td>-83.67</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n208.nc\n</td><td>6.9MB\n</td><td>2011-08-04
-        to 2014-06-14\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n209.nc\n</td><td>413.2KB\n</td><td>2011-09-11
-        to 2012-07-22\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n210.nc\n</td><td>4.0MB\n</td><td>2011-08-05
-        to 2013-06-01\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n211.nc\n</td><td>7.1MB\n</td><td>2011-08-05
-        to 2014-06-14\n</td><td>42.30</td><td>-83.67</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n212.nc\n</td><td>1.9MB\n</td><td>2011-08-09
-        to 2012-10-08\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n214.nc\n</td><td>6.2MB\n</td><td>2011-08-05
-        to 2014-06-14\n</td><td>42.30</td><td>-83.67</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n215.nc\n</td><td>562.0KB\n</td><td>2011-08-04
-        to 2012-10-21\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n216.nc\n</td><td>1.2MB\n</td><td>2011-08-04
-        to 2012-07-22\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n217.nc\n</td><td>4.2MB\n</td><td>2011-08-04
-        to 2014-06-14\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n218.nc\n</td><td>2.8MB\n</td><td>2011-08-05
-        to 2012-10-08\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n219.nc\n</td><td>5.4MB\n</td><td>2011-08-05
-        to 2013-07-26\n</td><td>42.30</td><td>-83.67</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n220.nc\n</td><td>2.8MB\n</td><td>2011-08-04
-        to 2012-10-08\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n221.nc\n</td><td>1.5MB\n</td><td>2011-08-04
-        to 2012-05-18\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n222.nc\n</td><td>2.0MB\n</td><td>2011-08-09
-        to 2012-06-23\n</td><td>42.30</td><td>-83.67</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n223.nc\n</td><td>2.5MB\n</td><td>2011-08-09
-        to 2012-10-08\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n224.nc\n</td><td>82.6KB\n</td><td>2011-08-21
-        to 2011-08-27\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n225.nc\n</td><td>2.5MB\n</td><td>2011-08-09
-        to 2012-10-01\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n226.nc\n</td><td>1.1MB\n</td><td>2011-08-21
-        to 2012-02-03\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n227.nc\n</td><td>1.6MB\n</td><td>2011-08-09
-        to 2012-07-24\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n228.nc\n</td><td>2.0MB\n</td><td>2011-08-21
-        to 2012-07-20\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_MatthaeiGardens_MI_n230.nc\n</td><td>4.2MB\n</td><td>2011-08-04
-        to 2013-09-30\n</td><td>42.30</td><td>-83.66</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n701.nc\n</td><td>5.2MB\n</td><td>2012-10-20
-        to 2016-06-20\n</td><td>38.17</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n702.nc\n</td><td>2.5MB\n</td><td>2012-10-20
-        to 2015-03-24\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n703.nc\n</td><td>2.8MB\n</td><td>2012-10-20
-        to 2015-03-24\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n704.nc\n</td><td>6.9MB\n</td><td>2012-12-16
-        to 2016-01-18\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n705.nc\n</td><td>528.8KB\n</td><td>2012-10-20
-        to 2015-03-24\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n706.nc\n</td><td>6.9MB\n</td><td>2012-10-20
-        to 2015-03-24\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n707.nc\n</td><td>7.0MB\n</td><td>2012-10-18
-        to 2016-01-16\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n708.nc\n</td><td>11.0MB\n</td><td>2012-10-18
-        to 2018-04-15\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n709.nc\n</td><td>12.0MB\n</td><td>2012-10-20
-        to 2017-10-26\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n710.nc\n</td><td>13.5MB\n</td><td>2012-10-20
-        to 2018-04-15\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n711.nc\n</td><td>961.1KB\n</td><td>2012-10-20
-        to 2015-03-24\n</td><td>38.17</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n712.nc\n</td><td>13.4MB\n</td><td>2012-10-18
-        to 2018-04-15\n</td><td>38.17</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n713.nc\n</td><td>12.9MB\n</td><td>2012-10-20
-        to 2018-04-15\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeN_CA_n715.nc\n</td><td>537.0KB\n</td><td>2012-10-20
-        to 2015-03-24\n</td><td>38.17</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n501.nc\n</td><td>13.8MB\n</td><td>2012-12-13
-        to 2017-01-29\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n502.nc\n</td><td>6.4MB\n</td><td>2012-12-14
-        to 2016-01-20\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n503.nc\n</td><td>13.1MB\n</td><td>2012-12-13
-        to 2017-01-13\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n504.nc\n</td><td>12.4MB\n</td><td>2012-12-14
-        to 2017-01-29\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n505.nc\n</td><td>9.4MB\n</td><td>2012-12-14
-        to 2017-01-29\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n506.nc\n</td><td>13.9MB\n</td><td>2012-12-14
-        to 2017-01-29\n</td><td>38.15</td><td>-120.78</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n507.nc\n</td><td>6.1MB\n</td><td>2012-12-13
-        to 2015-10-02\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n508.nc\n</td><td>9.2MB\n</td><td>2012-12-13
-        to 2016-01-19\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n509.nc\n</td><td>10.7MB\n</td><td>2012-12-14
-        to 2016-09-05\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n510.nc\n</td><td>12.7MB\n</td><td>2012-12-14
-        to 2017-01-29\n</td><td>38.15</td><td>-120.78</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n511.nc\n</td><td>9.8MB\n</td><td>2012-12-14
-        to 2017-01-29\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n512.nc\n</td><td>13.3MB\n</td><td>2012-12-14
-        to 2017-01-29\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n513.nc\n</td><td>14.0MB\n</td><td>2012-12-15
-        to 2017-01-11\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n514.nc\n</td><td>8.3MB\n</td><td>2012-12-14
-        to 2017-01-27\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n515.nc\n</td><td>13.9MB\n</td><td>2012-12-13
-        to 2016-12-18\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n516.nc\n</td><td>7.7MB\n</td><td>2012-12-14
-        to 2015-05-21\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n517.nc\n</td><td>7.3MB\n</td><td>2012-12-14
-        to 2015-10-18\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_NewHoganLakeS_CA_n518.nc\n</td><td>10.0MB\n</td><td>2012-12-13
-        to 2017-01-07\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1300.nc\n</td><td>8.5MB\n</td><td>2016-01-13
-        to 2019-01-03\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1301.nc\n</td><td>679.7KB\n</td><td>2016-01-14
-        to 2017-03-05\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1302.nc\n</td><td>4.1MB\n</td><td>2016-01-14
-        to 2017-05-28\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1303.nc\n</td><td>4.2MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1304.nc\n</td><td>4.0MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1305.nc\n</td><td>4.1MB\n</td><td>2016-01-13
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1306.nc\n</td><td>33.7KB\n</td><td>2016-01-14\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_20min_TerradOro_CA_n1307.nc\n</td><td>4.2MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1308.nc\n</td><td>4.1MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1309.nc\n</td><td>814.7KB\n</td><td>2016-01-14
-        to 2016-08-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1310.nc\n</td><td>4.1MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1311.nc\n</td><td>4.5MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1312.nc\n</td><td>4.1MB\n</td><td>2016-01-14
-        to 2017-05-23\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1313.nc\n</td><td>4.4MB\n</td><td>2016-01-14
-        to 2017-10-07\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1314.nc\n</td><td>111.7KB\n</td><td>2016-01-14
-        to 2017-03-10\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1315.nc\n</td><td>4.2MB\n</td><td>2016-01-14
-        to 2017-05-09\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1316.nc\n</td><td>4.5MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1317.nc\n</td><td>4.3MB\n</td><td>2016-01-14
-        to 2017-09-28\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1318.nc\n</td><td>4.5MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.50</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1319.nc\n</td><td>4.3MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1320.nc\n</td><td>4.2MB\n</td><td>2016-01-28
-        to 2017-05-28\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1321.nc\n</td><td>4.6MB\n</td><td>2016-01-14
-        to 2017-11-11\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1322.nc\n</td><td>790.8KB\n</td><td>2016-01-14
-        to 2017-02-16\n</td><td>38.50</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n1323.nc\n</td><td>4.3MB\n</td><td>2016-01-14
-        to 2017-05-29\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n801.nc\n</td><td>5.2MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n802.nc\n</td><td>4.9MB\n</td><td>2013-04-06
-        to 2015-03-27\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n803.nc\n</td><td>5.5MB\n</td><td>2013-04-06
-        to 2015-05-01\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n804.nc\n</td><td>4.9MB\n</td><td>2013-04-06
-        to 2014-09-12\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n805.nc\n</td><td>1.9MB\n</td><td>2013-04-06
-        to 2015-02-04\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n806.nc\n</td><td>3.3MB\n</td><td>2013-04-06
-        to 2015-01-20\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n807.nc\n</td><td>6.3MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n808.nc\n</td><td>4.1MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n809.nc\n</td><td>5.3MB\n</td><td>2013-04-06
-        to 2015-02-26\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n810.nc\n</td><td>1.7MB\n</td><td>2013-04-06
-        to 2014-10-05\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n811.nc\n</td><td>4.2MB\n</td><td>2013-04-09
-        to 2014-09-14\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n812.nc\n</td><td>3.7MB\n</td><td>2013-04-06
-        to 2015-02-17\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n813.nc\n</td><td>3.4MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n814.nc\n</td><td>135.6KB\n</td><td>2013-04-06
-        to 2014-11-28\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n815.nc\n</td><td>3.1MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n816.nc\n</td><td>3.9MB\n</td><td>2013-04-06
-        to 2015-05-01\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n817.nc\n</td><td>5.7MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n818.nc\n</td><td>5.2MB\n</td><td>2013-04-06
-        to 2015-10-26\n</td><td>38.50</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n819.nc\n</td><td>3.2MB\n</td><td>2013-04-06
-        to 2015-03-17\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n820.nc\n</td><td>6.3MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n821.nc\n</td><td>5.4MB\n</td><td>2013-04-06
-        to 2015-05-01\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n822.nc\n</td><td>1.5MB\n</td><td>2013-04-06
-        to 2014-10-13\n</td><td>38.50</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n823.nc\n</td><td>3.1MB\n</td><td>2013-04-06
-        to 2015-03-18\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n824.nc\n</td><td>1.9MB\n</td><td>2013-04-06
-        to 2015-05-01\n</td><td>38.50</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n825.nc\n</td><td>6.0MB\n</td><td>2013-04-06
-        to 2015-05-01\n</td><td>38.50</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n827.nc\n</td><td>2.5MB\n</td><td>2013-04-06
-        to 2015-01-12\n</td><td>38.51</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TerradOro_CA_n828.nc\n</td><td>4.9MB\n</td><td>2013-04-06
-        to 2014-09-12\n</td><td>38.51</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n401.nc\n</td><td>17.4MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n402.nc\n</td><td>14.2MB\n</td><td>2012-08-17
-        to 2017-11-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n403.nc\n</td><td>19.0MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n404.nc\n</td><td>11.5MB\n</td><td>2012-08-17
-        to 2016-06-05\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n405.nc\n</td><td>15.1MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.96</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n406.nc\n</td><td>14.2MB\n</td><td>2012-08-17
-        to 2017-05-05\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n408.nc\n</td><td>17.5MB\n</td><td>2012-10-16
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n409.nc\n</td><td>9.6MB\n</td><td>2012-08-17
-        to 2017-09-28\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n410.nc\n</td><td>10.5MB\n</td><td>2012-08-17
-        to 2017-08-06\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n411.nc\n</td><td>8.6MB\n</td><td>2012-08-17
-        to 2017-11-04\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n412.nc\n</td><td>18.8MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n413.nc\n</td><td>16.9MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n414.nc\n</td><td>10.2MB\n</td><td>2012-08-17
-        to 2016-02-11\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n415.nc\n</td><td>18.9MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n416.nc\n</td><td>18.1MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n417.nc\n</td><td>14.1MB\n</td><td>2012-08-17
-        to 2017-05-05\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n418.nc\n</td><td>14.2MB\n</td><td>2012-08-17
-        to 2017-03-26\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n419.nc\n</td><td>18.9MB\n</td><td>2012-08-17
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_TonziRanch_CA_n420.nc\n</td><td>9.6MB\n</td><td>2012-08-17
-        to 2017-09-19\n</td><td>38.43</td><td>-120.97</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n600.nc\n</td><td>409.9KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.42</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n642.nc\n</td><td>401.0KB\n</td><td>2012-09-12
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n644.nc\n</td><td>385.6KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n645.nc\n</td><td>405.4KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n646.nc\n</td><td>408.0KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n649.nc\n</td><td>404.1KB\n</td><td>2012-09-10
-        to 2012-10-19\n</td><td>38.42</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n651.nc\n</td><td>407.9KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n653.nc\n</td><td>398.2KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n656.nc\n</td><td>388.7KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n659.nc\n</td><td>407.7KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n661.nc\n</td><td>33.7KB\n</td><td>2012-09-08
-        to 2012-09-21\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n662.nc\n</td><td>33.7KB\n</td><td>2012-09-26\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_20min_Vaira_CA_n664.nc\n</td><td>414.6KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n665.nc\n</td><td>406.1KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n666.nc\n</td><td>405.3KB\n</td><td>2012-09-11
-        to 2012-10-19\n</td><td>38.42</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n667.nc\n</td><td>413.1KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n668.nc\n</td><td>407.8KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n669.nc\n</td><td>405.3KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n670.nc\n</td><td>396.5KB\n</td><td>2012-09-08
-        to 2012-10-16\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n671.nc\n</td><td>408.4KB\n</td><td>2012-09-09
-        to 2012-10-19\n</td><td>38.42</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n675.nc\n</td><td>411.9KB\n</td><td>2012-09-11
-        to 2012-10-19\n</td><td>38.41</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n676.nc\n</td><td>33.7KB\n</td><td>2012-09-19
-        to 2012-09-21\n</td><td>38.41</td><td>-120.96</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n679.nc\n</td><td>409.8KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.42</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_20min_Vaira_CA_n680.nc\n</td><td>399.8KB\n</td><td>2012-09-08
-        to 2012-10-19\n</td><td>38.42</td><td>-120.95</td></tr>\n<tr><td headers=\"listh\">soil_moist_daily_BLMLand1STonzi_CA.nc\n</td><td>563.4KB\n</td><td>2011-08-03
-        to 2018-12-06\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_BLMLand2STonzi_CA.nc\n</td><td>451.1KB\n</td><td>2011-08-03
-        to 2018-07-06\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_BLMLand3NTonzi_CA.nc\n</td><td>95.0KB\n</td><td>2011-08-03
-        to 2018-08-28\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_Canton_OK.nc\n</td><td>332.4KB\n</td><td>2011-08-03
-        to 2016-08-14\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_Kendall_AZ.nc\n</td><td>288.0KB\n</td><td>2011-08-03
-        to 2019-01-03\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_LuckyHills_AZ.nc\n</td><td>215.8KB\n</td><td>2011-08-03
-        to 2019-01-03\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_MatthaeiGardens_MI.nc\n</td><td>220.3KB\n</td><td>2011-08-03
-        to 2014-06-14\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_NewHoganLakeN_CA.nc\n</td><td>434.9KB\n</td><td>2011-08-03
-        to 2018-04-15\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_NewHoganLakeS_CA.nc\n</td><td>574.9KB\n</td><td>2011-08-03
-        to 2017-01-29\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_TerradOro_CA.nc\n</td><td>312.5KB\n</td><td>2011-08-03
-        to 2019-01-03\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_TonziRanch_CA.nc\n</td><td>869.0KB\n</td><td>2011-08-03
-        to 2019-01-03\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_moist_daily_Vaira_CA.nc\n</td><td>44.3KB\n</td><td>2011-08-03
-        to 2012-10-19\n</td><td>42.30 to 31.74</td><td>-83.66 to -120.99</td></tr>\n<tr><td
-        headers=\"listh\">soil_temp_20min_Canton_OK_n100.nc\n</td><td>385.9KB\n</td><td>2011-08-26
-        to 2016-08-14\n</td><td>36.00</td><td>-98.63</td></tr>\n<tr><td headers=\"listh\">soil_temp_20min_NewHoganLakeN_CA_n700.nc\n</td><td>520.2KB\n</td><td>2012-10-18
-        to 2018-04-15\n</td><td>38.17</td><td>-120.81</td></tr>\n<tr><td headers=\"listh\">soil_temp_20min_NewHoganLakeS_CA_n500.nc\n</td><td>547.0KB\n</td><td>2012-12-13
-        to 2017-01-29\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_temp_20min_NewHoganLakeS_CA_n503.nc\n</td><td>466.2KB\n</td><td>2012-12-13
-        to 2017-01-13\n</td><td>38.15</td><td>-120.79</td></tr>\n<tr><td headers=\"listh\">soil_temp_20min_TerradOro_CA_n800.nc\n</td><td>503.6KB\n</td><td>2013-04-05
-        to 2016-01-12\n</td><td>38.51</td><td>-120.80</td></tr>\n<tr><td headers=\"listh\">soil_temp_20min_TonziRanch_CA_n401.nc\n</td><td>556.4KB\n</td><td>2013-02-06
-        to 2019-01-03\n</td><td>38.43</td><td>-120.97</td></tr>\n</tbody></table>\n<div
-        class=\"preview-collection eui-accordion is-closed\">\n<div class=\"eui-accordion__header\">\n<h2
-        class=\"eui-accordion__title\">Companion Files</h2>\n<div class=\"eui-accordion__note\">Expand
-        for companion files</div><div class=\"eui-accordion__icon\" tabindex=\"0\"><i
-        class=\"eui-icon eui-fa-chevron-circle-down\"></i><span class=\"eui-sr-only\">Toggle
-        Companion Files</span></div></div><div class=\"eui-accordion__body\"><p><a
+        in</a> to download files.\n        </p>\n<table class=\"table table1 dataTable
+        no-footer\" id=\"datafiles\"></table><div class=\"preview-collection eui-accordion
+        is-closed\">\n<div class=\"eui-accordion__header\">\n<h2 class=\"eui-accordion__title\">Companion
+        Files</h2>\n<div class=\"eui-accordion__note\">Expand for companion files</div><div
+        class=\"eui-accordion__icon\" tabindex=\"0\"><i class=\"eui-icon eui-fa-chevron-circle-down\"></i><span
+        class=\"eui-sr-only\">Toggle Companion Files</span></div></div><div class=\"eui-accordion__body\"><p><a
         href=\"/cgi-bin/urs/urs_logon_initiate.pl\">Sign in</a> to download files.</p>\n<h3
         class=\"hidden\">Dataset Companion Files</h3>\n<p>Dataset has 12 companion
         files.</p><ul>\n<li>SoilScape_CantonOK.pdf</li><li>SoilSCAPE.pdf</li><li>SoilScape_VairaCA.pdf</li><li>SoilScape_BLMLand3NTonzi_CA.pdf</li><li>NodePhotos.zip</li><li>SoilScape_BLM_Land_STonzi_CA.pdf</li><li>SoilScape_LuckyHillsAZ.pdf</li><li>SoilScape_KendallAZ.pdf</li><li>SoilScape_NewHoganLakeCA.pdf</li><li>SoilScape_Terra_dOro_VineyardCA.pdf</li><li>SoilScape_MatthaeiGardensMI.pdf</li><li>SoilScape_TonziCA.pdf</li></ul>\n</div></div>
-        \   <h2>Advanced Data Access through THREDDS Data Sever</h2>\n    <div class=\"thredds_links\">\n
+        \   <h2>Advanced Data Access through THREDDS Data Server</h2>\n    <div class=\"thredds_links\">\n
         \     <p>THREDDS Data Access: <a href=\"https://thredds.daac.ornl.gov/thredds/catalog/ornldaac/1339/catalog.html\">Soil
         Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA THREDDS Data
         Access</a>.</p>\n      <p>See our <a href=\"/thredds.shtml\">THREDDS Data
@@ -747,7 +509,7 @@ http_interactions:
         'bounds_changed', function(event) {\n              if (this.getZoom() < 1)
         {\n                this.setZoom(1);\n              }\n            });\n\n
         \         }</script><script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyAD9fBPKHua7BDy7QrgSHzlnFwR6PhF-M4&callback=initMap\"></script></div>
-        \ <!-- mainarea -->\n</div>  <!-- textarea -->\n<footer>\n  <div class=\"headWrapper\"
+        \ <!-- mainarea -->\n</div>  <!-- textarea -->\n\n<footer>\n  <div class=\"headWrapper\"
         id=\"footerWrapper\">\n    <div id=\"main-footer\">\n      <!-- left section
         -->\n      <div class=\"mainFooterLeft\">\n        <a href=\"https://www.ornl.gov\"
         title=\"www.ornl.gov\">\n          <!-- <object type=\"image/svg+xml\" alt=\"ORNL
@@ -782,18 +544,15 @@ http_interactions:
         ORNL DAAC</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/who.shtml\"><span>Who
         We Are</span></a></li> -->\n\t\t\t<!-- <li><a href=\"/partners.html\"><span>Partners</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/UWG/publicuwg.shtml\"><span>User Working Group</span></a></li>
-        -->\n\t\t\t<!-- <li><a href=\"/biogeochem.shtml\"><span>Biogeochemical Dynamics</span></a></li>
+        -->\n\t\t\t<!-- <li><a href=\"/about/biogeochem/\"><span>Biogeochemical Dynamics</span></a></li>
         -->\n\t\t\t<!-- <li><a href=\"/citation_policy.html\"><span>Data Citation
-        Policy</span></a></li> -->\n\t\t\t<li><a href=\"/about#whoweare\"><span>Who
-        We Are</span></a></li>\n\t\t\t<li><a href=\"/about#partners\"><span>Partners</span></a></li>\n\t\t\t<li><a
-        href=\"/about#uwg\"><span>User Working Group</span></a></li>\n\t\t\t<li><a
-        href=\"/about#citation_policy\"><span>Data Citation Policy</span></a></li>\n\t\t\t<li><a
-        href=\"https://daac-news.ornl.gov/\"><span>News</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
+        Policy</span></a></li> -->\n\t\t\t<li><a href=\"/about#mission\"><span>Mission</span></a></li>\n\t\t\t<li><a
+        href=\"/about#partners\"><span>Partners</span></a></li>\n\t\t\t<li><a href=\"/about#uwg\"><span>User
+        Working Group</span></a></li>\n\t\t\t<li><a href=\"/about#citation_policy\"><span>Citation
+        Policy</span></a></li>\n\t\t\t<li><a href=\"https://daac-news.ornl.gov/\"><span>News</span></a></li>\n\t\t</ul>\n\t</li>\n\t<!--
         <li class=\"top\"><a href=\"/about/about_us.html\"><span>About Us</span></a></li>
         -->\n\t<li class=\"top\"><a href=\"/get_data/\" class=\"top_link\"><span class=\"down\">Get
-        Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!-- <li><a href=\"/cgi-bin/catalog.pl?s\"><span>All
-        Projects</span></a></li> -->\n\t\t\t<!--<li><a href=\"/cgi-bin/catalog.pl?l\"><span>Complete
-        Dataset List</span></a></li>-->\n\t\t\t<!--<li><a href=\"/get_data#datasearch\"
+        Data</span></a>\n\t\t<ul class=\"sub\">\n\t\t\t<!--<li><a href=\"/get_data#datasearch\"
         class=\"fly\"><span>Search for Data</span></a>\n\t\t\t\t<ul>\n\t\t\t\t\t<li><a
         href=\"/doi_search_page.shtml\"><span>Search by DOI</span></a></li>\n\t\t\t\t\t<li><a
         href=\"/doi.pl\"><span>DOI Search Results</span></a></li>\n\t\t\t\t\t<li><a
@@ -847,7 +606,10 @@ http_interactions:
         href=\"/cgi-bin/dataset_lister.pl?p=38\"><span>AfriSAR</span></a></li>\n\t\t\t\t\t<li><a
         href=\"/cgi-bin/dataset_lister.pl?p=39\"><span>Atmospheric Tomography Mission
         (ATom)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=4\"><span>Accelerated
-        Canopy Chemistry Program (ACCP)</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=5\"><span>Climate
+        Canopy Chemistry Program (ACCP)</span></a></li>\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=40\"><span>Global
+        Ecosystem Dynamics Investigation (GEDI)</span></a></li> -->\n\t\t\t\t\t<!--
+        <li><a href=\"/cgi-bin/dataset_lister.pl?p=41\"><span>Delta-X</span></a></li>
+        -->\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=5\"><span>Climate
         Collection</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=6\"><span>EOS
         Land Validation</span></a></li>\n\t\t\t\t\t<li><a href=\"/cgi-bin/dataset_lister.pl?p=7\"><span>First
         ISLSCP Field Experiment (FIFE)</span></a></li>\n\t\t\t\t\t<!-- <li><a href=\"/cgi-bin/dataset_lister.pl?p=8\"><span>First
@@ -910,8 +672,8 @@ http_interactions:
         \         title=\"User's Service Office\" id=\"Contact\"> <span\n            class=\"icon-comment
         icon-flip-horizontal pad-right line-icon\"></span><span class=\"down\">Contact
         Us</span></a></li>\n      </ul>\n       -->\n    </div>\n    <!--big-foot-->\n
-        \   <hr>\n\n  </div>\n  <!-- headWrapper -->\n</footer>\n\n<!-- Add utils.js
-        -->\n<script src=\"/js/jquery.js\"></script>\n<script src=\"/js/utils.js\"></script>\n<script>highlight(tabToHighlight);</script>\n\n<!--
+        \   <hr>\n  </div>\n  <!-- headWrapper -->\n</footer>\n\n<!-- Add utils.js
+        -->\n<script src=\"/js/jquery.js\"></script>\n<script src=\"/js/utils.js?1.1\"></script>\n<script>highlight(tabToHighlight);</script>\n\n<!--
         integrated search bar js -->\n<script src=\"/js/jquery-ui/jquery-ui.min.js\"></script>\n<script
         src=\"/js/succinct-master/jQuery.succinct.min.js\"></script>\n<script src=\"/js/integrated-search/integrated-search.min.js\"></script>\n\n<!--
         Add Tophat -->\n<!-- modified 2/2012 by bdm to use local copy of tophat code.
@@ -924,27 +686,19 @@ http_interactions:
         data-layout=\"fixed\" data-width=\"950\"></script> -->\n<script src=\"https://cdn.earthdata.nasa.gov/tophat2/tophat2.js\"
         id=\"earthdata-tophat-script\" data-current-daac=\"ORNL DAAC\"\n  data-show-fbm=\"true\"
         data-width=\"950\"></script>\n\n<!-- End Add Tophat -->\n\n<!-- NetTracker
-        -->\n<script src=\"/NetTracker/ntpagetag.js\"></script>\n<!-- End NetTracker
+        -->\n<script src=\"/js/NetTracker/ntpagetag.js\"></script>\n<!-- End NetTracker
         -->\n\n<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-WNP7MLF\"
         height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!--
         End Google Tag Manager (noscript) -->\n\n<!-- Add Kayako feedback module -->\n<script
         src=\"https://fbm.earthdata.nasa.gov/for/ORNL/feedback.js\"></script>\n\n<!--
         common.js includes highlight current tab, Google Analytics, DAP UA, Initialize
         Kayako feedback module -->\n<script src=\"/js/common.min.js\"></script>\n\n<!--
-        add EUI js -->\n<script src=\"/eui/custom/javascript/eui.min.js\"></script></div>
+        add EUI js -->\n<script src=\"/js/eui/custom/javascript/eui.min.js\"></script></div>
         \ <!-- pagebox -->\n<script src=\"/js/listers.js\"></script>\n<script src=\"/js/jquery.tablesorter.min.js\"></script>\n<script
         src=\"/js/datatables/datatables.min.js\"></script>\n<script src=\"/js/datatables/file-size.min.js\"></script>\n<script
-        src=\"/js/datatables/dataTables.conditionalPaging.min.js\"></script>\n<script>\n
-        \ $(document).ready(\n    function(){\n      $(\".versions_list\").tablesorter({headers:{},sortInitialOrder:
-        'desc'});\n      $(\".resources_table\").tablesorter({headers:{},sortInitialOrder:
-        'desc'});\n    }\n  );\n  $(document).ready( function () {\n      $('#file_list').DataTable(\n
-        \    {  iDisplayLength: 25,\n        lengthMenu: [[10, 25, 50, 100, -1], [10,
-        25, 50, 100, \"All\"]],\n        language: { search: \"Filter:\" },\n        conditionalPaging:
-        true,\n        columnDefs: [\n            { className: \"dt-center\", targets:
-        [2] },\n            { className: \"dt-body-right\", targets: [1,3,4] },\n
-        \           { orderable: false, targets: [] },\n            { type: \"file-size\",
-        targets: [1] }\n        ],\n        order: [[0, \"asc\"]]\n      } );\n\n
-        \ } );\n</script>\n\n</body>\n</html>\n"
+        src=\"/js/datatables/dataTables.conditionalPaging.min.js\"></script>\n<script>\nUSE_SERVER_SIDE_PAGINATION
+        = 0;\nDS_IN_CART = 0;\nUSER_IS_LOGGED_IN = 00;\nINGEST_HOST = '';\n</script>\n<script
+        src=\"/js/granule-lister.min.js?v1.1\"></script>\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Thu, 10 Jan 2019 20:16:17 GMT
+  recorded_at: Wed, 03 Jul 2019 19:24:46 GMT
 recorded_with: VCR 3.0.3

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:22 GMT
+      - Wed, 03 Jul 2019 19:25:35 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d14cbb11a20db2d24c54ae148259e4da61546069942; expires=Sun, 29-Dec-19
-        07:52:22 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d2678a6215a1964e67c809d8787da3df81562181935; expires=Thu, 02-Jul-20
+        19:25:35 GMT; path=/; domain=.doi.org; HttpOnly
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 490aafd56df42738-FRA
+      - 4f0b3f0a4a8569b6-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -43,7 +43,7 @@ http_interactions:
           }
         ]
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:22 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:35 GMT
 - request:
     method: get
     uri: https://api.test.datacite.org/dois/10.21956/gatesopenres.530.r190
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:22 GMT
+      - Wed, 03 Jul 2019 19:25:36 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -74,24 +74,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"cbc7dc954197357f37ea0a021e371e27"
-      X-Runtime:
-      - '0.017366'
       X-Request-Id:
-      - 3e30ecef-bbba-4c8f-a416-9aafb384c804
+      - c9447987-1314-4424-a63b-0b3a5bbb8bc6
+      Etag:
+      - W/"f91d39b1254c2a52f96c1c793581d7f2"
+      X-Runtime:
+      - '0.022605'
       X-Powered-By:
-      - Phusion Passenger 6.0.0
+      - Phusion Passenger 6.0.2
       Server:
-      - nginx/1.15.7 + Phusion Passenger 6.0.0
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.21956/gatesopenres.530.r190","type":"dois","attributes":{"doi":"10.21956/gatesopenres.530.r190","prefix":"10.21956","suffix":"gatesopenres.530.r190","identifiers":[{"identifier":"https://handle.test.datacite.org/10.21956/gatesopenres.530.r190","identifierType":"DOI"}],"creators":[{"name":"Patel,
         Lina","nameType":"Personal","givenName":"Lina","familyName":"Patel"},{"name":"Test
         Test"},{"name":"Test Test1"},{"name":"Ere Rer"},{"name":"Test Test4"}],"titles":[{"title":"Referee
         report. For: Gates - add article keywords to the metatags [version 2; referees:
-        1 approved]"}],"publisher":"Gates Open Research","container":{},"publicationYear":2018,"subjects":[],"contributors":[],"dates":[{"date":"2018","dateType":"Issued"}],"language":null,"types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceTypeGeneral":"Text"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxyZXNvdXJjZSB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIiB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIxOTU2L2dhdGVzb3BlbnJlcy41MzAucjE5MDwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPmxpbmEgcGF0ZWw8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+dGVzdCB0ZXN0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPnRlc3QgdGVzdDE8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+ZXJlIHJlcjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT50ZXN0IHRlc3Q0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5SZWZlcmVlIHJlcG9ydC4gRm9yOiBHYXRlcyAtwqBhZGQgYXJ0aWNsZSBrZXl3b3JkcyB0byB0aGUgbWV0YXRhZ3MgW3ZlcnNpb24gMjsgcmVmZXJlZXM6IDEgYXBwcm92ZWRdPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkdhdGVzIE9wZW4gUmVzZWFyY2g8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiLz48L3Jlc291cmNlPg==","url":"https://dev1rg.f1000internal.com/articles/2-14/v2#referee-response-190","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"created":"2018-02-13T15:35:12.000Z","registered":"2018-02-13T15:35:13.000Z","updated":"2018-02-13T15:35:13.000Z"},"relationships":{"client":{"data":{"id":"bl.f1000r","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
-        of 1000 Research","symbol":"BL.F1000R","year":2013,"contactName":"Ravi Kumarasinghe","contactEmail":"Ravi.Kumarasinghe@F1000.com","description":null,"domains":"f1000internal.com","url":null,"created":"2013-11-07T13:41:36.000Z","updated":"2018-10-14T22:56:51.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"bl","type":"providers"}},"prefixes":{"data":[{"id":"10.4124","type":"prefixes"},{"id":"10.5256","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.7490","type":"prefixes"},{"id":"10.21956","type":"prefixes"},{"id":"10.21955","type":"prefixes"}]}}}]}'
+        1 approved]"}],"publisher":"Gates Open Research","container":{},"publicationYear":2018,"subjects":[],"contributors":[],"dates":[{"date":"2018","dateType":"Issued"}],"language":null,"types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceTypeGeneral":"Text"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxyZXNvdXJjZSB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIiB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIxOTU2L2dhdGVzb3BlbnJlcy41MzAucjE5MDwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPmxpbmEgcGF0ZWw8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+dGVzdCB0ZXN0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPnRlc3QgdGVzdDE8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+ZXJlIHJlcjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT50ZXN0IHRlc3Q0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5SZWZlcmVlIHJlcG9ydC4gRm9yOiBHYXRlcyAtwqBhZGQgYXJ0aWNsZSBrZXl3b3JkcyB0byB0aGUgbWV0YXRhZ3MgW3ZlcnNpb24gMjsgcmVmZXJlZXM6IDEgYXBwcm92ZWRdPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkdhdGVzIE9wZW4gUmVzZWFyY2g8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiLz48L3Jlc291cmNlPg==","url":"https://dev1rg.f1000internal.com/articles/2-14/v2#referee-response-190","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"created":"2018-02-13T15:35:12.000Z","registered":"2018-02-13T15:35:13.000Z","published":"2018","updated":"2018-02-13T15:35:13.000Z"},"relationships":{"client":{"data":{"id":"bl.f1000r","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
+        of 1000 Research","symbol":"BL.F1000R","year":2013,"contactName":"Ravi Kumarasinghe","contactEmail":"Ravi.Kumarasinghe@F1000.com","description":null,"domains":"f1000internal.com","url":null,"created":"2013-11-07T13:41:36.000Z","updated":"2018-10-14T22:56:51.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"bl","type":"providers"}},"prefixes":{"data":[{"id":"10.4124","type":"prefixes"},{"id":"10.5256","type":"prefixes"},{"id":"10.7490","type":"prefixes"},{"id":"10.21956","type":"prefixes"},{"id":"10.21955","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:22 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:36 GMT
 recorded_with: VCR 3.0.3

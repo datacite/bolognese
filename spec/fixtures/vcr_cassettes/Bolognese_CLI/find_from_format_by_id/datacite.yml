@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:53:52 GMT
+      - Wed, 03 Jul 2019 19:24:30 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d5de2e16aee67babdd8519f8b9cd956ea1546070032; expires=Sun, 29-Dec-19
-        07:53:52 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d2c0f11794a2a8f56bdf71cbcaea533b81562181870; expires=Thu, 02-Jul-20
+        19:24:30 GMT; path=/; domain=.doi.org; HttpOnly
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 490ab207894a275c-FRA
+      - 4f0b3d743884b769-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -43,5 +43,5 @@ http_interactions:
           }
         ]
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:53:52 GMT
+  recorded_at: Wed, 03 Jul 2019 19:24:30 GMT
 recorded_with: VCR 3.0.3

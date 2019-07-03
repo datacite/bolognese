@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: http://www.crossref.org/openurl/?format=unixref&id=doi:10.5005/jp/books/12414_3&noredirect=true&pid=tech@datacite.org
+    uri: https://api.crossref.org/works/10.5005/jp/books/12414_3/transform/application/vnd.crossref.unixsd+xml
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -16,45 +16,69 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Link:
+      - <http://dx.doi.org/10.5005/jp/books/12414_3>; rel="canonical"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '3668'
       Server:
-      - Apache-Coyote/1.1
-      Crossref-Deployment-Name:
-      - qs4-1
-      Content-Type:
-      - text/xml;charset=UTF-8
-      Content-Language:
-      - en-US
+      - http-kit
       Date:
-      - Sat, 29 Dec 2018 07:52:26 GMT
+      - Wed, 03 Jul 2019 19:26:24 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
       Connection:
       - close
     body:
       encoding: ASCII-8BIT
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<doi_records>\r\n  <doi_record
-        owner=\"10.5005\" timestamp=\"2016-01-20 23:44:22\">\r\n    <crossref>\r\n
-        \     <book book_type=\"edited_book\">\r\n        <book_metadata>\r\n          <contributors>\r\n
-        \           <person_name sequence=\"first\" contributor_role=\"author\">\r\n
-        \             <given_name>Ashis</given_name>\r\n              <surname>Saha</surname>\r\n
-        \           </person_name>\r\n          </contributors>\r\n          <titles>\r\n
-        \           <title>Clinical Methods &amp; Interpretation in Medicine</title>\r\n
-        \         </titles>\r\n          <edition_number>1/e</edition_number>\r\n
-        \         <publication_date media_type=\"online\">\r\n            <year>2015</year>\r\n
-        \         </publication_date>\r\n          <isbn>9789351526285</isbn>\r\n
-        \         <publisher>\r\n            <publisher_name>Jaypee Brothers Medical
-        Publishers (P) Ltd.</publisher_name>\r\n          </publisher>\r\n          <doi_data>\r\n
-        \           <doi>10.5005/jp/books/12414</doi>\r\n            <resource>http://www.jaypeedigital.com/Book/BookDetail?isbn=9789351526285</resource>\r\n
-        \         </doi_data>\r\n        </book_metadata>\r\n        <content_item
-        component_type=\"chapter\">\r\n          <contributors>\r\n            <person_name
-        sequence=\"first\" contributor_role=\"author\">\r\n              <given_name>Ashis</given_name>\r\n
-        \             <surname>Saha</surname>\r\n            </person_name>\r\n          </contributors>\r\n
-        \         <titles>\r\n            <title>Chapter-02 Physical Examinations</title>\r\n
-        \         </titles>\r\n          <publication_date media_type=\"online\">\r\n
-        \           <year>2015</year>\r\n          </publication_date>\r\n          <pages>\r\n
-        \           <first_page>27</first_page>\r\n            <last_page>145</last_page>\r\n
-        \         </pages>\r\n          <doi_data>\r\n            <doi>10.5005/jp/books/12414_3</doi>\r\n
-        \           <resource>http://www.jaypeedigital.com/Chapter/ChapterDetail/86633</resource>\r\n
-        \         </doi_data>\r\n        </content_item>\r\n      </book>\r\n    </crossref>\r\n
-        \ </doi_record>\r\n</doi_records>"
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"book_content\">10.5005/jp/books/12414_3</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">Jaypee Brothers
+        Medical Publishing</crm-item>\r\n        <crm-item name=\"prefix-name\" type=\"string\">Jaypee
+        Brothers Medical Publishing</crm-item>\r\n        <crm-item name=\"member-id\"
+        type=\"number\">2914</crm-item>\r\n        <crm-item name=\"citation-id\"
+        type=\"number\">80058988</crm-item>\r\n        <crm-item name=\"book-id\"
+        type=\"number\">2076935</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
+        type=\"number\">201601202038</crm-item>\r\n        <crm-item name=\"owner-prefix\"
+        type=\"string\">10.5005</crm-item>\r\n        <crm-item name=\"last-update\"
+        type=\"date\">2016-01-21T04:44:22Z</crm-item>\r\n        <crm-item name=\"created\"
+        type=\"date\">2016-01-21T04:44:05Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
+        type=\"number\">0</crm-item>\r\n        <doi_record>\r\n          <crossref
+        xmlns=\"http://www.crossref.org/xschema/1.0\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0
+        http://doi.crossref.org/schemas/unixref1.0.xsd\">\r\n            <book book_type=\"edited_book\">\r\n
+        \             <book_metadata>\r\n                <contributors>\r\n                  <person_name
+        sequence=\"first\" contributor_role=\"author\">\r\n                    <given_name>Ashis</given_name>\r\n
+        \                   <surname>Saha</surname>\r\n                  </person_name>\r\n
+        \               </contributors>\r\n                <titles>\r\n                  <title>Clinical
+        Methods &amp; Interpretation in Medicine</title>\r\n                </titles>\r\n
+        \               <edition_number>1/e</edition_number>\r\n                <publication_date
+        media_type=\"online\">\r\n                  <year>2015</year>\r\n                </publication_date>\r\n
+        \               <isbn>9789351526285</isbn>\r\n                <publisher>\r\n
+        \                 <publisher_name>Jaypee Brothers Medical Publishers (P) Ltd.</publisher_name>\r\n
+        \               </publisher>\r\n                <doi_data>\r\n                  <doi>10.5005/jp/books/12414</doi>\r\n
+        \                 <resource>http://www.jaypeedigital.com/Book/BookDetail?isbn=9789351526285</resource>\r\n
+        \               </doi_data>\r\n              </book_metadata>\r\n              <content_item
+        component_type=\"chapter\">\r\n                <contributors>\r\n                  <person_name
+        sequence=\"first\" contributor_role=\"author\">\r\n                    <given_name>Ashis</given_name>\r\n
+        \                   <surname>Saha</surname>\r\n                  </person_name>\r\n
+        \               </contributors>\r\n                <titles>\r\n                  <title>Chapter-02
+        Physical Examinations</title>\r\n                </titles>\r\n                <publication_date
+        media_type=\"online\">\r\n                  <year>2015</year>\r\n                </publication_date>\r\n
+        \               <pages>\r\n                  <first_page>27</first_page>\r\n
+        \                 <last_page>145</last_page>\r\n                </pages>\r\n
+        \               <doi_data>\r\n                  <doi>10.5005/jp/books/12414_3</doi>\r\n
+        \                 <resource>http://www.jaypeedigital.com/Chapter/ChapterDetail/86633</resource>\r\n
+        \               </doi_data>\r\n              </content_item>\r\n            </book>\r\n
+        \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
+        \ </query_result>\r\n</crossref_result>"
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:27 GMT
+  recorded_at: Wed, 03 Jul 2019 19:26:24 GMT
 recorded_with: VCR 3.0.3

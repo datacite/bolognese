@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:17 GMT
+      - Wed, 03 Jul 2019 19:25:23 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=db892e4b46db246a2a411001735907cca1546069936; expires=Sun, 29-Dec-19
-        07:52:16 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=dc9c87cb65ecd218a11a1dded274739bf1562181923; expires=Thu, 02-Jul-20
+        19:25:23 GMT; path=/; domain=.doi.org; HttpOnly
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 490aafb22f612768-FRA
+      - 4f0b3ebe6e87cd97-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -43,7 +43,7 @@ http_interactions:
           }
         ]
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:17 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:23 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.5067/terra+aqua/ceres/cldtyphist_l3.004
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:17 GMT
+      - Wed, 03 Jul 2019 19:25:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -75,23 +75,23 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - e9b714f5-5df0-43cb-8aa5-27753b616e22
+      - 9f2fca4c-fdf6-4125-8dd4-54fdafec72b9
       Etag:
-      - W/"d47d8a8bf9830040235fd4445091ec74"
+      - W/"0b53b77577fad379517ebf1b26cc0db1"
       X-Runtime:
-      - '0.024939'
+      - '0.026340'
       X-Powered-By:
-      - Phusion Passenger 6.0.0
+      - Phusion Passenger 6.0.2
       Server:
-      - nginx/1.15.7 + Phusion Passenger 6.0.0
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"dois","attributes":{"doi":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","prefix":"10.5067","suffix":"terra+aqua/ceres/cldtyphist_l3.004","identifiers":[{"identifier":"https://doi.org/10.5067/terra+aqua/ceres/cldtyphist_l3.004","identifierType":"DOI"}],"creators":[{"name":"Wong,
         Takmeng","nameType":"Personal","givenName":"Takmeng","familyName":"Wong"}],"titles":[{"title":"CERES
         Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4"}],"publisher":"NASA
-        Langley Atmospheric Science Data Center DAAC","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDY3L1RFUlJBK0FRVUEvQ0VSRVMvQ0xEVFlQSElTVF9MMy4wMDQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Xb25nLFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5DRVJFUyBMZXZlbCAzIENsb3VkIFR5cGUgSGlzdG9yZ3JhbSBUZXJyYStBcXVhIEhERiBmaWxlIC0gRWRpdGlvbjQ8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+TkFTQSBMYW5nbGV5IEF0bW9zcGhlcmljIFNjaWVuY2UgRGF0YSBDZW50ZXIgREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPgo=","url":"https://eosweb.larc.nasa.gov/project/ceres/cldtyphist_ed4a","contentUrl":null,"metadataVersion":8,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"created":"2017-01-04T22:48:06.000Z","registered":"2017-01-04T22:48:07.000Z","updated":"2018-09-18T07:59:11.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
+        Langley Atmospheric Science Data Center DAAC","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDY3L1RFUlJBK0FRVUEvQ0VSRVMvQ0xEVFlQSElTVF9MMy4wMDQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Xb25nLFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5DRVJFUyBMZXZlbCAzIENsb3VkIFR5cGUgSGlzdG9yZ3JhbSBUZXJyYStBcXVhIEhERiBmaWxlIC0gRWRpdGlvbjQ8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+TkFTQSBMYW5nbGV5IEF0bW9zcGhlcmljIFNjaWVuY2UgRGF0YSBDZW50ZXIgREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPgo=","url":"https://eosweb.larc.nasa.gov/project/ceres/cldtyphist_ed4a","contentUrl":null,"metadataVersion":8,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"created":"2017-01-04T17:48:06.000-05:00","registered":"2017-01-04T17:48:07.000-05:00","published":"2016","updated":"2019-02-08T14:02:45.000-05:00"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
         Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"contactName":"Lalit
-        Wanchoo","contactEmail":"lalit.wanchoo@nasa.gov","description":null,"domains":"*","url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2018-12-26T10:03:16.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.5072","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
+        Wanchoo","contactEmail":"lalit.wanchoo@nasa.gov","description":null,"domains":"*","url":null,"created":"2018-06-20T10:37:48.000-04:00","updated":"2018-12-26T05:03:16.000-05:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:17 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:23 GMT
 recorded_with: VCR 3.0.3

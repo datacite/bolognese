@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:25 GMT
+      - Wed, 03 Jul 2019 19:25:28 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d3e9af2549faa34fb49441458896bbd211546069945; expires=Sun, 29-Dec-19
-        07:52:25 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d13a9be2d16eaa8b1279f9f8728648ba31562181928; expires=Thu, 02-Jul-20
+        19:25:28 GMT; path=/; domain=.doi.org; HttpOnly
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 490aafe7396d236c-FRA
+      - 4f0b3edb7d683c09-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -43,7 +43,7 @@ http_interactions:
           }
         ]
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:25 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:28 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:25 GMT
+      - Wed, 03 Jul 2019 19:25:28 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -73,17 +73,17 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 48295f1e-7f81-46a3-90f8-2d87e58f0cb3
+      - fa964528-1d24-49b8-a814-dff045941cdc
       X-Runtime:
-      - '0.005414'
+      - '0.006089'
       X-Powered-By:
-      - Phusion Passenger 6.0.0
+      - Phusion Passenger 6.0.2
       Server:
-      - nginx/1.15.7 + Phusion Passenger 6.0.0
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:25 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:28 GMT
 recorded_with: VCR 3.0.3

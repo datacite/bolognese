@@ -354,7 +354,7 @@ module Bolognese
         "bibtex"
       elsif options[:ext] == ".ris"
         "ris"
-      elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref")
+      elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("crossref_result", "query_result", "body", "query", "doi_record", "crossref")
         "crossref"
       elsif options[:ext] == ".xml" && Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }      
         "datacite"
@@ -372,7 +372,7 @@ module Bolognese
     end
 
     def find_from_format_by_string(string)
-      if Maremma.from_xml(string).to_h.dig("doi_records", "doi_record", "crossref").present?
+      if Maremma.from_xml(string).to_h.dig("crossref_result", "query_result", "body", "query", "doi_record", "crossref").present?
         "crossref"
       elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }  
         "datacite"

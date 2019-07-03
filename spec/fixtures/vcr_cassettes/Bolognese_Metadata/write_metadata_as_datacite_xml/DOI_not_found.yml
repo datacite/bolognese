@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:46 GMT
+      - Wed, 03 Jul 2019 19:24:18 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -29,17 +29,17 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - f4e4c34a-fcdd-4e76-80d8-347aa3714103
+      - 2ae75cc9-7555-4ec1-88b7-2b64b0cc3b08
       X-Runtime:
-      - '0.004606'
+      - '0.005317'
       X-Powered-By:
-      - Phusion Passenger 6.0.0
+      - Phusion Passenger 6.0.2
       Server:
-      - nginx/1.15.7 + Phusion Passenger 6.0.0
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:46 GMT
+  recorded_at: Wed, 03 Jul 2019 19:24:18 GMT
 recorded_with: VCR 3.0.3

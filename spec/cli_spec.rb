@@ -152,7 +152,7 @@ describe Bolognese::CLI do
 
       it 'to bibtex' do
         subject.options = { to: "bibtex" }
-        expect { subject.convert file }.to output(/@article{https:\/\/doi.org\/10.1371\/journal.pone.0000030/).to_stdout
+        expect { subject.convert file }.to output(/@article{https:\/\/doi.org\/10.7554\/elife.01567/).to_stdout
       end
     end
 

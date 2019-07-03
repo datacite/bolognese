@@ -15,7 +15,6 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get datacite_json metadata" do
     it "BlogPosting" do
-      puts subject.errors
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"BlogPosting", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])

@@ -25,3 +25,5 @@ require "bolognese/cli"
 require "bolognese/string"
 require "bolognese/array"
 require "bolognese/whitelist_scrubber"
+
+ENV['USER_AGENT'] ||= "Mozilla/5.0 (compatible; Maremma/#{Maremma::VERSION}; mailto:info@datacite.org)"

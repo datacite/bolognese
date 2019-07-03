@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - application/json;charset=UTF-8
   response:
@@ -16,6 +16,8 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Content-Type:
+      - text/plain; charset=utf-8
       Content-Security-Policy:
       - default-src 'none'; style-src 'unsafe-inline'; sandbox
       Strict-Transport-Security:
@@ -28,46 +30,44 @@ http_interactions:
       - 1; mode=block
       Etag:
       - '"196d90076a30d5604c5f5710dcce236a25ce60a7"'
-      Content-Type:
-      - text/plain; charset=utf-8
       Cache-Control:
       - max-age=300
       X-Geo-Block-List:
       - ''
       X-Github-Request-Id:
-      - 7356:7D8B:FAE66:112989:5C2727CD
+      - F998:30E7:66B59:84DF4:5D1D00C7
       Content-Length:
       - '1260'
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 29 Dec 2018 07:53:37 GMT
+      - Wed, 03 Jul 2019 19:26:56 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1521-HHN
+      - cache-cdg20756-CDG
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1546070018.612199,VS0,VE0
+      - S1562182016.264074,VS0,VE0
       Vary:
-      - Authorization,Accept-Encoding
+      - Authorization,Accept-Encoding, Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 6ca8445a731f731e2160b33f82bbe6542db72883
+      - 1709d9caf65a5263177e38d4008330af4842bc2f
       Expires:
-      - Sat, 29 Dec 2018 07:58:37 GMT
+      - Wed, 03 Jul 2019 19:31:56 GMT
       Source-Age:
-      - '51'
+      - '184'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         ewoJIkBjb250ZXh0IjogImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9jb2RlbWV0YS9jb2RlbWV0YS9tYXN0ZXIvY29kZW1ldGEuanNvbmxkIiwKCSJAdHlwZSI6ICJTb2Z0d2FyZVNvdXJjZUNvZGUiLAoJIkBpZCI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC9RRUcwLTNHTTMiLAoJImFnZW50cyI6IHsKCQkiQGlkIjogImh0dHA6Ly9vcmNpZC5vcmcvMDAwMC0wMDAzLTAwNzctNDczOCIsCgkJIkB0eXBlIjogInBlcnNvbiIsCgkJIm5hbWUiOiAiTWFydGluIEZlbm5lciIsCgkJImFmZmlsaWF0aW9uIjogIkRhdGFDaXRlIiwKCQkibXVzdEJlQ2l0ZWQiOiB0cnVlLAoJCSJpc01haW50YWluZXIiOiB0cnVlLAoJCSJpc1JpZ2h0c0hvbGRlciI6IHRydWUKCX0sCgkiaWRlbnRpZmllciI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC9RRUcwLTNHTTMiLAoJImNvZGVSZXBvc2l0b3J5IjogImh0dHBzOi8vZ2l0aHViLmNvbS9kYXRhY2l0ZS9tYXJlbW1hIiwKCSJjb250cm9sbGVkVGVtIjogInNvZnR3YXJlIiwKCSJkYXRlQ3JlYXRlZCI6ICIyMDE1LTExLTI4IiwKCSJkYXRlUHVibGlzaGVkIjogIjIwMTctMDItMjQiLAoJImRhdGVNb2RpZmllZCI6ICIyMDE3LTAyLTI0IiwKCSJkZXNjcmlwdGlvbiI6ICJSdWJ5IHV0aWxpdHkgbGlicmFyeSBmb3IgbmV0d29yayByZXF1ZXN0cy4gQmFzZWQgb24gRmFyYWRheSBhbmQgRXhjb24sIHByb3ZpZGVzIGEgd3JhcHBlciBmb3IgWE1ML0pTT04gcGFyc2luZyBhbmQgZXJyb3IgaGFuZGxpbmcuIEFsbCBzdWNjZXNzZnVsIHJlc3BvbnNlcyBhcmUgcmV0dXJuZWQgYXMgaGFzaCB3aXRoIGtleSBkYXRhLCBhbGwgZXJyb3JzIGluIGEgSlNPTkFQSS1mcmllbmRseSBoYXNoIHdpdGgga2V5IGVycm9ycy4iLAoJImlzQXV0b21hdGVkQnVpbGQiOiB0cnVlLAoJImxpY2Vuc2VJZCI6ICJNSVQiLAoJInB1Ymxpc2hlciI6ICJEYXRhQ2l0ZSIsCgkidGFncyI6IFsKCQkiZmFyYWRheSIsCgkJImV4Y29uIiwKCQkibmV0L2h0dHAiCgldLAoJInRpdGxlIjogIk1hcmVtbWE6IGEgUnVieSBsaWJyYXJ5IGZvciBzaW1wbGlmaWVkIG5ldHdvcmsgY2FsbHMiLAoJInByb2dyYW1taW5nTGFuZ3VhZ2UiOiB7CgkJIm5hbWUiOiAiUnVieSIsCgkJInZlcnNpb24iOiAi4omlIDIuMy4zIiwKCQkiVVJMIjogImh0dHBzOi8vd3d3LnJ1YnktbGFuZy5vcmciCgl9LAoJInJlYWRtZSI6ICJodHRwczovL2dpdGh1Yi5jb20vZGF0YWNpdGUvbWFyZW1tYS9ibG9iL21hc3Rlci9SRUFETUUubWQiCn0K
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:53:37 GMT
+  recorded_at: Wed, 03 Jul 2019 19:26:56 GMT
 recorded_with: VCR 3.0.3

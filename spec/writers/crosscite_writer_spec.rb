@@ -79,7 +79,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("url")).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(crosscite.fetch("url")).to eq("https://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(crosscite.fetch("creators").length).to eq(8)
       expect(crosscite.fetch("creators").first).to eq("familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Ollomo, Benjamin", "nameType" => "Personal")

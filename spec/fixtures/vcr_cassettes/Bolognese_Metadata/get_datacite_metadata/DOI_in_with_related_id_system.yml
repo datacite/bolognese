@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:22 GMT
+      - Wed, 03 Jul 2019 19:25:24 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d8d199521e63d4aea03d96656cafa12731546069942; expires=Sun, 29-Dec-19
-        07:52:22 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d7ba03ab01ad98b52653cfb79dfc7f78a1562181924; expires=Thu, 02-Jul-20
+        19:25:24 GMT; path=/; domain=.doi.org; HttpOnly
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 490aafd38b47231e-FRA
+      - 4f0b3ec1a9efcd97-CDG
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -43,7 +43,7 @@ http_interactions:
           }
         ]
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:22 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:24 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.1.1; +https://github.com/datacite/maremma)
+      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +61,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 29 Dec 2018 07:52:22 GMT
+      - Wed, 03 Jul 2019 19:25:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -75,24 +75,28 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 67ce705f-64f6-4a37-a33e-3362fc742b8d
+      - 6150435d-2688-446c-93d5-8c0fdea356bd
       Etag:
-      - W/"83cdcfd088ed3dcb91235a292c0ec71c"
+      - W/"f41280fe8e013e386e58d92f841d330e"
       X-Runtime:
-      - '0.023933'
+      - '0.028785'
       X-Powered-By:
-      - Phusion Passenger 6.0.0
+      - Phusion Passenger 6.0.2
       Server:
-      - nginx/1.15.7 + Phusion Passenger 6.0.0
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f","type":"dois","attributes":{"doi":"10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f","prefix":"10.4121","suffix":"uuid:3926db30-f712-4394-aebc-75976070e91f","identifiers":[{"identifier":"https://doi.org/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f","identifierType":"DOI"}],"creators":[{"name":"Van
-        Dongen, B.F. (Boudewijn)","nameType":"Personal","nameIdentifiers":[{"nameIdentifier":"https://orcid.org/0000-0002-3978-6464","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"BPI
-        Challenge 2012"}],"publisher":"Eindhoven University of Technology","container":{},"publicationYear":2012,"subjects":[{"subject":"000
+        Dongen, B.F. (Boudewijn)","nameType":"Personal","nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0002-3978-6464","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"BPI
+        Challenge 2012"}],"publisher":"Eindhoven University of Technology","container":null,"publicationYear":2012,"subjects":[{"subject":"000
         Computer science, knowledge &amp; systems"},{"subject":"Business Process Intelligence
-        (BPI)"}],"contributors":[{"name":"Eindhoven University Of Technology"}],"dates":[{"date":"2011-10-01/2012-03-14","dateType":"Other","dateInformation":"Temporal
-        coverage of this dataset."},{"date":"2012","dateType":"Issued"}],"language":"nl","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[{"relationType":"References","relatedIdentifier":"http://www.win.tue.nl/bpi/2012/challenge","relatedIdentifierType":"URL"}],"sizes":[],"formats":["text/xml","application/x-gzip"],"version":null,"rightsList":[],"descriptions":[{"description":"Event
-        log of a loan application process","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC40MTIxL1VVSUQ6MzkyNkRCMzAtRjcxMi00Mzk0LUFFQkMtNzU5NzYwNzBFOTFGPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+dmFuIERvbmdlbiwgQi5GLiAoQm91ZGV3aWpuKTwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMi0zOTc4LTY0NjQ8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5CUEkgQ2hhbGxlbmdlIDIwMTI8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RWluZGhvdmVuIFVuaXZlcnNpdHkgb2YgVGVjaG5vbG9neTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PjAwMCBDb21wdXRlciBzY2llbmNlLCBrbm93bGVkZ2UgJmFtcDsgc3lzdGVtczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkJ1c2luZXNzIFByb2Nlc3MgSW50ZWxsaWdlbmNlIChCUEkpPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJSZWZlcmVuY2VzIj5odHRwOi8vd3d3Lndpbi50dWUubmwvYnBpLzIwMTIvY2hhbGxlbmdlPC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkV2ZW50IGxvZyBvZiBhIGxvYW4gYXBwbGljYXRpb24gcHJvY2VzczwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ik90aGVyIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5FaW5kaG92ZW4gVW5pdmVyc2l0eSBvZiBUZWNobm9sb2d5PC9jb250cmlidXRvck5hbWU+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxsYW5ndWFnZT5ubDwvbGFuZ3VhZ2U+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZUluZm9ybWF0aW9uPSJUZW1wb3JhbCBjb3ZlcmFnZSBvZiB0aGlzIGRhdGFzZXQuIiBkYXRlVHlwZT0iT3RoZXIiPjIwMTEtMTAtMDEvMjAxMi0wMy0xNDwvZGF0ZT4KICA8L2RhdGVzPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdD50ZXh0L3htbDwvZm9ybWF0PgogICAgPGZvcm1hdD5hcHBsaWNhdGlvbi94LWd6aXA8L2Zvcm1hdD4KICA8L2Zvcm1hdHM+CjwvcmVzb3VyY2U+","url":"https://data.4tu.nl/repository/uuid:3926db30-f712-4394-aebc-75976070e91f","contentUrl":null,"metadataVersion":12,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"created":"2012-04-24T08:32:06.000Z","registered":"2012-04-24T08:32:02.000Z","updated":"2018-08-28T18:51:44.000Z"},"relationships":{"client":{"data":{"id":"delft.data4tu","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"delft.data4tu","type":"clients","attributes":{"name":"4TU.Centre
+        (BPI)"},{"subject":"0806 - Information Systems","subjectScheme":"Australian
+        and New Zealand Standard Research Classification (ANZSRC), 2008"},{"subject":"1503
+        - Business and Management","subjectScheme":"Australian and New Zealand Standard
+        Research Classification (ANZSRC), 2008"}],"contributors":[{"name":"Eindhoven
+        University Of Technology"}],"dates":[{"date":"2011-10-01/2012-03-14","dateType":"Other","dateInformation":"Temporal
+        coverage of this dataset."},{"date":"2012","dateType":"Issued"}],"language":"nl","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[{"relationType":"References","relatedIdentifier":"http://www.win.tue.nl/bpi/2012/challenge","relatedIdentifierType":"URL"}],"sizes":null,"formats":["text/xml","application/x-gzip"],"version":null,"rightsList":null,"descriptions":[{"description":"Event
+        log of a loan application process","descriptionType":"Abstract"}],"geoLocations":null,"fundingReferences":null,"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC40MTIxL1VVSUQ6MzkyNkRCMzAtRjcxMi00Mzk0LUFFQkMtNzU5NzYwNzBFOTFGPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+dmFuIERvbmdlbiwgQi5GLiAoQm91ZGV3aWpuKTwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMi0zOTc4LTY0NjQ8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5CUEkgQ2hhbGxlbmdlIDIwMTI8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RWluZGhvdmVuIFVuaXZlcnNpdHkgb2YgVGVjaG5vbG9neTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxMjwvcHVibGljYXRpb25ZZWFyPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PjAwMCBDb21wdXRlciBzY2llbmNlLCBrbm93bGVkZ2UgJmFtcDsgc3lzdGVtczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkJ1c2luZXNzIFByb2Nlc3MgSW50ZWxsaWdlbmNlIChCUEkpPC9zdWJqZWN0PgogICAgPHN1YmplY3Qgc3ViamVjdFNjaGVtZT0iQXVzdHJhbGlhbiBhbmQgTmV3IFplYWxhbmQgU3RhbmRhcmQgUmVzZWFyY2ggQ2xhc3NpZmljYXRpb24gKEFOWlNSQyksIDIwMDgiPjA4MDYgLSBJbmZvcm1hdGlvbiBTeXN0ZW1zPC9zdWJqZWN0PgogICAgPHN1YmplY3Qgc3ViamVjdFNjaGVtZT0iQXVzdHJhbGlhbiBhbmQgTmV3IFplYWxhbmQgU3RhbmRhcmQgUmVzZWFyY2ggQ2xhc3NpZmljYXRpb24gKEFOWlNSQyksIDIwMDgiPjE1MDMgLSBCdXNpbmVzcyBhbmQgTWFuYWdlbWVudDwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyI+aHR0cDovL3d3dy53aW4udHVlLm5sL2JwaS8yMDEyL2NoYWxsZW5nZTwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij5FdmVudCBsb2cgb2YgYSBsb2FuIGFwcGxpY2F0aW9uIHByb2Nlc3M8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgogIDxjb250cmlidXRvcnM+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJPdGhlciI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RWluZGhvdmVuIFVuaXZlcnNpdHkgb2YgVGVjaG5vbG9neTwvY29udHJpYnV0b3JOYW1lPgogICAgPC9jb250cmlidXRvcj4KICA8L2NvbnRyaWJ1dG9ycz4KICA8bGFuZ3VhZ2U+bmw8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVJbmZvcm1hdGlvbj0iVGVtcG9yYWwgY292ZXJhZ2Ugb2YgdGhpcyBkYXRhc2V0LiIgZGF0ZVR5cGU9Ik90aGVyIj4yMDExLTEwLTAxLzIwMTItMDMtMTQ8L2RhdGU+CiAgPC9kYXRlcz4KICA8Zm9ybWF0cz4KICAgIDxmb3JtYXQ+dGV4dC94bWw8L2Zvcm1hdD4KICAgIDxmb3JtYXQ+YXBwbGljYXRpb24veC1nemlwPC9mb3JtYXQ+CiAgPC9mb3JtYXRzPgo8L3Jlc291cmNlPg==","url":"https://data.4tu.nl/repository/uuid:3926db30-f712-4394-aebc-75976070e91f","contentUrl":null,"metadataVersion":13,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"created":"2012-04-24T04:32:06.000-04:00","registered":"2012-04-24T04:32:02.000-04:00","published":"2012","updated":"2019-06-13T13:21:10.000-04:00"},"relationships":{"client":{"data":{"id":"delft.data4tu","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"delft.data4tu","type":"clients","attributes":{"name":"4TU.Centre
         for Research Data","symbol":"DELFT.DATA4TU","year":2011,"contactName":"Egbert
         Gramsbergen","contactEmail":"researchdata@4tu.nl","description":"4TU.ResearchData,
         previously known as 3TU.Datacentrum, is an archive for research data. It offers
@@ -100,7 +104,7 @@ http_interactions:
         research data in a standardized, secure and well-documented manner. 4TU.Centre
         for Research Data provides the research community with:\r\nAdvice and support
         on data management;\r\nA long-term archive for scientific research data;\r\nSupport
-        for current research projects;\r\nTools for reusing research data.","domains":"*","url":"https://researchdata.4tu.nl/en/home/","created":"2011-09-30T09:18:16.000Z","updated":"2018-12-18T23:45:03.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"delft","type":"providers"}},"repository":{"data":{"id":"10.17616/R3VG6N","type":"repositories"}},"prefixes":{"data":[{"id":"10.4121","type":"prefixes"},{"id":"10.5072","type":"prefixes"}]}}}]}'
+        for current research projects;\r\nTools for reusing research data.","domains":"*","url":"https://researchdata.4tu.nl/en/home/","created":"2011-09-30T05:18:16.000-04:00","updated":"2018-12-18T18:45:03.000-05:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"delft","type":"providers"}},"repository":{"data":{"id":"10.17616/R3VG6N","type":"repositories"}},"prefixes":{"data":[{"id":"10.4121","type":"prefixes"}]}}}]}'
     http_version: 
-  recorded_at: Sat, 29 Dec 2018 07:52:22 GMT
+  recorded_at: Wed, 03 Jul 2019 19:25:24 GMT
 recorded_with: VCR 3.0.3

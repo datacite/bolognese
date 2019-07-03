@@ -18,7 +18,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get datacite metadata" do
     it "Dataset" do
       expect(subject.valid?).to be true
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.url).to eq("https://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceType"]).to eq("DataPackage")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
@@ -889,7 +889,7 @@ describe Bolognese::Metadata, vcr: true do
          "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
          "identifierType"=>"citation"}])
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.url).to eq("https://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.titles).to eq([{"title"=> "A new malaria agent in African hominids." }])
     end
@@ -902,7 +902,7 @@ describe Bolognese::Metadata, vcr: true do
          "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
          "identifierType"=>"citation"}])
       expect(subject.doi).to eq("10.5061/dryad.8515")
-      expect(subject.url).to eq("http://datadryad.org/resource/doi:10.5061/dryad.8515")
+      expect(subject.url).to eq("https://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(subject.state).to eq("registered")
