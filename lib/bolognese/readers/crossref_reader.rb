@@ -118,7 +118,7 @@ module Bolognese
           "types" => types,
           "doi" => doi_from_url(doi),
           "url" => parse_attributes(bibliographic_metadata.dig("doi_data", "resource"), first: true),
-          "titles" => [{ "title" => parse_attributes(bibliographic_metadata.dig("titles", "title")) }],
+          "titles" => Array.wrap(bibliographic_metadata.dig("titles")),
           "identifiers" => identifiers,
           "creators" => crossref_people(bibliographic_metadata, "author"),
           "contributors" => crossref_people(bibliographic_metadata, "editor"),

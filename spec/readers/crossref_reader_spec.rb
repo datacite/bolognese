@@ -210,6 +210,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "multiple titles" do
+      input = "https://doi.org/10.4000/dms.865"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4000/dms.865", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://journals.openedition.org/dms/865")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators).to eq("familyName"=>"Peraya", "givenName"=>"Daniel", "name"=>"Peraya, Daniel", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Distances, absence, proximités et présences : des concepts en déplacement"}, {"title"=>"Distance(s), proximity and presence(s): evolving concepts"}])
+      expect(subject.dates).to eq([{"date"=>"2014-12-23", "dateType"=>"Issued"}, {"date"=>"2019-02-02T06:53:25Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2014")
+      expect(subject.publisher).to eq("OpenEdition")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "journal article with" do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)
