@@ -195,6 +195,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "another book chapter" do
+      input = "https://doi.org/10.1007/978-3-319-75889-3_1"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1007/978-3-319-75889-3_1", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-319-75889-3_1")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.creators).to eq("familyName"=>"Jones", "givenName"=>"Hunter M.", "name"=>"Jones, Hunter M.", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Climate Change and Increasing Risk of Extreme Heat"}])
+      expect(subject.dates).to eq([{"date"=>"2018", "dateType"=>"Issued"}, {"date"=>"2018-09-05T05:36:16Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("Springer International Publishing")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "journal article with" do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)

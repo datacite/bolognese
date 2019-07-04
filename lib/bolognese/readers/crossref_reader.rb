@@ -39,6 +39,7 @@ module Bolognese
         program_metadata = {}
         journal_metadata = nil
         journal_issue = {}
+        journal_metadata = nil
         publisher = query.dig("crm_item", 0)
 
         case model
@@ -48,7 +49,7 @@ module Bolognese
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
           bibliographic_metadata = meta.dig("crossref", "book", "content_item").to_h
           resource_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
-          publisher = book_metadata.dig("publisher", "publisher_name")
+          publisher = book_metadata.present? ? book_metadata.dig("publisher", "publisher_name") : book_series_metadata.dig("publisher", "publisher_name")
         when "conference"
           event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
           bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper").to_h
