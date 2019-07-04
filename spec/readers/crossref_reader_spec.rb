@@ -210,6 +210,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "missing creator" do
+      input = "https://doi.org/10.3390/publications6020015"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3390/publications6020015", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://www.mdpi.com/2304-6775/6/2/15")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators).to eq("contributorType"=>"author", "name"=>":(unav)", "nameType"=>"Organizational")
+      expect(subject.titles).to eq([{"title"=>"Converting the Literature of a Scientific Field to Open Access through Global Collaboration: The Experience of SCOAP3 in Particle Physics"}])
+      expect(subject.dates).to eq([{"date"=>"2018-04-09", "dateType"=>"Issued"}, {"date"=>"2018-04-10T17:58:05Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("MDPI AG")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "multiple titles" do
       input = "https://doi.org/10.4000/dms.865"
       subject = Bolognese::Metadata.new(input: input)
