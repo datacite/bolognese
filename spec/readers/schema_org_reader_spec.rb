@@ -181,7 +181,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'schema_org_tdl_iodp_invalid_authors.json'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
-     end
+    end
 
     it "geolocation" do
       input = fixture_path + 'schema_org_geolocation.json'

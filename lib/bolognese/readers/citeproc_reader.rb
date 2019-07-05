@@ -31,7 +31,7 @@ module Bolognese
           return { "errors" => errors } if errors.present?
         end
 
-        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate, :ra))
 
         meta = string.present? ? Maremma.from_json(string) : {}
 

@@ -225,6 +225,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "mEDRA" do
+      input = "https://doi.org/10.3280/ecag2018-001005"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3280/ecag2018-001005", "identifierType"=>"DOI"}, {"identifier"=>"5", "identifierType"=>"Publisher ID"}])
+      expect(subject.url).to eq("http://www.francoangeli.it/riviste/Scheda_Riviste.asp?IDArticolo=61645")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(2)
+      expect(subject.creators.first).to eq("familyName"=>"Oh", "givenName"=>"Sohae Eve", "name"=>"Oh, Sohae Eve", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Substitutability between organic and conventional poultry products and organic price premiums"}])
+      expect(subject.dates).to eq([{"date"=>"2018-05", "dateType"=>"Issued"}, {"date"=>"2018-10-18T14:30:29Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("Franco Angeli")
+      expect(subject.agency).to eq("mEDRA")
+    end
+
     it "multiple titles" do
       input = "https://doi.org/10.4000/dms.865"
       subject = Bolognese::Metadata.new(input: input)

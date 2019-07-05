@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.3280
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.3; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Fri, 05 Jul 2019 05:04:20 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dbad314cd019b12966bb82d714cc7ff471562303060; expires=Sat, 04-Jul-20
+        05:04:20 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4f16cc2e48b4a867-CDG
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.3280",
+            "RA": "mEDRA"
+          }
+        ]
+    http_version: 
+  recorded_at: Fri, 05 Jul 2019 05:04:20 GMT
+- request:
+    method: get
+    uri: https://api.crossref.org/works/10.3280/ecag2018-001005/transform/application/vnd.crossref.unixsd+xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.3; mailto:info@datacite.org)
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Link:
+      - <http://dx.doi.org/10.3280/ecag2018-001005>; rel="canonical"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '3506'
+      Server:
+      - http-kit
+      Date:
+      - Fri, 05 Jul 2019 05:04:20 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"journal_article\">10.3280/ECAG2018-001005</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">Franco Angeli</crm-item>\r\n
+        \       <crm-item name=\"prefix-name\" type=\"string\">Franco Angeli</crm-item>\r\n
+        \       <crm-item name=\"member-id\" type=\"number\">4169</crm-item>\r\n        <crm-item
+        name=\"citation-id\" type=\"number\">98889375</crm-item>\r\n        <crm-item
+        name=\"journal-id\" type=\"number\">215305</crm-item>\r\n        <crm-item
+        name=\"deposit-timestamp\" type=\"number\">20180712142055000</crm-item>\r\n
+        \       <crm-item name=\"owner-prefix\" type=\"string\">10.3280</crm-item>\r\n
+        \       <crm-item name=\"last-update\" type=\"date\">2018-10-18T14:30:29Z</crm-item>\r\n
+        \       <crm-item name=\"created\" type=\"date\">2018-06-07T09:40:49Z</crm-item>\r\n
+        \       <crm-item name=\"citedby-count\" type=\"number\">1</crm-item>\r\n
+        \       <doi_record>\r\n          <crossref xmlns=\"http://www.crossref.org/xschema/1.1\"
+        xsi:schemaLocation=\"http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd\">\r\n
+        \           <journal>\r\n              <journal_metadata>\r\n                <full_title>ECONOMIA
+        AGRO-ALIMENTARE</full_title>\r\n                <issn media_type=\"print\">1126-1668</issn>\r\n
+        \               <issn media_type=\"electronic\">1972-4802</issn>\r\n              </journal_metadata>\r\n
+        \             <journal_issue>\r\n                <publication_date>\r\n                  <month>05</month>\r\n
+        \                 <year>2018</year>\r\n                </publication_date>\r\n
+        \               <issue>1</issue>\r\n              </journal_issue>\r\n              <journal_article
+        language=\"en\">\r\n                <titles>\r\n                  <title>Substitutability
+        between organic and conventional poultry products and organic price premiums</title>\r\n
+        \               </titles>\r\n                <contributors>\r\n                  <person_name
+        contributor_role=\"author\" sequence=\"first\">\r\n                    <given_name>Sohae
+        Eve</given_name>\r\n                    <surname>Oh</surname>\r\n                  </person_name>\r\n
+        \                 <person_name contributor_role=\"author\" sequence=\"additional\">\r\n
+        \                   <given_name>Tomislav</given_name>\r\n                    <surname>Vukina</surname>\r\n
+        \                 </person_name>\r\n                </contributors>\r\n                <publication_date>\r\n
+        \                 <month>05</month>\r\n                  <year>2018</year>\r\n
+        \               </publication_date>\r\n                <pages>\r\n                  <first_page>75</first_page>\r\n
+        \                 <last_page>92</last_page>\r\n                </pages>\r\n
+        \               <publisher_item>\r\n                  <item_number item_number_type=\"article_number\">5</item_number>\r\n
+        \               </publisher_item>\r\n                <doi_data>\r\n                  <doi>10.3280/ECAG2018-001005</doi>\r\n
+        \                 <resource>http://www.francoangeli.it/riviste/Scheda_Riviste.asp?IDArticolo=61645</resource>\r\n
+        \               </doi_data>\r\n              </journal_article>\r\n            </journal>\r\n
+        \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
+        \ </query_result>\r\n</crossref_result>"
+    http_version: 
+  recorded_at: Fri, 05 Jul 2019 05:04:21 GMT
+recorded_with: VCR 3.0.3

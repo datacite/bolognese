@@ -17,9 +17,16 @@ module Bolognese
 
     def initialize(input: nil, from: nil, **options)
       id = normalize_id(input, options)
+      ra = nil
 
       if id.present?
         @from = from || find_from_format(id: id)
+
+        # mEDRA DOIs are found in the Crossref index
+        if @from == "medra"
+          @from = "crossref"
+          ra = "mEDRA"
+        end
 
         # generate name for method to call dynamically
         hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : {}
@@ -104,7 +111,7 @@ module Bolognese
       @regenerate = options[:regenerate] || read_options.present?
 
       # generate name for method to call dynamically
-      @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id }.merge(read_options)) : {}
+      @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id, ra: ra }.merge(read_options)) : {}
     end
 
     def id

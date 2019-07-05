@@ -47,7 +47,7 @@ module Bolognese
       end
 
       def read_datacite(string: nil, **options)
-        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate, :ra))
 
         doc = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks)
         if read_options.present?

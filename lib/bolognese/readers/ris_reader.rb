@@ -34,7 +34,7 @@ module Bolognese
       }
 
       def read_ris(string: nil, **options)
-        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate, :ra))
 
         meta = ris_meta(string: string)
 

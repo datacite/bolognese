@@ -27,7 +27,7 @@ module Bolognese
       }
 
       def read_bibtex(string: nil, **options)
-        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate))
+        read_options = ActiveSupport::HashWithIndifferentAccess.new(options.except(:doi, :id, :url, :sandbox, :validate, :ra))
 
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
