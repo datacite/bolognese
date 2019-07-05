@@ -6,6 +6,9 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
+    alias get_medra get_crossref
+    alias read_medra read_crossref
+
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
     attr_reader :doc, :page_start, :page_end
     attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
@@ -24,7 +27,6 @@ module Bolognese
 
         # mEDRA DOIs are found in the Crossref index
         if @from == "medra"
-          @from = "crossref"
           ra = "mEDRA"
         end
 
