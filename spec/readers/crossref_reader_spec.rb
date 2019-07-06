@@ -179,6 +179,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "component" do
+      input = "10.1371/journal.pmed.0030277.g001"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1371/journal.pmed.0030277.g001", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("https://dx.plos.org/10.1371/journal.pmed.0030277.g001")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"SaComponent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
+      expect(subject.titles).to eq([{"title"=>":{unav)"}])
+      expect(subject.descriptions).to be_empty
+      expect(subject.dates).to eq([{"date"=>"2015-10-20", "dateType"=>"Issued"}, {"date"=>"2018-10-19T21:13:42Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2015")
+      expect(subject.publisher).to eq("Public Library of Science (PLoS)")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "dataset usda" do
       input = "https://doi.org/10.2737/RDS-2018-0001"
       subject = Bolognese::Metadata.new(input: input)
@@ -249,7 +265,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3390/publications6020015", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://www.mdpi.com/2304-6775/6/2/15")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
-      expect(subject.creators).to eq("contributorType"=>"author", "name"=>":(unav)", "nameType"=>"Organizational")
+      expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
       expect(subject.titles).to eq([{"title"=>"Converting the Literature of a Scientific Field to Open Access through Global Collaboration: The Experience of SCOAP3 in Particle Physics"}])
       expect(subject.dates).to eq([{"date"=>"2018-04-09", "dateType"=>"Issued"}, {"date"=>"2018-04-10T17:58:05Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2018")
@@ -269,6 +285,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2019-07-01", "dateType"=>"Issued"}, {"date"=>"2019-07-06T10:20:03Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2019")
       expect(subject.publisher).to eq("Cambridge University Press")
+      expect(subject.agency).to eq("Crossref")
+    end
+
+    it "another book" do
+      input = "https://doi.org/10.2973/odp.proc.ir.180.2000"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2973/odp.proc.ir.180.2000", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://www-odp.tamu.edu/publications/180_IR/180TOC.HTM")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
+      expect(subject.contributors.size).to eq(3)
+      expect(subject.contributors.first).to eq("contributorType"=>"Editor", "familyName"=>"Taylor", "givenName"=>"B.", "name"=>"Taylor, B.", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Proceedings of the Ocean Drilling Program, 180 Initial Reports"}])
+      expect(subject.dates).to eq([{"date"=>"2000-02-04", "dateType"=>"Issued"}, {"date"=>"2009-02-02T21:19:43Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2000")
+      expect(subject.publisher).to eq("Ocean Drilling Program")
       expect(subject.agency).to eq("Crossref")
     end
 

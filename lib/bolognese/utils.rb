@@ -731,7 +731,7 @@ module Bolognese
         a["family"] = a["familyName"]
         a["given"] = a["givenName"]
         a["literal"] = a["name"] unless a["familyName"].present?
-        a.except("nameType", "type", "@type", "id", "@id", "name", "familyName", "givenName", "affiliation", "nameIdentifiers").compact
+        a.except("nameType", "type", "@type", "id", "@id", "name", "familyName", "givenName", "affiliation", "nameIdentifiers", "contributorType").compact
       end.presence
     end
 

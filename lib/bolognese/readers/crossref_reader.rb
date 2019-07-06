@@ -58,7 +58,7 @@ module Bolognese
           bibliographic_metadata = meta.dig("crossref", "journal", "journal_article").to_h
           program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
           journal_issue = meta.dig("crossref", "journal", "journal_issue") || {}
-          journal_article = meta.dig("crossref", "journal", "journal_article") || {}
+          journal_article = meta.dig("crossref", "journal", "journal_article") || {}
 
           resource_type = if journal_article.present?
                               "journal_article"
@@ -72,6 +72,8 @@ module Bolognese
           publisher = bibliographic_metadata.dig("institution", "institution_name")
         when "sa_component"
           bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
+          related_identifier = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "relation" }
+          journal_metadata = { "relatedIdentifier" => related_identifier.to_h.fetch("__content", nil) }
         when "database"
           bibliographic_metadata = meta.dig("crossref", "database", "dataset").to_h
           resource_type = "dataset"
@@ -88,15 +90,19 @@ module Bolognese
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type] || "JOUR"
         }.compact
 
-        titles = Array.wrap(bibliographic_metadata.dig("titles")).map do |r|
-          if r.blank? || r["title"].blank?
-            nil
-          elsif r["title"].is_a?(String)
-            { "title" => sanitize(r["title"]) }
-          else
-            { "title" => sanitize(r.dig("title", "__content__")) }.compact
-          end
-        end.compact
+        titles = if bibliographic_metadata.dig("titles").present?
+                   Array.wrap(bibliographic_metadata.dig("titles")).map do |r|
+                     if r.blank? || r["title"].blank?
+                       nil
+                     elsif r["title"].is_a?(String)
+                       { "title" => sanitize(r["title"]) }
+                     else
+                       { "title" => sanitize(r.dig("title", "__content__")) }.compact
+                     end
+                   end.compact
+                 else
+                   [{ "title" => ":{unav)" }]
+                 end
 
         date_created = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "created" }
         date_updated = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "last-update" }
@@ -188,7 +194,9 @@ module Bolognese
       end
 
       def crossref_people(bibliographic_metadata, contributor_role)
-        person = bibliographic_metadata.dig("contributors", "person_name") || [{ "name" => ":(unav)", "contributor_role"=>"author" }]
+        person = bibliographic_metadata.dig("contributors", "person_name")
+        person = [{ "name" => ":(unav)", "contributor_role"=>"author" }] if contributor_role == "author" && Array.wrap(person).select { |a| a["contributor_role"] == "author" }.blank?
+
         Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
           name_identifiers = normalize_orcid(parse_attributes(a["ORCID"])).present? ? [{ "nameIdentifier" => normalize_orcid(parse_attributes(a["ORCID"])), "nameIdentifierScheme" => "ORCID", "schemeUri"=>"https://orcid.org" }] : nil
           if a["surname"].present? || a["given_name"].present? || name_identifiers.present?
@@ -200,8 +208,7 @@ module Bolognese
               "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
           else
             { "nameType" => "Organizational",
-              "name" => a["name"],
-              "contributorType" => a["contributor_role"] }
+              "name" => a["name"] }
           end
         end.unwrap
       end
@@ -239,6 +246,10 @@ module Bolognese
             "relationType" => "IsPartOf",
             "relatedIdentifierType" => "ISSN",
             "resourceTypeGeneral" => "Collection" }.compact
+        elsif model_metadata.present? && model_metadata.fetch("relatedIdentifier", nil).present?
+          { "relatedIdentifier" => model_metadata.fetch("relatedIdentifier", nil),
+            "relationType" => "IsPartOf",
+            "relatedIdentifierType" => "DOI" }.compact
         else
           nil
         end
