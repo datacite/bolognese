@@ -47,7 +47,7 @@ module Bolognese
           book_metadata = meta.dig("crossref", "book", "book_metadata")
           book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
-          bibliographic_metadata = meta.dig("crossref", "book", "content_item").to_h
+          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || book_metadata
           resource_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
           publisher = book_metadata.present? ? book_metadata.dig("publisher", "publisher_name") : book_series_metadata.dig("publisher", "publisher_name")
         when "conference"

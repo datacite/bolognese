@@ -257,6 +257,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "book" do
+      input = "https://doi.org/10.1017/9781108348843"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1017/9781108348843", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("https://www.cambridge.org/core/product/identifier/9781108348843/type/book")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.creators).to eq("familyName"=>"Leung", "givenName"=>"Vincent S.", "name"=>"Leung, Vincent S.", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"The Politics of the Past in Early China"}])
+      expect(subject.dates).to eq([{"date"=>"2019-07-01", "dateType"=>"Issued"}, {"date"=>"2019-07-06T10:20:03Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2019")
+      expect(subject.publisher).to eq("Cambridge University Press")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "mEDRA" do
       input = "https://doi.org/10.3280/ecag2018-001005"
       subject = Bolognese::Metadata.new(input: input)
