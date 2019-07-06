@@ -8,6 +8,12 @@ module Bolognese
 
     alias get_medra get_crossref
     alias read_medra read_crossref
+    alias get_kisti get_crossref
+    alias read_kisti read_crossref
+    alias get_jalc get_crossref
+    alias read_jalc read_crossref
+    alias get_op get_crossref
+    alias read_op read_crossref
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
     attr_reader :doc, :page_start, :page_end
@@ -25,9 +31,15 @@ module Bolognese
       if id.present?
         @from = from || find_from_format(id: id)
 
-        # mEDRA DOIs are found in the Crossref index
+        # mEDRA, KISTI, JaLC and OP DOIs are found in the Crossref index
         if @from == "medra"
           ra = "mEDRA"
+        elsif @from == "kisti"
+          ra = "KISTI"
+        elsif @from == "jalc"
+          ra = "JaLC"
+        elsif @from == "op"
+          ra = "OP"
         end
 
         # generate name for method to call dynamically

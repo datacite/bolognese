@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.5012
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 06 Jul 2019 09:02:10 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dab76a2522d0d5d8076f71cc6c94bed051562403730; expires=Sun, 05-Jul-20
+        09:02:10 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4f2065f26aaa9704-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.5012",
+            "RA": "KISTI"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 06 Jul 2019 09:02:10 GMT
+- request:
+    method: get
+    uri: https://api.crossref.org/works/10.5012/bkcs.2013.34.10.2889/transform/application/vnd.crossref.unixsd+xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Link:
+      - <http://dx.doi.org/10.5012/bkcs.2013.34.10.2889>; rel="canonical", <http://ocean.kisti.re.kr/downfile/crosscheck/chemical/JAKO201332479081554.pdf>;
+        version="vor"; rel="item"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '5256'
+      Server:
+      - http-kit
+      Date:
+      - Sat, 06 Jul 2019 09:02:10 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"journal_article\">10.5012/bkcs.2013.34.10.2889</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">Korean Chemical
+        Society</crm-item>\r\n        <crm-item name=\"prefix-name\" type=\"string\">Korean
+        Chemical Society</crm-item>\r\n        <crm-item name=\"member-id\" type=\"number\">2923</crm-item>\r\n
+        \       <crm-item name=\"citation-id\" type=\"number\">65745032</crm-item>\r\n
+        \       <crm-item name=\"journal-id\" type=\"number\">98185</crm-item>\r\n
+        \       <crm-item name=\"deposit-timestamp\" type=\"number\">20131125165312</crm-item>\r\n
+        \       <crm-item name=\"owner-prefix\" type=\"string\">10.5012</crm-item>\r\n
+        \       <crm-item name=\"last-update\" type=\"date\">2016-12-15T02:40:52Z</crm-item>\r\n
+        \       <crm-item name=\"created\" type=\"date\">2013-11-25T08:03:35Z</crm-item>\r\n
+        \       <crm-item name=\"citedby-count\" type=\"number\">1</crm-item>\r\n
+        \       <doi_record>\r\n          <crossref xmlns=\"http://www.crossref.org/xschema/1.1\"
+        xsi:schemaLocation=\"http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd\">\r\n
+        \           <journal>\r\n              <journal_metadata language=\"en\">\r\n
+        \               <full_title>Bulletin of the Korean Chemical Society</full_title>\r\n
+        \               <abbrev_title>Bulletin of the Korean Chemical Society</abbrev_title>\r\n
+        \               <issn media_type=\"print\">0253-2964</issn>\r\n              </journal_metadata>\r\n
+        \             <journal_issue>\r\n                <publication_date media_type=\"print\">\r\n
+        \                 <month>10</month>\r\n                  <day>20</day>\r\n
+        \                 <year>2013</year>\r\n                </publication_date>\r\n
+        \               <journal_volume>\r\n                  <volume>34</volume>\r\n
+        \               </journal_volume>\r\n                <issue>10</issue>\r\n
+        \             </journal_issue>\r\n              <journal_article publication_type=\"full_text\">\r\n
+        \               <titles>\r\n                  <title>Synthesis, Crystal Structure
+        and Theoretical Calculation of a Novel Nickel(II) Complex with Dibromotyrosine
+        and 1,10-Phenanthroline</title>\r\n                  <original_language_title
+        />\r\n                </titles>\r\n                <contributors>\r\n                  <person_name
+        sequence=\"first\" contributor_role=\"author\">\r\n                    <given_name>Guimei</given_name>\r\n
+        \                   <surname>Huang</surname>\r\n                  </person_name>\r\n
+        \                 <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \                   <given_name>Xia</given_name>\r\n                    <surname>Zhang</surname>\r\n
+        \                 </person_name>\r\n                  <person_name sequence=\"additional\"
+        contributor_role=\"author\">\r\n                    <given_name>Yuhua</given_name>\r\n
+        \                   <surname>Fan</surname>\r\n                  </person_name>\r\n
+        \                 <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \                   <given_name>Caifeng</given_name>\r\n                    <surname>Bi</surname>\r\n
+        \                 </person_name>\r\n                  <person_name sequence=\"additional\"
+        contributor_role=\"author\">\r\n                    <given_name>Xingchen</given_name>\r\n
+        \                   <surname>Yan</surname>\r\n                  </person_name>\r\n
+        \                 <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \                   <given_name>Zhongyu</given_name>\r\n                    <surname>Zhang</surname>\r\n
+        \                 </person_name>\r\n                  <person_name sequence=\"additional\"
+        contributor_role=\"author\">\r\n                    <given_name>Nan</given_name>\r\n
+        \                   <surname>Zhang</surname>\r\n                  </person_name>\r\n
+        \               </contributors>\r\n                <publication_date media_type=\"print\">\r\n
+        \                 <month>10</month>\r\n                  <day>20</day>\r\n
+        \                 <year>2013</year>\r\n                </publication_date>\r\n
+        \               <pages>\r\n                  <first_page>2889</first_page>\r\n
+        \                 <last_page>2894</last_page>\r\n                </pages>\r\n
+        \               <publisher_item>\r\n                  <item_number>JCGMCS_2013_v34n10_2889</item_number>\r\n
+        \               </publisher_item>\r\n                <doi_data>\r\n                  <doi>10.5012/bkcs.2013.34.10.2889</doi>\r\n
+        \                 <resource>http://koreascience.or.kr/journal/view.jsp?kj=JCGMCS&amp;py=2013&amp;vnc=v34n10&amp;sp=2889</resource>\r\n
+        \                 <collection property=\"crawler-based\">\r\n                    <item
+        crawler=\"iParadigms\">\r\n                      <resource>http://ocean.kisti.re.kr/downfile/crosscheck/chemical/JAKO201332479081554.pdf</resource>\r\n
+        \                   </item>\r\n                  </collection>\r\n                </doi_data>\r\n
+        \             </journal_article>\r\n            </journal>\r\n          </crossref>\r\n
+        \       </doi_record>\r\n      </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
+    http_version: 
+  recorded_at: Sat, 06 Jul 2019 09:02:10 GMT
+recorded_with: VCR 3.0.3

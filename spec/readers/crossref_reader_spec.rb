@@ -241,6 +241,53 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("mEDRA")
     end
 
+    it "KISTI" do
+      input = "https://doi.org/10.5012/bkcs.2013.34.10.2889"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5012/bkcs.2013.34.10.2889", "identifierType"=>"DOI"}, {"identifier"=>"JCGMCS_2013_v34n10_2889", "identifierType"=>"Publisher ID"}])
+      expect(subject.url).to eq("http://koreascience.or.kr/journal/view.jsp?kj=JCGMCS&py=2013&vnc=v34n10&sp=2889")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(7)
+      expect(subject.creators.first).to eq("familyName"=>"Huang", "givenName"=>"Guimei", "name"=>"Huang, Guimei", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Synthesis, Crystal Structure and Theoretical Calculation of a Novel Nickel(II) Complex with Dibromotyrosine and 1,10-Phenanthroline"}])
+      expect(subject.dates).to eq([{"date"=>"2013-10-20", "dateType"=>"Issued"}, {"date"=>"2016-12-15T02:40:52Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2013")
+      expect(subject.publisher).to eq("Korean Chemical Society")
+      expect(subject.agency).to eq("KISTI")
+    end
+
+    it "JaLC" do
+      input = "https://doi.org/10.1241/johokanri.39.979"
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1241/johokanri.39.979", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://joi.jlc.jst.go.jp/JST.JSTAGE/johokanri/39.979?from=CrossRef")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators).to eq("familyName"=>"KUSUMOTO", "givenName"=>"Hiroyuki", "name"=>"KUSUMOTO, Hiroyuki", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Utilizing the Internet. 12 Series. Future of the Internet."}])
+      expect(subject.dates).to eq([{"date"=>"1997", "dateType"=>"Issued"}, {"date"=>"2017-12-24T22:59:53Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("1997")
+      expect(subject.publisher).to eq("Japan Science and Technology Agency (JST)")
+      expect(subject.agency).to eq("JaLC")
+    end
+
+    it "OP" do
+      input = "https://doi.org/10.2903/j.efsa.2018.5239"
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2903/j.efsa.2018.5239", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://doi.wiley.com/10.2903/j.efsa.2018.5239")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(27)
+      expect(subject.creators.first).to eq("familyName"=>"Younes", "givenName"=>"Maged", "name"=>"Younes, Maged", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Scientific opinion on the safety of green tea catechins"}])
+      expect(subject.dates).to eq([{"date"=>"2018-04", "dateType"=>"Issued"}, {"date"=>"2018-12-17T09:30:09Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("Wiley")
+      expect(subject.agency).to eq("OP")
+    end
+
     it "multiple titles" do
       input = "https://doi.org/10.4000/dms.865"
       subject = Bolognese::Metadata.new(input: input)

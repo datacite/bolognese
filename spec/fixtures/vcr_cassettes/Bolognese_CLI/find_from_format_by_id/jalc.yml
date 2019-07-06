@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.11367
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 06 Jul 2019 09:00:10 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d6d42164f165ab1f33df4f0c9718ecc5d1562403610; expires=Sun, 05-Jul-20
+        09:00:10 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4f2063037cea6479-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.11367",
+            "RA": "JaLC"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 06 Jul 2019 09:00:10 GMT
+recorded_with: VCR 3.0.3

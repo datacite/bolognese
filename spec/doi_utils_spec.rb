@@ -215,6 +215,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("mEDRA")
     end
 
+    it "kisti" do
+      doi = "https://doi.org/10.5012/bkcs.2013.34.10.2889"
+      response = subject.get_doi_ra(doi)
+      expect(response).to eq("KISTI")
+    end
+
+    it "jalc" do
+      doi = "https://doi.org/10.11367/grsj1979.12.283"
+      response = subject.get_doi_ra(doi)
+      expect(response).to eq("JaLC")
+    end
+
+    it "op" do
+      doi = "https://doi.org/10.2791/81962"
+      response = subject.get_doi_ra(doi)
+      expect(response).to eq("OP")
+    end
+
     it "not a valid prefix" do
       doi = "https://doi.org/10.a/dryad.8515x"
       response = subject.get_doi_ra(doi)

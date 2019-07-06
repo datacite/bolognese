@@ -19,6 +19,26 @@ describe Bolognese::CLI do
       expect(subject.find_from_format_by_id(id)).to eq("datacite")
     end
 
+    it "medra" do
+      id = "https://doi.org/10.1392/roma081203"
+      expect(subject.find_from_format_by_id(id)).to eq("medra")
+    end
+
+    it "kisti" do
+      id = "https://doi.org/10.5012/bkcs.2013.34.10.2889"
+      expect(subject.find_from_format_by_id(id)).to eq("kisti")
+    end
+
+    it "jalc" do
+      id = "https://doi.org/10.11367/grsj1979.12.283"
+      expect(subject.find_from_format_by_id(id)).to eq("jalc")
+    end
+
+    it "op" do
+      id = "https://doi.org/10.2791/81962"
+      expect(subject.find_from_format_by_id(id)).to eq("op")
+    end
+
     it "codemeta" do
       id = "https://github.com/datacite/maremma"
       expect(subject.find_from_format_by_id(id)).to eq("codemeta")
