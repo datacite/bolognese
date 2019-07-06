@@ -751,6 +751,7 @@ module Bolognese
       custom_scrubber = Bolognese::WhitelistScrubber.new(options)
 
       if text.is_a?(String)
+        # remove excessive internal whitespace with squish
         Loofah.scrub_fragment(text, custom_scrubber).to_s.squish
       elsif text.is_a?(Hash)
         sanitize(text.fetch(content, nil))
