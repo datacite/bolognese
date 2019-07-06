@@ -193,7 +193,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.6071/z7wc73")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["name"]).to eq("Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek\n      meteorological data, soil moisture and temperature, snow depth and air\n      temperature")
+      expect(json["name"]).to eq("Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature")
       expect(json["author"].length).to eq(6)
       expect(json["author"][2]).to eq("@id"=>"https://orcid.org/0000-0002-8862-1404", "@type"=>"Person", "familyName"=>"Stacy", "givenName"=>"Erin", "name"=>"Erin Stacy", "affiliation" => {"@type"=>"Organization", "name"=>"UC Merced"})
       expect(json["includedInDataCatalog"]).to be_nil
