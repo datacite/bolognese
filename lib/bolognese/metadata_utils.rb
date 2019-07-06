@@ -65,6 +65,16 @@ module Bolognese
 
     attr_reader :name_detector, :reverse
 
+    # some dois in the Crossref index are from other registration agencies
+    alias get_medra get_crossref
+    alias read_medra read_crossref
+    alias get_kisti get_crossref
+    alias read_kisti read_crossref
+    alias get_jalc get_crossref
+    alias read_jalc read_crossref
+    alias get_op get_crossref
+    alias read_op read_crossref
+
     # replace DOI in XML if provided in options
     def raw
       r = string.present? ? string.strip : nil

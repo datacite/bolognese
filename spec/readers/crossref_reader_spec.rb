@@ -227,6 +227,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "yet another book chapter" do
+      input = "https://doi.org/10.4018/978-1-4666-1891-6.ch004"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4018/978-1-4666-1891-6.ch004", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://services.igi-global.com/resolvedoi/resolve.aspx?doi=10.4018/978-1-4666-1891-6.ch004")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.creators).to eq("familyName"=>"Bichot", "givenName"=>"Charles-Edmond", "name"=>"Bichot, Charles-Edmond", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Unsupervised and Supervised Image Segmentation Using Graph Partitioning"}])
+      expect(subject.dates).to eq([{"date"=>"2012-08-08", "dateType"=>"Issued"}, {"date"=>"2019-07-02T17:17:21Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2012")
+      expect(subject.publisher).to eq("IGI Global")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "missing creator" do
       input = "https://doi.org/10.3390/publications6020015"
       subject = Bolognese::Metadata.new(input: input)

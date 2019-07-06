@@ -6,15 +6,6 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
-    alias get_medra get_crossref
-    alias read_medra read_crossref
-    alias get_kisti get_crossref
-    alias read_kisti read_crossref
-    alias get_jalc get_crossref
-    alias read_jalc read_crossref
-    alias get_op get_crossref
-    alias read_op read_crossref
-
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
     attr_reader :doc, :page_start, :page_end
     attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
