@@ -751,7 +751,7 @@ module Bolognese
       custom_scrubber = Bolognese::WhitelistScrubber.new(options)
 
       if text.is_a?(String)
-        Loofah.scrub_fragment(text, custom_scrubber).to_s.gsub(/\u00a0/, ' ').squish
+        Loofah.scrub_fragment(text, custom_scrubber).to_s.squish
       elsif text.is_a?(Hash)
         sanitize(text.fetch(content, nil))
       elsif text.is_a?(Array)
