@@ -123,14 +123,19 @@ module Bolognese
     end
 
     def citeproc_hsh
-      page = container.to_h["firstPage"].present? ? [container["firstPage"], container["lastPage"]].join("-") : nil
+      page = container.to_h["firstPage"].present? ? [container["firstPage"], container["lastPage"]].compact.join("-") : nil
+      if Array.wrap(creators).size == 1 && Array.wrap(creators).first.fetch("name", nil) == ":(unav)"
+        author = nil
+      else
+        author = to_citeproc(creators)
+      end
 
       {
         "type" => types["citeproc"],
         "id" => normalize_doi(doi),
         "categories" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
         "language" => language,
-        "author" => to_citeproc(creators),
+        "author" => author,
         "contributor" => to_citeproc(contributors),
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
         "submitted" => Array.wrap(dates).find { |d| d["dateType"] == "Submitted" }.to_h.fetch("__content__", nil),

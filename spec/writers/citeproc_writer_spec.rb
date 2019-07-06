@@ -125,6 +125,38 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts"=>[[2012]])
     end
 
+    it "with only first page" do
+      input = "https://doi.org/10.1371/journal.pone.0214986"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      expect(subject.valid?).to be true
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article-journal")
+      expect(json["id"]).to eq("https://doi.org/10.1371/journal.pone.0214986")
+      expect(json["DOI"]).to eq("10.1371/journal.pone.0214986")
+      expect(json["title"]).to eq("River metrics by the public, for the public")
+      expect(json["author"]).to eq([{"family"=>"Weber", "given"=>"Matthew A."}, {"family"=>"Ringold", "given"=>"Paul L."}])
+      expect(json["container-title"]).to eq("PLOS ONE")
+      expect(json["volume"]).to eq("14")
+      expect(json["page"]).to eq("e0214986")
+      expect(json["issued"]).to eq("date-parts"=>[[2019, 5, 8]])
+    end
+
+    it "missing creator" do
+      input = "https://doi.org/10.3390/publications6020015"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      expect(subject.valid?).to be true
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article-journal")
+      expect(json["id"]).to eq("https://doi.org/10.3390/publications6020015")
+      expect(json["DOI"]).to eq("10.3390/publications6020015")
+      expect(json["title"]).to eq("Converting the Literature of a Scientific Field to Open Access through Global Collaboration: The Experience of SCOAP3 in Particle Physics")
+      expect(json["author"]).to be_nil
+      expect(json["container-title"]).to eq("Publications")
+      expect(json["publisher"]).to eq("MDPI AG")
+      expect(json["page"]).to eq("15")
+      expect(json["issued"]).to eq("date-parts"=>[[2018, 4, 9]])
+    end
+
     it "container title" do
       input = "https://doi.org/10.6102/ZIS146"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")

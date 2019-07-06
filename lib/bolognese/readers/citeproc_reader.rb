@@ -46,7 +46,11 @@ module Bolognese
           "ris" => CP_TO_RIS_TRANSLATIONS[schema_org] || "GEN"
         }.compact
 
-        creators = get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
+        creators = if meta.fetch("author", nil).present?
+          get_authors(from_citeproc(Array.wrap(meta.fetch("author", nil))))
+        else
+          [{ "nameType" => "Organizational", "name" => ":(unav)" }]
+        end
         contributors = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
         dates = if meta.fetch("issued", nil).present?
           [{ "date" => get_date_from_date_parts(meta.fetch("issued", nil)),
