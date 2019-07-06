@@ -1,0 +1,129 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.2737
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 06 Jul 2019 10:52:18 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dcec61dea5110a3d9d0a929a92b24b6a61562410338; expires=Sun, 05-Jul-20
+        10:52:18 GMT; path=/; domain=.doi.org; HttpOnly
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4f2107485e6397c6-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.2737",
+            "RA": "Crossref"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 06 Jul 2019 10:52:18 GMT
+- request:
+    method: get
+    uri: https://api.crossref.org/works/10.2737/rds-2018-0001/transform/application/vnd.crossref.unixsd+xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Link:
+      - <http://dx.doi.org/10.2737/rds-2018-0001>; rel="canonical", <http://orcid.org/0000-0003-2583-1778>;
+        title="Christine A. Ribic"; rel="author", <http://orcid.org/0000-0003-4606-044X>;
+        title="Pamela J. Pietz"; rel="author"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '3627'
+      Server:
+      - http-kit
+      Date:
+      - Sat, 06 Jul 2019 10:52:19 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"dataset\">10.2737/RDS-2018-0001</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">USDA Forest Service</crm-item>\r\n
+        \       <crm-item name=\"prefix-name\" type=\"string\">USDA Forest Service,
+        Research &amp; Development</crm-item>\r\n        <crm-item name=\"member-id\"
+        type=\"number\">1450</crm-item>\r\n        <crm-item name=\"citation-id\"
+        type=\"number\">92231967</crm-item>\r\n        <crm-item name=\"book-id\"
+        type=\"number\">2005400</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
+        type=\"number\">201807131330</crm-item>\r\n        <crm-item name=\"owner-prefix\"
+        type=\"string\">10.2737</crm-item>\r\n        <crm-item name=\"last-update\"
+        type=\"date\">2018-07-13T19:35:20Z</crm-item>\r\n        <crm-item name=\"created\"
+        type=\"date\">2017-08-09T19:44:20Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
+        type=\"number\">1</crm-item>\r\n        <doi_record>\r\n          <crossref
+        xmlns=\"http://www.crossref.org/xschema/1.1\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.1
+        http://doi.crossref.org/schemas/unixref1.1.xsd\">\r\n            <database>\r\n
+        \             <database_metadata language=\"en\">\r\n                <titles>\r\n
+        \                 <title>Forest Service Research Data Archive</title>\r\n
+        \               </titles>\r\n              </database_metadata>\r\n              <dataset
+        dataset_type=\"collection\">\r\n                <contributors>\r\n                  <person_name
+        contributor_role=\"author\" sequence=\"first\">\r\n                    <given_name>Christine
+        A.</given_name>\r\n                    <surname>Ribic</surname>\r\n                    <affiliation>U.S.
+        Geological Survey</affiliation>\r\n                    <ORCID authenticated=\"true\">http://orcid.org/0000-0003-2583-1778</ORCID>\r\n
+        \                 </person_name>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n                    <given_name>Pamela J.</given_name>\r\n
+        \                   <surname>Pietz</surname>\r\n                    <affiliation>U.S.
+        Geological Survey</affiliation>\r\n                    <ORCID authenticated=\"true\">https://orcid.org/0000-0003-4606-044X</ORCID>\r\n
+        \                 </person_name>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n                    <given_name>Nicola</given_name>\r\n
+        \                   <surname>Koper</surname>\r\n                    <affiliation>University
+        of Manitoba</affiliation>\r\n                  </person_name>\r\n                  <person_name
+        contributor_role=\"author\" sequence=\"additional\">\r\n                    <given_name>Christoph
+        S.</given_name>\r\n                    <surname>Ng</surname>\r\n                    <affiliation>University
+        of Manitoba</affiliation>\r\n                  </person_name>\r\n                </contributors>\r\n
+        \               <titles>\r\n                  <title>Fledging times of grassland
+        birds</title>\r\n                </titles>\r\n                <doi_data>\r\n
+        \                 <doi>10.2737/RDS-2018-0001</doi>\r\n                  <resource>https://www.fs.usda.gov/rds/archive/Product/RDS-2018-0001</resource>\r\n
+        \               </doi_data>\r\n              </dataset>\r\n            </database>\r\n
+        \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
+        \ </query_result>\r\n</crossref_result>"
+    http_version: 
+  recorded_at: Sat, 06 Jul 2019 10:52:19 GMT
+recorded_with: VCR 3.0.3

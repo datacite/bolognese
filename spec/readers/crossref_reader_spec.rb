@@ -179,6 +179,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "dataset usda" do
+      input = "https://doi.org/10.2737/RDS-2018-0001"
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2737/rds-2018-0001", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("https://www.fs.usda.gov/rds/archive/Product/RDS-2018-0001")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"Dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
+      expect(subject.creators.length).to eq(4)
+      expect(subject.creators.first).to eq("familyName" => "Ribic","givenName" => "Christine A.","name" => "Ribic, Christine A.","nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2583-1778", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"nameType" => "Personal")
+      expect(subject.titles).to eq([{"title"=>"Fledging times of grassland birds"}])
+      expect(subject.descriptions).to be_empty
+      expect(subject.dates).to eq([{"date"=>"2017-08-09", "dateType"=>"Issued"}, {"date"=>"2018-07-13T19:35:20Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2017")
+      expect(subject.publisher).to eq("USDA Forest Service")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "book chapter" do
       input = "https://doi.org/10.1007/978-3-662-46370-3_13"
       subject = Bolognese::Metadata.new(input: input)
@@ -260,7 +277,7 @@ describe Bolognese::Metadata, vcr: true do
     it "JaLC" do
       input = "https://doi.org/10.1241/johokanri.39.979"
       subject = Bolognese::Metadata.new(input: input)
-      #expect(subject.valid?).to be true
+      expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1241/johokanri.39.979", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://joi.jlc.jst.go.jp/JST.JSTAGE/johokanri/39.979?from=CrossRef")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")

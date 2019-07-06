@@ -72,6 +72,9 @@ module Bolognese
           publisher = bibliographic_metadata.dig("institution", "institution_name")
         when "sa_component"
           bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
+        when "database"
+          bibliographic_metadata = meta.dig("crossref", "database", "dataset").to_h
+          resource_type = "dataset"
         end
 
         resource_type = (resource_type || model).to_s.underscore.camelcase.presence
@@ -95,12 +98,13 @@ module Bolognese
           end
         end.compact
 
+        date_created = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "created" }
         date_updated = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "last-update" }
         date_updated = { "date" => date_updated.fetch("__content__", nil), "dateType" => "Updated" } if date_updated.present?
         dates = [
-          { "date" => crossref_date_published(bibliographic_metadata), "dateType" => "Issued" }, date_updated
+          { "date" => crossref_date_published(bibliographic_metadata) || date_created.to_h.fetch("__content__", "")[0..9].presence, "dateType" => "Issued" }, date_updated
         ].compact
-        publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : nil
+        publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : date_created.to_h.fetch("__content__", "")[0..3].presence
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
