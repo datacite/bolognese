@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.2.5)
+    bolognese (1.2.6)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -97,7 +97,7 @@ GEM
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    maremma (4.2.3)
+    maremma (4.2.6)
       activesupport (>= 4.2.5, < 6)
       addressable (>= 2.3.6)
       builder (~> 3.2, >= 3.2.2)

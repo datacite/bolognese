@@ -85,6 +85,16 @@ module Bolognese
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type] || "JOUR"
         }.compact
 
+        titles = Array.wrap(bibliographic_metadata.dig("titles")).map do |r|
+          if r.blank? || r["title"].blank?
+            nil
+          elsif r["title"].is_a?(String)
+            { "title" => sanitize(r["title"]) }
+          else
+            { "title" => sanitize(r.dig("title", "__content__")) }.compact
+          end
+        end.compact
+
         date_updated = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "last-update" }
         date_updated = { "date" => date_updated.fetch("__content__", nil), "dateType" => "Updated" } if date_updated.present?
         dates = [
@@ -118,7 +128,7 @@ module Bolognese
           "types" => types,
           "doi" => doi_from_url(doi),
           "url" => parse_attributes(bibliographic_metadata.dig("doi_data", "resource"), first: true),
-          "titles" => Array.wrap(bibliographic_metadata.dig("titles")),
+          "titles" => titles,
           "identifiers" => identifiers,
           "creators" => crossref_people(bibliographic_metadata, "author"),
           "contributors" => crossref_people(bibliographic_metadata, "editor"),
