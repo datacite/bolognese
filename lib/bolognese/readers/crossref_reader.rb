@@ -47,7 +47,7 @@ module Bolognese
           book_metadata = meta.dig("crossref", "book", "book_metadata")
           book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
-          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || book_metadata
+          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || book_metadata || book_series_metadata
           resource_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
           publisher = book_metadata.present? ? book_metadata.dig("publisher", "publisher_name") : book_series_metadata.dig("publisher", "publisher_name")
         when "conference"
@@ -127,6 +127,14 @@ module Bolognese
             "issue" => journal_issue.dig("issue"),
             "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
             "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
+        elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?
+          issn = book_series_metadata.dig("series_metadata", "issn")
+
+          { "type" => "Book Series",
+            "identifier" => issn,
+            "identifierType" => issn.present? ? "ISSN" : nil,
+            "title" => book_series_metadata.dig("series_metadata", "titles", "title"),
+            "volume" => bibliographic_metadata.fetch("volume", nil) }.compact
         else
           nil
         end
@@ -169,6 +177,9 @@ module Bolognese
         elsif parse_attributes(bibliographic_metadata.fetch("item_number", nil)).present?
           { "identifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
             "identifierType" => "Publisher ID" }
+        elsif parse_attributes(bibliographic_metadata.fetch("isbn", nil)).present?
+          { "identifier" => parse_attributes(bibliographic_metadata.fetch("isbn", nil), first: true),
+            "identifierType" => "ISBN" }
         end
       end
 

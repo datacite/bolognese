@@ -317,7 +317,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1017/9781108348843"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1017/9781108348843", "identifierType"=>"DOI"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1017/9781108348843", "identifierType"=>"DOI"}, {"identifier"=>"9781108348843", "identifierType"=>"ISBN"}])
       expect(subject.url).to eq("https://www.cambridge.org/core/product/identifier/9781108348843/type/book")
       expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq("familyName"=>"Leung", "givenName"=>"Vincent S.", "name"=>"Leung, Vincent S.", "nameType"=>"Personal")
@@ -342,6 +342,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2000-02-04", "dateType"=>"Issued"}, {"date"=>"2009-02-02T21:19:43Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2000")
       expect(subject.publisher).to eq("Ocean Drilling Program")
+      expect(subject.agency).to eq("Crossref")
+    end
+
+    it "yet another book" do
+      input = "https://doi.org/10.1029/ar035"
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1029/ar035", "identifierType"=>"DOI"}, {"identifier"=>"0-87590-181-6", "identifierType"=>"ISBN"}])
+      expect(subject.url).to eq("http://doi.wiley.com/10.1029/AR035")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.creators).to eq("familyName"=>"McGinnis", "givenName"=>"Richard Frank", "name"=>"McGinnis, Richard Frank", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Biogeography of Lanternfishes (Myctophidae) South of 30°S"}])
+      expect(subject.dates).to eq([{"date"=>"1982", "dateType"=>"Issued"}, {"date"=>"2019-06-15T05:11:12Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("1982")
+      expect(subject.publisher).to eq("American Geophysical Union")
+      expect(subject.related_identifiers.length).to eq(44)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1016/0031-0182(70)90103-3", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(subject.container).to eq("identifier"=>"0066-4634", "identifierType"=>"ISSN", "title"=>"Antarctic Research Series", "type"=>"Book Series", "volume"=>"35")
       expect(subject.agency).to eq("Crossref")
     end
 
