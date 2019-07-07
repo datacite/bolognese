@@ -219,6 +219,32 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "normalize issn" do
+    it "from array" do
+      input = [{"media_type"=>"print", "__content__"=>"13040855"}, {"media_type"=>"electronic", "__content__"=>"21468427"}]
+      response = subject.normalize_issn(input)
+      expect(response).to eq("2146-8427")
+    end
+
+    it "from empty array" do
+      input = []
+      response = subject.normalize_issn(input)
+      expect(response).to be_nil
+    end
+
+    it "from hash" do
+      input = {"media_type"=>"electronic", "__content__"=>"21468427"}
+      response = subject.normalize_issn(input)
+      expect(response).to eq("2146-8427")
+    end
+
+    it "from string" do
+      input = "2146-8427"
+      response = subject.normalize_issn(input)
+      expect(response).to eq("2146-8427")
+    end
+  end
+
   context "to_schema_org" do
     it "with id" do
       author = {"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }

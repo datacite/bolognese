@@ -102,8 +102,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2007")
       expect(subject.publisher).to eq("The Japanese Society of Physical Fitness and Sports Medicine")
       expect(subject.related_identifiers.length).to eq(1)
-      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0039-906X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
-      expect(subject.container).to eq("firstPage"=>"60", "identifier"=>"0039-906X", "identifierType"=>"ISSN", "issue"=>"1", "lastPage"=>"60", "title"=>"Japanese Journal of Physical Fitness and Sports Medicine", "type"=>"Journal", "volume"=>"56")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1881-4751", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.container).to eq("firstPage"=>"60", "identifier"=>"1881-4751", "identifierType"=>"ISSN", "issue"=>"1", "lastPage"=>"60", "title"=>"Japanese Journal of Physical Fitness and Sports Medicine", "type"=>"Journal", "volume"=>"56")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -159,9 +159,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2012")
       expect(subject.publisher).to eq("Hindawi Limited")
       expect(subject.related_identifiers.length).to eq(18)
-      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2090-1836", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2090-1844", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1378/chest.12-0045", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.container).to eq("firstPage"=>"1", "identifier"=>"2090-1836", "identifierType"=>"ISSN", "lastPage"=>"7", "title"=>"Pulmonary Medicine", "type"=>"Journal", "volume"=>"2012")
+      expect(subject.container).to eq("firstPage"=>"1", "identifier"=>"2090-1844", "identifierType"=>"ISSN", "lastPage"=>"7", "title"=>"Pulmonary Medicine", "type"=>"Journal", "volume"=>"2012")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -178,8 +178,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2015-07", "dateType"=>"Issued"}, {"date"=>"2018-09-23T21:22:53Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Elsevier BV")
-      expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"00142999", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection"}])
-      expect(subject.container).to eq("firstPage"=>"303", "identifier"=>"00142999", "identifierType"=>"ISSN", "lastPage"=>"312", "title"=>"European Journal of Pharmacology", "type"=>"Journal", "volume"=>"759")
+      expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"0014-2999", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection"}])
+      expect(subject.container).to eq("firstPage"=>"303", "identifier"=>"0014-2999", "identifierType"=>"ISSN", "lastPage"=>"312", "title"=>"European Journal of Pharmacology", "type"=>"Journal", "volume"=>"759")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -197,8 +197,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2013")
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.related_identifiers.size).to eq(35)
-      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0018-067X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
-      expect(subject.container).to eq("firstPage"=>"122", "identifier"=>"0018-067X", "identifierType"=>"ISSN", "issue"=>"2", "lastPage"=>"130", "title"=>"Heredity", "type"=>"Journal", "volume"=>"111")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1365-2540", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.container).to eq("firstPage"=>"122", "identifier"=>"1365-2540", "identifierType"=>"ISSN", "issue"=>"2", "lastPage"=>"130", "title"=>"Heredity", "type"=>"Journal", "volume"=>"111")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -348,7 +348,7 @@ describe Bolognese::Metadata, vcr: true do
     it "yet another book" do
       input = "https://doi.org/10.1029/ar035"
       subject = Bolognese::Metadata.new(input: input)
-      #expect(subject.valid?).to be true
+      expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1029/ar035", "identifierType"=>"DOI"}, {"identifier"=>"0-87590-181-6", "identifierType"=>"ISBN"}])
       expect(subject.url).to eq("http://doi.wiley.com/10.1029/AR035")
       expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
@@ -444,7 +444,7 @@ describe Bolognese::Metadata, vcr: true do
     it "markup" do
       input = "https://doi.org/10.1098/rspb.2017.0132"
       subject = Bolognese::Metadata.new(input: input)
-      #expect(subject.valid?).to be true
+      expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1098/rspb.2017.0132", "identifierType"=>"DOI"}, {"identifier"=>"/royprsb/284/1855/20170132.atom", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("http://rspb.royalsocietypublishing.org/lookup/doi/10.1098/rspb.2017.0132")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
@@ -472,9 +472,27 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Wiley")
       expect(subject.related_identifiers.length).to eq(49)
-      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0028646X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0028-646X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/pmic.201400530", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.container).to eq("firstPage"=>"929", "identifier"=>"0028646X", "identifierType"=>"ISSN", "issue"=>"3", "lastPage"=>"935", "title"=>"New Phytologist", "type"=>"Journal", "volume"=>"218")
+      expect(subject.container).to eq("firstPage"=>"929", "identifier"=>"0028-646X", "identifierType"=>"ISSN", "issue"=>"3", "lastPage"=>"935", "title"=>"New Phytologist", "type"=>"Journal", "volume"=>"218")
+      expect(subject.agency).to eq("Crossref")
+    end
+
+    it "journal issue" do
+      input = "https://doi.org/10.6002/ect.2015.0371"
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6002/ect.2015.0371", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://ectrx.org/forms/ectrxcontentshow.php?doi_id=10.6002/ect.2015.0371")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"JournalIssue", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"PublicationIssue")
+      expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
+      expect(subject.titles).to eq([{"title"=>":{unav)"}])
+      expect(subject.dates).to eq([{"date"=>"2018-10", "dateType"=>"Issued"}, {"date"=>"2018-10-03T12:09:12Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("Baskent University")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2146-8427", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.container).to eq("identifier"=>"2146-8427", "identifierType"=>"ISSN", "issue"=>"5", "title"=>"Experimental and Clinical Transplantation", "type"=>"Journal", "volume"=>"16")
       expect(subject.agency).to eq("Crossref")
     end
 

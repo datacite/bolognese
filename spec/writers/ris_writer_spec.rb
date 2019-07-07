@@ -40,7 +40,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[15]).to eq("VL  - 2012")
       expect(ris[16]).to eq("SP  - 1")
       expect(ris[17]).to eq("EP  - 7")
-      expect(ris[18]).to eq("SN  - 2090-1836")
+      expect(ris[18]).to eq("SN  - 2090-1844")
       expect(ris[19]).to eq("ER  - ")
     end
 

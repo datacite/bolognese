@@ -55,11 +55,11 @@ module Bolognese
           bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper").to_h
         when "journal"
           journal_metadata = meta.dig("crossref", "journal", "journal_metadata") || {}
-          bibliographic_metadata = meta.dig("crossref", "journal", "journal_article").to_h
-          program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
           journal_issue = meta.dig("crossref", "journal", "journal_issue") || {}
           journal_article = meta.dig("crossref", "journal", "journal_article") || {}
-
+          bibliographic_metadata = journal_article.presence || journal_issue.presence || journal_metadata
+          program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
+          
           resource_type = if journal_article.present?
                               "journal_article"
                             elsif journal_issue.present?
@@ -117,7 +117,7 @@ module Bolognese
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
         container = if journal_metadata.present? || book_metadata.present?
-          issn = parse_attributes(journal_metadata.to_h.fetch("issn", nil), first: true)
+          issn = normalize_issn(journal_metadata.to_h.fetch("issn", nil))
 
           { "type" => "Journal",
             "identifier" => issn,
@@ -128,7 +128,7 @@ module Bolognese
             "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
             "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
         elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?
-          issn = book_series_metadata.dig("series_metadata", "issn")
+          issn = normalize_issn(book_series_metadata.dig("series_metadata", "issn"))
 
           { "type" => "Book Series",
             "identifier" => issn,
@@ -274,7 +274,7 @@ module Bolognese
 
       def crossref_is_part_of(model_metadata)
         if model_metadata.present? && model_metadata.fetch("issn", nil).present?
-          { "relatedIdentifier" => parse_attributes(model_metadata.fetch("issn", nil), first: true),
+          { "relatedIdentifier" => normalize_issn(model_metadata.fetch("issn", nil)),
             "relationType" => "IsPartOf",
             "relatedIdentifierType" => "ISSN",
             "resourceTypeGeneral" => "Collection" }.compact

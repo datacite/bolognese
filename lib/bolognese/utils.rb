@@ -492,6 +492,32 @@ module Bolognese
       end.unwrap
     end
 
+    # pick electronic issn if there are multiple
+    # format issn as xxxx-xxxx
+    def normalize_issn(input, options={})
+      content = options[:content] || "__content__"
+
+      issn = if input.blank?
+        nil
+      elsif input.is_a?(String) && options[:content].nil?
+        input
+      elsif input.is_a?(Hash)
+        input.fetch(content, nil)
+      elsif input.is_a?(Array)
+        a = input.find { |a| a["media_type"] == "electronic" } || input.first
+        a.fetch(content, nil)
+      end
+
+      case issn.to_s.length
+      when 9
+        issn
+      when 8
+        issn[0..3] + "-" + issn[4..7]
+      else
+        nil
+      end
+    end
+
     # find Creative Commons or OSI license in licenses array, normalize url and name
     def normalize_licenses(licenses)
       standard_licenses = Array.wrap(licenses).map { |l| URI.parse(l["url"]) }.select { |li| li.host && li.host[/(creativecommons.org|opensource.org)$/] }
