@@ -92,10 +92,12 @@ module Bolognese
 
         titles = if bibliographic_metadata.dig("titles").present?
                    Array.wrap(bibliographic_metadata.dig("titles")).map do |r|
-                     if r.blank? || r["title"].blank?
+                     if r.blank? || (r["title"].blank? && r["original_language_title"].blank?)
                        nil
                      elsif r["title"].is_a?(String)
                        { "title" => sanitize(r["title"]) }
+                     elsif r["original_language_title"].present?
+                       { "title" => sanitize(r.dig("original_language_title", "__content__")), "lang" => r.dig("original_language_title", "language") }
                      else
                        { "title" => sanitize(r.dig("title", "__content__")) }.compact
                      end
@@ -235,13 +237,18 @@ module Bolognese
             end
           end
 
-          { "funderIdentifier" => funder_identifier,
-            "funderIdentifierType" => funder_identifier_type,
-            "funderName" => funder_name,
-            "awardTitle" => award_title,
-            "awardNumber" => award_number,
-            "awardUri" => award_uri }.compact
-        end
+          # funder_name is required in DataCite
+          if funder_name.present?
+            { "funderIdentifier" => funder_identifier,
+              "funderIdentifierType" => funder_identifier_type,
+              "funderName" => funder_name,
+              "awardTitle" => award_title,
+              "awardNumber" => award_number,
+              "awardUri" => award_uri }.compact
+          else
+            nil
+          end
+        end.compact
       end
 
       def crossref_date_published(bibliographic_metadata)
