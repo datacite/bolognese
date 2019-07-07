@@ -48,8 +48,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
-      expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"CreativeWork"}, {"@type"=>"CreativeWork", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
-        "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"CreativeWork"}, {"@type"=>"CreativeWork", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
+      expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
+        "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -57,7 +57,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
-      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154", "@type"=>"CreativeWork"})
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154", "@type"=>"ScholarlyArticle"})
     end
 
     it "rdataone" do
@@ -132,7 +132,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["contentSize"]).to eq("15.7M")
       expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz")
       expect(json["includedInDataCatalog"]).to eq("@id"=>"https://www.ebi.ac.uk/miriam/main/datatypes/MIR:00000663", "@type"=>"DataCatalog", "name"=>"GTEx")
-      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1038/nmeth.4407", "@type"=>"CreativeWork"})
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1038/nmeth.4407", "@type"=>"ScholarlyArticle"})
     end
 
     it "series information" do
