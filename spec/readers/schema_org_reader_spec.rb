@@ -42,6 +42,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
     end
 
+    it "BlogPosting with type as array" do
+      input = fixture_path + 'schema_org_type_as_array.json'
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
+      expect(subject.creators).to eq([{"affiliation"=>"DataCite","familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType"=>"Personal"}])
+      expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
+      expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")
+      expect(subject.subjects).to eq([{"subject"=>"datacite"}, {"subject"=>"doi"}, {"subject"=>"metadata"}, {"subject"=>"featured"}])
+      expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Issued"}, {"date"=>"2016-12-20", "dateType"=>"Created"}, {"date"=>"2016-12-20", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2016")
+      expect(subject.related_identifiers.length).to eq(3)
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(subject.publisher).to eq("DataCite")
+    end
+
     it "zenodo" do
       input = "https://www.zenodo.org/record/1196821"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")

@@ -1,0 +1,41 @@
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://doi.org/10.5438/4k3m-nyvg",
+  "name": "Eating your own Dog Food",
+  "url": "https://blog.datacite.org/eating-your-own-dog-food/",
+  "author": [{
+    "@type": ["Person"],
+    "@id": "https://orcid.org/0000-0003-1419-2405",
+    "givenName": "Martin",
+    "familyName": "Fenner",
+    "name": "Martin Fenner",
+    "affiliation": "DataCite"
+  }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "DataCite"
+  },
+  "dateCreated": "2016-12-20",
+  "datePublished": "2016-12-20",
+  "dateModified": "2016-12-20",
+  "keywords": "datacite, doi, metadata, featured",
+  "version": "1.0",
+  "description": "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "image": "/images/2016/12/230785.jpg",
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://doi.org/10.5438/0000-00SS",
+    "name": "DataCite Blog"
+  },
+  "citation": [{
+      "@type": "CreativeWork",
+      "@id": "https://doi.org/10.5438/0012"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://doi.org/10.5438/55E5-T5C0"
+    }
+  ]
+}
