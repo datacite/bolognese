@@ -29,6 +29,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("creators", "creator")[2]).to eq("creatorName" => {"__content__"=>"Hernandez, Beatriz", "nameType"=>"Personal"},
         "familyName" => "Hernandez",
         "givenName" => "Beatriz",
+        "affiliation" => ["War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA", "Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA"],
         "nameIdentifier" => {"nameIdentifierScheme"=>"ORCID", "schemeURI"=>"https://orcid.org", "__content__"=>"https://orcid.org/0000-0003-2043-4925"})
     end
 

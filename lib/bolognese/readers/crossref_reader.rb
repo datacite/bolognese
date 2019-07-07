@@ -205,6 +205,7 @@ module Bolognese
               "name" => [a["surname"], a["given_name"]].join(", "),
               "givenName" => a["given_name"],
               "familyName" => a["surname"],
+              "affiliation" => a["affiliation"],
               "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
           else
             { "nameType" => "Organizational",
