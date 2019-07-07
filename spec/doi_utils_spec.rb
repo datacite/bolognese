@@ -246,6 +246,34 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "validate doi" do
+    it "doi" do
+      doi = "10.5061/dryad.8515"
+      response = subject.validate_doi(doi)
+      expect(response).to eq("10.5061/dryad.8515")
+    end
+  end
+
+  context "validate funder doi" do
+    it "funder doi" do
+      doi = "10.13039/501100001711"
+      response = subject.validate_funder_doi(doi)
+      expect(response).to eq("https://doi.org/10.13039/501100001711")
+    end
+
+    it "funder doi without prefix" do
+      doi = "501100001711"
+      response = subject.validate_funder_doi(doi)
+      expect(response).to eq("https://doi.org/10.13039/501100001711")
+    end
+
+    it "non-funder doi" do
+      doi = "10.5061/dryad.8515"
+      response = subject.validate_funder_doi(doi)
+      expect(response).to be_nil
+    end
+  end
+
   context "validate prefix" do
     it "doi" do
       doi = "10.5061/dryad.8515"

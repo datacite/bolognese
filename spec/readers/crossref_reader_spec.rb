@@ -67,6 +67,28 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "journal article with funding" do
+      input = "https://doi.org/10.3389/fpls.2019.00816"
+      subject = Bolognese::Metadata.new(input: input)
+      #expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3389/fpls.2019.00816", "identifierType"=>"DOI"}, {"identifier"=>"816", "identifierType"=>"Publisher ID"}])
+      expect(subject.url).to eq("https://www.frontiersin.org/article/10.3389/fpls.2019.00816/full")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(4)
+      expect(subject.creators.first).to eq("familyName"=>"Fortes", "givenName"=>"Ana Margarida", "name"=>"Fortes, Ana Margarida", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Transcriptional Modulation of Polyamine Metabolism in Fruit Species Under Abiotic and Biotic Stress"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.dates).to eq([{"date"=>"2019-07-02", "dateType"=>"Issued"}, {"date"=>"2019-07-02T11:08:31Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2019")
+      expect(subject.publisher).to eq("Frontiers Media SA")
+      expect(subject.funding_references).to eq([{"awardNumber"=>"UID/MULTI/04046/2019"}, {"awardNumber"=>"CA17111", "funderIdentifier"=>"https://doi.org/10.13039/501100000921", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"COST"}])
+      expect(subject.related_identifiers.length).to eq(70)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1664-462X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.17660/actahortic.2004.632.41", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(subject.container).to eq("identifier"=>"1664-462X", "identifierType"=>"ISSN", "title"=>"Frontiers in Plant Science", "type"=>"Journal", "volume"=>"10")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "posted_content" do
       input = "https://doi.org/10.1101/097196"
       subject = Bolognese::Metadata.new(input: input)

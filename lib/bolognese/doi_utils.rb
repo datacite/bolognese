@@ -8,6 +8,15 @@ module Bolognese
       doi.delete("\u200B").downcase if doi.present?
     end
 
+    def validate_funder_doi(doi)
+      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.13039\/)?(5.+)\z/.match(doi)).last
+      # remove non-printing whitespace and downcase
+      if doi.present?
+        doi.delete("\u200B").downcase 
+        "https://doi.org/10.13039/#{doi}"
+      end
+    end
+
     def validate_prefix(doi)
       Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}).*\z/.match(doi)).last
     end

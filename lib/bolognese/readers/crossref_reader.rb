@@ -216,18 +216,31 @@ module Bolognese
 
       def crossref_funding_reference(program_metadata)
         fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
-        Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" }.map do |f|
-          f = Array.wrap(f.fetch("assertion", nil)).first
-          funder_identifier = normalize_id(f.dig("assertion", "__content__"))
-          funder_identifier_type = funder_identifier.present? ?  "Crossref Funder ID" : nil
-          award_title = f.fetch("awardTitle", nil).present? ? f.fetch("awardTitle") : nil
+        Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" && a["assertion"].present? }.map do |f|
+          funder_identifier = nil
+          funder_identifier_type = nil
+          funder_name = nil
+          award_title = nil
+          award_number = nil
+          award_uri = nil
+          
+          Array.wrap(f.fetch("assertion")).each do |a|
+            if a.fetch("name") == "award_number"
+              award_number = a.fetch("__content__", nil)
+              award_uri = a.fetch("awardURI", nil)
+            elsif a.fetch("name") == "funder_name"
+              funder_name = a.fetch("__content__", nil).to_s.squish.presence
+              funder_identifier = validate_funder_doi(a.dig("assertion", "__content__"))
+              funder_identifier_type = "Crossref Funder ID" if funder_identifier.present?
+            end
+          end
 
           { "funderIdentifier" => funder_identifier,
             "funderIdentifierType" => funder_identifier_type,
-            "funderName" => f.fetch("__content__", nil).to_s.strip.presence,
+            "funderName" => funder_name,
             "awardTitle" => award_title,
-            "awardNumber" => f.dig("awardNumber", "__content__"),
-            "awardUri" => f.dig("awardNumber", "awardURI") }.compact
+            "awardNumber" => award_number,
+            "awardUri" => award_uri }.compact
         end
       end
 
