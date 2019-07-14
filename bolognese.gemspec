@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'csl-styles', '~> 1.0', '>= 1.0.1.8'
   s.add_dependency 'iso8601', '~> 0.9.1'
   s.add_dependency 'postrank-uri', '~> 1.0', '>= 1.0.18'
-  s.add_dependency 'json-ld-preloaded', '~> 3.0', '>= 3.0.2'
+  s.add_dependency 'json-ld-preloaded', '= 3.0.2'
   s.add_dependency 'jsonlint', '~> 0.2.0'
   s.add_dependency 'oj', '>= 2.8.3'
   s.add_dependency 'rdf-turtle', '~> 2.2'
