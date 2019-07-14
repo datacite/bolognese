@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("url")).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("creators").length).to eq(7)
-      expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi", "affiliation" => ["Department of Medicine, Veterans Affairs Palo Alto Health Care System, 3801 Miranda Avenue MC-, Palo Alto, CA 94304-1207, USA", "Occupational Health Strategic Health Care Group, Office of Public Health, Veterans Health Administration, Washington, DC 20006, USA", "Division of Emergency Medicine, Stanford University School of Medicine, Stanford, CA 94304, USA", "War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"])
+      expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi", "affiliation" => [{"name"=>"Department of Medicine, Veterans Affairs Palo Alto Health Care System, 3801 Miranda Avenue MC-, Palo Alto, CA 94304-1207, USA"}, {"name"=>"Occupational Health Strategic Health Care Group, Office of Public Health, Veterans Health Administration, Washington, DC 20006, USA"}, {"name"=>"Division of Emergency Medicine, Stanford University School of Medicine, Stanford, CA 94304, USA"}, {"name"=>"War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"}])
     end
 
     it "Crossref DOI" do
@@ -53,7 +53,7 @@ describe Bolognese::Metadata, vcr: true do
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(datacite.fetch("creators").length).to eq(3)
-      expect(datacite.fetch("creators").first).to eq("affiliation"=>"NCEAS", "nameType"=>"Personal", "name" => "Jones, Matt",
+      expect(datacite.fetch("creators").first).to eq("affiliation"=>[{"name"=>"NCEAS"}], "nameType"=>"Personal", "name" => "Jones, Matt",
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "givenName"=>"Matt", "familyName"=>"Jones")
       expect(datacite.fetch("version")).to eq("2.0.0")
     end
@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
-      expect(datacite.fetch("creators")).to eq([{"affiliation"=>"DataCite",
+      expect(datacite.fetch("creators")).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
         "familyName"=>"Fenner",
         "givenName"=>"Martin",
         "name"=>"Fenner, Martin",

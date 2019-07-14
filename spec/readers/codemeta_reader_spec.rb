@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/qeg0-3gm3", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creators).to eq([{"affiliation"=>"DataCite",
+      expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
         "familyName"=>"Fenner",
         "givenName"=>"Martin",
         "name"=>"Fenner, Martin",
@@ -44,7 +44,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5063/f1m61h5x", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creators).to eq([{"affiliation"=>"NCEAS",
+      expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"NCEAS"}],
         "familyName"=>"Jones",
         "givenName"=>"Matt",
         "name"=>"Jones, Matt",
@@ -53,7 +53,7 @@ describe Bolognese::Metadata, vcr: true do
             "nameIdentifierScheme"=>"ORCID",
             "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"},
-       {"affiliation"=>"NCEAS",
+       {"affiliation"=>[{"name"=>"NCEAS"}],
         "familyName"=>"Slaughter",
         "givenName"=>"Peter",
         "name"=>"Slaughter, Peter",
@@ -80,7 +80,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/qeg0-3gm3", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
-      expect(subject.creators).to eq([{"affiliation"=>"DataCite",
+      expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
         "familyName"=>"Fenner",
         "givenName"=>"Martin",
         "name"=>"Fenner, Martin",

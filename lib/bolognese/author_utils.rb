@@ -51,7 +51,7 @@ module Bolognese
                  "givenName" => given_name,
                  "familyName" => family_name,
                  "nameIdentifiers" => name_identifiers,
-                 "affiliation" => parse_attributes(author.fetch("affiliation", nil)),
+                 "affiliation" => get_affiliations(author.fetch("affiliation", nil)),
                  "contributorType" => contributor_type }.compact
 
       return author if family_name.present?
@@ -74,10 +74,14 @@ module Bolognese
           "givenName" => given_name,
           "familyName" => family_name,
           "nameIdentifiers" => name_identifiers,
-          "affiliation" => parse_attributes(author.fetch("affiliation", nil)),
+          "affiliation" => author.fetch("affiliation", nil),
           "contributorType" => contributor_type }.compact
       else
-        { "nameType" => name_type, "name" => name }.compact
+        { "nameType" => name_type, 
+          "name" => name,
+          "nameIdentifiers" => name_identifiers,
+          "affiliation" => author.fetch("affiliation", nil),
+          "contributorType" => contributor_type }.compact
       end
     end
 
@@ -127,6 +131,25 @@ module Bolognese
           "{" + a["name"] + "}"
         end
       end.join(" and ").presence
+    end
+
+    def get_affiliations(affiliations)
+      Array.wrap(affiliations).map do |a|
+        if a.is_a?(String)
+          id = nil
+          name = a.squish
+          affiliation_identifier_scheme = nil
+        else
+          id = a["affiliationIdentifier"]
+          id = !id.to_s.start_with?("https://") && a["schemeURI"].present? ? normalize_id(a["schemeURI"] + id) : normalize_id(id)
+          name = a["__content__"].squish
+          affiliation_identifier_scheme = a["affiliationIdentifierScheme"]
+        end
+
+        { "id" => id,
+          "name" => name,
+          "affiliationIdentifierScheme" => affiliation_identifier_scheme }.compact
+      end.presence
     end
   end
 end

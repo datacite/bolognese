@@ -576,7 +576,20 @@ module Bolognese
 
     def to_schema_org_creators(element)
       element = Array.wrap(element).map do |c|
-        c["affiliation"] = { "@type" => "Organization", "name" => Array.wrap(c["affiliation"]).first } if c["affiliation"].present?
+        c["affiliation"] = Array.wrap(c["affiliation"]).map do |a|
+          if a.is_a?(String)
+            name = a
+            id = nil
+          else
+            name = a["name"]
+            id = a["id"]
+          end
+
+          { 
+            "@type" => "Organization", 
+            "@id" => id,
+            "name" => name }.compact
+        end.unwrap
         c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
         c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
         c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]
@@ -586,7 +599,20 @@ module Bolognese
 
     def to_schema_org_contributors(element)
       element = Array.wrap(element).map do |c|
-        c["affiliation"] = { "@type" => "Organization", "name" => Array.wrap(c["affiliation"]).first } if c["affiliation"].present?
+        c["affiliation"] = Array.wrap(c["affiliation"]).map do |a|
+          if a.is_a?(String)
+            name = a
+            id = nil
+          else
+            name = a["name"]
+            id = a["id"]
+          end
+
+          { 
+            "@type" => "Organization", 
+            "@id" => id,
+            "name" => name }.compact
+        end.unwrap
         c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
         c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
         c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]

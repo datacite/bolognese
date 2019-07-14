@@ -218,7 +218,7 @@ module Bolognese
               "name" => [a["surname"], a["given_name"]].join(", "),
               "givenName" => a["given_name"],
               "familyName" => a["surname"],
-              "affiliation" => a["affiliation"],
+              "affiliation" => Array.wrap(a["affiliation"]).map { |a| { "name" => a }}.presence,
               "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
           else
             { "nameType" => "Organizational",

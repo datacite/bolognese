@@ -68,33 +68,8 @@
                     </xs:element>
                     <xs:element name="givenName" minOccurs="0"/>
                     <xs:element name="familyName" minOccurs="0"/>
-                    <xs:element name="nameIdentifier" minOccurs="0" maxOccurs="unbounded">
-                      <xs:complexType>
-                        <xs:annotation>
-                          <xs:documentation>Uniquely identifies a creator or contributor, according to various identifier schemes.</xs:documentation>
-                        </xs:annotation>
-                        <xs:simpleContent>
-                          <xs:extension base="nonemptycontentStringType">
-                            <xs:attribute name="nameIdentifierScheme" use="required"/>
-                            <xs:attribute name="schemeURI" type="xs:anyURI" use="optional"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="affiliation" minOccurs="0" maxOccurs="unbounded">
-                      <xs:complexType>
-                        <xs:annotation>
-                          <xs:documentation>Uniquely identifies an affiliation, according to various identifier schemes.</xs:documentation>
-                        </xs:annotation>
-                        <xs:simpleContent>
-                          <xs:extension base="nonemptycontentStringType">
-                            <xs:attribute name="affiliationIdentifier" use="optional"/>
-                            <xs:attribute name="affiliationIdentifierScheme" use="optional"/>
-                            <xs:attribute name="schemeURI" type="xs:anyURI" use="optional"/>
-                          </xs:extension>
-                        </xs:simpleContent>
-                      </xs:complexType>
-                    </xs:element>
+                    <xs:element name="nameIdentifier" type="nameIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="affiliation" type="affiliation" minOccurs="0" maxOccurs="unbounded"/>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -200,33 +175,8 @@
                   </xs:element>
                   <xs:element name="givenName" minOccurs="0"/>
                   <xs:element name="familyName" minOccurs="0"/>
-                  <xs:element name="nameIdentifier" minOccurs="0" maxOccurs="unbounded">
-                    <xs:complexType>
-                      <xs:annotation>
-                        <xs:documentation>Uniquely identifies a creator or contributor, according to various identifier schemes.</xs:documentation>
-                      </xs:annotation>
-                      <xs:simpleContent>
-                        <xs:extension base="nonemptycontentStringType">
-                          <xs:attribute name="nameIdentifierScheme" use="required"/>
-                          <xs:attribute name="schemeURI" type="xs:anyURI" use="optional"/>
-                        </xs:extension>
-                      </xs:simpleContent>
-                    </xs:complexType>
-                  </xs:element>
-                  <xs:element name="affiliation" minOccurs="0" maxOccurs="unbounded">
-                    <xs:complexType>
-                      <xs:annotation>
-                        <xs:documentation>Uniquely identifies an affiliation, according to various identifier schemes.</xs:documentation>
-                      </xs:annotation>
-                      <xs:simpleContent>
-                        <xs:extension base="nonemptycontentStringType">
-                          <xs:attribute name="affiliationIdentifier" use="optional"/>
-                          <xs:attribute name="affiliationIdentifierScheme" use="optional"/>
-                          <xs:attribute name="schemeURI" type="xs:anyURI" use="optional"/>
-                        </xs:extension>
-                      </xs:simpleContent>
-                    </xs:complexType>
-                  </xs:element>
+                  <xs:element name="nameIdentifier" type="nameIdentifier" minOccurs="0" maxOccurs="unbounded"/>
+                  <xs:element name="affiliation" type="affiliation" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
                 <xs:attribute name="contributorType" type="contributorType" use="required"/>
               </xs:complexType>
@@ -473,6 +423,31 @@ Use the complete title of a license and include version information if applicabl
       <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
+  <!-- definition for nameIdentifier -->
+  <xs:complexType name="nameIdentifier">
+    <xs:annotation>
+      <xs:documentation>Uniquely identifies a creator or contributor, according to various identifier schemes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nonemptycontentStringType">
+        <xs:attribute name="nameIdentifierScheme" use="required"/>
+        <xs:attribute name="schemeURI" type="xs:anyURI" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <!-- definition for affiliation -->
+  <xs:complexType name="affiliation">
+    <xs:annotation>
+      <xs:documentation>Uniquely identifies an affiliation, according to various identifier schemes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="nonemptycontentStringType">
+        <xs:attribute name="affiliationIdentifier" use="optional"/>
+        <xs:attribute name="affiliationIdentifierScheme" use="optional"/>
+        <xs:attribute name="schemeURI" type="xs:anyURI" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <!-- defines the value for a year -->
   <xs:simpleType name="yearType">
     <xs:restriction base="xs:token">
