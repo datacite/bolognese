@@ -186,6 +186,30 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["contentUrl"]).to include("s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram")
     end
 
+    it "affiliation identifier" do
+      input = fixture_path + 'datacite-example-affiliation.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.5072/example-full")
+      expect(json["@type"]).to eq("SoftwareSourceCode")
+      expect(json["name"]).to eq("Full DataCite XML Example")
+      expect(json["author"].length).to eq(3)
+      expect(json["author"].first).to eq("@id" => "https://orcid.org/0000-0001-5000-0007",
+        "@type" => "Person",
+        "affiliation" => {"@id"=>"https://ror.org/04wxnsj81", "@type"=>"Organization", "name"=>"DataCite"},
+        "familyName" => "Miller",
+        "givenName" => "Elizabeth",
+        "name" => "Elizabeth Miller")
+      expect(json["identifier"]).to eq(
+        [{"@type"=>"PropertyValue",
+          "propertyID"=>"DOI",
+          "value"=>"https://doi.org/10.5072/example-full"},
+         {"@type"=>"PropertyValue",
+          "propertyID"=>"URL",
+          "value"=>"https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml"}]
+      )
+    end
+
     it "geo_location_point" do
       input = fixture_path + 'datacite-example-geolocation-2.xml'
       doi = "10.6071/Z7WC73"

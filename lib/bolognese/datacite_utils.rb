@@ -76,7 +76,7 @@ module Bolognese
         xml.nameIdentifier(ni["nameIdentifier"], 'nameIdentifierScheme' => ni["nameIdentifierScheme"], 'schemeURI' => ni["schemeUri"])
       end
       Array.wrap(person["affiliation"]).each do |affiliation|
-        attributes = { "affiliationIdentifierScheme" => affiliation["affiliationIdentifierScheme"], "schemeURI" => affiliation["schemeUri"] }.compact
+        attributes = { "affiliationIdentifier" => affiliation["affiliationIdentifier"], "affiliationIdentifierScheme" => affiliation["affiliationIdentifierScheme"], "schemeURI" => affiliation["schemeUri"] }.compact
         xml.affiliation(affiliation["name"], attributes) 
       end
     end

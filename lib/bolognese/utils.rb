@@ -582,7 +582,7 @@ module Bolognese
             id = nil
           else
             name = a["name"]
-            id = a["id"]
+            id = a["affiliationIdentifier"]
           end
 
           { 
@@ -605,7 +605,7 @@ module Bolognese
             id = nil
           else
             name = a["name"]
-            id = a["id"]
+            id = a["affiliationIdentifier"]
           end
 
           { 

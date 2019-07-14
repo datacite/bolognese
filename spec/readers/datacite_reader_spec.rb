@@ -91,18 +91,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("COMP")
       expect(subject.types["citeproc"]).to eq("article")
       expect(subject.creators.length).to eq(3)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "affiliation" => [{"affiliationIdentifierScheme"=>"ROR", "id"=>"https://ror.org/04wxnsj81", "name"=>"DataCite"}],
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "affiliation" => [{"affiliationIdentifier"=>"https://ror.org/04wxnsj81", "affiliationIdentifierScheme"=>"ROR", "name"=>"DataCite"}],
         "familyName" => "Miller",
         "givenName" => "Elizabeth",
         "name" => "Miller, Elizabeth",
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-5000-0007", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],)
-      expect(subject.creators.dig(1, "affiliation")).to eq([{"affiliationIdentifierScheme"=>"ROR",
-        "id"=>"https://ror.org/05gq02987",
+      expect(subject.creators.dig(1, "affiliation")).to eq([{"affiliationIdentifier"=>"https://ror.org/05gq02987",
+        "affiliationIdentifierScheme"=>"ROR",
         "name"=>"Brown University"},
-       {"affiliationIdentifierScheme"=>"GRID",
-          "id"=>"https://grid.ac/institutes/grid.268117.b",
-          "name"=>"Wesleyan University"}])
-      expect(subject.creators.dig(2, "affiliation")).to eq([{"affiliationIdentifierScheme"=>"ROR", "id"=>"https://ror.org/05gq02987", "name"=>"Brown University"}])
+       {"affiliationIdentifier"=>"https://grid.ac/institutes/grid.268117.b",
+        "affiliationIdentifierScheme"=>"GRID",
+        "name"=>"Wesleyan University"}])
+      expect(subject.creators.dig(2, "affiliation")).to eq([{"affiliationIdentifier"=>"https://ror.org/05gq02987",
+        "affiliationIdentifierScheme"=>"ROR", "name"=>"Brown University"}])
       expect(subject.titles).to eq([{"lang"=>"en-US", "title"=>"Full DataCite XML Example"}, {"lang"=>"en-US", "title"=>"Demonstration of DataCite Properties.", "titleType"=>"Subtitle"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/example-full",
            "identifierType"=>"DOI"},
@@ -112,8 +113,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.rights_list).to eq([{"lang"=>"en-US", "rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.contributors).to eq([{"nameType"=>"Personal", "name"=>"Starr, Joan", "givenName"=>"Joan", "familyName"=>"Starr", "nameIdentifiers"=>[{"nameIdentifier"=>"https://orcid.org/0000-0002-7285-027X", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}], "affiliation"=>
-        [{"affiliationIdentifierScheme"=>"ROR",
-          "id"=>"https://ror.org/03yrm5c26",
+        [{"affiliationIdentifier"=>"https://ror.org/03yrm5c26",
+          "affiliationIdentifierScheme"=>"ROR",
           "name"=>"California Digital Library"}], "contributorType"=>"ProjectLeader"}])
       expect(subject.subjects).to eq([{"lang"=>"en-US", "schemeUri"=>"http://dewey.info/", "subject"=>"000 computer science", "subjectScheme"=>"dewey"}])
       expect(subject.dates).to eq([{"date"=>"2017-09-13", "dateInformation"=>"Updated with 4.2 properties", "dateType"=>"Updated"}, {"date"=>"2014", "dateType"=>"Issued"}])
