@@ -143,7 +143,7 @@ module Bolognese
         else
           affiliation_identifier = a["affiliationIdentifier"]
           affiliation_identifier = !affiliation_identifier.to_s.start_with?("https://") && a["schemeURI"].present? ? normalize_id(a["schemeURI"] + affiliation_identifier) : normalize_id(affiliation_identifier)
-          name = a["__content__"].squish
+          name = a["__content__"].to_s.squish.presence
           affiliation_identifier_scheme = a["affiliationIdentifierScheme"]
           scheme_uri = a["SchemeURI"]
         end

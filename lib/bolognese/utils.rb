@@ -579,15 +579,15 @@ module Bolognese
         c["affiliation"] = Array.wrap(c["affiliation"]).map do |a|
           if a.is_a?(String)
             name = a
-            id = nil
+            affiliation_identifier = nil
           else
             name = a["name"]
-            id = a["affiliationIdentifier"]
+            affiliation_identifier = a["affiliationIdentifier"]
           end
 
           { 
             "@type" => "Organization", 
-            "@id" => id,
+            "@id" => affiliation_identifier,
             "name" => name }.compact
         end.unwrap
         c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
@@ -602,15 +602,15 @@ module Bolognese
         c["affiliation"] = Array.wrap(c["affiliation"]).map do |a|
           if a.is_a?(String)
             name = a
-            id = nil
+            affiliation_identifier = nil
           else
             name = a["name"]
-            id = a["affiliationIdentifier"]
+            affiliation_identifier = a["affiliationIdentifier"]
           end
 
           { 
             "@type" => "Organization", 
-            "@id" => id,
+            "@id" => affiliation_identifier,
             "name" => name }.compact
         end.unwrap
         c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
