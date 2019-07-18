@@ -135,7 +135,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "xs:string attributes" do
-      input = "https://doi.org/10.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09"
+      input = fixture_path + 'pure.xml'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.types["schemaOrg"]).to eq("Dataset")
