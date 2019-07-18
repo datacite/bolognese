@@ -134,22 +134,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
-    # it "xs:string attributes" do
-    #   input = "https://doi.org/10.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09"
-    #   subject = Bolognese::Metadata.new(input: input)
-    #   expect(subject.valid?).to be true
-    #   expect(subject.types["schemaOrg"]).to eq("Dataset")
-    #   expect(subject.types["resourceType"]).to eq("Dataset")
-    #   expect(subject.types["resourceTypeGeneral"]).to eq("Audiovisual")
-    #   expect(subject.creators.length).to eq(14)
-    #   expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Haywood, Raphaelle Dawn", "givenName"=>"Raphaelle Dawn", "familyName"=>"Haywood", "affiliation" => "School of Physics and Astronomy")
-    #   expect(subject.titles).to eq([{"lang"=>"en", "title"=>"Data underpinning - The Sun as a planet-host star: Proxies from SDO images for HARPS radial-velocity variations"}])
-    #   expect(subject.dates).to eq([{"date"=>"2016-01-20", "dateType"=>"Available"}, {"date"=>"2016", "dateType"=>"Issued"}])
-    #   expect(subject.publication_year).to eq("2016")
-    #   expect(subject.publisher).to eq("University of St Andrews")
-    #   expect(subject.agency).to eq("DataCite")
-    #   expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
-    # end
+    it "xs:string attributes" do
+      input = "https://doi.org/10.17630/bb43e6a3-72e0-464c-9fdd-fbe5d3e56a09"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.types["resourceType"]).to eq("Dataset")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Audiovisual")
+      expect(subject.creators.length).to eq(14)
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Haywood, Raphaelle Dawn", "givenName"=>"Raphaelle Dawn", "familyName"=>"Haywood", "affiliation" => [{"name"=>"School of Physics and Astronomy"}])
+      expect(subject.titles).to eq([{"lang"=>"en", "title"=>"Data underpinning - The Sun as a planet-host star: Proxies from SDO images for HARPS radial-velocity variations"}])
+      expect(subject.dates).to eq([{"date"=>"2016-01-20", "dateType"=>"Available"}, {"date"=>"2016", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2016")
+      expect(subject.publisher).to eq("University of St Andrews")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    end
 
     it "multiple licenses" do
       input = "https://doi.org/10.5281/ZENODO.48440"
