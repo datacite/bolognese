@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:24:40 GMT
+      - Thu, 18 Jul 2019 06:22:03 GMT
       Content-Type:
       - text/html;charset=utf-8
       Content-Length:
@@ -25,27 +25,29 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dfe7ff57802eb62e981674c628b2e250d1562181880; expires=Thu, 02-Jul-20
-        19:24:40 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=dbfb192940272fcfaae4300f461cd118f1563430923; expires=Fri, 17-Jul-20
+        06:22:03 GMT; path=/; domain=.doi.org; HttpOnly
       Vary:
       - Accept
       Location:
       - http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
       Expires:
-      - Wed, 03 Jul 2019 19:29:18 GMT
+      - Thu, 18 Jul 2019 06:30:13 GMT
+      Strict-Transport-Security:
+      - max-age=3600; includeSubDomains
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0b3db10fcf68ca-CDG
+      - 4f825be9cba19aaa-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
         <html><head><title>Handle Redirect</title></head>
         <body><a href="http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339">http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339</a></body></html>
     http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:24:40 GMT
+  recorded_at: Thu, 18 Jul 2019 06:22:03 GMT
 - request:
     method: get
     uri: http://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
@@ -54,7 +56,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -63,7 +65,7 @@ http_interactions:
       message: Found
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:24:44 GMT
+      - Thu, 18 Jul 2019 06:22:04 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -85,7 +87,7 @@ http_interactions:
         <p>The document has moved <a href="https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339">here</a>.</p>
         </body></html>
     http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:24:44 GMT
+  recorded_at: Thu, 18 Jul 2019 06:22:04 GMT
 - request:
     method: get
     uri: https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1339
@@ -94,7 +96,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -103,7 +105,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:24:46 GMT
+      - Thu, 18 Jul 2019 06:22:04 GMT
       Server:
       - Apache
       Strict-Transport-Security:
@@ -160,7 +162,7 @@ http_interactions:
         R. Shrestha, R.B. Cook, G. Prakash, S.K. Santhana Vannan, and A.G. Boyer.
         2017. Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA.
         ORNL DAAC, Oak Ridge, Tennessee, USA. https://doi.org/10.3334/ORNLDAAC/1339\",\"dateCreated\":\"2016-11-22\",\"locationCreated\":\"Oak
-        Ridge, Tennessee, USA\",\"thumbnailUrl\":\"\",\"temporalCoverage\":\"2011-08-03/2019-06-24\",\"version\":\"1\",\"name\":\"Soil
+        Ridge, Tennessee, USA\",\"thumbnailUrl\":\"\",\"temporalCoverage\":\"2011-08-03/2019-07-11\",\"version\":\"1\",\"name\":\"Soil
         Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA\",\"description\":\"This
         data set contains in-situ soil moisture profile and soil temperature data
         collected at 20-minute intervals at SoilSCAPE (Soil moisture Sensing Controller
@@ -185,7 +187,7 @@ http_interactions:
         DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"encodingFormat\":\"netCDF\",\"description\":\"This
         link allows direct data access via Earthdata Login to: Soil Moisture Profiles
         and Temperature Data from SoilSCAPE Sites, USA\",\"@type\":\"DataDownload\"},{\"provider\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
-        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"contentSize\":\"388.8
+        DAAC\",\"url\":\"https://daac.ornl.gov\",\"@type\":\"Organization\"},\"contentSize\":\"389.2
         MB\",\"name\":\"Download Dataset: Soil Moisture Profiles and Temperature Data
         from SoilSCAPE Sites, USA\",\"description\":\"Download entire dataset bundle:
         Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA\",\"url\":\"https://daac.ornl.gov/cgi-bin/download.pl?ds_id=1339&source=schema_org_metadata\",\"encodingFormat\":\"netCDF\",\"publisher\":{\"logo\":\"https://daac.ornl.gov/daac_logo.png\",\"name\":\"ORNL
@@ -415,20 +417,20 @@ http_interactions:
         eui-badge--md\">N: 42.30</li><li class=\"coverage-badge eui-badge--md\">S:
         31.74</li><li class=\"coverage-badge eui-badge--md\">E: -83.66</li><li class=\"coverage-badge
         eui-badge--md\">W: -120.99</li></ol><h3 class=\"coverage\">Temporal Coverage</h3><span
-        class=\"coverage-badge eui-badge--md\">2011-08-03 to 2019-06-24</span></aside>
+        class=\"coverage-badge eui-badge--md\">2011-08-03 to 2019-07-11</span></aside>
         \   <h2 class=\"dsoverview\">Overview</h2>\n    <div class=\"dsoverview\">\n
         \   <table id=\"ds_overview_table\"><tbody>\n<tr><th scope=\"row\">DOI</th><td>https://doi.org/10.3334/ORNLDAAC/1339</td></tr>\n<tr><th
         scope=\"row\">Projects</th><td><ul class=\"associated-projects\"><li><a href=\"/cgi-bin/dataset_lister.pl?p=6\"><span
         class=\"eui-badge--md primary-project\">EOS LAND VAL</span></a></li><li><span
         class=\"eui-badge--md\">AirMOSS</span></li></ul></td></tr><tr><th scope=\"row\">Published</th><td>2016-11-22</td></tr><tr><th
         scope=\"row\">Updated</th><td>2017-07-20</td></tr><tr><th scope=\"row\">Usage</th><td
-        title=\"143752 total files since 2016-10-06\">1163 downloads</td></tr><tr><th
+        title=\"143755 total files since 2016-10-06\">1166 downloads</td></tr><tr><th
         scope=\"row\">Citations</th><td><a href=\"/cgi-bin/show_pubs.pl?ds=1339\">3
         publications cited this dataset</a></td></tr>    </tbody></table>\n    </div>\n<div
         class=\"action_links\"><a class=\"eui-btn--green eui-btn--pill eui-btn--lg\"
         title=\"Sign-in to download\" href=\"javascript:alert('Sign-in to download
         data')\"><i class=\"fa fa-download pad-right\" aria-hidden=\"true\"></i>Download
-        Data<span>388.8 MB</span></a><a class=\"eui-btn--blue eui-btn--lg\" title=\"\"
+        Data<span>389.2 MB</span></a><a class=\"eui-btn--blue eui-btn--lg\" title=\"\"
         href=\"/LAND_VAL/guides/SoilSCAPE.html\"><i class=\"fa fa-file-text pad-right\"
         aria-hidden=\"true\"></i>User Guide</a><a class=\"eui-btn--lg eui-btn--lg\"
         title=\"\" href=\"#resources\"><i class=\"fa fa-level-down pad-right\" aria-hidden=\"true\"></i>Resources</a></div>
@@ -700,5 +702,5 @@ http_interactions:
         = 0;\nDS_IN_CART = 0;\nUSER_IS_LOGGED_IN = 00;\nINGEST_HOST = '';\n</script>\n<script
         src=\"/js/granule-lister.min.js?v1.1\"></script>\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:24:46 GMT
+  recorded_at: Thu, 18 Jul 2019 06:22:05 GMT
 recorded_with: VCR 3.0.3

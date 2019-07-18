@@ -22,7 +22,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
-      expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType"=>"Personal"}])
+      expect(subject.creators).to eq([{"affiliation"=>[{"affiliationIdentifier"=>"https://ror.org/04wxnsj81",
+        "affiliationIdentifierScheme"=>"ROR",
+        "name"=>"DataCite"}],"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")
       expect(subject.subjects).to eq([{"subject"=>"datacite"}, {"subject"=>"doi"}, {"subject"=>"metadata"}, {"subject"=>"featured"}])

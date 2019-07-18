@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - nginx/1.12.2
       Date:
-      - Wed, 03 Jul 2019 19:24:54 GMT
+      - Thu, 18 Jul 2019 06:21:57 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
@@ -41,16 +41,16 @@ http_interactions:
       X-Ratelimit-Remaining:
       - '4999'
       X-Ratelimit-Reset:
-      - '1562185494'
+      - '1563434517'
       Retry-After:
       - '3599'
       Set-Cookie:
-      - session=73006de5e90d2a33_5d1d0106.esa4kiKRPp6MBCldFKMJc7Xp324; Expires=Sat,
-        03-Aug-2019 19:24:54 GMT; Secure; HttpOnly; Path=/
+      - session=7acbee452f7cabc8_5d301005.hsmTfGq1-ccGIC585cnsz5PQkNM; Expires=Sun,
+        18-Aug-2019 06:21:57 GMT; Secure; HttpOnly; Path=/
       X-Session-Id:
-      - 73006de5e90d2a33_5d1d0106
+      - 7acbee452f7cabc8_5d301005
       X-Request-Id:
-      - 643194c9f7af635ac62fddcc85f764d6
+      - eda6c86512cdc75206e5768a6fe55c21
     body:
       encoding: ASCII-8BIT
       string: "\n<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n<meta
@@ -320,7 +320,7 @@ http_interactions:
         \   <div class=\"col-sm-4 col-md-4 col-right\">\n\n\n      \n      <div class=\"well\"><!--
         Stats -->\n<div class=\"row stats-box\">\n  <div id=\"accordion\">\n    <!--
         Banner --><div class=\"row\">\n      <div class=\"col-sm-6\">\n        <span
-        class=\"stats-data\">1,148</span>\n      </div>\n      <div class=\"col-sm-6\">\n
+        class=\"stats-data\">1,160</span>\n      </div>\n      <div class=\"col-sm-6\">\n
         \       <span class=\"stats-data\">231</span>\n      </div>\n    </div>\n
         \   <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <i class=\"fa
         fa-eye \" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Total
@@ -338,7 +338,7 @@ http_interactions:
         versions</th>\n          <th>This version</th>\n        </tr><tr>\n          <td>Views
         <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip
         data-placement=\"top\" title=\"Total views.\" data-original-title=\"Total
-        views.\"></i></td><td>1,148</td><td>284</td>\n        </tr>\n        <tr>\n
+        views.\"></i></td><td>1,160</td><td>291</td>\n        </tr>\n        <tr>\n
         \         <td>Downloads <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\"
         tooltip data-placement=\"top\" title=\"Total downloads.\" data-original-title=\"Total
         downloads.\"></i></td><td>231</td><td>61</td>\n        </tr>\n        <tr>\n
@@ -348,7 +348,7 @@ http_interactions:
         \       <tr>\n          <td>Unique views <i class=\"fa fa-question-circle
         text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Views
         in one hour user-sessions are counted only once.\" data-original-title=\"Views
-        in one hour user-sessions are counted only once.\"></i></td><td>857</td><td>246</td>\n
+        in one hour user-sessions are counted only once.\"></i></td><td>867</td><td>253</td>\n
         \       </tr>\n        <tr>\n          <td>Unique downloads <i class=\"fa
         fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\"
         title=\"Downloads in one hour user-sessions are counted only once.\" data-original-title=\"Downloads
@@ -576,5 +576,5 @@ http_interactions:
         g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);\n})();\n</script>\n
         \ </body>\n</html>"
     http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:24:54 GMT
+  recorded_at: Thu, 18 Jul 2019 06:21:57 GMT
 recorded_with: VCR 3.0.3

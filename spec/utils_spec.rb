@@ -261,6 +261,41 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "from_schema_org_creators" do
+    it "with affiliation" do
+      authors = [{"@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner", "affiliation" => {
+        "@id" => "https://ror.org/04wxnsj81",
+        "name" => "DataCite",
+        "@type" => "Organization"
+      }}]
+      response = subject.from_schema_org_creators(authors)
+      expect(response).to eq([{"affiliation"=>
+        {"affiliationIdentifier"=>"https://ror.org/04wxnsj81",
+         "affiliationIdentifierScheme"=>"ROR",
+         "__content__"=>"DataCite",
+         "schemeUri"=>"https://ror.org/"},
+         "creatorName"=>{"__content__"=>"Martin Fenner", "nameType"=>"Personal"},
+         "familyName"=>"Fenner",
+         "givenName"=>"Martin",
+         "nameIdentifier"=>
+       [{"__content__"=>"http://orcid.org/0000-0003-1419-2405",
+         "nameIdentifierScheme"=>"ORCID",
+         "schemeUri"=>"https://orcid.org"}]}])
+    end
+
+    it "without affiliation" do
+      authors = [{"@type"=>"Person", "@id"=>"http://orcid.org/0000-0003-1419-2405", "givenName"=>"Martin", "familyName"=>"Fenner", "name"=>"Martin Fenner" }]
+      response = subject.from_schema_org_creators(authors)
+      expect(response).to eq([{"creatorName"=>{"__content__"=>"Martin Fenner", "nameType"=>"Personal"},
+        "familyName"=>"Fenner",
+        "givenName"=>"Martin",
+        "nameIdentifier"=>
+      [{"__content__"=>"http://orcid.org/0000-0003-1419-2405",
+        "nameIdentifierScheme"=>"ORCID",
+        "schemeUri"=>"https://orcid.org"}]}])
+    end
+  end
+
   context "to_schema_org_identifiers" do
     it "with identifiers" do
       identifiers = [{"identifier" => "https://doi.org/10.23725/8na3-9s47", "identifierType" => "DOI"}, {"identifierType"=>"md5", "identifier"=>"3b33f6b9338fccab0901b7d317577ea3"}, {"identifierType"=>"minid", "identifier"=>"ark:/99999/fk41CrU4eszeLUDe"}, {"identifierType"=>"dataguid", "identifier"=>"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"}]

@@ -728,18 +728,50 @@ module Bolognese
 
     def from_schema_org_creators(element)
       element = Array.wrap(element).map do |c|
+        if c["affiliation"].is_a?(String)
+          c["affiliation"] = { "name" => c["affiliation"] }
+          affiliation_identifier_scheme = nil
+          scheme_uri = nil
+        elsif c.dig("affiliation", "@id").to_s.starts_with?("https://ror.org")
+          affiliation_identifier_scheme = "ROR"
+          scheme_uri = "https://ror.org/"
+        elsif c.dig("affiliation", "@id").to_s.starts_with?("https://isni.org")
+          affiliation_identifier_scheme = "ISNI"
+          scheme_uri = "https://isni.org/isni/"
+        else
+          affiliation_identifier_scheme = nil
+          scheme_uri = nil
+        end
+
         c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID", "schemeUri" => "https://orcid.org" }] if normalize_orcid(c["@id"])
         c["@type"] = c["@type"].find { |t| %w(Person Organization).include?(t) } if c["@type"].is_a?(Array)
         c["creatorName"] = { "nameType" => c["@type"].present? ? c["@type"].titleize + "al" : nil, "__content__" => c["name"] }.compact
-        c.except("@id", "@type", "name") 
+        c["affiliation"] = { "__content__" => c.dig("affiliation", "name"), "affiliationIdentifier" => c.dig("affiliation", "@id"), "affiliationIdentifierScheme" => affiliation_identifier_scheme, "schemeUri" => scheme_uri }.compact.presence
+        c.except("@id", "@type", "name").compact
       end
     end
 
     def from_schema_org_contributors(element)
       element = Array.wrap(element).map do |c|
+        if c["affiliation"].is_a?(String)
+          c["affiliation"] = { "name" => c["affiliation"] }
+          affiliation_identifier_scheme = nil
+          scheme_uri = nil
+        elsif c.dig("affiliation", "@id").to_s.starts_with?("https://ror.org")
+          affiliation_identifier_scheme = "ROR"
+          scheme_uri = "https://ror.org/"
+        elsif c.dig("affiliation", "@id").to_s.starts_with?("https://isni.org")
+          affiliation_identifier_scheme = "ISNI"
+          scheme_uri = "https://isni.org/isni/"
+        else
+          affiliation_identifier_scheme = nil
+          scheme_uri = nil
+        end
+
         c["nameIdentifier"] = [{ "__content__" => c["@id"], "nameIdentifierScheme" => "ORCID", "schemeUri" => "https://orcid.org" }] if normalize_orcid(c["@id"])
         c["contributorName"] = { "nameType" => c["@type"].present? ? c["@type"].titleize + "al" : nil, "__content__" => c["name"] }.compact
-        c.except("@id", "@type", "name") 
+        c["affiliation"] = { "__content__" => c.dig("affiliation", "name"), "affiliationIdentifier" => c.dig("affiliation", "@id"), "affiliationIdentifierScheme" => affiliation_identifier_scheme, "schemeUri" => scheme_uri }.compact.presence
+        c.except("@id", "@type", "name").compact
       end
     end
 
