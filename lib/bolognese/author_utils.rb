@@ -9,7 +9,7 @@ module Bolognese
     # benchmark :get_authors
 
     IDENTIFIER_SCHEME_URIS = {
-      "ORCID" => "http://orcid.org/"
+      "ORCID" => "https://orcid.org/"
     }
 
     def get_one_author(author)
@@ -41,7 +41,7 @@ module Bolognese
         else
           { 
             "nameIdentifier" => ni["__content__"],
-            "schemeUri" => "Other",
+            "schemeUri" => nil,
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
         end
       end.presence
@@ -73,14 +73,14 @@ module Bolognese
           "name" => name,
           "givenName" => given_name,
           "familyName" => family_name,
-          "nameIdentifiers" => name_identifiers,
-          "affiliation" => author.fetch("affiliation", nil),
+          "nameIdentifiers" => Array.wrap(name_identifiers),
+          "affiliation" => Array.wrap(author.fetch("affiliation", nil)),
           "contributorType" => contributor_type }.compact
       else
         { "nameType" => name_type, 
           "name" => name,
-          "nameIdentifiers" => name_identifiers,
-          "affiliation" => author.fetch("affiliation", nil),
+          "nameIdentifiers" => Array.wrap(name_identifiers),
+          "affiliation" => Array.wrap(author.fetch("affiliation", nil)),
           "contributorType" => contributor_type }.compact
       end
     end

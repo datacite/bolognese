@@ -107,7 +107,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "ris"=>"GEN", "schemaOrg"=>"DataSet")
       expect(subject.titles).to eq([{"title"=>"Soil Moisture Profiles and Temperature Data from SoilSCAPE Sites, USA"}])
       expect(subject.creators.size).to eq(12)
-      expect(subject.creators.first).to eq("familyName"=>"MOGHADDAM", "givenName"=>"M.", "name"=>"MOGHADDAM, M.", "nameType"=>"Personal")
+      expect(subject.creators.first).to eq("familyName"=>"MOGHADDAM", "givenName"=>"M.", "name"=>"MOGHADDAM, M.", "nameType"=>"Personal", "nameIdentifiers"=>[], "affiliation" => [])
     end
 
     it "harvard dataverse" do
@@ -119,7 +119,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
       expect(subject.container).to eq("identifier"=>"https://dataverse.harvard.edu", "identifierType"=>"URL", "title"=>"Harvard Dataverse", "type"=>"DataRepository")
-      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
+      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)", "nameIdentifiers"=>[], "affiliation" => []}])
     end
 
     it "harvard dataverse via identifiers.org" do
@@ -131,7 +131,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
       expect(subject.container).to eq("identifier"=>"https://dataverse.harvard.edu", "identifierType"=>"URL", "title"=>"Harvard Dataverse", "type"=>"DataRepository")
-      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)"}])
+      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)", "nameIdentifiers"=>[], "affiliation" => []}])
     end
   end
 
@@ -164,7 +164,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(subject.content_url).to eq(["https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"Gene expression matrices", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creators).to eq([{"name"=>"The GTEx Consortium", "nameType"=>"Organizational"}])
+      expect(subject.creators).to eq([{"name"=>"The GTEx Consortium", "nameType"=>"Organizational", "nameIdentifiers"=>[], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery"}])
       expect(subject.version_info).to eq("v7")
       expect(subject.subjects).to eq([{"subject"=>"gtex"}, {"subject"=>"annotation"}, {"subject"=>"phenotype"}, {"subject"=>"gene regulation"}, {"subject"=>"transcriptomics"}])
@@ -187,7 +187,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/8na3-9s47")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram", "gs://topmed-irc-share/public/NWD165827.recab.cram"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"CRAM file", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creators).to eq([{"name"=>"TOPMed IRC", "nameType"=>"Organizational"}])
+      expect(subject.creators).to eq([{"name"=>"TOPMed IRC", "nameType"=>"Organizational", "nameIdentifiers"=>[], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"NWD165827.recab.cram"}])
       expect(subject.subjects).to eq([{"subject"=>"topmed"}, {"subject"=>"whole genome sequencing"}])
       expect(subject.dates).to eq([{"date"=>"2017-11-30", "dateType"=>"Issued"}])
@@ -236,7 +236,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1594/pangaea.842237", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(2)
-      expect(subject.creators.first).to eq("name"=>"Tara Oceans Consortium, Coordinators", "nameType"=>"Organizational")
+      expect(subject.creators.first).to eq("name"=>"Tara Oceans Consortium, Coordinators", "nameType"=>"Organizational", "nameIdentifiers"=>[], "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Registry of all stations from the Tara Oceans Expedition (2009-2013)"}])
       expect(subject.dates).to eq([{"date"=>"2015-02-03", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
@@ -257,7 +257,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://ors.datacite.org/doi:/10.23725/7jg3-v803")
       expect(subject.content_url).to eq(["s3://cgp-commons-public/topmed_open_access/44a8837b-4456-5709-b56b-54e23000f13a/NWD100953.recab.cram","gs://topmed-irc-share/public/NWD100953.recab.cram","dos://dos.commons.ucsc-cgp.org/01b048d0-e128-4cb0-94e9-b2d2cab7563d?version=2018-05-26T133719.491772Z"])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"CRAM file", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
-      expect(subject.creators).to eq([{"name"=>"TOPMed", "nameType"=>"Organizational"}])
+      expect(subject.creators).to eq([{"name"=>"TOPMed", "nameType"=>"Organizational", "nameIdentifiers"=>[], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"NWD100953.recab.cram"}])
       expect(subject.subjects).to eq([{"subject"=>"topmed"}, {"subject"=>"whole genome sequencing"}])
       expect(subject.dates).to eq([{"date"=>"2017-11-30", "dateType"=>"Issued"}])

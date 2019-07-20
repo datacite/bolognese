@@ -57,7 +57,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("nameType"=>"Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "has name in display-order" do
@@ -65,7 +65,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("nameType"=>"Personal", "name"=>"Garza, Kristian", "givenName"=>"Kristian", "familyName"=>"Garza")
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Garza, Kristian", "givenName"=>"Kristian", "familyName"=>"Garza", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "has name in display-order with ORCID" do
@@ -73,7 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-4881-1606", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Bedini, Andrea", "givenName"=>"Andrea", "familyName"=>"Bedini")
+      expect(response).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-4881-1606", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Bedini, Andrea", "givenName"=>"Andrea", "familyName"=>"Bedini", "affiliation" => [])
     end
 
     it "has name in Thai" do
@@ -81,7 +81,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("name"=>"กัญจนา แซ่เตียว")
+      expect(response).to eq("name"=>"กัญจนา แซ่เตียว", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "multiple author names in one field" do
@@ -89,7 +89,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_authors(meta.dig("creators", "creator"))
-      expect(response).to eq([{"name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)"}])
+      expect(response).to eq([{"name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)", "nameIdentifiers" => [], "affiliation" => []}])
     end
 
     it "hyper-authorship" do
@@ -98,13 +98,13 @@ describe Bolognese::Metadata, vcr: true do
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_authors(meta.dig("creators", "creator"))
       expect(response.length).to eq(1000)
-      expect(response.first).to eq("nameType"=>"Personal", "name"=>"Adam, Jaroslav", "givenName"=>"Jaroslav", "familyName"=>"Adam", "affiliation" => [{"name"=>"Prague, Tech. U."}])
+      expect(response.first).to eq("nameType"=>"Personal", "name"=>"Adam, Jaroslav", "givenName"=>"Jaroslav", "familyName"=>"Adam", "affiliation" => [{"name"=>"Prague, Tech. U."}], "nameIdentifiers" => [])
     end
 
     it "is organization" do
       author = {"email"=>"info@ucop.edu", "creatorName"=> { "__content__" => "University of California, Santa Barbara", "nameType" => "Organizational" }, "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"} }
       response = subject.get_one_author(author)
-      expect(response).to eq("nameType"=>"Organizational", "name"=>"University Of California, Santa Barbara")
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "name with affiliation" do
@@ -112,7 +112,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("nameType"=>"Organizational", "name"=>"Dr. Störi, Kunstsalon")
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"Dr. Störi, Kunstsalon", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "name with affiliation and country" do
@@ -120,7 +120,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("name"=>"Eraslan, Sukru; University Of Manchester, UK, & Middle East Technical University, Northern Cyprus Campus,  Kalkanli, Guzelyurt, Turkey")
+      expect(response).to eq("name"=>"Eraslan, Sukru; University Of Manchester, UK, & Middle East Technical University, Northern Cyprus Campus,  Kalkanli, Guzelyurt, Turkey", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "name with role" do
@@ -128,7 +128,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("nameType"=>"Personal", "name"=>"Schumacher, H. C.", "givenName"=>"H. C.", "familyName"=>"Schumacher")
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Schumacher, H. C.", "givenName"=>"H. C.", "familyName"=>"Schumacher", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "multiple name_identifier" do
@@ -144,7 +144,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("nameType"=>"Organizational", "name"=>"The GTEx Consortium")
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"The GTEx Consortium", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "only familyName and givenName" do

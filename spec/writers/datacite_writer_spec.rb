@@ -130,7 +130,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23640/07243.5153971", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name" => "Paglione, Laura")
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name" => "Paglione, Laura", "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
       expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
@@ -148,7 +148,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/07243.5153971", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
-      expect(subject.creators.first).to eq("nameType" => "Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name" => "Paglione, Laura")
+      expect(subject.creators.first).to eq("nameType" => "Personal", "familyName" => "Paglione", "givenName" => "Laura", "name" => "Paglione, Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
       expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
@@ -165,7 +165,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"DataPackage", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(8)
-      expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo")
+      expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo", "nameIdentifiers"=>[], "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5061/dryad.8515", "identifierType"=>"DOI"},
         {"identifier"=>
@@ -191,7 +191,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(6)
-      expect(subject.creators.first).to eq("affiliation"=>[{"name"=>"UC Merced"}, {"name"=>"NSF"}], "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal")
+      expect(subject.creators.first).to eq("affiliation"=>[{"name"=>"UC Merced"}, {"name"=>"NSF"}], "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal", "nameIdentifiers"=>[])
       expect(subject.titles).to eq([{"title"=>"Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International (CC BY 4.0)", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])

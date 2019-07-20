@@ -61,7 +61,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
-      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara")
+      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite["version"]).to eq("2.0.0")
     end
 
@@ -71,7 +71,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
-      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara")
+      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite["version"]).to eq("2.0.0")
     end
 
@@ -82,7 +82,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("url")).to eq("https://datadryad.org/resource/doi:10.5061/dryad.8515")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
       expect(crosscite.fetch("creators").length).to eq(8)
-      expect(crosscite.fetch("creators").first).to eq("familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Ollomo, Benjamin", "nameType" => "Personal")
+      expect(crosscite.fetch("creators").first).to eq("familyName" => "Ollomo", "givenName" => "Benjamin", "name" => "Ollomo, Benjamin", "nameType" => "Personal", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite.fetch("dates")).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(crosscite.fetch("publication_year")).to eq("2011")
       expect(crosscite.fetch("provider_id")).to eq("dryad")

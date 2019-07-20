@@ -63,7 +63,8 @@ describe Bolognese::Metadata, vcr: true do
             "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"},
        {"name"=>"University Of California, Santa Barbara",
-        "nameType"=>"Organizational"}])
+        "nameType"=>"Organizational",
+        "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(subject.descriptions.first["description"]).to start_with("Provides read and write access to data and metadata")
       expect(subject.subjects).to eq([{"subject"=>"data sharing"}, {"subject"=>"data repository"}, {"subject"=>"DataONE"}])
@@ -105,7 +106,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.size).to eq(4)
-      expect(subject.creators.last).to eq("familyName" => "Nielsen", "givenName" => "Lars Holm","name" => "Nielsen, Lars Holm", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8135-3489", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType" => "Personal")
+      expect(subject.creators.last).to eq("familyName" => "Nielsen", "givenName" => "Lars Holm","name" => "Nielsen, Lars Holm", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8135-3489", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType" => "Personal", "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"DOI Registrations for Software"}])
       expect(subject.descriptions.first["description"]).to start_with("Analysis of DataCite DOIs registered for software")
       expect(subject.subjects).to eq([{"subject"=>"doi"}, {"subject"=>"software"}, {"subject"=>"codemeta"}])
