@@ -202,7 +202,7 @@ module Bolognese
             { "rightsUri" => normalize_url(parse_attributes(license)) }
           end.uniq
         else
-          nil
+          []
         end
       end
 

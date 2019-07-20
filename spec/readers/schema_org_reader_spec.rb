@@ -282,7 +282,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2019")
       expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
       expect(subject.publisher).to eq("AIDA")
-      expect(subject.rights_list).to eq({"rights"=>"Restricted access", "rightsUri"=>"https://datasets.aida.medtech4health.se/10.23698/aida/drov#license"})
+      expect(subject.rights_list).to eq([{"rights"=>"Restricted access", "rightsUri"=>"https://datasets.aida.medtech4health.se/10.23698/aida/drov#license"}])
       expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
     end
 

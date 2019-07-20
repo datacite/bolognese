@@ -209,7 +209,7 @@ module Bolognese
           "dates" => dates,
           "publication_year" => parse_attributes(meta.fetch("publicationYear", nil), first: true).to_s.strip.presence,
           "descriptions" => descriptions,
-          "rights_list" => rights_list,
+          "rights_list" => Array.wrap(rights_list),
           "version_info" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
           "language" => parse_attributes(meta.fetch("language", nil), first: true).to_s.strip.presence,
