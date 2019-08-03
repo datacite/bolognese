@@ -107,6 +107,26 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "journal article with RDF for container" do
+      input = "https://doi.org/10.1163/1937240X-00002096"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1163/1937240x-00002096", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("https://academic.oup.com/jcb/article-lookup/doi/10.1163/1937240X-00002096")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(8)
+      expect(subject.creators.first).to eq("familyName"=>"Mesquita-Joanes", "givenName"=>"Francesc", "name"=>"Mesquita-Joanes, Francesc", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Global distribution of Fabaeformiscandona subacuta: an exotic invasive Ostracoda on the Iberian Peninsula?"}])
+      expect(subject.dates).to eq([{"date"=>"2012-01-01", "dateType"=>"Issued"}, {"date"=>"2019-07-05T20:53:10Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2012")
+      expect(subject.publisher).to eq("Oxford University Press (OUP)")
+      expect(subject.related_identifiers.length).to eq(44)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1937-240X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/aqc.1122", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(subject.container).to eq("firstPage"=>"949", "identifier"=>"1937-240X", "identifierType"=>"ISSN", "issue"=>"6", "lastPage"=>"961", "title"=>"Journal of Crustacean Biology", "type"=>"Journal", "volume"=>"32")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "posted_content" do
       input = "https://doi.org/10.1101/097196"
       subject = Bolognese::Metadata.new(input: input)

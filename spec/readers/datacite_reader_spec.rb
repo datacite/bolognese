@@ -706,6 +706,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
     end
 
+    it "Schema.org type" do
+      input = "https://doi.org/10.25318/3410014001-fra"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.25318/3410014001-fra", "identifierType"=>"DOI"}])
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.types["resourceType"]).to be_nil
+      expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
+      expect(subject.types["ris"]).to eq("DATA")
+      expect(subject.types["bibtex"]).to eq("misc")
+      expect(subject.creators.length).to eq(1)
+      expect(subject.creators.first).to eq("affiliation" => [{"affiliationIdentifier"=>"https://ror.org/04zt3wx35", "affiliationIdentifierScheme"=>"ROR", "name"=>"Canada Mortgage and Housing Corporation"}],
+        "name" => "Statistique Canada",
+         "nameIdentifiers" => [],
+        "nameType" => "Organizational")
+    end
+
     it "doi with + sign" do
       input = "10.5067/terra+aqua/ceres/cldtyphist_l3.004"
       subject = Bolognese::Metadata.new(input: input)

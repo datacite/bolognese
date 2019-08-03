@@ -122,9 +122,9 @@ module Bolognese
           { "type" => "Journal",
             "identifier" => issn,
             "identifierType" => issn.present? ? "ISSN" : nil,
-            "title" => journal_metadata.to_h["full_title"],
-            "volume" => journal_issue.dig("journal_volume", "volume"),
-            "issue" => journal_issue.dig("issue"),
+            "title" => parse_attributes(journal_metadata.to_h["full_title"]),
+            "volume" => parse_attributes(journal_issue.dig("journal_volume", "volume")),
+            "issue" => parse_attributes(journal_issue.dig("issue")),
             "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
             "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
         elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?

@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.25318
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 20 Jul 2019 07:48:06 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '55'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d10de0d2cacb06ad68a10d028b7c863b11563608886; expires=Sun, 19-Jul-20
+        07:48:06 GMT; path=/; domain=.doi.org; HttpOnly
+      Strict-Transport-Security:
+      - max-age=3600; includeSubDomains
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 4f9354b30f22d70d-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.25318",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Sat, 20 Jul 2019 07:48:06 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.25318/3410014001-fra
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 20 Jul 2019 07:48:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      Etag:
+      - W/"841ca0aeecf6a5c313ee9873528959ed"
+      X-Runtime:
+      - '0.099822'
+      X-Request-Id:
+      - 75617ae1-0ebb-4e73-a25d-9a1948eea645
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRhIjp7ImlkIjoiMTAuMjUzMTgvMzQxMDAxNDAwMS1mcmEiLCJ0eXBlIjoiZG9pcyIsImF0dHJpYnV0ZXMiOnsiZG9pIjoiMTAuMjUzMTgvMzQxMDAxNDAwMS1mcmEiLCJwcmVmaXgiOiIxMC4yNTMxOCIsInN1ZmZpeCI6IjM0MTAwMTQwMDEtZnJhIiwiaWRlbnRpZmllcnMiOm51bGwsImNyZWF0b3JzIjpbeyJuYW1lIjoiU3RhdGlzdGlxdWUgQ2FuYWRhIiwibmFtZVR5cGUiOiJPcmdhbml6YXRpb25hbCIsImdpdmVuTmFtZSI6bnVsbCwiZmFtaWx5TmFtZSI6bnVsbCwiYWZmaWxpYXRpb24iOlsiQ2FuYWRhIE1vcnRnYWdlIGFuZCBIb3VzaW5nIENvcnBvcmF0aW9uIl0sIm5hbWVJZGVudGlmaWVycyI6W119XSwidGl0bGVzIjpbeyJsYW5nIjoiZnIiLCJ0aXRsZSI6IlNvY2nDqXTDqSBjYW5hZGllbm5lIGQnaHlwb3Row6hxdWVzIGV0IGRlIGxvZ2VtZW50LCBsb2dlbWVudHMgbWlzIGVuIGNoYW50aWVyIGRhbnMgbGVzIGNlbnRyZXMgZGUgMTAgMDAwIGhhYml0YW50cyBldCBwbHVzLCBwb3VyIENhbmFkYSwgcHJvdmluY2VzLCBldCByw6lnaW9ucyBtw6l0cm9wb2xpdGFpbmVzIGRlIHJlY2Vuc2VtZW50LCBkw6lzYWlzb25uYWxpc8OpZXMgYXUgdGF1eCBhbm51ZWwsIHRyaW1lc3RyaWVsIiwidGl0bGVUeXBlIjpudWxsfV0sInB1Ymxpc2hlciI6IkdvdXZlcm5lbWVudCBkdSBDYW5hZGEiLCJjb250YWluZXIiOm51bGwsInB1YmxpY2F0aW9uWWVhciI6MjAxOCwic3ViamVjdHMiOm51bGwsImNvbnRyaWJ1dG9ycyI6W10sImRhdGVzIjpudWxsLCJsYW5ndWFnZSI6bnVsbCwidHlwZXMiOnsicmVzb3VyY2VUeXBlR2VuZXJhbCI6IkRhdGFzZXQifSwicmVsYXRlZElkZW50aWZpZXJzIjpudWxsLCJzaXplcyI6bnVsbCwiZm9ybWF0cyI6bnVsbCwidmVyc2lvbiI6bnVsbCwicmlnaHRzTGlzdCI6bnVsbCwiZGVzY3JpcHRpb25zIjpbeyJsYW5nIjoiZnIiLCJkZXNjcmlwdGlvbiI6IkNlIHRhYmxlYXUgY29udGllbnQgMTE4IHPDqXJpZXMsIGF2ZWMgZGVzIGRvbm7DqWVzIHBvdXIgbGVzIGFubsOpZXMgIDE5OTAgLSAyMDE1IChpbCBuJ3kgYSBwYXMgbsOpY2Vzc2FpcmVtZW50IGRlIGRvbm7DqWVzIHBvdXIgdG91dGVzIGxlcyBhbm7DqWVzIHBvdXIgbCdlbnNlbWJsZSBkZXMgY29tYmluYWlzb25zKSwgZXQgc2EgZGVybmnDqHJlIGRhdGUgZGUgZGlmZnVzaW9uIHJlbW9udGUgYXUgMjAxNi0wMS0xMS4gQ2UgdGFibGVhdSBjb250aWVudCBkZXMgZG9ubsOpZXMgdGVsbGVzIHF1ZSBkw6ljcml0ZXMgcGFyIGxlcyBkaW1lbnNpb25zIHN1aXZhbnRlcyAoTGVzIGNvbWJpbmFpc29ucyBuZSBzb250IHBhcyB0b3V0ZXMgZGlzcG9uaWJsZXMpIDogR8Opb2dyYXBoaWUgKDQ3IMOpbMOpbWVudHMgOiBDYW5hZGE7IFByb3ZpbmNlcyBkZSBsJ0F0bGFudGlxdWU7IFRlcnJlLU5ldXZlLWV0LUxhYnJhZG9yOyBTdC4gSm9obidzLCBUZXJyZS1OZXV2ZS1ldC1MYWJyYWRvcjsgLi4uKSwgVHlwZSBkJ3VuaXTDqSAoNiDDqWzDqW1lbnRzIDogVG90YWwgZCd1bml0w6lzOyBNYWlzb25zIGluZGl2aWR1ZWxsZXM7IExvZ2VtZW50cyBjb2xsZWN0aWZzOyBMb2dlbWVudHMganVtZWzDqXM7IC4uLikuIiwiZGVzY3JpcHRpb25UeXBlIjoiQWJzdHJhY3QifV0sImdlb0xvY2F0aW9ucyI6bnVsbCwiZnVuZGluZ1JlZmVyZW5jZXMiOm51bGwsInhtbCI6IlBEOTRiV3dnZG1WeWMybHZiajBpTVM0d0lpQmxibU52WkdsdVp6MGlWVlJHTFRnaVB6NEtQSEpsYzI5MWNtTmxJSGh0Ykc1ek9uaHphVDBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01TOVlUVXhUWTJobGJXRXRhVzV6ZEdGdVkyVWlJSGh0Ykc1elBTSm9kSFJ3T2k4dlpHRjBZV05wZEdVdWIzSm5MM05qYUdWdFlTOXJaWEp1Wld3dE5DSWdlSE5wT25OamFHVnRZVXh2WTJGMGFXOXVQU0pvZEhSd09pOHZaR0YwWVdOcGRHVXViM0puTDNOamFHVnRZUzlyWlhKdVpXd3ROQ0JvZEhSd09pOHZjMk5vWlcxaExtUmhkR0ZqYVhSbExtOXlaeTl0WlhSaEwydGxjbTVsYkMwMEwyMWxkR0ZrWVhSaExuaHpaQ0krQ2lBZ1BHbGtaVzUwYVdacFpYSWdhV1JsYm5ScFptbGxjbFI1Y0dVOUlrUlBTU0krTVRBdU1qVXpNVGd2TXpReE1EQXhOREF3TVMxR1VrRThMMmxrWlc1MGFXWnBaWEkrQ2lBZ1BHTnlaV0YwYjNKelBnb2dJQ0FnUEdOeVpXRjBiM0krQ2lBZ0lDQWdJRHhqY21WaGRHOXlUbUZ0WlNCdVlXMWxWSGx3WlQwaVQzSm5ZVzVwZW1GMGFXOXVZV3dpUGxOMFlYUnBjM1JwY1hWbElFTmhibUZrWVR3dlkzSmxZWFJ2Y2s1aGJXVStDaUFnSUNBZ0lEeGhabVpwYkdsaGRHbHZiaUJoWm1acGJHbGhkR2x2Ymtsa1pXNTBhV1pwWlhJOUltaDBkSEJ6T2k4dmNtOXlMbTl5Wnk4d05IcDBNM2Q0TXpVaUlHRm1abWxzYVdGMGFXOXVTV1JsYm5ScFptbGxjbE5qYUdWdFpUMGlVazlTSWlCelkyaGxiV1ZWVWtrOUltaDBkSEJ6T2k4dmNtOXlMbTl5WnlJK1EyRnVZV1JoSUUxdmNuUm5ZV2RsSUdGdVpDQkliM1Z6YVc1bklFTnZjbkJ2Y21GMGFXOXVQQzloWm1acGJHbGhkR2x2Ymo0S0lDQWdJRHd2WTNKbFlYUnZjajRLSUNBOEwyTnlaV0YwYjNKelBnb2dJRHgwYVhSc1pYTStDaUFnSUNBOGRHbDBiR1VnZUcxc09teGhibWM5SW1aeUlqNVRiMk5wdzZsMHc2a2dZMkZ1WVdScFpXNXVaU0JrSjJoNWNHOTBhTU9vY1hWbGN5QmxkQ0JrWlNCc2IyZGxiV1Z1ZEN3Z2JHOW5aVzFsYm5SeklHMXBjeUJsYmlCamFHRnVkR2xsY2lCa1lXNXpJR3hsY3lCalpXNTBjbVZ6SUdSbElERXdJREF3TUNCb1lXSnBkR0Z1ZEhNZ1pYUWdjR3gxY3l3Z2NHOTFjaUJEWVc1aFpHRXNJSEJ5YjNacGJtTmxjeXdnWlhRZ2NzT3BaMmx2Ym5NZ2JjT3BkSEp2Y0c5c2FYUmhhVzVsY3lCa1pTQnlaV05sYm5ObGJXVnVkQ3dnWk1PcGMyRnBjMjl1Ym1Gc2FYUERxV1Z6SUdGMUlIUmhkWGdnWVc1dWRXVnNMQ0IwY21sdFpYTjBjbWxsYkR3dmRHbDBiR1UrQ2lBZ1BDOTBhWFJzWlhNK0NpQWdQSEIxWW14cGMyaGxjajVIYjNWMlpYSnVaVzFsYm5RZ1pIVWdRMkZ1WVdSaFBDOXdkV0pzYVhOb1pYSStDaUFnUEhCMVlteHBZMkYwYVc5dVdXVmhjajR5TURFNFBDOXdkV0pzYVdOaGRHbHZibGxsWVhJK0NpQWdQSEpsYzI5MWNtTmxWSGx3WlNCeVpYTnZkWEpqWlZSNWNHVkhaVzVsY21Gc1BTSkVZWFJoYzJWMElpOCtDaUFnUEhabGNuTnBiMjR2UGdvZ0lEeGtaWE5qY21sd2RHbHZibk0rQ2lBZ0lDQThaR1Z6WTNKcGNIUnBiMjRnZUcxc09teGhibWM5SW1aeUlpQmtaWE5qY21sd2RHbHZibFI1Y0dVOUlrRmljM1J5WVdOMElqNURaU0IwWVdKc1pXRjFJR052Ym5ScFpXNTBJREV4T0NCenc2bHlhV1Z6TENCaGRtVmpJR1JsY3lCa2IyNXV3NmxsY3lCd2IzVnlJR3hsY3lCaGJtN0RxV1Z6SUNBeE9Ua3dJQzBnTWpBeE5TQW9hV3dnYmlkNUlHRWdjR0Z6SUc3RHFXTmxjM05oYVhKbGJXVnVkQ0JrWlNCa2IyNXV3NmxsY3lCd2IzVnlJSFJ2ZFhSbGN5QnNaWE1nWVc1dXc2bGxjeUJ3YjNWeUlHd25aVzV6WlcxaWJHVWdaR1Z6SUdOdmJXSnBibUZwYzI5dWN5a3NJR1YwSUhOaElHUmxjbTVwdzZoeVpTQmtZWFJsSUdSbElHUnBabVoxYzJsdmJpQnlaVzF2Ym5SbElHRjFJREl3TVRZdE1ERXRNVEV1SUVObElIUmhZbXhsWVhVZ1kyOXVkR2xsYm5RZ1pHVnpJR1J2Ym03RHFXVnpJSFJsYkd4bGN5QnhkV1VnWk1PcFkzSnBkR1Z6SUhCaGNpQnNaWE1nWkdsdFpXNXphVzl1Y3lCemRXbDJZVzUwWlhNZ0tFeGxjeUJqYjIxaWFXNWhhWE52Ym5NZ2JtVWdjMjl1ZENCd1lYTWdkRzkxZEdWeklHUnBjM0J2Ym1saWJHVnpLU0E2SUVmRHFXOW5jbUZ3YUdsbElDZzBOeUREcVd6RHFXMWxiblJ6SURvZ1EyRnVZV1JoT3lCUWNtOTJhVzVqWlhNZ1pHVWdiQ2RCZEd4aGJuUnBjWFZsT3lCVVpYSnlaUzFPWlhWMlpTMWxkQzFNWVdKeVlXUnZjanNnVTNRdUlFcHZhRzRuY3l3Z1ZHVnljbVV0VG1WMWRtVXRaWFF0VEdGaWNtRmtiM0k3SUM0dUxpa3NJRlI1Y0dVZ1pDZDFibWwwdzZrZ0tEWWd3NmxzdzZsdFpXNTBjeUE2SUZSdmRHRnNJR1FuZFc1cGRNT3BjenNnVFdGcGMyOXVjeUJwYm1ScGRtbGtkV1ZzYkdWek95Qk1iMmRsYldWdWRITWdZMjlzYkdWamRHbG1jenNnVEc5blpXMWxiblJ6SUdwMWJXVnN3Nmx6T3lBdUxpNHBMand2WkdWelkzSnBjSFJwYjI0K0NpQWdQQzlrWlhOamNtbHdkR2x2Ym5NK0Nqd3ZjbVZ6YjNWeVkyVStDZz09IiwidXJsIjoiaHR0cHM6Ly93d3cxNTAuc3RhdGNhbi5nYy5jYS90MS90YmwxL2ZyL3R2LmFjdGlvbj9waWQ9MzQxMDAxNDAwMSIsImNvbnRlbnRVcmwiOm51bGwsIm1ldGFkYXRhVmVyc2lvbiI6MCwic2NoZW1hVmVyc2lvbiI6bnVsbCwic291cmNlIjoiZmFicmljYUZvcm0iLCJpc0FjdGl2ZSI6dHJ1ZSwic3RhdGUiOiJmaW5kYWJsZSIsInJlYXNvbiI6bnVsbCwiY3JlYXRlZCI6IjIwMTktMDctMTlUMTc6Mjg6MzUuMDAwWiIsInJlZ2lzdGVyZWQiOiIyMDE5LTA3LTE5VDE3OjI4OjM1LjAwMFoiLCJwdWJsaXNoZWQiOiIyMDE4IiwidXBkYXRlZCI6IjIwMTktMDctMTlUMTc6Mjg6MzUuMDAwWiJ9LCJyZWxhdGlvbnNoaXBzIjp7ImNsaWVudCI6eyJkYXRhIjp7ImlkIjoiY2lzdGkuc3RhdGNhbiIsInR5cGUiOiJjbGllbnRzIn19LCJtZWRpYSI6eyJkYXRhIjpbXX19fSwiaW5jbHVkZWQiOlt7ImlkIjoiY2lzdGkuc3RhdGNhbiIsInR5cGUiOiJjbGllbnRzIiwiYXR0cmlidXRlcyI6eyJuYW1lIjoiU3RhdGlzdGljcyBDYW5hZGEiLCJzeW1ib2wiOiJDSVNUSS5TVEFUQ0FOIiwieWVhciI6MjAxNywiY29udGFjdE5hbWUiOiJKYWNxdWVsaW5lIEx1ZmZtYW4iLCJjb250YWN0RW1haWwiOiJzdGF0Y2FuLmF1dGhvcmxpYWlzb24tbGlhaXNvbmF1dGV1ci5zdGF0Y2FuQGNhbmFkYS5jYSIsImRlc2NyaXB0aW9uIjpudWxsLCJkb21haW5zIjoic3RhdGNhbi5nYy5jYSIsInVybCI6bnVsbCwiY3JlYXRlZCI6IjIwMTctMDgtMDFUMTI6MDE6MjMuMDAwWiIsInVwZGF0ZWQiOiIyMDE5LTAzLTA0VDIwOjEyOjE5LjAwMFoiLCJpc0FjdGl2ZSI6dHJ1ZSwiaGFzUGFzc3dvcmQiOnRydWV9LCJyZWxhdGlvbnNoaXBzIjp7InByb3ZpZGVyIjp7ImRhdGEiOnsiaWQiOiJjaXN0aSIsInR5cGUiOiJwcm92aWRlcnMifX0sInByZWZpeGVzIjp7ImRhdGEiOlt7ImlkIjoiMTAuMjUzMTgiLCJ0eXBlIjoicHJlZml4ZXMifV19fX1dfQ==
+    http_version: 
+  recorded_at: Sat, 20 Jul 2019 07:48:06 GMT
+recorded_with: VCR 3.0.3

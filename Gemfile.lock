@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.3.8)
+    bolognese (1.3.9)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -124,7 +124,7 @@ GEM
     rack (2.0.7)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
-    rake (12.3.2)
+    rake (12.3.3)
     rdf (3.0.12)
       hamster (~> 3.0)
       link_header (~> 0.0, >= 0.0.8)
@@ -179,7 +179,7 @@ GEM
       thread_safe (~> 0.1)
     unicode_utils (1.4.0)
     vcr (3.0.3)
-    webmock (3.6.0)
+    webmock (3.6.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
