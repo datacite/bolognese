@@ -430,7 +430,7 @@ module Bolognese
       elsif element.is_a?(Hash)
         element.fetch( CGI.unescapeHTML(content), nil)
       elsif element.is_a?(Array)
-        a = element.map { |e| e.is_a?(Hash) ? e.fetch( CGI.unescapeHTML(content), nil) : e }.uniq
+        a = element.map { |e| e.is_a?(Hash) ? e.fetch(CGI.unescapeHTML(content), nil) : e }.uniq
         a = options[:first] ? a.first : a.unwrap
       else
         nil

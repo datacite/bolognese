@@ -140,7 +140,7 @@ module Bolognese
         end.compact
         dates << { "date" => meta.fetch("publicationYear", nil), "dateType" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
         sizes = Array.wrap(meta.dig("sizes", "size"))
-        formats = Array.wrap(meta.dig("formats", "format"))
+        formats = Array.wrap(parse_attributes(meta.dig("formats", "format")))
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
           scheme_uri = parse_attributes(fr["funderIdentifier"], content: "schemeURI")
           funder_identifier = parse_attributes(fr["funderIdentifier"])
