@@ -127,6 +127,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("Crossref")
     end
 
+    it "book chapter with RDF for container" do
+      input = "10.1007/978-3-642-33191-6_49"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1007/978-3-642-33191-6_49", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-642-33191-6_49")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.creators.length).to eq(3)
+      expect(subject.creators.first).to eq("familyName"=>"Chen", "givenName"=>"Lili", "name"=>"Chen, Lili", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Human Body Orientation Estimation in Multiview Scenarios"}])
+      expect(subject.dates).to eq([{"date"=>"2012", "dateType"=>"Issued"}, {"date"=>"2019-07-03T01:07:17Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2012")
+      expect(subject.publisher).to eq("Springer Berlin Heidelberg")
+      expect(subject.related_identifiers.length).to eq(7)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1007/978-3-540-24670-1_3", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(subject.container).to eq("identifier"=>"1611-3349", "identifierType"=>"ISSN", "title"=>"Lecture Notes in Computer Science", "type"=>"Book Series")
+      expect(subject.agency).to eq("Crossref")
+    end
+
     it "posted_content" do
       input = "https://doi.org/10.1101/097196"
       subject = Bolognese::Metadata.new(input: input)
