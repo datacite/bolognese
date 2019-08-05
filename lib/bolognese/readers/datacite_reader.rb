@@ -127,20 +127,38 @@ module Bolognese
             nil
           elsif k.is_a?(String)
             { "subject" => sanitize(k) }
-          else
+          elsif k.is_a?(Hash)
             { "subject" => sanitize(k["__content__"]), "subjectScheme" => k["subjectScheme"], "schemeUri" => k["schemeURI"], "valueUri" => k["valueURI"], "lang" => k["lang"] }.compact
           end
         end.compact
-        dates = Array.wrap(meta.dig("dates", "date")).map do |d|
-          {
-            "date" => parse_attributes(d),
-            "dateType" => parse_attributes(d, content: "dateType"),
-            "dateInformation" => parse_attributes(d, content: "dateInformation")
-          }.compact
+        dates = Array.wrap(meta.dig("dates", "date")).map do |r|
+          if r.is_a?(Hash) && date = sanitize(r["__content__"]).presence
+            { "date" => date, 
+              "dateType" => parse_attributes(r, content: "dateType"),
+              "dateInformation" => parse_attributes(r, content: "dateInformation")
+            }.compact
+          end
         end.compact
         dates << { "date" => meta.fetch("publicationYear", nil), "dateType" => "Issued" } if meta.fetch("publicationYear", nil).present? && get_date(dates, "Issued").blank?
-        sizes = Array.wrap(meta.dig("sizes", "size"))
-        formats = Array.wrap(parse_attributes(meta.dig("formats", "format")))
+        sizes = Array.wrap(meta.dig("sizes", "size")).map do |k|
+          if k.blank?
+            nil
+          elsif k.is_a?(String)
+            sanitize(k).presence
+          elsif k.is_a?(Hash)
+            sanitize(k["__content__"]).presence
+          end
+        end.compact
+        formats = Array.wrap(meta.dig("formats", "format")).map do |k|
+          if k.blank?
+            nil
+          elsif k.is_a?(String)
+            sanitize(k).presence
+          elsif k.is_a?(Hash)
+            sanitize(k["__content__"]).presence
+          end
+        end.compact
+        .map { |s| s.to_s.squish.presence }.compact
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
           scheme_uri = parse_attributes(fr["funderIdentifier"], content: "schemeURI")
           funder_identifier = parse_attributes(fr["funderIdentifier"])

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<resource xmlns="http://datacite.org/schema/kernel-2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd">
+  <identifier identifierType="DOI">10.13116/c6b6060e-0648-4f88-b108-95ea00928171</identifier>
+  <creators>
+    <creator>
+      <creatorName>EvK2 CNR Committee</creatorName>
+    </creator>
+  </creators>
+  <titles>
+    <title>SHARE (Stations at High Altitude for Research on the Environment) Network</title>
+    <title titleType="Subtitle">Urdukas (Baltoro Glacier, Baltistan - Pakistan)</title>
+  </titles>
+  <publisher>EvK2 CNR Committee</publisher>
+  <publicationYear>2011</publicationYear>
+  <subjects>
+    <subject>Environmental research</subject>
+  </subjects>
+  <contributors>
+    <contributor contributorType="Funder">
+      <contributorName>EvK2 CNR Committee</contributorName>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Valid">
+		</date>
+  </dates>
+  <language>en</language>
+  <resourceType resourceTypeGeneral="Dataset"/>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="URL" relationType="IsDocumentedBy">http://geonetwork.evk2cnr.org:8080/geonetwork/srv/en/main.home</relatedIdentifier>
+  </relatedIdentifiers>
+  <sizes>
+    <size>
+		</size>
+  </sizes>
+  <formats>
+    <format>text</format>
+  </formats>
+  <version>1.0</version>
+  <rights>
+	</rights>
+  <descriptions>
+    <description descriptionType="Abstract">The Baltoro Glacier, 62 km long, is one of the longest glaciers outside of the Polar Regions. It is located in Baltistan, in the Northern Areas of Pakistan, and runs through part of the Karakoram mountain range. In the middle of the Baltoro glacier there is the campsite of Urdukas located on the trek way to Concordia. 
+This automatic weather station was installed, in June 17, 2004 on the Baltoro Glacier, more precisely on a moraine ridge close to the left glacier margin at 3926 m asl.
+
+Geographical coordinates:
+Latitude: 35deg 43' 41" N 
+Longitude: 76deg 17' 10" EThe Urdukas AWS provides data (with a 60 minute time resolution" of the following parameters:
+- air temperature (degC)
+- atmopherich pressure (hPa)
+- relative humidity (%)
+- total precipitation (mm)
+- global solar radiation (W/m2)
+- wind speed (m/s)
+- wind direction (degree)</description>
+  </descriptions>
+</resource>

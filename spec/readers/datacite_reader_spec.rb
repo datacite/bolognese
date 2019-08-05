@@ -151,6 +151,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
+    it "empty sizes and dates attributes" do
+      input = fixture_path + 'datacite-empty-sizes.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.types["schemaOrg"]).to eq("Dataset")
+      expect(subject.types["resourceType"]).to be_nil
+      expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
+      expect(subject.creators.length).to eq(1)
+      expect(subject.creators.first).to eq("affiliation"=>[], "name"=>"EvK2 CNR Committee", "nameIdentifiers"=>[])
+      expect(subject.titles).to eq([{"title"=>"SHARE (Stations at High Altitude for Research on the Environment) Network"}, {"title"=>"Urdukas (Baltoro Glacier, Baltistan - Pakistan)", "titleType"=>"Subtitle"}])
+      expect(subject.dates).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2011")
+      expect(subject.sizes).to eq([])
+      expect(subject.publisher).to eq("EvK2 CNR Committee")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
+    end
+
     it "multiple licenses" do
       input = "https://doi.org/10.5281/ZENODO.48440"
       subject = Bolognese::Metadata.new(input: input)
