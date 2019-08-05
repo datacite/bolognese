@@ -930,6 +930,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.rights_list).to eq([{"rights"=>"info:eu-repo/semantics/openAccess"}, {"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
     end
 
+    it "ancient-dates" do
+      input = fixture_path + "datacite-example-ancientdates-v4.3.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.dates).to eq([{"date"=>"-0024/-0022", "dateInformation"=>"from 25 BC to 23 BC", "dateType"=>"Created"}, {"date"=>"2010", "dateType"=>"Issued"}])
+    end
+
     it "missing creators" do
       input = fixture_path + "datacite_missing_creator.xml"
       subject = Bolognese::Metadata.new(input: input, regenerate: true)
