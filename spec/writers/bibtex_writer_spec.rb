@@ -34,15 +34,16 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "text" do
-      input = "https://doi.org/10.17173/PRETEST8"
+      input = "10.3204/desy-2014-01645"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.17173/pretest8")
-      expect(bibtex[:doi]).to eq("10.17173/pretest8")
-      expect(bibtex[:title]).to eq("PIAAC-Longitudinal (PIAAC-L) 2015")
-      expect(bibtex[:pages]).to be_nil
+      expect(bibtex[:bibtex_type].to_s).to eq("phdthesis")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.3204/desy-2014-01645")
+      expect(bibtex[:doi]).to eq("10.3204/desy-2014-01645")
+      expect(bibtex[:title]).to eq("Dynamics of colloids in molecular glass forming liquids studied via X-ray photon correlation spectroscopy")
+      expect(bibtex[:pages]).to eq("2014-")
+      expect(bibtex[:year]).to eq("2014")
     end
 
     it "climate data" do

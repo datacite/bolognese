@@ -39,19 +39,20 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "text" do
-      input = "https://doi.org/10.17173/PRETEST8"
+      input = "https://doi.org/10.3204/desy-2014-01645"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
+
       expect(subject.valid?).to be true
       csv = (subject.csv).parse_csv
 
-      expect(csv[0]).to eq("10.17173/pretest8")
-      expect(csv[1]).to eq("http://pretest.gesis.org/Pretest/DoiId/10.17173/pretest8")
-      expect(csv[2]).to eq("2016-06-01")
+      expect(csv[0]).to eq("10.3204/desy-2014-01645")
+      expect(csv[1]).to eq("http://bib-pubdb1.desy.de/record/166827")
+      expect(csv[2]).to eq("2018-01-25")
       expect(csv[3]).to eq("findable")
       expect(csv[4]).to eq("Text")
-      expect(csv[5]).to eq("Pretestbericht")
-      expect(csv[6]).to eq("PIAAC-Longitudinal (PIAAC-L) 2015")
-      expect(csv[7]).to eq("Lenzner, T. and Neuert, C. and Otto, W. and Landrock, U. and Menold, N.")
+      expect(csv[5]).to eq("Dissertation")
+      expect(csv[6]).to eq("Dynamics of colloids in molecular glass forming liquids studied via X-ray photon correlation spectroscopy")
+      expect(csv[7]).to eq("Conrad, Heiko")
       expect(csv[9]).to eq("2014")
     end
 
