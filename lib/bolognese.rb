@@ -18,6 +18,7 @@ require 'gender_detector'
 require 'citeproc/ruby'
 require 'citeproc'
 require 'csl/styles'
+require 'edtf'
 
 require "bolognese/version"
 require "bolognese/metadata"

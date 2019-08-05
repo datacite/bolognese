@@ -124,9 +124,9 @@ module Bolognese
           end
         end
         dates = []
-        dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if meta.fetch("datePublished", nil).present?
-        dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if meta.fetch("dateCreated", nil).present?
-        dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
+        dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if Date.edtf(meta.fetch("datePublished", nil)).present?
+        dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if Date.edtf(meta.fetch("dateCreated", nil)).present?
+        dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if Date.edtf(meta.fetch("dateModified", nil)).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
 
         state = meta.present? || read_options.present? ? "findable" : "not_found"

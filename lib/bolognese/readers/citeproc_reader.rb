@@ -52,27 +52,23 @@ module Bolognese
           [{ "nameType" => "Organizational", "name" => ":(unav)" }]
         end
         contributors = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
-        dates = if meta.fetch("issued", nil).present?
-          [{ "date" => get_date_from_date_parts(meta.fetch("issued", nil)),
-             "dateType" => "Issued" }]
-        else
-          nil
-        end
+        dates = if date = get_date_from_date_parts(meta.fetch("issued", nil))
+                  if Date.edtf(date).present?
+                    [{ "date" => date,
+                      "dateType" => "Issued" }]
+                  end
+                end
         publication_year = get_date_from_date_parts(meta.fetch("issued", nil)).to_s[0..3]
         rights_list = if meta.fetch("copyright", nil)
-          [{ "rightsUri" => normalize_url(meta.fetch("copyright")) }.compact]
-        else
-          nil
-        end
+                        [{ "rightsUri" => normalize_url(meta.fetch("copyright")) }.compact]
+                      end
         related_identifiers = if meta.fetch("container-title", nil).present? && meta.fetch("ISSN", nil).present?
-          [{ "type" => "Periodical",
-             "relationType" => "IsPartOf",
-             "relatedIdentifierType" => "ISSN",
-             "title" => meta.fetch("container-title", nil),
-             "relatedIdentifier" => meta.fetch("ISSN", nil) }.compact]
-        else
-          nil
-        end
+                                [{ "type" => "Periodical",
+                                  "relationType" => "IsPartOf",
+                                  "relatedIdentifierType" => "ISSN",
+                                  "title" => meta.fetch("container-title", nil),
+                                  "relatedIdentifier" => meta.fetch("ISSN", nil) }.compact]
+                              end
         container = if meta.fetch("container-title", nil).present?
           first_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip)[0] : nil
           last_page = meta.fetch("page", nil).present? ? meta.fetch("page").split("-").map(&:strip)[1] : nil

@@ -50,37 +50,31 @@ module Bolognese
         end
 
         related_identifiers = if meta.try(:journal).present? && meta.try(:issn).to_s.presence
-          [{ "type" => "Periodical",
-             "relationType" => "IsPartOf",
-             "relatedIdentifierType" => "ISSN",
-             "title" => meta.journal.to_s,
-             "relatedIdentifier" => meta.try(:issn).to_s.presence }.compact]
-        else
-          nil
-        end
+                                [{ "type" => "Periodical",
+                                  "relationType" => "IsPartOf",
+                                  "relatedIdentifierType" => "ISSN",
+                                  "title" => meta.journal.to_s,
+                                  "relatedIdentifier" => meta.try(:issn).to_s.presence }.compact]
+                              end
 
         container = if meta.try(:journal).present?
-          first_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[0] : nil
-          last_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[1] : nil
-          
-          { "type" => "Journal",
-            "title" => meta.journal.to_s,
-            "identifier" => meta.try(:issn).to_s.presence,
-            "identifierType" => meta.try(:issn).present? ? "ISSN" : nil,
-            "volume" => meta.try(:volume).to_s.presence,
-            "firstPage" => first_page,
-            "lastPage" => last_page }.compact
-        else
-          nil
-        end
+                      first_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[0] : nil
+                      last_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[1] : nil
+                      
+                      { "type" => "Journal",
+                        "title" => meta.journal.to_s,
+                        "identifier" => meta.try(:issn).to_s.presence,
+                        "identifierType" => meta.try(:issn).present? ? "ISSN" : nil,
+                        "volume" => meta.try(:volume).to_s.presence,
+                        "firstPage" => first_page,
+                        "lastPage" => last_page }.compact
+                    end
 
         state = meta.try(:doi).to_s.present? || read_options.present? ? "findable" : "not_found"
-        dates = if meta.try(:date).present?
-          [{ "date" => meta.date.to_s,
-             "dateType" => "Issued" }]
-        else
-          nil
-        end
+        dates = if meta.try(:date).present? && Date.edtf(meta.date.to_s).present?
+                  [{ "date" => meta.date.to_s,
+                    "dateType" => "Issued" }]
+                end
         publication_year =  meta.try(:date).present? ? meta.date.to_s[0..3] : nil
 
         { "id" => normalize_doi(doi),

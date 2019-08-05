@@ -106,38 +106,46 @@ module Bolognese
                    [{ "title" => ":{unav)" }]
                  end
 
-        date_created = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "created" }
+        date_published = crossref_date_published(bibliographic_metadata)
+        if date_published.present?
+          date_published = { "date" => date_published, "dateType" => "Issued" }
+        else
+          date_published = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "created" }
+          date_published = { "date" => date_published.fetch("__content__", "")[0..9], "dateType" => "Issued" } if date_published.present?
+        end
         date_updated = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "last-update" }
         date_updated = { "date" => date_updated.fetch("__content__", nil), "dateType" => "Updated" } if date_updated.present?
-        dates = [
-          { "date" => crossref_date_published(bibliographic_metadata) || date_created.to_h.fetch("__content__", "")[0..9].presence, "dateType" => "Issued" }, date_updated
-        ].compact
-        publication_year = crossref_date_published(bibliographic_metadata).present? ? crossref_date_published(bibliographic_metadata)[0..3] : date_created.to_h.fetch("__content__", "")[0..3].presence
+        
+        # check that date is valid iso8601 date
+        date_published = nil unless Date.edtf(date_published.to_h["date"]).present?
+        date_updated = nil unless Date.edtf(date_updated.to_h["date"]).present?
+        
+        dates = [date_published, date_updated].compact
+        publication_year = date_published.to_h.fetch("date", "")[0..3].presence
+        
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
         container = if journal_metadata.present? || book_metadata.present?
-          issn = normalize_issn(journal_metadata.to_h.fetch("issn", nil))
+                      issn = normalize_issn(journal_metadata.to_h.fetch("issn", nil))
 
-          { "type" => "Journal",
-            "identifier" => issn,
-            "identifierType" => issn.present? ? "ISSN" : nil,
-            "title" => parse_attributes(journal_metadata.to_h["full_title"]),
-            "volume" => parse_attributes(journal_issue.dig("journal_volume", "volume")),
-            "issue" => parse_attributes(journal_issue.dig("issue")),
-            "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
-            "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
-        elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?
-          issn = normalize_issn(book_series_metadata.dig("series_metadata", "issn"))
+                      { "type" => "Journal",
+                        "identifier" => issn,
+                        "identifierType" => issn.present? ? "ISSN" : nil,
+                        "title" => parse_attributes(journal_metadata.to_h["full_title"]),
+                        "volume" => parse_attributes(journal_issue.dig("journal_volume", "volume")),
+                        "issue" => parse_attributes(journal_issue.dig("issue")),
+                        "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
+                        "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
+                    elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?
+                      issn = normalize_issn(book_series_metadata.dig("series_metadata", "issn"))
 
-          { "type" => "Book Series",
-            "identifier" => issn,
-            "identifierType" => issn.present? ? "ISSN" : nil,
-            "title" => book_series_metadata.dig("series_metadata", "titles", "title"),
-            "volume" => bibliographic_metadata.fetch("volume", nil) }.compact
-        else
-          nil
-        end
+                      { "type" => "Book Series",
+                        "identifier" => issn,
+                        "identifierType" => issn.present? ? "ISSN" : nil,
+                        "title" => book_series_metadata.dig("series_metadata", "titles", "title"),
+                        "volume" => bibliographic_metadata.fetch("volume", nil) }.compact
+                    end
 
         identifiers = [{ "identifierType" => "DOI", "identifier" => normalize_doi(options[:doi] || options[:id] || bibliographic_metadata.dig("doi_data", "doi")) }, crossref_alternate_identifiers(bibliographic_metadata)].compact
 
