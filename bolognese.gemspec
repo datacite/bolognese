@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'benchmark_methods', '~> 0.7'
   s.add_dependency 'gender_detector', '~> 0.1.2'
   s.add_dependency 'concurrent-ruby', '~> 1.0.5'
-  s.add_development_dependency 'bundler', '~> 1.0'
+  s.add_development_dependency 'bundler', '>= 1.0'
   s.add_development_dependency 'rspec', '~> 3.4'
   s.add_development_dependency 'rspec-xsd', '~> 0.1.0'
   s.add_development_dependency 'rake', '~> 12.0'
