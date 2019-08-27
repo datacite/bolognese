@@ -299,6 +299,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors).to eq("13:0: ERROR: Element '{http://datacite.org/schema/kernel-2.2}publisher': This element is not expected. Expected is ( {http://datacite.org/schema/kernel-2.2}publicationYear ).")
     end
 
+    it "funder identifier with different http scheme" do
+      input = fixture_path + 'datacite-funderIdentifier.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.funding_references.first).to eq({
+        "funderIdentifier"=>"http://www.isni.org/isni/0000000119587073",
+        "funderIdentifierType"=>"ISNI",
+        "funderName"=>"National Science Foundation (NSF)"})
+      expect(subject.funding_references.last).to eq({
+        "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
+        "funderIdentifierType"=>"Crossref Funder ID",
+        "funderName"=>"European Commission"})
+    end
+
     it "geo_location empty" do
       input = fixture_path + 'datacite-geolocation-empty.xml'
       subject = Bolognese::Metadata.new(input: input)

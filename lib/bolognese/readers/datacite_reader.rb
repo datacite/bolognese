@@ -164,7 +164,7 @@ module Bolognese
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
           scheme_uri = parse_attributes(fr["funderIdentifier"], content: "schemeURI")
           funder_identifier = parse_attributes(fr["funderIdentifier"])
-          funder_identifier = !funder_identifier.to_s.start_with?("https://") && scheme_uri.present? ? normalize_id(scheme_uri + funder_identifier) : normalize_id(funder_identifier)
+          funder_identifier = !funder_identifier.to_s.start_with?("https://","http://") && scheme_uri.present? ? normalize_id(scheme_uri + funder_identifier) : normalize_id(funder_identifier)
           
           {
             "funderName" => fr["funderName"],
