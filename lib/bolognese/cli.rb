@@ -29,7 +29,7 @@ module Bolognese
     method_option :regenerate, :type => :boolean, :force => false
     method_option :style, aliases: "-s", default: "apa"
     method_option :locale, aliases: "-l", default: "en-US"
-    method_option :ignore_errors, aliases: "-e", default: "false"
+    method_option :ignore_errors, aliases: "-e", default: nil
     def convert(input)
       metadata = Metadata.new(input: input,
                               from: options[:from],
