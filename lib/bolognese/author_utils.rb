@@ -13,6 +13,9 @@ module Bolognese
     }
 
     def get_one_author(author)
+      # author is a string
+      author = { "creatorName" => author } if author.is_a?(String)
+      
       # malformed XML
       return nil if author.fetch("creatorName", nil).is_a?(Array)
 
