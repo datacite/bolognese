@@ -183,6 +183,12 @@ describe Bolognese::CLI do
         subject.options = { to: "datacite" }
         expect { subject.convert file }.to output("4:0: ERROR: Element '{http://datacite.org/schema/kernel-4}creators': Missing child element(s). Expected is ( {http://datacite.org/schema/kernel-4}creator ).\n").to_stderr
       end
+
+      it 'to datacite invalid ignore errors' do
+        file = fixture_path + "datacite_missing_creator.xml"
+        subject.options = { to: "datacite", ignore_errors: "true" }
+        expect { subject.convert file }.to output(/http:\/\/datacite.org\/schema\/kernel-4/).to_stdout
+      end
     end
 
     context "codemeta" do
