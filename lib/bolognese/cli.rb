@@ -29,7 +29,7 @@ module Bolognese
     method_option :regenerate, :type => :boolean, :force => false
     method_option :style, aliases: "-s", default: "apa"
     method_option :locale, aliases: "-l", default: "en-US"
-    method_option :ignore_errors, aliases: "-e", default: nil
+    method_option :show_errors, :type => :boolean, :force => false
     def convert(input)
       metadata = Metadata.new(input: input,
                               from: options[:from],
@@ -38,10 +38,10 @@ module Bolognese
                               locale: options[:locale])
       to = options[:to] || "schema_org"
 
-      if metadata.valid? || options[:ignore_errors]
-        puts metadata.send(to)
-      else
+      if options[:show_errors] && !metadata.valid?
         $stderr.puts metadata.errors
+      else
+        puts metadata.send(to)
       end
     end
 
