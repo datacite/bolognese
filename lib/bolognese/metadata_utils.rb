@@ -12,6 +12,7 @@ require_relative 'readers/crosscite_reader'
 require_relative 'readers/crossref_reader'
 require_relative 'readers/datacite_json_reader'
 require_relative 'readers/datacite_reader'
+require_relative 'readers/npm_reader'
 require_relative 'readers/ris_reader'
 require_relative 'readers/schema_org_reader'
 
@@ -45,6 +46,7 @@ module Bolognese
     include Bolognese::Readers::CrossrefReader
     include Bolognese::Readers::DataciteReader
     include Bolognese::Readers::DataciteJsonReader
+    include Bolognese::Readers::NpmReader
     include Bolognese::Readers::RisReader
     include Bolognese::Readers::SchemaOrgReader
 
