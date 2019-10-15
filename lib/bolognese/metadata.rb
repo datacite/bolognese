@@ -6,7 +6,7 @@ module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
 
-    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue
+    attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :show_errors
     attr_reader :doc, :page_start, :page_end
     attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :url, :version_info,

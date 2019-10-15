@@ -35,7 +35,8 @@ module Bolognese
                               from: options[:from],
                               regenerate: options[:regenerate],
                               style: options[:style],
-                              locale: options[:locale])
+                              locale: options[:locale],
+                              show_errors: options[:show_errors])
       to = options[:to] || "schema_org"
 
       if options[:show_errors] && !metadata.valid?
