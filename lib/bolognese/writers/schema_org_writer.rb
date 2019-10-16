@@ -5,11 +5,11 @@ module Bolognese
     module SchemaOrgWriter
       def schema_hsh
         { "@context" => "http://schema.org",
-          "@type" => types["schemaOrg"],
+          "@type" => types.present? ? types["schemaOrg"] : nil,
           "@id" => normalize_doi(doi),
           "identifier" => to_schema_org_identifiers(identifiers),
           "url" => url,
-          "additionalType" => types["resourceType"],
+          "additionalType" => types.present? ? types["resourceType"] : nil,
           "name" => parse_attributes(titles, content: "title", first: true),
           "author" => to_schema_org_creators(creators),
           "editor" => to_schema_org_contributors(contributors),
@@ -35,8 +35,8 @@ module Bolognese
           "@reverse" => reverse.presence,
           "contentUrl" => Array.wrap(content_url).unwrap,
           "schemaVersion" => schema_version,
-          "periodical" => (types["schemaOrg"] != "Dataset") && container.present? ? to_schema_org(container) : nil,
-          "includedInDataCatalog" => (types["schemaOrg"] == "Dataset") && container.present? ? to_schema_org_container(container, type: "Dataset") : nil,
+          "periodical" => types.present? ? ((types["schemaOrg"] != "Dataset") && container.present? ? to_schema_org(container) : nil) : nil,
+          "includedInDataCatalog" => types.present? ? ((types["schemaOrg"] == "Dataset") && container.present? ? to_schema_org_container(container, type: "Dataset") : nil) : nil,
           "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher } : nil,
           "funder" => to_schema_org_funder(funding_references),
           "provider" => agency.present? ? { "@type" => "Organization", "name" => agency } : nil

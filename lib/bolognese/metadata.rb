@@ -37,6 +37,7 @@ module Bolognese
         hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : {}
         string = hsh.fetch("string", nil)
       elsif input.present? && File.exist?(input)
+        filename = File.basename(input)
         ext = File.extname(input)
         if %w(.bib .ris .xml .json).include?(ext)
           hsh = { 
@@ -48,7 +49,7 @@ module Bolognese
             "client_id" => options[:client_id],
             "content_url" => options[:content_url] }
           string = IO.read(input)
-          @from = from || find_from_format(string: string, ext: ext)
+          @from = from || find_from_format(string: string, filename: filename, ext: ext)
         else
           $stderr.puts "File type #{ext} not supported"
           exit 1

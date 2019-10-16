@@ -5,10 +5,10 @@ module Bolognese
     module CodemetaWriter
       def codemeta
         return nil unless valid? || show_errors
-
+        
         hsh = {
           "@context" => id.present? ? "https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld" : nil,
-          "@type" => types["schemaOrg"],
+          "@type" => types.present? ? types["schemaOrg"] : nil,
           "@id" => normalize_doi(doi),
           "identifier" => to_schema_org_identifiers(identifiers),
           "codeRepository" => url,

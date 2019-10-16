@@ -50,6 +50,17 @@ describe Bolognese::CLI do
     end
   end
 
+  context "find_from_format_by_filename" do
+    let(:subject) do
+      described_class.new
+    end
+
+    it "npm" do
+      filename = "package.json"
+      expect(subject.find_from_format_by_filename(filename)).to eq("npm")
+    end
+  end
+
   context "find_from_format_by_string" do
     let(:subject) do
       described_class.new

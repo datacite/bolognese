@@ -322,11 +322,11 @@ module Bolognese
       "WebSite" => "misc"
     }
 
-    def find_from_format(id: nil, string: nil, ext: nil)
+    def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
       if id.present?
         find_from_format_by_id(id)
       elsif ext.present?
-        find_from_format_by_ext(string, ext: ext)
+        find_from_format_by_filename(filename) || find_from_format_by_ext(string, ext: ext)
       elsif string.present?
         find_from_format_by_string(string)
       else
@@ -346,6 +346,12 @@ module Bolognese
         "codemeta"
       else
         "schema_org"
+      end
+    end
+
+    def find_from_format_by_filename(filename)
+      if filename == "package.json"
+        "npm"
       end
     end
 

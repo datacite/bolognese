@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.3.22)
+    bolognese (1.3.23)
       activesupport (>= 4.2.5, < 6)
       benchmark_methods (~> 0.7)
       bibtex-ruby (~> 4.1)
@@ -50,7 +50,7 @@ GEM
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    crass (1.0.4)
+    crass (1.0.5)
     csl (1.5.0)
       namae (~> 1.0)
     csl-styles (1.0.1.9)
