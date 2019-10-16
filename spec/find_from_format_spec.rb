@@ -44,6 +44,11 @@ describe Bolognese::CLI do
       expect(subject.find_from_format_by_id(id)).to eq("codemeta")
     end
 
+    it "npm" do
+      id = "https://github.com/datacite/bracco/blob/master/package.json"
+      expect(subject.find_from_format_by_id(id)).to eq("npm")
+    end
+
     it "schema_org" do
       id = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GAOC03"
       expect(subject.find_from_format_by_id(id)).to eq("schema_org")

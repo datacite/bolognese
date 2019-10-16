@@ -342,6 +342,8 @@ module Bolognese
         %w(DataCite Crossref mEDRA KISTI JaLC OP).include?(ra) ? ra.downcase : nil
       elsif /\A(?:(http|https):\/(\/)?orcid\.org\/)?(\d{4}-\d{4}-\d{4}-\d{3}[0-9X]+)\z/.match(id)
         "orcid"
+      elsif /\A(http|https):\/(\/)?github\.com\/(.+)\/package.json\z/.match(id)
+        "npm"
       elsif /\A(http|https):\/(\/)?github\.com\/(.+)\z/.match(id)
         "codemeta"
       else
