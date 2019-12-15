@@ -3,6 +3,15 @@
 module Bolognese
   module Readers
     module NpmReader
+      def get_npm(id: nil, **options)
+        return { "string" => nil, "state" => "not_found" } unless id.present?
+        id = normalize_id(id)
+        response = Maremma.get(id, accept: "json", raw: true)
+        string = response.body.fetch("data", nil)
+
+        { "string" => string }
+      end
+
       def read_npm(string: nil, **options)
         if string.present?
           errors = jsonlint(string)
