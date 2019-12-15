@@ -66,8 +66,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://www.zenodo.org/record/1196821"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be false
-      expect(subject.errors.size).to eq(2)
-      expect(subject.errors.first).to eq("49:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
+      expect(subject.errors).to eq("49:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1196821", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
       expect(subject.url).to eq("https://zenodo.org/record/1196821")
