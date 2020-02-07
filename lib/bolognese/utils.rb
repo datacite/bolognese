@@ -322,6 +322,19 @@ module Bolognese
       "WebSite" => "misc"
     }
 
+    UNKNOWN_INFORMATION = {
+      ":unac" => "temporarily inaccessible",
+      ":unal" => "unallowed, suppressed intentionally",
+      ":unap" => "not applicable, makes no sense",
+      ":unas" => "value unassigned (e.g., Untitled)",
+      ":unav" => "value unavailable, possibly unknown",
+      ":unkn" => "known to be unknown (e.g., Anonymous, Inconnue)",
+      ":none" => "never had a value, never will",
+      ":null" => "explicitly and meaningfully empty",
+      ":tba" => "to be assigned or announced later",
+      ":etal" => "too numerous to list (et alia)"
+    }
+
     def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
       if id.present?
         find_from_format_by_id(id)

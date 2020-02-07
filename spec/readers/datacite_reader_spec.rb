@@ -946,6 +946,15 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.rights_list).to eq([{"rights"=>"info:eu-repo/semantics/openAccess"}, {"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
     end
 
+    it ":tba" do
+      input = fixture_path + "datacite-example-complicated-tba.xml"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.titles).to eq([{"title"=>":unav"}])
+      expect(subject.formats).to eq([":null"])
+      expect(subject.dates).to eq([{"date"=>":tba", "dateInformation"=>"Correction", "dateType"=>"Other"}, {"date"=>"2010", "dateType"=>"Issued"}])
+    end
+
     it "ancient-dates" do
       input = fixture_path + "datacite-example-ancientdates-v4.3.xml"
       subject = Bolognese::Metadata.new(input: input)

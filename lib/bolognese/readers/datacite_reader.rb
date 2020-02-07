@@ -133,8 +133,8 @@ module Bolognese
         end.compact
         dates = Array.wrap(meta.dig("dates", "date")).map do |r|
           if r.is_a?(Hash) && date = sanitize(r["__content__"]).presence
-            if Date.edtf(date).present?
-              { "date" => date, 
+            if Date.edtf(date).present? || Bolognese::Utils::UNKNOWN_INFORMATION.key?(date)
+              { "date" => date,
                 "dateType" => parse_attributes(r, content: "dateType"),
                 "dateInformation" => parse_attributes(r, content: "dateInformation")
               }.compact
