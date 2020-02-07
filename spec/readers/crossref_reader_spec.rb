@@ -344,7 +344,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3390/publications6020015", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://www.mdpi.com/2304-6775/6/2/15")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
-      expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
+      expect(subject.creators).to eq([{"name"=>"Alexander Kohls", "nameType"=>"Organizational"}, {"name"=>"Salvatore Mele", "nameType"=>"Organizational"}])
       expect(subject.titles).to eq([{"title"=>"Converting the Literature of a Scientific Field to Open Access through Global Collaboration: The Experience of SCOAP3 in Particle Physics"}])
       expect(subject.dates).to eq([{"date"=>"2018-04-09", "dateType"=>"Issued"}, {"date"=>"2018-04-10T17:58:05Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2018")
@@ -375,7 +375,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("http://www-odp.tamu.edu/publications/180_IR/180TOC.HTM")
       expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
-      expect(subject.contributors.size).to eq(3)
+      expect(subject.contributors.size).to eq(4)
       expect(subject.contributors.first).to eq("contributorType"=>"Editor", "familyName"=>"Taylor", "givenName"=>"B.", "name"=>"Taylor, B.", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Proceedings of the Ocean Drilling Program, 180 Initial Reports"}])
       expect(subject.dates).to eq([{"date"=>"2000-02-04", "dateType"=>"Issued"}, {"date"=>"2009-02-02T21:19:43Z", "dateType"=>"Updated"}])
@@ -456,7 +456,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2903/j.efsa.2018.5239", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("http://doi.wiley.com/10.2903/j.efsa.2018.5239")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
-      expect(subject.creators.length).to eq(27)
+      expect(subject.creators.length).to eq(28)
       expect(subject.creators.first).to eq("familyName"=>"Younes", "givenName"=>"Maged", "name"=>"Younes, Maged", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Scientific opinion on the safety of green tea catechins"}])
       expect(subject.dates).to eq([{"date"=>"2018-04", "dateType"=>"Issued"}, {"date"=>"2018-12-17T09:30:09Z", "dateType"=>"Updated"}])
@@ -514,6 +514,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"0028-646X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/pmic.201400530", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.container).to eq("firstPage"=>"929", "identifier"=>"0028-646X", "identifierType"=>"ISSN", "issue"=>"3", "lastPage"=>"935", "title"=>"New Phytologist", "type"=>"Journal", "volume"=>"218")
+      expect(subject.agency).to eq("Crossref")
+    end
+
+    it "author literal" do
+      input = "https://doi.org/10.1038/ng.3834"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1038/ng.3834", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://www.nature.com/articles/ng.3834")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(14)
+      expect(subject.creators.last).to eq("name"=>"GTEx Consortium", "nameType"=>"Organizational")
+      expect(subject.titles).to eq([{"title"=>"The impact of structural variation on human gene expression"}])
+      expect(subject.dates).to eq([{"date"=>"2017-04-03", "dateType"=>"Issued"}, {"date"=>"2019-11-02T08:50:05Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2017")
+      expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.agency).to eq("Crossref")
     end
 

@@ -216,9 +216,10 @@ module Bolognese
 
       def crossref_people(bibliographic_metadata, contributor_role)
         person = bibliographic_metadata.dig("contributors", "person_name")
-        person = [{ "name" => ":(unav)", "contributor_role"=>"author" }] if contributor_role == "author" && Array.wrap(person).select { |a| a["contributor_role"] == "author" }.blank?
+        organization = Array.wrap(bibliographic_metadata.dig("contributors", "organization"))
+        person = [{ "name" => ":(unav)", "contributor_role"=>"author" }] if contributor_role == "author" && Array.wrap(person).select { |a| a["contributor_role"] == "author" }.blank? && Array.wrap(organization).select { |a| a["contributor_role"] == "author" }.blank?
 
-        Array.wrap(person).select { |a| a["contributor_role"] == contributor_role }.map do |a|
+        (Array.wrap(person) + Array.wrap(organization)).select { |a| a["contributor_role"] == contributor_role }.map do |a|
           name_identifiers = normalize_orcid(parse_attributes(a["ORCID"])).present? ? [{ "nameIdentifier" => normalize_orcid(parse_attributes(a["ORCID"])), "nameIdentifierScheme" => "ORCID", "schemeUri"=>"https://orcid.org" }] : nil
           if a["surname"].present? || a["given_name"].present? || name_identifiers.present?
             { "nameType" => "Personal",
@@ -230,7 +231,7 @@ module Bolognese
               "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
           else
             { "nameType" => "Organizational",
-              "name" => a["name"] }
+              "name" => a["name"] || a["__content__"] }
           end
         end.unwrap
       end
@@ -244,7 +245,7 @@ module Bolognese
           award_title = nil
           award_number = nil
           award_uri = nil
-          
+
           Array.wrap(f.fetch("assertion")).each do |a|
             if a.fetch("name") == "award_number"
               award_number = a.fetch("__content__", nil)

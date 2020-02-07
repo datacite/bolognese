@@ -150,7 +150,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["id"]).to eq("https://doi.org/10.3390/publications6020015")
       expect(json["DOI"]).to eq("10.3390/publications6020015")
       expect(json["title"]).to eq("Converting the Literature of a Scientific Field to Open Access through Global Collaboration: The Experience of SCOAP3 in Particle Physics")
-      expect(json["author"]).to be_nil
+      expect(json["author"]).to eq([{"literal"=>"Alexander Kohls"}, {"literal"=>"Salvatore Mele"}])
       expect(json["container-title"]).to eq("Publications")
       expect(json["publisher"]).to eq("MDPI AG")
       expect(json["page"]).to eq("15")
