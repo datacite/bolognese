@@ -23,12 +23,14 @@ describe Bolognese::Metadata, vcr: true do
     it "Dataset" do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      expect(subject.citation).to eq("Ollomo, B., Durand, P., Prugnolle, F., Douzery, E. J. P., Arnathau, C., Nkoghe, D., … Renaud, F. (2011). <i>Data from: A new malaria agent in African hominids.</i> (Version 1) [Data set]. Dryad Digital Repository. https://doi.org/10.5061/dryad.8515")
+
+      expect(subject.citation).to eq("Ollomo, B., Durand, P., Prugnolle, F., Douzery, E. J. P., Arnathau, C., Nkoghe, D., Leroy, E., &amp; Renaud, F. (2011). <i>Data from: A new malaria agent in African hominids.</i> (Version 1) [Data set]. Dryad Digital Repository. https://doi.org/10.5061/dryad.8515")
     end
 
     it "Missing author" do
       input = "https://doi.org/10.3390/publications6020015"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      
       expect(subject.citation).to eq("Converting the Literature of a Scientific Field to Open Access through Global Collaboration: The Experience of SCOAP3 in Particle Physics. (2018). <i>Publications</i>, <i>6</i>(2), 15. https://doi.org/10.3390/publications6020015")
     end
   end

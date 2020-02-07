@@ -22,9 +22,9 @@ http_interactions:
       Location:
       - https://schema.org/
       X-Cloud-Trace-Context:
-      - c9e980e9329daea35b098ecd5f175b8d
+      - a25bd617254742f94748be46462a7d6a
       Date:
-      - Fri, 07 Feb 2020 11:00:35 GMT
+      - Fri, 07 Feb 2020 11:00:34 GMT
       Content-Type:
       - text/html
       Server:
@@ -35,7 +35,7 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 07 Feb 2020 11:00:36 GMT
+  recorded_at: Fri, 07 Feb 2020 11:00:34 GMT
 - request:
     method: get
     uri: https://schema.org/
@@ -59,6 +59,8 @@ http_interactions:
       - "*"
       Content-Type:
       - text/html
+      Cache-Control:
+      - public, max-age=600
       Vary:
       - Accept, Accept-Encoding
       X-Cloud-Trace-Context:
@@ -69,10 +71,6 @@ http_interactions:
       - Google Frontend
       Content-Length:
       - '5083'
-      Cache-Control:
-      - public, max-age=600
-      Age:
-      - '1'
       Alt-Svc:
       - quic=":443"; ma=2592000; v="46,43",h3-Q050=":443"; ma=2592000,h3-Q049=":443";
         ma=2592000,h3-Q048=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443";
@@ -142,5 +140,5 @@ http_interactions:
         None </li>\n  <li>myport: 80 </li>\n  <li>mybasehost: schema.org </li>\n  <li>debugging:
         False </li>\n  <li>AppEngine Version: 6-0 </li>\n </ul>\n</div>\n\n</div>\n\n</body>\n</html>"
     http_version: 
-  recorded_at: Fri, 07 Feb 2020 11:00:36 GMT
+  recorded_at: Fri, 07 Feb 2020 11:00:35 GMT
 recorded_with: VCR 3.0.3
