@@ -115,7 +115,13 @@ module Bolognese
         end
         date_updated = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "last-update" }
         date_updated = { "date" => date_updated.fetch("__content__", nil), "dateType" => "Updated" } if date_updated.present?
-        
+
+        date_registered = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "deposit-timestamp" }
+        if date_registered && date_registered.fetch("__content__", nil).to_i > 15000000000000 # check for valid input string that includes seconds
+          date_registered = DateTime.strptime(date_registered.fetch("__content__", ""), "%Y%m%d%H%M%S").strftime('%Y-%m-%dT%H:%M:%SZ')
+        else
+          date_registered = nil
+        end
         # check that date is valid iso8601 date
         date_published = nil unless Date.edtf(date_published.to_h["date"]).present?
         date_updated = nil unless Date.edtf(date_updated.to_h["date"]).present?
@@ -174,7 +180,8 @@ module Bolognese
           "language" => nil,
           "sizes" => nil,
           "schema_version" => nil,
-          "state" => state
+          "state" => state,
+          "date_registered" => date_registered
         }.merge(read_options)
       end
 

@@ -365,6 +365,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2019")
       expect(subject.publisher).to eq("Cambridge University Press")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to eq("2019-07-06T10:19:22Z")
     end
 
     it "another book" do
@@ -382,6 +383,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2000")
       expect(subject.publisher).to eq("Ocean Drilling Program")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to eq("2006-10-17T20:17:44Z")
     end
 
     it "yet another book" do
@@ -400,6 +402,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1016/0031-0182(70)90103-3", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.container).to eq("identifier"=>"0066-4634", "identifierType"=>"ISSN", "title"=>"Antarctic Research Series", "type"=>"Book Series", "volume"=>"35")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to be_nil
     end
 
     it "mEDRA" do
@@ -478,6 +481,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2014")
       expect(subject.publisher).to eq("OpenEdition")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to be_nil
     end
 
     it "markup" do
@@ -494,6 +498,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("The Royal Society")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to eq("2017-05-24T02:10:18Z")
     end
 
     it "journal article with" do
@@ -515,6 +520,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1002/pmic.201400530", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.container).to eq("firstPage"=>"929", "identifier"=>"0028-646X", "identifierType"=>"ISSN", "issue"=>"3", "lastPage"=>"935", "title"=>"New Phytologist", "type"=>"Journal", "volume"=>"218")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to eq("2018-08-03T11:45:49Z")
     end
 
     it "author literal" do
@@ -531,6 +537,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.agency).to eq("Crossref")
+      expect(subject.date_registered).to eq("2019-11-02T09:30:06Z")
     end
 
     it "journal issue" do

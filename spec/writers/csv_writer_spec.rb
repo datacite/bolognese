@@ -11,7 +11,7 @@ describe Bolognese::Metadata, vcr: true do
       
       expect(csv[0]).to eq("10.7554/elife.01567")
       expect(csv[1]).to eq("https://elifesciences.org/articles/01567")
-      expect(csv[2]).to be_nil
+      expect(csv[2]).to eq("2018-08-23")
       expect(csv[3]).to eq("findable")
       expect(csv[4]).to eq("Text")
       expect(csv[5]).to eq("JournalArticle")
@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
 
       expect(csv[0]).to eq("10.1155/2012/291294")
       expect(csv[1]).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(csv[2]).to be_nil
+      expect(csv[2]).to eq("2016-08-02")
       expect(csv[3]).to eq("findable")
       expect(csv[4]).to eq("Text")
       expect(csv[5]).to eq("JournalArticle")
