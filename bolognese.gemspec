@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'loofah', '~> 2.0', '>= 2.0.3'
   s.add_dependency 'builder', '~> 3.2', '>= 3.2.2'
   s.add_dependency 'activesupport', '>= 4.2.5', '< 6'
-  s.add_dependency 'bibtex-ruby', '~> 4.1'
+  s.add_dependency 'bibtex-ruby', '>= 5.1.0'
   s.add_dependency 'thor', '~> 0.19'
   s.add_dependency 'colorize', '~> 0.8.1'
   s.add_dependency 'namae', '~> 1.0'

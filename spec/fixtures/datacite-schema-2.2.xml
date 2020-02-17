@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource
+    xmlns="http://datacite.org/schema/kernel-2.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd">
+    <identifier identifierType="DOI">10.6080/K0F769GP</identifier>
+    <creators>
+        <creator>
+            <creatorName>Theunissen, Frederic E.</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Hauber, ME</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Woolley, Sarah M. N.</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Gill, Patrick</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Shaevitz, SS</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Amin, Noopur</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Hsu, A</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Singh, NC</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Grace, GA</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Fremouw, Thane</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Zhang, Junli</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Cassey, P</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Doupe, AJ</creatorName>
+        </creator>
+        <creator>
+            <creatorName>David, SV</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Vinje, WE</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title>Single-unit recordings from two auditory areas in male zebra finches</title>
+        <title titleType="AlternativeTitle">CRCNS.org aa-1</title>
+    </titles>
+    <publisher>CRCNS.org</publisher>
+    <publicationYear>2009</publicationYear>
+    <subjects>
+        <subject>Neuroscience</subject>
+        <subject>Electrophysiology</subject>
+        <subject>auditory area</subject>
+        <subject>avian (zebra finch)</subject>
+    </subjects>
+    <language>eng</language>
+    <resourceType resourceTypeGeneral="Dataset">Dataset/Neurophysiology</resourceType>
+    <sizes>
+        <size>17 MB</size>
+    </sizes>
+    <formats>
+        <format>application/matlab</format>
+        <format>audio/wav</format>
+    </formats>
+    <version>1.0</version>
+    <descriptions>
+        <description descriptionType="Other">
+			Data consists of simultaneous single-unit recordings from two auditory areas in male zebra finches.
+		</description>
+    </descriptions>
+</resource>

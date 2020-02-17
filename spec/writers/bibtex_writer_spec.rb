@@ -160,5 +160,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(bibtex[:author]).to eq("{The GTEx Consortium}")
     end
+
+    it "dataset neurophysiology" do
+      input = "10.6080/k0f769gp"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.6080/k0f769gp")
+      expect(bibtex[:doi]).to eq("10.6080/k0f769gp")
+      expect(bibtex[:title]).to eq("Single-unit recordings from two auditory areas in male zebra finches")
+      expect(bibtex[:author]).to eq("Theunissen, Frederic E. and Hauber, ME and Woolley, Sarah M. N. and Gill, Patrick and Shaevitz, SS and Amin, Noopur and Hsu, A and Singh, NC and Grace, GA and Fremouw, Thane and Zhang, Junli and Cassey, P and Doupe, AJ and David, SV and Vinje, WE")
+      expect(bibtex[:publisher]).to eq("CRCNS.org")
+      expect(bibtex[:keywords]).to eq("Neuroscience, Electrophysiology, auditory area, avian (zebra finch)")
+      expect(bibtex[:year]).to eq("2009")
+    end
   end
 end

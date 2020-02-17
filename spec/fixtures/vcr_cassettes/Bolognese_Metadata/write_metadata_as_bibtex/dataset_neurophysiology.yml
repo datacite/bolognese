@@ -1,0 +1,116 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.6080
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.5; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Thu, 13 Feb 2020 17:36:13 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d898c88eb6269e2238b52f7fbced218621581615373; expires=Sat, 14-Mar-20
+        17:36:13 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 564890352dffc2f9-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.6080",
+            "RA": "DataCite"
+          }
+        ]
+    http_version: 
+  recorded_at: Thu, 13 Feb 2020 17:36:13 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.6080/k0f769gp
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.5; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 13 Feb 2020 17:36:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - ef1844a8-11d8-48b1-aaa3-539b22b9df48
+      Etag:
+      - W/"061643d3e6a77e7cb2e157aab4f842a2"
+      X-Runtime:
+      - '0.037119'
+      X-Powered-By:
+      - Phusion Passenger 6.0.4
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 6.0.4
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.6080/k0f769gp","type":"dois","attributes":{"doi":"10.6080/k0f769gp","prefix":"10.6080","suffix":"k0f769gp","identifiers":[{"identifier":"https://doi.org/10.6080/k0f769gp","identifierType":"DOI"}],"creators":[{"name":"Theunissen,
+        Frederic E.","nameType":"Personal","givenName":"Frederic E.","familyName":"Theunissen","affiliation":[]},{"name":"Hauber,
+        ME","nameType":"Personal","givenName":"ME","familyName":"Hauber","affiliation":[]},{"name":"Woolley,
+        Sarah M. N.","nameType":"Personal","givenName":"Sarah M. N.","familyName":"Woolley","affiliation":[]},{"name":"Gill,
+        Patrick","nameType":"Personal","givenName":"Patrick","familyName":"Gill","affiliation":[]},{"name":"Shaevitz,
+        SS","nameType":"Personal","givenName":"SS","familyName":"Shaevitz","affiliation":[]},{"name":"Amin,
+        Noopur","nameType":"Personal","givenName":"Noopur","familyName":"Amin","affiliation":[]},{"name":"Hsu,
+        A","nameType":"Personal","givenName":"A","familyName":"Hsu","affiliation":[]},{"name":"Singh,
+        NC","nameType":"Personal","givenName":"NC","familyName":"Singh","affiliation":[]},{"name":"Grace,
+        GA","nameType":"Personal","givenName":"GA","familyName":"Grace","affiliation":[]},{"name":"Fremouw,
+        Thane","nameType":"Personal","givenName":"Thane","familyName":"Fremouw","affiliation":[]},{"name":"Zhang,
+        Junli","nameType":"Personal","givenName":"Junli","familyName":"Zhang","affiliation":[]},{"name":"Cassey,
+        P","nameType":"Personal","givenName":"P","familyName":"Cassey","affiliation":[]},{"name":"Doupe,
+        AJ","nameType":"Personal","givenName":"AJ","familyName":"Doupe","affiliation":[]},{"name":"David,
+        SV","nameType":"Personal","givenName":"SV","familyName":"David","affiliation":[]},{"name":"Vinje,
+        WE","nameType":"Personal","givenName":"WE","familyName":"Vinje","affiliation":[]}],"titles":[{"title":"Single-unit
+        recordings from two auditory areas in male zebra finches"},{"title":"CRCNS.org
+        aa-1","titleType":"AlternativeTitle"}],"publisher":"CRCNS.org","container":{},"publicationYear":2009,"subjects":[{"subject":"Neuroscience"},{"subject":"Electrophysiology"},{"subject":"auditory
+        area"},{"subject":"avian (zebra finch)"}],"contributors":[],"dates":[{"date":"2009","dateType":"Issued"}],"language":"eng","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset/Neurophysiology","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":["17
+        MB"],"formats":["application/matlab","audio/wav"],"version":null,"rightsList":[],"descriptions":[{"description":"Data
+        consists of simultaneous single-unit recordings from two auditory areas in
+        male zebra finches.","descriptionType":"Other"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4yIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjIgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4yL21ldGFkYXRhLnhzZCI+Cgk8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC42MDgwL0swRjc2OUdQPC9pZGVudGlmaWVyPgoJPGNyZWF0b3JzPgoJCTxjcmVhdG9yPgoJCQk8Y3JlYXRvck5hbWU+VGhldW5pc3NlbiwgRnJlZGVyaWMgRS48L2NyZWF0b3JOYW1lPgoJCTwvY3JlYXRvcj4KCQk8Y3JlYXRvcj4KCQkJPGNyZWF0b3JOYW1lPkhhdWJlciwgTUU8L2NyZWF0b3JOYW1lPgoJCTwvY3JlYXRvcj4KCQk8Y3JlYXRvcj4KCQkJPGNyZWF0b3JOYW1lPldvb2xsZXksIFNhcmFoIE0uIE4uPC9jcmVhdG9yTmFtZT4KCQk8L2NyZWF0b3I+CgkJPGNyZWF0b3I+CgkJCTxjcmVhdG9yTmFtZT5HaWxsLCBQYXRyaWNrPC9jcmVhdG9yTmFtZT4KCQk8L2NyZWF0b3I+CgkJPGNyZWF0b3I+CgkJCTxjcmVhdG9yTmFtZT5TaGFldml0eiwgU1M8L2NyZWF0b3JOYW1lPgoJCTwvY3JlYXRvcj4KCQk8Y3JlYXRvcj4KCQkJPGNyZWF0b3JOYW1lPkFtaW4sIE5vb3B1cjwvY3JlYXRvck5hbWU+CgkJPC9jcmVhdG9yPgoJCTxjcmVhdG9yPgoJCQk8Y3JlYXRvck5hbWU+SHN1LCBBPC9jcmVhdG9yTmFtZT4KCQk8L2NyZWF0b3I+CgkJPGNyZWF0b3I+CgkJCTxjcmVhdG9yTmFtZT5TaW5naCwgTkM8L2NyZWF0b3JOYW1lPgoJCTwvY3JlYXRvcj4KCQk8Y3JlYXRvcj4KCQkJPGNyZWF0b3JOYW1lPkdyYWNlLCBHQTwvY3JlYXRvck5hbWU+CgkJPC9jcmVhdG9yPgoJCTxjcmVhdG9yPgoJCQk8Y3JlYXRvck5hbWU+RnJlbW91dywgVGhhbmU8L2NyZWF0b3JOYW1lPgoJCTwvY3JlYXRvcj4KCQk8Y3JlYXRvcj4KCQkJPGNyZWF0b3JOYW1lPlpoYW5nLCBKdW5saTwvY3JlYXRvck5hbWU+CgkJPC9jcmVhdG9yPgoJCTxjcmVhdG9yPgoJCQk8Y3JlYXRvck5hbWU+Q2Fzc2V5LCBQPC9jcmVhdG9yTmFtZT4KCQk8L2NyZWF0b3I+CgkJPGNyZWF0b3I+CgkJCTxjcmVhdG9yTmFtZT5Eb3VwZSwgQUo8L2NyZWF0b3JOYW1lPgoJCTwvY3JlYXRvcj4KCQk8Y3JlYXRvcj4KCQkJPGNyZWF0b3JOYW1lPkRhdmlkLCBTVjwvY3JlYXRvck5hbWU+CgkJPC9jcmVhdG9yPgoJCTxjcmVhdG9yPgoJCQk8Y3JlYXRvck5hbWU+VmluamUsIFdFPC9jcmVhdG9yTmFtZT4KCQk8L2NyZWF0b3I+Cgk8L2NyZWF0b3JzPgoJPHRpdGxlcz4KCQk8dGl0bGU+U2luZ2xlLXVuaXQgcmVjb3JkaW5ncyBmcm9tIHR3byBhdWRpdG9yeSBhcmVhcyBpbiBtYWxlIHplYnJhIGZpbmNoZXM8L3RpdGxlPgoJCTx0aXRsZSB0aXRsZVR5cGU9IkFsdGVybmF0aXZlVGl0bGUiPkNSQ05TLm9yZyBhYS0xPC90aXRsZT4KCTwvdGl0bGVzPgoJPHB1Ymxpc2hlcj5DUkNOUy5vcmc8L3B1Ymxpc2hlcj4KCTxwdWJsaWNhdGlvblllYXI+MjAwOTwvcHVibGljYXRpb25ZZWFyPgoJPHN1YmplY3RzPgoJCTxzdWJqZWN0Pk5ldXJvc2NpZW5jZTwvc3ViamVjdD4KCQk8c3ViamVjdD5FbGVjdHJvcGh5c2lvbG9neTwvc3ViamVjdD4KCQk8c3ViamVjdD5hdWRpdG9yeSBhcmVhPC9zdWJqZWN0PgoJCTxzdWJqZWN0PmF2aWFuICh6ZWJyYSBmaW5jaCk8L3N1YmplY3Q+Cgk8L3N1YmplY3RzPgoJPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+Cgk8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQvTmV1cm9waHlzaW9sb2d5PC9yZXNvdXJjZVR5cGU+Cgk8c2l6ZXM+CgkJPHNpemU+MTcgTUI8L3NpemU+Cgk8L3NpemVzPgoJPGZvcm1hdHM+CgkJPGZvcm1hdD5hcHBsaWNhdGlvbi9tYXRsYWI8L2Zvcm1hdD4KCQk8Zm9ybWF0PmF1ZGlvL3dhdjwvZm9ybWF0PgoJPC9mb3JtYXRzPgoJPHZlcnNpb24+MS4wPC92ZXJzaW9uPgoJPGRlc2NyaXB0aW9ucz4KCQk8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJPdGhlciI+CgkJCURhdGEgY29uc2lzdHMgb2Ygc2ltdWx0YW5lb3VzIHNpbmdsZS11bml0IHJlY29yZGluZ3MgZnJvbSB0d28gYXVkaXRvcnkgYXJlYXMgaW4gbWFsZSB6ZWJyYSBmaW5jaGVzLgoJCTwvZGVzY3JpcHRpb24+Cgk8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4=","url":"http://crcns.org/data-sets/aa/aa-1","contentUrl":null,"metadataVersion":2,"schemaVersion":"http://datacite.org/schema/kernel-2.2","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"downloadCount":0,"referenceCount":0,"citationCount":0,"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"viewsOverTime":[],"downloadsOverTime":[],"created":"2013-06-26T18:08:36.000Z","registered":"2013-06-26T18:08:37.000Z","published":"2009","updated":"2019-08-02T02:24:47.000Z"},"relationships":{"client":{"data":{"id":"cdl.ucb","type":"clients"}},"media":{"data":{"id":"10.6080/k0f769gp","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"versions":{"data":[]}}},"included":[{"id":"cdl.ucb","type":"clients","attributes":{"name":"UC
+        Berkeley","symbol":"CDL.UCB","year":2012,"contactEmail":"ezid@ucop.edu","alternateName":null,"description":null,"language":null,"clientType":"periodical","domains":"*","re3data":null,"opendoar":null,"issn":null,"url":null,"created":"2012-03-06T06:01:31.000Z","updated":"2019-07-27T12:46:55.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cdl","type":"providers"}},"prefixes":{"data":[{"id":"10.6078","type":"prefixes"},{"id":"10.6080","type":"prefixes"},{"id":"10.7286","type":"prefixes"},{"id":"10.7297","type":"prefixes"},{"id":"10.7299","type":"prefixes"},{"id":"10.7922","type":"prefixes"},{"id":"10.7928","type":"prefixes"},{"id":"10.7932","type":"prefixes"},{"id":"10.7933","type":"prefixes"},{"id":"10.7941","type":"prefixes"},{"id":"10.7943","type":"prefixes"},{"id":"10.15779","type":"prefixes"},{"id":"10.18118","type":"prefixes"},{"id":"10.18431","type":"prefixes"},{"id":"10.18734","type":"prefixes"},{"id":"10.20357","type":"prefixes"},{"id":"10.20358","type":"prefixes"},{"id":"10.21239","type":"prefixes"},{"id":"10.21418","type":"prefixes"},{"id":"10.21990","type":"prefixes"},{"id":"10.25342","type":"prefixes"},{"id":"10.25344","type":"prefixes"},{"id":"10.25350","type":"prefixes"},{"id":"10.25498","type":"prefixes"}]}}}]}'
+    http_version: 
+  recorded_at: Thu, 13 Feb 2020 17:36:14 GMT
+recorded_with: VCR 3.0.3
