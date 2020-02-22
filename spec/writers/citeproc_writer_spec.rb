@@ -219,5 +219,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["DOI"]).to eq("10.1594/pangaea.721193")
       expect(json["categories"]).to include("Animalia", "Bottles or small containers/Aquaria ( 20 L)", "Calcification/Dissolution", "Coast and continental shelf", "Development", "Growth/Morphology", "Laboratory experiment", "Mollusca", "Pelagos", "Single species", "Temperate", "Zooplankton", "Experimental treatment", "Carbonate system computation flag", "Temperature, water", "Salinity", "pH", "Alkalinity, total", "Carbon, inorganic, dissolved", "Carbon dioxide", "Bicarbonate ion", "Carbonate ion", "Partial pressure of carbon dioxide (water) at sea surface temperature (wet air)", "Fugacity of carbon dioxide (water) at sea surface temperature (wet air)", "Aragonite saturation state", "Calcite saturation state", "Proportion", "Crassostrea gigas, larvae length", "Crassostrea gigas, larvae height", "Crassostrea gigas, non mineralized", "Crassostrea gigas, partially mineralized", "Crassostrea gigas, fully mineralized", "Calculated using seacarb after Nisumaa et al. (2010)", "Refractometer (Atago 100-S)", "pH meter (Mettler Toledo)", "pH meter (PHM290, Radiometer)", "Measured", "European Project on Ocean Acidification (EPOCA)", "European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS)", "Ocean Acidification International Coordination Centre (OA-ICC)")
     end
+
+    it "organization author" do
+      input = "https://doi.org/10.1186/s13742-015-0103-4"
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article-journal")
+      expect(json["id"]).to eq("https://doi.org/10.1186/s13742-015-0103-4")
+      expect(json["DOI"]).to eq("10.1186/s13742-015-0103-4")
+      expect(json["author"]).to eq([{"family"=>"Liu", "given"=>"Siyang"},
+        {"family"=>"Huang", "given"=>"Shujia"},
+        {"family"=>"Rao", "given"=>"Junhua"},
+        {"family"=>"Ye", "given"=>"Weijian"},
+        {"family"=>"Krogh", "given"=>"Anders"},
+        {"family"=>"Wang", "given"=>"Jun"},
+        {"literal"=>"The Genome Denmark Consortium"}])
+      expect(json["container-title"]).to eq("GigaScience")
+    end
   end
 end
