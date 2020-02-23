@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resource xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd" xmlns="http://datacite.org/schema/kernel-2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <identifier identifierType="DOI">10.5882/10.5882_hypertonie2011_IS17</identifier>
+    <creators>
+        <creator>
+            <creatorName>Scholze J.</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title>Gefäßaktive Therapie der Isoliert Systolischen Hypertonie Ursachen behandeln - Gefäßschädigung und deren Folgen vermeiden</title>
+    </titles>
+    <publisher>Deutsche Hochdruckliga e.V. DHL®</publisher>
+    <publicationYear>2011</publicationYear>
+    <subjects>
+        <subject>Vaskuläre Mechanismen, Atherothrombose</subject>
+    </subjects>
+    <resourceType resourceTypeGeneral="Text">Abstract</resourceType>
+    <formats>
+        <format xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema">PDF</format>
+    </formats>
+    <version>1.0</version>
+</resource>

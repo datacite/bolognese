@@ -1005,6 +1005,13 @@ describe Bolognese::Metadata, vcr: true do
         "relationType"=>"IsCitedBy"}])
     end
 
+    it "formats with xs" do
+      input = fixture_path + "datacite-formats-with-xs.xml"
+      subject = Bolognese::Metadata.new(input: input, regenerate: false)
+      expect(subject.valid?).to be true
+      expect(subject.formats).to eq(["PDF"])
+    end
+
     it "dissertation" do
       input = "10.3204/desy-2014-01645"
       subject = Bolognese::Metadata.new(input: input)
