@@ -229,11 +229,14 @@ module Bolognese
         (Array.wrap(person) + Array.wrap(organization)).select { |a| a["contributor_role"] == contributor_role }.map do |a|
           name_identifiers = normalize_orcid(parse_attributes(a["ORCID"])).present? ? [{ "nameIdentifier" => normalize_orcid(parse_attributes(a["ORCID"])), "nameIdentifierScheme" => "ORCID", "schemeUri"=>"https://orcid.org" }] : nil
           if a["surname"].present? || a["given_name"].present? || name_identifiers.present?
+            given_name = parse_attributes(a["given_name"])
+            family_name = parse_attributes(a["surname"])
+
             { "nameType" => "Personal",
               "nameIdentifiers" => name_identifiers,
-              "name" => [a["surname"], a["given_name"]].join(", "),
-              "givenName" => a["given_name"],
-              "familyName" => a["surname"],
+              "name" => [family_name, given_name].compact.join(", "),
+              "givenName" => given_name,
+              "familyName" => family_name,
               "affiliation" => Array.wrap(a["affiliation"]).map { |a| { "name" => a }}.presence,
               "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
           else

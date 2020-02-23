@@ -501,6 +501,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_registered).to eq("2017-05-24T02:10:18Z")
     end
 
+    it "empty given name" do
+      input = "https://doi.org/10.1111/J.1865-1682.2010.01171.X"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1111/j.1865-1682.2010.01171.x", "identifierType"=>"DOI"}])
+      expect(subject.url).to eq("http://doi.wiley.com/10.1111/j.1865-1682.2010.01171.x")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(5)
+      expect(subject.creators[3]).to eq("familyName"=>"Ehtisham-ul-Haq", "givenName"=>" ", "name"=>"Ehtisham-ul-Haq,  ", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Serological Evidence of Brucella abortus Prevalence in Punjab Province, Pakistan - A Cross-Sectional Study"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}])
+      expect(subject.dates).to eq([{"date"=>"2010-12", "dateType"=>"Issued"}, {"date"=>"2019-03-05T09:22:24Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2010")
+      expect(subject.publisher).to eq("Wiley")
+    end
+
     it "journal article with" do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)
