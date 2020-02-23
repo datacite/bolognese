@@ -995,6 +995,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.errors.first).to eq("31:0: ERROR: Element '{http://datacite.org/schema/kernel-4}fundingReference': Missing child element(s). Expected is one of ( {http://datacite.org/schema/kernel-4}funderName, {http://datacite.org/schema/kernel-4}funderIdentifier, {http://datacite.org/schema/kernel-4}awardNumber, {http://datacite.org/schema/kernel-4}awardTitle ).")
     end
 
+    it "space in sizes" do
+      input = fixture_path + "datacite-space-in-sizes.xml"
+      subject = Bolognese::Metadata.new(input: input, regenerate: false)
+      expect(subject.valid?).to be true
+      expect(subject.sizes).to be_empty
+      expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"10.1016/s0040-1951(03)00197-5",
+        "relatedIdentifierType"=>"DOI",
+        "relationType"=>"IsCitedBy"}])
+    end
+
     it "dissertation" do
       input = "10.3204/desy-2014-01645"
       subject = Bolognese::Metadata.new(input: input)

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd">
+ <identifier identifierType="DOI">10.1594/GFZ.SDDB.1102</identifier>
+ <creators>
+  <creator>
+   <creatorName>Dannowski, Grit</creatorName>
+  </creator>
+  <creator>
+   <creatorName>Schrötter, Jörg</creatorName>
+  </creator>
+  <creator>
+   <creatorName>Erbas, Kemal</creatorName>
+  </creator>
+  <creator>
+   <creatorName>Förster, Andrea</creatorName>
+  </creator>
+  <creator>
+   <creatorName>Huenges, Ernst</creatorName>
+  </creator>
+ </creators>
+ <titles>
+  <title>Borehole Temperature of HSDP-2-A on 07/05/1999</title>
+ </titles>
+ <publisher>Deutsches GeoForschungsZentrum GFZ</publisher>
+ <publicationYear>2007</publicationYear>
+ <subjects>
+  <subject subjectScheme="project">Hawaii Scientific Drilling Project</subject>
+  <subject subjectScheme="platform">Land based</subject>
+  <subject subjectScheme="keyword">Distributed Optical Fibre Temperature Sensing</subject>
+  <subject subjectScheme="keyword">temperature_07/05/99_02:44am</subject>
+  <subject subjectScheme="keyword">temperature_07/05/99_07:22am</subject>
+ </subjects>
+ <dates>
+  <date dateType="Issued">2007-10-09</date>
+ </dates>
+ <language>eng</language>
+ <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+ <relatedIdentifiers>
+  <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">http://dx.doi.org/10.1016/S0040-1951(03)00197-5</relatedIdentifier>
+ </relatedIdentifiers>
+ <sizes>
+  <size> </size>
+ </sizes>
+ <descriptions>
+  <description descriptionType="Abstract">The temperature pattern is attributed to a superposition of thermal and hydraulic processes. In the deeper borehole (HSDP-2, depth 3.1 km) detailed temperature monitoring was performed. Temperature measurements reveal two different thermal regimes. The upper part is characterised by cold temperatures and a negative temperature gradient similar to those observed in the shallow pilot borehole. Below 1100 m, increasing temperatures are observed. Different processes, such as topographically driven groundwater flow, ingress of salt water and conductive previous termheatnext term flow are investigated by numerical modeling. A pure conductive scenario fails to match the temperature measurements, implying that both borehole sections are overprinted by advective conditions. Coupled fluid and previous termheatnext term flow modeling with solute transport yield results that agree with observed temperatures. These data were taken at 07/05/1999 from 02.30 a.m. to 07.30 a.m.</description>
+ </descriptions>
+ <geoLocations>
+  <geoLocation>
+   <geoLocationPoint>19.74 -155.05</geoLocationPoint>
+  </geoLocation>
+ </geoLocations>
+</resource>
