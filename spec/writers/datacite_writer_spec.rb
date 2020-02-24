@@ -123,6 +123,35 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("creators", "creator")).to eq("affiliation"=>"DataCite", "creatorName"=> {"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"__content__"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID", "schemeURI"=>"https://orcid.org"})
     end
 
+    it "with version" do
+      input = "https://doi.org/10.5281/zenodo.28518"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.28518", "identifierType"=>"DOI"}, {"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])
+      expect(subject.types).to eq("bibtex" => "misc",
+        "citeproc" => "article",
+        "resourceTypeGeneral" => "Software",
+        "ris" => "COMP",
+        "schemaOrg" => "SoftwareSourceCode")
+      expect(subject.creators.length).to eq(2)
+      expect(subject.creators.first).to eq("affiliation" => [{"name"=>"University of Washington"}],
+        "familyName" => "Vanderplas",
+        "givenName" => "Jake",
+        "name" => "Vanderplas, Jake",
+        "nameIdentifiers" => [],
+        "nameType" => "Personal")
+      expect(subject.titles).to eq([{"title"=>"Supersmoother: Minor Bug Fix Release"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
+      expect(subject.dates).to eq([{"date"=>"2015-08-19", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2015")
+      expect(subject.version_info).to eq("v0.3.2")
+      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+      puts subject.datacite
+      expect(subject.datacite).to include("<version>v0.3.2</version>")
+    end
+
     it "Text pass-thru" do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
