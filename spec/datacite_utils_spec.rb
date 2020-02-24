@@ -114,6 +114,15 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "insert_language" do
+    it "insert" do
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_language(xml) }.to_xml
+      puts xml
+      response = Maremma.from_xml(xml)
+      expect(response.fetch("language", nil)).to eq("en")
+    end
+  end
+
   context "insert_related_identifiers" do
     it "related_identifier" do
       expect(subject.related_identifiers.length).to eq(6)
