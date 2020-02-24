@@ -1034,27 +1034,28 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "funding references" do
-      input = "10.25702/KSC.2307-5252.2018.9.1.180-184"
+      input = "10.26102/2310-6018/2019.24.1.006"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.25702/ksc.2307-5252.2018.9.1.180-184", "identifierType"=>"DOI"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.26102/2310-6018/2019.24.1.006", "identifierType"=>"DOI"}])
       expect(subject.types["resourceTypeGeneral"]).to eq("Text")
       expect(subject.types["resourceType"]).to eq("Journal Article")
       expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
       expect(subject.types["bibtex"]).to eq("article")
       expect(subject.types["citeproc"]).to eq("article-journal")
-      expect(subject.creators.length).to eq(4)
-      expect(subject.creators.first).to eq("affiliation" => [{"name"=>"Дальневосточный геологический институт ДВО РАН, г. Владивосток, Россия"}],
-        "familyName" => "Молчанов Владимир Петрович",
-        "name" => "Молчанов Владимир Петрович, ",
+      expect(subject.creators.length).to eq(2)
+      expect(subject.creators.first).to eq("affiliation" => [{"name"=>"Тверская государственная сельскохозяйственная академия"}],
+        "familyName" => "Ганичева",
+        "givenName" => "А.В.",
+        "name" => "Ганичева, А.В.",
         "nameIdentifiers" => [],
         "nameType" => "Personal")
-      expect(subject.titles.last).to eq("title" => "THE FOUNDATIONS OF EXTRACTION OF VALUABLE COMPONENTS (PRECIOUS AND RARE EARTH METALS, HIGH PURITY GRAPHITE AND NANODIAMONDS) FROM HIGH-CARBON ROCKS WITH METHODS OF HYDROMETALLURGY AND PLASMA CHEMISTRY", "titleType" => "TranslatedTitle")
-      expect(subject.dates).to eq([{"date"=>"2018-02-27", "dateType"=>"Issued"}])
-      expect(subject.publication_year).to eq("2018")
-      expect(subject.publisher).to eq("Труды Кольского научного центра РАН")
+      expect(subject.titles.last).to eq("title"=>"MODEL OF SYSTEM DYNAMICS OF PROCESS OF TRAINING", "titleType"=>"TranslatedTitle")
+      expect(subject.dates).to eq([{"date"=>"2019-02-09", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2019")
+      expect(subject.publisher).to eq("МОДЕЛИРОВАНИЕ, ОПТИМИЗАЦИЯ И ИНФОРМАЦИОННЫЕ ТЕХНОЛОГИИ")
       expect(subject.funding_references.count).to eq(1)
-      expect(subject.funding_references.first).to eq("awardNumber"=>"№ 17-05-00910", "funderName"=>"РФФИ")
+      expect(subject.funding_references.first).to eq("awardNumber"=>"проект № 170100728", "funderName"=>"РФФИ")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
