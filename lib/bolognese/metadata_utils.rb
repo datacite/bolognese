@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'json/ld/preloaded'
+require 'json/ld'
+
 require_relative 'doi_utils'
 require_relative 'author_utils'
 require_relative 'datacite_utils'
