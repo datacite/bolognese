@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "json/ld"
+
 module Bolognese
   module Writers
     module RdfXmlWriter
