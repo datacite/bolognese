@@ -121,7 +121,15 @@ module Bolognese
     end
 
     def graph
+      # preload schema_org context
+      JSON::LD::Context.add_preloaded(
+        'http://schema.org/',
+        JSON::LD::Context.new.parse('resources/schema_org/jsonldcontext.json')
+      )
+
       RDF::Graph.new << JSON::LD::API.toRdf(schema_hsh)
+    rescue NameError
+      nil
     end
 
     def citeproc_hsh
