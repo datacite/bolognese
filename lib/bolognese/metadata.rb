@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'json/ld/preloaded'
-require 'json/ld'
-
 require_relative 'metadata_utils'
 
 module Bolognese
