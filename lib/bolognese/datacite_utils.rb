@@ -30,6 +30,7 @@ module Bolognese
       insert_resource_type(xml)
       insert_alternate_identifiers(xml)
       insert_subjects(xml)
+      insert_language(xml)
       insert_contributors(xml)
       insert_dates(xml)
       insert_related_identifiers(xml)
@@ -172,6 +173,13 @@ module Bolognese
       return xml unless version.present?
 
       xml.version(version)
+    end
+
+
+    def insert_language(xml)
+      return xml unless language.present?
+
+      xml.language(language)
     end
 
     def insert_related_identifiers(xml)
