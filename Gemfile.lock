@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.5.2)
+    bolognese (1.5.3)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
