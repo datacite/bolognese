@@ -254,8 +254,6 @@ describe Bolognese::Metadata, vcr: true do
           "funderIdentifierType"=>"Crossref Funder ID",
           "funderName"=>"European Commission"}],
         types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
-
-      puts subject.errors
       
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.5281/zenodo.1239")
@@ -958,7 +956,6 @@ describe Bolognese::Metadata, vcr: true do
     it "ancient-dates" do
       input = fixture_path + "datacite-example-ancientdates-v4.3.xml"
       subject = Bolognese::Metadata.new(input: input)
-      puts subject.errors
       #expect(subject.valid?).to be true
       expect(subject.dates).to eq([{"date"=>"-0024/-0022", "dateInformation"=>"from 25 BC to 23 BC", "dateType"=>"Created"}, {"date"=>"2010", "dateType"=>"Issued"}])
     end

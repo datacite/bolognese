@@ -162,7 +162,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "dataset neurophysiology" do
-      input = "10.6080/k0f769gp"
+      input = fixture_path + 'datacite-schema-2.2.xml'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first

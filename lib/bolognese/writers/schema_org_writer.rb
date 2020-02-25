@@ -4,7 +4,7 @@ module Bolognese
   module Writers
     module SchemaOrgWriter
       def schema_hsh
-        { "@context" => "http://schema.org",
+        { "@context" => "https://schema.org",
           "@type" => types.present? ? types["schemaOrg"] : nil,
           "@id" => normalize_doi(doi),
           "identifier" => to_schema_org_identifiers(identifiers),

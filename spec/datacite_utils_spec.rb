@@ -91,7 +91,6 @@ describe Bolognese::Metadata, vcr: true do
 
   # context "insert_dates" do
   #   it "insert" do
-  #     puts subject.dates.inspect
   #     xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_dates(xml) }.to_xml
   #     response = Maremma.from_xml(xml)
   #     expect(response.dig("dates", "date")).to eq("dateType"=>"Issued", "__content__"=>"2011")

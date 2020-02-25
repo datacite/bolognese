@@ -148,7 +148,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
-      puts subject.datacite
       expect(subject.datacite).to include("<version>v0.3.2</version>")
     end
 
