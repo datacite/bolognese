@@ -121,7 +121,7 @@ module Bolognese
     end
 
     def graph
-      RDF::Graph.new << ::JSON::LD::API.toRdf(schema_hsh)
+      RDF::Graph.new << JSON::LD::API.toRdf(schema_hsh)
     end
 
     def citeproc_hsh
