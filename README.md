@@ -8,6 +8,7 @@
 
 Ruby gem and command-line utility for conversion of DOI metadata from and to different metadata formats, including [schema.org](https://schema.org).
 
+
 ## Features
 
 Bolognese reads and/or writes these metadata formats:
