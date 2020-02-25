@@ -6,9 +6,9 @@ module Bolognese
   module Writers
     module RdfXmlWriter
       # preload schema_org context
-      JSON::LD::Context.add_preloaded(
+      ::JSON::LD::Context.add_preloaded(
         'http://schema.org/',
-        JSON::LD::Context.new.parse('resources/schema_org/jsonldcontext.json')
+        ::JSON::LD::Context.new.parse('resources/schema_org/jsonldcontext.json')
       )
 
       def rdf_xml
