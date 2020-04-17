@@ -241,12 +241,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.842237")
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Registry of all stations from the Tara Oceans Expedition (2009-2013)")
-      expect(json["author"]).to eq([{"@type"=>"Person",
-        "familyName"=>"Tara Oceans Consortium",
+      expect(json["author"]).to eq([{"familyName"=>"Tara Oceans Consortium",
         "givenName"=>"Coordinators",
         "name"=>"Coordinators Tara Oceans Consortium"},
-       {"@type"=>"Person",
-        "familyName"=>"Tara Oceans Expedition",
+       {"familyName"=>"Tara Oceans Expedition",
         "givenName"=>"Participants",
         "name"=>"Participants Tara Oceans Expedition"}])
       expect(json["includedInDataCatalog"]).to be_nil

@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite["types"]).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
-      expect(crosscite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameType"=>"Personal"}])
+      expect(crosscite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin"}])
     end
 
     it "rdataone" do

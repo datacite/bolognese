@@ -44,8 +44,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "rdf:about")).to eq("https://orcid.org/0000-0003-1419-2405")
-      expect(rdf_xml.dig("ScholarlyArticle", "author", "Person", "name")).to eq("Martin Fenner")
       expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
       expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata")
       expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
@@ -56,7 +54,6 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("BlogPosting", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(rdf_xml.dig("BlogPosting", "author", "Person", "name")).to eq("Martin Fenner")
       expect(rdf_xml.dig("BlogPosting", "name")).to eq("Eating your own Dog Food")
       expect(rdf_xml.dig("BlogPosting", "datePublished", "__content__")).to eq("2016-12-20")
     end

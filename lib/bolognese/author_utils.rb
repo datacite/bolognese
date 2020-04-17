@@ -28,7 +28,6 @@ module Bolognese
       contributor_type = parse_attributes(author.fetch("contributorType", nil))
 
       name_type = parse_attributes(author.fetch("creatorName", nil), content: "nameType", first: true) || parse_attributes(author.fetch("contributorName", nil), content: "nameType", first: true)
-      name_type = family_name.present? ? "Personal" : nil if name_type.blank?
 
       name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).map do |ni|
         if ni["nameIdentifierScheme"] == "ORCID"

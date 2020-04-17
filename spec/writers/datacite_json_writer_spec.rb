@@ -44,7 +44,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
-      expect(datacite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin", "nameType"=>"Personal"}])
+      expect(datacite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin"}])
     end
 
     it "rdataone" do

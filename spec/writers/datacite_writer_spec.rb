@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
       expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"DataCite Blog", "descriptionType"=>"SeriesInformation")
       expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Eating your own dog food")
-      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>{"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "familyName"=>"Fenner", "givenName"=>"Martin")
+      expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Fenner, Martin", "familyName"=>"Fenner", "givenName"=>"Martin")
     end
 
     it "rdataone" do
