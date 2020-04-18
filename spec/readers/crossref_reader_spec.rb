@@ -517,6 +517,26 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Wiley")
     end
 
+    it "invalid date" do
+      input = "https://doi.org/10.1055/s-0039-1690894"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1055/s-0039-1690894", "identifierType"=>"DOI"}, {"identifier"=>"s-0039-1690894", "identifierType"=>"Publisher ID"}])
+      expect(subject.url).to eq("http://www.thieme-connect.de/DOI/DOI?10.1055/s-0039-1690894")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(4)
+      expect(subject.creators[3]).to eq("affiliation" => [{"name"=>"Department of Chemistry, Tianjin Key Laboratory of Molecular Optoelectronic Sciences, and Tianjin Collaborative Innovation Centre of Chemical Science and Engineering, Tianjin University"}, {"name"=>"Joint School of National University of Singapore and Tianjin University, International Campus of Tianjin University"}],
+        "familyName" => "Ma",
+        "givenName" => "Jun-An",
+        "name" => "Ma, Jun-An",
+        "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-3902-6799", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
+        "nameType" => "Personal")
+      expect(subject.titles).to eq([{"title"=>"Silver-Catalyzed [3+3] Annulation of Glycine Imino Esters with Seyferth–Gilbert Reagent To Access Tetrahydro-1,2,4-triazinecarboxylate Esters"}])
+      expect(subject.dates).to eq([{"date"=>"2020-04-08", "dateType"=>"Issued"}, {"date"=>"2020-04-18T00:14:52Z", "dateType"=>"Updated"}])
+      expect(subject.publication_year).to eq("2020")
+      expect(subject.publisher).to eq("Georg Thieme Verlag KG")
+    end
+
     it "journal article with" do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)

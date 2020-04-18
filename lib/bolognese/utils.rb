@@ -974,6 +974,14 @@ module Bolognese
       nil
     end
 
+    # iso8601 datetime without hyphens and colons, used by Crossref
+    # return nil if invalid
+    def get_datetime_from_time(time)
+      DateTime.strptime(time.to_s, "%Y%m%d%H%M%S").strftime('%Y-%m-%dT%H:%M:%SZ')
+    rescue ArgumentError
+      nil
+    end
+
     def get_date(dates, date_type)
       dd = Array.wrap(dates).find { |d| d["dateType"] == date_type } || {}
       dd.fetch("date", nil)

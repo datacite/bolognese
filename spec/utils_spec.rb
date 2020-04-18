@@ -327,6 +327,38 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "get_datetime_from_time" do
+    it "present" do
+      time = "20200226071709"
+      response = subject.get_datetime_from_time(time)
+      expect(response).to eq("2020-02-26T07:17:09Z")
+    end
+
+    it "past" do
+      time = "18770312071709"
+      response = subject.get_datetime_from_time(time)
+      expect(response).to eq("1877-03-12T07:17:09Z")
+    end
+
+    it "future" do
+      time = "20970114071709"
+      response = subject.get_datetime_from_time(time)
+      expect(response).to eq("2097-01-14T07:17:09Z")
+    end
+
+    it "invalid" do
+      time = "20201587168864794"
+      response = subject.get_datetime_from_time(time)
+      expect(response).to be_nil
+    end
+
+    it "nil" do
+      time = nil
+      response = subject.get_datetime_from_time(time)
+      expect(response).to be_nil
+    end
+  end
+
   context "get_date_parts" do
     it "date" do
       date = "2016-12-20"
