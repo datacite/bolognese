@@ -36,6 +36,7 @@ module Bolognese
         # generate name for method to call dynamically
         hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : {}
         string = hsh.fetch("string", nil)
+
       elsif input.present? && File.exist?(input)
         filename = File.basename(input)
         ext = File.extname(input)
@@ -115,7 +116,6 @@ module Bolognese
       ).compact
 
       @regenerate = options[:regenerate] || read_options.present?
-
       # generate name for method to call dynamically
       @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id, ra: ra }.merge(read_options)) : {}
     end
@@ -190,7 +190,7 @@ module Bolognese
     end
 
     def version_info
-      @version_info ||= meta.fetch("version_info", nil)
+      @version_info ||= meta.fetch("version_info", nil) || meta.fetch("version", nil)
     end
 
     def publication_year
