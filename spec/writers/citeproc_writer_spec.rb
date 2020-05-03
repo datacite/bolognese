@@ -94,6 +94,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["title"]).to eq("Scimag catalogue of LibGen as of January 1st, 2014")
     end
 
+    it "software w/version" do
+      input = "https://doi.org/10.5281/zenodo.2598836"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article")
+      expect(json["DOI"]).to eq("10.5281/zenodo.2598836")
+      expect(json["version"]).to eq("1.0.0")
+    end
+
+    it "software w/version from datacite_json" do
+      input = fixture_path + "datacite_software_version.json"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article")
+      expect(json["DOI"]).to eq("10.5281/ZENODO.2598836")
+      expect(json["version"]).to eq("1.0.0")
+    end
+
     it "multiple abstracts" do
       input = "https://doi.org/10.12763/ona1045"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
