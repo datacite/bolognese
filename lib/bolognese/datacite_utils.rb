@@ -28,12 +28,14 @@ module Bolognese
       insert_publisher(xml)
       insert_publication_year(xml)
       insert_resource_type(xml)
-      insert_alternate_identifiers(xml)
       insert_subjects(xml)
-      insert_language(xml)
       insert_contributors(xml)
       insert_dates(xml)
+      insert_language(xml)
+      insert_alternate_identifiers(xml)
       insert_related_identifiers(xml)
+      insert_sizes(xml)
+      insert_formats(xml)
       insert_version(xml)
       insert_rights_list(xml)
       insert_descriptions(xml)
@@ -197,6 +199,22 @@ module Bolognese
             'schemeType' => related_identifier["schemeType"]}.compact) if %w(HasMetadata IsMetadataFor).include?(related_identifier["relationType"])
 
           xml.relatedIdentifier(related_identifier["relatedIdentifier"], attributes)
+        end
+      end
+    end
+
+    def insert_sizes(xml)
+      xml.sizes do
+        Array.wrap(sizes).each do |s|
+          xml.size(s)
+        end
+      end
+    end
+
+    def insert_formats(xml)
+      xml.formats do
+        Array.wrap(formats).each do |f|
+          xml.format(f)
         end
       end
     end

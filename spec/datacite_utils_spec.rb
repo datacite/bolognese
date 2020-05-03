@@ -89,13 +89,13 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
-  # context "insert_dates" do
-  #   it "insert" do
-  #     xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_dates(xml) }.to_xml
-  #     response = Maremma.from_xml(xml)
-  #     expect(response.dig("dates", "date")).to eq("dateType"=>"Issued", "__content__"=>"2011")
-  #   end
-  # end
+  context "insert_dates" do
+    it "insert" do
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_dates(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("dates", "date")).to eq([{"__content__"=>"2011-02-01T17:22:41Z", "dateType"=>"Available"}, {"__content__"=>"2011", "dateType"=>"Issued"}])
+    end
+  end
 
   context "insert_subjects" do
     it "insert" do
@@ -110,6 +110,26 @@ describe Bolognese::Metadata, vcr: true do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_version(xml) }.to_xml
       response = Maremma.from_xml(xml)
       expect(response.fetch("version", nil)).to eq("1")
+    end
+  end
+
+  context "insert_sizes" do
+    it "insert" do
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_sizes(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.fetch("sizes", nil)).to eq("size"=>"107328 bytes")
+    end
+  end
+
+  context "insert_formats" do
+    let(:input) { IO.read(fixture_path + 'datacite-empty-sizes.xml') }
+    
+    subject { Bolognese::Metadata.new(input: input, from: "datacite") }
+
+    it "insert" do
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_formats(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.fetch("formats", nil)).to eq("format" => "text")
     end
   end
 
