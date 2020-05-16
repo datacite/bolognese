@@ -105,7 +105,7 @@ module Bolognese
           #"publication_year" => publication_year,
           "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : [],
           "rights_list" => rights_list,
-          "version_info" => meta.fetch("version", nil),
+          "version" => meta.fetch("version", nil),
           "subjects" => subjects
           #"state" => state
         }.merge(read_options)

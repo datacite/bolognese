@@ -172,7 +172,7 @@ module Bolognese
           "publication_year" => publication_year,
           "descriptions" => crossref_description(bibliographic_metadata),
           "rights_list" => crossref_license(program_metadata),
-          "version_info" => nil,
+          "version" => nil,
           "subjects" => nil,
           "language" => nil,
           "sizes" => nil,

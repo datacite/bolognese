@@ -9,7 +9,7 @@ module Bolognese
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :show_errors
     attr_reader :doc, :page_start, :page_end
     attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
-                :rights_list, :dates, :publication_year, :volume, :url, :version_info,
+                :rights_list, :dates, :publication_year, :volume, :url, :version,
                 :subjects, :contributor, :descriptions, :language, :sizes,
                 :formats, :schema_version, :meta, :container, :agency,
                 :format, :funding_references, :state, :geo_locations,
@@ -106,7 +106,7 @@ module Bolognese
         :publication_year,
         :descriptions,
         :rights_list,
-        :version_info,
+        :version,
         :subjects,
         :language,
         :geo_locations,
@@ -189,9 +189,12 @@ module Bolognese
       @url ||= meta.fetch("url", nil)
     end
 
-    def version_info
-      @version_info ||= meta.fetch("version_info", nil) || meta.fetch("version", nil)
+    def version
+      @version ||= meta.fetch("version", nil)
     end
+
+    # for backwards compatibility
+    alias_attribute :version_info, :version
 
     def publication_year
       @publication_year ||= meta.fetch("publication_year", nil)

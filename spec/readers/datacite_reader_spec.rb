@@ -867,7 +867,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0002-8743-4455", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
                                      "affiliation"=>[{"name"=>"Royal Netherlands Meteorological Institute (KNMI)"}]}])
       expect(subject.titles).to eq([{"title"=>"Multi-Sensor Reanalysis (MSR) of total ozone, version 2"}])
-      expect(subject.version_info).to eq("2")
+      expect(subject.version).to eq("2")
       expect(subject.dates).to eq([{"date"=>"2014-04-25", "dateType"=>"Available"}, {"date"=>"2015", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")
