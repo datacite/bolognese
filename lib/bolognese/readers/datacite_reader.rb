@@ -93,7 +93,7 @@ module Bolognese
           "bibtex" => Bolognese::Utils::CR_TO_BIB_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[schema_org] || "misc",
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
-        
+
         titles = Array.wrap(meta.dig("titles", "title")).map do |r|
           if r.blank?
             nil
@@ -164,12 +164,15 @@ module Bolognese
         funding_references = Array.wrap(meta.dig("fundingReferences", "fundingReference")).compact.map do |fr|
           scheme_uri = parse_attributes(fr["funderIdentifier"], content: "schemeURI")
           funder_identifier = parse_attributes(fr["funderIdentifier"])
-          funder_identifier = !funder_identifier.to_s.start_with?("https://","http://") && scheme_uri.present? ? normalize_id(scheme_uri + funder_identifier) : normalize_id(funder_identifier)
-          
+          funder_identifier_type = parse_attributes(fr["funderIdentifier"], content: "funderIdentifierType")
+          if funder_identifier_type != "Other"
+            funder_identifier = !funder_identifier.to_s.start_with?("https://","http://") && scheme_uri.present? ? normalize_id(scheme_uri + funder_identifier) : normalize_id(funder_identifier)
+          end
+
           {
             "funderName" => fr["funderName"],
             "funderIdentifier" => funder_identifier,
-            "funderIdentifierType" => parse_attributes(fr["funderIdentifier"], content: "funderIdentifierType"),
+            "funderIdentifierType" => funder_identifier_type,
             "awardNumber" => parse_attributes(fr["awardNumber"]),
             "awardUri" => parse_attributes(fr["awardNumber"], content: "awardURI"),
             "awardTitle" => fr["awardTitle"] }.compact
@@ -181,7 +184,7 @@ module Bolognese
             rid = ri["__content__"]
           end
 
-          { 
+          {
             "relatedIdentifier" => rid,
             "relatedIdentifierType" => ri["relatedIdentifierType"],
             "relationType" => ri["relationType"],

@@ -254,7 +254,7 @@ describe Bolognese::Metadata, vcr: true do
           "funderIdentifierType"=>"Crossref Funder ID",
           "funderName"=>"European Commission"}],
         types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
-      
+
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.5281/zenodo.1239")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1239", "identifierType"=>"DOI"}])
@@ -308,6 +308,10 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"})
+      expect(subject.funding_references[1]).to eq({
+          "funderIdentifier"=>"1234",
+          "funderIdentifierType"=>"Other",
+          "funderName"=>"Acme Inc"})
     end
 
     it "geo_location empty" do

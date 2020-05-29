@@ -52,6 +52,10 @@
       <funderIdentifier funderIdentifierType="ISNI" schemeURI="http://www.isni.org/isni/">http://www.isni.org/isni/0000000119587073</funderIdentifier>
     </fundingReference>
     <fundingReference>
+      <funderName>Acme Inc</funderName>
+      <funderIdentifier funderIdentifierType="Other">1234</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
       <funderName>European Commission</funderName>
       <funderIdentifier funderIdentifierType="Crossref Funder ID" schemeURI="https://doi.org/">https://doi.org/10.13039/501100000780</funderIdentifier>
     </fundingReference>
