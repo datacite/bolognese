@@ -23,6 +23,7 @@ describe Bolognese::Metadata, vcr: true do
                                      {"name"=>"University of Lausanne",
                                       "@type"=>"Organization",
                                       "@id"=>"https://doi.org/10.13039/501100006390"}])
+      expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
     end
 
     it "maremma schema.org JSON" do
@@ -41,6 +42,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(json["name"]).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
+      expect(json["license"]).to eq(["https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode", "info:eu-repo/semantics/openAccess"])
     end
 
     it "Schema.org JSON isReferencedBy" do
@@ -50,6 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
       expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
         "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
+      expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -91,6 +94,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["hasPart"].length).to eq(25)
       expect(json["hasPart"].first).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5281/zenodo.30799")
       expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/501100000780", "@type"=>"Organization", "name"=>"European Commission")
+      expect(json["license"]).to eq("https://creativecommons.org/licenses/by/4.0/legalcode")
     end
 
     it "Funding OpenAIRE" do
@@ -99,6 +103,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/501100000780", "@type"=>"Organization", "name"=>"European Commission")
+      expect(json["license"]).to eq(["https://creativecommons.org/publicdomain/zero/1.0/legalcode", "info:eu-repo/semantics/openAccess"])
     end
 
     it "subject scheme" do
@@ -117,6 +122,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(json["name"]).to eq("Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
       expect(json["keywords"]).to eq("Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
     end
 
     it "author is organization" do
@@ -208,6 +214,7 @@ describe Bolognese::Metadata, vcr: true do
           "propertyID"=>"URL",
           "value"=>"https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml"}]
       )
+      expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
     end
 
     it "geo_location_point" do
@@ -232,6 +239,7 @@ describe Bolognese::Metadata, vcr: true do
         {"@type"=>"GeoShape",
          "address"=>"Providence Creek (Lower, Upper and P301)",
          "box"=>"37.046 -119.211 37.075 -119.182"}}])
+      expect(json["license"]).to eq("https://creativecommons.org/licenses/by/4.0/legalcode")
     end
 
     it "geo_location_box" do
@@ -250,6 +258,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.1594/pangaea.842237")
       expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoShape", "box"=>"-64.3088 -168.5182 79.6753 174.9006"})
+      expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
     end
 
     it "geo_location_polygon" do

@@ -2,13 +2,44 @@
 
 module Bolognese
   module Utils
-    LICENSE_NAMES = {
-      "http://creativecommons.org/publicdomain/zero/1.0/" => "Public Domain (CC0 1.0)",
-      "http://creativecommons.org/licenses/by/3.0/" => "Creative Commons Attribution 3.0 (CC-BY 3.0)",
-      "http://creativecommons.org/licenses/by/4.0/" => "Creative Commons Attribution 4.0 (CC-BY 4.0)",
-      "http://creativecommons.org/licenses/by-nc/4.0/" => "Creative Commons Attribution Noncommercial 4.0 (CC-BY-NC 4.0)",
-      "http://creativecommons.org/licenses/by-sa/4.0/" => "Creative Commons Attribution Share Alike 4.0 (CC-BY-SA 4.0)",
-      "http://creativecommons.org/licenses/by-nc-nd/4.0/" => "Creative Commons Attribution Noncommercial No Derivatives 4.0 (CC-BY-NC-ND 4.0)"
+    NORMALIZED_LICENSES = {
+      "https://creativecommons.org/licenses/by/1.0" => "https://creativecommons.org/licenses/by/1.0/legalcode",
+      "https://creativecommons.org/licenses/by/2.0" => "https://creativecommons.org/licenses/by/2.0/legalcode",
+      "https://creativecommons.org/licenses/by/2.5" => "https://creativecommons.org/licenses/by/2.5/legalcode",
+      "https://creativecommons.org/licenses/by/3.0" => "https://creativecommons.org/licenses/by/3.0/legalcode",
+      "https://creativecommons.org/licenses/by/4.0" => "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc/1.0" => "https://creativecommons.org/licenses/by-nc/1.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc/2.0" => "https://creativecommons.org/licenses/by-nc/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc/2.5" => "https://creativecommons.org/licenses/by-nc/2.5/legalcode",
+      "https://creativecommons.org/licenses/by-nc/3.0" => "https://creativecommons.org/licenses/by-nc/3.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc/4.0" => "https://creativecommons.org/licenses/by-nc/4.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd-nc/1.0" => "https://creativecommons.org/licenses/by-nd-nc/1.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd-nc/2.0" => "https://creativecommons.org/licenses/by-nd-nc/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd-nc/2.5" => "https://creativecommons.org/licenses/by-nd-nc/2.5/legalcode",
+      "https://creativecommons.org/licenses/by-nd-nc/3.0" => "https://creativecommons.org/licenses/by-nd-nc/3.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd-nc/4.0" => "https://creativecommons.org/licenses/by-nd-nc/4.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-sa/1.0" => "https://creativecommons.org/licenses/by-nc-sa/1.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-sa/2.0" => "https://creativecommons.org/licenses/by-nc-sa/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-sa/2.5" => "https://creativecommons.org/licenses/by-nc-sa/2.5/legalcode",
+      "https://creativecommons.org/licenses/by-nc-sa/3.0" => "https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-sa/4.0" => "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd/1.0" => "https://creativecommons.org/licenses/by-nd/1.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd/2.0" => "https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd/2.5" => "https://creativecommons.org/licenses/by-nd/2.5/legalcode",
+      "https://creativecommons.org/licenses/by-nd/3.0" => "https://creativecommons.org/licenses/by-nd/3.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd/4.0" => "https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-sa/1.0" => "https://creativecommons.org/licenses/by-sa/1.0/legalcode",
+      "https://creativecommons.org/licenses/by-sa/2.0" => "https://creativecommons.org/licenses/by-sa/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-sa/2.5" => "https://creativecommons.org/licenses/by-sa/2.5/legalcode",
+      "https://creativecommons.org/licenses/by-sa/3.0" => "https://creativecommons.org/licenses/by-sa/3.0/legalcode",
+      "https://creativecommons.org/licenses/by-sa/4.0" => "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-nd/1.0" => "https://creativecommons.org/licenses/by-nc-nd/1.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-nd/2.0" => "https://creativecommons.org/licenses/by-nc-nd/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-nd/2.5" => "https://creativecommons.org/licenses/by-nc-nd/2.5/legalcode",
+      "https://creativecommons.org/licenses/by-nc-nd/3.0" => "https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode",
+      "https://creativecommons.org/licenses/by-nc-nd/4.0" => "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+      "https://creativecommons.org/licenses/publicdomain" => "https://creativecommons.org/licenses/publicdomain/",
+      "https://creativecommons.org/publicdomain/zero/1.0" => "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
     }
 
     DC_TO_SO_TRANSLATIONS = {
@@ -475,7 +506,7 @@ module Bolognese
       nil
     end
 
-    def normalize_url(id)
+    def normalize_url(id, options={})
       return nil unless id.present?
 
       # handle info URIs
@@ -485,11 +516,21 @@ module Bolognese
       uri = Addressable::URI.parse(id)
 
       return nil unless uri && uri.host && %w(http https ftp).include?(uri.scheme)
+  
+      # optionally turn into https URL
+      uri.scheme = "https" if options[:https]
 
       # clean up URL
-      PostRank::URI.clean(id)
+      uri.path = PostRank::URI.clean(uri.path)
+
+      uri.to_s
     rescue Addressable::URI::InvalidURIError
       nil
+    end
+
+    def normalize_cc_url(id)
+      id = normalize_url(id, https: true)
+      NORMALIZED_LICENSES.fetch(id, id)
     end
 
     def normalize_orcid(orcid)
@@ -1056,5 +1097,43 @@ module Bolognese
       error_array
     end
 
+    def name_to_spdx(name)
+      spdx = JSON.load(File.read(File.expand_path('../../../resources/spdx/licenses.json', __FILE__))).fetch("licenses")
+      license = spdx.find { |l| l["name"] == name || l["licenseId"] == name || l["seeAlso"].first == normalize_cc_url(name) }
+
+      if license
+        {
+          "rights" => license["name"],
+          "rightsUri" => license["seeAlso"].first,
+          "rightsIdentifier" => license["licenseId"],
+          "rightsIdentifierScheme" => "SPDX",
+          "schemeUri" => "https://spdx.org/licenses/" }.compact
+      else
+        { "rights" => name }
+      end
+    end
+
+    def hsh_to_spdx(hsh)
+      spdx = JSON.load(File.read(File.expand_path('../../../resources/spdx/licenses.json', __FILE__))).fetch("licenses")
+      license = spdx.find { |l| l["licenseId"] == hsh["rightsIdentifier"] || l["seeAlso"].first == normalize_cc_url(hsh["rightsURI"]) || l["name"] == hsh["rights"] || l["seeAlso"].first == normalize_cc_url(hsh["rights"]) }
+
+      if license
+        {
+          "rights" => license["name"],
+          "rightsUri" => license["seeAlso"].first,
+          "rightsIdentifier" => license["licenseId"],
+          "rightsIdentifierScheme" => "SPDX",
+          "schemeUri" => "https://spdx.org/licenses/",
+          "lang" => hsh["lang"] }.compact
+      else
+        {
+          "rights" => hsh["__content__"],
+          "rightsUri" => hsh["rightsURI"],
+          "rightsIdentifier" => hsh["rightsIdentifier"],
+          "rightsIdentifierScheme" => hsh["rightsIdentifierScheme"],
+          "schemeUri" => hsh["schemeUri"],
+          "lang" => hsh["lang"] }.compact
+      end
+    end
   end
 end

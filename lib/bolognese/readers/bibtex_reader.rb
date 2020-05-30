@@ -76,6 +76,7 @@ module Bolognese
                     "dateType" => "Issued" }]
                 end
         publication_year =  meta.try(:date).present? ? meta.date.to_s[0..3] : nil
+        rights_list = meta.try(:copyright).present? ? [hsh_to_spdx("rightsURI" => meta[:copyright])] : []
 
         { "id" => normalize_doi(doi),
           "types" => types,
@@ -90,7 +91,7 @@ module Bolognese
           "dates" => dates,
           "publication_year" => publication_year,
           "descriptions" => meta.try(:abstract).present? ? [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }] : [],
-          "rights_list" =>  meta.try(:copyright).present? ? [{ "rightsUri" => meta.try(:copyright).to_s.presence }.compact] : [],
+          "rights_list" => rights_list,
           "state" => state
         }.merge(read_options)
       end

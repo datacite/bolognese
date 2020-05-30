@@ -16,6 +16,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:author]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
       expect(bibtex[:journal]).to eq("eLife")
       expect(bibtex[:year]).to eq("2014")
+      expect(bibtex[:copyright]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
     it "with pages" do
@@ -31,6 +32,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:journal]).to eq("Pulmonary Medicine")
       expect(bibtex[:pages]).to eq("1-7")
       expect(bibtex[:year]).to eq("2012")
+      expect(bibtex[:copyright]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
     it "text" do
@@ -71,6 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:publisher]).to eq("DataCite")
       expect(bibtex[:keywords]).to eq("faraday, excon, net/http")
       expect(bibtex[:year]).to eq("2017")
+      expect(bibtex[:copyright]).to eq("MIT License")
     end
 
     it "BlogPosting from string" do
@@ -111,6 +114,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:author]).to eq("Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François")
       expect(bibtex[:publisher]).to eq("Dryad Digital Repository")
       expect(bibtex[:year]).to eq("2011")
+      expect(bibtex[:copyright]).to eq("Creative Commons Zero v1.0 Universal")
     end
 
     it "from schema_org" do
@@ -139,6 +143,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:publisher]).to eq("eyemovement.org")
       expect(bibtex[:keywords]).to eq("eye tracking; eye movements; scanpaths; eye movement sequence; web pages; visual elements; web pages; scanpath analysis techniques; scanpath analysis; pattern detection; common scanpaths")
       expect(bibtex[:year]).to eq("2015")
+      expect(bibtex[:copyright]).to eq("Creative Commons Attribution 4.0 International")
     end
 
     it "keywords subject scheme" do
@@ -150,6 +155,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:doi]).to eq("10.1594/pangaea.721193")
       expect(bibtex[:keywords]).to eq("Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
       expect(bibtex[:year]).to eq("2007")
+      expect(bibtex[:copyright]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
     it "author is organization" do

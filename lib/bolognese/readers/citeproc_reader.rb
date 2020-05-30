@@ -60,7 +60,7 @@ module Bolognese
                 end
         publication_year = get_date_from_date_parts(meta.fetch("issued", nil)).to_s[0..3]
         rights_list = if meta.fetch("copyright", nil)
-                        [{ "rightsUri" => normalize_url(meta.fetch("copyright")) }.compact]
+                        [hsh_to_spdx("rightsURI" => meta.fetch("copyright"))]
                       end
         related_identifiers = if meta.fetch("container-title", nil).present? && meta.fetch("ISSN", nil).present?
                                 [{ "type" => "Periodical",
