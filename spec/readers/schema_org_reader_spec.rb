@@ -78,6 +78,18 @@ describe Bolognese::Metadata, vcr: true do
         "nameType" => "Personal", "givenName"=>"Matthias", "familyName"=>"Staib", "affiliation" => [{"name"=>"University of Zurich, Zurich, Switzerland"}])
       expect(subject.publisher).to be_nil
       expect(subject.publication_year).to eq("2018")
+      expect(subject.subjects).to eq([{"subject"=>"Pupil Size Response"},
+        {"subject"=>"Skin Conductance Response"},
+        {"subject"=>"Electrocardiogram"},
+        {"subject"=>"Electromyogram"},
+        {"subject"=>"Electrodermal Activity"},
+        {"subject"=>"Galvanic Skin Response"},
+        {"subject"=>"PSR"},
+        {"subject"=>"SCR"},
+        {"subject"=>"ECG"},
+        {"subject"=>"EMG"},
+        {"subject"=>"EDA"},
+        {"subject"=>"GSR"}])
     end
 
     it "pangaea" do
@@ -119,6 +131,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
       expect(subject.container).to eq("identifier"=>"https://dataverse.harvard.edu", "identifierType"=>"URL", "title"=>"Harvard Dataverse", "type"=>"DataRepository")
       expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)", "nameIdentifiers"=>[], "affiliation" => []}])
+      expect(subject.subjects).to eq([{"subject"=>"Medicine, Health and Life Sciences"},
+        {"subject"=>"Genome-Wide Association Studies"},
+        {"subject"=>"Ankylosing spondylitis"}])
     end
 
     it "harvard dataverse via identifiers.org" do
@@ -284,7 +299,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.rights_list).to eq([{"rights"=>"Restricted access", "rightsUri"=>"https://datasets.aida.medtech4health.se/10.23698/aida/drov#license"}])
       expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
     end
-
 
     it "from attributes" do
       subject = Bolognese::Metadata.new(input: nil,

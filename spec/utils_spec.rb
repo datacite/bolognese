@@ -481,4 +481,52 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("https://raw.githubusercontent.com/datacite/metadata-reports/master/software/codemeta.json")
     end
   end
+
+  context "fos" do
+    it "name_to_fos match" do
+      name = "Biological sciences"
+      response = subject.name_to_fos(name)
+      expect(response).to eq([{"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"Biological sciences",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
+    end
+
+    it "name_to_fos for match" do
+      name = "Statistics"
+      response = subject.name_to_fos(name)
+      expect(response).to eq([{"subject"=>"Statistics"},
+       {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"Mathematics",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
+    end
+
+    it "name_to_fos no match" do
+      name = "Random tag"
+      response = subject.name_to_fos(name)
+      expect(response).to eq([{"subject"=>"Random tag"}])
+    end
+
+    it "hsh_to_fos match" do
+      hsh = { "__content__" => "Biological sciences" }
+      response = subject.hsh_to_fos(hsh)
+      expect(response).to eq([{"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"Biological sciences",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
+    end
+
+    it "hsh_to_fos for match" do
+      hsh = { "__content__" => "Statistics" }
+      response = subject.hsh_to_fos(hsh)
+      expect(response).to eq([{"subject"=>"Statistics"},
+       {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"Mathematics",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
+    end
+
+    it "hsh_to_fos no match" do
+      hsh = { "__content__"=>"Random tag" }
+      response = subject.hsh_to_fos(hsh)
+      expect(response).to eq([{"subject"=>"Random tag"}])
+    end
+  end
 end

@@ -82,8 +82,10 @@ module Bolognese
           nil
         end
         state = meta.fetch("DO", nil).present? || read_options.present? ? "findable" : "not_found"
-        subjects = Array.wrap(meta.fetch("KW", nil)).map do |s|
-          { "subject" => s }
+        subjects = Array.wrap(meta.fetch("KW", nil)).reduce([]) do |sum, subject|
+          sum += name_to_fos(subject)
+
+          sum
         end
 
         { "id" => id,

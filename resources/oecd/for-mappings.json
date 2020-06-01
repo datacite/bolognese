@@ -1,5 +1,6 @@
 {
   "mappingListVersion": "1.0",
+  "originalUrl": "https://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&12970%20(2008)%20FOS%20(2007)%20Correspondence%20Table.xls",
   "forFields": [
     {
       "forId": "060102",
@@ -733,7 +734,7 @@
     {
       "forId": "1116",
       "forLabel": "Medical Physiology",
-      "fosId": "3.4",
+      "fosId": "3.1",
       "fosLabel": "Basic medicine"
     },
     {
