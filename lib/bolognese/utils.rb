@@ -1060,11 +1060,11 @@ module Bolognese
       # first find subject in Fields of Science (OECD)
       fos = JSON.load(File.read(File.expand_path('../../../resources/oecd/fos-mappings.json', __FILE__))).fetch("fosFields")
       
-      subject = fos.find { |l| l["fosLabel"] == name }
+      subject = fos.find { |l| l["fosLabel"] == name || "FOS: " + l["fosLabel"] == name }
 
       if subject
         return [{
-          "subject" => subject["fosLabel"],
+          "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
           "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
         }]
@@ -1083,7 +1083,7 @@ module Bolognese
         [{ 
           "subject" => sanitize(name) },
         {
-          "subject" => subject["fosLabel"],
+          "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
           "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
         }]
@@ -1095,11 +1095,11 @@ module Bolognese
     def hsh_to_fos(hsh)
       # first find subject in Fields of Science (OECD)
       fos = JSON.load(File.read(File.expand_path('../../../resources/oecd/fos-mappings.json', __FILE__))).fetch("fosFields")
-      subject = fos.find { |l| l["fosLabel"] == hsh["__content__"] }
+      subject = fos.find { |l| l["fosLabel"] == hsh["__content__"] || "FOS: " + l["fosLabel"] == hsh["__content__"] }
 
       if subject
         return [{ 
-          "subject" => subject["fosLabel"],
+          "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
           "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf",
           "valueUri" => hsh["valueURI"], 
@@ -1132,7 +1132,7 @@ module Bolognese
           "valueUri" => hsh["valueURI"], 
           "lang" => hsh["lang"] }.compact,
         {
-          "subject" => subject["fosLabel"],
+          "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
           "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
         }]

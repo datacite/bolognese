@@ -487,7 +487,7 @@ describe Bolognese::Metadata, vcr: true do
       name = "Biological sciences"
       response = subject.name_to_fos(name)
       expect(response).to eq([{"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"Biological sciences",
+        "subject"=>"FOS: Biological sciences",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
     end
 
@@ -496,7 +496,7 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.name_to_fos(name)
       expect(response).to eq([{"subject"=>"Statistics"},
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"Mathematics",
+        "subject"=>"FOS: Mathematics",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
     end
 
@@ -510,7 +510,7 @@ describe Bolognese::Metadata, vcr: true do
       hsh = { "__content__" => "Biological sciences" }
       response = subject.hsh_to_fos(hsh)
       expect(response).to eq([{"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"Biological sciences",
+        "subject"=>"FOS: Biological sciences",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
     end
 
@@ -519,7 +519,7 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.hsh_to_fos(hsh)
       expect(response).to eq([{"subject"=>"Statistics"},
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"Mathematics",
+        "subject"=>"FOS: Mathematics",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
     end
 

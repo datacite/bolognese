@@ -167,7 +167,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Figshare")
       expect(subject.subjects).to eq([{"subject"=>"Information Systems"},
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"Computer and information sciences",
+        "subject"=>"FOS: Computer and information sciences",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -189,7 +189,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Figshare")
       expect(subject.subjects).to eq([{"subject"=>"Information Systems"},
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"Computer and information sciences",
+        "subject"=>"FOS: Computer and information sciences",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
