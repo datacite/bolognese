@@ -1063,7 +1063,9 @@ module Bolognese
       subject = fos.find { |l| l["fosLabel"] == name || "FOS: " + l["fosLabel"] == name }
 
       if subject
-        return [{
+        return [{ 
+          "subject" => sanitize(name) },
+        {
           "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
           "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
@@ -1099,11 +1101,15 @@ module Bolognese
 
       if subject
         return [{ 
+          "subject" => sanitize(hsh["__content__"]), 
+          "subjectScheme" => hsh["subjectScheme"],
+          "schemeUri" => hsh["schemeURI"], 
+          "valueUri" => hsh["valueURI"], 
+          "lang" => hsh["lang"] }.compact,
+        {  
           "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
-          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf",
-          "valueUri" => hsh["valueURI"], 
-          "lang" => hsh["lang"] }.compact] 
+          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf" }.compact] 
       end
 
       # if not found, look in Fields of Research (Australian and New Zealand Standard Research Classification)
