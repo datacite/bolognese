@@ -193,9 +193,6 @@ module Bolognese
       @version_info ||= meta.fetch("version_info", nil) || meta.fetch("version", nil)
     end
 
-    # for backwards compatibility
-    alias_attribute :version_info, :version
-
     def publication_year
       @publication_year ||= meta.fetch("publication_year", nil)
     end
