@@ -53,6 +53,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
         "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
       expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
+      expect(json["keywords"]).to eq("Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium")
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -84,6 +85,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "affiliation"=>{"@type"=>"Organization", "name"=>"NCEAS"}},
                                     {"name"=>"University Of California, Santa Barbara", "@type"=>"Organization"}])
       expect(json["version"]).to eq("2.0.0")
+      expect(json["keywords"]).to eq("data sharing, data repository, DataONE")
     end
 
     it "Funding" do

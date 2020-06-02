@@ -149,8 +149,13 @@ module Bolognese
             "geoLocationBox" => geo_location_box
           }.compact
         end
-        subjects = Array.wrap(meta.fetch("keywords", nil).to_s.split(", ")).map do |s|
-          { "subject" => s }
+
+        # handle keywords as array and as comma-separated string
+        subjects = meta.fetch("keywords", nil)
+        subjects = subjects.to_s.split(", ") if subjects.is_a?(String)
+        subjects = Array.wrap(subjects).reduce([]) do |sum, subject|
+          sum += name_to_fos(subject)
+          sum
         end
 
         { "id" => id,
@@ -172,7 +177,7 @@ module Bolognese
           "dates" => dates,
           "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
           "rights_list" => rights_list,
-          "version" => meta.fetch("version", nil).to_s.presence,
+          "version_info" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
           "state" => state,
           "schema_version" => meta.fetch("schemaVersion", nil).to_s.presence,

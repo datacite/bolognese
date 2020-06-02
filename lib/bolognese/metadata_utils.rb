@@ -159,7 +159,7 @@ module Bolognese
         "title" => parse_attributes(titles, content: "title", first: true),
         "URL" => url,
         "copyright" => Array.wrap(rights_list).map { |l| l["rights"] }.first,
-        "version" => version,
+        "version" => version_info
       }.compact.symbolize_keys
     end
 
@@ -181,7 +181,7 @@ module Bolognese
         "identifiers" => identifiers,
         "sizes" => sizes,
         "formats" => formats,
-        "version" => version,
+        "version" => version_info,
         "rights_list" => rights_list,
         "descriptions" => descriptions,
         "geo_locations" => geo_locations,

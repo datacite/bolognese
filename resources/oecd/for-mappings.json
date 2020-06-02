@@ -1,0 +1,1101 @@
+{
+  "mappingListVersion": "1.0",
+  "originalUrl": "https://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&12970%20(2008)%20FOS%20(2007)%20Correspondence%20Table.xls",
+  "forFields": [
+    {
+      "forId": "060102",
+      "forLabel": "Bioinformatics",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "029901",
+      "forLabel": "Biological Physics",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "050202",
+      "forLabel": "Conservation and Biodiversity",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "091007",
+      "forLabel": "Manufacturing Robotics and Mechatronics (excl. Automotive Mechatronics)",
+      "fosId": "2.2",
+      "fosLabel": "Electrical engineering, electronic engineering, information engineering"
+    },
+    {
+      "forId": "091302",
+      "forLabel": "Automation and Control Engineering",
+      "fosId": "2.2",
+      "fosLabel": "Electrical engineering, electronic engineering, information engineering"
+    },
+    {
+      "forId": "020304",
+      "forLabel": "Thermodynamics and Statistical Physics",
+      "fosId": "2.3",
+      "fosLabel": "Mechanical engineering"
+    },
+    {
+      "forId": "091012",
+      "forLabel": "Textile Technology",
+      "fosId": "2.5",
+      "fosLabel": "Materials engineering"
+    },
+    {
+      "forId": "090201",
+      "forLabel": "Automotive Combustion and Fuel Engineering (incl. Alternative/Renewable Fuels)",
+      "fosId": "2.7",
+      "fosLabel": "Environmental engineering"
+    },
+    {
+      "forId": "090405",
+      "forLabel": "Non-automotive Combustion and Fuel Engineering",
+      "fosId": "2.7",
+      "fosLabel": "Environmental engineering"
+    },
+    {
+      "forId": "030405",
+      "forLabel": "Molecular Medicine",
+      "fosId": "3.1",
+      "fosLabel": "Basic medicine"
+    },
+    {
+      "forId": "110311",
+      "forLabel": "Medical Genetics (excl. Cancer Genetics)",
+      "fosId": "3.1",
+      "fosLabel": "Basic medicine"
+    },
+    {
+      "forId": "110701",
+      "forLabel": "Allergy",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "110708",
+      "forLabel": "Transplantation Immunology",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "110904",
+      "forLabel": "Neurology and Neuromuscular Diseases",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "110309",
+      "forLabel": "Infectious Diseases",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "110803",
+      "forLabel": "Medical Parasitology",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "120101",
+      "forLabel": "Architectural Design",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "220106",
+      "forLabel": "Medical Ethics",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "111404",
+      "forLabel": "Reproduction",
+      "fosId": "3.4",
+      "fosLabel": "Medical biotechnology"
+    },
+    {
+      "forId": "111505",
+      "forLabel": "Pharmacogenomics",
+      "fosId": "3.4",
+      "fosLabel": "Medical biotechnology"
+    },
+    {
+      "forId": "039902",
+      "forLabel": "Forensic Chemistry",
+      "fosId": "3.5",
+      "fosLabel": "Other medical sciences"
+    },
+    {
+      "forId": "069901",
+      "forLabel": "Forensic Biology",
+      "fosId": "3.5",
+      "fosLabel": "Other medical sciences"
+    },
+    {
+      "forId": "170104",
+      "forLabel": "Forensic Psychology",
+      "fosId": "3.5",
+      "fosLabel": "Other medical sciences"
+    },
+    {
+      "forId": "220205",
+      "forLabel": "History and Philosophy of Medicine",
+      "fosId": "3.5",
+      "fosLabel": "Other medical sciences"
+    },
+    {
+      "forId": "080602",
+      "forLabel": "Computer-Human Interaction",
+      "fosId": "5.1",
+      "fosLabel": "Psychology"
+    }
+  ],
+  "forDisciplines": [
+    {
+      "forId": "0101",
+      "forLabel": "Pure Mathematics",
+      "fosId": "1.1",
+      "fosLabel": "Mathematics"
+    },
+    {
+      "forId": "0102",
+      "forLabel": "Applied Mathematics",
+      "fosId": "1.1",
+      "fosLabel": "Mathematics"
+    },
+    {
+      "forId": "0103",
+      "forLabel": "Numerical and Computational Mathematics",
+      "fosId": "1.1",
+      "fosLabel": "Mathematics"
+    },
+    {
+      "forId": "0104",
+      "forLabel": "Statistics",
+      "fosId": "1.1",
+      "fosLabel": "Mathematics"
+    },
+    {
+      "forId": "0105",
+      "forLabel": "Mathematical Physics",
+      "fosId": "1.1",
+      "fosLabel": "Mathematics"
+    },
+    {
+      "forId": "0199",
+      "forLabel": "Other Mathematical Sciences",
+      "fosId": "1.1",
+      "fosLabel": "Mathematics"
+    },
+    {
+      "forId": "0201",
+      "forLabel": "Astronomical and Space Sciences",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0202",
+      "forLabel": "Atomic, Molecular, Nuclear, Particle and Plasma Physics",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0203",
+      "forLabel": "Classical Physics",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0204",
+      "forLabel": "Condensed Matter Physics",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0205",
+      "forLabel": "Optical Physics",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0206",
+      "forLabel": "Quantum Physics",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0299",
+      "forLabel": "Other Physical Sciences",
+      "fosId": "1.3",
+      "fosLabel": "Physical sciences"
+    },
+    {
+      "forId": "0301",
+      "forLabel": "Analytical Chemistry",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0302",
+      "forLabel": "Inorganic Chemistry",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0303",
+      "forLabel": "Macromolecular and Materials Chemistry",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0304",
+      "forLabel": "Medicinal and Biomolecular Chemistry",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0305",
+      "forLabel": "Organic Chemistry",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0306",
+      "forLabel": "Physical Chemistry (incl. Structural)",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0307",
+      "forLabel": "Theoretical and Computational Chemistry",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0399",
+      "forLabel": "Other Chemical Sciences",
+      "fosId": "1.4",
+      "fosLabel": "Chemical sciences"
+    },
+    {
+      "forId": "0401",
+      "forLabel": "Atmospheric Sciences",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0402",
+      "forLabel": "Geochemistry",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0403",
+      "forLabel": "Geology",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0404",
+      "forLabel": "Geophysics",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0405",
+      "forLabel": "Oceanography",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0406",
+      "forLabel": "Physical Geography and Environmental Geoscience",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0499",
+      "forLabel": "Other Earth Sciences",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0501",
+      "forLabel": "Ecological Applications",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0502",
+      "forLabel": "Environmental Science and Management",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0503",
+      "forLabel": "Soil Sciences",
+      "fosId": "4.1",
+      "fosLabel": "Agriculture, forestry and fisheries"
+    },
+    {
+      "forId": "0599",
+      "forLabel": "Other Environmental Sciences",
+      "fosId": "1.5",
+      "fosLabel": "Earth and related environmental sciences"
+    },
+    {
+      "forId": "0601",
+      "forLabel": "Biochemistry and Cell Biology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0602",
+      "forLabel": "Ecology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0603",
+      "forLabel": "Evolutionary Biology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0604",
+      "forLabel": "Genetics",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0605",
+      "forLabel": "Microbiology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0606",
+      "forLabel": "Physiology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0607",
+      "forLabel": "Plant Biology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0608",
+      "forLabel": "Zoology",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0699",
+      "forLabel": "Other Biological Sciences",
+      "fosId": "1.6",
+      "fosLabel": "Biological sciences"
+    },
+    {
+      "forId": "0701",
+      "forLabel": "Agriculture, Land,and Farm Management",
+      "fosId": "4.5",
+      "fosLabel": "Other agricultural sciences"
+    },
+    {
+      "forId": "0702",
+      "forLabel": "Animal Production",
+      "fosId": "4.2",
+      "fosLabel": "Animal and dairy science"
+    },
+    {
+      "forId": "0703",
+      "forLabel": "Crop and Pasture Production",
+      "fosId": "4.1",
+      "fosLabel": "Agriculture, forestry and fisheries"
+    },
+    {
+      "forId": "0704",
+      "forLabel": "Fisheries Sciences",
+      "fosId": "4.1",
+      "fosLabel": "Agriculture, forestry and fisheries"
+    },
+
+    {
+      "forId": "0705",
+      "forLabel": "Forestry Sciences",
+      "fosId": "4.1",
+      "fosLabel": "Agriculture, forestry and fisheries"
+    },
+    {
+      "forId": "0706",
+      "forLabel": "Horticultural Production",
+      "fosId": "4.1",
+      "fosLabel": "Agriculture, forestry and fisheries"
+    },
+    {
+      "forId": "0707",
+      "forLabel": "Veterinary Sciences",
+      "fosId": "4.3",
+      "fosLabel": "Veterinary sciences"
+    },
+    {
+      "forId": "0799",
+      "forLabel": "Other Agricultural and Veterinary Sciences",
+      "fosId": "4.5",
+      "fosLabel": "Other agricultural sciences"
+    },
+    {
+      "forId": "0801",
+      "forLabel": "Artificial Intelligence and Image Processing",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0802",
+      "forLabel": "Computation Theory and Mathematics",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0803",
+      "forLabel": "Computer Software",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0804",
+      "forLabel": "Data Format",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0805",
+      "forLabel": "Distributed Computing",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0806",
+      "forLabel": "Information Systems",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0807",
+      "forLabel": "Library and Information Studies",
+      "fosId": "5.8",
+      "fosLabel": "Media and communications"
+    },
+    {
+      "forId": "0899",
+      "forLabel": "Other Information and Computing Sciences",
+      "fosId": "1.2",
+      "fosLabel": "Computer and information sciences"
+    },
+    {
+      "forId": "0901",
+      "forLabel": "Aerospace Engineering",
+      "fosId": "2.3",
+      "fosLabel": "Mechanical engineering"
+    },
+    {
+      "forId": "0902",
+      "forLabel": "Automotive Engineering",
+      "fosId": "2.3",
+      "fosLabel": "Mechanical engineering"
+    },
+    {
+      "forId": "0903",
+      "forLabel": "Biomedical Engineering",
+      "fosId": "2.6",
+      "fosLabel": "Medical engineering"
+    },
+    {
+      "forId": "0904",
+      "forLabel": "Chemical Engineering",
+      "fosId": "2.4",
+      "fosLabel": "Chemical engineering"
+    },
+    {
+      "forId": "0905",
+      "forLabel": "Civil Engineering",
+      "fosId": "2.1",
+      "fosLabel": "Civil engineering"
+    },
+    {
+      "forId": "0906",
+      "forLabel": "Electrical and Electronic Engineering",
+      "fosId": "2.2",
+      "fosLabel": "Electrical engineering, electronic engineering, information engineering"
+    },
+    {
+      "forId": "0907",
+      "forLabel": "Environmental Engineering",
+      "fosId": "2.7",
+      "fosLabel": "Environmental engineering"
+    },
+    {
+      "forId": "0908",
+      "forLabel": "Food Sciences",
+      "fosId": "2.11",
+      "fosLabel": "Other engineering and technologies"
+    },
+    {
+      "forId": "0909",
+      "forLabel": "Geomatic Engineering",
+      "fosId": "2.7",
+      "fosLabel": "Environmental engineering"
+    },
+    {
+      "forId": "0910",
+      "forLabel": "Manufacturing Engineering",
+      "fosId": "2.2",
+      "fosLabel": "Electrical engineering, electronic engineering, information engineering"
+    },
+    {
+      "forId": "0911",
+      "forLabel": "Maritime Engineering",
+      "fosId": "2.7",
+      "fosLabel": "Environmental engineering"
+    },
+    {
+      "forId": "0912",
+      "forLabel": "Materials Engineering",
+      "fosId": "2.5",
+      "fosLabel": "Materials engineering"
+    },
+    {
+      "forId": "0913",
+      "forLabel": "Mechanical Engineering",
+      "fosId": "2.3",
+      "fosLabel": "Mechanical engineering"
+    },
+    {
+      "forId": "0914",
+      "forLabel": "Resources Engineering and Extractive Metallurgy",
+      "fosId": "2.7",
+      "fosLabel": "Environmental engineering"
+    },
+    {
+      "forId": "0915",
+      "forLabel": "Interdisciplinary Engineering",
+      "fosId": "2.11",
+      "fosLabel": "Other engineering and technologies"
+    },
+    {
+      "forId": "0999",
+      "forLabel": "Other Engineering",
+      "fosId": "2.11",
+      "fosLabel": "Other engineering and technologies"
+    },
+    {
+      "forId": "1001",
+      "forLabel": "Agricultural Biotechnology",
+      "fosId": "4.4",
+      "fosLabel": "Agricultural biotechnology"
+    },
+    {
+      "forId": "1002",
+      "forLabel": "Environmental Biotechnology",
+      "fosId": "2.8",
+      "fosLabel": "Environmental biotechnology"
+    },
+    {
+      "forId": "1003",
+      "forLabel": "Industrial Biotechnology",
+      "fosId": "2.9",
+      "fosLabel": "Industrial biotechnology"
+    },
+    {
+      "forId": "1004",
+      "forLabel": "Medical Biotechnology",
+      "fosId": "3.4",
+      "fosLabel": "Medical biotechnology"
+    },
+    {
+      "forId": "1005",
+      "forLabel": "Communication Technologies",
+      "fosId": "2.2",
+      "fosLabel": "Electrical engineering, electronic engineering, information engineering"
+    },
+    {
+      "forId": "1006",
+      "forLabel": "Computer Hardware",
+      "fosId": "2.2",
+      "fosLabel": "Electrical engineering, electronic engineering, information engineering"
+    },
+    {
+      "forId": "1007",
+      "forLabel": "Nanotechnology",
+      "fosId": "2.10",
+      "fosLabel": "Nanotechnology"
+    },
+    {
+      "forId": "1099",
+      "forLabel": "Other Technology",
+      "fosId": "2.11",
+      "fosLabel": "Other engineering and technologies"
+    },
+    {
+      "forId": "1101",
+      "forLabel": "Medical Biochemistry and Metabolomics",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1102",
+      "forLabel": "Cardiorespiratory Medicine and Haematology",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1103",
+      "forLabel": "Clinical Sciences",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1104",
+      "forLabel": "Complementary and Alternative Medicine",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1105",
+      "forLabel": "Dentistry",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1106",
+      "forLabel": "Human Movement and Sports Science",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "1107",
+      "forLabel": "Immunology",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1108",
+      "forLabel": "Medical Microbiology",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "1109",
+      "forLabel": "Neurosciences",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1110",
+      "forLabel": "Nursing",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "1111",
+      "forLabel": "Nutrition and Dietetics",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "1112",
+      "forLabel": "Oncology and Carcinogenesis",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1113",
+      "forLabel": "Ophthalmology and Optometry",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1114",
+      "forLabel": "Paediatrics and Reproductive Medicine",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1115",
+      "forLabel": "Pharmacology and Pharmaceutical Sciences",
+      "fosId": "3.2",
+      "fosLabel": "Clinical medicine"
+    },
+    {
+      "forId": "1116",
+      "forLabel": "Medical Physiology",
+      "fosId": "3.1",
+      "fosLabel": "Basic medicine"
+    },
+    {
+      "forId": "1117",
+      "forLabel": "Public Health and Health Services",
+      "fosId": "3.3",
+      "fosLabel": "Health sciences"
+    },
+    {
+      "forId": "1199",
+      "forLabel": "Other Medical and Health Sciences",
+      "fosId": "3.5",
+      "fosLabel": "Other medical sciences"
+    },
+    {
+      "forId": "1201",
+      "forLabel": "Architecture",
+      "fosId": "2.1",
+      "fosLabel": "Civil engineering"
+    },
+    {
+      "forId": "1202",
+      "forLabel": "Building",
+      "fosId": "2.1",
+      "fosLabel": "Civil engineering"
+    },
+    {
+      "forId": "1204",
+      "forLabel": "Engineering Design",
+      "fosId": "2.11",
+      "fosLabel": "Other engineering and technologies"
+    },
+    {
+      "forId": "1203",
+      "forLabel": "Design Practice and Management",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "1205",
+      "forLabel": "Urban and Regional Planning",
+      "fosId": "5.7",
+      "fosLabel": "Social and economic geography"
+    },
+    {
+      "forId": "1299",
+      "forLabel": "Other Built Environment and Design",
+      "fosId": "2.1",
+      "fosLabel": "Civil engineering"
+    },
+    {
+      "forId": "1301",
+      "forLabel": "Education Systems",
+      "fosId": "5.3",
+      "fosLabel": "Educational sciences"
+    },
+    {
+      "forId": "1302",
+      "forLabel": "Curriculum and Pedagogy",
+      "fosId": "5.3",
+      "fosLabel": "Educational sciences"
+    },
+    {
+      "forId": "1303",
+      "forLabel": "Specialist Studies in Education",
+      "fosId": "5.3",
+      "fosLabel": "Educational sciences"
+    },
+    {
+      "forId": "1399",
+      "forLabel": "Other Education",
+      "fosId": "5.3",
+      "fosLabel": "Educational sciences"
+    },
+    {
+      "forId": "1401",
+      "forLabel": "Economic Theory",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1402",
+      "forLabel": "Applied Economics",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1403",
+      "forLabel": "Econometrics",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1499",
+      "forLabel": "Other Economics",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1501",
+      "forLabel": "Accounting, Auditing and Accountability",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1502",
+      "forLabel": "Banking, Finance and Investment",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1503",
+      "forLabel": "Business and Management",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1504",
+      "forLabel": "Commercial Services",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1505",
+      "forLabel": "Marketing",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1506",
+      "forLabel": "Tourism",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1507",
+      "forLabel": "Transportation and Freight Services",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1599",
+      "forLabel": "Other Commerce, Management, Tourism and Services",
+      "fosId": "5.2",
+      "fosLabel": "Economics and business"
+    },
+    {
+      "forId": "1601",
+      "forLabel": "Anthropology",
+      "fosId": "5.4",
+      "fosLabel": "Sociology"
+    },
+    {
+      "forId": "1602",
+      "forLabel": "Criminology",
+      "fosId": "5.5",
+      "fosLabel": "Law"
+    },
+    {
+      "forId": "1603",
+      "forLabel": "Demography",
+      "fosId": "5.4",
+      "fosLabel": "Sociology"
+    },
+    {
+      "forId": "1604",
+      "forLabel": "Human Geography",
+      "fosId": "5.7",
+      "fosLabel": "Social and economic geography"
+    },
+    {
+      "forId": "1605",
+      "forLabel": "Policy and Administration",
+      "fosId": "5.6",
+      "fosLabel": "Political science"
+    },
+    {
+      "forId": "1606",
+      "forLabel": "Political Science",
+      "fosId": "5.6",
+      "fosLabel": "Political science"
+    },
+    {
+      "forId": "1607",
+      "forLabel": "Social Work",
+      "fosId": "5.4",
+      "fosLabel": "Sociology"
+    },
+    {
+      "forId": "1608",
+      "forLabel": "Sociology",
+      "fosId": "5.4",
+      "fosLabel": "Sociology"
+    },
+    {
+      "forId": "1699",
+      "forLabel": "Other Studies in Human Society",
+      "fosId": "5.4",
+      "fosLabel": "Sociology"
+    },
+    {
+      "forId": "1701",
+      "forLabel": "Psychology",
+      "fosId": "5.1",
+      "fosLabel": "Psychology"
+    },
+    {
+      "forId": "1702",
+      "forLabel": "Cognitive Sciences",
+      "fosId": "5.1",
+      "fosLabel": "Psychology"
+    },
+    {
+      "forId": "1799",
+      "forLabel": "Other Psychology and Cognitive Sciences",
+      "fosId": "5.1",
+      "fosLabel": "Psychology"
+    },
+    {
+      "forId": "1801",
+      "forLabel": "Law",
+      "fosId": "5.5",
+      "fosLabel": "Law"
+    },
+    {
+      "forId": "1802",
+      "forLabel": "Maori Law",
+      "fosId": "5.5",
+      "fosLabel": "Law"
+    },
+    {
+      "forId": "1899",
+      "forLabel": "Other Law and Legal Studies",
+      "fosId": "5.5",
+      "fosLabel": "Law"
+    },
+    {
+      "forId": "1901",
+      "forLabel": "Art Theory and Criticism",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "1902",
+      "forLabel": "Film, Television and Digital Media",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "1903",
+      "forLabel": "Journalism and Professional Writing",
+      "fosId": "5.8",
+      "fosLabel": "Media and communications"
+    },
+    {
+      "forId": "1904",
+      "forLabel": "Performing Arts and Creative Writing",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "1905",
+      "forLabel": "Visual Arts and Crafts",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "1999",
+      "forLabel": "Other Studies in Creative Arts and Writing",
+      "fosId": "6.4",
+      "fosLabel": "Arts (arts, history of arts, performing arts, music)"
+    },
+    {
+      "forId": "2001",
+      "forLabel": "Communication and Media Studies",
+      "fosId": "5.8",
+      "fosLabel": "Media and communications"
+    },
+    {
+      "forId": "2002",
+      "forLabel": "Cultural Studies",
+      "fosId": "6.5",
+      "fosLabel": "Other humanities"
+    },
+    {
+      "forId": "2003",
+      "forLabel": "Language Studies",
+      "fosId": "6.2",
+      "fosLabel": "Languages and literature"
+    },
+    {
+      "forId": "2004",
+      "forLabel": "Linguistics",
+      "fosId": "6.2",
+      "fosLabel": "Languages and literature"
+    },
+    {
+      "forId": "2005",
+      "forLabel": "Literary Studies",
+      "fosId": "6.2",
+      "fosLabel": "Languages and literature"
+    },
+    {
+      "forId": "2099",
+      "forLabel": "Other Language, Communication and Culture",
+      "fosId": "6.2",
+      "fosLabel": "Languages and literature"
+    },
+    {
+      "forId": "2101",
+      "forLabel": "Archaelogy",
+      "fosId": "6.1",
+      "fosLabel": "History and archaeology"
+    },
+    {
+      "forId": "2102",
+      "forLabel": "Curatorial and Related Studies",
+      "fosId": "5.8",
+      "fosLabel": "Media and communications"
+    },
+    {
+      "forId": "2103",
+      "forLabel": "Historical Studies",
+      "fosId": "6.1",
+      "fosLabel": "History and archaeology"
+    },
+    {
+      "forId": "2199",
+      "forLabel": "Other History and Archaelogy",
+      "fosId": "6.1",
+      "fosLabel": "History and archaeology"
+    },
+    {
+      "forId": "2201",
+      "forLabel": "Applied Ethics",
+      "fosId": "6.3",
+      "fosLabel": "Philosophy, ethics and religion"
+    },
+    {
+      "forId": "2202",
+      "forLabel": "History and Philosophy of Specific Fields",
+      "fosId": "6.3",
+      "fosLabel": "Philosophy, ethics and religion"
+    },
+    {
+      "forId": "2203",
+      "forLabel": "Philosophy",
+      "fosId": "6.3",
+      "fosLabel": "Philosophy, ethics and religion"
+    },
+    {
+      "forId": "2204",
+      "forLabel": "Religion and Religious Studies",
+      "fosId": "6.3",
+      "fosLabel": "Philosophy, ethics and religion"
+    },
+    {
+      "forId": "2299",
+      "forLabel": "Other Philosophy and Religious Studies",
+      "fosId": "6.3",
+      "fosLabel": "Philosophy, ethics and religion"
+    }
+  ]
+}

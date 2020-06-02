@@ -57,8 +57,10 @@ module Bolognese
           "bibtex" => Bolognese::Utils::SO_TO_BIB_TRANSLATIONS[schema_org] || "misc",
           "ris" => Bolognese::Utils::SO_TO_RIS_TRANSLATIONS[schema_org] || "GEN"
         }.compact
-        subjects = Array.wrap(meta.fetch("tags", nil)).map do |s|
-          { "subject" => s }
+        subjects = Array.wrap(meta.fetch("tags", nil)).reduce([]) do |sum, subject|
+          sum += name_to_fos(subject)
+
+          sum
         end
 
         has_title = meta.fetch("title", nil)
@@ -79,7 +81,7 @@ module Bolognese
           "publication_year" => publication_year,
           "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
           "rights_list" => rights_list,
-          "version" => meta.fetch("version", nil),
+          "version_info" => meta.fetch("version", nil),
           "subjects" => subjects,
           "state" => state
         }.merge(read_options)

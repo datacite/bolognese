@@ -122,15 +122,17 @@ module Bolognese
             hsh_to_spdx(r)
           end
         end.compact
-        subjects = Array.wrap(meta.dig("subjects", "subject")).map do |k|
-          if k.blank?
-            nil
-          elsif k.is_a?(String)
-            { "subject" => sanitize(k) }
-          elsif k.is_a?(Hash)
-            { "subject" => sanitize(k["__content__"]), "subjectScheme" => k["subjectScheme"], "schemeUri" => k["schemeURI"], "valueUri" => k["valueURI"], "lang" => k["lang"] }.compact
+        
+        subjects = Array.wrap(meta.dig("subjects", "subject")).reduce([]) do |sum, subject|
+          if subject.is_a?(String)
+            sum += name_to_fos(subject)
+          elsif subject.is_a?(Hash)
+            sum += hsh_to_fos(subject)
           end
-        end.compact
+
+          sum
+        end.uniq
+
         dates = Array.wrap(meta.dig("dates", "date")).map do |r|
           if r.is_a?(Hash) && date = sanitize(r["__content__"]).presence
             if Date.edtf(date).present? || Bolognese::Utils::UNKNOWN_INFORMATION.key?(date)
@@ -233,7 +235,7 @@ module Bolognese
           "publication_year" => parse_attributes(meta.fetch("publicationYear", nil), first: true).to_s.strip.presence,
           "descriptions" => descriptions,
           "rights_list" => Array.wrap(rights_list),
-          "version" => meta.fetch("version", nil).to_s.presence,
+          "version_info" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
           "language" => parse_attributes(meta.fetch("language", nil), first: true).to_s.strip.presence,
           "geo_locations" => geo_locations,

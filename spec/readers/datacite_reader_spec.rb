@@ -39,6 +39,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(6)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsSupplementTo")
+      expect(subject.subjects).to eq([{"subject"=>"Phylogeny"},
+        {"subject"=>"Malaria"},
+        {"subject"=>"Parasites"},
+        {"subject"=>"Taxonomy"},
+        {"subject"=>"Mitochondrial genome"},
+        {"subject"=>"Africa"},
+        {"subject"=>"Plasmodium"}])
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -63,6 +70,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.publisher).to eq("DataCite")
+      expect(subject.subjects).to eq([{"subject"=>"datacite"}, {"subject"=>"doi"}, {"subject"=>"metadata"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -79,6 +87,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4230/lipics.tqc.2013.93", "identifierType"=>"DOI"}])
       expect(subject.descriptions.first["description"]).to start_with("We investigate the problem of constructing unextendible product bases in the qubit case")
       expect(subject.dates).to eq([{"date"=>"2013-11-05", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
+      expect(subject.subjects).to eq([{"subject"=>"Computer Science"},
+       {"subject"=>"000 Computer science, knowledge, general works",
+        "subjectScheme"=>"DDC"}])
       expect(subject.publication_year).to eq("2013")
       expect(subject.publisher).to eq("Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany")
       expect(subject.agency).to eq("DataCite")
@@ -168,6 +179,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2011")
       expect(subject.sizes).to eq([])
+      expect(subject.subjects).to eq([{"subject"=>"Environmental research"}])
       expect(subject.publisher).to eq("EvK2 CNR Committee")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
@@ -196,6 +208,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0", "relatedIdentifierType"=>"URL", "relationType"=>"IsSupplementTo")
+      expect(subject.subjects).to eq([{"subject"=>"choice architecture"},
+        {"subject"=>"crossover experiment"},
+        {"subject"=>"hci"}])
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -223,8 +238,61 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.6084/m9.figshare.4234751", "relatedIdentifierType"=>"DOI", "relationType"=>"IsIdenticalTo")
       expect(subject.publisher).to eq("Figshare")
+      expect(subject.subjects).to eq([{"subject"=>"Bioinformatics"},
+       {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"FOS: Computer and information sciences",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"},
+       {"subject"=>"Computational Biology"},
+       {"subject"=>"Systems Biology"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "subject scheme FOR" do
+      input = "10.6084/m9.figshare.1449060"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6084/m9.figshare.1449060", "identifierType"=>"DOI"}])
+      expect(subject.types["schemaOrg"]).to eq("ImageObject")
+      expect(subject.types["resourceType"]).to eq("Figure")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Image")
+      expect(subject.creators.count).to eq(3)
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "familyName" => "Dworkin",
+        "givenName" => "Ian",
+        "name" => "Dworkin, Ian",
+        "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-2874-287X", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "affiliation" => [])
+      expect(subject.titles).to eq([{"title"=>"Drosophila melanogaster African Wings"}])
+      expect(subject.descriptions.first["description"]).to start_with("These are raw wing images from <i>Drosophila melanogaster</i>")
+      expect(subject.rights_list).to eq([{"rights"=>"CC BY 4.0", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.dates).to eq([{"date"=>"2015-06-14", "dateType"=>"Created"},
+        {"date"=>"2018-03-17", "dateType"=>"Updated"},
+        {"date"=>"2015", "dateType"=>"Issued"}])
+      expect(subject.publication_year).to eq("2015")
+      expect(subject.publisher).to eq("Figshare")
+      expect(subject.subjects).to eq([{"subject"=>"Evolutionary Biology"},
+        {"subject"=>"FOS: Biological sciences", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"},
+        {"subject"=>"60412 Quantitative Genetics (incl. Disease and Trait Mapping Genetics)", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"}])
+      expect(subject.agency).to eq("DataCite")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+    end
+
+    it "more subject scheme FOR" do
+      input = "10.4225/03/5a6931f57c654"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.subjects).to eq([{"subject"=>"90301 Biomaterials", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"}, 
+        {"subject"=>"FOS: Medical engineering", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}])
+    end
+
+    it "even more subject scheme FOR" do
+      input = "10.4225/03/5a31ec65634ef"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.subjects).to eq([{"subject"=>"130103 Higher Education", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"},
+        {"subject"=>"FOS: Educational sciences", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}, 
+        {"subject"=>"130313 Teacher Education and Professional Development of Educators", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"}, 
+        {"subject"=>"80799 Library and Information Studies not elsewhere classified", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"},
+        {"subject"=>"FOS: Media and communications", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}, {"subject"=>"Library and Information Studies"}])
     end
 
     it "funding schema version 3" do
@@ -247,6 +315,10 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"}])
+      expect(subject.subjects).to eq([{"subject"=>"Article-Level Metrics"},
+        {"subject"=>"Data mining"},
+        {"subject"=>"Statistical Computing Language R"},
+        {"subject"=>"funded research publications"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -379,6 +451,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
       expect(subject.creators.length).to eq(6)
       expect(subject.creators.first).to eq("familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal", "affiliation"=>[{"name"=>"UC Merced"}], "nameIdentifiers" => [])
+      expect(subject.subjects).to eq([{"subject"=>"Earth sciences"},
+        {"subject"=>"soil moisture"},
+        {"subject"=>"soil temperature"},
+        {"subject"=>"snow depth"},
+        {"subject"=>"air temperature"},
+        {"subject"=>"water balance"},
+        {"subject"=>"Nevada, Sierra (mountain range)"}])
     end
 
     it "series_information" do
@@ -423,6 +502,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"10.5072/timeseries", "relatedIdentifierType"=>"DOI", "relationType"=>"Continues"}])
       expect(subject.geo_locations).to eq([{"geoLocationPlace"=>"Disko Bay", "geoLocationPoint"=>{"pointLatitude"=>"69.000000", "pointLongitude"=>"-52.000000"}}])
+      expect(subject.subjects).to eq([{"subject"=>"551 Geology, hydrology, meteorology", "subjectScheme"=>"DDC"}])
     end
 
     it "geo_location_box" do
@@ -438,6 +518,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("UC Merced")
       expect(subject.dates).to eq([{"date"=>"2014-10-17", "dateType"=>"Updated"}, {"date"=>"2016-03-14T17:02:02Z", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")
+      expect(subject.subjects).to eq([{"subject"=>"Earth sciences"},
+        {"subject"=>"soil moisture"},
+        {"subject"=>"soil temperature"},
+        {"subject"=>"snow depth"},
+        {"subject"=>"air temperature"},
+        {"subject"=>"water balance"},
+        {"subject"=>"Nevada, Sierra (mountain range)"}])
       expect(subject.geo_locations).to eq([{"geoLocationBox"=>
         {"eastBoundLongitude"=>"-119.182",
          "northBoundLatitude"=>"37.075",
@@ -514,6 +601,14 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier" => "https://doi.org/10.13039/501100000266",
         "funderIdentifierType" => "Crossref Funder ID",
         "funderName" => "Engineering and Physical Sciences Research Council (EPSRC)")
+      expect(subject.subjects).to eq([{"schemeUri"=>
+        "http://www.rcuk.ac.uk/research/efficiency/researchadmin/harmonisation/",
+        "subject"=>"Energy Storage",
+        "subjectScheme"=>"RCUK Research Classifications"},
+       {"schemeUri"=>
+        "http://www.rcuk.ac.uk/research/efficiency/researchadmin/harmonisation/",
+        "subject"=>"Materials Characterisation",
+        "subjectScheme"=>"RCUK Research Classifications"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -843,6 +938,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2008")
       expect(subject.container).to eq("firstPage"=>"Spain; 3353", "lastPage"=>"3356", "title"=>"23rd European Photovoltaic Solar Energy Conference and Exhibition", "type"=>"Series", "volume"=>"1-5 September 2008")
       expect(subject.descriptions[1]["description"]).to start_with("Aim of this paper is the presentation")
+      expect(subject.subjects).to eq([{"subject"=>"PV Systems"}, {"subject"=>"Off-grid Applications"}])
       expect(subject.publisher).to eq("WIP-Munich")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-2.2")
@@ -907,7 +1003,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0002-8743-4455", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
                                      "affiliation"=>[{"name"=>"Royal Netherlands Meteorological Institute (KNMI)"}]}])
       expect(subject.titles).to eq([{"title"=>"Multi-Sensor Reanalysis (MSR) of total ozone, version 2"}])
-      expect(subject.version).to eq("2")
+      expect(subject.version_info).to eq("2")
       expect(subject.dates).to eq([{"date"=>"2014-04-25", "dateType"=>"Available"}, {"date"=>"2015", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Royal Netherlands Meteorological Institute (KNMI)")

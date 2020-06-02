@@ -172,9 +172,9 @@ module Bolognese
     end
 
     def insert_version(xml)
-      return xml unless version.present?
+      return xml unless version_info.present?
 
-      xml.version(version)
+      xml.version(version_info)
     end
 
 

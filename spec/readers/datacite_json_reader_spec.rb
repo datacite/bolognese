@@ -69,7 +69,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.28518", "identifierType"=>"DOI"}, {"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])
       expect(subject.dates).to eq([{"date"=>"2015-08-19", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
-      expect(subject.version).to eq("v0.3.2")
+      expect(subject.version_info).to eq("v0.3.2")
       expect(subject.datacite).to include("<version>v0.3.2</version>")
       expect(subject.related_identifiers.length).to eq(2)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"https://github.com/jakevdp/supersmoother/tree/v0.3.2", "relatedIdentifierType"=>"URL", "relationType"=>"IsSupplementTo")
