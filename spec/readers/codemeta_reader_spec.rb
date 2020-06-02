@@ -68,7 +68,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(subject.descriptions.first["description"]).to start_with("Provides read and write access to data and metadata")
       expect(subject.subjects).to eq([{"subject"=>"data sharing"}, {"subject"=>"data repository"}, {"subject"=>"DataONE"}])
-      expect(subject.version).to eq("2.0.0")
+      expect(subject.version_info).to eq("2.0.0")
       expect(subject.dates).to eq([{"date"=>"2016-05-27", "dateType"=>"Issued"}, {"date"=>"2016-05-27", "dateType"=>"Created"}, {"date"=>"2016-05-27", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.publisher).to eq("https://cran.r-project.org")

@@ -145,7 +145,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2015-08-19", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.version_info).to eq("v0.3.2")
-      expect(subject.version).to eq("v0.3.2")
       expect(subject.publisher).to eq("Zenodo")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")

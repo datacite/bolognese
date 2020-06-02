@@ -24,7 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"fullstack_app"}])
       expect(subject.descriptions).to be_empty
       expect(subject.rights_list).to eq([{"rights"=>"ISC"}])
-      expect(subject.version).to eq("1.0.0")
+      expect(subject.version_info).to eq("1.0.0")
       #expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Issued"}])
       #expect(subject.publication_year).to eq("2016")
     end
@@ -40,7 +40,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators).to eq([{"name"=>":(unav)", "nameType"=>"Organizational"}])
       expect(subject.titles).to eq([{"title"=>"CITapp"}])
       expect(subject.descriptions).to eq([{"description"=>"Concealed Information Test app", "descriptionType"=>"Abstract"}])
-      expect(subject.version).to eq("1.1.0")
+      expect(subject.version_info).to eq("1.1.0")
       #expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Issued"}])
       #expect(subject.publication_year).to eq("2016")
     end
@@ -58,7 +58,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.descriptions).to eq([{"description"=>
         +   "The EDAM Browser is a client-side web-based visualization javascript widget. Its goals are to help describing bio-related resources and service with EDAM, and to facilitate and foster community contributions to EDAM.",
            "descriptionType"=>"Abstract"}])
-      expect(subject.version).to eq("1.0.0")
+      expect(subject.version_info).to eq("1.0.0")
       #expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Issued"}])
       #expect(subject.publication_year).to eq("2016")
     end
