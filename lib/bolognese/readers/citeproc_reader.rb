@@ -100,8 +100,10 @@ module Bolognese
         doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
           
         state = id.present? || read_options.present? ? "findable" : "not_found"
-        subjects = Array.wrap(meta.fetch("categories", nil)).map do |s|
-          { "subject" => s }
+        subjects = Array.wrap(meta.fetch("categories", nil)).reduce([]) do |sum, subject|
+          sum += name_to_fos(subject)
+
+          sum
         end
 
         { "id" => id,

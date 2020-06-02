@@ -165,6 +165,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
+      expect(subject.subjects).to eq([{"subject"=>"Information Systems"},
+       {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"FOS: Computer and information sciences",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
@@ -183,6 +187,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
+      expect(subject.subjects).to eq([{"subject"=>"Information Systems"},
+       {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+        "subject"=>"FOS: Computer and information sciences",
+        "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")

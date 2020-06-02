@@ -150,8 +150,13 @@ module Bolognese
             "geoLocationBox" => geo_location_box
           }.compact
         end
-        subjects = Array.wrap(meta.fetch("keywords", nil).to_s.split(", ")).map do |s|
-          { "subject" => s }
+
+        # handle keywords as array and as comma-separated string
+        subjects = meta.fetch("keywords", nil)
+        subjects = subjects.to_s.split(", ") if subjects.is_a?(String)
+        subjects = Array.wrap(subjects).reduce([]) do |sum, subject|
+          sum += name_to_fos(subject)
+          sum
         end
 
         { "id" => id,
