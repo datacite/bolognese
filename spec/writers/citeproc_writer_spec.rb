@@ -24,6 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["publisher"]).to eq("Dryad Digital Repository")
       expect(json["issued"]).to eq("date-parts" => [[2011]])
       expect(json["submitted"]).to be_nil
+      expect(json["copyright"]).to eq("Creative Commons Zero v1.0 Universal")
     end
 
     it "BlogPosting" do
@@ -83,6 +84,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["container-title"]).to eq("eLife")
       expect(json["volume"]).to eq("3")
       expect(json["issued"]).to eq("date-parts" => [[2014, 2, 11]])
+      expect(json["copyright"]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
     it "software" do
@@ -92,6 +94,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["type"]).to eq("article")
       expect(json["DOI"]).to eq("10.6084/m9.figshare.4906367.v1")
       expect(json["title"]).to eq("Scimag catalogue of LibGen as of January 1st, 2014")
+      expect(json["copyright"]).to eq("Creative Commons Zero v1.0 Universal")
     end
 
     it "software w/version" do
@@ -101,6 +104,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["type"]).to eq("article")
       expect(json["DOI"]).to eq("10.5281/zenodo.2598836")
       expect(json["version"]).to eq("1.0.0")
+      expect(json["copyright"]).to eq("Open Access")
     end
 
     it "software w/version from datacite_json" do
@@ -110,6 +114,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["type"]).to eq("article")
       expect(json["DOI"]).to eq("10.5281/ZENODO.2598836")
       expect(json["version"]).to eq("1.0.0")
+      expect(json["copyright"]).to eq("Open Access")
     end
 
     it "multiple abstracts" do
@@ -141,6 +146,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["volume"]).to eq("2012")
       expect(json["page"]).to eq("1-7")
       expect(json["issued"]).to eq("date-parts"=>[[2012]])
+      expect(json["copyright"]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
     it "with only first page" do
@@ -157,6 +163,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["volume"]).to eq("14")
       expect(json["page"]).to eq("e0214986")
       expect(json["issued"]).to eq("date-parts"=>[[2019, 5, 8]])
+      expect(json["copyright"]).to eq("Creative Commons Zero v1.0 Universal")
     end
 
     it "missing creator" do
@@ -173,6 +180,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["publisher"]).to eq("MDPI AG")
       expect(json["page"]).to eq("15")
       expect(json["issued"]).to eq("date-parts"=>[[2018, 4, 9]])
+      expect(json["copyright"]).to eq("Creative Commons Attribution 4.0 International")
     end
 
     it "container title" do
@@ -226,6 +234,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["author"]).to eq([{"family"=>"Fenner", "given"=>"Martin"}])
       expect(json["publisher"]).to eq("DataCite")
       expect(json["issued"]).to eq("date-parts" => [[2017, 2, 24]])
+      expect(json["copyright"]).to eq("MIT License")
     end
 
     it "keywords subject scheme" do
@@ -236,6 +245,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["id"]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(json["DOI"]).to eq("10.1594/pangaea.721193")
       expect(json["categories"]).to include("Animalia", "Bottles or small containers/Aquaria ( 20 L)", "Calcification/Dissolution", "Coast and continental shelf", "Development", "Growth/Morphology", "Laboratory experiment", "Mollusca", "Pelagos", "Single species", "Temperate", "Zooplankton", "Experimental treatment", "Carbonate system computation flag", "Temperature, water", "Salinity", "pH", "Alkalinity, total", "Carbon, inorganic, dissolved", "Carbon dioxide", "Bicarbonate ion", "Carbonate ion", "Partial pressure of carbon dioxide (water) at sea surface temperature (wet air)", "Fugacity of carbon dioxide (water) at sea surface temperature (wet air)", "Aragonite saturation state", "Calcite saturation state", "Proportion", "Crassostrea gigas, larvae length", "Crassostrea gigas, larvae height", "Crassostrea gigas, non mineralized", "Crassostrea gigas, partially mineralized", "Crassostrea gigas, fully mineralized", "Calculated using seacarb after Nisumaa et al. (2010)", "Refractometer (Atago 100-S)", "pH meter (Mettler Toledo)", "pH meter (PHM290, Radiometer)", "Measured", "European Project on Ocean Acidification (EPOCA)", "European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS)", "Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(json["copyright"]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
     it "organization author" do

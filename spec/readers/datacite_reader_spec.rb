@@ -31,7 +31,11 @@ describe Bolognese::Metadata, vcr: true do
         {"identifier"=>
             "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
          "identifierType"=>"citation"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
+        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(6)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsSupplementTo")
@@ -121,7 +125,7 @@ describe Bolognese::Metadata, vcr: true do
           {"identifier"=>
            "https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml",
            "identifierType"=>"URL"}])
-      expect(subject.rights_list).to eq([{"lang"=>"en-US", "rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
+      expect(subject.rights_list).to eq([{"lang"=>"en-US", "rights"=>"Creative Commons Zero v1.0 Universal", "rightsIdentifier"=>"CC0-1.0", "rightsIdentifierScheme"=>"SPDX", "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode", "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.contributors).to eq([{"name"=>"Starr, Joan", "givenName"=>"Joan", "familyName"=>"Starr", "nameIdentifiers"=>[{"nameIdentifier"=>"https://orcid.org/0000-0002-7285-027X", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}], "affiliation"=>
         [{"affiliationIdentifier"=>"https://ror.org/03yrm5c26",
@@ -193,7 +197,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Garza, Kristian", "givenName"=>"Kristian", "familyName"=>"Garza", "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture"}])
       expect(subject.descriptions.first["description"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
-      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution-NonCommercial-ShareAlike", "rightsUri"=>"https://creativecommons.org/licenses/by-nc-sa/4.0"},{"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
+      expect(subject.rights_list).to eq([{"rights"=>
+        "Creative Commons Attribution Non Commercial Share Alike 4.0 International",
+        "rightsIdentifier"=>"CC-BY-NC-SA-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"},
+       {"rights"=>"Open Access", "rightsUri"=>"info:eu-repo/semantics/openAccess"}])
       expect(subject.dates).to eq([{"date"=>"2016-03-27", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(1)
@@ -218,7 +228,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-2410-9671", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Junge, Alexander", "givenName"=>"Alexander", "familyName"=>"Junge", "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"RAIN v1"}])
       expect(subject.descriptions.first["description"]).to start_with("<b>RAIN: RNA–protein Association and Interaction Networks")
-      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/licenses/by/4.0", "rights"=>"CC-BY"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2016-11-16", "dateType"=>"Created"}, {"date"=>"2016-11-16", "dateType"=>"Updated"}, {"date"=>"2016", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(1)
@@ -249,7 +263,11 @@ describe Bolognese::Metadata, vcr: true do
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-2874-287X", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Drosophila melanogaster African Wings"}])
       expect(subject.descriptions.first["description"]).to start_with("These are raw wing images from <i>Drosophila melanogaster</i>")
-      expect(subject.rights_list).to eq([{"rights"=>"CC BY 4.0", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2015-06-14", "dateType"=>"Created"},
         {"date"=>"2018-03-17", "dateType"=>"Updated"},
         {"date"=>"2015", "dateType"=>"Issued"}])
@@ -684,7 +702,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2010")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
-      expect(subject.rights_list).to eq([{"lang"=>"eng", "rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
+      expect(subject.rights_list).to eq([{"lang"=>"eng",
+        "rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
+        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publisher).to eq("Springer")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
@@ -709,7 +732,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2010")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
+        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publisher).to eq("Springer")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4.0")
@@ -734,7 +761,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(4)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsReferencedBy")
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
+        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publisher).to eq("Dryad Digital Repository")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
@@ -759,7 +790,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2010")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
+        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publisher).to eq("Springer")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3.0")
@@ -811,7 +846,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2010")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
-      expect(subject.rights_list).to eq([{"lang"=>"eng", "rightsUri"=>"http://creativecommons.org/licenses/by-nd/2.0", "rights"=>"Creative Commons Attribution-NoDerivs 2.0 Generic"}])
+      expect(subject.rights_list).to eq([{"lang"=>"eng",
+        "rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
+        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publisher).to eq("Springer")
       expect(subject.agency).to eq("DataCite")
     end

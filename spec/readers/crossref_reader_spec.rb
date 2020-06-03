@@ -23,7 +23,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.creators.length).to eq(5)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar", "affiliation" => [{"name"=>"Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
+        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(subject.dates).to eq([{"date"=>"2014-02-11", "dateType"=>"Issued"}, {"date"=>"2018-08-23T13:41:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2014")
@@ -56,7 +60,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Ralser, Markus", "givenName"=>"Markus", "familyName"=>"Ralser")
       expect(subject.contributors).to eq("contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem", "name"=>"Janbon, Guilhem", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2006-12-20", "dateType"=>"Issued"}, {"date"=>"2019-04-23T08:33:24Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2006")
       expect(subject.publisher).to eq("Public Library of Science (PLoS)")
@@ -77,7 +85,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(4)
       expect(subject.creators.first).to eq("familyName"=>"Fortes", "givenName"=>"Ana Margarida", "name"=>"Fortes, Ana Margarida", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Transcriptional Modulation of Polyamine Metabolism in Fruit Species Under Abiotic and Biotic Stress"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2019-07-02", "dateType"=>"Issued"}, {"date"=>"2019-07-02T11:08:31Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2019")
       expect(subject.publisher).to eq("Frontiers Media SA")
@@ -192,7 +204,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(7)
       expect(subject.creators[2]).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2043-4925", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Hernandez, Beatriz", "givenName"=>"Beatriz", "familyName"=>"Hernandez", "affiliation" => [{"name"=>"War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"}, {"name"=>"Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
+        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.titles).to eq([{"title"=>"Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers"}])
       expect(subject.dates).to eq([{"date"=>"2012", "dateType"=>"Issued"}, {"date"=>"2016-08-02T18:42:41Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2012")
@@ -547,7 +563,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(3)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-4156-3761", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Dissmeyer, Nico", "givenName"=>"Nico", "familyName"=>"Dissmeyer", "affiliation" => [{"name"=>"Independent Junior Research Group on Protein Recognition and Degradation; Leibniz Institute of Plant Biochemistry (IPB); Weinberg 3 Halle (Saale) D-06120 Germany"}, {"name"=>"ScienceCampus Halle - Plant-based Bioeconomy; Betty-Heimann-Strasse 3 Halle (Saale) D-06120 Germany"}])
       expect(subject.titles).to eq([{"title"=>"Life and death of proteins after protease cleavage: protein degradation by the N-end rule pathway"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}, {"rightsUri"=>"http://onlinelibrary.wiley.com/termsAndConditions"}])
+      expect(subject.rights_list).to eq([{"rightsUri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}, {"rightsUri"=>"http://onlinelibrary.wiley.com/termsAndConditions#vor"}])
       expect(subject.dates).to eq([{"date"=>"2018-05", "dateType"=>"Issued"}, {"date"=>"2018-08-07T05:52:14Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Wiley")

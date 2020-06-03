@@ -22,7 +22,8 @@ module Bolognese
           issue: container.to_h["issue"],
           pages: pages,
           publisher: publisher,
-          year: publication_year
+          year: publication_year,
+          copyright: Array.wrap(rights_list).map { |l| l["rights"] }.first,
         }.compact
         BibTeX::Entry.new(bib).to_s
       end

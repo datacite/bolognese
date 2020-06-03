@@ -14,7 +14,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("related_identifiers").length).to eq(27)
       expect(crosscite.fetch("related_identifiers").first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(crosscite.fetch("related_identifiers").last).to eq("relatedIdentifier"=>"10.1038/ncb2764", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(crosscite.fetch("rights_list")).to eq([{"rightsUri"=>"http://creativecommons.org/licenses/by/3.0"}])
+      expect(crosscite.fetch("rights_list")).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
+        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
     end
 
     it "with ORCID ID" do

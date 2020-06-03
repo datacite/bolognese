@@ -117,9 +117,9 @@ module Bolognese
           if r.blank?
             nil
           elsif r.is_a?(String)
-            { "rights" => r }
+            name_to_spdx(r)
           elsif r.is_a?(Hash)
-            { "rights" => r["__content__"], "rightsUri" => normalize_url(r["rightsURI"]), "lang" => r["lang"] }.compact
+            hsh_to_spdx(r)
           end
         end.compact
         

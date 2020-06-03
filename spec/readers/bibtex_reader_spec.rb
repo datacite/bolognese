@@ -35,7 +35,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("familyName"=>"Sankar", "givenName"=>"Martial", "name"=>"Sankar, Martial", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(subject.descriptions.first["description"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
-      expect(subject.rights_list.first["rightsUri"]).to eq("http://creativecommons.org/licenses/by/3.0/")
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
+        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2014", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "title"=>"eLife", "type"=>"Periodical"}])

@@ -64,8 +64,8 @@ module Bolognese
         end
 
         has_title = meta.fetch("title", nil)
-
         titles =  has_title.nil? ?  [{ "title" => meta.fetch("name", nil) }] : [{ "title" => has_title }]  
+        rights_list = meta.fetch("licenseId", nil).present? ? [hsh_to_spdx("rightsIdentifier" => meta.fetch("licenseId"))] : nil
 
         { "id" => id,
           "types" => types,
@@ -80,7 +80,7 @@ module Bolognese
           "dates" => dates,
           "publication_year" => publication_year,
           "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
-          "rights_list" => [{ "rightsUri" => meta.fetch("license", nil) }.compact],
+          "rights_list" => rights_list,
           "version_info" => meta.fetch("version", nil),
           "subjects" => subjects,
           "state" => state

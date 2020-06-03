@@ -158,6 +158,7 @@ module Bolognese
         "publisher" => publisher,
         "title" => parse_attributes(titles, content: "title", first: true),
         "URL" => url,
+        "copyright" => Array.wrap(rights_list).map { |l| l["rights"] }.first,
         "version" => version_info
       }.compact.symbolize_keys
     end

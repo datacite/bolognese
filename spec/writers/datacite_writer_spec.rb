@@ -14,7 +14,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(27)
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "__content__"=>"2050-084X", "resourceTypeGeneral"=>"Collection")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")[1]).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"References", "__content__"=>"10.1038/nature02100")
-      expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0"})
+      expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by/3.0/legalcode", "rightsIdentifier"=>"CC-BY-3.0", "rightsIdentifierScheme"=>"SPDX", "schemeURI"=>"https://spdx.org/licenses/", "__content__"=>"Creative Commons Attribution 3.0 Unported")
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
     end
@@ -160,7 +160,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(20)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name" => "Paglione, Laura", "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
+        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
@@ -182,7 +186,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(20)
       expect(subject.creators.first).to eq("nameType" => "Personal", "familyName" => "Paglione", "givenName" => "Laura", "name" => "Paglione, Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Recommendation of: ORCID Works Metadata Working Group"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0", "rights"=>"CC-0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
+        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Figshare")
@@ -207,7 +215,11 @@ describe Bolognese::Metadata, vcr: true do
         {"identifier"=>
          "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
          "identifierType"=>"citation"}])
-      expect(subject.rights_list).to eq([{"rightsUri"=>"http://creativecommons.org/publicdomain/zero/1.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
+        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(6)
@@ -230,7 +242,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("affiliation"=>[{"name"=>"UC Merced"}, {"name"=>"NSF"}], "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal", "nameIdentifiers"=>[])
       expect(subject.titles).to eq([{"title"=>"Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
-      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International (CC BY 4.0)", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2014-10-17", "dateType"=>"Updated"}, {"date"=>"2016-03-14T17:02:02Z", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")
       expect(subject.publisher).to eq("UC Merced")
@@ -290,7 +306,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(27)
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("__content__"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")[1]).to eq("relatedIdentifierType"=>"DOI", "relationType"=>"References", "__content__"=>"10.1038/nature02100")
-      expect(datacite.dig("rightsList")).to eq("rights"=>{"rightsURI"=>"http://creativecommons.org/licenses/by/3.0"})
+      expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by/3.0/legalcode", "rightsIdentifier"=>"CC-BY-3.0", "rightsIdentifierScheme"=>"SPDX", "schemeURI"=>"https://spdx.org/licenses/", "__content__"=>"Creative Commons Attribution 3.0 Unported")
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
     end

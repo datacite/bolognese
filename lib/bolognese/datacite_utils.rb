@@ -232,7 +232,13 @@ module Bolognese
             r["rightsUri"] = normalize_id(rights)
           end
 
-          attributes = { 'rightsURI' => r["rightsUri"], 'xml:lang' => r["lang"] }.compact
+          attributes = { 
+            "rightsURI" => r["rightsUri"],
+            "rightsIdentifier" => r["rightsIdentifier"],
+            "rightsIdentifierScheme" => r["rightsIdentifierScheme"],
+            "schemeURI" => r["schemeUri"],
+            "xml:lang" => r["lang"] 
+          }.compact
 
           xml.rights(r["rights"], attributes)
         end

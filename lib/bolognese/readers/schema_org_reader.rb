@@ -107,10 +107,9 @@ module Bolognese
           Array.wrap(schema_org_is_supplement_to(meta)) +
           Array.wrap(schema_org_is_supplemented_by(meta))
 
-        rights_list = [{
-          "rightsUri" => parse_attributes(meta.fetch("license", nil), content: "id", first: true),
-          "rights" => parse_attributes(meta.fetch("license", nil), content: "name", first: true)
-        }]
+        rights_list = Array.wrap(meta.fetch("license", nil)).compact.map do |rl|
+          hsh_to_spdx("__content__" => rl["name"], "rightsURI" => rl["id"])
+        end
 
         funding_references = Array.wrap(meta.fetch("funder", nil)).compact.map do |fr|
           if fr["@id"].present?

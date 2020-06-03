@@ -60,7 +60,7 @@
   </formats>
   <version>4.2</version>
   <rightsList>
-   <rights xml:lang="en-US" schemeURI="https://spdx.org/licenses/" rightsIdentifierScheme="SPDX" rightsIdentifier="CC0 1.0" rightsURI="http://creativecommons.org/publicdomain/zero/1.0/"/>  </rightsList>
+   <rights xml:lang="en-US" schemeURI="https://spdx.org/licenses/" rightsIdentifierScheme="SPDX" rightsIdentifier="CC0-1.0" rightsURI="https://creativecommons.org/publicdomain/zero/1.0/legalcode"/></rightsList>
   <descriptions>
     <description xml:lang="en-US" descriptionType="Abstract">
       XML example of all DataCite Metadata Schema v4.2 properties.

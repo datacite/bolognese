@@ -211,7 +211,7 @@ module Bolognese
         access_indicator = Array.wrap(program_metadata).find { |m| m["name"] == "AccessIndicators" }
         if access_indicator.present?
           Array.wrap(access_indicator["license_ref"]).map do |license|
-            { "rightsUri" => normalize_url(parse_attributes(license)) }
+            hsh_to_spdx("rightsURI" => parse_attributes(license))
           end.uniq
         else
           []
