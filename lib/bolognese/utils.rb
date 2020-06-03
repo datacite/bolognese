@@ -1133,6 +1133,8 @@ module Bolognese
           "rightsIdentifierScheme" => hsh["rightsIdentifierScheme"],
           "schemeUri" => hsh["schemeUri"],
           "lang" => hsh["lang"] }.compact
+      end
+    end
 
     def name_to_fos(name)
       # first find subject in Fields of Science (OECD)

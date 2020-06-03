@@ -263,7 +263,11 @@ describe Bolognese::Metadata, vcr: true do
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-2874-287X", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Drosophila melanogaster African Wings"}])
       expect(subject.descriptions.first["description"]).to start_with("These are raw wing images from <i>Drosophila melanogaster</i>")
-      expect(subject.rights_list).to eq([{"rights"=>"CC BY 4.0", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2015-06-14", "dateType"=>"Created"},
         {"date"=>"2018-03-17", "dateType"=>"Updated"},
         {"date"=>"2015", "dateType"=>"Issued"}])

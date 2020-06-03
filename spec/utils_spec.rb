@@ -537,7 +537,9 @@ describe Bolognese::Metadata, vcr: true do
       hsh = { "rightsURI" => "info:eu-repo/semantics/openAccess" }
       response = subject.hsh_to_spdx(hsh)
       expect(response).to eq({"rightsUri"=>"info:eu-repo/semantics/openAccess"})
-
+    end
+  end
+  
   context "fos" do
     it "name_to_fos match" do
       name = "Biological sciences"
