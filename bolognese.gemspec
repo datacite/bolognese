@@ -17,13 +17,13 @@ Gem::Specification.new do |s|
 
   # Declary dependencies here, rather than in the Gemfile
   s.add_dependency 'maremma', '>= 4.3', '< 5'
-  s.add_dependency 'faraday', '0.17.0'
+  s.add_dependency 'faraday', '~> 1.0', '>= 1.0.1'
   s.add_dependency 'nokogiri', '~> 1.10.4'
   s.add_dependency 'loofah', '~> 2.0', '>= 2.0.3'
   s.add_dependency 'builder', '~> 3.2', '>= 3.2.2'
   s.add_dependency 'activesupport', '>= 4.2.5'
   s.add_dependency 'bibtex-ruby', '>= 5.1.0'
-  s.add_dependency 'thor', '~> 0.19'
+  s.add_dependency 'thor', '~> 1.0', '>= 1.0.1'
   s.add_dependency 'colorize', '~> 0.8.1'
   s.add_dependency 'namae', '~> 1.0'
   s.add_dependency 'edtf', '~> 3.0', '>= 3.0.4'
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'csl-styles', '~> 1.0', '>= 1.0.1.8'
   s.add_dependency 'iso8601', '~> 0.9.1'
   s.add_dependency 'postrank-uri', '~> 1.0', '>= 1.0.18'
-  s.add_dependency 'json-ld', '~> 2.2', '>= 2.2.1'
+  s.add_dependency 'json-ld', '~> 3.1', '>= 3.1.4'
   s.add_dependency 'jsonlint', '~> 0.3.0'
   s.add_dependency 'oj', '~> 3.10'
   s.add_dependency "oj_mimic_json", "~> 1.0", ">= 1.0.1"

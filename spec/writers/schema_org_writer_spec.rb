@@ -9,6 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
+      expect(json["@type"]).to eq("ScholarlyArticle")
       expect(json["isPartOf"]).to eq("@type"=>"Periodical", "issn"=>"2050-084X")
       expect(json["periodical"]).to eq("@type"=>"Journal", "identifier"=>"2050-084X", "identifierType"=>"ISSN", "name"=>"eLife", "volume"=>"3")
       expect(json["citation"].length).to eq(26)
@@ -41,6 +42,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.48440")
+      expect(json["@type"]).to eq("SoftwareSourceCode")
       expect(json["name"]).to eq("Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture")
       expect(json["license"]).to eq(["https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode", "info:eu-repo/semantics/openAccess"])
     end
@@ -50,6 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(json["@type"]).to eq("Dataset")
       expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
         "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
       expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
@@ -58,10 +61,19 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema.org JSON IsSupplementTo" do
       input = "https://doi.org/10.5517/CC8H01S"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
+      expect(json["@type"]).to eq("Dataset")
       expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1107/s1600536804021154", "@type"=>"ScholarlyArticle"})
+    end
+
+    it "Schema.org JSON Cyark" do
+      input = "https://doi.org/10.26301/jgf3-jm06"
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.26301/jgf3-jm06")
+      expect(json["@type"]).to eq("Dataset")
     end
 
     it "rdataone" do
@@ -90,9 +102,10 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Funding" do
       input = "https://doi.org/10.5438/6423"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
+      expect(json["@type"]).to eq("Collection")
       expect(json["hasPart"].length).to eq(25)
       expect(json["hasPart"].first).to eq("@type"=>"CreativeWork", "@id"=>"https://doi.org/10.5281/zenodo.30799")
       expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/501100000780", "@type"=>"Organization", "name"=>"European Commission")
@@ -101,9 +114,10 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Funding OpenAIRE" do
       input = "https://doi.org/10.5281/ZENODO.1239"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
+      expect(json["@type"]).to eq("Dataset")
       expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/501100000780", "@type"=>"Organization", "name"=>"European Commission")
       expect(json["license"]).to eq(["https://creativecommons.org/publicdomain/zero/1.0/legalcode", "info:eu-repo/semantics/openAccess"])
     end
@@ -113,6 +127,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.4232/1.2745")
+      expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Flash Eurobarometer 54 (Madrid Summit)")
       expect(json["keywords"]).to eq("KAT12 International Institutions, Relations, Conditions")
     end
@@ -122,6 +137,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
+      expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
       expect(json["keywords"]).to eq("Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
       expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
@@ -134,6 +150,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, url: url, content_url: content_url, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
+      expect(json["@type"]).to eq("Dataset")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/9hx8-ke93")
       expect(json["encodingFormat"]).to eq("application/tar")

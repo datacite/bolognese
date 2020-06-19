@@ -117,7 +117,8 @@ module Bolognese
 
       @regenerate = options[:regenerate] || read_options.present?
       # generate name for method to call dynamically
-      @meta = @from.present? ? send("read_" + @from, { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id, ra: ra }.merge(read_options)) : {}
+      opts = { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id, ra: ra }.merge(read_options)
+      @meta = @from.present? ? send("read_" + @from, **opts) : {}
     end
 
     def id
