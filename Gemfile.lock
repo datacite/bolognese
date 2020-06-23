@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.6.5)
+    bolognese (1.6.6)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -56,7 +56,7 @@ GEM
       namae (~> 1.0)
     csl-styles (1.0.1.10)
       csl (~> 1.0)
-    diff-lcs (1.3)
+    diff-lcs (1.4.1)
     docile (1.3.2)
     ebnf (1.2.0)
       rdf (~> 3.1)

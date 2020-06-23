@@ -140,8 +140,14 @@ module Bolognese
         author = to_citeproc(creators)
       end
 
+      if types["resourceTypeGeneral"] == "Software" && version_info.present?
+        type = "book"
+      else
+        type = types["citeproc"]
+      end
+
       {
-        "type" => types["citeproc"],
+        "type" => type,
         "id" => normalize_doi(doi),
         "categories" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
         "language" => language,

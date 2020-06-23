@@ -101,7 +101,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5281/zenodo.2598836"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("article")
+      expect(json["type"]).to eq("book")
       expect(json["DOI"]).to eq("10.5281/zenodo.2598836")
       expect(json["version"]).to eq("1.0.0")
       expect(json["copyright"]).to eq("Open Access")
@@ -111,7 +111,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "datacite_software_version.json"
       subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       json = JSON.parse(subject.citeproc)
-      expect(json["type"]).to eq("article")
+      expect(json["type"]).to eq("book")
       expect(json["DOI"]).to eq("10.5281/ZENODO.2598836")
       expect(json["version"]).to eq("1.0.0")
       expect(json["copyright"]).to eq("Open Access")
