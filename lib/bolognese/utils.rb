@@ -1127,8 +1127,8 @@ module Bolognese
           "lang" => hsh["lang"] }.compact
       else
         {
-          "rights" => hsh["__content__"],
-          "rightsUri" => hsh["rightsURI"],
+          "rights" => hsh["__content__"] || hsh["rights"],
+          "rightsUri" => hsh["rightsURI"] || hsh["rightsUri"],
           "rightsIdentifier" => hsh["rightsIdentifier"],
           "rightsIdentifierScheme" => hsh["rightsIdentifierScheme"],
           "schemeUri" => hsh["schemeUri"],
