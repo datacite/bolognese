@@ -1200,7 +1200,7 @@ module Bolognese
 
       # try to extract forId
       if hsh["subjectScheme"] == "FOR"
-        for_id = hsh["__content__"].split(" ").first || hsh["subject"].split(" ").first
+        for_id = hsh["__content__"].to_s.split(" ").first || hsh["subject"].to_s.split(" ").first
         for_id = for_id.rjust(6, "0")        
         
         subject = for_fields.find { |l| l["forId"] == for_id } ||
