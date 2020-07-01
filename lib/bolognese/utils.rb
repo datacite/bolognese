@@ -1177,11 +1177,11 @@ module Bolognese
     def hsh_to_fos(hsh)
       # first find subject in Fields of Science (OECD)
       fos = JSON.load(File.read(File.expand_path('../../../resources/oecd/fos-mappings.json', __FILE__))).fetch("fosFields")
-      subject = fos.find { |l| l["fosLabel"] == hsh["__content__"] || "FOS: " + l["fosLabel"] == hsh["__content__"] }
+      subject = fos.find { |l| l["fosLabel"] == hsh["__content__"] || "FOS: " + l["fosLabel"] == hsh["__content__"] || l["fosLabel"] == hsh["subject"]}
 
       if subject
         return [{ 
-          "subject" => sanitize(hsh["__content__"]), 
+          "subject" => sanitize(hsh["__content__"] || hsh["subject"]), 
           "subjectScheme" => hsh["subjectScheme"],
           "schemeUri" => hsh["schemeURI"], 
           "valueUri" => hsh["valueURI"], 
@@ -1200,19 +1200,19 @@ module Bolognese
 
       # try to extract forId
       if hsh["subjectScheme"] == "FOR"
-        for_id = hsh["__content__"].split(" ").first
+        for_id = hsh["__content__"].split(" ").first || hsh["subject"].split(" ").first
         for_id = for_id.rjust(6, "0")        
         
         subject = for_fields.find { |l| l["forId"] == for_id } ||
                   for_disciplines.find { |l| l["forId"] == for_id[0..3] }
       else
-        subject = for_fields.find { |l| l["forLabel"] == hsh["__content__"] } ||
-                  for_disciplines.find { |l| l["forLabel"] == hsh["__content__"] }
+        subject = for_fields.find { |l| l["forLabel"] == hsh["__content__"] || l["forLabel"] == hsh["subject"] } ||
+                  for_disciplines.find { |l| l["forLabel"] == hsh["__content__"] || l["forLabel"] == hsh["subject"] }
       end
 
       if subject
         [{ 
-          "subject" => sanitize(hsh["__content__"]), 
+          "subject" => sanitize(hsh["__content__"] || hsh["subject"]), 
           "subjectScheme" => hsh["subjectScheme"],
           "schemeUri" => hsh["schemeURI"], 
           "valueUri" => hsh["valueURI"], 
@@ -1224,7 +1224,7 @@ module Bolognese
         }]
       else
         [{ 
-          "subject" => sanitize(hsh["__content__"]), 
+          "subject" => sanitize(hsh["__content__"] || hsh["subject"]), 
           "subjectScheme" => hsh["subjectScheme"],
           "schemeUri" => hsh["schemeURI"], 
           "valueUri" => hsh["valueURI"], 
