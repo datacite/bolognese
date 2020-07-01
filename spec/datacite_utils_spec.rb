@@ -160,7 +160,7 @@ describe Bolognese::Metadata, vcr: true do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_rights_list(xml) }.to_xml
       response = Maremma.from_xml(xml)
       expect(response.dig("rightsList", "rights")).to eq("__content__" => "Creative Commons Zero v1.0 Universal",
-        "rightsIdentifier" => "CC0-1.0",
+        "rightsIdentifier" => "cc0-1.0",
         "rightsIdentifierScheme" => "SPDX",
         "rightsURI" => "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
         "schemeURI" => "https://spdx.org/licenses/")

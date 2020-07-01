@@ -24,7 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(5)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar", "affiliation" => [{"name"=>"Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
-        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifier"=>"cc-by-3.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -61,7 +61,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.contributors).to eq("contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem", "name"=>"Janbon, Guilhem", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
-        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifier"=>"cc-by-4.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -86,7 +86,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.first).to eq("familyName"=>"Fortes", "givenName"=>"Ana Margarida", "name"=>"Fortes, Ana Margarida", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Transcriptional Modulation of Polyamine Metabolism in Fruit Species Under Abiotic and Biotic Stress"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
-        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifier"=>"cc-by-4.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -205,7 +205,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(7)
       expect(subject.creators[2]).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2043-4925", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Hernandez, Beatriz", "givenName"=>"Beatriz", "familyName"=>"Hernandez", "affiliation" => [{"name"=>"War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"}, {"name"=>"Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
-        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifier"=>"cc-by-3.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])

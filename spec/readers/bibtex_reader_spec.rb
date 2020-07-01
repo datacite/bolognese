@@ -36,7 +36,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(subject.descriptions.first["description"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
-        "rightsIdentifier"=>"CC-BY-3.0",
+        "rightsIdentifier"=>"cc-by-3.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])

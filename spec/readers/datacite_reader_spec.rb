@@ -32,7 +32,7 @@ describe Bolognese::Metadata, vcr: true do
             "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
          "identifierType"=>"citation"}])
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
-        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifier"=>"cc0-1.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -125,7 +125,7 @@ describe Bolognese::Metadata, vcr: true do
           {"identifier"=>
            "https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml",
            "identifierType"=>"URL"}])
-      expect(subject.rights_list).to eq([{"lang"=>"en-US", "rights"=>"Creative Commons Zero v1.0 Universal", "rightsIdentifier"=>"CC0-1.0", "rightsIdentifierScheme"=>"SPDX", "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode", "schemeUri"=>"https://spdx.org/licenses/"}])
+      expect(subject.rights_list).to eq([{"lang"=>"en-US", "rights"=>"Creative Commons Zero v1.0 Universal", "rightsIdentifier"=>"cc0-1.0", "rightsIdentifierScheme"=>"SPDX", "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode", "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.contributors).to eq([{"name"=>"Starr, Joan", "givenName"=>"Joan", "familyName"=>"Starr", "nameIdentifiers"=>[{"nameIdentifier"=>"https://orcid.org/0000-0002-7285-027X", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}], "affiliation"=>
         [{"affiliationIdentifier"=>"https://ror.org/03yrm5c26",
@@ -199,7 +199,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.descriptions.first["description"]).to start_with("This tools are used to analyse the data produced by the Crosssover Experiment")
       expect(subject.rights_list).to eq([{"rights"=>
         "Creative Commons Attribution Non Commercial Share Alike 4.0 International",
-        "rightsIdentifier"=>"CC-BY-NC-SA-4.0",
+        "rightsIdentifier"=>"cc-by-nc-sa-4.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"},
@@ -229,7 +229,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"RAIN v1"}])
       expect(subject.descriptions.first["description"]).to start_with("<b>RAIN: RNA–protein Association and Interaction Networks")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
-        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifier"=>"cc-by-4.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -264,7 +264,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Drosophila melanogaster African Wings"}])
       expect(subject.descriptions.first["description"]).to start_with("These are raw wing images from <i>Drosophila melanogaster</i>")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
-        "rightsIdentifier"=>"CC-BY-4.0",
+        "rightsIdentifier"=>"cc-by-4.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -704,7 +704,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
       expect(subject.rights_list).to eq([{"lang"=>"eng",
         "rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
-        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifier"=>"cc-by-nd-2.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -733,7 +733,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
-        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifier"=>"cc-by-nd-2.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -762,7 +762,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(4)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsReferencedBy")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
-        "rightsIdentifier"=>"CC0-1.0",
+        "rightsIdentifier"=>"cc0-1.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -791,7 +791,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
-        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifier"=>"cc-by-nd-2.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -848,7 +848,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5272/oldertestpub", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
       expect(subject.rights_list).to eq([{"lang"=>"eng",
         "rights"=>"Creative Commons Attribution No Derivatives 2.0 Generic",
-        "rightsIdentifier"=>"CC-BY-ND-2.0",
+        "rightsIdentifier"=>"cc-by-nd-2.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by-nd/2.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])

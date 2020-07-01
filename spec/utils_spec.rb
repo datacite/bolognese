@@ -512,25 +512,25 @@ describe Bolognese::Metadata, vcr: true do
     it "name_to_spdx exists" do
       name = "Creative Commons Attribution 4.0 International"
       response = subject.name_to_spdx(name)
-      expect(response).to eq({"rights"=>"Creative Commons Attribution 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode", "rightsIdentifier"=>"CC-BY-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/"})
+      expect(response).to eq({"rights"=>"Creative Commons Attribution 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode", "rightsIdentifier"=>"cc-by-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/"})
     end
 
     it "name_to_spdx id" do
       name = "CC-BY-4.0"
       response = subject.name_to_spdx(name)
-      expect(response).to eq({"rights"=>"Creative Commons Attribution 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode", "rightsIdentifier"=>"CC-BY-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/"})
+      expect(response).to eq({"rights"=>"Creative Commons Attribution 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode", "rightsIdentifier"=>"cc-by-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/"})
     end
 
     it "hsh_to_spdx id" do
-      hsh = { "rightsIdentifier" => "CC-BY-4.0" }
+      hsh = { "rightsIdentifier" => "cc-by-4.0" }
       response = subject.hsh_to_spdx(hsh)
-      expect(response).to eq({"rights"=>"Creative Commons Attribution 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode", "rightsIdentifier"=>"CC-BY-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/"})
+      expect(response).to eq({"rights"=>"Creative Commons Attribution 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode", "rightsIdentifier"=>"cc-by-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/"})
     end
 
     it "hsh_to_spdx url" do
       hsh = { "rightsURI" => "http://creativecommons.org/licenses/by-nc/4.0/legalcode" }
       response = subject.hsh_to_spdx(hsh)
-      expect(response).to eq("rights"=>"Creative Commons Attribution Non Commercial 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by-nc/4.0/legalcode", "rightsIdentifier"=>"CC-BY-NC-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/")
+      expect(response).to eq("rights"=>"Creative Commons Attribution Non Commercial 4.0 International", "rightsUri"=>"https://creativecommons.org/licenses/by-nc/4.0/legalcode", "rightsIdentifier"=>"cc-by-nc-4.0", "rightsIdentifierScheme"=>"SPDX", "schemeUri"=>"https://spdx.org/licenses/")
     end
 
     it "hsh_to_spdx not found" do

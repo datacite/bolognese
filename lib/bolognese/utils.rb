@@ -1105,7 +1105,7 @@ module Bolognese
         {
           "rights" => license["name"],
           "rightsUri" => license["seeAlso"].first,
-          "rightsIdentifier" => license["licenseId"],
+          "rightsIdentifier" => license["licenseId"].downcase,
           "rightsIdentifierScheme" => "SPDX",
           "schemeUri" => "https://spdx.org/licenses/" }.compact
       else
@@ -1115,13 +1115,13 @@ module Bolognese
 
     def hsh_to_spdx(hsh)
       spdx = JSON.load(File.read(File.expand_path('../../../resources/spdx/licenses.json', __FILE__))).fetch("licenses")
-      license = spdx.find { |l| l["licenseId"] == hsh["rightsIdentifier"] || l["seeAlso"].first == normalize_cc_url(hsh["rightsURI"]) || l["name"] == hsh["rights"] || l["seeAlso"].first == normalize_cc_url(hsh["rights"]) }
+      license = spdx.find { |l| l["licenseId"].casecmp?(hsh["rightsIdentifier"]) || l["seeAlso"].first == normalize_cc_url(hsh["rightsURI"]) || l["name"] == hsh["rights"] || l["seeAlso"].first == normalize_cc_url(hsh["rights"]) }
 
       if license
         {
           "rights" => license["name"],
           "rightsUri" => license["seeAlso"].first,
-          "rightsIdentifier" => license["licenseId"],
+          "rightsIdentifier" => license["licenseId"].downcase,
           "rightsIdentifierScheme" => "SPDX",
           "schemeUri" => "https://spdx.org/licenses/",
           "lang" => hsh["lang"] }.compact
@@ -1129,7 +1129,7 @@ module Bolognese
         {
           "rights" => hsh["__content__"] || hsh["rights"],
           "rightsUri" => hsh["rightsURI"] || hsh["rightsUri"],
-          "rightsIdentifier" => hsh["rightsIdentifier"],
+          "rightsIdentifier" => hsh["rightsIdentifier"].present? ? hsh["rightsIdentifier"].downcase : nil,
           "rightsIdentifierScheme" => hsh["rightsIdentifierScheme"],
           "schemeUri" => hsh["schemeUri"],
           "lang" => hsh["lang"] }.compact

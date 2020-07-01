@@ -37,7 +37,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("DataCite")
       expect(subject.rights_list).to eq([{"rights"=>"MIT License",
-        "rightsIdentifier"=>"MIT",
+        "rightsIdentifier"=>"mit",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://opensource.org/licenses/MIT",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -78,7 +78,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.publisher).to eq("https://cran.r-project.org")
       expect(subject.rights_list).to eq([{"rights"=>"Apache License 2.0",
-        "rightsIdentifier"=>"Apache-2.0",
+        "rightsIdentifier"=>"apache-2.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"http://www.apache.org/licenses/LICENSE-2.0",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -107,7 +107,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("DataCite")
       expect(subject.rights_list).to eq([{"rights"=>"MIT License",
-        "rightsIdentifier"=>"MIT",
+        "rightsIdentifier"=>"mit",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://opensource.org/licenses/MIT",
         "schemeUri"=>"https://spdx.org/licenses/"}])
@@ -129,7 +129,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("DataCite")
       expect(subject.rights_list).to eq([{"rights"=>"MIT License",
-        "rightsIdentifier"=>"MIT",
+        "rightsIdentifier"=>"mit",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://opensource.org/licenses/MIT",
         "schemeUri"=>"https://spdx.org/licenses/"}])
