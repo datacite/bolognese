@@ -66,6 +66,8 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://www.zenodo.org/record/1196821"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be false
+
+      expect(subject.language).to eq("eng")
       expect(subject.errors).to eq("49:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.1196821", "identifierType"=>"DOI"}])
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
@@ -154,6 +156,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'schema_org.json'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
+      expect(subject.language).to eq("en")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
@@ -247,6 +250,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
+      expect(subject.language).to eq("en")
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1594/pangaea.842237", "identifierType"=>"DOI"}])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(2)

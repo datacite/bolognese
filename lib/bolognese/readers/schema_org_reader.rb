@@ -128,6 +128,13 @@ module Bolognese
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if Date.edtf(meta.fetch("dateModified", nil)).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
 
+        case true
+        when meta.fetch("inLanguage", nil).is_a?(String)
+          language = meta.fetch("inLanguage", nil)
+        when meta.fetch("inLanguage", nil).is_a?(Object)
+          language = meta.dig("inLanguage", 'alternateName') || meta.dig("inLanguage", 'name')
+        end
+
         state = meta.present? || read_options.present? ? "findable" : "not_found"
         geo_locations = Array.wrap(meta.fetch("spatialCoverage", nil)).map do |gl|
           if gl.dig("geo", "box")
@@ -136,7 +143,7 @@ module Bolognese
               "westBoundLongitude" => w,
               "eastBoundLongitude" => e,
               "southBoundLatitude" => s,
-              "northBoundLatitude" => n
+              "northBoundLatitude" => n,
             }.compact.presence
           else
             geo_location_box = nil
@@ -179,6 +186,7 @@ module Bolognese
           "rights_list" => rights_list,
           "version_info" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
+          "language" => language.to_s.presence,
           "state" => state,
           "schema_version" => meta.fetch("schemaVersion", nil).to_s.presence,
           "funding_references" => funding_references,

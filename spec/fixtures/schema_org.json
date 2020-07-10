@@ -24,6 +24,11 @@
     "description": "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...",
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "image": "https://blog.datacite.org/images/2016/12/230785.jpg",
+    "inLanguage": {
+        "@type": "Language",
+        "alternateName": "en",
+        "name": "English"
+    },
     "encoding": {
         "@type": "MediaObject",
         "@id": "https://blog.datacite.org/eating-your-own-dog-food/eating-your-own-dog-food.xml",
