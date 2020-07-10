@@ -19,6 +19,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:copyright]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
+    it "with schema_3" do
+      input = "10.17169/refubium-26807"
+      input = fixture_path + "datacite_kernel_3.json"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("article")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.17169/refubium-26807")
+      expect(bibtex[:doi]).to eq("10.17169/REFUBIUM-26807")
+      expect(bibtex[:year]).to eq("2019")
+    end
+
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")

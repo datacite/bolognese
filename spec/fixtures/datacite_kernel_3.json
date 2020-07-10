@@ -1,0 +1,122 @@
+{
+  "id": "https://doi.org/10.17169/refubium-26807",
+  "doi": "10.17169/REFUBIUM-26807",
+  "url": "https://refubium.fu-berlin.de/handle/fub188/27046",
+  "types": {
+    "ris": "RPRT",
+    "bibtex": "article",
+    "citeproc": "article-journal",
+    "schemaOrg": "ScholarlyArticle",
+    "resourceType": "Bachelorarbeit",
+    "resourceTypeGeneral": "Text"
+  },
+  "creators": [
+    {
+      "name": "Zoschke, Marius Robert",
+      "nameType": "Personal",
+      "givenName": "Marius Robert",
+      "familyName": "Zoschke",
+      "affiliation": [],
+      "nameIdentifiers": []
+    }
+  ],
+  "titles": [
+    {
+      "title": "Spielbare Erlebniswelten"
+    },
+    {
+      "title": "Involvierungsstrategien in immersiven Performance-Installationen",
+      "titleType": "Subtitle"
+    }
+  ],
+  "publisher": "Freie Universität Berlin",
+  "container": {},
+  "subjects": [
+    {
+      "subject": "Immersion"
+    },
+    {
+      "subject": "Theater"
+    },
+    {
+      "subject": "Interaktion"
+    },
+    {
+      "subject": "Performance"
+    },
+    {
+      "subject": "Partizipation"
+    },
+    {
+      "subject": "Affekt"
+    },
+    {
+      "subject": "Game"
+    },
+    {
+      "subject": "Affektivität"
+    },
+    {
+      "subject": "Involvierung"
+    },
+    {
+      "subject": "Narration"
+    },
+    {
+      "subject": "700 Künste und Unterhaltung::700 Künste::700 Künste, Bildende und angewandte Kunst",
+      "subjectScheme": "ddc"
+    },
+    {
+      "subject": "700 Künste und Unterhaltung::790 Sport, Spiele, Unterhaltung::792 Bühnenkunst",
+      "subjectScheme": "ddc"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Universitätsbibliothek Der FU Berlin",
+      "affiliation": [],
+      "contributorType": "DataManager",
+      "nameIdentifiers": []
+    },
+    {
+      "name": "Universitätsbibliothek Der FU Berlin",
+      "affiliation": [],
+      "contributorType": "HostingInstitution",
+      "nameIdentifiers": []
+    }
+  ],
+  "dates": [
+    {
+      "date": "2020-04-01",
+      "dateType": "Accepted"
+    },
+    {
+      "date": "2020-04-01",
+      "dateType": "Available"
+    },
+    {
+      "date": "2019",
+      "dateType": "Issued"
+    }
+  ],
+  "publicationYear": 2019,
+  "identifiers": [],
+  "sizes": [
+    "31 Seiten"
+  ],
+  "formats": [],
+  "rightsList": [
+    {
+      "rightsUri": "http://www.fu-berlin.de/sites/refubium/rechtliches/Nutzungsbedingungen"
+    }
+  ],
+  "descriptions": [],
+  "geoLocations": [],
+  "fundingReferences": [],
+  "relatedIdentifiers": [],
+  "schemaVersion": "http://datacite.org/schema/kernel-3",
+  "providerId": "tib",
+  "clientId": "tib.fuub",
+  "agency": "datacite",
+  "state": "findable"
+}
