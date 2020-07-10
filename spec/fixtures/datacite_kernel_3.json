@@ -30,7 +30,6 @@
     }
   ],
   "publisher": "Freie Universität Berlin",
-  "container": {},
   "subjects": [
     {
       "subject": "Immersion"
@@ -71,20 +70,6 @@
       "subjectScheme": "ddc"
     }
   ],
-  "contributors": [
-    {
-      "name": "Universitätsbibliothek Der FU Berlin",
-      "affiliation": [],
-      "contributorType": "DataManager",
-      "nameIdentifiers": []
-    },
-    {
-      "name": "Universitätsbibliothek Der FU Berlin",
-      "affiliation": [],
-      "contributorType": "HostingInstitution",
-      "nameIdentifiers": []
-    }
-  ],
   "dates": [
     {
       "date": "2020-04-01",
@@ -100,20 +85,9 @@
     }
   ],
   "publicationYear": 2019,
-  "identifiers": [],
   "sizes": [
     "31 Seiten"
   ],
-  "formats": [],
-  "rightsList": [
-    {
-      "rightsUri": "http://www.fu-berlin.de/sites/refubium/rechtliches/Nutzungsbedingungen"
-    }
-  ],
-  "descriptions": [],
-  "geoLocations": [],
-  "fundingReferences": [],
-  "relatedIdentifiers": [],
   "schemaVersion": "http://datacite.org/schema/kernel-3",
   "providerId": "tib",
   "clientId": "tib.fuub",
