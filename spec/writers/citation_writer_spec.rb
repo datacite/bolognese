@@ -40,5 +40,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.locale).to eq("en-US")
       expect(subject.citation).to eq("Lab For Exosphere And Near Space Environment Studies. (2019). <i>lenses-lab/LYAO_RT-2018JA026426: Original Release</i> (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.2598836")
     end
+
+    it "interactive resource without dates" do
+      input = "https://doi.org/10.34747/g6yb-3412"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      expect(subject.style).to eq("apa")
+      expect(subject.locale).to eq("en-US")
+      expect(subject.citation).to eq("Clark, D. (2019). <i>Exploring the \"Many analysts, one dataset\" project from COS</i>. Gigantum, Inc. https://doi.org/10.34747/g6yb-3412")
+    end
   end
 end

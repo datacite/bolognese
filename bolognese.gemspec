@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.3'
 
   # Declare dependencies here, rather than in the Gemfile
-  s.add_dependency 'maremma', '>= 4.3', '< 5'
-  s.add_dependency 'faraday', "0.17.0"
+  s.add_dependency 'maremma', '>= 4.7', '< 5'
+  s.add_dependency 'faraday', '~> 0.17.3'
   s.add_dependency 'nokogiri', '~> 1.10.4'
   s.add_dependency 'loofah', '~> 2.0', '>= 2.0.3'
   s.add_dependency 'builder', '~> 3.2', '>= 3.2.2'

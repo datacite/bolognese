@@ -368,5 +368,14 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["funder"]).to eq("@id"=>"https://doi.org/10.13039/100000050", "@type"=>"Organization", "name"=>"National Heart, Lung, and Blood Institute (NHLBI)")
       expect(json["provider"]).to eq("@type"=>"Organization", "name"=>"DataCite")
     end
+
+    it "interactive resource without dates" do
+      input = "https://doi.org/10.34747/g6yb-3412"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.schema_org)
+      expect(json["@id"]).to eq("https://doi.org/10.34747/g6yb-3412")
+      expect(json["@type"]).to eq("CreativeWork")
+      expect(json["datePublished"]).to eq("2019")
+    end
   end
 end

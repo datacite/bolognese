@@ -153,7 +153,7 @@ module Bolognese
         "language" => language,
         "author" => author,
         "contributor" => to_citeproc(contributors),
-        "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : nil,
+        "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : get_date_parts(publication_year),
         "submitted" => Array.wrap(dates).find { |d| d["dateType"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(descriptions, content: "description", first: true),
         "container-title" => container_title,

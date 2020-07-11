@@ -158,6 +158,20 @@ describe Bolognese::Metadata, vcr: true do
       expect(jats.dig("day")).to eq("20")
       expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.5438/4k3m-nyvg")
     end
+
+    it "interactive resource without dates" do
+      input = "https://doi.org/10.34747/g6yb-3412"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
+      expect(jats.dig("publication_type")).to be_nil
+      expect(jats.dig("source")).to eq("Exploring the \"Many analysts, one dataset\" project from COS")
+      expect(jats.dig("publisher_name")).to eq("Gigantum, Inc.")
+      expect(jats.dig("person_group", "name")).to eq("given_names"=>"Dav", "surname"=>"Clark")
+      expect(jats.dig("year")).to eq("__content__"=>"2019", "iso_8601_date"=>"2019")
+      expect(jats.dig("month")).to be_nil
+      expect(jats.dig("day")).to be_nil
+      expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.34747/g6yb-3412")
+    end
   end
 
   context "change metadata as datacite xml" do

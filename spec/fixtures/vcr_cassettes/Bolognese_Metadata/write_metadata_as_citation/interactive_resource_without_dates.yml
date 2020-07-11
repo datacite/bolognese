@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.34747/g6yb-3412
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Jul 2020 10:15:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 7648137b-5c3a-409c-b2a8-ece2d2dc81c5
+      Etag:
+      - W/"428b4daf1127c41e29e332a03d2f46c2"
+      X-Runtime:
+      - '1.399490'
+      X-Powered-By:
+      - Phusion Passenger 6.0.5
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 6.0.5
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.34747/g6yb-3412","type":"dois","attributes":{"doi":"10.34747/g6yb-3412","prefix":"10.34747","suffix":"g6yb-3412","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Clark,
+        Dav","nameType":"Personal","givenName":"Dav","familyName":"Clark","affiliation":[],"nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0002-3982-4416","nameIdentifierScheme":"ORCID"}]}],"titles":[{"lang":null,"title":"Exploring
+        the \"Many analysts, one dataset\" project from COS","titleType":null}],"publisher":"Gigantum,
+        Inc.","container":{},"publicationYear":2019,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"resourceType":"Gigantum
+        Project","resourceTypeGeneral":"InteractiveResource"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMzQ3NDcvRzZZQi0zNDEyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5DbGFyaywgRGF2PC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5EYXY8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+Q2xhcms8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMi0zOTgyLTQ0MTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5FeHBsb3JpbmcgdGhlICJNYW55IGFuYWx5c3RzLCBvbmUgZGF0YXNldCIgcHJvamVjdCBmcm9tIENPUzwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HaWdhbnR1bSwgSW5jLjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxOTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iSW50ZXJhY3RpdmVSZXNvdXJjZSI+R2lnYW50dW0gUHJvamVjdDwvcmVzb3VyY2VUeXBlPgogIDxzaXplcy8+CiAgPGZvcm1hdHMvPgogIDx2ZXJzaW9uLz4KPC9yZXNvdXJjZT4K","url":"https://gigantum.com/tinydav/football-skin-tone","contentUrl":null,"metadataVersion":2,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-03-20T19:48:26.000Z","registered":"2020-03-20T19:49:25.000Z","published":"2019","updated":"2020-07-11T09:44:36.000Z"},"relationships":{"client":{"data":{"id":"gigantum.gigantum","type":"clients"}},"media":{"data":{"id":"10.34747/g6yb-3412","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}}}'
+    http_version:
+  recorded_at: Sat, 11 Jul 2020 10:15:22 GMT
+recorded_with: VCR 3.0.3

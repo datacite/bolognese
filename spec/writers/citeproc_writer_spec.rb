@@ -264,5 +264,14 @@ describe Bolognese::Metadata, vcr: true do
         {"literal"=>"The Genome Denmark Consortium"}])
       expect(json["container-title"]).to eq("GigaScience")
     end
+
+    it "interactive resource without dates" do
+      input = "https://doi.org/10.34747/g6yb-3412"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article")
+      expect(json["DOI"]).to eq("10.34747/g6yb-3412")
+      expect(json["issued"]).to eq("date-parts"=>[[2019]])
+    end
   end
 end

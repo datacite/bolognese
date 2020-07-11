@@ -121,7 +121,7 @@ module Bolognese
       end
 
       def date
-        get_date_parts(date_published)
+        get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : get_date_parts(publication_year)
       end
 
       def publication_type

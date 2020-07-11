@@ -17,7 +17,7 @@ module Bolognese
           "description" => parse_attributes(descriptions, content: "description", first: true),
           "version" => version_info,
           "tags" => subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) } : nil,
-          "datePublished" => get_date(dates, "Issued"),
+          "datePublished" => get_date(dates, "Issued") || publication_year,
           "dateModified" => get_date(dates, "Updated"),
           "publisher" => publisher,
           "license" => Array.wrap(rights_list).map { |l| l["rightsUri"] }.compact.unwrap,

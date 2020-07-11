@@ -21,7 +21,7 @@ module Bolognese
           "contentSize" => Array.wrap(sizes).unwrap,
           "encodingFormat" => Array.wrap(formats).unwrap,
           "dateCreated" => get_date(dates, "Created"),
-          "datePublished" => get_date(dates, "Issued"),
+          "datePublished" => get_date(dates, "Issued") || publication_year,
           "dateModified" => get_date(dates, "Updated"),
           "pageStart" => container.to_h["firstPage"],
           "pageEnd" => container.to_h["lastPage"],
