@@ -128,11 +128,12 @@ module Bolognese
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if Date.edtf(meta.fetch("dateModified", nil)).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
 
-        case true
-        when meta.fetch("inLanguage", nil).is_a?(String)
-          language = meta.fetch("inLanguage", nil)
-        when meta.fetch("inLanguage", nil).is_a?(Object)
+        if meta.fetch("inLanguage", nil).is_a?(String)
+          language = meta.fetch("inLanguage")
+        elsif meta.fetch("inLanguage", nil).is_a?(Object)
           language = meta.dig("inLanguage", 'alternateName') || meta.dig("inLanguage", 'name')
+        else
+          language = nil
         end
 
         state = meta.present? || read_options.present? ? "findable" : "not_found"
@@ -186,7 +187,7 @@ module Bolognese
           "rights_list" => rights_list,
           "version_info" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
-          "language" => language.to_s.presence,
+          "language" => language,
           "state" => state,
           "schema_version" => meta.fetch("schemaVersion", nil).to_s.presence,
           "funding_references" => funding_references,
