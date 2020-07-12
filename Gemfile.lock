@@ -1,15 +1,15 @@
 PATH
   remote: .
   specs:
-    bolognese (1.7)
+    bolognese (1.7.1)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
       builder (~> 3.2, >= 3.2.2)
-      citeproc-ruby (~> 1.1, >= 1.1.10)
+      citeproc-ruby (~> 1.1, >= 1.1.12)
       colorize (~> 0.8.1)
       concurrent-ruby (~> 1.1, >= 1.1.5)
-      csl-styles (~> 1.0, >= 1.0.1.8)
+      csl-styles (~> 1.0, >= 1.0.1.10)
       edtf (~> 3.0, >= 3.0.4)
       faraday (~> 0.17.3)
       gender_detector (~> 0.1.2)

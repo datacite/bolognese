@@ -14,10 +14,10 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Journal article vancouver style" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref", style: "vancouver", locale: "de-de")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref", style: "vancouver", locale: "en-US")
       expect(subject.style).to eq("vancouver")
-      expect(subject.locale).to eq("de-de")
-      expect(subject.citation).to eq("Sankar M, Nieminen K, Ragni L, Xenarios I, Hardtke CS. Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. eLife [Internet]. 11. Februar 2014;3. Verfügbar unter: https://elifesciences.org/articles/01567")
+      expect(subject.locale).to eq("en-US")
+      expect(subject.citation).to eq("Sankar M, Nieminen K, Ragni L, Xenarios I, Hardtke CS. Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. eLife [Internet]. 2014Feb11;3. Available from: https://elifesciences.org/articles/01567")
     end
 
     it "Dataset" do
