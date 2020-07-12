@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.7.1)
+    bolognese (1.7.2)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -14,7 +14,7 @@ PATH
       faraday (~> 0.17.3)
       gender_detector (~> 0.1.2)
       iso8601 (~> 0.9.1)
-      json-ld (~> 3.1, >= 3.1.4)
+      json-ld-preloaded (~> 3.1, >= 3.1.3)
       jsonlint (~> 0.3.0)
       loofah (~> 2.0, >= 2.0.3)
       maremma (>= 4.7, < 5)
@@ -89,6 +89,9 @@ GEM
       link_header (~> 0.0, >= 0.0.8)
       multi_json (~> 1.14)
       rack (~> 2.0)
+      rdf (~> 3.1)
+    json-ld-preloaded (3.1.3)
+      json-ld (~> 3.1)
       rdf (~> 3.1)
     jsonlint (0.3.0)
       oj (~> 3)

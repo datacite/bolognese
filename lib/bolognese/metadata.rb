@@ -8,7 +8,7 @@ module Bolognese
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :show_errors
     attr_reader :doc, :page_start, :page_end
-    attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :alternate_identifiers, :creators, :contributors, :titles, :publisher, 
+    attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
                 :rights_list, :dates, :publication_year, :volume, :url, :version_info,
                 :subjects, :contributor, :descriptions, :language, :sizes,
                 :formats, :schema_version, :meta, :container, :agency,
@@ -99,7 +99,6 @@ module Bolognese
         :titles,
         :types,
         :identifiers,
-        :alternate_identifiers,
         :container,
         :publisher,
         :funding_references,
@@ -216,11 +215,7 @@ module Bolognese
     end
 
     def identifiers
-      @identifiers ||= Array.wrap(@alternate_identifiers).map { |a| { "identifierType" => a["alternateIdentifierType"], "identifier" => a["alternateIdentifier"] } }.presence || meta.fetch("identifiers", nil)
-      # (Array.wrap(@identifiers) +
-      # Array.wrap(@alternate_identifiers).select { |r| r["alternateIdentifierType"] != "DOI" }.map do |a|
-      #   { "identifierType" => a["alternateIdentifierType"], "identifier" => a["alternateIdentifier"] }
-      # end).uniq ||= meta.fetch("identifiers", nil)
+      @identifiers ||= meta.fetch("identifiers", nil)
     end
 
     def content_url
