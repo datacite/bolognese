@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - application/json;charset=UTF-8
   response:
@@ -16,10 +16,18 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/plain; charset=utf-8
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1260'
+      Cache-Control:
+      - max-age=300
       Content-Security-Policy:
       - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Etag:
+      - '"5aa1e469c2faf6b74bf977ce0b38ce8c12fef50564b1d9a3588b2cf0197a3057"'
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
@@ -28,46 +36,36 @@ http_interactions:
       - deny
       X-Xss-Protection:
       - 1; mode=block
-      Etag:
-      - '"196d90076a30d5604c5f5710dcce236a25ce60a7"'
-      Cache-Control:
-      - max-age=300
-      X-Geo-Block-List:
-      - ''
+      Via:
+      - 1.1 varnish (Varnish/6.0), 1.1 varnish
       X-Github-Request-Id:
-      - F998:30E7:66B59:84DF4:5D1D00C7
-      Content-Length:
-      - '1260'
+      - 4896:7D7B:46C8BC:544AB2:5F0AF223
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 03 Jul 2019 19:26:27 GMT
-      Via:
-      - 1.1 varnish
-      Connection:
-      - keep-alive
+      - Sun, 12 Jul 2020 11:21:08 GMT
       X-Served-By:
-      - cache-cdg20721-CDG
+      - cache-hhn4040-HHN
       X-Cache:
-      - HIT
+      - MISS, HIT
       X-Cache-Hits:
-      - '1'
+      - 0, 1
       X-Timer:
-      - S1562181987.160608,VS0,VE1
+      - S1594552869.736006,VS0,VE1
       Vary:
-      - Authorization,Accept-Encoding, Accept-Encoding
+      - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 169b2660cef6bd5df09bf1624dfe2780af6dd90b
+      - 0e7fba5b72ea563fc6241f49172e53c70c1e520d
       Expires:
-      - Wed, 03 Jul 2019 19:31:27 GMT
+      - Sun, 12 Jul 2020 11:26:08 GMT
       Source-Age:
-      - '155'
+      - '1'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         ewoJIkBjb250ZXh0IjogImh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9jb2RlbWV0YS9jb2RlbWV0YS9tYXN0ZXIvY29kZW1ldGEuanNvbmxkIiwKCSJAdHlwZSI6ICJTb2Z0d2FyZVNvdXJjZUNvZGUiLAoJIkBpZCI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC9RRUcwLTNHTTMiLAoJImFnZW50cyI6IHsKCQkiQGlkIjogImh0dHA6Ly9vcmNpZC5vcmcvMDAwMC0wMDAzLTAwNzctNDczOCIsCgkJIkB0eXBlIjogInBlcnNvbiIsCgkJIm5hbWUiOiAiTWFydGluIEZlbm5lciIsCgkJImFmZmlsaWF0aW9uIjogIkRhdGFDaXRlIiwKCQkibXVzdEJlQ2l0ZWQiOiB0cnVlLAoJCSJpc01haW50YWluZXIiOiB0cnVlLAoJCSJpc1JpZ2h0c0hvbGRlciI6IHRydWUKCX0sCgkiaWRlbnRpZmllciI6ICJodHRwczovL2RvaS5vcmcvMTAuNTQzOC9RRUcwLTNHTTMiLAoJImNvZGVSZXBvc2l0b3J5IjogImh0dHBzOi8vZ2l0aHViLmNvbS9kYXRhY2l0ZS9tYXJlbW1hIiwKCSJjb250cm9sbGVkVGVtIjogInNvZnR3YXJlIiwKCSJkYXRlQ3JlYXRlZCI6ICIyMDE1LTExLTI4IiwKCSJkYXRlUHVibGlzaGVkIjogIjIwMTctMDItMjQiLAoJImRhdGVNb2RpZmllZCI6ICIyMDE3LTAyLTI0IiwKCSJkZXNjcmlwdGlvbiI6ICJSdWJ5IHV0aWxpdHkgbGlicmFyeSBmb3IgbmV0d29yayByZXF1ZXN0cy4gQmFzZWQgb24gRmFyYWRheSBhbmQgRXhjb24sIHByb3ZpZGVzIGEgd3JhcHBlciBmb3IgWE1ML0pTT04gcGFyc2luZyBhbmQgZXJyb3IgaGFuZGxpbmcuIEFsbCBzdWNjZXNzZnVsIHJlc3BvbnNlcyBhcmUgcmV0dXJuZWQgYXMgaGFzaCB3aXRoIGtleSBkYXRhLCBhbGwgZXJyb3JzIGluIGEgSlNPTkFQSS1mcmllbmRseSBoYXNoIHdpdGgga2V5IGVycm9ycy4iLAoJImlzQXV0b21hdGVkQnVpbGQiOiB0cnVlLAoJImxpY2Vuc2VJZCI6ICJNSVQiLAoJInB1Ymxpc2hlciI6ICJEYXRhQ2l0ZSIsCgkidGFncyI6IFsKCQkiZmFyYWRheSIsCgkJImV4Y29uIiwKCQkibmV0L2h0dHAiCgldLAoJInRpdGxlIjogIk1hcmVtbWE6IGEgUnVieSBsaWJyYXJ5IGZvciBzaW1wbGlmaWVkIG5ldHdvcmsgY2FsbHMiLAoJInByb2dyYW1taW5nTGFuZ3VhZ2UiOiB7CgkJIm5hbWUiOiAiUnVieSIsCgkJInZlcnNpb24iOiAi4omlIDIuMy4zIiwKCQkiVVJMIjogImh0dHBzOi8vd3d3LnJ1YnktbGFuZy5vcmciCgl9LAoJInJlYWRtZSI6ICJodHRwczovL2dpdGh1Yi5jb20vZGF0YWNpdGUvbWFyZW1tYS9ibG9iL21hc3Rlci9SRUFETUUubWQiCn0K
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:26:27 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:21:08 GMT
 recorded_with: VCR 3.0.3

@@ -15,7 +15,7 @@ describe Bolognese::Metadata, vcr: true do
     it "string" do
       Bolognese::Metadata.new(input: IO.read(input).strip)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
     end
   end
 
@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get ris metadata" do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.creators.length).to eq(5)
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, doi: doi)
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"THES", "schemaOrg"=>"Thesis")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Toparlar, Y.", "givenName"=>"Y.", "familyName"=>"Toparlar", "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect"}])
@@ -67,7 +67,7 @@ describe Bolognese::Metadata, vcr: true do
       doi = "10.7554/elife.01567"
       subject = Bolognese::Metadata.new(input: input, doi: doi)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.titles).to eq([{"title"=>"Validation of an Image-based Subject-Specific Dynamic Model of the Ankle Joint Complex and its Applications to the Study of the Effect of Articular Surface Morphology on Ankle Joint Mechanics"}])
       expect(subject.descriptions.first["description"]).to eq(abs)
     end

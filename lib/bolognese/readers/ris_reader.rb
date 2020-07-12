@@ -47,13 +47,8 @@ module Bolognese
           "ris" => ris_type
         }.compact
 
-        identifiers = [normalize_doi(options[:doi]) || normalize_doi(meta.fetch("DO", nil))].map do |r|
-          { "identifierType" => "DOI", "identifier" => normalize_id(r) }
-        end.compact
-
-        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
-        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
-
+        id = normalize_doi(options[:doi] || meta.fetch("DO", nil))
+        
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "creatorName" => a } }
         date_parts = meta.fetch("PY", nil).to_s.split("/")
         created_date_parts = meta.fetch("Y1", nil).to_s.split("/")
@@ -90,8 +85,7 @@ module Bolognese
 
         { "id" => id,
           "types" => types,
-          "identifiers" => identifiers,
-          "doi" => doi_from_url(doi),
+          "doi" => doi_from_url(id),
           "url" => meta.fetch("UR", nil),
           "titles" => meta.fetch("T1", nil).present? ? [{ "title" => meta.fetch("T1", nil) }] : nil,
           "creators" => get_authors(author),

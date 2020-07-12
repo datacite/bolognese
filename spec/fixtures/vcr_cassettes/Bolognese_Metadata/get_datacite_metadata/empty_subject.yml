@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:35 GMT
+      - Sun, 12 Jul 2020 11:24:45 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '55'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d1f4512f5a31e8fbfd20f61c84293b6e61562181935; expires=Thu, 02-Jul-20
-        19:25:35 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=dcd59abc2069aaaa53d07ccf12c898de11594553085; expires=Tue, 11-Aug-20
+        11:24:45 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45e46a80000dfffdda2e200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0b3f06fc41a885-CDG
+      - 5b1a66510be5dfff-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,17 +46,17 @@ http_interactions:
             "RA": "DataCite"
           }
         ]
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:35 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:45 GMT
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.18169/papdeottx00502
+    uri: https://api.datacite.org/dois/10.18169/papdeottx00502?include=media,client
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +65,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:35 GMT
+      - Sun, 12 Jul 2020 11:24:46 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -75,21 +79,21 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 94d4589e-a6f9-4dbd-b70f-8f45529ff4fa
+      - 1dfd3a42-56e6-4f17-8ee8-ecbe930ad3c8
       Etag:
-      - W/"c8a18a53ed129b249c0c603019af38c1"
+      - W/"bdd816f8328323ce1e89606858677e21"
       X-Runtime:
-      - '0.027342'
+      - '0.508595'
       X-Powered-By:
-      - Phusion Passenger 6.0.2
+      - Phusion Passenger 6.0.5
       Server:
-      - nginx/1.15.8 + Phusion Passenger 6.0.2
+      - nginx/1.14.0 + Phusion Passenger 6.0.5
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.18169/papdeottx00502","type":"dois","attributes":{"doi":"10.18169/papdeottx00502","prefix":"10.18169","suffix":"papdeottx00502","identifiers":[{"identifier":"https://doi.org/10.18169/papdeottx00502","identifierType":"DOI"},{"identifier":"\nhttp://www.priorartregister.com/resolve.php?disclosure=OTTX00502\n","identifierType":"URL"}],"creators":[{"name":"Anonymous"}],"titles":[{"title":"Messung
+      string: '{"data":{"id":"10.18169/papdeottx00502","type":"dois","attributes":{"doi":"10.18169/papdeottx00502","prefix":"10.18169","suffix":"papdeottx00502","identifiers":[{"identifier":"https://doi.org/10.18169/papdeottx00502","identifierType":"DOI"},{"identifier":"\nhttp://www.priorartregister.com/resolve.php?disclosure=OTTX00502\n","identifierType":"URL"}],"alternateIdentifiers":[{"alternateIdentifierType":"URL","alternateIdentifier":"\nhttp://www.priorartregister.com/resolve.php?disclosure=OTTX00502\n"}],"creators":[{"name":"Anonymous","affiliation":[]}],"titles":[{"title":"Messung
         der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen"}],"publisher":"Siemens
-        AG","container":{},"publicationYear":2017,"subjects":[],"contributors":[],"dates":[{"date":"07.04.2017","dateType":"Available"},{"date":"2017","dateType":"Issued"}],"language":"de","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Disclosure","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":["PDF"],"version":null,"rightsList":[],"descriptions":[{"description":"","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxyZXNvdXJjZSB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMy9tZXRhZGF0YS54c2QiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RUWDAwNTAyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVuc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVvc2VxdWVuemVuPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlNpZW1lbnMgQUc8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdC8+CiAgICA8c3ViamVjdC8+CiAgICA8c3ViamVjdC8+CiAgPC9zdWJqZWN0cz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQXZhaWxhYmxlIj4wNy4wNC4yMDE3PC9kYXRlPgogIDwvZGF0ZXM+CiAgPGxhbmd1YWdlPmRlPC9sYW5ndWFnZT4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRpc2Nsb3N1cmU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJMIj4KaHR0cDovL3d3dy5wcmlvcmFydHJlZ2lzdGVyLmNvbS9yZXNvbHZlLnBocD9kaXNjbG9zdXJlPU9UVFgwMDUwMgo8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8c2l6ZXM+CiAgICA8c2l6ZS8+CiAgPC9zaXplcz4KICA8Zm9ybWF0cz4KICAgIDxmb3JtYXQ+UERGPC9mb3JtYXQ+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjE8L3ZlcnNpb24+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4KPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","url":"http://www.priorartregister.com/resolve.php?disclosure=OTTX00502","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"created":"2017-04-07T07:11:02.000-04:00","registered":"2017-04-07T07:11:49.000-04:00","published":"2017","updated":"2018-10-24T06:18:38.000-04:00"},"relationships":{"client":{"data":{"id":"tib.pap","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"tib.pap","type":"clients","attributes":{"name":"Prior
-        Art Publishing GmbH","symbol":"TIB.PAP","year":2015,"contactName":"Jakob Marquard","contactEmail":"office@priorartpublishing.de","description":null,"domains":"www.priorartregister.com","url":null,"created":"2015-11-02T08:43:59.000-05:00","updated":"2018-08-25T22:35:37.000-04:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tib","type":"providers"}},"prefixes":{"data":[{"id":"10.18169","type":"prefixes"}]}}}]}'
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:35 GMT
+        AG","container":{},"publicationYear":2017,"subjects":[],"contributors":[],"dates":[{"date":"07.04.2017","dateType":"Available"},{"date":"2017","dateType":"Issued"}],"language":"de","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Disclosure","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":["PDF"],"version":null,"rightsList":[],"descriptions":[{"description":"","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxyZXNvdXJjZSB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMy9tZXRhZGF0YS54c2QiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RUWDAwNTAyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVuc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVvc2VxdWVuemVuPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlNpZW1lbnMgQUc8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdC8+CiAgICA8c3ViamVjdC8+CiAgICA8c3ViamVjdC8+CiAgPC9zdWJqZWN0cz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQXZhaWxhYmxlIj4wNy4wNC4yMDE3PC9kYXRlPgogIDwvZGF0ZXM+CiAgPGxhbmd1YWdlPmRlPC9sYW5ndWFnZT4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRpc2Nsb3N1cmU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJMIj4KaHR0cDovL3d3dy5wcmlvcmFydHJlZ2lzdGVyLmNvbS9yZXNvbHZlLnBocD9kaXNjbG9zdXJlPU9UVFgwMDUwMgo8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8c2l6ZXM+CiAgICA8c2l6ZS8+CiAgPC9zaXplcz4KICA8Zm9ybWF0cz4KICAgIDxmb3JtYXQ+UERGPC9mb3JtYXQ+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjE8L3ZlcnNpb24+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4KPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","url":"http://www.priorartregister.com/resolve.php?disclosure=OTTX00502","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2017-04-07T11:11:02.000Z","registered":"2017-04-07T11:11:49.000Z","published":"2017","updated":"2019-08-02T14:51:57.000Z"},"relationships":{"client":{"data":{"id":"tib.pap","type":"clients"}},"media":{"data":{"id":"10.18169/papdeottx00502","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"tib.pap","type":"clients","attributes":{"name":"Prior
+        Art Publishing GmbH","symbol":"TIB.PAP","year":2015,"contactEmail":"office@priorartpublishing.de","alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"www.priorartregister.com","re3data":null,"opendoar":null,"issn":null,"url":null,"created":"2015-11-02T13:43:59.000Z","updated":"2018-08-26T02:35:37.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tib","type":"providers"}},"prefixes":{"data":[{"id":"10.18169","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:46 GMT
 recorded_with: VCR 3.0.3

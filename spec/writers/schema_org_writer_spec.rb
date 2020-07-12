@@ -53,10 +53,9 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["@reverse"]).to eq("citation" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}],
-        "isBasedOn" => [{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"}, {"@type"=>"ScholarlyArticle", "identifier"=>{"@type"=>"PropertyValue", "propertyID"=>"PMID", "value"=>"19478877"}}])
+      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"})
       expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
-      expect(json["keywords"]).to eq("Phylogeny, Malaria, Parasites, Taxonomy, Mitochondrial genome, Africa, Plasmodium")
+      expect(json["keywords"]).to eq("Plasmodium, malaria, taxonomy, mitochondrial genome, phylogeny, Parasites")
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -139,7 +138,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
-      expect(json["keywords"]).to eq("Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(json["keywords"]).to eq("Animalia, Bottles or small containers/Aquaria (&lt;20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Experiment, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
       expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
     end
 
@@ -181,7 +180,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Covariates used in eQTL analysis. Includes genotyping principal components and PEER factors")
       expect(json["author"]).to eq("@type"=>"Organization", "name"=>"The GTEx Consortium")
       expect(json["includedInDataCatalog"]).to eq("@type"=>"DataCatalog", "name"=>"GTEx")
-      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.25491/8kmc-g314"},{"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58"}])
+      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"c7c89fe7366d50cd75448aa603c9de58")
       expect(json["contentUrl"]).to eq("https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_covariates.tar.gz")
     end
 
@@ -196,9 +195,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["identifier"]).to eq(
         [{"@type"=>"PropertyValue",
-          "propertyID"=>"DOI",
-          "value"=>"https://doi.org/10.23725/8na3-9s47"},
-         {"@type"=>"PropertyValue",
           "propertyID"=>"minid",
           "value"=>"ark:/99999/fk41CrU4eszeLUDe"},
          {"@type"=>"PropertyValue",
@@ -226,12 +222,9 @@ describe Bolognese::Metadata, vcr: true do
         "givenName" => "Elizabeth",
         "name" => "Elizabeth Miller")
       expect(json["identifier"]).to eq(
-        [{"@type"=>"PropertyValue",
-          "propertyID"=>"DOI",
-          "value"=>"https://doi.org/10.5072/example-full"},
          {"@type"=>"PropertyValue",
           "propertyID"=>"URL",
-          "value"=>"https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml"}]
+          "value"=>"https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml"}
       )
       expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
     end
@@ -275,7 +268,6 @@ describe Bolognese::Metadata, vcr: true do
         "givenName"=>"Participants",
         "name"=>"Participants Tara Oceans Expedition"}])
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.1594/pangaea.842237")
       expect(json["spatialCoverage"]).to eq("@type"=>"Place", "geo"=>{"@type"=>"GeoShape", "box"=>"-64.3088 -168.5182 79.6753 174.9006"})
       expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
     end
@@ -289,7 +281,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Meteo measurements at the Sand Motor")
       expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer")
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.5072/example-polygon")
       expect(json["spatialCoverage"].dig("geo", "polygon").length).to eq(34)
       expect(json["spatialCoverage"].dig("geo", "polygon").first).to eq(["4.1738852605822", "52.03913926329928"])
     end
@@ -300,7 +291,7 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/d50j-3083")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["identifier"]).to eq([{"@type"=>"PropertyValue", "propertyID"=>"DOI", "value"=>"https://doi.org/10.25491/d50j-3083"}, {"@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"687610993"}])
+      expect(json["identifier"]).to eq("@type"=>"PropertyValue", "propertyID"=>"md5", "value"=>"687610993")
       expect(json["url"]).to eq("https://ors.datacite.org/doi:/10.25491/d50j-3083")
       expect(json["additionalType"]).to eq("Gene expression matrices")
       expect(json["name"]).to eq("Fully processed, filtered and normalized gene expression matrices (in BED format) for each tissue, which were used as input into FastQTL for eQTL discovery")
@@ -344,9 +335,6 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@type"]).to eq("Dataset")
       expect(json["identifier"]).to eq(
         [{"@type"=>"PropertyValue",
-          "propertyID"=>"DOI",
-          "value"=>"https://doi.org/10.23725/8na3-9s47"},
-         {"@type"=>"PropertyValue",
           "propertyID"=>"md5",
           "value"=>"3b33f6b9338fccab0901b7d317577ea3"},
          {"@type"=>"PropertyValue",

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,15 +17,23 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx/1.12.2
+      - nginx/1.16.1
       Date:
-      - Thu, 18 Jul 2019 06:21:57 GMT
+      - Sun, 12 Jul 2020 11:22:37 GMT
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '43299'
+      - '43715'
       Vary:
       - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Ratelimit-Reset:
+      - '1594553017'
+      Retry-After:
+      - '59'
       X-Frame-Options:
       - sameorigin
       X-Xss-Protection:
@@ -36,21 +44,13 @@ http_interactions:
       - max-age=0
       Referrer-Policy:
       - strict-origin-when-cross-origin
-      X-Ratelimit-Limit:
-      - '5000'
-      X-Ratelimit-Remaining:
-      - '4999'
-      X-Ratelimit-Reset:
-      - '1563434517'
-      Retry-After:
-      - '3599'
       Set-Cookie:
-      - session=7acbee452f7cabc8_5d301005.hsmTfGq1-ccGIC585cnsz5PQkNM; Expires=Sun,
-        18-Aug-2019 06:21:57 GMT; Secure; HttpOnly; Path=/
+      - session=100f3df6b0d492da_5f0af27d.65_9gZC_3lMnPO5OpJqNBKNmNDo; Expires=Wed,
+        12-Aug-2020 11:22:37 GMT; Secure; HttpOnly; Path=/
       X-Session-Id:
-      - 7acbee452f7cabc8_5d301005
+      - 100f3df6b0d492da_5f0af27d
       X-Request-Id:
-      - eda6c86512cdc75206e5768a6fe55c21
+      - 334173bbfaeed3e65f701b6b5f73c2e9
     body:
       encoding: ASCII-8BIT
       string: "\n<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n\n<meta
@@ -67,7 +67,7 @@ http_interactions:
         \   <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/static/apple-touch-icon-72-precomposed.png\"/>\n
         \   <link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/static/apple-touch-icon-57-precomposed.png\"/>\n<link
         href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,100,italic\"
-        rel=\"stylesheet\">\n<link href=\"/static/gen/zenodo.4f460db9.css\" rel=\"stylesheet\">\n<!--
+        rel=\"stylesheet\">\n<link href=\"/static/gen/zenodo.e8488af6.css\" rel=\"stylesheet\">\n<!--
         HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
         -->\n<!--[if lt IE 9]>\n  <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n
         \ <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n<![endif]-->\n
@@ -232,8 +232,8 @@ http_interactions:
         class=\"fa fa-chevron-down\"></i></span>\n      </a>\n    </div>\n    <div
         id=\"collapseOne\" class=\"collapse in\">\n  <iframe\n   class=\"preview-iframe\"\n
         \  id=\"preview-iframe\"\n   width=\"100%\"\n   height=\"400\"\n   src=\"/record/1196821/preview/Data.zip\"></iframe>\n
-        \   </div>\n  </div><div class=\"panel panel-default\" id=\"files\">\n  <div
-        class=\"panel-heading\">\n    <a class=\"panel-toggle\" data-toggle=\"collapse\"
+        \   </div>\n  </div><div class=\"panel panel-default files-box\" id=\"files\">\n
+        \ <div class=\"panel-heading\">\n    <a class=\"panel-toggle\" data-toggle=\"collapse\"
         href=\"#collapseTwo\">\n      Files\n      <span class=\"pull-right show-on-collapsed\"><i
         class=\"fa fa-chevron-right\"></i></span>\n      <span class=\"pull-right
         hide-on-collapsed\"><i class=\"fa fa-chevron-down\"></i></span>\n    </a>\n
@@ -266,11 +266,11 @@ http_interactions:
         \       <td class=\"nowrap\">3.9 kB</td>\n        <td class=\"nowrap\"><span
         class=\"pull-right\"><a class=\"btn btn-xs btn-default\" href=\"/record/1196821/files/README.txt?download=1\"><i
         class=\"fa fa-download\"></i> Download</a></span></td>\n      </tr></tbody>\n
-        \   </table>\n  </div>\n</div>\n\n\n\n<div id=\"citations\">\n  <invenio-search\n
-        \  disable-url-handler=\"true\"\n   search-endpoint=\"https://zenodo-broker-qa.web.cern.ch/api/relationships\"\n
-        \  search-extra-params='{\"page\": 1, \"size\": \"10\", \"group_by\": \"version\",
-        \"id\": \"10.5281/zenodo.1196821\"}'\n   search-hidden-params='{\"relation\":
-        \"isCitedBy\", \"scheme\": \"doi\"}'\n   search-headers='{\"Accept\": \"application/json\"}'
+        \   </table>\n  </div>\n</div>\n\n\n\n\n\n\n<div id=\"citations\">\n  <invenio-search\n
+        \  disable-url-handler=\"true\"\n   search-endpoint=\"https://zenodo-broker.web.cern.ch/api/relationships\"\n
+        \  search-extra-params='{\"group_by\": \"version\", \"id\": \"10.5281/zenodo.1039580\",
+        \"page\": 1, \"size\": 10}'\n   search-hidden-params='{\"relation\": \"isCitedBy\",
+        \"scheme\": \"doi\"}'\n   search-headers='{\"Accept\": \"application/json\"}'
         >\n    <div class=\"panel panel-default\" id=\"citation\">\n      <div class=\"panel-heading\">\n
         \       <!-- Beta ribbon -->\n        <div class=\"row\" style=\"margin-bottom:
         -15px;\">\n          <div class=\"col-sm-1\">\n            <div class=\"ribbon-wrapper-green\">\n
@@ -279,9 +279,13 @@ http_interactions:
         ribbon-green\">Beta</div>\n              </a>\n            </div>\n          </div>\n
         \         <div class=\"col-sm-11\" style=\"margin-top: 5px;\">\n            <a
         class=\"panel-toggle\" data-toggle=\"collapse\" href=\"#collapseCitations\"
-        style=\"margin-left:-25px;\">\n              Citations\n              <small
-        class=\"text-muted\">\n                <invenio-search-count\n                template=\"/static/templates/citations/count.html\">\n
-        \               </invenio-search-count>\n              </small>\n              <span
+        style=\"margin-left:-25px;\">\n              Citations\n            </a>\n
+        \           <a href=\"https://help.zenodo.org/#citations\" target=\"_blank\"
+        rel=\"noopener noreferrer\">\n              <i class=\"fa fa-question-circle\"></i>\n
+        \           </a>\n            <small class=\"text-muted\">\n              <invenio-search-count
+        template=\"/static/templates/citations/count.html\">\n              </invenio-search-count>\n
+        \           </small>\n            <a class=\"panel-toggle\" data-toggle=\"collapse\"
+        href=\"#collapseCitations\" style=\"margin-left:-25px;\">\n              <span
         class=\"pull-right show-on-collapsed\"><i class=\"fa fa-chevron-right\"></i></span>\n
         \             <span class=\"pull-right hide-on-collapsed\"><i class=\"fa fa-chevron-down\"></i></span>\n
         \           </a>\n          </div>\n        </div>\n\n        <!-- Without
@@ -320,8 +324,8 @@ http_interactions:
         \   <div class=\"col-sm-4 col-md-4 col-right\">\n\n\n      \n      <div class=\"well\"><!--
         Stats -->\n<div class=\"row stats-box\">\n  <div id=\"accordion\">\n    <!--
         Banner --><div class=\"row\">\n      <div class=\"col-sm-6\">\n        <span
-        class=\"stats-data\">1,160</span>\n      </div>\n      <div class=\"col-sm-6\">\n
-        \       <span class=\"stats-data\">231</span>\n      </div>\n    </div>\n
+        class=\"stats-data\">1,427</span>\n      </div>\n      <div class=\"col-sm-6\">\n
+        \       <span class=\"stats-data\">308</span>\n      </div>\n    </div>\n
         \   <div class=\"row\">\n      <div class=\"col-sm-6\">\n        <i class=\"fa
         fa-eye \" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Total
         views.\" data-original-title=\"Total views.\"></i> views\n      </div>\n      <div
@@ -338,21 +342,21 @@ http_interactions:
         versions</th>\n          <th>This version</th>\n        </tr><tr>\n          <td>Views
         <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip
         data-placement=\"top\" title=\"Total views.\" data-original-title=\"Total
-        views.\"></i></td><td>1,160</td><td>291</td>\n        </tr>\n        <tr>\n
+        views.\"></i></td><td>1,427</td><td>442</td>\n        </tr>\n        <tr>\n
         \         <td>Downloads <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\"
         tooltip data-placement=\"top\" title=\"Total downloads.\" data-original-title=\"Total
-        downloads.\"></i></td><td>231</td><td>61</td>\n        </tr>\n        <tr>\n
+        downloads.\"></i></td><td>308</td><td>79</td>\n        </tr>\n        <tr>\n
         \         <td>Data volume <i class=\"fa fa-question-circle text-muted\" data-toggle=\"tooltip\"
         tooltip data-placement=\"top\" title=\"Total download volume.\" data-original-title=\"Total
-        download volume.\"></i></td><td>25.7 GB</td><td>11.4 GB</td>\n        </tr>\n
+        download volume.\"></i></td><td>36.1 GB</td><td>11.9 GB</td>\n        </tr>\n
         \       <tr>\n          <td>Unique views <i class=\"fa fa-question-circle
         text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\" title=\"Views
         in one hour user-sessions are counted only once.\" data-original-title=\"Views
-        in one hour user-sessions are counted only once.\"></i></td><td>867</td><td>253</td>\n
+        in one hour user-sessions are counted only once.\"></i></td><td>1,091</td><td>390</td>\n
         \       </tr>\n        <tr>\n          <td>Unique downloads <i class=\"fa
         fa-question-circle text-muted\" data-toggle=\"tooltip\" tooltip data-placement=\"top\"
         title=\"Downloads in one hour user-sessions are counted only once.\" data-original-title=\"Downloads
-        in one hour user-sessions are counted only once.\"></i></td><td>107</td><td>36</td>\n
+        in one hour user-sessions are counted only once.\"></i></td><td>166</td><td>51</td>\n
         \       </tr>\n      </table>\n      <div class=\"row\">\n        <a href=\"https://help.zenodo.org/#statistics\">More
         info on how stats are collected.</a>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--
         Altmetric -->\n  \n<div class=\"altmetric-embed\" data-badge-type=\"donut\"
@@ -362,7 +366,7 @@ http_interactions:
         \     <img src=\"/static/img/openaire-horizontal-old.png\" class=\"img-thumbnail\"
         width=\"100%\" />\n    </a>\n</div>\n      <div class=\"well metadata\"><dl>\n
         \   <dt>Publication date:</dt>\n    <dd>March 14, 2018</dd>\n    <dt>DOI:</dt>\n
-        \   <dd>\n      <span class=\"get-badge\" data-toggle=\"toolt  ip\" data-placement=\"bottom\"\n
+        \   <dd>\n      <span class=\"get-badge\" data-toggle=\"`tooltip\" data-placement=\"bottom\"\n
         \           title=\"Get the DOI badge!\">\n        <img data-toggle=\"modal\"
         data-target=\"[data-modal='10.5281/zenodo.1196821']\"\n              src=\"/badge/DOI/10.5281/zenodo.1196821.svg\"
         alt=\"10.5281/zenodo.1196821\">\n        </img>\n      </span>\n      <div
@@ -406,22 +410,23 @@ http_interactions:
         class=\"label label-default\">EDA</span>\n      </a>\n      \n      <a class=\"label-link\"
         href=\"/search?q=keywords%3A%22GSR%22\">\n        <span class=\"label label-default\">GSR</span>\n
         \     </a>\n    </dd>\n\n  \n    <dt>Related identifiers:</dt>\n    <dd>Supplement
-        to:<br />\n      <a href=\"https://doi.org/10.1111/psyp.12637\">10.1111/psyp.12637</a>,
-        \n      <a href=\"https://doi.org/10.1111/psyp.12801\">10.1111/psyp.12801</a>\n
-        \   </dd>\n    <dt>Communities:</dt>\n    <dd>\n      <ul class=\"list-unstyled\">\n
-        \       <li><a href=\"/communities/zenodo/\">Zenodo</a></li>\n      </ul>\n
-        \   </dd>\n    <dt>License (for files):</dt>\n    <dd><a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/legalcode\"><i
-        class=\"fa fa-external-link\"></i> Creative Commons Attribution Share Alike
-        4.0 International</a></dd>\n  </dl>\n      </div>\n  <div class=\"well metadata\">\n
-        \   <h4>Versions</h4>\n    <table class=\"table\">\n      <tr >\n        <td>\n
-        \         <a href=\"/record/1443332\">Version 1.0.3 </a>\n          <small
-        class=\"text-muted\">10.5281/zenodo.1443332</small>\n        </td>\n        <td
-        align=\"right\"><small class=\"text-muted\">Oct 3, 2018</small></td>\n      </tr>\n
-        \     <tr class=\"info\">\n        <td>\n          <a href=\"/record/1196821\">Version
-        1.0.2 </a>\n          <small class=\"text-muted\">10.5281/zenodo.1196821</small>\n
-        \       </td>\n        <td align=\"right\"><small class=\"text-muted\">Mar
-        14, 2018</small></td>\n      </tr>\n      <tr >\n        <td>\n          <a
-        href=\"/record/1044216\">Version 1.0.1 </a>\n          <small class=\"text-muted\">10.5281/zenodo.1044216</small>\n
+        to<br />\n    <ul class=\"list-unstyled\">\n      <li>\n        <a href=\"https://doi.org/10.1111/psyp.12637\">10.1111/psyp.12637</a>
+        \n      </li>\n      <li>\n        <a href=\"https://doi.org/10.1111/psyp.12801\">10.1111/psyp.12801</a>
+        \n      </li>\n    </ul>\n    </dd>\n    <dt>Communities:</dt>\n    <dd>\n
+        \     <ul class=\"list-unstyled\">\n        <li><a href=\"/communities/zenodo/\">Zenodo</a></li>\n
+        \     </ul>\n    </dd>\n    <dt>License (for files):</dt>\n    <dd><a rel=\"license\"
+        href=\"https://creativecommons.org/licenses/by-sa/4.0/legalcode\"><i class=\"fa
+        fa-external-link\"></i> Creative Commons Attribution Share Alike 4.0 International</a></dd>\n
+        \ </dl>\n      </div>\n  <div class=\"well metadata\">\n    <h4>Versions</h4>\n
+        \   <table class=\"table\">\n      <tr >\n        <td>\n          <a href=\"/record/1443332\">Version
+        1.0.3 </a>\n          <small class=\"text-muted\">10.5281/zenodo.1443332</small>\n
+        \       </td>\n        <td align=\"right\"><small class=\"text-muted\">Oct
+        3, 2018</small></td>\n      </tr>\n      <tr class=\"info\">\n        <td>\n
+        \         <a href=\"/record/1196821\">Version 1.0.2 </a>\n          <small
+        class=\"text-muted\">10.5281/zenodo.1196821</small>\n        </td>\n        <td
+        align=\"right\"><small class=\"text-muted\">Mar 14, 2018</small></td>\n      </tr>\n
+        \     <tr >\n        <td>\n          <a href=\"/record/1044216\">Version 1.0.1
+        </a>\n          <small class=\"text-muted\">10.5281/zenodo.1044216</small>\n
         \       </td>\n        <td align=\"right\"><small class=\"text-muted\">Oct
         31, 2017</small></td>\n      </tr>\n      <tr >\n        <td>\n          <a
         href=\"/record/1039581\">Version 1.0.0 </a>\n          <small class=\"text-muted\">10.5281/zenodo.1039581</small>\n
@@ -452,8 +457,10 @@ http_interactions:
         class=\"list-inline\">\n  <li><a href=\"/record/1196821/export/hx\">BibTeX</a></li>\n
         \ <li><a href=\"/record/1196821/export/csl\">CSL</a></li>\n  <li><a href=\"/record/1196821/export/dcite4\">DataCite</a></li>\n
         \ <li><a href=\"/record/1196821/export/xd\">Dublin Core</a></li>\n  <li><a
-        href=\"/record/1196821/export/json\">JSON</a></li>\n  <li><a href=\"/record/1196821/export/schemaorg_jsonld\">JSON-LD</a></li>\n
-        \ <li><a href=\"/record/1196821/export/xm\">MARCXML</a></li>\n  <li><a href=\"https://www.mendeley.com/import/?url=https://www.zenodo.org/record/1196821\"><i
+        href=\"/record/1196821/export/dcat\">DCAT</a></li>\n  <li><a href=\"/record/1196821/export/json\">JSON</a></li>\n
+        \ <li><a href=\"/record/1196821/export/schemaorg_jsonld\">JSON-LD</a></li>\n
+        \ <li><a href=\"/record/1196821/export/geojson\">GeoJSON</a></li>\n  <li><a
+        href=\"/record/1196821/export/xm\">MARCXML</a></li>\n  <li><a href=\"https://www.mendeley.com/import/?url=https://www.zenodo.org/record/1196821\"><i
         class=\"fa fa-external-link\"></i> Mendeley</a></li>\n</ul>\n      </div>\n
         \   </div>\n  </div>\n</div>\n<footer class=\"footer\">\n  <div class=\"menu-wrapper\">\n
         \   <div class=\"container\">\n      <div class=\"row footer-menu\">\n        <div
@@ -470,7 +477,6 @@ http_interactions:
         \           </div>\n            <div class=\"col-xs-2 col-md-2\">\n              <h5>Help</h5>\n
         \             <ul class=\"list-unstyled\">\n                <li><a href=\"http://help.zenodo.org\">FAQ</a></li>\n
         \               <li><a href=\"http://help.zenodo.org/features\">Features</a></li>\n
-        \               <li><a href=\"http://help.zenodo.org/whatsnew\">What's New</a></li>\n
         \             </ul>\n            </div>\n            <div class=\"col-xs-2
         col-md-2\">\n              <h5>Developers</h5>\n              <ul class=\"list-unstyled\">\n
         \             <li><a href=\"http://developers.zenodo.org\">REST API</a></li>\n
@@ -485,7 +491,7 @@ http_interactions:
         \           <h5>Funded by</h5>\n            <ul class=\"list-inline\">\n              <li><a
         href=\"http://home.cern\"><img src=\"/static/img/cern.png\" width=\"60\" height=\"60\"
         /></a></li>\n              <li><a href=\"http://www.openaire.eu\"><img src=\"/static/img/openaire.png\"
-        width=\"80\" height=\"60\" /></a></li>\n              <li><a href=\"https://ec.europa.eu/programmes/horizon2020/\"><img
+        width=\"80\" /></a></li>\n              <li><a href=\"https://ec.europa.eu/programmes/horizon2020/\"><img
         src=\"/static/img/eu.png\" width=\"88\" height=\"60\" /></a></li>\n            </ul>\n
         \         </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div
         class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-xs-12
@@ -533,19 +539,21 @@ http_interactions:
         of 0.5 s. SOA betwen the CS and US was 3.5 s. The ITI was randomly determined
         on each trial to be 7, 9, or 11 s.\\u003c/p\\u003e\", \"distribution\": [{\"@type\":
         \"DataDownload\", \"contentUrl\": \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/Data.zip\",
-        \"fileFormat\": \"zip\"}, {\"@type\": \"DataDownload\", \"contentUrl\": \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/excludes.txt\",
-        \"fileFormat\": \"txt\"}, {\"@type\": \"DataDownload\", \"contentUrl\": \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/README.txt\",
-        \"fileFormat\": \"txt\"}], \"identifier\": \"https://doi.org/10.5281/zenodo.1196821\",
+        \"encodingFormat\": \"zip\"}, {\"@type\": \"DataDownload\", \"contentUrl\":
+        \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/excludes.txt\",
+        \"encodingFormat\": \"txt\"}, {\"@type\": \"DataDownload\", \"contentUrl\":
+        \"https://www.zenodo.org/api/files/53b69001-2a2b-493b-8bc9-d09d85f9d215/README.txt\",
+        \"encodingFormat\": \"txt\"}], \"identifier\": \"https://doi.org/10.5281/zenodo.1196821\",
         \"inLanguage\": {\"@type\": \"Language\", \"alternateName\": \"eng\", \"name\":
         \"English\"}, \"keywords\": [\"Pupil Size Response\", \"Skin Conductance Response\",
         \"Electrocardiogram\", \"Electromyogram\", \"Electrodermal Activity\", \"Galvanic
         Skin Response\", \"PSR\", \"SCR\", \"ECG\", \"EMG\", \"EDA\", \"GSR\"], \"license\":
-        \"http://creativecommons.org/licenses/by-sa/4.0/legalcode\", \"name\": \"PsPM-SC4B:
+        \"https://creativecommons.org/licenses/by-sa/4.0/legalcode\", \"name\": \"PsPM-SC4B:
         SCR, ECG, EMG, PSR and respiration measurements in a delay fear conditioning
         task with auditory CS and electrical US\", \"url\": \"https://zenodo.org/record/1196821\",
         \"version\": \"1.0.2\"}</script>\n\n<script src=\"/static/gen/zenodo.60c4ee65.js\"></script>\n<script
         type=\"text/javascript\" src=\"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>\n<script
-        src=\"/static/gen/zenodo.search.cd696cd5.js\"></script>\n<script type=\"text/javascript\">var
+        src=\"/static/gen/zenodo.search.ff7bb1ad.js\"></script>\n<script type=\"text/javascript\">var
         addthis_config = {\"data_track_addressbar\": true};</script>\n<script type=\"text/javascript\">\n
         \ // Bootstrap the Invenio CSL Formatter and invenio-search-js\n  require([\n
         \   \"jquery\",\n    'typeahead.js',\n    'bloodhound',\n    \"node_modules/angular/angular\",\n
@@ -575,6 +583,6 @@ http_interactions:
         s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";\n  g.defer=true;
         g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);\n})();\n</script>\n
         \ </body>\n</html>"
-    http_version: 
-  recorded_at: Thu, 18 Jul 2019 06:21:57 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:37 GMT
 recorded_with: VCR 3.0.3

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 17:23:48 GMT
+      - Sun, 12 Jul 2020 11:23:17 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '54'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d6d1574658dd002d16d0332a85a2771f21562174628; expires=Thu, 02-Jul-20
-        17:23:48 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d9e0682609e4f9805cd0b01a743cec41d1594552997; expires=Tue, 11-Aug-20
+        11:23:17 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45cedd10000176e1a838200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0a8ca1faba3bfd-CDG
+      - 5b1a64294a89176e-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,8 +46,8 @@ http_interactions:
             "RA": "Crossref"
           }
         ]
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 17:23:48 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:23:17 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.2210/pdb4hhb/pdb/transform/application/vnd.crossref.unixsd+xml
@@ -52,7 +56,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -67,11 +71,11 @@ http_interactions:
       Access-Control-Allow-Headers:
       - X-Requested-With
       Content-Length:
-      - '2919'
+      - '2909'
       Server:
       - http-kit
       Date:
-      - Wed, 03 Jul 2019 17:23:48 GMT
+      - Sun, 12 Jul 2020 11:23:18 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -85,35 +89,35 @@ http_interactions:
         http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
         \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
         \     <query status=\"resolved\">\r\n        <doi type=\"component\">10.2210/pdb4hhb/pdb</doi>\r\n
-        \       <crm-item name=\"publisher-name\" type=\"string\">Protein Data Bank,
-        Rutgers University</crm-item>\r\n        <crm-item name=\"prefix-name\" type=\"string\">Protein
-        Data Bank</crm-item>\r\n        <crm-item name=\"member-id\" type=\"number\">7763</crm-item>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">Worldwide Protein
+        Data Bank</crm-item>\r\n        <crm-item name=\"prefix-name\" type=\"string\">Worldwide
+        Protein Data Bank</crm-item>\r\n        <crm-item name=\"member-id\" type=\"number\">7763</crm-item>\r\n
         \       <crm-item name=\"citation-id\" type=\"number\">19153065</crm-item>\r\n
-        \       <crm-item name=\"deposit-timestamp\" type=\"number\">20081013143407</crm-item>\r\n
-        \       <crm-item name=\"owner-prefix\" type=\"string\">10.2210</crm-item>\r\n
-        \       <crm-item name=\"last-update\" type=\"date\">2014-05-27T16:45:59Z</crm-item>\r\n
-        \       <crm-item name=\"created\" type=\"date\">2006-01-05T00:34:58Z</crm-item>\r\n
-        \       <crm-item name=\"citedby-count\" type=\"number\">0</crm-item>\r\n
-        \       <doi_record>\r\n          <crossref xmlns=\"http://www.crossref.org/xschema/1.0\"
-        xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0 http://doi.crossref.org/schemas/unixref1.0.xsd\">\r\n
-        \           <sa_component>\r\n              <component_list>\r\n                <component>\r\n
+        \       <crm-item name=\"book-id\" type=\"number\">501074</crm-item>\r\n        <crm-item
+        name=\"deposit-timestamp\" type=\"number\">20200616105103</crm-item>\r\n        <crm-item
+        name=\"owner-prefix\" type=\"string\">10.2210</crm-item>\r\n        <crm-item
+        name=\"last-update\" type=\"date\">2020-06-16T18:09:40Z</crm-item>\r\n        <crm-item
+        name=\"created\" type=\"date\">2006-01-05T00:34:58Z</crm-item>\r\n        <crm-item
+        name=\"citedby-count\" type=\"number\">0</crm-item>\r\n        <doi_record>\r\n
+        \         <crossref xmlns=\"http://www.crossref.org/xschema/1.1\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.1
+        http://doi.crossref.org/schemas/unixref1.1.xsd\">\r\n            <sa_component>\r\n
+        \             <component_list>\r\n                <component reg-agency=\"Crossref\">\r\n
         \                 <titles>\r\n                    <title>THE CRYSTAL STRUCTURE
         OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION</title>\r\n                  </titles>\r\n
-        \                 <contributors>\r\n                    <person_name sequence=\"first\"
-        contributor_role=\"author\">\r\n                      <given_name>G.</given_name>\r\n
+        \                 <contributors>\r\n                    <person_name contributor_role=\"author\"
+        sequence=\"first\">\r\n                      <given_name>G.</given_name>\r\n
         \                     <surname>Fermi</surname>\r\n                    </person_name>\r\n
-        \                   <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \                   <person_name contributor_role=\"author\" sequence=\"additional\">\r\n
         \                     <given_name>M.F.</given_name>\r\n                      <surname>Perutz</surname>\r\n
         \                   </person_name>\r\n                  </contributors>\r\n
         \                 <publication_date media_type=\"online\">\r\n                    <month>07</month>\r\n
         \                   <day>17</day>\r\n                    <year>1984</year>\r\n
         \                 </publication_date>\r\n                  <description>x-ray
-        diffraction structure</description>\r\n                  <format>gz compressed
-        PDB format file</format>\r\n                  <doi_data>\r\n                    <doi>10.2210/pdb4hhb/pdb</doi>\r\n
-        \                   <resource>ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz</resource>\r\n
+        diffraction structure</description>\r\n                  <doi_data>\r\n                    <doi>10.2210/pdb4hhb/pdb</doi>\r\n
+        \                   <resource>https://www.wwpdb.org/pdb?id=pdb_00004hhb</resource>\r\n
         \                 </doi_data>\r\n                </component>\r\n              </component_list>\r\n
         \           </sa_component>\r\n          </crossref>\r\n        </doi_record>\r\n
         \     </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 17:23:48 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:23:18 GMT
 recorded_with: VCR 3.0.3

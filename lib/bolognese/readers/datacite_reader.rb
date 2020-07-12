@@ -74,13 +74,11 @@ module Bolognese
           id = normalize_doi(meta.dig("identifier", "__content__") || options[:id], sandbox: options[:sandbox])
         end
 
-        identifiers = [{ "identifierType" => "DOI", "identifier" => id }] + Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
+        identifiers = Array.wrap(meta.dig("alternateIdentifiers", "alternateIdentifier")).map do |r|
           if r["__content__"].present?
             { "identifierType" => get_identifier_type(r["alternateIdentifierType"]), "identifier" => r["__content__"] }
           end
         end.compact
-
-        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
 
         resource_type_general = meta.dig("resourceType", "resourceTypeGeneral")
         resource_type = meta.dig("resourceType", "__content__")
@@ -217,11 +215,11 @@ module Bolognese
           end
         end.compact
 
-        state = doi.present? || read_options.present? ? "findable" : "not_found"
+        state = id.present? || read_options.present? ? "findable" : "not_found"
 
         { "id" => id,
           "types" => types,
-          "doi" => doi_from_url(doi),
+          "doi" => doi_from_url(id),
           "identifiers" => identifiers,
           "url" => options.fetch(:url, nil).to_s.strip.presence,
           "titles" => titles,

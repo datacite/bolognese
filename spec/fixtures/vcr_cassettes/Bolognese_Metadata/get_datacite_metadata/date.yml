@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:30 GMT
+      - Sun, 12 Jul 2020 11:24:45 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '54'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d7f10dd2279cefb1d353df346acb0aa251562181930; expires=Thu, 02-Jul-20
-        19:25:30 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=dfa63af1dfc58e5509bad9bdf192a93e21594553084; expires=Tue, 11-Aug-20
+        11:24:44 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45e44270000640d03a8c200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0b3ee96a1db7db-CDG
+      - 5b1a664d0dc7640d-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,17 +46,17 @@ http_interactions:
             "RA": "DataCite"
           }
         ]
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:30 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:45 GMT
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.4230/lipics.tqc.2013.93
+    uri: https://api.datacite.org/dois/10.4230/lipics.tqc.2013.93?include=media,client
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +65,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:30 GMT
+      - Sun, 12 Jul 2020 11:24:45 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -75,23 +79,23 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - e726bde0-c143-40b7-948d-e3707c9ea2d2
+      - 77673b33-e0ee-4a37-8979-c2a1295f06d2
       Etag:
-      - W/"da62d90220fea6014eb63d26d93c0361"
+      - W/"8b7d5c9ce67ecb1a6413bbb8b33de1e8"
       X-Runtime:
-      - '0.021261'
+      - '0.219461'
       X-Powered-By:
-      - Phusion Passenger 6.0.2
+      - Phusion Passenger 6.0.5
       Server:
-      - nginx/1.15.8 + Phusion Passenger 6.0.2
+      - nginx/1.14.0 + Phusion Passenger 6.0.5
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.4230/lipics.tqc.2013.93","type":"dois","attributes":{"doi":"10.4230/lipics.tqc.2013.93","prefix":"10.4230","suffix":"lipics.tqc.2013.93","identifiers":[{"identifier":"https://doi.org/10.4230/lipics.tqc.2013.93","identifierType":"DOI"}],"creators":[{"name":"Johnston,
-        Nathaniel","nameType":"Personal","givenName":"Nathaniel","familyName":"Johnston"}],"titles":[{"title":"The
+      string: '{"data":{"id":"10.4230/lipics.tqc.2013.93","type":"dois","attributes":{"doi":"10.4230/lipics.tqc.2013.93","prefix":"10.4230","suffix":"lipics.tqc.2013.93","identifiers":[{"identifier":"https://doi.org/10.4230/lipics.tqc.2013.93","identifierType":"DOI"}],"alternateIdentifiers":[],"creators":[{"name":"Johnston,
+        Nathaniel","nameType":"Personal","givenName":"Nathaniel","familyName":"Johnston","affiliation":[]}],"titles":[{"title":"The
         Minimum Size of Qubit Unextendible Product Bases"}],"publisher":"Schloss Dagstuhl
         - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken, Germany","container":{},"publicationYear":2013,"subjects":[{"subject":"Computer
         Science"},{"subject":"000 Computer science, knowledge, general works","subjectScheme":"DDC"}],"contributors":[{"name":"Herbstritt,
-        Marc","nameType":"Personal","givenName":"Marc","familyName":"Herbstritt","contributorType":"Editor"}],"dates":[{"date":"2013-11-05","dateType":"Available"},{"date":"2013","dateType":"Issued"}],"language":"eng","types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceType":"ConferencePaper","resourceTypeGeneral":"Text"},"relatedIdentifiers":[],"sizes":["13
+        Marc","nameType":"Personal","givenName":"Marc","familyName":"Herbstritt","affiliation":[],"contributorType":"Editor"}],"dates":[{"date":"2013-11-05","dateType":"Available"},{"date":"2013","dateType":"Issued"}],"language":"eng","types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceType":"ConferencePaper","resourceTypeGeneral":"Text"},"relatedIdentifiers":[],"sizes":["13
         pages"],"formats":["application/pdf"],"version":null,"rightsList":[],"descriptions":[{"description":"We
         investigate the problem of constructing unextendible product bases in the
         qubit case - that is, when each local dimension equals 2. The cardinality
@@ -99,8 +103,18 @@ http_interactions:
         when the number of parties is a multiple of 4 greater than 4 itself. We construct
         small unextendible product bases in all of the remaining open cases, and we
         use graph theory techniques to produce a computer-assisted proof that our
-        constructions are indeed the smallest possible.","descriptionType":"Other"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"http://drops.dagstuhl.de/opus/volltexte/2013/4317/","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-2.1","source":null,"isActive":true,"state":"findable","reason":null,"created":"2013-11-13T08:42:17.000-05:00","registered":"2013-11-13T08:42:17.000-05:00","published":"2013","updated":"2013-11-13T08:42:17.000-05:00"},"relationships":{"client":{"data":{"id":"tib.dagst","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"tib.dagst","type":"clients","attributes":{"name":"Dagstuhl","symbol":"TIB.DAGST","year":2011,"contactName":"Michael
-        Wagner","contactEmail":"michael.wagner@dagstuhl.de","description":null,"domains":"dagstuhl.de","url":null,"created":"2011-06-08T10:27:35.000-04:00","updated":"2018-08-25T22:35:06.000-04:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tib","type":"providers"}},"prefixes":{"data":[{"id":"10.4230","type":"prefixes"}]}}}]}'
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:30 GMT
+        constructions are indeed the smallest possible.","descriptionType":"Other"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMi4xIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0yLjEgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMi4xL21ldGFkYXRhLnhzZCI+CjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjQyMzAvTElQSWNzLlRRQy4yMDEzLjkzPC9pZGVudGlmaWVyPgo8Y3JlYXRvcnM+CjxjcmVhdG9yPgo8Y3JlYXRvck5hbWU+Sm9obnN0b24sIE5hdGhhbmllbDwvY3JlYXRvck5hbWU+CjwvY3JlYXRvcj4KPC9jcmVhdG9ycz4KPHRpdGxlcz4KCTx0aXRsZT5UaGUgTWluaW11bSBTaXplIG9mIFF1Yml0IFVuZXh0ZW5kaWJsZSBQcm9kdWN0IEJhc2VzPC90aXRsZT4KPC90aXRsZXM+CjxwdWJsaXNoZXI+U2NobG9zcyBEYWdzdHVobCAtIExlaWJuaXotWmVudHJ1bSBmdWVyIEluZm9ybWF0aWsgR21iSCwgV2FkZXJuL1NhYXJicnVlY2tlbiwgR2VybWFueTwvcHVibGlzaGVyPgo8cHVibGljYXRpb25ZZWFyPjIwMTM8L3B1YmxpY2F0aW9uWWVhcj4KPHN1YmplY3RzPgoJPHN1YmplY3Q+Q29tcHV0ZXIgU2NpZW5jZTwvc3ViamVjdD4KCTxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkREQyI+MDAwIENvbXB1dGVyIHNjaWVuY2UsIGtub3dsZWRnZSwgZ2VuZXJhbCB3b3Jrczwvc3ViamVjdD4KPC9zdWJqZWN0cz4KPGNvbnRyaWJ1dG9ycz4KCTxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkVkaXRvciI+CgkJPGNvbnRyaWJ1dG9yTmFtZT5IZXJic3RyaXR0LCBNYXJjPC9jb250cmlidXRvck5hbWU+Cgk8L2NvbnRyaWJ1dG9yPgo8L2NvbnRyaWJ1dG9ycz4KPGRhdGVzPgoJPGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxMy0xMS0wNTwvZGF0ZT4KPC9kYXRlcz4KPGxhbmd1YWdlPmVuZzwvbGFuZ3VhZ2U+CjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCI+Q29uZmVyZW5jZVBhcGVyPC9yZXNvdXJjZVR5cGU+CjxzaXplcz4KCTxzaXplPjEzIHBhZ2VzPC9zaXplPgo8L3NpemVzPgo8Zm9ybWF0cz4KCTxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+CjwvZm9ybWF0cz4KPHZlcnNpb24+MS4wPC92ZXJzaW9uPgo8cmlnaHRzPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24gMy4wIFVucG9ydGVkIGxpY2Vuc2UgKENDLUJZIDMuMCk8L3JpZ2h0cz4KPGRlc2NyaXB0aW9ucz4KCTxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj4KCVdlIGludmVzdGlnYXRlIHRoZSBwcm9ibGVtIG9mIGNvbnN0cnVjdGluZyB1bmV4dGVuZGlibGUgcHJvZHVjdCBiYXNlcyBpbiB0aGUgcXViaXQgY2FzZSAtIHRoYXQgaXMsIHdoZW4gZWFjaCBsb2NhbCBkaW1lbnNpb24gZXF1YWxzIDIuIFRoZSBjYXJkaW5hbGl0eSBvZiB0aGUgc21hbGxlc3QgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzaXMgaXMga25vd24gaW4gYWxsIHF1Yml0IGNhc2VzIGV4Y2VwdCB3aGVuIHRoZSBudW1iZXIgb2YgcGFydGllcyBpcyBhIG11bHRpcGxlIG9mIDQgZ3JlYXRlciB0aGFuIDQgaXRzZWxmLiBXZSBjb25zdHJ1Y3Qgc21hbGwgdW5leHRlbmRpYmxlIHByb2R1Y3QgYmFzZXMgaW4gYWxsIG9mIHRoZSByZW1haW5pbmcgb3BlbiBjYXNlcywgYW5kIHdlIHVzZSBncmFwaCB0aGVvcnkgdGVjaG5pcXVlcyB0byBwcm9kdWNlIGEgY29tcHV0ZXItYXNzaXN0ZWQgcHJvb2YgdGhhdCBvdXIgY29uc3RydWN0aW9ucyBhcmUgaW5kZWVkIHRoZSBzbWFsbGVzdCBwb3NzaWJsZS4KCTwvZGVzY3JpcHRpb24+CjwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"http://drops.dagstuhl.de/opus/volltexte/2013/4317/","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-2.1","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2013-11-13T13:42:17.000Z","registered":"2013-11-13T13:42:17.000Z","published":"2013","updated":"2020-06-18T07:36:10.000Z"},"relationships":{"client":{"data":{"id":"lzi.drops","type":"clients"}},"media":{"data":{"id":"10.4230/lipics.tqc.2013.93","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"lzi.drops","type":"clients","attributes":{"name":"Dagstuhl
+        Research Online Publication Server","symbol":"LZI.DROPS","year":2020,"contactEmail":"datacite@dagstuhl.de","alternateName":"DROPS","description":"Schloss
+        Dagstuhl - Leibniz Center for Informatics has been operating the Dagstuhl
+        Research Online Publication Server (short: DROPS) since 2004. DROPS enables
+        publication of the latest research findings in a fast, uncomplicated manner,
+        in addition to providing unimpeded, open access to them. All the requisite
+        metadata on each publication is administered in accordance with general guidelines
+        pertaining to online publications (cf. Dublin Core). This enables the online
+        publications to be authorized for citation and made accessible to a wide readership
+        on a permanent basis. Access is free of charge for readers following the open
+        access idea which fosters unimpeded access to scientific publications.  All
+        publication formats of Schloss Dagstuhl are published via  the server.","language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":"https://drops.dagstuhl.de/","created":"2020-06-15T09:57:59.000Z","updated":"2020-06-15T10:00:16.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"lzi","type":"providers"}},"prefixes":{"data":[{"id":"10.4230","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:45 GMT
 recorded_with: VCR 3.0.3

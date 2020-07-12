@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 06 Jul 2019 09:00:05 GMT
+      - Sun, 12 Jul 2020 11:22:33 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '51'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d841165c6191841c565b01dc264bb19b51562403605; expires=Sun, 05-Jul-20
-        09:00:05 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d92fa2fdc17d1b4b4257b814db12fd0441594552953; expires=Tue, 11-Aug-20
+        11:22:33 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45c40d300001762f890c200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f2062e79cf9974e-FRA
+      - 5b1a63148ca51762-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,6 +46,6 @@ http_interactions:
             "RA": "mEDRA"
           }
         ]
-    http_version: 
-  recorded_at: Sat, 06 Jul 2019 09:00:05 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:33 GMT
 recorded_with: VCR 3.0.3

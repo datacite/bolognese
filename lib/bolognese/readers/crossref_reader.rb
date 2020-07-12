@@ -150,14 +150,12 @@ module Bolognese
                         "volume" => bibliographic_metadata.fetch("volume", nil) }.compact
                     end
 
-        identifiers = [{ "identifierType" => "DOI", "identifier" => normalize_doi(options[:doi] || options[:id] || bibliographic_metadata.dig("doi_data", "doi")) }, crossref_alternate_identifiers(bibliographic_metadata)].compact
-
-        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
-        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
+        id = normalize_doi(options[:doi] || options[:id] || bibliographic_metadata.dig("doi_data", "doi"))
+        identifiers = [crossref_alternate_identifiers(bibliographic_metadata)].compact
 
         { "id" => id,
           "types" => types,
-          "doi" => doi_from_url(doi),
+          "doi" => doi_from_url(id),
           "url" => parse_attributes(bibliographic_metadata.dig("doi_data", "resource"), first: true),
           "titles" => titles,
           "identifiers" => identifiers,

@@ -22,19 +22,16 @@ module Bolognese
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        identifiers = ([meta.fetch("@id", nil)] + Array.wrap(meta.fetch("identifier", nil))).map do |r|
+        identifiers = Array.wrap(meta.fetch("identifier", nil)).map do |r|
           r = normalize_id(r) if r.is_a?(String)
-          if r.is_a?(String) && r.start_with?("https://doi.org")
-            { "identifierType" => "DOI", "identifier" => r }
-          elsif r.is_a?(String)
+          if r.is_a?(String) && !r.start_with?("https://doi.org")
               { "identifierType" => "URL", "identifier" => r }
           elsif r.is_a?(Hash)
             { "identifierType" => get_identifier_type(r["propertyID"]), "identifier" => r["value"] }
           end
         end.compact.uniq
 
-        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
-        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
+        id = normalize_id(options[:doi] || meta.fetch("@id", nil) || meta.fetch("identifier", nil))
 
         has_agents = meta.fetch("agents", nil)
         authors =  has_agents.nil? ? meta.fetch("authors", nil) : has_agents
@@ -70,7 +67,7 @@ module Bolognese
         { "id" => id,
           "types" => types,
           "identifiers" => identifiers,
-          "doi" => doi_from_url(doi),
+          "doi" => doi_from_url(id),
           "url" => normalize_id(meta.fetch("codeRepository", nil)),
           "titles" => titles,
           "creators" => creators,

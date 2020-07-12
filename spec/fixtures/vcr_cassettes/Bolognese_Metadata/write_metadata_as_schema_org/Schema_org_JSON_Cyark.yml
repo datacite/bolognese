@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,18 +17,18 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 19 Jun 2020 11:53:16 GMT
+      - Sun, 12 Jul 2020 11:21:22 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d026feabfb6d44e3a8e04eea7f4c19e621592567596; expires=Sun, 19-Jul-20
-        11:53:16 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=d0d4f88a1b93d1f6a0eca44547e05cbc41594552882; expires=Tue, 11-Aug-20
+        11:21:22 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 036e061ebd0000d721c099d200000001
+      - 03e45b2e0600001f25630c0200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Strict-Transport-Security:
@@ -36,7 +36,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5a5d0c779d69d721-FRA
+      - 5b1a615cdfe21f25-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -46,17 +46,17 @@ http_interactions:
             "RA": "DataCite"
           }
         ]
-    http_version: 
-  recorded_at: Fri, 19 Jun 2020 11:53:16 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:21:22 GMT
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.26301/jgf3-jm06
+    uri: https://api.datacite.org/dois/10.26301/jgf3-jm06?include=media,client
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,7 +65,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 19 Jun 2020 11:53:17 GMT
+      - Sun, 12 Jul 2020 11:21:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -78,12 +78,12 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"486760ea0302b1535d436c1c05598ae3"
-      X-Runtime:
-      - '0.619532'
       X-Request-Id:
-      - a6c829c4-ed51-49bc-937a-fefe4f60a573
+      - a59cf3c1-9b82-4fcd-8d85-cfd389f3f27e
+      Etag:
+      - W/"67818657c1fb993c6039fd487716ea39"
+      X-Runtime:
+      - '1.606260'
       X-Powered-By:
       - Phusion Passenger 6.0.5
       Server:
@@ -92,7 +92,29 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.26301/jgf3-jm06","type":"dois","attributes":{"doi":"10.26301/jgf3-jm06","prefix":"10.26301","suffix":"jgf3-jm06","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"CyArk","nameType":"Organizational","givenName":null,"familyName":null,"affiliation":[],"nameIdentifiers":[]}],"titles":[{"lang":null,"title":"Chan
         Chan - Rivero","titleType":null}],"publisher":"Open Heritage 3D","container":{},"publicationYear":2020,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"resourceType":"3D
-        Data","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjYzMDEvSkdGMy1KTTA2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5DeUFyazwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkNoYW4gQ2hhbiAtIFJpdmVybzwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5PcGVuIEhlcml0YWdlIDNEPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDIwPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij4zRCBEYXRhPC9yZXNvdXJjZVR5cGU+CiAgPHZlcnNpb24vPgo8L3Jlc291cmNlPgo=","url":"https://openheritage3d.org/project.php?id=jgf3-jm06","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-02-11T18:32:33.000Z","registered":"2020-02-11T18:32:33.000Z","published":"2020","updated":"2020-06-13T00:07:19.000Z"},"relationships":{"client":{"data":{"id":"cyark.oh","type":"clients"}},"media":{"data":{"id":"10.26301/jgf3-jm06","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}}}'
-    http_version: 
-  recorded_at: Fri, 19 Jun 2020 11:53:17 GMT
+        Data","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjYzMDEvSkdGMy1KTTA2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5DeUFyazwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkNoYW4gQ2hhbiAtIFJpdmVybzwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5PcGVuIEhlcml0YWdlIDNEPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDIwPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij4zRCBEYXRhPC9yZXNvdXJjZVR5cGU+CiAgPHZlcnNpb24vPgo8L3Jlc291cmNlPgo=","url":"https://openheritage3d.org/project.php?id=jgf3-jm06","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-02-11T18:32:33.000Z","registered":"2020-02-11T18:32:33.000Z","published":"2020","updated":"2020-06-13T00:07:19.000Z"},"relationships":{"client":{"data":{"id":"cyark.oh","type":"clients"}},"media":{"data":{"id":"10.26301/jgf3-jm06","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cyark.oh","type":"clients","attributes":{"name":"OpenHeritage3D","symbol":"CYARK.OH","year":2019,"contactEmail":"scott.lee@cyark.org","alternateName":"Open
+        Heritage 3D","description":"As 3D and reality capture strategies for heritage
+        documentation become more widespread and available, there has emerged a growing
+        need to assist with guiding and facilitating accessibility to data, while
+        maintaining scientific rigor, cultural and ethical sensitivity, discoverability,
+        and archival standards. In response to these areas of need, The Open Heritage
+        3D Alliance (OHA) has developed as an advisory group governing the Open Heritage
+        3D initiative. This collaborative advisory group are among some of the earliest
+        adopters of 3D heritage documentation technologies, and offer first-hand guidance
+        for best practices in data management, sharing, and dissemination approaches
+        for 3D cultural heritage projects.\n\nThe founding members of the OHA, consist
+        of experts and organizational leaders from CyArk, Historic Environment Scotland,
+        and the University of South Florida Libraries, who together have significant
+        repositories of legacy and on-going 3D research and documentation projects.
+        These groups offer unique insight into not only the best practices for 3D
+        data capture and sharing, but also have come together around concerns dealing
+        with standards, formats, approach, ethics, and archive commitment. Together,
+        the OHA has begun the journey to provide open access to cultural heritage
+        3D data, while maintaining integrity, security, and standards relating to
+        discoverable dissemination. Together, the OHA will work to provide democratized
+        access to primary heritage 3D data submitted from donors and organizations,
+        and will help to facilitate an operation platform, archive, and organization
+        of resources into the future","language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":"https://openheritage3d.org/","created":"2019-03-26T16:21:19.000Z","updated":"2020-04-27T15:30:01.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cyark","type":"providers"}},"prefixes":{"data":[{"id":"10.26301","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:21:24 GMT
 recorded_with: VCR 3.0.3

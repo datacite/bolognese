@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - application/json;charset=UTF-8
   response:
@@ -16,8 +16,18 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1624'
+      Cache-Control:
+      - max-age=300
       Content-Security-Policy:
       - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Etag:
+      - '"0f039fab9129e9e969a55b392caaf73bb1eb1d88977b58a4ea33f2fa344acfc5"'
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
@@ -26,42 +36,30 @@ http_interactions:
       - deny
       X-Xss-Protection:
       - 1; mode=block
-      Etag:
-      - '"829d41492381ab4cff071648f8adc8785d1e74bf"'
-      Content-Type:
-      - text/plain; charset=utf-8
-      Cache-Control:
-      - max-age=300
-      X-Geo-Block-List:
-      - ''
+      Via:
+      - 1.1 varnish (Varnish/6.0), 1.1 varnish
       X-Github-Request-Id:
-      - BEFA:7C9C:4E078:59F9B:5D1D0106
-      Content-Length:
-      - '1624'
+      - 4836:1D26:24A2EC:2BDD1C:5F0AF33F
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 03 Jul 2019 19:24:54 GMT
-      Via:
-      - 1.1 varnish
-      Connection:
-      - keep-alive
+      - Sun, 12 Jul 2020 11:25:53 GMT
       X-Served-By:
-      - cache-cdg20775-CDG
+      - cache-hhn4079-HHN
       X-Cache:
-      - MISS
+      - MISS, MISS
       X-Cache-Hits:
-      - '0'
+      - 0, 0
       X-Timer:
-      - S1562181895.773503,VS0,VE188
+      - S1594553153.031909,VS0,VE192
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 9a266b4a0b512a082203609b7bf05a1fe991f6a0
+      - fce9e4fa9dd84427524fd293b7ee2bcc1c040c5d
       Expires:
-      - Wed, 03 Jul 2019 19:29:54 GMT
+      - Sun, 12 Jul 2020 11:30:53 GMT
       Source-Age:
       - '0'
     body:
@@ -89,6 +87,6 @@ http_interactions:
         [\n\t\t\"doi\",\n\t\t\"software\",\n\t\t\"codemeta\"\n\t],\n\t\"title\": \"DOI
         Registrations for Software\",\n\t\"programmingLanguage\": {\n\t\t\"name\":
         \"R\",\n\t\t\"URL\": \"https://www.r-project.org/\"\n\t}\n}\n"
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:24:54 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:25:53 GMT
 recorded_with: VCR 3.0.3

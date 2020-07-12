@@ -52,12 +52,12 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("chapter")
-      expect(jats.dig("chapter_title")).to eq("Chapter-02 Physical Examinations")
+      expect(jats.dig("chapter_title")).to eq("Physical Examinations")
       expect(jats.dig("source")).to eq("Jaypee Brothers Medical Publishers (P) Ltd.")
       expect(jats.dig("person_group", "name")).to eq("surname"=>"Saha", "given_names"=>"Ashis")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2015", "__content__"=>"2015")
       expect(jats.dig("fpage")).to eq("27")
-      expect(jats.dig("lpage")).to eq("145")
+      expect(jats.dig("lpage")).to eq("27")
       expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.5005/jp/books/12414_3")
     end
 
@@ -138,7 +138,7 @@ describe Bolognese::Metadata, vcr: true do
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("data")
       expect(jats.dig("data_title")).to eq("Data from: A new malaria agent in African hominids.")
-      expect(jats.dig("source")).to eq("Dryad Digital Repository")
+      expect(jats.dig("source")).to eq("Dryad")
       expect(jats.dig("person_group", "name").length).to eq(8)
       expect(jats.dig("person_group", "name").first).to eq("surname"=>"Ollomo", "given_names"=>"Benjamin")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2011", "__content__"=>"2011")

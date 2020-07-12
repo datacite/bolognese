@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.3; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 05 Jul 2019 05:04:20 GMT
+      - Sun, 12 Jul 2020 11:23:14 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '51'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dbad314cd019b12966bb82d714cc7ff471562303060; expires=Sat, 04-Jul-20
-        05:04:20 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d755db6e9c1686ce7a1bf9108dd8555151594552993; expires=Tue, 11-Aug-20
+        11:23:13 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45ce0c00000175e1d8fb200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f16cc2e48b4a867-CDG
+      - 5b1a64146c0a175e-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,8 +46,8 @@ http_interactions:
             "RA": "mEDRA"
           }
         ]
-    http_version: 
-  recorded_at: Fri, 05 Jul 2019 05:04:20 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:23:14 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.3280/ecag2018-001005/transform/application/vnd.crossref.unixsd+xml
@@ -52,7 +56,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.3; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -71,7 +75,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Fri, 05 Jul 2019 05:04:20 GMT
+      - Sun, 12 Jul 2020 11:23:14 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -120,6 +124,6 @@ http_interactions:
         \               </doi_data>\r\n              </journal_article>\r\n            </journal>\r\n
         \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
         \ </query_result>\r\n</crossref_result>"
-    http_version: 
-  recorded_at: Fri, 05 Jul 2019 05:04:21 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:23:14 GMT
 recorded_with: VCR 3.0.3

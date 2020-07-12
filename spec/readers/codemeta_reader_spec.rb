@@ -18,7 +18,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get codemeta metadata" do
     it "maremma" do
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/qeg0-3gm3", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
@@ -46,7 +46,7 @@ describe Bolognese::Metadata, vcr: true do
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
       subject = Bolognese::Metadata.new(input: input)
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5063/f1m61h5x", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"NCEAS"}],
@@ -88,7 +88,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'maremma/codemeta.json'
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/qeg0-3gm3", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
@@ -117,7 +117,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://github.com/datacite/metadata-reports/blob/master/software/codemeta.json"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/wr0x-e194", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.5438/wr0x-e194")
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.size).to eq(4)

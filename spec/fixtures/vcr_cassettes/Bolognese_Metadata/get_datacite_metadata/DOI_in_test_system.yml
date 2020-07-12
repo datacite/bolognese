@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:29 GMT
+      - Sun, 12 Jul 2020 11:24:27 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '55'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dbd60e66d4f6b0de1110d10ec5ee31b451562181929; expires=Thu, 02-Jul-20
-        19:25:29 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=df28108afb44b091e0efa9df74c6d07b41594553067; expires=Tue, 11-Aug-20
+        11:24:27 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45dfed30000073e8b956200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0b3ee57989cd7b-CDG
+      - 5b1a65de1f24073e-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,17 +46,17 @@ http_interactions:
             "RA": "DataCite"
           }
         ]
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:29 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:27 GMT
 - request:
     method: get
-    uri: https://api.test.datacite.org/dois/10.22002/d1.694
+    uri: https://api.test.datacite.org/dois/10.22002/d1.694?include=media,client
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +65,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:30 GMT
+      - Sun, 12 Jul 2020 11:24:27 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -75,26 +79,26 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 6b67539a-a7a1-4997-9362-0a7ae591c8c7
+      - 20e6b60e-c48c-45af-955d-6a8a651b98e8
       Etag:
-      - W/"01273690a098ab5c8f714e82a0e5d572"
+      - W/"519895c02c0f639b4cf694c9beaeef79"
       X-Runtime:
-      - '0.020546'
+      - '0.077862'
       X-Powered-By:
-      - Phusion Passenger 6.0.2
+      - Phusion Passenger 6.0.5
       Server:
-      - nginx/1.15.8 + Phusion Passenger 6.0.2
+      - nginx/1.14.0 + Phusion Passenger 6.0.5
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.22002/d1.694","type":"dois","attributes":{"doi":"10.22002/d1.694","prefix":"10.22002","suffix":"d1.694","identifiers":[{"identifier":"https://handle.test.datacite.org/10.22002/d1.694","identifierType":"DOI"}],"creators":[{"name":"Tester"}],"titles":[{"title":"Test
-        license"}],"publisher":"CaltechDATA","container":{},"publicationYear":2018,"subjects":[{"subject":"Test"}],"contributors":[],"dates":[{"date":"2018-01-12","dateType":"Issued"}],"language":"eng","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"cc-zero"}],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","url":"https://data.caltech.edu/records/694","contentUrl":null,"metadataVersion":4,"schemaVersion":null,"source":null,"isActive":true,"state":"findable","reason":null,"created":"2018-01-12T09:42:51.000-05:00","registered":"2018-01-12T09:42:51.000-05:00","published":"2018","updated":"2019-06-29T05:01:37.000-04:00"},"relationships":{"client":{"data":{"id":"tind.cal","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"tind.cal","type":"clients","attributes":{"name":"CaltechDATA","symbol":"TIND.CAL","year":2016,"contactName":"tech@tind.io","contactEmail":"tech@tind.io","description":"CaltechDATA
+      string: '{"data":{"id":"10.22002/d1.694","type":"dois","attributes":{"doi":"10.22002/d1.694","prefix":"10.22002","suffix":"d1.694","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Tester","affiliation":[]}],"titles":[{"title":"Test
+        license"}],"publisher":"CaltechDATA","container":{},"publicationYear":2018,"subjects":[{"subject":"Test"}],"contributors":[],"dates":[{"date":"2018-01-12","dateType":"Issued"}],"language":"eng","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"cc-zero"}],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjIwMDIvRDEuNjk0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VGVzdGVyPC9jcmVhdG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uPkNhbHRlY2g8L2FmZmlsaWF0aW9uPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5UZXN0IGxpY2Vuc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+Q2FsdGVjaERBVEE8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5UZXN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOC0wMS0xMjwvZGF0ZT4KICA8L2RhdGVzPgogIDxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdC8+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjEuMDwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJ3d3cuZ29vZ2xlLmNvbSI+Y2MtemVybzwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KPC9yZXNvdXJjZT4K","url":"https://data.caltech.edu/records/694","contentUrl":null,"metadataVersion":4,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2018-01-12T14:42:51.000Z","registered":"2018-01-12T14:42:51.000Z","published":"2018","updated":"2020-06-23T04:01:12.000Z"},"relationships":{"client":{"data":{"id":"tind.cal","type":"clients"}},"media":{"data":{"id":"10.22002/d1.694","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"tind.cal","type":"clients","attributes":{"name":"CaltechDATA","symbol":"TIND.CAL","year":2016,"contactEmail":"tech@tind.io","alternateName":null,"description":"CaltechDATA
         is an institutional data repository for Caltech.  Caltech library runs the
         repository to preserve the accomplishments of Caltech researchers and share
         their results with the world.  Caltech-associated researchers can upload data,
         link data with their publications, and assign a permanent DOI so that others
         can reference the data set.  The repository also preserves software and has
         automatic Github integration. All files present in the repository are open
-        access or embargoed, and all metadata is always available to the public.","domains":"tind.io","url":"https://data.caltech.edu","created":"2016-10-25T11:16:46.000-04:00","updated":"2018-11-24T12:50:29.000-05:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tind","type":"providers"}},"repository":{"data":{"id":"10.17616/R3SW99","type":"repositories"}},"prefixes":{"data":[{"id":"10.22002","type":"prefixes"}]}}}]}'
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:30 GMT
+        access or embargoed, and all metadata is always available to the public.","language":null,"clientType":"repository","domains":"tind.io","re3data":"https://doi.org/10.17616/R3SW99","opendoar":null,"issn":null,"url":"https://data.caltech.edu","created":"2016-10-25T15:16:46.000Z","updated":"2018-11-24T17:50:29.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"tind","type":"providers"}},"prefixes":{"data":[{"id":"10.22002","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:27 GMT
 recorded_with: VCR 3.0.3

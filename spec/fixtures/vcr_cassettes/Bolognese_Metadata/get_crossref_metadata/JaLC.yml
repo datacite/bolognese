@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 06 Jul 2019 09:07:32 GMT
+      - Sun, 12 Jul 2020 11:23:21 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '50'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d1dfa42b90ac169c7f7f233d75cdacd881562404052; expires=Sun, 05-Jul-20
-        09:07:32 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=ddce057cddd83c3dc04bb18ef3b80617b1594553001; expires=Tue, 11-Aug-20
+        11:23:21 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45cfd580000c2ef4907d200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f206dd1ff4fd6e5-FRA
+      - 5b1a644229e1c2ef-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,8 +46,8 @@ http_interactions:
             "RA": "JaLC"
           }
         ]
-    http_version: 
-  recorded_at: Sat, 06 Jul 2019 09:07:32 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:23:21 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.1241/johokanri.39.979/transform/application/vnd.crossref.unixsd+xml
@@ -52,7 +56,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -72,7 +76,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sat, 06 Jul 2019 09:07:33 GMT
+      - Sun, 12 Jul 2020 11:23:21 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -94,7 +98,7 @@ http_interactions:
         type=\"number\">6359</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
         type=\"number\">20020808181618</crm-item>\r\n        <crm-item name=\"owner-prefix\"
         type=\"string\">10.1241</crm-item>\r\n        <crm-item name=\"last-update\"
-        type=\"date\">2017-12-24T22:59:53Z</crm-item>\r\n        <crm-item name=\"created\"
+        type=\"date\">2020-03-06T06:44:36Z</crm-item>\r\n        <crm-item name=\"created\"
         type=\"date\">2002-10-11T20:27:25Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
         type=\"number\">0</crm-item>\r\n        <doi_record>\r\n          <crossref
         xmlns=\"http://www.crossref.org/xschema/1.0\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0
@@ -121,6 +125,6 @@ http_interactions:
         \                   </item>\r\n                  </collection>\r\n                </doi_data>\r\n
         \             </journal_article>\r\n            </journal>\r\n          </crossref>\r\n
         \       </doi_record>\r\n      </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
-    http_version: 
-  recorded_at: Sat, 06 Jul 2019 09:07:33 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:23:21 GMT
 recorded_with: VCR 3.0.3

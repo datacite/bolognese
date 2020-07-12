@@ -160,11 +160,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[1]).to eq("T1  - Data from: A new malaria agent in African hominids.")
       expect(ris[2]).to eq("AU  - Ollomo, Benjamin")
       expect(ris[10]).to eq("DO  - 10.5061/dryad.8515")
-      expect(ris[11]).to eq("UR  - https://datadryad.org/resource/doi:10.5061/dryad.8515")
-      expect(ris[13]).to eq("KW  - Malaria")
+      expect(ris[11]).to eq("UR  - http://datadryad.org/stash/dataset/doi:10.5061/dryad.8515")
+      expect(ris[13]).to eq("KW  - Plasmodium")
       expect(ris[19]).to eq("PY  - 2011")
-      expect(ris[20]).to eq("PB  - Dryad Digital Repository")
-      expect(ris[21]).to eq("ER  - ")
+      expect(ris[20]).to eq("PB  - Dryad")
+      expect(ris[21]).to eq("LA  - en")
+      expect(ris[22]).to eq("ER  - ")
     end
 
     it "maremma" do
@@ -193,7 +194,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris).to include("DO  - 10.1594/pangaea.721193")
       expect(ris).to include("UR  - https://doi.pangaea.de/10.1594/PANGAEA.721193")
       expect(ris).to include("KW  - Animalia")
-      expect(ris).to include("KW  - Bottles or small containers/Aquaria ( 20 L)")
+      expect(ris).to include("KW  - Bottles or small containers/Aquaria (&lt;20 L)")
       expect(ris).to include("PY  - 2007")
       expect(ris).to include("PB  - PANGAEA - Data Publisher for Earth & Environmental Science")
       expect(ris).to include("LA  - en")

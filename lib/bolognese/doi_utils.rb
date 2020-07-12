@@ -28,7 +28,7 @@ module Bolognese
 
     def doi_api_url(doi, options = {})
       sandbox = Array(/handle.test.datacite.org/.match(doi)).last
-      sandbox.present? || options[:sandbox] ? "https://api.test.datacite.org/dois/" + doi_from_url(doi) : "https://api.datacite.org/dois/" + doi_from_url(doi)
+      sandbox.present? || options[:sandbox] ? "https://api.test.datacite.org/dois/#{doi_from_url(doi)}?include=media,client"  : "https://api.datacite.org/dois/#{doi_from_url(doi)}?include=media,client"
     end
 
     def normalize_doi(doi, options = {})

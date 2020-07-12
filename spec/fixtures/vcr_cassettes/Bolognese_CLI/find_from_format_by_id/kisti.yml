@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 06 Jul 2019 09:00:07 GMT
+      - Sun, 12 Jul 2020 11:22:32 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '51'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=db1401cfee427924e28dd13f0ae02dddd1562403606; expires=Sun, 05-Jul-20
-        09:00:06 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=dbd719187bdf294787c9c42412c8d55351594552952; expires=Tue, 11-Aug-20
+        11:22:32 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45c3da600006341590dc200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f2062efbdda97e4-FRA
+      - 5b1a630f7d356341-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,6 +46,6 @@ http_interactions:
             "RA": "KISTI"
           }
         ]
-    http_version: 
-  recorded_at: Sat, 06 Jul 2019 09:00:07 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:32 GMT
 recorded_with: VCR 3.0.3

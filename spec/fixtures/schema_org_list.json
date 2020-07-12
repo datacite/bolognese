@@ -6,11 +6,6 @@
     "identifier": [
       {
         "@type": "PropertyValue",
-        "propertyID": "doi",
-        "value": "https://doi.org/10.23725/7jg3-v803"
-      },
-      {
-        "@type": "PropertyValue",
         "propertyID": "minid",
         "value": "ark:/99999/fk4E1n6n1YHKxPk"
       },

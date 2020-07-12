@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.5063/f1m61h5x
+    uri: https://api.datacite.org/dois/10.5063/f1m61h5x?include=media,client
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:24:30 GMT
+      - Sun, 12 Jul 2020 11:22:34 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,24 +31,23 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 1f51c2ee-51c1-4ba4-9d6f-eac7bc011655
+      - 6540c1c4-c63e-45e9-8d68-42425bd2e9b1
       Etag:
-      - W/"d8f1e2406a911c0b6db6ed5bec964ba8"
+      - W/"ad1a82761130c96e9036afd76973bce4"
       X-Runtime:
-      - '0.021127'
+      - '0.705778'
       X-Powered-By:
-      - Phusion Passenger 6.0.2
+      - Phusion Passenger 6.0.5
       Server:
-      - nginx/1.15.8 + Phusion Passenger 6.0.2
+      - nginx/1.14.0 + Phusion Passenger 6.0.5
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5063/f1m61h5x","type":"dois","attributes":{"doi":"10.5063/f1m61h5x","prefix":"10.5063","suffix":"f1m61h5x","identifiers":[{"identifier":"https://doi.org/10.5063/f1m61h5x","identifierType":"DOI"}],"creators":[{"name":"Jones,
+      string: '{"data":{"id":"10.5063/f1m61h5x","type":"dois","attributes":{"doi":"10.5063/f1m61h5x","prefix":"10.5063","suffix":"f1m61h5x","identifiers":[{"identifier":"https://doi.org/10.5063/f1m61h5x","identifierType":"DOI"}],"alternateIdentifiers":[],"creators":[{"name":"Jones,
         Matthew B.; Slaughter, Peter; Nahf, Rob; Boettiger, Carl ; Jones, Chris; Read,
-        Jordan; Walker, Lauren; Hart, Edmund; Chamberlain, Scott"}],"titles":[{"title":"dataone:
+        Jordan; Walker, Lauren; Hart, Edmund; Chamberlain, Scott","affiliation":[]}],"titles":[{"title":"dataone:
         R interface to the DataONE network of data repositories"}],"publisher":"KNB
-        Data Repository","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"COMP","bibtex":"misc","citeproc":"article","schemaOrg":"SoftwareSourceCode","resourceTypeGeneral":"Software"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYxSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRlciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMsIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBFZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsgb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9yZXNvdXJjZT4K","url":"https://github.com/DataONEorg/rdataone","contentUrl":null,"metadataVersion":1,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"created":"2016-03-11T22:15:03.000-05:00","registered":"2016-03-11T22:15:04.000-05:00","published":"2016","updated":"2019-04-30T11:20:16.000-04:00"},"relationships":{"client":{"data":{"id":"cdl.ucsb","type":"clients"}},"media":{"data":[]}}},"included":[{"id":"cdl.ucsb","type":"clients","attributes":{"name":"UC
-        Santa Barbara","symbol":"CDL.UCSB","year":2011,"contactName":"EZID Support
-        Desk","contactEmail":"ezid@ucop.edu","description":null,"domains":"*","url":null,"created":"2011-12-12T23:30:53.000-05:00","updated":"2019-04-29T15:15:15.000-04:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cdl","type":"providers"}},"prefixes":{"data":[{"id":"10.5062","type":"prefixes"},{"id":"10.5063","type":"prefixes"},{"id":"10.6085","type":"prefixes"},{"id":"10.7919","type":"prefixes"},{"id":"10.7940","type":"prefixes"},{"id":"10.15780","type":"prefixes"},{"id":"10.17915","type":"prefixes"},{"id":"10.18739","type":"prefixes"},{"id":"10.21229","type":"prefixes"},{"id":"10.21431","type":"prefixes"},{"id":"10.21424","type":"prefixes"},{"id":"10.21972","type":"prefixes"},{"id":"10.21983","type":"prefixes"},{"id":"10.25349","type":"prefixes"}]}}}]}'
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:24:30 GMT
+        Data Repository","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"COMP","bibtex":"misc","citeproc":"article","schemaOrg":"SoftwareSourceCode","resourceTypeGeneral":"Software"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDYzL0YxTTYxSDVYPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+Sm9uZXMsIE1hdHRoZXcgQi47IFNsYXVnaHRlciwgUGV0ZXI7IE5haGYsIFJvYjsgQm9ldHRpZ2VyLCBDYXJsIDsgSm9uZXMsIENocmlzOyBSZWFkLCBKb3JkYW47IFdhbGtlciwgTGF1cmVuOyBIYXJ0LCBFZG11bmQ7IENoYW1iZXJsYWluLCBTY290dDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmRhdGFvbmU6IFIgaW50ZXJmYWNlIHRvIHRoZSBEYXRhT05FIG5ldHdvcmsgb2YgZGF0YSByZXBvc2l0b3JpZXM8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+S05CIERhdGEgUmVwb3NpdG9yeTwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KPC9yZXNvdXJjZT4K","url":"https://github.com/DataONEorg/rdataone","contentUrl":null,"metadataVersion":1,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2016-03-12T03:15:03.000Z","registered":"2016-03-12T03:15:04.000Z","published":"2016","updated":"2019-08-02T10:10:15.000Z"},"relationships":{"client":{"data":{"id":"cdl.ucsb","type":"clients"}},"media":{"data":{"id":"10.5063/f1m61h5x","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cdl.ucsb","type":"clients","attributes":{"name":"UC
+        Santa Barbara","symbol":"CDL.UCSB","year":2011,"contactEmail":"ezid@ucop.edu","alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":null,"url":null,"created":"2011-12-13T04:30:53.000Z","updated":"2019-07-27T12:55:37.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cdl","type":"providers"}},"prefixes":{"data":[{"id":"10.5062","type":"prefixes"},{"id":"10.5063","type":"prefixes"},{"id":"10.6085","type":"prefixes"},{"id":"10.7919","type":"prefixes"},{"id":"10.7940","type":"prefixes"},{"id":"10.15780","type":"prefixes"},{"id":"10.17915","type":"prefixes"},{"id":"10.18739","type":"prefixes"},{"id":"10.21229","type":"prefixes"},{"id":"10.21431","type":"prefixes"},{"id":"10.21424","type":"prefixes"},{"id":"10.21972","type":"prefixes"},{"id":"10.21983","type":"prefixes"},{"id":"10.25349","type":"prefixes"},{"id":"10.25496","type":"prefixes"},{"id":"10.25494","type":"prefixes"},{"id":"10.25497","type":"prefixes"},{"id":"10.26081","type":"prefixes"},{"id":"10.34796","type":"prefixes"},{"id":"10.34958","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:34 GMT
 recorded_with: VCR 3.0.3

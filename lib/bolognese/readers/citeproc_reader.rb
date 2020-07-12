@@ -86,19 +86,8 @@ module Bolognese
           nil
         end
 
-        identifiers = [normalize_id(meta.fetch("id", nil)), normalize_doi(meta.fetch("DOI", nil))].compact.map do |r|
-          r = normalize_id(r)
+        id = normalize_id(meta.fetch("id", nil) || meta.fetch("DOI", nil))
 
-          if r.start_with?("https://doi.org")
-            { "identifierType" => "DOI", "identifier" => r }
-          else
-              { "identifierType" => "URL", "identifier" => r }
-          end
-        end.uniq
-
-        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
-        doi = Array.wrap(identifiers).find { |r| r["identifierType"] == "DOI" }.to_h.fetch("identifier", nil)
-          
         state = id.present? || read_options.present? ? "findable" : "not_found"
         subjects = Array.wrap(meta.fetch("categories", nil)).reduce([]) do |sum, subject|
           sum += name_to_fos(subject)
@@ -107,9 +96,8 @@ module Bolognese
         end
 
         { "id" => id,
-          "identifiers" => identifiers,
           "types" => types,
-          "doi" => doi_from_url(doi),
+          "doi" => doi_from_url(id),
           "url" => normalize_id(meta.fetch("URL", nil)),
           "titles" => [{ "title" => meta.fetch("title", nil) }],
           "creators" => creators,

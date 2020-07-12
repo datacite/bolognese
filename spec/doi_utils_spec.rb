@@ -55,43 +55,43 @@ describe Bolognese::Metadata, vcr: true do
     it "doi" do
       doi = "10.5061/DRYAD.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "doi with protocol" do
       doi = "doi:10.5061/DRYAD.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "https url" do
       doi = "https://doi.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "dx.doi.org url" do
       doi = "http://dx.doi.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "test resolver" do
       doi = "https://handle.test.datacite.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "test resolver http" do
       doi = "http://handle.test.datacite.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "force test resolver" do
       doi = "https://doi.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi, sandbox: true)
-      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515")
+      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
   end
 

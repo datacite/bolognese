@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:44 GMT
+      - Sun, 12 Jul 2020 11:21:44 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '68'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d4fbeb736e5b0120a52534f0652b7b25f1562181944; expires=Thu, 02-Jul-20
-        19:25:44 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d66721bc307526968d567ef13abafd7981594552903; expires=Tue, 11-Aug-20
+        11:21:43 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45b80c90000061c05b77200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0b3f435d3acd77-CDG
+      - 5b1a61e14a5a061c-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,6 +46,6 @@ http_interactions:
             "status": "DOI does not exist"
           }
         ]
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:44 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:21:44 GMT
 recorded_with: VCR 3.0.3

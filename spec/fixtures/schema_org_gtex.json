@@ -3,7 +3,6 @@
   "@type": "Dataset",
   "@id": "https://doi.org/10.25491/d50j-3083",
   "identifier": [
-    "https://doi.org/10.25491/d50j-3083",
     {
       "@type": "PropertyValue",
       "propertyID": "md5",

@@ -48,18 +48,16 @@ module Bolognese
 
         meta = string.present? ? Maremma.from_json(string) : {}
 
-        identifiers = ([options[:doi] || meta.fetch("@id", nil)] + Array.wrap(meta.fetch("identifier", nil))).map do |r|
+        identifiers = Array.wrap(meta.fetch("identifier", nil)).map do |r|
           r = normalize_id(r) if r.is_a?(String)
-          if r.is_a?(String) && r.start_with?("https://doi.org")
-            { "identifierType" => "DOI", "identifier" => r }
-          elsif r.is_a?(String)
+          if r.is_a?(String) && !r.start_with?("https://doi.org")
               { "identifierType" => "URL", "identifier" => r }
           elsif r.is_a?(Hash)
             { "identifierType" => get_identifier_type(r["propertyID"]), "identifier" => r["value"] }
           end
         end.compact.uniq
 
-        id = Array.wrap(identifiers).first.to_h.fetch("identifier", nil)
+        id = normalize_id(options[:doi] || meta.fetch("@id", nil) || meta.fetch("identifier", nil))
 
         schema_org = meta.fetch("@type", nil) && meta.fetch("@type").camelcase
         resource_type_general = Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org]

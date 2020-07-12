@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 06 Jul 2019 09:00:12 GMT
+      - Sun, 12 Jul 2020 11:22:32 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '48'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=ded987029ad2231ffd6a6d32d1e656e2a1562403612; expires=Sun, 05-Jul-20
-        09:00:12 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d6677fab95efe6583fd974fe3fdb85d981594552952; expires=Tue, 11-Aug-20
+        11:22:32 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45c3eb500006395ea8c7200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f206311484fd715-FRA
+      - 5b1a63112dd16395-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,6 +46,6 @@ http_interactions:
             "RA": "OP"
           }
         ]
-    http_version: 
-  recorded_at: Sat, 06 Jul 2019 09:00:12 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:32 GMT
 recorded_with: VCR 3.0.3

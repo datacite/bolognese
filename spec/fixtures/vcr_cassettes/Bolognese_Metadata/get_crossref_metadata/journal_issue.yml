@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 07 Jul 2019 14:32:03 GMT
+      - Sun, 12 Jul 2020 11:22:55 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '54'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d7ae2181ce42d1bea57fe3ea1252cd2191562509923; expires=Mon, 06-Jul-20
-        14:32:03 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d0db2fd5a965563e7a84ac6356e5e370f1594552975; expires=Tue, 11-Aug-20
+        11:22:55 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45c97a4000005bf9da1f200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f2a868bbeeec2b8-FRA
+      - 5b1a639f6af505bf-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,8 +46,8 @@ http_interactions:
             "RA": "Crossref"
           }
         ]
-    http_version: 
-  recorded_at: Sun, 07 Jul 2019 14:32:03 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:55 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.6002/ect.2015.0371/transform/application/vnd.crossref.unixsd+xml
@@ -52,7 +56,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.6; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -71,7 +75,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 07 Jul 2019 14:32:03 GMT
+      - Sun, 12 Jul 2020 11:22:55 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -111,6 +115,6 @@ http_interactions:
         \               </doi_data>\r\n              </journal_issue>\r\n            </journal>\r\n
         \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
         \ </query_result>\r\n</crossref_result>"
-    http_version: 
-  recorded_at: Sun, 07 Jul 2019 14:32:03 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:22:55 GMT
 recorded_with: VCR 3.0.3

@@ -80,7 +80,6 @@ module Bolognese
 
         { "id" => normalize_doi(doi),
           "types" => types,
-          "identifiers" => [{ "identifier" => normalize_doi(doi), "identifierType" => "DOI" }],
           "doi" => doi,
           "url" => meta.try(:url).to_s.presence,
           "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],

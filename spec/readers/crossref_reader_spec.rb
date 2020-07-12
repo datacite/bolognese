@@ -18,7 +18,8 @@ describe Bolognese::Metadata, vcr: true do
   context "get crossref metadata" do
     it "DOI with data citation" do
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567", "identifierType"=>"DOI"}, {"identifier"=>"e01567", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
+      expect(subject.identifiers).to eq([{"identifier"=>"e01567", "identifierType"=>"Publisher ID"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.creators.length).to eq(5)
@@ -53,8 +54,9 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1371/journal.pone.0000030"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1371/journal.pone.0000030", "identifierType"=>"DOI"}, {"identifier"=>"10.1371/journal.pone.0000030", "identifierType"=>"Publisher ID"}])
-      expect(subject.url).to eq("http://dx.plos.org/10.1371/journal.pone.0000030")
+      expect(subject.id).to eq("https://doi.org/10.1371/journal.pone.0000030")
+      expect(subject.identifiers).to eq([{"identifier"=>"10.1371/journal.pone.0000030", "identifierType"=>"Publisher ID"}])
+      expect(subject.url).to eq("https://dx.plos.org/10.1371/journal.pone.0000030")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(5)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Ralser, Markus", "givenName"=>"Markus", "familyName"=>"Ralser")
@@ -65,10 +67,10 @@ describe Bolognese::Metadata, vcr: true do
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
-      expect(subject.dates).to eq([{"date"=>"2006-12-20", "dateType"=>"Issued"}, {"date"=>"2019-04-23T08:33:24Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2006-12-20", "dateType"=>"Issued"}, {"date"=>"2020-05-09T09:35:17Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2006")
       expect(subject.publisher).to eq("Public Library of Science (PLoS)")
-      expect(subject.related_identifiers.length).to eq(63)
+      expect(subject.related_identifiers.length).to eq(64)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1932-6203", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1056/nejm199109123251104", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
       expect(subject.container).to eq("firstPage"=>"e30", "identifier"=>"1932-6203", "identifierType"=>"ISSN", "issue"=>"1", "title"=>"PLoS ONE", "type"=>"Journal", "volume"=>"1")
@@ -79,7 +81,8 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.3389/fpls.2019.00816"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3389/fpls.2019.00816", "identifierType"=>"DOI"}, {"identifier"=>"816", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.3389/fpls.2019.00816")
+      expect(subject.identifiers).to eq([{"identifier"=>"816", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("https://www.frontiersin.org/article/10.3389/fpls.2019.00816/full")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(4)
@@ -90,10 +93,10 @@ describe Bolognese::Metadata, vcr: true do
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
-      expect(subject.dates).to eq([{"date"=>"2019-07-02", "dateType"=>"Issued"}, {"date"=>"2019-07-02T11:08:31Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2019-07-02", "dateType"=>"Issued"}, {"date"=>"2019-09-22T06:40:23Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2019")
       expect(subject.publisher).to eq("Frontiers Media SA")
-      expect(subject.funding_references).to eq([{"awardNumber"=>"CA17111", "funderIdentifier"=>"https://doi.org/10.13039/501100000921", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"COST"}])
+      expect(subject.funding_references).to eq([{"awardNumber"=>"CA17111", "funderIdentifier"=>"https://doi.org/10.13039/501100000921", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"COST (European Cooperation in Science and Technology)"}])
       expect(subject.related_identifiers.length).to eq(70)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1664-462X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.17660/actahortic.2004.632.41", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
@@ -105,12 +108,12 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.7600/jspfsm.56.60"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7600/jspfsm.56.60", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.7600/jspfsm.56.60")
       expect(subject.url).to eq("http://jlc.jst.go.jp/JST.JSTAGE/jspfsm/56.60?lang=en&from=CrossRef&type=abstract")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
       expect(subject.titles).to eq([{"lang"=>"ja", "title"=>"自律神経・循環器応答"}])
-      expect(subject.dates).to eq([{"date"=>"2007", "dateType"=>"Issued"}, {"date"=>"2019-07-03T06:23:13Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2007", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2007")
       expect(subject.publisher).to eq("The Japanese Society of Physical Fitness and Sports Medicine")
       expect(subject.related_identifiers.length).to eq(1)
@@ -123,13 +126,13 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1163/1937240X-00002096"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1163/1937240x-00002096", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1163/1937240x-00002096")
       expect(subject.url).to eq("https://academic.oup.com/jcb/article-lookup/doi/10.1163/1937240X-00002096")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(8)
       expect(subject.creators.first).to eq("familyName"=>"Mesquita-Joanes", "givenName"=>"Francesc", "name"=>"Mesquita-Joanes, Francesc", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Global distribution of Fabaeformiscandona subacuta: an exotic invasive Ostracoda on the Iberian Peninsula?"}])
-      expect(subject.dates).to eq([{"date"=>"2012-01-01", "dateType"=>"Issued"}, {"date"=>"2019-07-05T20:53:10Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2012-01-01", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2012")
       expect(subject.publisher).to eq("Oxford University Press (OUP)")
       expect(subject.related_identifiers.length).to eq(44)
@@ -143,7 +146,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.1007/978-3-642-33191-6_49"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1007/978-3-642-33191-6_49", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1007/978-3-642-33191-6_49")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-642-33191-6_49")
       expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators.length).to eq(3)
@@ -167,9 +170,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.count).to eq(11)
       expect(subject.creators.last).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-4060-7360", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Clark, Timothy", "givenName"=>"Timothy", "familyName"=>"Clark")
       expect(subject.titles).to eq([{"title"=>"A Data Citation Roadmap for Scholarly Data Repositories"}])
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1101/097196", "identifierType"=>"DOI"}, {"identifier"=>"biorxiv;097196v2", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.1101/097196")
+      expect(subject.identifiers).to eq([{"identifier"=>"biorxiv;097196v2", "identifierType"=>"Publisher ID"}])
       expect(subject.descriptions.first["description"]).to start_with("This article presents a practical roadmap")
-      expect(subject.dates).to eq([{"date"=>"2017-10-09", "dateType"=>"Issued"}, {"date"=>"2019-05-22T20:17:44Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2017-10-09", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("bioRxiv")
       expect(subject.agency).to eq("Crossref")
@@ -179,7 +183,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1890/0012-9658(2006)87%255b2832:tiopma%255d2.0.co;2", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1890/0012-9658(2006)87%255b2832:tiopma%255d2.0.co;2")
       expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Fenton, A.", "givenName"=>"A.", "familyName"=>"Fenton"}, {"nameType"=>"Personal", "name"=>"Rands, S. A.", "givenName"=>"S. A.", "familyName"=>"Rands"}])
@@ -199,7 +203,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1155/2012/291294", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(7)
@@ -210,7 +214,7 @@ describe Bolognese::Metadata, vcr: true do
         "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.titles).to eq([{"title"=>"Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers"}])
-      expect(subject.dates).to eq([{"date"=>"2012", "dateType"=>"Issued"}, {"date"=>"2016-08-02T18:42:41Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2012", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2012")
       expect(subject.publisher).to eq("Hindawi Limited")
       expect(subject.related_identifiers.length).to eq(18)
@@ -224,13 +228,14 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1016/j.ejphar.2015.03.018"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1016/j.ejphar.2015.03.018", "identifierType"=>"DOI"}, {"identifier"=>"S0014299915002332", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.1016/j.ejphar.2015.03.018")
+      expect(subject.identifiers).to eq([{"identifier"=>"S0014299915002332", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("https://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(10)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Beck, Sarah E.", "givenName"=>"Sarah E.", "familyName"=>"Beck")
       expect(subject.titles).to eq([{"title"=>"Paving the path to HIV neurotherapy: Predicting SIV CNS disease"}])
-      expect(subject.dates).to eq([{"date"=>"2015-07", "dateType"=>"Issued"}, {"date"=>"2018-09-23T21:22:53Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2015-07", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Elsevier BV")
       expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"0014-2999", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection"}])
@@ -242,13 +247,13 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1038/hdy.2013.26"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1038/hdy.2013.26", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1038/hdy.2013.26")
       expect(subject.url).to eq("http://www.nature.com/articles/hdy201326")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("familyName"=>"Gross", "givenName"=>"J B", "name"=>"Gross, J B", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Albinism in phylogenetically and geographically distinct populations of Astyanax cavefish arises through the same loss-of-function Oca2 allele"}])
-      expect(subject.dates).to eq([{"date"=>"2013-04-10", "dateType"=>"Issued"}, {"date"=>"2019-04-16T16:25:36Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2013-04-10", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2013")
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.related_identifiers.size).to eq(35)
@@ -261,16 +266,16 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.2210/pdb4hhb/pdb"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2210/pdb4hhb/pdb", "identifierType"=>"DOI"}])
-      expect(subject.url).to eq("ftp://ftp.wwpdb.org/pub/pdb/data/structures/divided/pdb/hh/pdb4hhb.ent.gz")
+      expect(subject.id).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
+      expect(subject.url).to eq("https://www.wwpdb.org/pdb?id=pdb_00004hhb")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"SaComponent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Fermi, G.", "givenName"=>"G.", "familyName"=>"Fermi")
       expect(subject.titles).to eq([{"title"=>"THE CRYSTAL STRUCTURE OF HUMAN DEOXYHAEMOGLOBIN AT 1.74 ANGSTROMS RESOLUTION"}])
       expect(subject.descriptions).to eq([{"description"=>"x-ray diffraction structure", "descriptionType"=>"Other"}])
-      expect(subject.dates).to eq([{"date"=>"1984-07-17", "dateType"=>"Issued"}, {"date"=>"2014-05-27T16:45:59Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"1984-07-17", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("1984")
-      expect(subject.publisher).to eq("Protein Data Bank, Rutgers University")
+      expect(subject.publisher).to eq("Worldwide Protein Data Bank")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -278,13 +283,13 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.1371/journal.pmed.0030277.g001"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1371/journal.pmed.0030277.g001", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1371/journal.pmed.0030277.g001")
       expect(subject.url).to eq("https://dx.plos.org/10.1371/journal.pmed.0030277.g001")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"SaComponent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
       expect(subject.titles).to eq([{"title"=>":{unav)"}])
       expect(subject.descriptions).to be_empty
-      expect(subject.dates).to eq([{"date"=>"2015-10-20", "dateType"=>"Issued"}, {"date"=>"2018-10-19T21:13:42Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2015-10-20", "dateType"=>"Issued"}, {"date"=>"2018-10-19T17:13:42Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Public Library of Science (PLoS)")
       expect(subject.agency).to eq("Crossref")
@@ -294,14 +299,14 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.2737/RDS-2018-0001"
       subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2737/rds-2018-0001", "identifierType"=>"DOI"}])
-      expect(subject.url).to eq("https://www.fs.usda.gov/rds/archive/Product/RDS-2018-0001")
+      expect(subject.id).to eq("https://doi.org/10.2737/rds-2018-0001")
+      expect(subject.url).to eq("https://www.fs.usda.gov/rds/archive/Catalog/RDS-2018-0001")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"Dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(4)
       expect(subject.creators.first).to eq("familyName" => "Ribic","givenName" => "Christine A.","name" => "Ribic, Christine A.","affiliation" => [{"name"=>"U.S. Geological Survey"}],"nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2583-1778", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"nameType" => "Personal")
       expect(subject.titles).to eq([{"title"=>"Fledging times of grassland birds"}])
       expect(subject.descriptions).to be_empty
-      expect(subject.dates).to eq([{"date"=>"2017-08-09", "dateType"=>"Issued"}, {"date"=>"2018-07-13T19:35:20Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2017-08-09", "dateType"=>"Issued"}, {"date"=>"2020-06-04T21:31:55Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("USDA Forest Service")
       expect(subject.agency).to eq("Crossref")
@@ -311,7 +316,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1007/978-3-662-46370-3_13"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1007/978-3-662-46370-3_13", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
       expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators.length).to eq(2)
@@ -327,12 +332,12 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1007/978-3-319-75889-3_1"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1007/978-3-319-75889-3_1", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1007/978-3-319-75889-3_1")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-319-75889-3_1")
       expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators).to eq("familyName"=>"Jones", "givenName"=>"Hunter M.", "name"=>"Jones, Hunter M.", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Climate Change and Increasing Risk of Extreme Heat"}])
-      expect(subject.dates).to eq([{"date"=>"2018", "dateType"=>"Issued"}, {"date"=>"2018-09-05T05:36:16Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2018", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Springer International Publishing")
       expect(subject.agency).to eq("Crossref")
@@ -342,7 +347,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.4018/978-1-4666-1891-6.ch004"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4018/978-1-4666-1891-6.ch004", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.4018/978-1-4666-1891-6.ch004")
       expect(subject.url).to eq("http://services.igi-global.com/resolvedoi/resolve.aspx?doi=10.4018/978-1-4666-1891-6.ch004")
       expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators).to eq("familyName"=>"Bichot", "givenName"=>"Charles-Edmond", "name"=>"Bichot, Charles-Edmond", "affiliation" => [{"name"=>"Université de Lyon, France"}], "nameType"=>"Personal")
@@ -357,7 +362,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.3390/publications6020015"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3390/publications6020015", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.3390/publications6020015")
       expect(subject.url).to eq("http://www.mdpi.com/2304-6775/6/2/15")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"name"=>"Alexander Kohls", "nameType"=>"Organizational"}, {"name"=>"Salvatore Mele", "nameType"=>"Organizational"}])
@@ -372,12 +377,13 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1017/9781108348843"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1017/9781108348843", "identifierType"=>"DOI"}, {"identifier"=>"9781108348843", "identifierType"=>"ISBN"}])
+      expect(subject.id).to eq("https://doi.org/10.1017/9781108348843")
+      expect(subject.identifiers).to eq([{"identifier"=>"9781108348843", "identifierType"=>"ISBN"}])
       expect(subject.url).to eq("https://www.cambridge.org/core/product/identifier/9781108348843/type/book")
       expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq("familyName"=>"Leung", "givenName"=>"Vincent S.", "name"=>"Leung, Vincent S.", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"The Politics of the Past in Early China"}])
-      expect(subject.dates).to eq([{"date"=>"2019-07-01", "dateType"=>"Issued"}, {"date"=>"2019-07-06T10:20:03Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2019-07-01", "dateType"=>"Issued"}, {"date"=>"2019-12-01T18:11:11Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2019")
       expect(subject.publisher).to eq("Cambridge University Press")
       expect(subject.agency).to eq("Crossref")
@@ -388,7 +394,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.2973/odp.proc.ir.180.2000"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2973/odp.proc.ir.180.2000", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.2973/odp.proc.ir.180.2000")
       expect(subject.url).to eq("http://www-odp.tamu.edu/publications/180_IR/180TOC.HTM")
       expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
@@ -406,7 +412,8 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1029/ar035"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1029/ar035", "identifierType"=>"DOI"}, {"identifier"=>"0-87590-181-6", "identifierType"=>"ISBN"}])
+      expect(subject.id).to eq("https://doi.org/10.1029/ar035")
+      expect(subject.identifiers).to eq([{"identifier"=>"0-87590-181-6", "identifierType"=>"ISBN"}])
       expect(subject.url).to eq("http://doi.wiley.com/10.1029/AR035")
       expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq("familyName"=>"McGinnis", "givenName"=>"Richard Frank", "name"=>"McGinnis, Richard Frank", "nameType"=>"Personal")
@@ -425,13 +432,14 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.3280/ecag2018-001005"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.3280/ecag2018-001005", "identifierType"=>"DOI"}, {"identifier"=>"5", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.3280/ecag2018-001005")
+      expect(subject.identifiers).to eq([{"identifier"=>"5", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("http://www.francoangeli.it/riviste/Scheda_Riviste.asp?IDArticolo=61645")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("familyName"=>"Oh", "givenName"=>"Sohae Eve", "name"=>"Oh, Sohae Eve", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Substitutability between organic and conventional poultry products and organic price premiums"}])
-      expect(subject.dates).to eq([{"date"=>"2018-05", "dateType"=>"Issued"}, {"date"=>"2018-10-18T14:30:29Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2018-05", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Franco Angeli")
       expect(subject.agency).to eq("mEDRA")
@@ -441,7 +449,8 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5012/bkcs.2013.34.10.2889"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5012/bkcs.2013.34.10.2889", "identifierType"=>"DOI"}, {"identifier"=>"JCGMCS_2013_v34n10_2889", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.5012/bkcs.2013.34.10.2889")
+      expect(subject.identifiers).to eq([{"identifier"=>"JCGMCS_2013_v34n10_2889", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("http://koreascience.or.kr/journal/view.jsp?kj=JCGMCS&py=2013&vnc=v34n10&sp=2889")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(7)
@@ -457,12 +466,12 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1241/johokanri.39.979"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1241/johokanri.39.979", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1241/johokanri.39.979")
       expect(subject.url).to eq("http://joi.jlc.jst.go.jp/JST.JSTAGE/johokanri/39.979?from=CrossRef")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq("familyName"=>"KUSUMOTO", "givenName"=>"Hiroyuki", "name"=>"KUSUMOTO, Hiroyuki", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Utilizing the Internet. 12 Series. Future of the Internet."}])
-      expect(subject.dates).to eq([{"date"=>"1997", "dateType"=>"Issued"}, {"date"=>"2017-12-24T22:59:53Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"1997", "dateType"=>"Issued"}, {"date"=>"2020-03-06T06:44:36Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("1997")
       expect(subject.publisher).to eq("Japan Science and Technology Agency (JST)")
       expect(subject.agency).to eq("JaLC")
@@ -472,13 +481,13 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.2903/j.efsa.2018.5239"
       subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.2903/j.efsa.2018.5239", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.2903/j.efsa.2018.5239")
       expect(subject.url).to eq("http://doi.wiley.com/10.2903/j.efsa.2018.5239")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(28)
       expect(subject.creators.first).to eq("familyName"=>"Younes", "givenName"=>"Maged", "name"=>"Younes, Maged", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Scientific opinion on the safety of green tea catechins"}])
-      expect(subject.dates).to eq([{"date"=>"2018-04", "dateType"=>"Issued"}, {"date"=>"2018-12-17T09:30:09Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2018-04", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Wiley")
       expect(subject.agency).to eq("OP")
@@ -488,12 +497,12 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.4000/dms.865"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4000/dms.865", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.4000/dms.865")
       expect(subject.url).to eq("http://journals.openedition.org/dms/865")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq("familyName"=>"Peraya", "givenName"=>"Daniel", "name"=>"Peraya, Daniel", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Distances, absence, proximités et présences : des concepts en déplacement"}, {"title"=>"Distance(s), proximity and presence(s): evolving concepts"}])
-      expect(subject.dates).to eq([{"date"=>"2014-12-23", "dateType"=>"Issued"}, {"date"=>"2019-02-02T06:53:25Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2014-12-23", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2014")
       expect(subject.publisher).to eq("OpenEdition")
       expect(subject.agency).to eq("Crossref")
@@ -504,24 +513,24 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1098/rspb.2017.0132"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1098/rspb.2017.0132", "identifierType"=>"DOI"}, {"identifier"=>"/royprsb/284/1855/20170132.atom", "identifierType"=>"Publisher ID"}])
-      expect(subject.url).to eq("http://rspb.royalsocietypublishing.org/lookup/doi/10.1098/rspb.2017.0132")
+      expect(subject.id).to eq("https://doi.org/10.1098/rspb.2017.0132")
+      expect(subject.url).to eq("https://royalsocietypublishing.org/doi/10.1098/rspb.2017.0132")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.size).to eq(6)
-      expect(subject.creators.first).to eq("familyName" => "Dougherty","givenName" => "Liam R.","name" => "Dougherty, Liam R.","nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-1406-0680", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"nameType"=>"Personal")
+      expect(subject.creators.first).to eq("affiliation" => [{"name"=>"School of Biological Sciences, Centre for Evolutionary Biology, University of Western Australia, Crawley, WA 6009, Australia"}], "familyName" => "Dougherty","givenName" => "Liam R.","name" => "Dougherty, Liam R.","nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-1406-0680", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Sexual conflict and correlated evolution between male persistence and female resistance traits in the seed beetle <i>Callosobruchus maculatus</i>"}])
-      expect(subject.dates).to eq([{"date"=>"2017-05-24", "dateType"=>"Issued"}, {"date"=>"2017-05-24T09:13:39Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2017-05-24", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("The Royal Society")
       expect(subject.agency).to eq("Crossref")
-      expect(subject.date_registered).to eq("2017-05-24T02:10:18Z")
+      expect(subject.date_registered).to eq("2019-07-18T04:43:12Z")
     end
 
     it "empty given name" do
       input = "https://doi.org/10.1111/J.1865-1682.2010.01171.X"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1111/j.1865-1682.2010.01171.x", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1111/j.1865-1682.2010.01171.x")
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/j.1865-1682.2010.01171.x")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(5)
@@ -537,7 +546,8 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1055/s-0039-1690894"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1055/s-0039-1690894", "identifierType"=>"DOI"}, {"identifier"=>"s-0039-1690894", "identifierType"=>"Publisher ID"}])
+      expect(subject.id).to eq("https://doi.org/10.1055/s-0039-1690894")
+      expect(subject.identifiers).to eq([{"identifier"=>"s-0039-1690894", "identifierType"=>"Publisher ID"}])
       expect(subject.url).to eq("http://www.thieme-connect.de/DOI/DOI?10.1055/s-0039-1690894")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(4)
@@ -548,7 +558,7 @@ describe Bolognese::Metadata, vcr: true do
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-3902-6799", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
         "nameType" => "Personal")
       expect(subject.titles).to eq([{"title"=>"Silver-Catalyzed [3+3] Annulation of Glycine Imino Esters with Seyferth–Gilbert Reagent To Access Tetrahydro-1,2,4-triazinecarboxylate Esters"}])
-      expect(subject.dates).to eq([{"date"=>"2020-04-08", "dateType"=>"Issued"}, {"date"=>"2020-04-18T00:14:52Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to eq([{"date"=>"2020-04-08", "dateType"=>"Issued"}, {"date"=>"2020-06-16T23:13:36Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2020")
       expect(subject.publisher).to eq("Georg Thieme Verlag KG")
     end
@@ -557,14 +567,14 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1111/nph.14619"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1111/nph.14619", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1111/nph.14619")
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(3)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0002-4156-3761", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Dissmeyer, Nico", "givenName"=>"Nico", "familyName"=>"Dissmeyer", "affiliation" => [{"name"=>"Independent Junior Research Group on Protein Recognition and Degradation; Leibniz Institute of Plant Biochemistry (IPB); Weinberg 3 Halle (Saale) D-06120 Germany"}, {"name"=>"ScienceCampus Halle - Plant-based Bioeconomy; Betty-Heimann-Strasse 3 Halle (Saale) D-06120 Germany"}])
       expect(subject.titles).to eq([{"title"=>"Life and death of proteins after protease cleavage: protein degradation by the N-end rule pathway"}])
       expect(subject.rights_list).to eq([{"rightsUri"=>"http://doi.wiley.com/10.1002/tdm_license_1.1"}, {"rightsUri"=>"http://onlinelibrary.wiley.com/termsAndConditions#vor"}])
-      expect(subject.dates).to eq([{"date"=>"2018-05", "dateType"=>"Issued"}, {"date"=>"2018-08-07T05:52:14Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2018-05", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Wiley")
       expect(subject.related_identifiers.length).to eq(49)
@@ -579,13 +589,13 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1038/ng.3834"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.1038/ng.3834", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.1038/ng.3834")
       expect(subject.url).to eq("http://www.nature.com/articles/ng.3834")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(14)
       expect(subject.creators.last).to eq("name"=>"GTEx Consortium", "nameType"=>"Organizational")
       expect(subject.titles).to eq([{"title"=>"The impact of structural variation on human gene expression"}])
-      expect(subject.dates).to eq([{"date"=>"2017-04-03", "dateType"=>"Issued"}, {"date"=>"2019-11-02T08:50:05Z", "dateType"=>"Updated"}])
+      expect(subject.dates).to include({"date"=>"2017-04-03", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2017")
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.agency).to eq("Crossref")
@@ -596,7 +606,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.6002/ect.2015.0371"
       subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6002/ect.2015.0371", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.6002/ect.2015.0371")
       expect(subject.url).to eq("http://ectrx.org/forms/ectrxcontentshow.php?doi_id=10.6002/ect.2015.0371")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"JournalIssue", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"PublicationIssue")
       expect(subject.creators).to eq("name"=>":(unav)", "nameType"=>"Organizational")
@@ -614,7 +624,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.7554/elife.01567x"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.7554/elife.01567x", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.01567x")
       expect(subject.doi).to eq("10.7554/elife.01567x")
       expect(subject.agency).to eq("Crossref")
       expect(subject.state).to eq("not_found")

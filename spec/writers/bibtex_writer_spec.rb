@@ -112,7 +112,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:doi]).to eq("10.5061/dryad.8515")
       expect(bibtex[:title]).to eq("Data from: A new malaria agent in African hominids.")
       expect(bibtex[:author]).to eq("Ollomo, Benjamin and Durand, Patrick and Prugnolle, Franck and Douzery, Emmanuel J. P. and Arnathau, Céline and Nkoghe, Dieudonné and Leroy, Eric and Renaud, François")
-      expect(bibtex[:publisher]).to eq("Dryad Digital Repository")
+      expect(bibtex[:publisher]).to eq("Dryad")
       expect(bibtex[:year]).to eq("2011")
       expect(bibtex[:copyright]).to eq("Creative Commons Zero v1.0 Universal")
     end
@@ -153,7 +153,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(bibtex[:doi]).to eq("10.1594/pangaea.721193")
-      expect(bibtex[:keywords]).to eq("Animalia, Bottles or small containers/Aquaria ( 20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(bibtex[:keywords]).to start_with("Animalia, Bottles or small containers/Aquaria (&lt;20 L), Calcification/Dissolution")
       expect(bibtex[:year]).to eq("2007")
       expect(bibtex[:copyright]).to eq("Creative Commons Attribution 3.0 Unported")
     end

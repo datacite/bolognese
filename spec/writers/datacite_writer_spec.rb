@@ -127,7 +127,8 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5281/zenodo.28518"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5281/zenodo.28518", "identifierType"=>"DOI"}, {"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])
+      expect(subject.id).to eq("https://doi.org/10.5281/zenodo.28518")
+      expect(subject.identifiers).to eq([{"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])
       expect(subject.types).to eq("bibtex" => "misc",
         "citeproc" => "article",
         "resourceTypeGeneral" => "Software",
@@ -155,7 +156,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.23640/07243.5153971", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.23640/07243.5153971")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "familyName" => "Paglione", "givenName" => "Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name" => "Paglione, Laura", "affiliation" => [])
@@ -181,7 +182,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.23640/07243.5153971"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.5072/07243.5153971")
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5072/07243.5153971", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.5072/07243.5153971")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(20)
       expect(subject.creators.first).to eq("nameType" => "Personal", "familyName" => "Paglione", "givenName" => "Laura", "name" => "Paglione, Laura", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-3188-6273", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],"affiliation" => [])
@@ -207,24 +208,22 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.5061/DRYAD.8515"
       subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"DataPackage", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(8)
-      expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo", "nameIdentifiers"=>[], "affiliation" => [])
+      expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Ollomo, Benjamin", "givenName"=>"Benjamin", "familyName"=>"Ollomo", "nameIdentifiers"=>[], "affiliation" => [{"affiliationIdentifier"=>"https://ror.org/01wyqb997", "affiliationIdentifierScheme"=>"ROR", "name"=>"Centre International de Recherches Médicales de Franceville"}])
       expect(subject.titles).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5061/dryad.8515", "identifierType"=>"DOI"},
-        {"identifier"=>
-         "Ollomo B, Durand P, Prugnolle F, Douzery EJP, Arnathau C, Nkoghe D, Leroy E, Renaud F (2009) A new malaria agent in African hominids. PLoS Pathogens 5(5): e1000446.",
-         "identifierType"=>"citation"}])
+      expect(subject.id).to eq("https://doi.org/10.5061/dryad.8515")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Zero v1.0 Universal",
         "rightsIdentifier"=>"cc0-1.0",
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
-      expect(subject.dates).to eq([{"date"=>"2011", "dateType"=>"Issued"}])
+      expect(subject.dates).to eq([{"date"=>"2011-02-01T17:22:41Z", "dateType"=>"Available"}, {"date"=>"2011", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2011")
-      expect(subject.related_identifiers.length).to eq(6)
-      expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"19478877", "relatedIdentifierType"=>"PMID", "relationType"=>"IsSupplementTo")
-      expect(subject.publisher).to eq("Dryad Digital Repository")
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.last).to eq("relatedIdentifier" => "10.1371/journal.ppat.1000446",
+        "relatedIdentifierType" => "DOI","relationType"=>"IsSupplementTo")
+      expect(subject.publisher).to eq("Dryad")
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
@@ -241,7 +240,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(6)
       expect(subject.creators.first).to eq("affiliation"=>[{"name"=>"UC Merced"}, {"name"=>"NSF"}], "familyName"=>"Bales", "givenName"=>"Roger", "name"=>"Bales, Roger", "nameType"=>"Personal", "nameIdentifiers"=>[])
       expect(subject.titles).to eq([{"title"=>"Southern Sierra Critical Zone Observatory (SSCZO), Providence Creek meteorological data, soil moisture and temperature, snow depth and air temperature"}])
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.6071/z7wc73")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
         "rightsIdentifier"=>"cc-by-4.0",
         "rightsIdentifierScheme"=>"SPDX",
@@ -272,7 +271,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be false
-      expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1", "identifierType"=>"DOI"}])
+      expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.agency).to eq("DataCite")
       expect(subject.state).to eq("not_found")

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,26 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:31 GMT
+      - Sun, 12 Jul 2020 11:24:43 GMT
       Content-Type:
       - application/json;charset=UTF-8
-      Content-Length:
-      - '55'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d5aa6c96403d9324b6ac2fec1d2ce43d41562181931; expires=Thu, 02-Jul-20
-        19:25:31 GMT; path=/; domain=.doi.org; HttpOnly
+      - __cfduid=d2a77c1a20a3d9664b1d21e8c5bb8891f1594553083; expires=Tue, 11-Aug-20
+        11:24:43 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 03e45e3eb7000005d4619e8200000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 4f0b3eefae7fcdd7-CDG
+      - 5b1a66445cd505d4-FRA
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -42,17 +46,17 @@ http_interactions:
             "RA": "DataCite"
           }
         ]
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:31 GMT
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:43 GMT
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.23725/8na3-9s47
+    uri: https://api.datacite.org/dois/10.23725/8na3-9s47?include=media,client
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.2.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -61,7 +65,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 03 Jul 2019 19:25:31 GMT
+      - Sun, 12 Jul 2020 11:24:44 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -74,28 +78,27 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 619b56b5-05e2-4c53-9ce8-d993d2048723
       Etag:
-      - W/"da398ddc37ceb48ab20314ade59c5f8b"
+      - W/"20fd16d9d2f5004712650fcd751edeb2"
       X-Runtime:
-      - '0.022883'
+      - '0.963040'
+      X-Request-Id:
+      - 91741a34-3674-4899-8607-371d53a2ec10
       X-Powered-By:
-      - Phusion Passenger 6.0.2
+      - Phusion Passenger 6.0.5
       Server:
-      - nginx/1.15.8 + Phusion Passenger 6.0.2
+      - nginx/1.14.0 + Phusion Passenger 6.0.5
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.23725/8na3-9s47","type":"dois","attributes":{"doi":"10.23725/8na3-9s47","prefix":"10.23725","suffix":"8na3-9s47","identifiers":[{"identifier":"https://doi.org/10.23725/8na3-9s47","identifierType":"DOI"},{"identifier":"ark:/99999/fk41CrU4eszeLUDe","identifierType":"minid"},{"identifier":"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7","identifierType":"dataguid"},{"identifier":"3b33f6b9338fccab0901b7d317577ea3","identifierType":"md5"}],"creators":[{"name":"TOPMed"}],"titles":[{"title":"NWD165827.recab.cram"}],"publisher":"TOPMed","container":{},"publicationYear":2017,"subjects":[{"subject":"topmed"},{"subject":"whole
+      string: '{"data":{"id":"10.23725/8na3-9s47","type":"dois","attributes":{"doi":"10.23725/8na3-9s47","prefix":"10.23725","suffix":"8na3-9s47","identifiers":[{"identifier":"https://doi.org/10.23725/8na3-9s47","identifierType":"DOI"},{"identifier":"ark:/99999/fk41CrU4eszeLUDe","identifierType":"minid"},{"identifier":"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7","identifierType":"dataguid"},{"identifier":"3b33f6b9338fccab0901b7d317577ea3","identifierType":"md5"}],"alternateIdentifiers":[{"alternateIdentifierType":"minid","alternateIdentifier":"ark:/99999/fk41CrU4eszeLUDe"},{"alternateIdentifierType":"dataguid","alternateIdentifier":"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"},{"alternateIdentifierType":"md5","alternateIdentifier":"3b33f6b9338fccab0901b7d317577ea3"}],"creators":[{"name":"TOPMed","affiliation":[]}],"titles":[{"title":"NWD165827.recab.cram"}],"publisher":"TOPMed","container":{},"publicationYear":2017,"subjects":[{"subject":"topmed"},{"subject":"whole
         genome sequencing"}],"contributors":[],"dates":[{"date":"2017-11-30","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"CRAM
         file","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[{"description":"TOPMed:
         NWD165827 <br>HapMap_1000G: NA19238 <br>Seq Ctr: UW <br>File:  CRAM file","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[{"funderName":"National
         Heart, Lung, and Blood Institute (NHLBI)","funderIdentifier":"https://doi.org/10.13039/100000050","funderIdentifierType":"Crossref
-        Funder ID"}],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvOE5BMy05UzQ3PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VE9QTWVkPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TldEMTY1ODI3LnJlY2FiLmNyYW08L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+VE9QTWVkPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE3PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5DUkFNIGZpbGU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWluaWQiPmFyazovOTk5OTkvZms0MUNyVTRlc3plTFVEZTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJkYXRhZ3VpZCI+ZGcuNDUwMy9jM2Q2NmRjOS01OGRhLTQxMWMtODNjNC1kZDY1NmFhM2M0Yjc8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWQ1Ij4zYjMzZjZiOTMzOGZjY2FiMDkwMWI3ZDMxNzU3N2VhMzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PnRvcG1lZDwvc3ViamVjdD4KICAgIDxzdWJqZWN0Pndob2xlIGdlbm9tZSBzZXF1ZW5jaW5nPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGZ1bmRpbmdSZWZlcmVuY2VzPgogICAgPGZ1bmRpbmdSZWZlcmVuY2U+CiAgICAgIDxmdW5kZXJOYW1lPk5hdGlvbmFsIEhlYXJ0LCBMdW5nLCBhbmQgQmxvb2QgSW5zdGl0dXRlIChOSExCSSk8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHBzOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwNTA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgPC9mdW5kaW5nUmVmZXJlbmNlcz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE3LTExLTMwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHZlcnNpb24vPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cy8+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VE9QTWVkOiBOV0QxNjU4MjcgJmx0O2JyJmd0O0hhcE1hcF8xMDAwRzogTkExOTIzOCAmbHQ7YnImZ3Q7U2VxIEN0cjogVVcgJmx0O2JyJmd0O0ZpbGU6ICBDUkFNIGZpbGU8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"https://ors.datacite.org/doi:/10.23725/8na3-9s47","contentUrl":null,"metadataVersion":2,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"created":"2018-08-16T11:01:46.000-04:00","registered":"2018-08-16T11:04:36.000-04:00","published":"2017","updated":"2018-10-19T05:01:13.000-04:00"},"relationships":{"client":{"data":{"id":"datacite.topmed","type":"clients"}},"media":{"data":[{"id":"0000-0000-0001-e5hc","type":"media"},{"id":"0000-0000-0001-e5hd","type":"media"},{"id":"0000-0000-0001-e5he","type":"media"}]}}},"included":[{"id":"datacite.topmed","type":"clients","attributes":{"name":"TOPMed","symbol":"DATACITE.TOPMED","year":2018,"contactName":"Martin
-        Fenner","contactEmail":"mfenner@datacite.org","description":null,"domains":"*","url":null,"created":"2018-08-06T08:46:43.000-04:00","updated":"2018-08-30T20:25:27.000-04:00","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.23725","type":"prefixes"}]}}},{"id":"0000-0000-0001-e5hc","type":"media","attributes":{"version":0,"url":"s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram","mediaType":"text/plain
-        ","created":"2018-08-31T11:42:23.000-04:00","updated":"2018-08-31T11:42:23.000-04:00"},"relationships":{"doi":{"data":{"id":"10.23725/8NA3-9S47","type":"dois"}}}},{"id":"0000-0000-0001-e5hd","type":"media","attributes":{"version":1,"url":"gs://topmed-irc-share/public/NWD165827.recab.cram","mediaType":"text/plain
-        ","created":"2018-08-31T11:42:23.000-04:00","updated":"2018-08-31T11:42:23.000-04:00"},"relationships":{"doi":{"data":{"id":"10.23725/8NA3-9S47","type":"dois"}}}},{"id":"0000-0000-0001-e5he","type":"media","attributes":{"version":1,"url":"dos://dos.commons.ucsc-cgp.org/c3d66dc9-58da-411c-83c4-dd656aa3c4b7?version=2018-05-26T133719.892835Z","mediaType":"text/plain
-        ","created":"2018-08-31T11:42:23.000-04:00","updated":"2018-08-31T11:42:23.000-04:00"},"relationships":{"doi":{"data":{"id":"10.23725/8NA3-9S47","type":"dois"}}}}]}'
-    http_version: 
-  recorded_at: Wed, 03 Jul 2019 19:25:31 GMT
+        Funder ID"}],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvOE5BMy05UzQ3PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VE9QTWVkPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TldEMTY1ODI3LnJlY2FiLmNyYW08L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+VE9QTWVkPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE3PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5DUkFNIGZpbGU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWluaWQiPmFyazovOTk5OTkvZms0MUNyVTRlc3plTFVEZTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJkYXRhZ3VpZCI+ZGcuNDUwMy9jM2Q2NmRjOS01OGRhLTQxMWMtODNjNC1kZDY1NmFhM2M0Yjc8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWQ1Ij4zYjMzZjZiOTMzOGZjY2FiMDkwMWI3ZDMxNzU3N2VhMzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PnRvcG1lZDwvc3ViamVjdD4KICAgIDxzdWJqZWN0Pndob2xlIGdlbm9tZSBzZXF1ZW5jaW5nPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGZ1bmRpbmdSZWZlcmVuY2VzPgogICAgPGZ1bmRpbmdSZWZlcmVuY2U+CiAgICAgIDxmdW5kZXJOYW1lPk5hdGlvbmFsIEhlYXJ0LCBMdW5nLCBhbmQgQmxvb2QgSW5zdGl0dXRlIChOSExCSSk8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHBzOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwNTA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgPC9mdW5kaW5nUmVmZXJlbmNlcz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE3LTExLTMwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHZlcnNpb24vPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cy8+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VE9QTWVkOiBOV0QxNjU4MjcgJmx0O2JyJmd0O0hhcE1hcF8xMDAwRzogTkExOTIzOCAmbHQ7YnImZ3Q7U2VxIEN0cjogVVcgJmx0O2JyJmd0O0ZpbGU6ICBDUkFNIGZpbGU8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"https://ors.datacite.org/doi:/10.23725/8na3-9s47","contentUrl":null,"metadataVersion":2,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2018-08-16T15:01:46.000Z","registered":"2018-08-16T15:04:36.000Z","published":"2017","updated":"2019-08-02T19:29:46.000Z"},"relationships":{"client":{"data":{"id":"datacite.topmed","type":"clients"}},"media":{"data":{"id":"10.23725/8na3-9s47","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"datacite.topmed","type":"clients","attributes":{"name":"TOPMed","symbol":"DATACITE.TOPMED","year":2018,"contactEmail":"mfenner@datacite.org","alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":null,"url":null,"created":"2018-08-06T12:46:43.000Z","updated":"2018-08-31T00:25:27.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.23725","type":"prefixes"}]}}},{"id":"0000-0000-0001-e5hc","type":"media","attributes":{"version":0,"url":"s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram","mediaType":"text/plain
+        ","created":"2018-08-31T15:42:23.000Z","updated":"2018-08-31T15:42:23.000Z"},"relationships":{"doi":{"data":{"id":"10.23725/8NA3-9S47","type":"dois"}}}},{"id":"0000-0000-0001-e5hd","type":"media","attributes":{"version":1,"url":"gs://topmed-irc-share/public/NWD165827.recab.cram","mediaType":"text/plain
+        ","created":"2018-08-31T15:42:23.000Z","updated":"2018-08-31T15:42:23.000Z"},"relationships":{"doi":{"data":{"id":"10.23725/8NA3-9S47","type":"dois"}}}},{"id":"0000-0000-0001-e5he","type":"media","attributes":{"version":1,"url":"dos://dos.commons.ucsc-cgp.org/c3d66dc9-58da-411c-83c4-dd656aa3c4b7?version=2018-05-26T133719.892835Z","mediaType":"text/plain
+        ","created":"2018-08-31T15:42:23.000Z","updated":"2018-08-31T15:42:23.000Z"},"relationships":{"doi":{"data":{"id":"10.23725/8NA3-9S47","type":"dois"}}}}]}'
+    http_version:
+  recorded_at: Sun, 12 Jul 2020 11:24:44 GMT
 recorded_with: VCR 3.0.3
