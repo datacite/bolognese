@@ -22,7 +22,8 @@ describe Bolognese::Metadata, vcr: true do
     it "with schema_3" do
       # input = fixture_path + "datacite_kernel_3.json"
       input = fixture_path + "datacite_schema_3.xml"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: json.meta.to_json, from: "datacite_json")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
