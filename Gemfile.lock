@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.7.3)
+    bolognese (1.7.4)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -119,7 +119,7 @@ GEM
     namae (1.0.1)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    oj (3.10.6)
+    oj (3.10.7)
     oj_mimic_json (1.0.1)
     optimist (3.0.1)
     postrank-uri (1.0.24)

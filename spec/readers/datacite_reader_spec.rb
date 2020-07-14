@@ -340,7 +340,8 @@ describe Bolognese::Metadata, vcr: true do
           "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
           "funderIdentifierType"=>"Crossref Funder ID",
           "funderName"=>"European Commission"}],
-        types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" })
+        types: { "resourceTypeGeneral" => "Dataset", "schemaOrg" => "Dataset" },
+        "identifiers" => [{ "identifierType"=>"Repository ID", "identifier"=>"123" }])
 
       expect(subject.valid?).to be true
       expect(subject.doi).to eq("10.5281/zenodo.1239")
@@ -359,6 +360,7 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"123", "identifierType"=>"Repository ID"}])
       expect(subject.agency).to eq("DataCite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
       expect(subject.state).to eq("findable")
