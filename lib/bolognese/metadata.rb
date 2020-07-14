@@ -95,25 +95,25 @@ module Bolognese
 
       # set attributes directly
       read_options = options.slice(
-        :creators,
-        :contributors,
-        :titles,
-        :types,
-        :identifiers,
-        :container,
-        :publisher,
-        :funding_references,
-        :dates,
-        :publication_year,
-        :descriptions,
-        :rights_list,
-        :version_info,
-        :subjects,
-        :language,
-        :geo_locations,
-        :related_identifiers,
-        :formats,
-        :sizes
+        "creators",
+        "contributors",
+        "titles",
+        "types",
+        "identifiers",
+        "container",
+        "publisher",
+        "funding_references",
+        "dates",
+        "publication_year",
+        "descriptions",
+        "rights_list",
+        "version_info",
+        "subjects",
+        "language",
+        "geo_locations",
+        "related_identifiers",
+        "formats",
+        "sizes"
       ).compact
 
       @regenerate = options[:regenerate] || read_options.present?
