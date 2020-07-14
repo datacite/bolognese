@@ -20,15 +20,14 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "with schema_3" do
-      input = "10.17169/refubium-26807"
-      input = fixture_path + "datacite_kernel_3.json"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
-
+      # input = fixture_path + "datacite_kernel_3.json"
+      input = fixture_path + "datacite_schema_3.xml"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
-      expect(bibtex[:bibtex_type].to_s).to eq("article")
-      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.17169/refubium-26807")
-      expect(bibtex[:doi]).to eq("10.17169/REFUBIUM-26807")
-      expect(bibtex[:year]).to eq("2019")
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(bibtex[:doi]).to eq("10.5061/dryad.8515")
+      expect(bibtex[:year]).to eq("2011")
     end
 
     it "with pages" do
