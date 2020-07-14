@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as ris" do
     it "journal article" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - JOUR")
@@ -25,7 +25,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - JOUR")
@@ -46,7 +46,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "alternate name" do
       input = "https://doi.org/10.3205/ZMA001102"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - RPRT")
@@ -66,7 +66,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input, from: "bibtex")
 
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - JOUR")
@@ -85,7 +85,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - RPRT")
@@ -103,7 +103,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
+      subject = Bolognese::Metadata.new(input, from: "citeproc")
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - GEN")
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
@@ -120,7 +120,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting DataCite JSON" do
       input = fixture_path + "datacite.json"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+      subject = Bolognese::Metadata.new(input, from: "datacite_json")
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - RPRT")
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
@@ -136,7 +136,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input, from: "schema_org")
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - GEN")
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
@@ -153,7 +153,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Dataset" do
       input = "10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - DATA")
@@ -170,7 +170,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input, from: "codemeta")
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - COMP")
       expect(ris[1]).to eq("T1  - Maremma: a Ruby library for simplified network calls")
@@ -186,7 +186,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "keywords with subject scheme" do
       input = "https://doi.org/10.1594/pangaea.721193"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       ris = subject.ris.split("\r\n")
       expect(ris.first).to eq("TY  - DATA")
       expect(ris).to include("T1  - Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")

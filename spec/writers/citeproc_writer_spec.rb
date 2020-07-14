@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as citeproc" do
     it "Dataset" do
       input = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("dataset")
@@ -29,7 +29,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -43,7 +43,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting DataCite JSON" do
       input = fixture_path + "datacite.json"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+      subject = Bolognese::Metadata.new(input, from: "datacite_json")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -56,7 +56,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input, from: "schema_org")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("post-weblog")
       expect(json["id"]).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -69,7 +69,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal article" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -89,7 +89,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "software" do
       input = "https://doi.org/10.6084/m9.figshare.4906367.v1"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article")
       expect(json["DOI"]).to eq("10.6084/m9.figshare.4906367.v1")
@@ -99,7 +99,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "software w/version" do
       input = "https://doi.org/10.5281/zenodo.2598836"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("book")
       expect(json["DOI"]).to eq("10.5281/zenodo.2598836")
@@ -109,7 +109,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "software w/version from datacite_json" do
       input = fixture_path + "datacite_software_version.json"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+      subject = Bolognese::Metadata.new(input, from: "datacite_json")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("book")
       expect(json["DOI"]).to eq("10.5281/ZENODO.2598836")
@@ -119,7 +119,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "multiple abstracts" do
       input = "https://doi.org/10.12763/ona1045"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["DOI"]).to eq("10.12763/ona1045")
@@ -128,7 +128,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -151,7 +151,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with only first page" do
       input = "https://doi.org/10.1371/journal.pone.0214986"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -168,7 +168,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "missing creator" do
       input = "https://doi.org/10.3390/publications6020015"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
@@ -185,7 +185,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "container title" do
       input = "https://doi.org/10.6102/ZIS146"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.6102/zis146")
@@ -199,7 +199,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input, from: "bibtex")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.7554/elife.01567")
@@ -217,7 +217,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author is organization" do
       input = fixture_path + 'gtex.xml'
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(json["author"]).to eq([{"literal"=>"The GTEx Consortium"}])
@@ -225,7 +225,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input, from: "codemeta")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
@@ -239,7 +239,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "keywords subject scheme" do
       input = "https://doi.org/10.1594/pangaea.721193"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("dataset")
       expect(json["id"]).to eq("https://doi.org/10.1594/pangaea.721193")
@@ -250,7 +250,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "organization author" do
       input = "https://doi.org/10.1186/s13742-015-0103-4"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article-journal")
       expect(json["id"]).to eq("https://doi.org/10.1186/s13742-015-0103-4")
@@ -267,7 +267,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "interactive resource without dates" do
       input = "https://doi.org/10.34747/g6yb-3412"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.citeproc)
       expect(json["type"]).to eq("article")
       expect(json["DOI"]).to eq("10.34747/g6yb-3412")
