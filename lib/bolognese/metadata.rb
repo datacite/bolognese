@@ -15,9 +15,9 @@ module Bolognese
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers, :style, :locale, :date_registered
 
-    def initialize(input: nil, **options)
+    def initialize(options={})
       options.symbolize_keys!
-      id = normalize_id(input, options)
+      id = normalize_id(options[:input], options)
       ra = nil
 
       if id.present?
@@ -38,9 +38,9 @@ module Bolognese
         hsh = @from.present? ? send("get_" + @from, id: id, sandbox: options[:sandbox]) : {}
         string = hsh.fetch("string", nil)
 
-      elsif input.present? && File.exist?(input)
-        filename = File.basename(input)
-        ext = File.extname(input)
+      elsif options[:input].present? && File.exist?(options[:input])
+        filename = File.basename(options[:input])
+        ext = File.extname(options[:input])
         if %w(.bib .ris .xml .json).include?(ext)
           hsh = { 
             "url" => options[:url],
@@ -50,7 +50,7 @@ module Bolognese
             "provider_id" => options[:provider_id],
             "client_id" => options[:client_id],
             "content_url" => options[:content_url] }
-          string = IO.read(input)
+          string = IO.read(options[:input])
           @from = options[:from] || find_from_format(string: string, filename: filename, ext: ext)
         else
           $stderr.puts "File type #{ext} not supported"
@@ -70,7 +70,7 @@ module Bolognese
           "titles" => options[:titles],
           "publisher" => options[:publisher],
           "publication_year" => options[:publication_year] }
-        string = input
+        string = options[:input]
         @from = options[:from] || find_from_format(string: string)
       end
 
