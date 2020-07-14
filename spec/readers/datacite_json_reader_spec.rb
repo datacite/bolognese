@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { fixture_path + "datacite.json" }
 
-  subject { Bolognese::Metadata.new(input) }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "get datacite_json raw" do
     it "BlogPosting" do
@@ -30,7 +30,7 @@ describe Bolognese::Metadata, vcr: true do
 
     # it "SoftwareSourceCode" do
     #   input = fixture_path + "datacite_software.json"
-    #   subject = Bolognese::Metadata.new(input, from: "datacite_json")
+    #   subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
     #   expect(subject.valid?).to be true
     #   expect(subject.identifier).to eq("https://doi.org/10.5063/f1m61h5x")
     #   expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "resource_type"=>"Software", "resource_type_general"=>"Software", "ris"=>"COMP", "type"=>"SoftwareSourceCode")
@@ -44,7 +44,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "SoftwareSourceCode missing_comma" do
       input = fixture_path + "datacite_software_missing_comma.json"
-      subject = Bolognese::Metadata.new(input, from: "datacite_json", show_errors: true)
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json", show_errors: true)
       expect(subject.valid?).to be false
       expect(subject.errors).to eq(["expected comma, not a string (after doi) at line 4, column 11 [parse.c:373]"])
       expect(subject.codemeta).to be_nil
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "SoftwareSourceCode overlapping_keys" do
       input = fixture_path + "datacite_software_overlapping_keys.json"
-      subject = Bolognese::Metadata.new(input, from: "datacite_json", show_errors: true)
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json", show_errors: true)
       expect(subject.valid?).to be false
       expect(subject.errors).to eq(["The same key is defined more than once: id"])
       expect(subject.codemeta).to be_nil
@@ -60,7 +60,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "metadata from api" do
       input = "10.5281/zenodo.28518"
-      subject = Bolognese::Metadata.new(input, regenerate: true)
+      subject = Bolognese::Metadata.new(input: input, regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.length).to eq(2)

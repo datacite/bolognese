@@ -5,12 +5,12 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { "10.7554/eLife.01567" }
 
-  subject { Bolognese::Metadata.new(input) }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "get crossref raw" do
     it "journal article" do
       input = fixture_path + 'crossref.xml'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal article" do
       input = "https://doi.org/10.1371/journal.pone.0000030"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1371/journal.pone.0000030")
       expect(subject.identifiers).to eq([{"identifier"=>"10.1371/journal.pone.0000030", "identifierType"=>"Publisher ID"}])
@@ -79,7 +79,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal article with funding" do
       input = "https://doi.org/10.3389/fpls.2019.00816"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.3389/fpls.2019.00816")
       expect(subject.identifiers).to eq([{"identifier"=>"816", "identifierType"=>"Publisher ID"}])
@@ -106,7 +106,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal article original language title" do
       input = "https://doi.org/10.7600/jspfsm.56.60"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7600/jspfsm.56.60")
       expect(subject.url).to eq("http://jlc.jst.go.jp/JST.JSTAGE/jspfsm/56.60?lang=en&from=CrossRef&type=abstract")
@@ -124,7 +124,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal article with RDF for container" do
       input = "https://doi.org/10.1163/1937240X-00002096"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1163/1937240x-00002096")
       expect(subject.url).to eq("https://academic.oup.com/jcb/article-lookup/doi/10.1163/1937240X-00002096")
@@ -144,7 +144,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "book chapter with RDF for container" do
       input = "10.1007/978-3-642-33191-6_49"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-642-33191-6_49")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-642-33191-6_49")
@@ -163,7 +163,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "posted_content" do
       input = "https://doi.org/10.1101/097196"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.url).to eq("http://biorxiv.org/lookup/doi/10.1101/097196")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"PostedContent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
@@ -181,7 +181,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "DOI with SICI DOI" do
       input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1890/0012-9658(2006)87%255b2832:tiopma%255d2.0.co;2")
       expect(subject.url).to eq("http://doi.wiley.com/10.1890/0012-9658(2006)87[2832:TIOPMA]2.0.CO;2")
@@ -201,7 +201,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "DOI with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1155/2012/291294")
       expect(subject.url).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
@@ -226,7 +226,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "date in future" do
       input = "https://doi.org/10.1016/j.ejphar.2015.03.018"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1016/j.ejphar.2015.03.018")
       expect(subject.identifiers).to eq([{"identifier"=>"S0014299915002332", "identifierType"=>"Publisher ID"}])
@@ -245,7 +245,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "vor with url" do
       input = "https://doi.org/10.1038/hdy.2013.26"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1038/hdy.2013.26")
       expect(subject.url).to eq("http://www.nature.com/articles/hdy201326")
@@ -264,7 +264,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "dataset" do
       input = "10.2210/pdb4hhb/pdb"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.2210/pdb4hhb/pdb")
       expect(subject.url).to eq("https://www.wwpdb.org/pdb?id=pdb_00004hhb")
@@ -281,7 +281,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "component" do
       input = "10.1371/journal.pmed.0030277.g001"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1371/journal.pmed.0030277.g001")
       expect(subject.url).to eq("https://dx.plos.org/10.1371/journal.pmed.0030277.g001")
@@ -297,7 +297,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "dataset usda" do
       input = "https://doi.org/10.2737/RDS-2018-0001"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.2737/rds-2018-0001")
       expect(subject.url).to eq("https://www.fs.usda.gov/rds/archive/Catalog/RDS-2018-0001")
@@ -314,7 +314,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "book chapter" do
       input = "https://doi.org/10.1007/978-3-662-46370-3_13"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
@@ -330,7 +330,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "another book chapter" do
       input = "https://doi.org/10.1007/978-3-319-75889-3_1"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-319-75889-3_1")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-319-75889-3_1")
@@ -345,7 +345,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "yet another book chapter" do
       input = "https://doi.org/10.4018/978-1-4666-1891-6.ch004"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4018/978-1-4666-1891-6.ch004")
       expect(subject.url).to eq("http://services.igi-global.com/resolvedoi/resolve.aspx?doi=10.4018/978-1-4666-1891-6.ch004")
@@ -360,7 +360,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "missing creator" do
       input = "https://doi.org/10.3390/publications6020015"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.3390/publications6020015")
       expect(subject.url).to eq("http://www.mdpi.com/2304-6775/6/2/15")
@@ -375,7 +375,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "book" do
       input = "https://doi.org/10.1017/9781108348843"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1017/9781108348843")
       expect(subject.identifiers).to eq([{"identifier"=>"9781108348843", "identifierType"=>"ISBN"}])
@@ -392,7 +392,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "another book" do
       input = "https://doi.org/10.2973/odp.proc.ir.180.2000"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.2973/odp.proc.ir.180.2000")
       expect(subject.url).to eq("http://www-odp.tamu.edu/publications/180_IR/180TOC.HTM")
@@ -410,7 +410,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "yet another book" do
       input = "https://doi.org/10.1029/ar035"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1029/ar035")
       expect(subject.identifiers).to eq([{"identifier"=>"0-87590-181-6", "identifierType"=>"ISBN"}])
@@ -430,7 +430,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "mEDRA" do
       input = "https://doi.org/10.3280/ecag2018-001005"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.3280/ecag2018-001005")
       expect(subject.identifiers).to eq([{"identifier"=>"5", "identifierType"=>"Publisher ID"}])
@@ -447,7 +447,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "KISTI" do
       input = "https://doi.org/10.5012/bkcs.2013.34.10.2889"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5012/bkcs.2013.34.10.2889")
       expect(subject.identifiers).to eq([{"identifier"=>"JCGMCS_2013_v34n10_2889", "identifierType"=>"Publisher ID"}])
@@ -464,7 +464,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "JaLC" do
       input = "https://doi.org/10.1241/johokanri.39.979"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1241/johokanri.39.979")
       expect(subject.url).to eq("http://joi.jlc.jst.go.jp/JST.JSTAGE/johokanri/39.979?from=CrossRef")
@@ -479,7 +479,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "OP" do
       input = "https://doi.org/10.2903/j.efsa.2018.5239"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.2903/j.efsa.2018.5239")
       expect(subject.url).to eq("http://doi.wiley.com/10.2903/j.efsa.2018.5239")
@@ -495,7 +495,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "multiple titles" do
       input = "https://doi.org/10.4000/dms.865"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4000/dms.865")
       expect(subject.url).to eq("http://journals.openedition.org/dms/865")
@@ -511,7 +511,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "markup" do
       input = "https://doi.org/10.1098/rspb.2017.0132"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1098/rspb.2017.0132")
       expect(subject.url).to eq("https://royalsocietypublishing.org/doi/10.1098/rspb.2017.0132")
@@ -528,7 +528,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "empty given name" do
       input = "https://doi.org/10.1111/J.1865-1682.2010.01171.X"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1111/j.1865-1682.2010.01171.x")
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/j.1865-1682.2010.01171.x")
@@ -544,7 +544,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "invalid date" do
       input = "https://doi.org/10.1055/s-0039-1690894"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1055/s-0039-1690894")
       expect(subject.identifiers).to eq([{"identifier"=>"s-0039-1690894", "identifierType"=>"Publisher ID"}])
@@ -565,7 +565,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal article with" do
       input = "https://doi.org/10.1111/nph.14619"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1111/nph.14619")
       expect(subject.url).to eq("http://doi.wiley.com/10.1111/nph.14619")
@@ -587,7 +587,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author literal" do
       input = "https://doi.org/10.1038/ng.3834"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1038/ng.3834")
       expect(subject.url).to eq("http://www.nature.com/articles/ng.3834")
@@ -604,7 +604,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "journal issue" do
       input = "https://doi.org/10.6002/ect.2015.0371"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.6002/ect.2015.0371")
       expect(subject.url).to eq("http://ectrx.org/forms/ectrxcontentshow.php?doi_id=10.6002/ect.2015.0371")
@@ -622,7 +622,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "not found error" do
       input = "https://doi.org/10.7554/elife.01567x"
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567x")
       expect(subject.doi).to eq("10.7554/elife.01567x")

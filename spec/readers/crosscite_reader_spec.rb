@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { fixture_path + "crosscite.json" }
 
-  subject { Bolognese::Metadata.new(input) }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "get crosscite raw" do
     it "SoftwareSourceCode" do
@@ -27,7 +27,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "SoftwareSourceCode as string" do
       input = IO.read(fixture_path + "crosscite.json")
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"Identifier"=>"https://doi.org/10.5281/zenodo.48440", "identifierType"=>"DOI"}, {"Identifier"=>"http://zenodo.org/record/48440", "identifierType"=>"URL"}])
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"other", "resourceType"=>"Software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")

@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as bibtex" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.7554/elife.01567")
@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1155/2012/291294")
@@ -37,7 +37,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "text" do
       input = "10.3204/desy-2014-01645"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("phdthesis")
@@ -50,7 +50,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "climate data" do
       input = "https://doi.org/10.5067/altcy-tj122"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
@@ -62,7 +62,7 @@ describe Bolognese::Metadata, vcr: true do
     
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/qeg0-3gm3")
@@ -78,7 +78,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting from string" do
       input = fixture_path + "datacite.json"
-      subject = Bolognese::Metadata.new(input, from: "datacite_json")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
       expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
@@ -92,7 +92,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -105,7 +105,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Dataset" do
       input = "https://doi.org/10.5061/dryad.8515"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
@@ -119,7 +119,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "from schema_org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("article")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -133,7 +133,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "authors with affiliations" do
       input = "10.16910/jemr.9.1.2"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.16910/jemr.9.1.2")
@@ -148,7 +148,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "keywords subject scheme" do
       input = "https://doi.org/10.1594/pangaea.721193"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.1594/pangaea.721193")
@@ -160,7 +160,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author is organization" do
       input = fixture_path + 'gtex.xml'
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.25491/9hx8-ke93")
@@ -169,7 +169,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "dataset neurophysiology" do
       input = fixture_path + 'datacite-schema-2.2.xml'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
       expect(bibtex[:bibtex_type].to_s).to eq("misc")

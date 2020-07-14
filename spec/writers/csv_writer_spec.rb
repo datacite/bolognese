@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as csv" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       csv = (subject.csv).parse_csv
       
       expect(csv[0]).to eq("10.7554/elife.01567")
@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       csv = (subject.csv).parse_csv
 
       expect(csv[0]).to eq("10.1155/2012/291294")
@@ -40,7 +40,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "text" do
       input = "https://doi.org/10.3204/desy-2014-01645"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
 
       expect(subject.valid?).to be true
       csv = (subject.csv).parse_csv
@@ -58,7 +58,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "climate data" do
       input = "https://doi.org/10.5067/altcy-tj122"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       csv = (subject.csv).parse_csv
 
@@ -76,7 +76,7 @@ describe Bolognese::Metadata, vcr: true do
     
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       csv = (subject.csv).parse_csv
 
       expect(csv[0]).to eq("10.5438/qeg0-3gm3")

@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { fixture_path + "cgimp_package.json" }
 
-  subject { Bolognese::Metadata.new(input, from: "npm") }
+  subject { Bolognese::Metadata.new(input: input, from: "npm") }
 
   context "get npm raw" do
     it "software" do
@@ -31,7 +31,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "minimal with description" do
       input = fixture_path + "cit_package.json"
-      subject = Bolognese::Metadata.new(input, from: "npm") 
+      subject = Bolognese::Metadata.new(input: input, from: "npm") 
       expect(subject.valid?).to be false
       expect(subject.errors.first).to start_with("3:0: ERROR: Element '{http://datacite.org/schema/kernel-4}identifier'")
       #expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])
@@ -47,7 +47,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "minimal with description" do
       input = fixture_path + "edam_package.json"
-      subject = Bolognese::Metadata.new(input, from: "npm") 
+      subject = Bolognese::Metadata.new(input: input, from: "npm") 
       expect(subject.valid?).to be false
       expect(subject.errors.first).to start_with("3:0: ERROR: Element '{http://datacite.org/schema/kernel-4}identifier'")
       #expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}])

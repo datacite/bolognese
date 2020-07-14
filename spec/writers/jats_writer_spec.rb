@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as jats xml" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
       expect(jats.dig("article_title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
@@ -20,7 +20,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
       expect(jats.dig("article_title")).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
@@ -32,7 +32,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with editor" do
       input = "https://doi.org/10.1371/journal.pone.0000030"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
       expect(jats.dig("article_title")).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
@@ -49,7 +49,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "book chapter" do
       input = "https://doi.org/10.5005/jp/books/12414_3"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("chapter")
       expect(jats.dig("chapter_title")).to eq("Physical Examinations")
@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
       expect(jats.dig("article_title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
@@ -77,7 +77,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input, from: "citeproc")
+      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to be_nil
       expect(jats.dig("source")).to eq("Eating your own Dog Food")
@@ -91,7 +91,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("software")
       expect(jats.dig("source")).to eq("R Interface to the DataONE REST API")
@@ -107,7 +107,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("software")
       expect(jats.dig("source")).to eq("Maremma: a Ruby library for simplified network calls")
@@ -121,7 +121,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Text pass-thru" do
       input = "https://doi.org/10.23640/07243.5153971"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
       expect(jats.dig("article_title")).to eq("Recommendation of: ORCID Works Metadata Working Group")
@@ -134,7 +134,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Dataset in schema 4.0" do
       input = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(input, from: "datacite", regenerate: true)
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("data")
       expect(jats.dig("data_title")).to eq("Data from: A new malaria agent in African hominids.")
@@ -147,7 +147,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with data citation schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to be_nil
       expect(jats.dig("source")).to eq("Eating your own Dog Food")
@@ -161,7 +161,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "interactive resource without dates" do
       input = "https://doi.org/10.34747/g6yb-3412"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to be_nil
       expect(jats.dig("source")).to eq("Exploring the \"Many analysts, one dataset\" project from COS")
@@ -177,7 +177,7 @@ describe Bolognese::Metadata, vcr: true do
   context "change metadata as datacite xml" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
       expect(jats.dig("article_title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")

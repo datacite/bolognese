@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as datacite json" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
@@ -22,7 +22,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("url")).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
@@ -32,7 +32,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
@@ -43,7 +43,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input, from: "citeproc")
+      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
@@ -53,7 +53,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(datacite.fetch("creators").length).to eq(3)
@@ -64,7 +64,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"Maremma: a Ruby library for simplified network calls"}])
       expect(datacite.fetch("creators")).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
@@ -79,7 +79,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with data citation schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])

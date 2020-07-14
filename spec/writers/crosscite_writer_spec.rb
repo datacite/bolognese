@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as crosscite" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
       expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
@@ -23,7 +23,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("creators").count).to eq(7)
@@ -32,14 +32,14 @@ describe Bolognese::Metadata, vcr: true do
 
     # it "with editor" do
     #   input = "https://doi.org/10.1371/journal.pone.0000030"
-    #   subject = Bolognese::Metadata.new(input, from: "crossref")
+    #   subject = Bolognese::Metadata.new(input: input, from: "crossref")
     #   crosscite = JSON.parse(subject.crosscite)
     #   expect(crosscite["editor"]).to eq("contributorType"=>"Editor", "contributorName"=>"Janbon, Guilhem", "givenName"=>"Guilhem", "familyName"=>"Janbon")
     # end
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Text", "resourceType"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
@@ -50,7 +50,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input, from: "citeproc")
+      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       expect(subject.valid?).to be true
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["types"]).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
@@ -61,7 +61,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
@@ -71,7 +71,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone codemeta v2" do
       input = fixture_path + 'codemeta_v2.json'
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
@@ -81,7 +81,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "datacite database attributes" do
       input = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("url")).to eq("http://datadryad.org/stash/dataset/doi:10.5061/dryad.8515")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Data from: A new malaria agent in African hominids."}])
@@ -95,7 +95,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("titles")).to eq( [{"title"=>"Maremma: a Ruby library for simplified network calls"}])
       expect(crosscite.fetch("creators")).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
@@ -110,7 +110,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with data citation schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])

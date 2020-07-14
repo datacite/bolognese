@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as datacite xml" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with ORCID ID" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
@@ -35,7 +35,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with editor" do
       input = "https://doi.org/10.1371/journal.pone.0000030"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("contributors", "contributor")).to eq("contributorName"=>{"__content__"=>"Janbon, Guilhem", "nameType"=>"Personal"}, "contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem")
@@ -43,7 +43,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
@@ -56,7 +56,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input, from: "citeproc")
+      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
@@ -68,7 +68,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
@@ -92,7 +92,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone and codemeta_v2" do
       input = fixture_path + 'codemeta_v2.json'
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("R Interface to the DataONE REST API")
@@ -116,7 +116,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
@@ -125,7 +125,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with version" do
       input = "https://doi.org/10.5281/zenodo.28518"
-      subject = Bolognese::Metadata.new(input, from: "datacite", regenerate: true)
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.28518")
       expect(subject.identifiers).to eq([{"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])
@@ -154,7 +154,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Text pass-thru" do
       input = "https://doi.org/10.23640/07243.5153971"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.23640/07243.5153971")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
@@ -180,7 +180,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Text pass-thru with doi in options" do
       input = "https://doi.org/10.23640/07243.5153971"
-      subject = Bolognese::Metadata.new(input, from: "datacite", doi: "10.5072/07243.5153971")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.5072/07243.5153971")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5072/07243.5153971")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"Paper", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
@@ -206,7 +206,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Dataset in schema 4.0" do
       input = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(input, from: "datacite", regenerate: true)
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(8)
@@ -234,7 +234,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Affiliation" do
       input = fixture_path + 'datacite-example-geolocation-2.xml'
       doi = "10.6071/Z7WC73"
-      subject = Bolognese::Metadata.new(input, from: "datacite", regenerate: true)
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceType"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.creators.length).to eq(6)
@@ -259,7 +259,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "with data citation schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Eating your own Dog Food")
@@ -269,7 +269,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "DOI not found" do
       input = "https://doi.org/10.4124/05F6C379-DD68-4CDB-880D-33D3E9576D52/1"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be false
       expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
@@ -282,7 +282,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "no input" do
       input = nil
-      subject = Bolognese::Metadata.new(input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.valid?).to be false
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
@@ -293,7 +293,7 @@ describe Bolognese::Metadata, vcr: true do
   context "change metadata as datacite xml" do
     it "with data citation" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "10.5061/DRYAD.8515"
       subject.titles = [{ "title" => "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth" }]
       subject.types = { "schemaOrg" => "Dataset", "resourceTypeGeneral" => "Dataset" }
@@ -312,7 +312,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change description" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.descriptions = { "description" => "This is an abstract." }
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -321,7 +321,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change description no input" do
       input = nil
-      subject = Bolognese::Metadata.new(input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       subject.descriptions = "This is an abstract."
       expect(subject.valid?).to be false
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -330,7 +330,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "required metadata no input" do
       input = nil
-      subject = Bolognese::Metadata.new(input, doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
+      subject = Bolognese::Metadata.new(input: input, doi: "10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       subject.creators = [{"creatorName"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}]
       subject.titles = [{ "title" => "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth" }]
       subject.types = { "schemaOrg" => "Dataset", "resourceTypeGeneral" => "Dataset" }
@@ -346,7 +346,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change license" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.rights_list = [{ "rights_uri" => "https://creativecommons.org/licenses/by-nc-sa/4.0", "rights" => "Creative Commons Attribution-NonCommercial-ShareAlike" }]
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -355,7 +355,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change license url" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.rights_list = [{ "rightsUri" => "https://creativecommons.org/licenses/by-nc-sa/4.0" }]
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -364,7 +364,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change license name" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.rights_list = [{ "rights" => "Creative Commons Attribution-NonCommercial-ShareAlike" }]
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -373,7 +373,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change state" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       expect(subject.state).to eq("findable")
       subject.state = "registered"
@@ -384,7 +384,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "change identifiers" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       expect(subject.identifiers).to eq( [{"identifier"=>"e01567", "identifierType"=>"Publisher ID"}])
       subject.identifiers = [{ "identifierType" => "Publisher ID", "identifier" => "abc" }]
@@ -395,7 +395,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "validates against schema" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       subject.doi = "123"
       subject.titles = "Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"
       subject.types = { "schemaOrg" => "Dataset", "resourceTypeGeneral" => "Dataset" }
@@ -405,7 +405,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "from schema_org gtex" do
       input = fixture_path + "schema_org_gtex.json"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.25491/d50j-3083")

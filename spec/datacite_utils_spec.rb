@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { "https://doi.org/10.5061/DRYAD.8515" }
 
-  subject { Bolognese::Metadata.new(input, from: "datacite") }
+  subject { Bolognese::Metadata.new(input: input, from: "datacite") }
 
   context "insert_identifier" do
     it "doi" do
@@ -124,7 +124,7 @@ describe Bolognese::Metadata, vcr: true do
   context "insert_formats" do
     let(:input) { IO.read(fixture_path + 'datacite-empty-sizes.xml') }
     
-    subject { Bolognese::Metadata.new(input, from: "datacite") }
+    subject { Bolognese::Metadata.new(input: input, from: "datacite") }
 
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_formats(xml) }.to_xml
@@ -169,7 +169,7 @@ describe Bolognese::Metadata, vcr: true do
   context "insert_descriptions" do
     it "insert" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_descriptions(xml) }.to_xml
       response = Maremma.from_xml(xml)
       expect(response.dig("descriptions", "description")).to eq("descriptionType" => "Abstract", "__content__" => "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")

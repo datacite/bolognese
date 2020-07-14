@@ -6,12 +6,12 @@ describe Bolognese::Metadata, vcr: true do
   let(:input) { "https://blog.datacite.org/eating-your-own-dog-food/" }
   let(:fixture_path) { "spec/fixtures/" }
 
-  subject { Bolognese::Metadata.new(input) }
+  subject { Bolognese::Metadata.new(input: input) }
 
   context "get schema_org raw" do
     it "BlogPosting" do
       input = fixture_path + 'schema_org.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
@@ -36,7 +36,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "BlogPosting with new DOI" do
-      subject = Bolognese::Metadata.new(input, doi: "10.5438/0000-00ss")
+      subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
       expect(subject.doi).to eq("10.5438/0000-00ss")
@@ -46,7 +46,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting with type as array" do
       input = fixture_path + 'schema_org_type_as_array.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       #expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
@@ -64,7 +64,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "zenodo" do
       input = "https://www.zenodo.org/record/1196821"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be false
 
       expect(subject.language).to eq("eng")
@@ -96,7 +96,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "pangaea" do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1594/pangaea.836178")
@@ -113,7 +113,7 @@ describe Bolognese::Metadata, vcr: true do
     # TODO: check redirections
     # it "ornl" do
     #   input = "https://doi.org/10.3334/ornldaac/1339"
-    #   subject = Bolognese::Metadata.new(input, from: "schema_org")
+    #   subject = Bolognese::Metadata.new(input: input, from: "schema_org")
     #   expect(subject.valid?).to be true
     #   expect(subject.id).to eq("https://doi.org/10.3334/ornldaac/1339")
     #   expect(subject.doi).to eq("10.3334/ornldaac/1339")
@@ -126,7 +126,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "harvard dataverse" do
       input = "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NJ7XSO"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7910/dvn/nj7xso")
       expect(subject.doi).to eq("10.7910/dvn/nj7xso")
@@ -142,7 +142,7 @@ describe Bolognese::Metadata, vcr: true do
     # TODO check 403 status in DOI resolver
     # it "harvard dataverse via identifiers.org" do
     #   input = "https://identifiers.org/doi/10.7910/DVN/NJ7XSO"
-    #   subject = Bolognese::Metadata.new(input, from: "schema_org")
+    #   subject = Bolognese::Metadata.new(input: input, from: "schema_org")
     #   expect(subject.valid?).to be true
     #   expect(subject.id).to eq("https://doi.org/10.7910/dvn/nj7xso")
     #   expect(subject.doi).to eq("10.7910/dvn/nj7xso")
@@ -156,7 +156,7 @@ describe Bolognese::Metadata, vcr: true do
   context "get schema_org metadata as string" do
     it "BlogPosting" do
       input = fixture_path + 'schema_org.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.language).to eq("en")
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -176,7 +176,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "GTEx dataset" do
       input = fixture_path + 'schema_org_gtex.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.25491/d50j-3083")
@@ -198,7 +198,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "TOPMed dataset" do
       input = fixture_path + 'schema_org_topmed.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"3b33f6b9338fccab0901b7d317577ea3", "identifierType"=>"md5"},
         {"identifier"=>"ark:/99999/fk41CrU4eszeLUDe", "identifierType"=>"minid"},
@@ -218,13 +218,13 @@ describe Bolognese::Metadata, vcr: true do
 
     it "tdl_iodp dataset" do
       input = fixture_path + 'schema_org_tdl_iodp_invalid_authors.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be false
     end
 
     it "geolocation" do
       input = fixture_path + 'schema_org_geolocation.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.6071/z7wc73", "identifierType"=>"DOI"}])
@@ -249,7 +249,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "geolocation geoshape" do
       input = fixture_path + 'schema_org_geoshape.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
       expect(subject.language).to eq("en")
@@ -267,7 +267,7 @@ describe Bolognese::Metadata, vcr: true do
     it "schema_org list" do
       data = IO.read(fixture_path + 'schema_org_list.json').strip
       input = JSON.parse(data).first.to_json
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.23725/7jg3-v803")
       expect(subject.identifiers).to eq([{"identifier"=>"ark:/99999/fk4E1n6n1YHKxPk", "identifierType"=>"minid"},
@@ -288,7 +288,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "aida dataset" do
       input = fixture_path + 'aida.json'
-      subject = Bolognese::Metadata.new(input)
+      subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
@@ -307,7 +307,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "from attributes" do
-      subject = Bolognese::Metadata.new(nil,
+      subject = Bolognese::Metadata.new(input: nil,
         from: "schema_org",
         doi: "10.5281/zenodo.1239",
         creators: [{"type"=>"Person", "name"=>"Jahn, Najko", "givenName"=>"Najko", "familyName"=>"Jahn"}],

@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as rdf xml" do
     it "journal article" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
@@ -16,7 +16,7 @@ describe Bolognese::Metadata, vcr: true do
     
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
-      subject = Bolognese::Metadata.new(input, from: "crossref")
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.1155/2012/291294")
@@ -28,7 +28,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Crossref DOI" do
       input = fixture_path + "crossref.bib"
-      subject = Bolognese::Metadata.new(input, from: "bibtex")
+      subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
 
@@ -40,7 +40,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting" do
       input = "https://doi.org/10.5438/4K3M-NYVG"
-      subject = Bolognese::Metadata.new(input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
@@ -51,7 +51,7 @@ describe Bolognese::Metadata, vcr: true do
     
     it "BlogPosting Citeproc JSON" do
       input = fixture_path + "citeproc.json"
-      subject = Bolognese::Metadata.new(input, from: "citeproc")
+      subject = Bolognese::Metadata.new(input: input, from: "citeproc")
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("BlogPosting", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(rdf_xml.dig("BlogPosting", "name")).to eq("Eating your own Dog Food")
@@ -60,7 +60,7 @@ describe Bolognese::Metadata, vcr: true do
     
     it "maremma" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("SoftwareSourceCode", "rdf:about")).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(rdf_xml.dig("SoftwareSourceCode", "author", "Person", "rdf:about")).to eq("https://orcid.org/0000-0003-0077-4738")
@@ -72,7 +72,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "BlogPosting schema.org" do
       input = "https://blog.datacite.org/eating-your-own-dog-food/"
-      subject = Bolognese::Metadata.new(input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("BlogPosting", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
