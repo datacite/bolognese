@@ -31,7 +31,7 @@ module Bolognese
     method_option :locale, aliases: "-l", default: "en-US"
     method_option :show_errors, :type => :boolean, :force => false
     def convert(input)
-      metadata = Metadata.new(input: input,
+      metadata = Metadata.new(input,
                               from: options[:from],
                               regenerate: options[:regenerate],
                               style: options[:style],

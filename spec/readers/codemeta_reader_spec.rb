@@ -5,12 +5,12 @@ require 'spec_helper'
 describe Bolognese::Metadata, vcr: true do
   let(:input) { "https://github.com/datacite/maremma" }
 
-  subject { Bolognese::Metadata.new(input: input) }
+  subject { Bolognese::Metadata.new(input) }
 
   context "get codemeta raw" do
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       expect(subject.raw).to eq(IO.read(input).strip)
     end
   end
@@ -45,7 +45,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       expect(subject.id).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
@@ -86,7 +86,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma" do
       input = fixture_path + 'maremma/codemeta.json'
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
@@ -115,7 +115,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "metadata_reports" do
       input = "https://github.com/datacite/metadata-reports/blob/master/software/codemeta.json"
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/wr0x-e194")
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")

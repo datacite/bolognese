@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as schema_org" do
     it "journal article" do
       input = "10.7554/eLife.01567"
-      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      subject = Bolognese::Metadata.new(input, from: "crossref")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
       expect(json["@type"]).to eq("ScholarlyArticle")
@@ -29,7 +29,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "maremma schema.org JSON" do
       input = "https://github.com/datacite/maremma"
-      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input, from: "codemeta")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(json["@type"]).to eq("SoftwareSourceCode")
@@ -39,7 +39,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema.org JSON" do
       input = "https://doi.org/10.5281/ZENODO.48440"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.48440")
       expect(json["@type"]).to eq("SoftwareSourceCode")
@@ -49,7 +49,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema.org JSON isReferencedBy" do
       input = "https://doi.org/10.5061/DRYAD.8515"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
       expect(json["@type"]).to eq("Dataset")
@@ -60,7 +60,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema.org JSON IsSupplementTo" do
       input = "https://doi.org/10.5517/CC8H01S"
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5517/cc8h01s")
       expect(json["@type"]).to eq("Dataset")
@@ -69,7 +69,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Schema.org JSON Cyark" do
       input = "https://doi.org/10.26301/jgf3-jm06"
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.26301/jgf3-jm06")
       expect(json["@type"]).to eq("Dataset")
@@ -77,7 +77,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "rdataone" do
       input = fixture_path + 'codemeta.json'
-      subject = Bolognese::Metadata.new(input: input, from: "codemeta")
+      subject = Bolognese::Metadata.new(input, from: "codemeta")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(json["@type"]).to eq("SoftwareSourceCode")
@@ -101,7 +101,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Funding" do
       input = "https://doi.org/10.5438/6423"
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5438/6423")
       expect(json["@type"]).to eq("Collection")
@@ -113,7 +113,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "Funding OpenAIRE" do
       input = "https://doi.org/10.5281/ZENODO.1239"
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5281/zenodo.1239")
       expect(json["@type"]).to eq("Dataset")
@@ -123,7 +123,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "subject scheme" do
       input = "https://doi.org/10.4232/1.2745"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.4232/1.2745")
       expect(json["@type"]).to eq("Dataset")
@@ -133,7 +133,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "subject scheme multiple keywords" do
       input = "https://doi.org/10.1594/pangaea.721193"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(json["@type"]).to eq("Dataset")
@@ -146,7 +146,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'gtex.xml'
       url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
       content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"  
-      subject = Bolognese::Metadata.new(input: input, url: url, content_url: content_url, from: "datacite")
+      subject = Bolognese::Metadata.new(input, url: url, content_url: content_url, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
       expect(json["@type"]).to eq("Dataset")
@@ -161,7 +161,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "series information" do
       input = "10.4229/23RDEUPVSEC2008-5CO.8.3"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.4229/23rdeupvsec2008-5co.8.3")
       expect(json["@type"]).to eq("ScholarlyArticle")
@@ -173,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "data catalog" do
       input = "10.25491/8KMC-G314"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/8kmc-g314")
       expect(json["@type"]).to eq("Dataset")
@@ -186,7 +186,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "alternate identifiers" do
       input = "10.23725/8na3-9s47"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.23725/8na3-9s47")
       expect(json["@type"]).to eq("Dataset")
@@ -209,7 +209,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "affiliation identifier" do
       input = fixture_path + 'datacite-example-affiliation.xml'
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5072/example-full")
       expect(json["@type"]).to eq("SoftwareSourceCode")
@@ -232,7 +232,7 @@ describe Bolognese::Metadata, vcr: true do
     it "geo_location_point" do
       input = fixture_path + 'datacite-example-geolocation-2.xml'
       doi = "10.6071/Z7WC73"
-      subject = Bolognese::Metadata.new(input: input, doi: doi)
+      subject = Bolognese::Metadata.new(input, doi: doi)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.6071/z7wc73")
       expect(json["@type"]).to eq("Dataset")
@@ -256,7 +256,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "geo_location_box" do
       input = "10.1594/PANGAEA.842237"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.842237")
       expect(json["@type"]).to eq("Dataset")
@@ -274,7 +274,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "geo_location_polygon" do
       input = fixture_path + 'datacite-example-polygon-v4.1.xml'
-      subject = Bolognese::Metadata.new(input: input)
+      subject = Bolognese::Metadata.new(input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5072/example-polygon")
       expect(json["@type"]).to eq("Dataset")
@@ -287,7 +287,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "from schema_org gtex" do
       input = fixture_path + 'schema_org_gtex.json'
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input, from: "schema_org")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/d50j-3083")
       expect(json["@type"]).to eq("Dataset")
@@ -329,7 +329,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "from schema_org topmed" do
       input = fixture_path + 'schema_org_topmed.json'
-      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
+      subject = Bolognese::Metadata.new(input, from: "schema_org")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.23725/8na3-9s47")
       expect(json["@type"]).to eq("Dataset")
@@ -359,7 +359,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "interactive resource without dates" do
       input = "https://doi.org/10.34747/g6yb-3412"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.34747/g6yb-3412")
       expect(json["@type"]).to eq("CreativeWork")

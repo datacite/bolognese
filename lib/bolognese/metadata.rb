@@ -15,7 +15,7 @@ module Bolognese
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers, :style, :locale, :date_registered
 
-    def initialize(input: nil, **opts)
+    def initialize(input, **opts)
       options = HashWithIndifferentAccess.new(opts)
       id = normalize_id(input, options)
       ra = nil

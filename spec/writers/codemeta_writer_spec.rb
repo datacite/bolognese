@@ -6,7 +6,7 @@ describe Bolognese::Metadata, vcr: true do
   context "write metadata as codemeta" do
     # it "SoftwareSourceCode DataCite JSON" do
     #   input = fixture_path + "datacite_software.json"
-    #   subject = Bolognese::Metadata.new(input: input, from: "datacite_json")
+    #   subject = Bolognese::Metadata.new(input, from: "datacite_json")
     #   expect(subject.valid?).to be true
     #   json = JSON.parse(subject.codemeta)
     #   expect(json["@context"]).to eq("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
@@ -21,7 +21,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "SoftwareSourceCode DataCite" do
       input = "https://doi.org/10.5063/f1m61h5x"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.codemeta)
       expect(json["@context"]).to eq("https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld")
@@ -35,7 +35,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "SoftwareSourceCode DataCite check codemeta v2" do
       input = "https://doi.org/10.5063/f1m61h5x"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input, from: "datacite")
       expect(subject.valid?).to be true
       json = JSON.parse(subject.codemeta)
       expect(json["agents"]).to  be_nil
