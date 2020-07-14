@@ -15,13 +15,13 @@ module Bolognese
                 :format, :funding_references, :state, :geo_locations,
                 :types, :content_url, :related_identifiers, :style, :locale, :date_registered
 
-    def initialize(input: nil, **opts)
-      options = HashWithIndifferentAccess.new(opts)
+    def initialize(input: nil, from: nil, **options)
+      options.symbolize_keys!
       id = normalize_id(input, options)
       ra = nil
 
       if id.present?
-        @from = options[:from] || find_from_format(id: id)
+        @from = from || find_from_format(id: id)
 
         # mEDRA, KISTI, JaLC and OP DOIs are found in the Crossref index
         if @from == "medra"
@@ -51,7 +51,7 @@ module Bolognese
             "client_id" => options[:client_id],
             "content_url" => options[:content_url] }
           string = IO.read(input)
-          @from = options[:from] || find_from_format(string: string, filename: filename, ext: ext)
+          @from = from || find_from_format(string: string, filename: filename, ext: ext)
         else
           $stderr.puts "File type #{ext} not supported"
           exit 1
@@ -71,7 +71,7 @@ module Bolognese
           "publisher" => options[:publisher],
           "publication_year" => options[:publication_year] }
         string = input
-        @from = options[:from] || find_from_format(string: string)
+        @from = from || find_from_format(string: string)
       end
 
       # make sure input is encoded as utf8
@@ -95,25 +95,25 @@ module Bolognese
 
       # set attributes directly
       read_options = options.slice(
-        "creators",
-        "contributors",
-        "titles",
-        "types",
-        "identifiers",
-        "container",
-        "publisher",
-        "funding_references",
-        "dates",
-        "publication_year",
-        "descriptions",
-        "rights_list",
-        "version_info",
-        "subjects",
-        "language",
-        "geo_locations",
-        "related_identifiers",
-        "formats",
-        "sizes"
+        :creators,
+        :contributors,
+        :titles,
+        :types,
+        :identifiers,
+        :container,
+        :publisher,
+        :funding_references,
+        :dates,
+        :publication_year,
+        :descriptions,
+        :rights_list,
+        :version_info,
+        :subjects,
+        :language,
+        :geo_locations,
+        :related_identifiers,
+        :formats,
+        :sizes
       ).compact
 
       @regenerate = options[:regenerate] || read_options.present?
