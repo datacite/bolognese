@@ -11,7 +11,13 @@ module Bolognese
     end
 
     def datacite_errors(xml: nil, schema_version: nil)
-      schema_version = schema_version.to_s.start_with?("http://datacite.org/schema/kernel") ? schema_version : "http://datacite.org/schema/kernel-4"
+      if xml.present?
+        namespaces = Nokogiri::XML(xml, nil, 'UTF-8').root.namespaces
+        schema_version = namespaces.fetch('xmlns',nil).presence || namespaces.fetch('xmlns:ns0',nil).presence
+      else
+        schema_version = schema_version.to_s.start_with?("http://datacite.org/schema/kernel") ? schema_version : "http://datacite.org/schema/kernel-4"
+      end
+
       kernel = schema_version.to_s.split("/").last
       filepath = File.expand_path("../../../resources/#{kernel}/metadata.xsd", __FILE__)
       schema = Nokogiri::XML::Schema(open(filepath))

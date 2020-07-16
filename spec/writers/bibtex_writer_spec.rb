@@ -19,6 +19,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:copyright]).to eq("Creative Commons Attribution 3.0 Unported")
     end
 
+    it "with schema_3" do
+      # input = fixture_path + "datacite_kernel_3.json"
+      input = fixture_path + "datacite_schema_3.xml"
+      json = Bolognese::Metadata.new(input: input, from: "datacite")
+      subject = Bolognese::Metadata.new(input: json.meta.to_json, from: "datacite_json")
+      bibtex = BibTeX.parse(subject.bibtex).to_a(quotes: '').first
+      expect(bibtex[:bibtex_type].to_s).to eq("misc")
+      expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.5061/dryad.8515")
+      expect(bibtex[:doi]).to eq("10.5061/dryad.8515")
+      expect(bibtex[:year]).to eq("2011")
+    end
+
     it "with pages" do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
