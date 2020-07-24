@@ -965,6 +965,8 @@ module Bolognese
       month = iso8601_time[5..6].to_i
       day = iso8601_time[8..9].to_i
       { 'date-parts' => [[year, month, day].reject { |part| part == 0 }] }
+    rescue TypeError
+      nil
     end
 
     def get_date_from_date_parts(date_as_parts)

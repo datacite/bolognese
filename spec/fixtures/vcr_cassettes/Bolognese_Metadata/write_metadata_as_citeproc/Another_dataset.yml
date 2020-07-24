@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.26301/qdpd-2250?include=media,client
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 24 Jul 2020 09:45:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - 9e991a49-1b31-467e-8398-17c65f21adff
+      Etag:
+      - W/"f61889405ef061735e59275bdbe3242a"
+      X-Runtime:
+      - '1.280903'
+      X-Powered-By:
+      - Phusion Passenger 6.0.6
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 6.0.6
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.26301/qdpd-2250","type":"dois","attributes":{"doi":"10.26301/qdpd-2250","prefix":"10.26301","suffix":"qdpd-2250","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"USS
+        Pampanito","nameType":"Organizational","givenName":null,"familyName":null,"affiliation":[],"nameIdentifiers":[]}],"titles":[{"lang":null,"title":"USS
+        Pampanito Submarine","titleType":null}],"publisher":"Open Heritage 3D","container":{},"publicationYear":2020,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"3D
+        Data","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjYzMDEvUURQRC0yMjUwPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5VU1MgUGFtcGFuaXRvPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+VVNTIFBhbXBhbml0byBTdWJtYXJpbmU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+T3BlbiBIZXJpdGFnZSAzRDwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAyMDwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+M0QgRGF0YTwvcmVzb3VyY2VUeXBlPgogIDxzaXplcy8+CiAgPGZvcm1hdHMvPgogIDx2ZXJzaW9uLz4KPC9yZXNvdXJjZT4K","url":"https://openheritage3d.org/project.php?id=qdpd-2250","contentUrl":null,"metadataVersion":1,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-01-10T18:51:00.000Z","registered":"2020-01-16T00:17:10.000Z","published":"2020","updated":"2020-07-24T09:41:35.000Z"},"relationships":{"client":{"data":{"id":"cyark.oh","type":"clients"}},"media":{"data":{"id":"10.26301/qdpd-2250","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cyark.oh","type":"clients","attributes":{"name":"OpenHeritage3D","symbol":"CYARK.OH","year":2019,"contactEmail":"scott.lee@cyark.org","alternateName":"Open
+        Heritage 3D","description":"As 3D and reality capture strategies for heritage
+        documentation become more widespread and available, there has emerged a growing
+        need to assist with guiding and facilitating accessibility to data, while
+        maintaining scientific rigor, cultural and ethical sensitivity, discoverability,
+        and archival standards. In response to these areas of need, The Open Heritage
+        3D Alliance (OHA) has developed as an advisory group governing the Open Heritage
+        3D initiative. This collaborative advisory group are among some of the earliest
+        adopters of 3D heritage documentation technologies, and offer first-hand guidance
+        for best practices in data management, sharing, and dissemination approaches
+        for 3D cultural heritage projects.\n\nThe founding members of the OHA, consist
+        of experts and organizational leaders from CyArk, Historic Environment Scotland,
+        and the University of South Florida Libraries, who together have significant
+        repositories of legacy and on-going 3D research and documentation projects.
+        These groups offer unique insight into not only the best practices for 3D
+        data capture and sharing, but also have come together around concerns dealing
+        with standards, formats, approach, ethics, and archive commitment. Together,
+        the OHA has begun the journey to provide open access to cultural heritage
+        3D data, while maintaining integrity, security, and standards relating to
+        discoverable dissemination. Together, the OHA will work to provide democratized
+        access to primary heritage 3D data submitted from donors and organizations,
+        and will help to facilitate an operation platform, archive, and organization
+        of resources into the future","language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":"https://openheritage3d.org/","created":"2019-03-26T16:21:19.000Z","updated":"2020-04-27T15:30:01.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cyark","type":"providers"}},"prefixes":{"data":[{"id":"10.26301","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Fri, 24 Jul 2020 09:45:26 GMT
+recorded_with: VCR 3.0.3

@@ -67,6 +67,19 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts" => [[2016, 12, 20]])
     end
 
+    it "Another dataset" do
+      input = "10.26301/qdpd-2250"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("dataset")
+      expect(json["id"]).to eq("https://doi.org/10.26301/qdpd-2250")
+      expect(json["DOI"]).to eq("10.26301/qdpd-2250")
+      expect(json["title"]).to eq("USS Pampanito Submarine")
+      expect(json["author"]).to eq([{"literal"=>"USS Pampanito"}])
+      expect(json["publisher"]).to eq("Open Heritage 3D")
+      expect(json["issued"]).to eq("date-parts"=>[[2020]])
+    end
+
     it "journal article" do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
