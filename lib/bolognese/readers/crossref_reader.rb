@@ -48,9 +48,13 @@ module Bolognese
           book_metadata = meta.dig("crossref", "book", "book_metadata")
           book_series_metadata = meta.dig("crossref", "book", "book_series_metadata")
           book_set_metadata = meta.dig("crossref", "book", "book_set_metadata")
-          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || book_metadata || book_series_metadata
+          bibliographic_metadata = meta.dig("crossref", "book", "content_item") || book_metadata || book_series_metadata || book_set_metadata
           resource_type = bibliographic_metadata.fetch("component_type", nil) ? "book-" + bibliographic_metadata.fetch("component_type") : "book"
-          publisher = book_metadata.present? ? book_metadata.dig("publisher", "publisher_name") : book_series_metadata.dig("publisher", "publisher_name")
+          # publisher = if book_metadata.present?
+          #               book_metadata.dig("publisher", "publisher_name")
+          #             elsif book_series_metadata.present?
+          #               book_series_metadata.dig("publisher", "publisher_name")
+          #             end
         when "conference"
           event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
           bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper").to_h
@@ -165,7 +169,7 @@ module Bolognese
           "funding_references" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
           "container" => container,
-          "agency" => agency = options[:ra] || "Crossref",
+          "agency" => agency = options[:ra] || "crossref",
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
@@ -239,7 +243,7 @@ module Bolognese
             { "nameType" => "Organizational",
               "name" => a["name"] || a["__content__"] }
           end
-        end.unwrap
+        end
       end
 
       def crossref_funding_reference(program_metadata)

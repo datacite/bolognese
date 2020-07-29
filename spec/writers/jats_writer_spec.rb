@@ -53,7 +53,7 @@ describe Bolognese::Metadata, vcr: true do
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("chapter")
       expect(jats.dig("chapter_title")).to eq("Physical Examinations")
-      expect(jats.dig("source")).to eq("Jaypee Brothers Medical Publishers (P) Ltd.")
+      expect(jats.dig("source")).to eq("Jaypee Brothers Medical Publishing")
       expect(jats.dig("person_group", "name")).to eq("surname"=>"Saha", "given_names"=>"Ashis")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2015", "__content__"=>"2015")
       expect(jats.dig("fpage")).to eq("27")

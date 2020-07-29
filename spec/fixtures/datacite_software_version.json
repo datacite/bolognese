@@ -68,7 +68,7 @@
   "schemaVersion": "http://datacite.org/schema/kernel-4",
   "providerId": "cern",
   "clientId": "cern.zenodo",
-  "agency": "DataCite",
+  "agency": "datacite",
   "state": "findable"
 }
    

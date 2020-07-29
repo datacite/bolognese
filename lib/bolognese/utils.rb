@@ -205,6 +205,7 @@ module Bolognese
       "AudioObject" => "Sound",
       "Blog" => "Text",
       "BlogPosting" => "Text",
+      "Book" => "Text",
       "Chapter" => "Text",
       "Collection" => "Collection",
       "DataCatalog" => "Dataset",

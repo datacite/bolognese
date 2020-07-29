@@ -147,7 +147,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2015")
       expect(subject.version_info).to eq("v0.3.2")
       expect(subject.publisher).to eq("Zenodo")
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
       expect(subject.datacite).to include("<version>v0.3.2</version>")
     end
@@ -173,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
         "subject"=>"FOS: Computer and information sciences",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -199,7 +199,7 @@ describe Bolognese::Metadata, vcr: true do
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
         "subject"=>"FOS: Computer and information sciences",
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
       expect(subject.datacite).to end_with("</resource>")
     end
@@ -224,7 +224,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.last).to eq("relatedIdentifier" => "10.1371/journal.ppat.1000446",
         "relatedIdentifierType" => "DOI","relationType"=>"IsSupplementTo")
       expect(subject.publisher).to eq("Dryad")
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -249,7 +249,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2014-10-17", "dateType"=>"Updated"}, {"date"=>"2016-03-14T17:02:02Z", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")
       expect(subject.publisher).to eq("UC Merced")
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
@@ -273,7 +273,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.id).to eq("https://doi.org/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(subject.doi).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
       expect(subject.state).to eq("not_found")
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite["identifier"]).to eq("identifierType"=>"DOI", "__content__"=>"10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")

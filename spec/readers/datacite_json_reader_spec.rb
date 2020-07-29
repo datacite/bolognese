@@ -25,7 +25,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
     end
 
     # it "SoftwareSourceCode" do
@@ -74,7 +74,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.datacite).to include("<version>v0.3.2</version>")
       expect(subject.related_identifiers.length).to eq(2)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"https://github.com/jakevdp/supersmoother/tree/v0.3.2", "relatedIdentifierType"=>"URL", "relationType"=>"IsSupplementTo")
-      expect(subject.agency).to eq("DataCite")
+      expect(subject.agency).to eq("datacite")
     end
   end
 end
