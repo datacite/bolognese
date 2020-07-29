@@ -41,6 +41,7 @@ module Bolognese
         journal_issue = {}
         journal_metadata = nil
         publisher = query.dig("crm_item", 0)
+        publisher = nil unless publisher.is_a?(String)
 
         case model
         when "book"
@@ -69,7 +70,7 @@ module Bolognese
                             end
         when "posted_content"
           bibliographic_metadata = meta.dig("crossref", "posted_content").to_h
-          publisher = bibliographic_metadata.dig("institution", "institution_name")
+          publisher ||= bibliographic_metadata.dig("institution", "institution_name")
         when "sa_component"
           bibliographic_metadata = meta.dig("crossref", "sa_component", "component_list", "component").to_h
           related_identifier = Array.wrap(query.to_h["crm_item"]).find { |cr| cr["name"] == "relation" }

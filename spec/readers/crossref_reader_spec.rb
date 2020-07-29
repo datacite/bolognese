@@ -175,7 +175,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.descriptions.first["description"]).to start_with("This article presents a practical roadmap")
       expect(subject.dates).to include({"date"=>"2017-10-09", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2017")
-      expect(subject.publisher).to eq("bioRxiv")
+      expect(subject.publisher).to eq("Cold Spring Harbor Laboratory")
       expect(subject.agency).to eq("Crossref")
     end
 
@@ -600,6 +600,27 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.agency).to eq("Crossref")
       expect(subject.date_registered).to eq("2019-11-02T09:30:06Z")
+    end
+
+    it "posted content copernicus" do
+      input = "https://doi.org/10.5194/CP-2020-95"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.url).to eq("https://cp.copernicus.org/preprints/cp-2020-95/")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"PostedContent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.count).to eq(6)
+      expect(subject.creators.first).to eq("nameType" => "Personal", "familyName" => "Shao",
+        "givenName" => "Jun",
+        "name" => "Shao, Jun",
+        "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-6130-6474", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}])
+      expect(subject.titles).to eq([{"title"=>"The Atmospheric Bridge Communicated the δ&lt;sup&gt;13&lt;/sup&gt;C Declineduring the Last Deglaciation to the Global Upper Ocean"}])
+      expect(subject.id).to eq("https://doi.org/10.5194/cp-2020-95")
+      expect(subject.identifiers).to be_empty
+      expect(subject.descriptions.first["description"]).to start_with("Abstract. During the early last glacial termination")
+      expect(subject.dates).to include({"date"=>"2020-07-28", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2020")
+      expect(subject.publisher).to eq("Copernicus GmbH")
+      expect(subject.agency).to eq("Crossref")
     end
 
     it "journal issue" do
