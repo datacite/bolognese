@@ -19,7 +19,7 @@ describe Bolognese::Metadata, vcr: true do
     it "DOI with data citation" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.identifiers).to eq([{"identifier"=>"e01567", "identifierType"=>"Publisher ID"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"e01567", "identifierType"=>"article_number"}])
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("https://elifesciences.org/articles/01567")
       expect(subject.creators.length).to eq(5)
@@ -82,7 +82,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.3389/fpls.2019.00816")
-      expect(subject.identifiers).to eq([{"identifier"=>"816", "identifierType"=>"Publisher ID"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"816", "identifierType"=>"article_number"}])
       expect(subject.url).to eq("https://www.frontiersin.org/article/10.3389/fpls.2019.00816/full")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(4)
@@ -229,7 +229,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1016/j.ejphar.2015.03.018")
-      expect(subject.identifiers).to eq([{"identifier"=>"S0014299915002332", "identifierType"=>"Publisher ID"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"S0014299915002332", "identifierType"=>"sequence-number"}])
       expect(subject.url).to eq("https://linkinghub.elsevier.com/retrieve/pii/S0014299915002332")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(10)
@@ -433,7 +433,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.3280/ecag2018-001005")
-      expect(subject.identifiers).to eq([{"identifier"=>"5", "identifierType"=>"Publisher ID"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"5", "identifierType"=>"article_number"}])
       expect(subject.url).to eq("http://www.francoangeli.it/riviste/Scheda_Riviste.asp?IDArticolo=61645")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(2)
@@ -547,7 +547,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1055/s-0039-1690894")
-      expect(subject.identifiers).to eq([{"identifier"=>"s-0039-1690894", "identifierType"=>"Publisher ID"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"s-0039-1690894", "identifierType"=>"sequence-number"}])
       expect(subject.url).to eq("http://www.thieme-connect.de/DOI/DOI?10.1055/s-0039-1690894")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators.length).to eq(4)
@@ -640,6 +640,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to include({"date"=>"2018-04-05", "dateType"=>"Issued"})
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Oxford University Press (OUP)")
+      expect(subject.agency).to eq("crossref")
+    end
+
+    it "report osti" do
+      input = "10.2172/972169"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.url).to eq("http://www.osti.gov/servlets/purl/972169-1QXROM/")
+      expect(subject.types).to eq("bibtex"=>"techreport", "citeproc"=>"report", "resourceType"=>"Report", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"Report")
+      expect(subject.creators.count).to eq(4)
+      expect(subject.creators.first).to eq("familyName"=>"Denholm", "givenName"=>"P.", "name"=>"Denholm, P.", "nameType"=>"Personal")
+      expect(subject.contributors.count).to eq(0)
+      expect(subject.titles).to eq([{"title"=>"Role of Energy Storage with Renewable Electricity Generation"}])
+      expect(subject.id).to eq("https://doi.org/10.2172/972169")
+      expect(subject.identifiers).to eq( [{"identifier"=>"NREL/TP-6A2-47187", "identifierType"=>"report-number"}, {"identifier"=>"972169", "identifierType"=>"sequence-number"}])
+      expect(subject.descriptions).to be_empty
+      expect(subject.dates).to include({"date"=>"2010-01-01", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2010")
+      expect(subject.publisher).to eq("Office of Scientific and Technical Information  (OSTI)")
       expect(subject.agency).to eq("crossref")
     end
 

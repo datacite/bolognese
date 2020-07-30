@@ -31,7 +31,7 @@ module Bolognese
         end
 
         # model should be one of book, conference, database, dissertation, journal, peer_review, posted_content,
-        # report-paper, sa_component, standard
+        # report_paper, sa_component, standard
         model = meta.dig("crossref").to_h.keys.last
 
         resource_type = nil
@@ -82,6 +82,9 @@ module Bolognese
         when "database"
           bibliographic_metadata = meta.dig("crossref", "database", "dataset").to_h
           resource_type = "dataset"
+        when "report_paper"
+          bibliographic_metadata = meta.dig("crossref", "report_paper", "report_paper_metadata").to_h
+          resource_type = "report"
         end
 
         resource_type = (resource_type || model).to_s.underscore.camelcase.presence
@@ -156,7 +159,7 @@ module Bolognese
                     end
 
         id = normalize_doi(options[:doi] || options[:id] || bibliographic_metadata.dig("doi_data", "doi"))
-        identifiers = [crossref_alternate_identifiers(bibliographic_metadata)].compact
+        identifiers = crossref_alternate_identifiers(bibliographic_metadata)
 
         { "id" => id,
           "types" => types,
@@ -187,14 +190,23 @@ module Bolognese
 
       def crossref_alternate_identifiers(bibliographic_metadata)
         if bibliographic_metadata.dig("publisher_item", "item_number").present?
-          { "identifier" => parse_attributes(bibliographic_metadata.dig("publisher_item", "item_number")),
-            "identifierType" => "Publisher ID" }
+          Array.wrap(bibliographic_metadata.dig("publisher_item", "item_number")).map do |item|
+            if item.is_a?(String)
+              { "identifier" => item,
+                "identifierType" => "Publisher ID" }
+            else
+              { "identifier" => item.fetch("__content__", nil),
+                "identifierType" => item.fetch("item_number_type", nil) || "Publisher ID" }
+            end
+          end
         elsif parse_attributes(bibliographic_metadata.fetch("item_number", nil)).present?
-          { "identifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
-            "identifierType" => "Publisher ID" }
+          [{ "identifier" => parse_attributes(bibliographic_metadata.fetch("item_number", nil)),
+            "identifierType" => "Publisher ID" }]
         elsif parse_attributes(bibliographic_metadata.fetch("isbn", nil)).present?
-          { "identifier" => parse_attributes(bibliographic_metadata.fetch("isbn", nil), first: true),
-            "identifierType" => "ISBN" }
+          [{ "identifier" => parse_attributes(bibliographic_metadata.fetch("isbn", nil), first: true),
+             "identifierType" => "ISBN" }]
+        else
+          []
         end
       end
 

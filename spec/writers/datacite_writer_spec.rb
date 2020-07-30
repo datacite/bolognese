@@ -386,11 +386,11 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
-      expect(subject.identifiers).to eq( [{"identifier"=>"e01567", "identifierType"=>"Publisher ID"}])
-      subject.identifiers = [{ "identifierType" => "Publisher ID", "identifier" => "abc" }]
+      expect(subject.identifiers).to eq([{"identifier"=>"e01567", "identifierType"=>"article_number"}])
+      subject.identifiers = [{ "identifierType" => "article_number", "identifier" => "abc" }]
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("identifier", "__content__")).to eq("10.7554/elife.01567")
-      expect(subject.identifiers).to eq([{"identifier"=>"abc", "identifierType"=>"Publisher ID"}])
+      expect(subject.identifiers).to eq([{"identifier"=>"abc", "identifierType"=>"article_number"}])
     end
 
     it "validates against schema" do

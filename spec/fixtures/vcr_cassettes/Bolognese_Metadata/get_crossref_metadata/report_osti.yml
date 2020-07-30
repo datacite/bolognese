@@ -1,0 +1,138 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.2172
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Wed, 29 Jul 2020 21:23:48 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d01ef02c612a86c1cf7a059f5c9c803201596057828; expires=Fri, 28-Aug-20
+        21:23:48 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 043e0ed580000096d473a7a200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5ba9e7359f0c96d4-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.2172",
+            "RA": "Crossref"
+          }
+        ]
+    http_version:
+  recorded_at: Wed, 29 Jul 2020 21:23:48 GMT
+- request:
+    method: get
+    uri: https://api.crossref.org/works/10.2172/972169/transform/application/vnd.crossref.unixsd+xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Link:
+      - <http://dx.doi.org/10.2172/972169>; rel="canonical"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '4217'
+      Server:
+      - http-kit
+      Date:
+      - Wed, 29 Jul 2020 21:23:49 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"report-paper_title\">10.2172/972169</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">Office of Scientific
+        and Technical Information  (OSTI)</crm-item>\r\n        <crm-item name=\"prefix-name\"
+        type=\"string\">Office of Scientific and Technical Information</crm-item>\r\n
+        \       <crm-item name=\"member-id\" type=\"number\">960</crm-item>\r\n        <crm-item
+        name=\"citation-id\" type=\"number\">41225045</crm-item>\r\n        <crm-item
+        name=\"book-id\" type=\"number\">584445</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
+        type=\"number\">20100218105553</crm-item>\r\n        <crm-item name=\"owner-prefix\"
+        type=\"string\">10.2172</crm-item>\r\n        <crm-item name=\"last-update\"
+        type=\"date\">2010-02-19T03:56:05Z</crm-item>\r\n        <crm-item name=\"created\"
+        type=\"date\">2010-02-19T03:56:03Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
+        type=\"number\">159</crm-item>\r\n        <doi_record>\r\n          <crossref
+        xmlns=\"http://www.crossref.org/xschema/1.0\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0
+        http://doi.crossref.org/schemas/unixref1.0.xsd\">\r\n            <report-paper
+        publication_type=\"full_text\">\r\n              <report-paper_metadata language=\"en\">\r\n
+        \               <contributors>\r\n                  <person_name sequence=\"first\"
+        contributor_role=\"author\">\r\n                    <given_name>P.</given_name>\r\n
+        \                   <surname>Denholm</surname>\r\n                  </person_name>\r\n
+        \                 <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \                   <given_name>E.</given_name>\r\n                    <surname>Ela</surname>\r\n
+        \                 </person_name>\r\n                  <person_name sequence=\"additional\"
+        contributor_role=\"author\">\r\n                    <given_name>B.</given_name>\r\n
+        \                   <surname>Kirby</surname>\r\n                  </person_name>\r\n
+        \                 <person_name sequence=\"additional\" contributor_role=\"author\">\r\n
+        \                   <given_name>M.</given_name>\r\n                    <surname>Milligan</surname>\r\n
+        \                 </person_name>\r\n                </contributors>\r\n                <titles>\r\n
+        \                 <title>Role of Energy Storage with Renewable Electricity
+        Generation</title>\r\n                </titles>\r\n                <publication_date
+        media_type=\"online\">\r\n                  <month>01</month>\r\n                  <day>01</day>\r\n
+        \                 <year>2010</year>\r\n                </publication_date>\r\n
+        \               <approval_date>\r\n                  <month>02</month>\r\n
+        \                 <day>18</day>\r\n                  <year>2010</year>\r\n
+        \               </approval_date>\r\n                <institution>\r\n                  <institution_name>National
+        Renewable Energy Laboratory (NREL)</institution_name>\r\n                  <institution_acronym>NREL</institution_acronym>\r\n
+        \                 <institution_place>Golden, CO (United States)</institution_place>\r\n
+        \               </institution>\r\n                <institution>\r\n                  <institution_name>USDOE</institution_name>\r\n
+        \               </institution>\r\n                <publisher_item>\r\n                  <item_number
+        item_number_type=\"report-number\">NREL/TP-6A2-47187</item_number>\r\n                  <item_number
+        item_number_type=\"sequence-number\">972169</item_number>\r\n                </publisher_item>\r\n
+        \               <contract_number>AC36-99-GO10337</contract_number>\r\n                <doi_data>\r\n
+        \                 <doi>10.2172/972169</doi>\r\n                  <timestamp>20100218105553</timestamp>\r\n
+        \                 <resource>http://www.osti.gov/servlets/purl/972169-1QXROM/</resource>\r\n
+        \               </doi_data>\r\n              </report-paper_metadata>\r\n
+        \           </report-paper>\r\n          </crossref>\r\n        </doi_record>\r\n
+        \     </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
+    http_version:
+  recorded_at: Wed, 29 Jul 2020 21:23:49 GMT
+recorded_with: VCR 3.0.3
