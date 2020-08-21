@@ -295,6 +295,17 @@ describe Bolognese::Metadata, vcr: true do
         {"subject"=>"FOS: Media and communications", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}, {"subject"=>"Library and Information Studies"}])
     end
 
+    it "cc-by 3.0 us" do
+      input = "10.6084/m9.figshare.1286826.v1"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
+        +  "rightsIdentifier"=>"cc-by-3.0",
+        +  "rightsIdentifierScheme"=>"SPDX",
+        +  "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
+        +  "schemeUri"=>"https://spdx.org/licenses/"}])
+    end
+
     it "funding schema version 3" do
       input = "https://doi.org/10.5281/ZENODO.1239"
       subject = Bolognese::Metadata.new(input: input)

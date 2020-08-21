@@ -7,6 +7,7 @@ module Bolognese
       "https://creativecommons.org/licenses/by/2.0" => "https://creativecommons.org/licenses/by/2.0/legalcode",
       "https://creativecommons.org/licenses/by/2.5" => "https://creativecommons.org/licenses/by/2.5/legalcode",
       "https://creativecommons.org/licenses/by/3.0" => "https://creativecommons.org/licenses/by/3.0/legalcode",
+      "https://creativecommons.org/licenses/by/3.0/us" => "https://creativecommons.org/licenses/by/3.0/legalcode",
       "https://creativecommons.org/licenses/by/4.0" => "https://creativecommons.org/licenses/by/4.0/legalcode",
       "https://creativecommons.org/licenses/by-nc/1.0" => "https://creativecommons.org/licenses/by-nc/1.0/legalcode",
       "https://creativecommons.org/licenses/by-nc/2.0" => "https://creativecommons.org/licenses/by-nc/2.0/legalcode",

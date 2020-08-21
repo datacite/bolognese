@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.6084
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Fri, 21 Aug 2020 11:43:04 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dfd6c87cff8b6f860fa122f6cddf80f0f1598010184; expires=Sun, 20-Sep-20
+        11:43:04 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 04b26d6b940000d6e96a26c200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5c641825bf84d6e9-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.6084",
+            "RA": "DataCite"
+          }
+        ]
+    http_version:
+  recorded_at: Fri, 21 Aug 2020 11:43:04 GMT
+- request:
+    method: get
+    uri: https://api.datacite.org/dois/10.6084/m9.figshare.1286826.v1?include=media,client
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 21 Aug 2020 11:43:05 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding, Origin
+      X-Request-Id:
+      - f32dc0c7-ae28-4225-aebb-690f7ed8f96f
+      Etag:
+      - W/"1053de58f4bcf558a2c6eff57d658893"
+      X-Runtime:
+      - '0.281050'
+      X-Powered-By:
+      - Phusion Passenger 6.0.6
+      Server:
+      - nginx/1.14.0 + Phusion Passenger 6.0.6
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"10.6084/m9.figshare.1286826.v1","type":"dois","attributes":{"doi":"10.6084/m9.figshare.1286826.v1","prefix":"10.6084","suffix":"m9.figshare.1286826.v1","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Kramer,
+        Bianca","nameType":"Personal","givenName":"Bianca","familyName":"Kramer","affiliation":[],"nameIdentifiers":[{"nameIdentifier":"https://orcid.org/0000-0002-5965-6560","nameIdentifierScheme":"ORCID"}]},{"name":"Bosman,
+        Jeroen","nameType":"Personal","givenName":"Jeroen","familyName":"Bosman","affiliation":[],"nameIdentifiers":[{"nameIdentifier":"https://orcid.org/0000-0001-5796-2727","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"101
+        Innovations in Scholarly Communication - the Changing Research Workflow"}],"publisher":"Figshare","container":{},"publicationYear":2015,"subjects":[],"contributors":[],"dates":[{"date":"2015","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"CC-BY","rightsUri":"http://creativecommons.org/licenses/by/3.0/us"}],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9NOS5GSUdTSEFSRS4xMjg2ODI2LlYxPC9pZGVudGlmaWVyPjx0aXRsZXM+PHRpdGxlPjEwMSBJbm5vdmF0aW9ucyBpbiBTY2hvbGFybHkgQ29tbXVuaWNhdGlvbiAtIHRoZSBDaGFuZ2luZyBSZXNlYXJjaCBXb3JrZmxvdzwvdGl0bGU+PC90aXRsZXM+PHB1Ymxpc2hlcj5GaWdzaGFyZTwvcHVibGlzaGVyPjxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPjxyaWdodHNMaXN0PjxyaWdodHMgcmlnaHRzVVJJPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS8zLjAvdXMvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkJpYW5jYSAgS3JhbWVyPC9jcmVhdG9yTmFtZT48bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIj4wMDAwLTAwMDItNTk2NS02NTYwPC9uYW1lSWRlbnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkplcm9lbiBCb3NtYW48L2NyZWF0b3JOYW1lPjxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMS01Nzk2LTI3Mjc8L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48L2NyZWF0b3JzPjwvcmVzb3VyY2U+","url":"https://figshare.com/articles/101_Innovations_in_Scholarly_Communication_the_Changing_Research_Workflow/1286826/1","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2016-01-19T13:15:11.000Z","registered":"2016-01-19T13:15:12.000Z","published":"2015","updated":"2020-07-27T15:52:33.000Z"},"relationships":{"client":{"data":{"id":"figshare.ars","type":"clients"}},"media":{"data":{"id":"10.6084/m9.figshare.1286826.v1","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"figshare.ars","type":"clients","attributes":{"name":"figshare
+        Academic Research System","symbol":"FIGSHARE.ARS","year":2016,"contactEmail":"danielduduta@figshare.com","alternateName":null,"description":"figshare
+        allows researchers to publish all of their research outputs in an easily citable,
+        sharable and discoverable manner. All file formats can be published, including
+        videos and datasets. Optional peer review process. figshare uses creative
+        commons licensing.","language":null,"clientType":"repository","domains":"figshare.com","re3data":"https://doi.org/10.17616/R3PK5R","opendoar":null,"issn":null,"url":"http://figshare.com/","created":"2016-10-12T13:42:35.000Z","updated":"2019-07-27T07:15:48.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"figshare","type":"providers"}},"prefixes":{"data":[{"id":"10.6084","type":"prefixes"}]}}}]}'
+    http_version:
+  recorded_at: Fri, 21 Aug 2020 11:43:05 GMT
+recorded_with: VCR 3.0.3

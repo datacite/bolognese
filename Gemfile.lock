@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.8.6)
+    bolognese (1.8.7)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -41,6 +41,7 @@ GEM
     benchmark_methods (0.7)
     bibtex-ruby (5.1.4)
       latex-decode (~> 0.0)
+    bigdecimal (2.0.0)
     builder (3.2.4)
     citeproc (1.0.10)
       namae (~> 1.0)
@@ -121,7 +122,8 @@ GEM
     namae (1.0.1)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    oj (3.10.8)
+    oj (3.10.12)
+      bigdecimal (>= 1.0, < 3)
     oj_mimic_json (1.0.1)
     optimist (3.0.1)
     postrank-uri (1.0.24)
@@ -175,7 +177,7 @@ GEM
       rspec (~> 3)
     safe_yaml (1.0.5)
     scanf (1.0.0)
-    simplecov (0.18.5)
+    simplecov (0.19.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
