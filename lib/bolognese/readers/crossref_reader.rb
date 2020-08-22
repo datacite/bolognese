@@ -86,7 +86,9 @@ module Bolognese
           bibliographic_metadata = meta.dig("crossref", "report_paper", "report_paper_metadata").to_h
           resource_type = "report"
         when "peer_review"
-          bibliographic_metadata = meta.dig("crossref", "peer_review").to_h
+          bibliographic_metadata = meta.dig("crossref", "peer_review")
+        when "dissertation"
+          bibliographic_metadata = meta.dig("crossref", "dissertation")
         end
 
         resource_type = (resource_type || model).to_s.underscore.camelcase.presence
@@ -236,7 +238,7 @@ module Bolognese
       end
 
       def crossref_people(bibliographic_metadata, contributor_role)
-        person = bibliographic_metadata.dig("contributors", "person_name")
+        person = bibliographic_metadata.dig("contributors", "person_name") || bibliographic_metadata.dig("person_name")
         organization = Array.wrap(bibliographic_metadata.dig("contributors", "organization"))
         person = [{ "name" => ":(unav)", "contributor_role"=>"author" }] if contributor_role == "author" && Array.wrap(person).select { |a| a["contributor_role"] == "author" }.blank? && Array.wrap(organization).select { |a| a["contributor_role"] == "author" }.blank?
 

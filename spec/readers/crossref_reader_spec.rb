@@ -201,6 +201,30 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("crossref")
     end
 
+    it "dissertation" do
+      input = "https://doi.org/10.14264/uql.2020.791"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.url).to eq("http://espace.library.uq.edu.au/view/UQ:23a1e74")
+      expect(subject.types).to eq("bibtex"=>"phdthesis", "citeproc"=>"thesis", "resourceType"=>"Dissertation", "resourceTypeGeneral"=>"Text", "ris"=>"THES", "schemaOrg"=>"Thesis")
+      expect(subject.creators).to eq([{"familyName"=>"Collingwood",
+        "givenName"=>"Patricia Maree",
+        "name"=>"Collingwood, Patricia Maree",
+        "nameIdentifiers"=>
+          [{"nameIdentifier"=>"https://orcid.org/0000-0003-3086-4443",
+            "nameIdentifierScheme"=>"ORCID",
+           "schemeUri"=>"https://orcid.org"}],
+           "nameType"=>"Personal"}])
+      expect(subject.titles).to eq([{"title"=>"School truancy and financial independence during emerging adulthood: a longitudinal analysis of receipt of and reliance on cash transfers"}])
+      expect(subject.id).to eq("https://doi.org/10.14264/uql.2020.791")
+      expect(subject.identifiers).to be_empty
+      expect(subject.descriptions).to be_empty
+      expect(subject.dates).to include({"date"=>"2020-06-08", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2020")
+      expect(subject.publisher).to eq("University of Queensland Library")
+      expect(subject.agency).to eq("crossref")
+    end
+
     it "DOI with SICI DOI" do
       input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
       subject = Bolognese::Metadata.new(input: input)
