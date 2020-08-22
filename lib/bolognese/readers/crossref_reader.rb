@@ -85,6 +85,8 @@ module Bolognese
         when "report_paper"
           bibliographic_metadata = meta.dig("crossref", "report_paper", "report_paper_metadata").to_h
           resource_type = "report"
+        when "peer_review"
+          bibliographic_metadata = meta.dig("crossref", "peer_review").to_h
         end
 
         resource_type = (resource_type || model).to_s.underscore.camelcase.presence

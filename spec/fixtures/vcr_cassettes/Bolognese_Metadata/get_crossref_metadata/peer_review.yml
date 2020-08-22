@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.7554
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 22 Aug 2020 09:09:10 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dc7cd5dde23bd772408198c155ba5278f1598087350; expires=Mon, 21-Sep-20
+        09:09:10 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 04b706e111000097cca18f6200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5c6b7414eaca97cc-FRA
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.7554",
+            "RA": "Crossref"
+          }
+        ]
+    http_version:
+  recorded_at: Sat, 22 Aug 2020 09:09:10 GMT
+- request:
+    method: get
+    uri: https://api.crossref.org/works/10.7554/elife.55167.sa2/transform/application/vnd.crossref.unixsd+xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Link:
+      - <http://dx.doi.org/10.7554/elife.55167.sa2>; rel="canonical", <http://creativecommons.org/licenses/by/4.0/>;
+        rel="license", <http://orcid.org/0000-0002-5286-4375>; title="Jeremy Magland";
+        rel="author", <http://orcid.org/0000-0002-2642-603X>; title="Elizabeth Lovero";
+        rel="author", <http://orcid.org/0000-0002-4997-4063>; title="Alexander J Morley";
+        rel="author", <http://orcid.org/0000-0002-2023-1653>; title="Cole Lincoln
+        Hurwitz"; rel="author"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '5929'
+      Server:
+      - http-kit
+      Date:
+      - Sat, 22 Aug 2020 09:09:11 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGNyb3NzcmVmX3Jlc3VsdCB4bWxucz0iaHR0cDovL3d3dy5jcm9zc3JlZi5vcmcvcXJzY2hlbWEvMy4wIiB2ZXJzaW9uPSIzLjAiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL3d3dy5jcm9zc3JlZi5vcmcvcXJzY2hlbWEvMy4wIGh0dHA6Ly93d3cuY3Jvc3NyZWYub3JnL3NjaGVtYXMvY3Jvc3NyZWZfcXVlcnlfb3V0cHV0My4wLnhzZCI+DQogIDxxdWVyeV9yZXN1bHQ+DQogICAgPGhlYWQ+DQogICAgICA8ZG9pX2JhdGNoX2lkPm5vbmU8L2RvaV9iYXRjaF9pZD4NCiAgICA8L2hlYWQ+DQogICAgPGJvZHk+DQogICAgICA8cXVlcnkgc3RhdHVzPSJyZXNvbHZlZCI+DQogICAgICAgIDxkb2kgdHlwZT0icGVlcl9yZXZpZXciPjEwLjc1NTQvZUxpZmUuNTUxNjcuc2EyPC9kb2k+DQogICAgICAgIDxjcm0taXRlbSBuYW1lPSJwdWJsaXNoZXItbmFtZSIgdHlwZT0ic3RyaW5nIj5lTGlmZSBTY2llbmNlcyBQdWJsaWNhdGlvbnMsIEx0ZDwvY3JtLWl0ZW0+DQogICAgICAgIDxjcm0taXRlbSBuYW1lPSJwcmVmaXgtbmFtZSIgdHlwZT0ic3RyaW5nIj5lTGlmZSBTY2llbmNlcyBQdWJsaWNhdGlvbnMsIEx0ZC48L2NybS1pdGVtPg0KICAgICAgICA8Y3JtLWl0ZW0gbmFtZT0ibWVtYmVyLWlkIiB0eXBlPSJudW1iZXIiPjQzNzQ8L2NybS1pdGVtPg0KICAgICAgICA8Y3JtLWl0ZW0gbmFtZT0iY2l0YXRpb24taWQiIHR5cGU9Im51bWJlciI+MTE2NDQ0NDI3PC9jcm0taXRlbT4NCiAgICAgICAgPGNybS1pdGVtIG5hbWU9ImpvdXJuYWwtaWQiIHR5cGU9Im51bWJlciI+MTg5MzY1PC9jcm0taXRlbT4NCiAgICAgICAgPGNybS1pdGVtIG5hbWU9ImRlcG9zaXQtdGltZXN0YW1wIiB0eXBlPSJudW1iZXIiPjIwMjAwNTE5MTgzMDMxPC9jcm0taXRlbT4NCiAgICAgICAgPGNybS1pdGVtIG5hbWU9Im93bmVyLXByZWZpeCIgdHlwZT0ic3RyaW5nIj4xMC43NTU0PC9jcm0taXRlbT4NCiAgICAgICAgPGNybS1pdGVtIG5hbWU9Imxhc3QtdXBkYXRlIiB0eXBlPSJkYXRlIj4yMDIwLTA1LTE5VDIwOjMzOjM3WjwvY3JtLWl0ZW0+DQogICAgICAgIDxjcm0taXRlbSBuYW1lPSJjcmVhdGVkIiB0eXBlPSJkYXRlIj4yMDIwLTA1LTE5VDIwOjMzOjM1WjwvY3JtLWl0ZW0+DQogICAgICAgIDxjcm0taXRlbSBuYW1lPSJjaXRlZGJ5LWNvdW50IiB0eXBlPSJudW1iZXIiPjE8L2NybS1pdGVtPg0KICAgICAgICA8ZG9pX3JlY29yZD4NCiAgICAgICAgICA8Y3Jvc3NyZWYgeG1sbnM9Imh0dHA6Ly93d3cuY3Jvc3NyZWYub3JnL3hzY2hlbWEvMS4xIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly93d3cuY3Jvc3NyZWYub3JnL3hzY2hlbWEvMS4xIGh0dHA6Ly9kb2kuY3Jvc3NyZWYub3JnL3NjaGVtYXMvdW5peHJlZjEuMS54c2QiPg0KICAgICAgICAgICAgPHBlZXJfcmV2aWV3IHN0YWdlPSJwcmUtcHVibGljYXRpb24iIHR5cGU9ImF1dGhvci1jb21tZW50Ij4NCiAgICAgICAgICAgICAgPGNvbnRyaWJ1dG9ycz4NCiAgICAgICAgICAgICAgICA8cGVyc29uX25hbWUgY29udHJpYnV0b3Jfcm9sZT0iYXV0aG9yIiBzZXF1ZW5jZT0iZmlyc3QiPg0KICAgICAgICAgICAgICAgICAgPGdpdmVuX25hbWU+SmVyZW15PC9naXZlbl9uYW1lPg0KICAgICAgICAgICAgICAgICAgPHN1cm5hbWU+TWFnbGFuZDwvc3VybmFtZT4NCiAgICAgICAgICAgICAgICAgIDxhZmZpbGlhdGlvbj5DZW50ZXIgZm9yIENvbXB1dGF0aW9uYWwgTWF0aGVtYXRpY3MsIEZsYXRpcm9uIEluc3RpdHV0ZSwgTmV3IFlvcmssIFVuaXRlZCBTdGF0ZXM8L2FmZmlsaWF0aW9uPg0KICAgICAgICAgICAgICAgICAgPE9SQ0lEIGF1dGhlbnRpY2F0ZWQ9InRydWUiPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMi01Mjg2LTQzNzU8L09SQ0lEPg0KICAgICAgICAgICAgICAgIDwvcGVyc29uX25hbWU+DQogICAgICAgICAgICAgICAgPHBlcnNvbl9uYW1lIGNvbnRyaWJ1dG9yX3JvbGU9ImF1dGhvciIgc2VxdWVuY2U9ImFkZGl0aW9uYWwiPg0KICAgICAgICAgICAgICAgICAgPGdpdmVuX25hbWU+SmFtZXMgSjwvZ2l2ZW5fbmFtZT4NCiAgICAgICAgICAgICAgICAgIDxzdXJuYW1lPkp1bjwvc3VybmFtZT4NCiAgICAgICAgICAgICAgICAgIDxhZmZpbGlhdGlvbj5DZW50ZXIgZm9yIENvbXB1dGF0aW9uYWwgTWF0aGVtYXRpY3MsIEZsYXRpcm9uIEluc3RpdHV0ZSwgTmV3IFlvcmssIFVuaXRlZCBTdGF0ZXM8L2FmZmlsaWF0aW9uPg0KICAgICAgICAgICAgICAgIDwvcGVyc29uX25hbWU+DQogICAgICAgICAgICAgICAgPHBlcnNvbl9uYW1lIGNvbnRyaWJ1dG9yX3JvbGU9ImF1dGhvciIgc2VxdWVuY2U9ImFkZGl0aW9uYWwiPg0KICAgICAgICAgICAgICAgICAgPGdpdmVuX25hbWU+RWxpemFiZXRoPC9naXZlbl9uYW1lPg0KICAgICAgICAgICAgICAgICAgPHN1cm5hbWU+TG92ZXJvPC9zdXJuYW1lPg0KICAgICAgICAgICAgICAgICAgPGFmZmlsaWF0aW9uPlNjaWVudGlmaWMgQ29tcHV0aW5nIENvcmUsIEZsYXRpcm9uIEluc3RpdHV0ZSwgTmV3IFlvcmssIFVuaXRlZCBTdGF0ZXM8L2FmZmlsaWF0aW9uPg0KICAgICAgICAgICAgICAgICAgPE9SQ0lEIGF1dGhlbnRpY2F0ZWQ9InRydWUiPmh0dHA6Ly9vcmNpZC5vcmcvMDAwMC0wMDAyLTI2NDItNjAzWDwvT1JDSUQ+DQogICAgICAgICAgICAgICAgPC9wZXJzb25fbmFtZT4NCiAgICAgICAgICAgICAgICA8cGVyc29uX25hbWUgY29udHJpYnV0b3Jfcm9sZT0iYXV0aG9yIiBzZXF1ZW5jZT0iYWRkaXRpb25hbCI+DQogICAgICAgICAgICAgICAgICA8Z2l2ZW5fbmFtZT5BbGV4YW5kZXIgSjwvZ2l2ZW5fbmFtZT4NCiAgICAgICAgICAgICAgICAgIDxzdXJuYW1lPk1vcmxleTwvc3VybmFtZT4NCiAgICAgICAgICAgICAgICAgIDxhZmZpbGlhdGlvbj5NZWRpY2FsIFJlc2VhcmNoIENvdW5jaWwgQnJhaW4gTmV0d29yayBEeW5hbWljcyBVbml0LCBVbml2ZXJzaXR5IG9mIE94Zm9yZCwgT3hmb3JkLCBVbml0ZWQgS2luZ2RvbTwvYWZmaWxpYXRpb24+DQogICAgICAgICAgICAgICAgICA8T1JDSUQgYXV0aGVudGljYXRlZD0idHJ1ZSI+aHR0cDovL29yY2lkLm9yZy8wMDAwLTAwMDItNDk5Ny00MDYzPC9PUkNJRD4NCiAgICAgICAgICAgICAgICA8L3BlcnNvbl9uYW1lPg0KICAgICAgICAgICAgICAgIDxwZXJzb25fbmFtZSBjb250cmlidXRvcl9yb2xlPSJhdXRob3IiIHNlcXVlbmNlPSJhZGRpdGlvbmFsIj4NCiAgICAgICAgICAgICAgICAgIDxnaXZlbl9uYW1lPkNvbGUgTGluY29sbjwvZ2l2ZW5fbmFtZT4NCiAgICAgICAgICAgICAgICAgIDxzdXJuYW1lPkh1cndpdHo8L3N1cm5hbWU+DQogICAgICAgICAgICAgICAgICA8YWZmaWxpYXRpb24+SW5zdGl0dXRlIGZvciBBZGFwdGl2ZSBhbmQgTmV1cmFsIENvbXB1dGF0aW9uIEluZm9ybWF0aWNzLCBVbml2ZXJzaXR5IG9mIEVkaW5idXJnaCwgRWRpbmJ1cmdoLCBVbml0ZWQgS2luZ2RvbTwvYWZmaWxpYXRpb24+DQogICAgICAgICAgICAgICAgICA8T1JDSUQgYXV0aGVudGljYXRlZD0idHJ1ZSI+aHR0cDovL29yY2lkLm9yZy8wMDAwLTAwMDItMjAyMy0xNjUzPC9PUkNJRD4NCiAgICAgICAgICAgICAgICA8L3BlcnNvbl9uYW1lPg0KICAgICAgICAgICAgICAgIDxwZXJzb25fbmFtZSBjb250cmlidXRvcl9yb2xlPSJhdXRob3IiIHNlcXVlbmNlPSJhZGRpdGlvbmFsIj4NCiAgICAgICAgICAgICAgICAgIDxnaXZlbl9uYW1lPkFsZXNzaW8gUGFvbG88L2dpdmVuX25hbWU+DQogICAgICAgICAgICAgICAgICA8c3VybmFtZT5CdWNjaW5vPC9zdXJuYW1lPg0KICAgICAgICAgICAgICAgICAgPGFmZmlsaWF0aW9uPkNlbnRyZSBmb3IgSW50ZWdyYXRpdmVOZXVyb3BsYXN0aWNpdHkgKENJTlBMQSksIFVuaXZlcnNpdHkgb2YgT3NsbywgT3NsbywgTm9yd2F5PC9hZmZpbGlhdGlvbj4NCiAgICAgICAgICAgICAgICA8L3BlcnNvbl9uYW1lPg0KICAgICAgICAgICAgICAgIDxwZXJzb25fbmFtZSBjb250cmlidXRvcl9yb2xlPSJhdXRob3IiIHNlcXVlbmNlPSJhZGRpdGlvbmFsIj4NCiAgICAgICAgICAgICAgICAgIDxnaXZlbl9uYW1lPlNhbXVlbDwvZ2l2ZW5fbmFtZT4NCiAgICAgICAgICAgICAgICAgIDxzdXJuYW1lPkdhcmNpYTwvc3VybmFtZT4NCiAgICAgICAgICAgICAgICAgIDxhZmZpbGlhdGlvbj5DZW50cmUgZGUgUmVjaGVyY2hlIGVuIE5ldXJvc2NpZW5jZSBkZSBMeW9uLCBVbml2ZXJzaXTDqSBkZSBMeW9uLCBMeW9uLCBGcmFuY2U8L2FmZmlsaWF0aW9uPg0KICAgICAgICAgICAgICAgIDwvcGVyc29uX25hbWU+DQogICAgICAgICAgICAgICAgPHBlcnNvbl9uYW1lIGNvbnRyaWJ1dG9yX3JvbGU9ImF1dGhvciIgc2VxdWVuY2U9ImFkZGl0aW9uYWwiPg0KICAgICAgICAgICAgICAgICAgPGdpdmVuX25hbWU+QWxleCBIPC9naXZlbl9uYW1lPg0KICAgICAgICAgICAgICAgICAgPHN1cm5hbWU+QmFybmV0dDwvc3VybmFtZT4NCiAgICAgICAgICAgICAgICAgIDxhZmZpbGlhdGlvbj5DZW50ZXIgZm9yIENvbXB1dGF0aW9uYWwgTWF0aGVtYXRpY3MsIEZsYXRpcm9uIEluc3RpdHV0ZSwgTmV3IFlvcmssIFVuaXRlZCBTdGF0ZXM8L2FmZmlsaWF0aW9uPg0KICAgICAgICAgICAgICAgIDwvcGVyc29uX25hbWU+DQogICAgICAgICAgICAgIDwvY29udHJpYnV0b3JzPg0KICAgICAgICAgICAgICA8dGl0bGVzPg0KICAgICAgICAgICAgICAgIDx0aXRsZT5BdXRob3IgcmVzcG9uc2U6IFNwaWtlRm9yZXN0LCByZXByb2R1Y2libGUgd2ViLWZhY2luZyBncm91bmQtdHJ1dGggdmFsaWRhdGlvbiBvZiBhdXRvbWF0ZWQgbmV1cmFsIHNwaWtlIHNvcnRlcnM8L3RpdGxlPg0KICAgICAgICAgICAgICA8L3RpdGxlcz4NCiAgICAgICAgICAgICAgPHJldmlld19kYXRlPg0KICAgICAgICAgICAgICAgIDxtb250aD4wNDwvbW9udGg+DQogICAgICAgICAgICAgICAgPGRheT4yOTwvZGF5Pg0KICAgICAgICAgICAgICAgIDx5ZWFyPjIwMjA8L3llYXI+DQogICAgICAgICAgICAgIDwvcmV2aWV3X2RhdGU+DQogICAgICAgICAgICAgIDxhaTpwcm9ncmFtIHhtbG5zOmFpPSJodHRwOi8vd3d3LmNyb3NzcmVmLm9yZy9BY2Nlc3NJbmRpY2F0b3JzLnhzZCIgbmFtZT0iQWNjZXNzSW5kaWNhdG9ycyI+DQogICAgICAgICAgICAgICAgPGFpOmxpY2Vuc2VfcmVmPmh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LzQuMC88L2FpOmxpY2Vuc2VfcmVmPg0KICAgICAgICAgICAgICA8L2FpOnByb2dyYW0+DQogICAgICAgICAgICAgIDxyZWw6cHJvZ3JhbSB4bWxuczpyZWw9Imh0dHA6Ly93d3cuY3Jvc3NyZWYub3JnL3JlbGF0aW9ucy54c2QiPg0KICAgICAgICAgICAgICAgIDxyZWw6cmVsYXRlZF9pdGVtPg0KICAgICAgICAgICAgICAgICAgPHJlbDppbnRlcl93b3JrX3JlbGF0aW9uIGlkZW50aWZpZXItdHlwZT0iZG9pIiByZWxhdGlvbnNoaXAtdHlwZT0iaXNSZXZpZXdPZiI+MTAuNzU1NC9lTGlmZS41NTE2NzwvcmVsOmludGVyX3dvcmtfcmVsYXRpb24+DQogICAgICAgICAgICAgICAgPC9yZWw6cmVsYXRlZF9pdGVtPg0KICAgICAgICAgICAgICA8L3JlbDpwcm9ncmFtPg0KICAgICAgICAgICAgICA8ZG9pX2RhdGE+DQogICAgICAgICAgICAgICAgPGRvaT4xMC43NTU0L2VMaWZlLjU1MTY3LnNhMjwvZG9pPg0KICAgICAgICAgICAgICAgIDxyZXNvdXJjZT5odHRwczovL2VsaWZlc2NpZW5jZXMub3JnL2FydGljbGVzLzU1MTY3I3NhMjwvcmVzb3VyY2U+DQogICAgICAgICAgICAgIDwvZG9pX2RhdGE+DQogICAgICAgICAgICA8L3BlZXJfcmV2aWV3Pg0KICAgICAgICAgIDwvY3Jvc3NyZWY+DQogICAgICAgIDwvZG9pX3JlY29yZD4NCiAgICAgIDwvcXVlcnk+DQogICAgPC9ib2R5Pg0KICA8L3F1ZXJ5X3Jlc3VsdD4NCjwvY3Jvc3NyZWZfcmVzdWx0Pg==
+    http_version:
+  recorded_at: Sat, 22 Aug 2020 09:09:11 GMT
+recorded_with: VCR 3.0.3

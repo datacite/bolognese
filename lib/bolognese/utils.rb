@@ -133,7 +133,8 @@ module Bolognese
       "ReferenceEntry" => nil,
       "JournalVolume" => "PublicationVolume",
       "BookSet" => nil,
-      "PostedContent" => "ScholarlyArticle"
+      "PostedContent" => "ScholarlyArticle",
+      "PeerReview" => "Review"
     }
 
     CR_TO_BIB_TRANSLATIONS = {
@@ -219,6 +220,7 @@ module Bolognese
       "ScholarlyArticle" => "Text",
       "Thesis" => "Text",
       "Service" => "Service",
+      "Review" => "Text",
       "SoftwareSourceCode" => "Software",
       "VideoObject" => "Audiovisual",
       "WebPage" => "Text",

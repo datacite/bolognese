@@ -179,6 +179,28 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("crossref")
     end
 
+    it "peer review" do
+      input = "https://doi.org/10.7554/elife.55167.sa2"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.url).to eq("https://elifesciences.org/articles/55167#sa2")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"PeerReview", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"Review")
+      expect(subject.creators.count).to eq(8)
+      expect(subject.creators.last).to eq("affiliation" => [{"name"=>"Center for Computational Mathematics, Flatiron Institute, New York, United States"}],
+        "familyName" => "Barnett",
+        "givenName" => "Alex H",
+        "name" => "Barnett, Alex H",
+        "nameType" => "Personal")
+      expect(subject.titles).to eq([{"title"=>"Author response: SpikeForest, reproducible web-facing ground-truth validation of automated neural spike sorters"}])
+      expect(subject.id).to eq("https://doi.org/10.7554/elife.55167.sa2")
+      expect(subject.identifiers).to be_empty
+      expect(subject.descriptions).to be_empty
+      expect(subject.dates).to include({"date"=>"2020-05-19", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2020")
+      expect(subject.publisher).to eq("eLife Sciences Publications, Ltd")
+      expect(subject.agency).to eq("crossref")
+    end
+
     it "DOI with SICI DOI" do
       input = "https://doi.org/10.1890/0012-9658(2006)87[2832:tiopma]2.0.co;2"
       subject = Bolognese::Metadata.new(input: input)
