@@ -333,7 +333,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://dx.plos.org/10.1371/journal.pmed.0030277.g001")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"SaComponent", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"name"=>":(unav)", "nameType"=>"Organizational"}])
-      expect(subject.titles).to eq([{"title"=>":{unav)"}])
+      expect(subject.titles).to eq([{"title"=>":(unav)"}])
       expect(subject.descriptions).to be_empty
       expect(subject.dates).to eq([{"date"=>"2015-10-20", "dateType"=>"Issued"}, {"date"=>"2018-10-19T17:13:42Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2015")
@@ -555,6 +555,41 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_registered).to be_nil
     end
 
+    it "multiple titles with missing" do
+      input = "https://doi.org/10.1186/1471-2164-7-187"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.1186/1471-2164-7-187")
+      expect(subject.url).to eq("https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-7-187")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators).to eq([{"familyName"=>"Myers",
+        "givenName"=>"Chad L",
+        "name"=>"Myers, Chad L",
+        "nameType"=>"Personal"},
+       {"familyName"=>"Barrett",
+        "givenName"=>"Daniel R",
+        "name"=>"Barrett, Daniel R",
+        "nameType"=>"Personal"},
+       {"familyName"=>"Hibbs",
+        "givenName"=>"Matthew A",
+        "name"=>"Hibbs, Matthew A",
+        "nameType"=>"Personal"},
+       {"familyName"=>"Huttenhower",
+        "givenName"=>"Curtis",
+        "name"=>"Huttenhower, Curtis",
+        "nameType"=>"Personal"},
+       {"familyName"=>"Troyanskaya",
+        "givenName"=>"Olga G",
+        "name"=>"Troyanskaya, Olga G",
+        "nameType"=>"Personal"}])
+      expect(subject.titles).to eq([{"title"=>"Finding function: evaluation methods for functional genomic data"}])
+      expect(subject.dates).to include({"date"=>"2006-07-25", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2006")
+      expect(subject.publisher).to eq("Springer Science and Business Media LLC")
+      expect(subject.agency).to eq("crossref")
+      expect(subject.date_registered).to eq("2020-04-20T16:04:45Z")
+    end
+
     it "markup" do
       input = "https://doi.org/10.1098/rspb.2017.0132"
       subject = Bolognese::Metadata.new(input: input)
@@ -716,7 +751,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("http://ectrx.org/forms/ectrxcontentshow.php?doi_id=10.6002/ect.2015.0371")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"JournalIssue", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"PublicationIssue")
       expect(subject.creators).to eq([{"name"=>":(unav)", "nameType"=>"Organizational"}])
-      expect(subject.titles).to eq([{"title"=>":{unav)"}])
+      expect(subject.titles).to eq([{"title"=>":(unav)"}])
       expect(subject.dates).to eq([{"date"=>"2018-10", "dateType"=>"Issued"}, {"date"=>"2018-10-03T12:09:12Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Baskent University")

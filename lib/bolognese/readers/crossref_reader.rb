@@ -115,7 +115,7 @@ module Bolognese
                      end
                    end.compact
                  else
-                   [{ "title" => ":{unav)" }]
+                   [{ "title" => ":(unav)" }]
                  end
 
         date_published = crossref_date_published(bibliographic_metadata)

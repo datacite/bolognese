@@ -1,0 +1,449 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://doi.org/ra/10.1186
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sun, 11 Oct 2020 05:26:31 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8a8bdceeec481ceefc93a6afcbde710d1602393990; expires=Tue, 10-Nov-20
+        05:26:30 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - 05b7b8ff3c000005dc32162200000001
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=71&lkg-time=1602393991"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 5e062aab9fac05dc-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        [
+          {
+            "DOI": "10.1186",
+            "RA": "Crossref"
+          }
+        ]
+    http_version:
+  recorded_at: Sun, 11 Oct 2020 05:26:31 GMT
+- request:
+    method: get
+    uri: https://api.crossref.org/works/10.1186/1471-2164-7-187/transform/application/vnd.crossref.unixsd+xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      Accept:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Link:
+      - <http://dx.doi.org/10.1186/1471-2164-7-187>; rel="canonical", <http://link.springer.com/content/pdf/10.1186/1471-2164-7-187.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <http://link.springer.com/article/10.1186/1471-2164-7-187/fulltext.html>;
+        version="vor"; type="text/html"; rel="item", <http://link.springer.com/content/pdf/10.1186/1471-2164-7-187.pdf>;
+        version="vor"; type="application/pdf"; rel="item", <http://creativecommons.org/licenses/by/2.0>;
+        version="tdm"; rel="license"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '30740'
+      Server:
+      - http-kit
+      Date:
+      - Sun, 11 Oct 2020 05:26:32 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"journal_article\">10.1186/1471-2164-7-187</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">Springer Science
+        and Business Media LLC</crm-item>\r\n        <crm-item name=\"prefix-name\"
+        type=\"string\">Springer (Biomed Central Ltd.)</crm-item>\r\n        <crm-item
+        name=\"member-id\" type=\"number\">297</crm-item>\r\n        <crm-item name=\"citation-id\"
+        type=\"number\">22586616</crm-item>\r\n        <crm-item name=\"journal-id\"
+        type=\"number\">5911</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
+        type=\"number\">20200420160445553</crm-item>\r\n        <crm-item name=\"owner-prefix\"
+        type=\"string\">10.1186</crm-item>\r\n        <crm-item name=\"last-update\"
+        type=\"date\">2020-04-20T14:28:32Z</crm-item>\r\n        <crm-item name=\"created\"
+        type=\"date\">2006-07-25T18:14:51Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
+        type=\"number\">136</crm-item>\r\n        <crm-item name=\"relation\" type=\"doi\"
+        claim=\"isReviewOf\">10.3410/f.1044091.494000</crm-item>\r\n        <crm-item
+        name=\"relation\" type=\"doi\" claim=\"isReviewOf\">10.3410/f.1044091.496329</crm-item>\r\n
+        \       <doi_record>\r\n          <crossref xmlns=\"http://www.crossref.org/xschema/1.1\"
+        xsi:schemaLocation=\"http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd\">\r\n
+        \           <journal>\r\n              <journal_metadata language=\"en\">\r\n
+        \               <full_title>BMC Genomics</full_title>\r\n                <abbrev_title>BMC
+        Genomics</abbrev_title>\r\n                <issn media_type=\"electronic\">1471-2164</issn>\r\n
+        \             </journal_metadata>\r\n              <journal_issue>\r\n                <publication_date
+        media_type=\"print\">\r\n                  <month>12</month>\r\n                  <year>2006</year>\r\n
+        \               </publication_date>\r\n                <journal_volume>\r\n
+        \                 <volume>7</volume>\r\n                </journal_volume>\r\n
+        \               <issue>1</issue>\r\n              </journal_issue>\r\n              <journal_article
+        publication_type=\"full_text\">\r\n                <titles>\r\n                  <title>Finding
+        function: evaluation methods for functional genomic data</title>\r\n                </titles>\r\n
+        \               <contributors>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"first\">\r\n                    <given_name>Chad L</given_name>\r\n
+        \                   <surname>Myers</surname>\r\n                  </person_name>\r\n
+        \                 <person_name contributor_role=\"author\" sequence=\"additional\">\r\n
+        \                   <given_name>Daniel R</given_name>\r\n                    <surname>Barrett</surname>\r\n
+        \                 </person_name>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n                    <given_name>Matthew A</given_name>\r\n
+        \                   <surname>Hibbs</surname>\r\n                  </person_name>\r\n
+        \                 <person_name contributor_role=\"author\" sequence=\"additional\">\r\n
+        \                   <given_name>Curtis</given_name>\r\n                    <surname>Huttenhower</surname>\r\n
+        \                 </person_name>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n                    <given_name>Olga G</given_name>\r\n
+        \                   <surname>Troyanskaya</surname>\r\n                  </person_name>\r\n
+        \               </contributors>\r\n                <publication_date media_type=\"online\">\r\n
+        \                 <month>7</month>\r\n                  <day>25</day>\r\n
+        \                 <year>2006</year>\r\n                </publication_date>\r\n
+        \               <publication_date media_type=\"print\">\r\n                  <month>12</month>\r\n
+        \                 <year>2006</year>\r\n                </publication_date>\r\n
+        \               <publisher_item>\r\n                  <item_number item_number_type=\"article-number\">187</item_number>\r\n
+        \                 <identifier id_type=\"pii\">570</identifier>\r\n                </publisher_item>\r\n
+        \               <ai:program xmlns:ai=\"http://www.crossref.org/AccessIndicators.xsd\"
+        name=\"AccessIndicators\">\r\n                  <ai:license_ref applies_to=\"tdm\">http://creativecommons.org/licenses/by/2.0</ai:license_ref>\r\n
+        \               </ai:program>\r\n                <doi_data>\r\n                  <doi>10.1186/1471-2164-7-187</doi>\r\n
+        \                 <timestamp>20200420160445553</timestamp>\r\n                  <resource
+        content_version=\"vor\">https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-7-187</resource>\r\n
+        \                 <collection property=\"crawler-based\">\r\n                    <item
+        crawler=\"iParadigms\">\r\n                      <resource mime_type=\"application/pdf\">http://link.springer.com/content/pdf/10.1186/1471-2164-7-187.pdf</resource>\r\n
+        \                   </item>\r\n                  </collection>\r\n                  <collection
+        property=\"text-mining\">\r\n                    <item>\r\n                      <resource
+        mime_type=\"application/pdf\">http://link.springer.com/content/pdf/10.1186/1471-2164-7-187.pdf</resource>\r\n
+        \                   </item>\r\n                    <item>\r\n                      <resource
+        mime_type=\"text/html\">http://link.springer.com/article/10.1186/1471-2164-7-187/fulltext.html</resource>\r\n
+        \                   </item>\r\n                  </collection>\r\n                </doi_data>\r\n
+        \               <citation_list>\r\n                  <citation key=\"570_CR1\">\r\n
+        \                   <author>Z Barutcuoglu</author>\r\n                    <cYear>2006</cYear>\r\n
+        \                   <volume_title>Bioinformatics</volume_title>\r\n                    <unstructured_citation>Barutcuoglu
+        Z, Schapire RE, Troyanskaya OG: Hierarchical multi-label prediction of gene
+        function. Bioinformatics. 2006</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR2\">\r\n                    <journal_title>Bioinformatics</journal_title>\r\n
+        \                   <author>A Clare</author>\r\n                    <volume>19</volume>\r\n
+        \                   <issue>Suppl 2</issue>\r\n                    <first_page>II42</first_page>\r\n
+        \                   <cYear>2003</cYear>\r\n                    <doi>10.1093/bioinformatics/btg1058</doi>\r\n
+        \                   <unstructured_citation>Clare A, King RD: Predicting gene
+        function in Saccharomyces cerevisiae. Bioinformatics. 2003, 19 (Suppl 2):
+        II42-II49.</unstructured_citation>\r\n                  </citation>\r\n                  <citation
+        key=\"570_CR3\">\r\n                    <author>GR Lanckriet</author>\r\n
+        \                   <first_page>300</first_page>\r\n                    <cYear>2004</cYear>\r\n
+        \                   <volume_title>Pac Symp Biocomput</volume_title>\r\n                    <unstructured_citation>Lanckriet
+        GR, Deng M, Cristianini N, Jordan MI, Noble WS: Kernel-based data fusion and
+        its application to protein function prediction in yeast. Pac Symp Biocomput.
+        2004, 300-311.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR4\">\r\n                    <journal_title>J
+        Comput Biol</journal_title>\r\n                    <author>P Pavlidis</author>\r\n
+        \                   <volume>9</volume>\r\n                    <issue>2</issue>\r\n
+        \                   <first_page>401</first_page>\r\n                    <cYear>2002</cYear>\r\n
+        \                   <doi>10.1089/10665270252935539</doi>\r\n                    <unstructured_citation>Pavlidis
+        P, Weston J, Cai J, Noble WS: Learning gene functional classifications from
+        multiple data types. J Comput Biol. 2002, 9 (2): 401-411. 10.1089/10665270252935539.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR5\">\r\n
+        \                   <journal_title>Bioinformatics</journal_title>\r\n                    <author>A
+        Ben-Hur</author>\r\n                    <volume>21</volume>\r\n                    <issue>Suppl
+        1</issue>\r\n                    <first_page>i38</first_page>\r\n                    <cYear>2005</cYear>\r\n
+        \                   <doi>10.1093/bioinformatics/bti1016</doi>\r\n                    <unstructured_citation>Ben-Hur
+        A, Noble WS: Kernel methods for predicting protein-protein interactions. Bioinformatics.
+        2005, 21 (Suppl 1): i38-i46. 10.1093/bioinformatics/bti1016.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR6\">\r\n
+        \                   <journal_title>Science</journal_title>\r\n                    <author>R
+        Jansen</author>\r\n                    <volume>302</volume>\r\n                    <issue>5644</issue>\r\n
+        \                   <first_page>449</first_page>\r\n                    <cYear>2003</cYear>\r\n
+        \                   <doi>10.1126/science.1087361</doi>\r\n                    <unstructured_citation>Jansen
+        R, Yu H, Greenbaum D, Kluger Y, Krogan NJ, Chung S, Emili A, Snyder M, Greenblatt
+        JF, Gerstein M: A Bayesian networks approach for predicting protein-protein
+        interactions from genomic data. Science. 2003, 302 (5644): 449-453. 10.1126/science.1087361.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR7\">\r\n
+        \                   <journal_title>Science</journal_title>\r\n                    <author>I
+        Lee</author>\r\n                    <volume>306</volume>\r\n                    <issue>5701</issue>\r\n
+        \                   <first_page>1555</first_page>\r\n                    <cYear>2004</cYear>\r\n
+        \                   <doi>10.1126/science.1099511</doi>\r\n                    <unstructured_citation>Lee
+        I, Date SV, Adai AT, Marcotte EM: A probabilistic functional network of yeast
+        genes. Science. 2004, 306 (5701): 1555-1558. 10.1126/science.1099511.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR8\">\r\n
+        \                   <journal_title>BMC Bioinformatics</journal_title>\r\n
+        \                   <author>N Lin</author>\r\n                    <volume>5</volume>\r\n
+        \                   <issue>1</issue>\r\n                    <first_page>154</first_page>\r\n
+        \                   <cYear>2004</cYear>\r\n                    <doi>10.1186/1471-2105-5-154</doi>\r\n
+        \                   <unstructured_citation>Lin N, Wu B, Jansen R, Gerstein
+        M, Zhao H: Information assessment on predicting protein-protein interactions.
+        BMC Bioinformatics. 2004, 5 (1): 154-10.1186/1471-2105-5-154.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR9\">\r\n
+        \                   <journal_title>Proc Natl Acad Sci USA</journal_title>\r\n
+        \                   <author>OG Troyanskaya</author>\r\n                    <volume>100</volume>\r\n
+        \                   <issue>14</issue>\r\n                    <first_page>8348</first_page>\r\n
+        \                   <cYear>2003</cYear>\r\n                    <doi>10.1073/pnas.0832373100</doi>\r\n
+        \                   <unstructured_citation>Troyanskaya OG, Dolinski K, Owen
+        AB, Altman RB, Botstein D: A Bayesian framework for combining heterogeneous
+        data sources for gene function prediction (in Saccharomyces cerevisiae). Proc
+        Natl Acad Sci USA. 2003, 100 (14): 8348-8353. 10.1073/pnas.0832373100.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR10\">\r\n
+        \                   <journal_title>Trends Genet</journal_title>\r\n                    <author>SL
+        Wong</author>\r\n                    <volume>21</volume>\r\n                    <issue>8</issue>\r\n
+        \                   <first_page>424</first_page>\r\n                    <cYear>2005</cYear>\r\n
+        \                   <doi>10.1016/j.tig.2005.06.006</doi>\r\n                    <unstructured_citation>Wong
+        SL, Zhang LV, Roth FP: Discovering functional relationships: biochemistry
+        versus genetics. Trends Genet. 2005, 21 (8): 424-427. 10.1016/j.tig.2005.06.006.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR11\">\r\n
+        \                   <journal_title>Nucleic Acids Res</journal_title>\r\n                    <author>M
+        Kanehisa</author>\r\n                    <volume>28</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>27</first_page>\r\n                    <cYear>2000</cYear>\r\n
+        \                   <doi>10.1093/nar/28.1.27</doi>\r\n                    <unstructured_citation>Kanehisa
+        M, Goto S: KEGG: kyoto encyclopedia of genes and genomes. Nucleic Acids Res.
+        2000, 28 (1): 27-30. 10.1093/nar/28.1.27.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR12\">\r\n                    <journal_title>Bioinformatics</journal_title>\r\n
+        \                   <author>Y Yamanishi</author>\r\n                    <volume>20</volume>\r\n
+        \                   <issue>Suppl 1</issue>\r\n                    <first_page>I363</first_page>\r\n
+        \                   <cYear>2004</cYear>\r\n                    <doi>10.1093/bioinformatics/bth910</doi>\r\n
+        \                   <unstructured_citation>Yamanishi Y, Vert JP, Kanehisa
+        M: Protein network inference from multiple genomic data: a supervised approach.
+        Bioinformatics. 2004, 20 (Suppl 1): I363-I370. 10.1093/bioinformatics/bth910.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR13\">\r\n
+        \                   <unstructured_citation>GRIFn Home Page. [\r\n                    http://function.princeton.edu/GRIFn\r\n
+        \                   \r\n                  ]</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR14\">\r\n                    <journal_title>Nature</journal_title>\r\n
+        \                   <author>AC Gavin</author>\r\n                    <volume>415</volume>\r\n
+        \                   <issue>6868</issue>\r\n                    <first_page>141</first_page>\r\n
+        \                   <cYear>2002</cYear>\r\n                    <doi>10.1038/415141a</doi>\r\n
+        \                   <unstructured_citation>Gavin AC, Bosche M, Krause R, Grandi
+        P, Marzioch M, Bauer A, Schultz J, Rick JM, Michon AM, Cruciat CM: Functional
+        organization of the yeast proteome by systematic analysis of protein complexes.
+        Nature. 2002, 415 (6868): 141-147. 10.1038/415141a.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR15\">\r\n
+        \                   <journal_title>J Mol Biol</journal_title>\r\n                    <author>E
+        Sprinzak</author>\r\n                    <volume>327</volume>\r\n                    <issue>5</issue>\r\n
+        \                   <first_page>919</first_page>\r\n                    <cYear>2003</cYear>\r\n
+        \                   <doi>10.1016/S0022-2836(03)00239-0</doi>\r\n                    <unstructured_citation>Sprinzak
+        E, Sattath S, Margalit H: How reliable are experimental protein-protein interaction
+        data?. J Mol Biol. 2003, 327 (5): 919-923. 10.1016/S0022-2836(03)00239-0.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR16\">\r\n
+        \                   <journal_title>Nature</journal_title>\r\n                    <author>P
+        Uetz</author>\r\n                    <volume>403</volume>\r\n                    <issue>6770</issue>\r\n
+        \                   <first_page>623</first_page>\r\n                    <cYear>2000</cYear>\r\n
+        \                   <doi>10.1038/35001009</doi>\r\n                    <unstructured_citation>Uetz
+        P, Giot L, Cagney G, Mansfield TA, Judson RS, Knight JR, Lockshon D, Narayan
+        V, Srinivasan M, Pochart P: A comprehensive analysis of protein-protein interactions
+        in Saccharomyces cerevisiae. Nature. 2000, 403 (6770): 623-627. 10.1038/35001009.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR17\">\r\n
+        \                   <journal_title>Nature</journal_title>\r\n                    <author>C
+        von Mering</author>\r\n                    <volume>417</volume>\r\n                    <issue>6887</issue>\r\n
+        \                   <first_page>399</first_page>\r\n                    <cYear>2002</cYear>\r\n
+        \                   <doi>10.1038/nature750</doi>\r\n                    <unstructured_citation>von
+        Mering C, Krause R, Snel B, Cornell M, Oliver SG, Fields S, Bork P: Comparative
+        assessment of large-scale data sets of protein-protein interactions. Nature.
+        2002, 417 (6887): 399-403. 10.1038/nature750.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR18\">\r\n
+        \                   <journal_title>Bioinformatics</journal_title>\r\n                    <author>SG
+        Lee</author>\r\n                    <volume>20</volume>\r\n                    <issue>3</issue>\r\n
+        \                   <first_page>381</first_page>\r\n                    <cYear>2004</cYear>\r\n
+        \                   <doi>10.1093/bioinformatics/btg420</doi>\r\n                    <unstructured_citation>Lee
+        SG, Hur JU, Kim YS: A graph-theoretic modeling on GO space for biological
+        interpretation of gene clusters. Bioinformatics. 2004, 20 (3): 381-388. 10.1093/bioinformatics/btg420.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR19\">\r\n
+        \                   <journal_title>Nat Genet</journal_title>\r\n                    <author>M
+        Ashburner</author>\r\n                    <volume>25</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>25</first_page>\r\n                    <cYear>2000</cYear>\r\n
+        \                   <doi>10.1038/75556</doi>\r\n                    <unstructured_citation>Ashburner
+        M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, Davis AP, Dolinski
+        K, Dwight SS, Eppig JT: Gene ontology: tool for the unification of biology.
+        The Gene Ontology Consortium. Nat Genet. 2000, 25 (1): 25-29. 10.1038/75556.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR20\">\r\n
+        \                   <journal_title>Nucleic Acids Res</journal_title>\r\n                    <author>CA
+        Ball</author>\r\n                    <volume>28</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>77</first_page>\r\n                    <cYear>2000</cYear>\r\n
+        \                   <doi>10.1093/nar/28.1.77</doi>\r\n                    <unstructured_citation>Ball
+        CA, Dolinski K, Dwight SS, Harris MA, Issel-Tarver L, Kasarskis A, Scafe CR,
+        Sherlock G, Binkley G, Jin H: Integrating functional genomic information into
+        the Saccharomyces genome database. Nucleic Acids Res. 2000, 28 (1): 77-80.
+        10.1093/nar/28.1.77.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR21\">\r\n                    <journal_title>Nucleic
+        Acids Res</journal_title>\r\n                    <author>HW Mewes</author>\r\n
+        \                   <volume>30</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>31</first_page>\r\n                    <cYear>2002</cYear>\r\n
+        \                   <doi>10.1093/nar/30.1.31</doi>\r\n                    <unstructured_citation>Mewes
+        HW, Frishman D, Guldener U, Mannhaupt G, Mayer K, Mokrejs M, Morgenstern B,
+        Munsterkotter M, Rudd S, Weil B: MIPS: a database for genomes and protein
+        sequences. Nucleic Acids Res. 2002, 30 (1): 31-34. 10.1093/nar/30.1.31.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR22\">\r\n
+        \                   <journal_title>Nucleic Acids Res</journal_title>\r\n                    <author>MC
+        Costanzo</author>\r\n                    <volume>29</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>75</first_page>\r\n                    <cYear>2001</cYear>\r\n
+        \                   <doi>10.1093/nar/29.1.75</doi>\r\n                    <unstructured_citation>Costanzo
+        MC, Crawford ME, Hirschman JE, Kranz JE, Olsen P, Robertson LS, Skrzypek MS,
+        Braun BR, Hopkins KL, Kondu P: YPD, PombePD and WormPD: model organism volumes
+        of the BioKnowledge library, an integrated resource for protein information.
+        Nucleic Acids Res. 2001, 29 (1): 75-79. 10.1093/nar/29.1.75.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR23\">\r\n
+        \                   <journal_title>Curr Opin Microbiol</journal_title>\r\n
+        \                   <author>R Jansen</author>\r\n                    <volume>7</volume>\r\n
+        \                   <issue>5</issue>\r\n                    <first_page>535</first_page>\r\n
+        \                   <cYear>2004</cYear>\r\n                    <doi>10.1016/j.mib.2004.08.012</doi>\r\n
+        \                   <unstructured_citation>Jansen R, Gerstein M: Analyzing
+        protein function on a genomic scale: the importance of gold-standard positives
+        and negatives for network prediction. Curr Opin Microbiol. 2004, 7 (5): 535-545.
+        10.1016/j.mib.2004.08.012.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR24\">\r\n                    <journal_title>BMC
+        Bioinformatics</journal_title>\r\n                    <author>A Patil</author>\r\n
+        \                   <volume>6</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>100</first_page>\r\n                    <cYear>2005</cYear>\r\n
+        \                   <doi>10.1186/1471-2105-6-100</doi>\r\n                    <unstructured_citation>Patil
+        A, Nakamura H: Filtering high-throughput protein-protein interaction data
+        using a combination of genomic features. BMC Bioinformatics. 2005, 6 (1):
+        100-10.1186/1471-2105-6-100.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR25\">\r\n                    <journal_title>Nature</journal_title>\r\n
+        \                   <author>WK Huh</author>\r\n                    <volume>425</volume>\r\n
+        \                   <issue>6959</issue>\r\n                    <first_page>686</first_page>\r\n
+        \                   <cYear>2003</cYear>\r\n                    <doi>10.1038/nature02026</doi>\r\n
+        \                   <unstructured_citation>Huh WK, Falvo JV, Gerke LC, Carroll
+        AS, Howson RW, Weissman JS, O'Shea EK: Global analysis of protein localization
+        in budding yeast. Nature. 2003, 425 (6959): 686-691. 10.1038/nature02026.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR26\">\r\n
+        \                   <journal_title>Mol Cell Proteomics</journal_title>\r\n
+        \                   <author>CM Deane</author>\r\n                    <volume>1</volume>\r\n
+        \                   <issue>5</issue>\r\n                    <first_page>349</first_page>\r\n
+        \                   <cYear>2002</cYear>\r\n                    <doi>10.1074/mcp.M100037-MCP200</doi>\r\n
+        \                   <unstructured_citation>Deane CM, Salwinski L, Xenarios
+        I, Eisenberg D: Protein interactions: two methods for assessment of the reliability
+        of high throughput observations. Mol Cell Proteomics. 2002, 1 (5): 349-356.
+        10.1074/mcp.M100037-MCP200.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR27\">\r\n                    <author>Y
+        Qi</author>\r\n                    <first_page>531</first_page>\r\n                    <cYear>2005</cYear>\r\n
+        \                   <volume_title>Pac Symp Biocomput</volume_title>\r\n                    <unstructured_citation>Qi
+        Y, Klein-Seetharaman J, Bar-Joseph Z: Random forest similarity for protein-protein
+        interaction prediction from multiple sources. Pac Symp Biocomput. 2005, 531-542.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR28\">\r\n
+        \                   <journal_title>Curr Opin Struct Biol</journal_title>\r\n
+        \                   <author>P Bork</author>\r\n                    <volume>14</volume>\r\n
+        \                   <issue>3</issue>\r\n                    <first_page>292</first_page>\r\n
+        \                   <cYear>2004</cYear>\r\n                    <doi>10.1016/j.sbi.2004.05.003</doi>\r\n
+        \                   <unstructured_citation>Bork P, Jensen LJ, von Mering C,
+        Ramani AK, Lee I, Marcotte EM: Protein interaction networks from yeast to
+        human. Curr Opin Struct Biol. 2004, 14 (3): 292-299. 10.1016/j.sbi.2004.05.003.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR29\">\r\n
+        \                   <journal_title>Nucleic Acids Res</journal_title>\r\n                    <author>I
+        Xenarios</author>\r\n                    <volume>28</volume>\r\n                    <issue>1</issue>\r\n
+        \                   <first_page>289</first_page>\r\n                    <cYear>2000</cYear>\r\n
+        \                   <doi>10.1093/nar/28.1.289</doi>\r\n                    <unstructured_citation>Xenarios
+        I, Rice DW, Salwinski L, Baron MK, Marcotte EM, Eisenberg D: DIP: the database
+        of interacting proteins. Nucleic Acids Res. 2000, 28 (1): 289-291. 10.1093/nar/28.1.289.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR30\">\r\n
+        \                   <journal_title>Genome Biol</journal_title>\r\n                    <author>BJ
+        Breitkreutz</author>\r\n                    <volume>4</volume>\r\n                    <issue>3</issue>\r\n
+        \                   <first_page>R23</first_page>\r\n                    <cYear>2003</cYear>\r\n
+        \                   <doi>10.1186/gb-2003-4-3-r23</doi>\r\n                    <unstructured_citation>Breitkreutz
+        BJ, Stark C, Tyers M: The GRID: the General Repository for Interaction Datasets.
+        Genome Biol. 2003, 4 (3): R23-10.1186/gb-2003-4-3-r23.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR31\">\r\n
+        \                   <doi provider=\"crossref\">10.1093/nar/gki051</doi>\r\n
+        \                   <unstructured_citation>Alfarano C, Andrade CE, Anthony
+        K, Bahroos N, Bajec M, Bantoft K, Betel D, Bobechko B, Boutilier K, Burgess
+        E: The Biomolecular Interaction Network Database and related tools 2005 update.
+        Nucleic Acids Res. 2005, D418-424. 33 Database</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR32\">\r\n
+        \                   <journal_title>Bioinformatics</journal_title>\r\n                    <author>PW
+        Lord</author>\r\n                    <volume>19</volume>\r\n                    <issue>10</issue>\r\n
+        \                   <first_page>1275</first_page>\r\n                    <cYear>2003</cYear>\r\n
+        \                   <doi>10.1093/bioinformatics/btg153</doi>\r\n                    <unstructured_citation>Lord
+        PW, Stevens RD, Brass A, Goble CA: Investigating semantic similarity measures
+        across the Gene Ontology: the relationship between sequence and annotation.
+        Bioinformatics. 2003, 19 (10): 1275-1283. 10.1093/bioinformatics/btg153.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR33\">\r\n
+        \                   <journal_title>BMC Bioinformatics</journal_title>\r\n
+        \                   <author>A Ben-Hur</author>\r\n                    <volume>7</volume>\r\n
+        \                   <issue>Suppl61</issue>\r\n                    <first_page>S2</first_page>\r\n
+        \                   <cYear>2005</cYear>\r\n                    <unstructured_citation>Ben-Hur
+        A, Noble WS: Choosing negative examples for the prediction of protein-protein
+        interactions. BMC Bioinformatics. 2005, 7 (Suppl61): S2-</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR34\">\r\n
+        \                   <journal_title>Proc Natl Acad Sci U S A</journal_title>\r\n
+        \                   <author>T Ito</author>\r\n                    <volume>98</volume>\r\n
+        \                   <issue>8</issue>\r\n                    <first_page>4569</first_page>\r\n
+        \                   <cYear>2001</cYear>\r\n                    <doi>10.1073/pnas.061034498</doi>\r\n
+        \                   <unstructured_citation>Ito T, Chiba T, Ozawa R, Yoshida
+        M, Hattori M, Sakaki Y: A comprehensive two-hybrid analysis to explore the
+        yeast protein interactome. Proc Natl Acad Sci U S A. 2001, 98 (8): 4569-4574.
+        10.1073/pnas.061034498.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR35\">\r\n                    <journal_title>Science</journal_title>\r\n
+        \                   <author>AH Tong</author>\r\n                    <volume>295</volume>\r\n
+        \                   <issue>5553</issue>\r\n                    <first_page>321</first_page>\r\n
+        \                   <cYear>2002</cYear>\r\n                    <doi>10.1126/science.1064987</doi>\r\n
+        \                   <unstructured_citation>Tong AH, Drees B, Nardelli G, Bader
+        GD, Brannetti B, Castagnoli L, Evangelista M, Ferracuti S, Nelson B, Paoluzi
+        S: A combined experimental and computational strategy to define protein interaction
+        networks for peptide recognition modules. Science. 2002, 295 (5553): 321-324.
+        10.1126/science.1064987.</unstructured_citation>\r\n                  </citation>\r\n
+        \                 <citation key=\"570_CR36\">\r\n                    <journal_title>Nature</journal_title>\r\n
+        \                   <author>Y Ho</author>\r\n                    <volume>415</volume>\r\n
+        \                   <issue>6868</issue>\r\n                    <first_page>180</first_page>\r\n
+        \                   <cYear>2002</cYear>\r\n                    <doi>10.1038/415180a</doi>\r\n
+        \                   <unstructured_citation>Ho Y, Gruhler A, Heilbut A, Bader
+        GD, Moore L, Adams SL, Millar A, Taylor P, Bennett K, Boutilier K: Systematic
+        identification of protein complexes in Saccharomyces cerevisiae by mass spectrometry.
+        Nature. 2002, 415 (6868): 180-183. 10.1038/415180a.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR37\">\r\n
+        \                   <journal_title>Mol Biol Cell</journal_title>\r\n                    <author>AP
+        Gasch</author>\r\n                    <volume>12</volume>\r\n                    <issue>10</issue>\r\n
+        \                   <first_page>2987</first_page>\r\n                    <cYear>2001</cYear>\r\n
+        \                   <doi>10.1091/mbc.12.10.2987</doi>\r\n                    <unstructured_citation>Gasch
+        AP, Huang M, Metzner S, Botstein D, Elledge SJ, Brown PO: Genomic expression
+        responses to DNA-damaging agents and the regulatory role of the yeast ATR
+        homolog Mec1p. Mol Biol Cell. 2001, 12 (10): 2987-3003.</unstructured_citation>\r\n
+        \                 </citation>\r\n                  <citation key=\"570_CR38\">\r\n
+        \                   <journal_title>Mol Biol Cell</journal_title>\r\n                    <author>PT
+        Spellman</author>\r\n                    <volume>9</volume>\r\n                    <issue>12</issue>\r\n
+        \                   <first_page>3273</first_page>\r\n                    <cYear>1998</cYear>\r\n
+        \                   <doi>10.1091/mbc.9.12.3273</doi>\r\n                    <unstructured_citation>Spellman
+        PT, Sherlock G, Zhang MQ, Iyer VR, Anders K, Eisen MB, Brown PO, Botstein
+        D, Futcher B: Comprehensive identification of cell cycle-regulated genes of
+        the yeast Saccharomyces cerevisiae by microarray hybridization. Mol Biol Cell.
+        1998, 9 (12): 3273-3297.</unstructured_citation>\r\n                  </citation>\r\n
+        \               </citation_list>\r\n              </journal_article>\r\n            </journal>\r\n
+        \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
+        \ </query_result>\r\n</crossref_result>"
+    http_version:
+  recorded_at: Sun, 11 Oct 2020 05:26:32 GMT
+recorded_with: VCR 3.0.3
