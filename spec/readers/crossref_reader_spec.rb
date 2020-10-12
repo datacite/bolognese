@@ -683,6 +683,23 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_registered).to eq("2019-11-02T09:30:06Z")
     end
 
+    it "affiliation is space" do
+      input = "https://doi.org/10.1177/0042098011428175"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.1177/0042098011428175")
+      expect(subject.url).to eq("http://journals.sagepub.com/doi/10.1177/0042098011428175")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(1)
+      expect(subject.creators.first).to eq("familyName"=>"Petrovici", "givenName"=>"Norbert", "name"=>"Petrovici, Norbert", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Workers and the City: Rethinking the Geographies of Power in Post-socialist Urbanisation"}])
+      expect(subject.dates).to include({"date"=>"2011-12-22", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2011")
+      expect(subject.publisher).to eq("SAGE Publications")
+      expect(subject.agency).to eq("crossref")
+      expect(subject.date_registered).to eq("2017-12-17T00:37:32Z")
+    end
+
     it "posted content copernicus" do
       input = "https://doi.org/10.5194/CP-2020-95"
       subject = Bolognese::Metadata.new(input: input)

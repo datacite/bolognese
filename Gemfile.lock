@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.8.10)
+    bolognese (1.8.11)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -187,7 +187,7 @@ GEM
       thread_safe (~> 0.1)
     unicode_utils (1.4.0)
     vcr (3.0.3)
-    webmock (3.9.1)
+    webmock (3.9.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)

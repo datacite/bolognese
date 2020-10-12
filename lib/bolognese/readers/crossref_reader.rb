@@ -247,13 +247,26 @@ module Bolognese
           if a["surname"].present? || a["given_name"].present? || name_identifiers.present?
             given_name = parse_attributes(a["given_name"])
             family_name = parse_attributes(a["surname"])
+            affiliation = Array.wrap(a["affiliation"]).map do |a|
+              if a.is_a?(Hash) && a.key?("__content__") && a["__content__"].strip.blank?
+                nil
+              elsif a.is_a?(Hash) && a.key?("__content__")
+                { "name" => a["__content__"] }
+              elsif a.is_a?(Hash)
+                a
+              elsif a.strip.blank?
+                nil
+              elsif a.is_a?(String)
+               { "name" => a }
+              end
+            end.compact
 
             { "nameType" => "Personal",
               "nameIdentifiers" => name_identifiers,
               "name" => [family_name, given_name].compact.join(", "),
               "givenName" => given_name,
               "familyName" => family_name,
-              "affiliation" => Array.wrap(a["affiliation"]).map { |a| { "name" => a }}.presence,
+              "affiliation" => affiliation.presence,
               "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
           else
             { "nameType" => "Organizational",
