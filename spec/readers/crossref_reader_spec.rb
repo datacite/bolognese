@@ -700,6 +700,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.date_registered).to eq("2017-12-17T00:37:32Z")
     end
 
+    it "multiple issn" do
+      input = "https://doi.org/10.1007/978-3-642-34922-5_19"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.1007/978-3-642-34922-5_19")
+      expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-642-34922-5_19")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.creators.length).to eq(3)
+      expect(subject.creators.first).to eq("familyName"=>"Razib", "givenName"=>"Ali", "name"=>"Razib, Ali", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Log-Domain Arithmetic for High-Speed Fuzzy Control on a Field-Programmable Gate Array"}])
+      expect(subject.dates).to include({"date"=>"2013", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2013")
+      expect(subject.publisher).to eq("Springer Science and Business Media LLC")
+      expect(subject.container).to eq("identifier"=>"1860-0808", "identifierType"=>"ISSN", "title"=>"Studies in Fuzziness and Soft Computing", "type"=>"Book Series")
+      expect(subject.agency).to eq("crossref")
+      expect(subject.date_registered).to eq("2012-10-31T16:15:44Z")
+    end
+
     it "posted content copernicus" do
       input = "https://doi.org/10.5194/CP-2020-95"
       subject = Bolognese::Metadata.new(input: input)
