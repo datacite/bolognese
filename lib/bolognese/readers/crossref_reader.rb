@@ -64,7 +64,6 @@ module Bolognese
           journal_article = meta.dig("crossref", "journal", "journal_article") || {}
           bibliographic_metadata = journal_article.presence || journal_issue.presence || journal_metadata
           program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
-          
           resource_type = if journal_article.present?
                               "journal_article"
                             elsif journal_issue.present?
@@ -150,7 +149,7 @@ module Bolognese
                         "title" => parse_attributes(journal_metadata.to_h["full_title"]),
                         "volume" => parse_attributes(journal_issue.dig("journal_volume", "volume")),
                         "issue" => parse_attributes(journal_issue.dig("issue")),
-                        "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
+                        "firstPage" => bibliographic_metadata.dig("pages", "first_page") || parse_attributes(journal_article.to_h.dig("publisher_item", "item_number"), first: true),
                         "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
                     elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?
                       issn = normalize_issn(book_series_metadata.dig("series_metadata", "issn"))

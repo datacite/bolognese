@@ -316,7 +316,7 @@ describe Bolognese::Metadata, vcr: true do
       subject.descriptions = { "description" => "This is an abstract." }
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("descriptions", "description")).to eq( [{"__content__"=>"eLife, 3", "descriptionType"=>"SeriesInformation"}, {"__content__"=>"This is an abstract.", "descriptionType"=>"Abstract"}])
+      expect(datacite.dig("descriptions", "description")).to eq([{"__content__"=>"eLife, 3, e01567", "descriptionType"=>"SeriesInformation"}, {"__content__"=>"This is an abstract.", "descriptionType"=>"Abstract"}])
     end
 
     it "change description no input" do

@@ -19,8 +19,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[11]).to eq("PY  - 2014")
       expect(ris[12]).to eq("PB  - eLife Sciences Publications, Ltd")
       expect(ris[13]).to eq("VL  - 3")
-      expect(ris[14]).to eq("SN  - 2050-084X")
-      expect(ris[15]).to eq("ER  - ")
+      expect(ris[14]).to eq("SP  - e01567")
+      expect(ris[15]).to eq("SN  - 2050-084X")
+      expect(ris[16]).to eq("ER  - ")
     end
 
     it "with pages" do

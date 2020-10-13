@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.style).to eq("apa")
       expect(subject.locale).to eq("en-US")
-      expect(subject.citation).to eq("Sankar, M., Nieminen, K., Ragni, L., Xenarios, I., &amp; Hardtke, C. S. (2014). Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. <i>ELife</i>, <i>3</i>. https://doi.org/10.7554/elife.01567")
+      expect(subject.citation).to eq("Sankar, M., Nieminen, K., Ragni, L., Xenarios, I., &amp; Hardtke, C. S. (2014). Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. <i>ELife</i>, <i>3</i>, e01567. https://doi.org/10.7554/elife.01567")
     end
 
     it "Journal article vancouver style" do
@@ -17,7 +17,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref", style: "vancouver", locale: "en-US")
       expect(subject.style).to eq("vancouver")
       expect(subject.locale).to eq("en-US")
-      expect(subject.citation).to eq("Sankar M, Nieminen K, Ragni L, Xenarios I, Hardtke CS. Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. eLife [Internet]. 2014Feb11;3. Available from: https://elifesciences.org/articles/01567")
+      expect(subject.citation).to eq("Sankar M, Nieminen K, Ragni L, Xenarios I, Hardtke CS. Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth. eLife [Internet]. 2014Feb11;3:e01567. Available from: https://elifesciences.org/articles/01567")
     end
 
     it "Dataset" do

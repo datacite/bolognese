@@ -6,7 +6,7 @@ module Bolognese
       def bibtex
         return nil unless valid?
 
-        pages = container.to_h["firstPage"].present? ? [container["firstPage"], container["lastPage"]].join("-") : nil
+        pages = container.to_h["firstPage"].present? ? [container["firstPage"], container["lastPage"]].compact.join("-") : nil
 
         bib = {
           bibtex_type: types["bibtex"].presence || "misc",

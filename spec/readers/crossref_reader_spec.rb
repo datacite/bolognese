@@ -33,7 +33,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2014-02-11", "dateType"=>"Issued"}, {"date"=>"2018-08-23T13:41:49Z", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2014")
       expect(subject.publisher).to eq("eLife Sciences Publications, Ltd")
-      expect(subject.container).to eq("identifier"=>"2050-084X", "identifierType"=>"ISSN", "title"=>"eLife", "type"=>"Journal", "volume"=>"3")
+      expect(subject.container).to eq("firstPage" => "e01567", "identifier"=>"2050-084X", "identifierType"=>"ISSN", "title"=>"eLife", "type"=>"Journal", "volume"=>"3")
       expect(subject.related_identifiers.length).to eq(27)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.1038/ncb2764", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
@@ -100,7 +100,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(70)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"1664-462X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.17660/actahortic.2004.632.41", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.container).to eq("identifier"=>"1664-462X", "identifierType"=>"ISSN", "title"=>"Frontiers in Plant Science", "type"=>"Journal", "volume"=>"10")
+      expect(subject.container).to eq("firstPage" => "816", "identifier"=>"1664-462X", "identifierType"=>"ISSN", "title"=>"Frontiers in Plant Science", "type"=>"Journal", "volume"=>"10")
       expect(subject.agency).to eq("crossref")
     end
 
@@ -716,6 +716,24 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.container).to eq("identifier"=>"1860-0808", "identifierType"=>"ISSN", "title"=>"Studies in Fuzziness and Soft Computing", "type"=>"Book Series")
       expect(subject.agency).to eq("crossref")
       expect(subject.date_registered).to eq("2012-10-31T16:15:44Z")
+    end
+
+    it "article id as page number" do
+      input = "https://doi.org/10.1103/physrevlett.120.117701"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.1103/physrevlett.120.117701")
+      expect(subject.url).to eq("https://link.aps.org/doi/10.1103/PhysRevLett.120.117701")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.creators.length).to eq(5)
+      expect(subject.creators.first).to eq("familyName"=>"Marrazzo", "givenName"=>"Antimo", "name"=>"Marrazzo, Antimo", "nameType"=>"Personal")
+      expect(subject.titles).to eq([{"title"=>"Prediction of a Large-Gap and Switchable Kane-Mele Quantum Spin Hall Insulator"}])
+      expect(subject.dates).to include({"date"=>"2018-03-13", "dateType"=>"Issued"})
+      expect(subject.publication_year).to eq("2018")
+      expect(subject.publisher).to eq("American Physical Society (APS)")
+      expect(subject.container).to eq("firstPage" => "117701", "identifier"=>"1079-7114", "identifierType"=>"ISSN", "issue"=>"11", "title"=>"Physical Review Letters", "type"=>"Journal", "volume"=>"120")
+      expect(subject.agency).to eq("crossref")
+      expect(subject.date_registered).to eq("2018-03-13T15:18:48Z")
     end
 
     it "posted content copernicus" do

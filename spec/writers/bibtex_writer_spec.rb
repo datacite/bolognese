@@ -56,7 +56,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(bibtex[:bibtex_key]).to eq("https://doi.org/10.3204/desy-2014-01645")
       expect(bibtex[:doi]).to eq("10.3204/desy-2014-01645")
       expect(bibtex[:title]).to eq("Dynamics of colloids in molecular glass forming liquids studied via X-ray photon correlation spectroscopy")
-      expect(bibtex[:pages]).to eq("2014-")
+      expect(bibtex[:pages]).to eq("2014")
       expect(bibtex[:year]).to eq("2014")
     end
 

@@ -11,7 +11,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.7554/elife.01567")
       expect(json["@type"]).to eq("ScholarlyArticle")
       expect(json["isPartOf"]).to eq("@type"=>"Periodical", "issn"=>"2050-084X")
-      expect(json["periodical"]).to eq("@type"=>"Journal", "identifier"=>"2050-084X", "identifierType"=>"ISSN", "name"=>"eLife", "volume"=>"3")
+      expect(json["periodical"]).to eq("@type"=>"Journal", "firstPage" => "e01567", "identifier"=>"2050-084X", "identifierType"=>"ISSN", "name"=>"eLife", "volume"=>"3")
       expect(json["citation"].length).to eq(26)
       expect(json["citation"].first).to eq("@id"=>"https://doi.org/10.1038/nature02100", "@type"=>"CreativeWork")
       expect(json["funder"]).to eq([{"name"=>"SystemsX", "@type"=>"Organization"},
