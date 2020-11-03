@@ -1,11 +1,11 @@
-name: Publish Gem
+name: Release Gem
 
 on:
   push:
     branches:
-      - "*"
+      - "master"
     tags:
-      - 1*
+      - "*"
 jobs:
   build:
     runs-on: ubuntu-latest
