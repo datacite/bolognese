@@ -19,7 +19,7 @@ jobs:
       run: |
         gem install bundler
         bundle install
-        bundle exec rspec spec
+        bundle exec rspec
 
     - name: Publish code coverage
       uses: paambaati/codeclimate-action@v2.7.4
