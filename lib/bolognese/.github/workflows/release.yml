@@ -36,3 +36,11 @@ jobs:
         gem push *.gem
       env:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
+
+    - name: Notify Slack
+      uses: adamkdean/simple-slack-notify@1.0.4
+      with:
+        channel: '#ops'
+        username: 'GitHub Actions'
+        color: 'good'
+        text: 'A new version of the bolognese gem has been released.'
