@@ -21,11 +21,10 @@ jobs:
         bundle install
         bundle exec rspec spec
 
-    - name: Code Climate Test Reporter
-      uses: aktions/codeclimate-test-reporter@v1
-      with:
-        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-        command: after-build
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v2.7.4
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
 
     - name: Notify Slack
       uses: adamkdean/simple-slack-notify@1.0.4
