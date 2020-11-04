@@ -1,6 +1,6 @@
 [![Identifier](https://img.shields.io/badge/doi-10.5438%2Fn138--z3mk-fca709.svg)](https://doi.org/10.5438/n138-z3mk)
 [![Gem Version](https://badge.fury.io/rb/bolognese.svg)](https://badge.fury.io/rb/bolognese)
-[![Build Status](https://travis-ci.org/datacite/bolognese.svg?branch=master)](https://travis-ci.org/datacite/bolognese)
+![Build Ruby Gem](https://github.com/datacite/bolognese/workflows/Build%20Ruby%20Gem/badge.svg)
 [![Code Climate](https://codeclimate.com/github/datacite/bolognese/badges/gpa.svg)](https://codeclimate.com/github/datacite/bolognese)
 [![Test Coverage](https://codeclimate.com/github/datacite/bolognese/badges/coverage.svg)](https://codeclimate.com/github/datacite/bolognese/coverage)
 
