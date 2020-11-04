@@ -1,0 +1,23 @@
+name: Deploy Ruby Gem
+
+on:
+  push:
+    branches:
+      - "master"
+jobs:
+  build:
+    name: Build + Publish
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+
+    - name: Build and test
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec rspec spec
