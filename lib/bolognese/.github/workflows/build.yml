@@ -26,3 +26,12 @@ jobs:
       with:
         codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
         command: after-build
+
+    - name: Notify Slack
+      uses: adamkdean/simple-slack-notify@1.0.4
+      with:
+        channel: '#ops'
+        username: 'GitHub Actions'
+        color: 'good'
+        text: 'A new version of the bolognese gem has been built.'
+
