@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.8.20...HEAD)
+
+**Fixed bugs:**
+
+- Title field of DOI 10.1104/pp.111.178582 [\#31](https://github.com/datacite/bolognese/issues/31)
+
+## [1.8.20](https://github.com/datacite/bolognese/tree/1.8.20) (2020-11-21)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.8.19...1.8.20)
+
 ## [1.8.19](https://github.com/datacite/bolognese/tree/1.8.19) (2020-11-21)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.8.18...1.8.19)
