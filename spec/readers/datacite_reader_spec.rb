@@ -1387,6 +1387,9 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.valid?).to be true
     expect(subject.types["resourceType"]).to eq(nil)
     expect(subject.types["resourceTypeGeneral"]).to eq("Dissertation")
+    expect(subject.types["schemaOrg"]).to eq("Thesis")
+    expect(subject.types["ris"]).to eq("THES")
+    expect(subject.types["citeproc"]).to eq("thesis")
     expect(subject.creators).to eq(
       [
         {
