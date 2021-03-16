@@ -415,7 +415,7 @@ module Bolognese
         "ris"
       elsif options[:ext] == ".xml" && Maremma.from_xml(string).to_h.dig("crossref_result", "query_result", "body", "query", "doi_record", "crossref")
         "crossref"
-      elsif options[:ext] == ".xml" && Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }      
+      elsif options[:ext] == ".xml" && Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
         "datacite"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
@@ -433,7 +433,7 @@ module Bolognese
     def find_from_format_by_string(string)
       if Maremma.from_xml(string).to_h.dig("crossref_result", "query_result", "body", "query", "doi_record", "crossref").present?
         "crossref"
-      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }  
+      elsif Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).collect_namespaces.find { |k, v| v.start_with?("http://datacite.org/schema/kernel") }
         "datacite"
       elsif Maremma.from_json(string).to_h.dig("@context").to_s.start_with?("http://schema.org", "https://schema.org")
         "schema_org"
@@ -523,7 +523,7 @@ module Bolognese
       uri = Addressable::URI.parse(id)
 
       return nil unless uri && uri.host && %w(http https ftp).include?(uri.scheme)
-  
+
       # optionally turn into https URL
       uri.scheme = "https" if options[:https]
 
@@ -654,8 +654,8 @@ module Bolognese
             affiliation_identifier = a["affiliationIdentifier"]
           end
 
-          { 
-            "@type" => "Organization", 
+          {
+            "@type" => "Organization",
             "@id" => affiliation_identifier,
             "name" => name }.compact
         end.unwrap
@@ -677,8 +677,8 @@ module Bolognese
             affiliation_identifier = a["affiliationIdentifier"]
           end
 
-          { 
-            "@type" => "Organization", 
+          {
+            "@type" => "Organization",
             "@id" => affiliation_identifier,
             "name" => name }.compact
         end.unwrap
@@ -692,7 +692,7 @@ module Bolognese
     def to_schema_org_container(element, options={})
       return nil unless (element.is_a?(Hash) || (element.nil? && options[:container_title].present?))
 
-      { 
+      {
         "@id" => element["identifier"],
         "@type" => (options[:type] == "Dataset") ? "DataCatalog" : "Periodical",
         "name" => element["title"] || options[:container_title] }.compact
@@ -700,7 +700,7 @@ module Bolognese
 
     def to_schema_org_identifiers(element, options={})
       Array.wrap(element).map do |ai|
-        { 
+        {
           "@type" => "PropertyValue",
           "propertyID" => ai["identifierType"],
           "value" => ai["identifier"] }
@@ -710,7 +710,7 @@ module Bolognese
     def to_schema_org_relation(related_identifiers: nil, relation_type: nil)
       return nil unless related_identifiers.present? && relation_type.present?
 
-      relation_type = relation_type == "References" ? ["References", "Cites", "Documents"] : [relation_type] 
+      relation_type = relation_type == "References" ? ["References", "Cites", "Documents"] : [relation_type]
 
       Array.wrap(related_identifiers).select { |ri| relation_type.include?(ri["relationType"]) }.map do |r|
         if r["relatedIdentifierType"] == "ISSN" && r["relationType"] == "IsPartOf"
@@ -741,7 +741,7 @@ module Bolognese
 
       Array.wrap(geo_location).reduce([]) do |sum, gl|
         if gl.fetch("geoLocationPoint", nil)
-          sum << { 
+          sum << {
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoCoordinates",
@@ -752,7 +752,7 @@ module Bolognese
         end
 
         if gl.fetch("geoLocationBox", nil)
-          sum << { 
+          sum << {
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoShape",
@@ -765,19 +765,19 @@ module Bolognese
         end
 
         if gl.fetch("geoLocationPolygon", nil)
-          sum << { 
+          sum << {
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoShape",
               "address" => gl["geoLocationPlace"],
-              "polygon" => Array.wrap(gl.dig("geoLocationPolygon")).map do |glp| 
+              "polygon" => Array.wrap(gl.dig("geoLocationPolygon")).map do |glp|
                 [glp.dig("polygonPoint", "pointLongitude"), glp.dig("polygonPoint", "pointLatitude")].compact
               end.compact }
           }
         end
 
         if gl.fetch("geoLocationPlace", nil) && !gl.fetch("geoLocationPoint", nil) && !gl.fetch("geoLocationBox", nil) && !gl.fetch("geoLocationPolygon", nil)
-          sum << { 
+          sum << {
             "@type" => "Place",
             "geo" => {
               "@type" => "GeoCoordinates",
@@ -992,7 +992,7 @@ module Bolognese
 
     def get_iso8601_date(iso8601_time)
       return nil if iso8601_time.nil?
-      
+
       iso8601_time[0..9]
     end
 
@@ -1089,7 +1089,7 @@ module Bolognese
       first_page = pages.present? ? pages.split("-").map(&:strip)[0] : nil
       last_page = pages.present? ? pages.split("-").map(&:strip)[1] : nil
 
-      { 
+      {
         "title" => title,
         "volume" => volume,
         "issue" => issue,
@@ -1148,11 +1148,11 @@ module Bolognese
     def name_to_fos(name)
       # first find subject in Fields of Science (OECD)
       fos = JSON.load(File.read(File.expand_path('../../../resources/oecd/fos-mappings.json', __FILE__))).fetch("fosFields")
-      
+
       subject = fos.find { |l| l["fosLabel"] == name || "FOS: " + l["fosLabel"] == name }
 
       if subject
-        return [{ 
+        return [{
           "subject" => sanitize(name) },
         {
           "subject" => "FOS: " + subject["fosLabel"],
@@ -1166,12 +1166,12 @@ module Bolognese
       fores = JSON.load(File.read(File.expand_path('../../../resources/oecd/for-mappings.json', __FILE__)))
       for_fields = fores.fetch("forFields")
       for_disciplines = fores.fetch("forDisciplines")
-      
+
       subject = for_fields.find { |l| l["forLabel"] == name } ||
                 for_disciplines.find { |l| l["forLabel"] == name }
 
       if subject
-        [{ 
+        [{
           "subject" => sanitize(name) },
         {
           "subject" => "FOS: " + subject["fosLabel"],
@@ -1189,16 +1189,17 @@ module Bolognese
       subject = fos.find { |l| l["fosLabel"] == hsh["__content__"] || "FOS: " + l["fosLabel"] == hsh["__content__"] || l["fosLabel"] == hsh["subject"]}
 
       if subject
-        return [{ 
-          "subject" => sanitize(hsh["__content__"] || hsh["subject"]), 
+        return [{
+          "subject" => sanitize(hsh["__content__"] || hsh["subject"]),
           "subjectScheme" => hsh["subjectScheme"],
-          "schemeUri" => hsh["schemeURI"], 
-          "valueUri" => hsh["valueURI"], 
+          "schemeUri" => hsh["schemeURI"],
+          "valueUri" => hsh["valueURI"],
+          "classificationCode" => hsh["classificationCode"],
           "lang" => hsh["lang"] }.compact,
-        {  
+        {
           "subject" => "FOS: " + subject["fosLabel"],
           "subjectScheme" => "Fields of Science and Technology (FOS)",
-          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf" }.compact] 
+          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf" }.compact]
       end
 
       # if not found, look in Fields of Research (Australian and New Zealand Standard Research Classification)
@@ -1210,8 +1211,8 @@ module Bolognese
       # try to extract forId
       if hsh["subjectScheme"] == "FOR"
         for_id = hsh["__content__"].to_s.split(" ").first || hsh["subject"].to_s.split(" ").first
-        for_id = for_id.rjust(6, "0")        
-        
+        for_id = for_id.rjust(6, "0")
+
         subject = for_fields.find { |l| l["forId"] == for_id } ||
                   for_disciplines.find { |l| l["forId"] == for_id[0..3] }
       else
@@ -1220,11 +1221,12 @@ module Bolognese
       end
 
       if subject
-        [{ 
-          "subject" => sanitize(hsh["__content__"] || hsh["subject"]), 
+        [{
+          "subject" => sanitize(hsh["__content__"] || hsh["subject"]),
           "subjectScheme" => hsh["subjectScheme"],
-          "schemeUri" => hsh["schemeURI"], 
-          "valueUri" => hsh["valueURI"], 
+          "classificationCode" => hsh["classificationCode"],
+          "schemeUri" => hsh["schemeURI"],
+          "valueUri" => hsh["valueURI"],
           "lang" => hsh["lang"] }.compact,
         {
           "subject" => "FOS: " + subject["fosLabel"],
@@ -1232,12 +1234,13 @@ module Bolognese
           "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
         }]
       else
-        [{ 
-          "subject" => sanitize(hsh["__content__"] || hsh["subject"]), 
+        [{
+          "subject" => sanitize(hsh["__content__"] || hsh["subject"]),
           "subjectScheme" => hsh["subjectScheme"],
-          "schemeUri" => hsh["schemeURI"], 
-          "valueUri" => hsh["valueURI"], 
-          "lang" => hsh["lang"] }.compact]  
+          "classificationCode" => hsh["classificationCode"],
+          "schemeUri" => hsh["schemeURI"],
+          "valueUri" => hsh["valueURI"],
+          "lang" => hsh["lang"] }.compact]
       end
     end
   end

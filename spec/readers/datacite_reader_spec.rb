@@ -1350,6 +1350,15 @@ describe Bolognese::Metadata, vcr: true do
       ]
     )
     expect(subject.publication_year).to eq("2014")
+    expect(subject.subjects).to eq(
+      [{
+        "subject"=>"computer science",
+        "subjectScheme"=>"dewey",
+        "schemeUri"=>"http://dewey.info/",
+        "lang"=>"en-US",
+        "classificationCode"=>"000"
+      }]
+    )
     expect(subject.related_identifiers.length).to eq(2)
     expect(subject.related_identifiers.last).to eq(
       "relatedIdentifier"=>"arXiv:0706.0001",
