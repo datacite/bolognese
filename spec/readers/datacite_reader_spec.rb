@@ -1380,4 +1380,91 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.agency).to eq("datacite")
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
   end
+
+  it "Schema 4.4 dissertation from string" do
+    input = fixture_path + "datacite-example-dissertation-v4.4.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.valid?).to be true
+    expect(subject.types["resourceType"]).to eq(nil)
+    expect(subject.types["resourceTypeGeneral"]).to eq("Dissertation")
+    expect(subject.creators).to eq(
+      [
+        {
+          "name"=>"Luo, R",
+          "familyName"=>"Luo",
+          "givenName"=>"R",
+          "nameIdentifiers"=>[],
+          "affiliation"=>[],
+          "nameType" => "Personal"
+        },
+        {
+          "name"=>"Liu, B",
+          "familyName"=>"Liu",
+          "givenName"=>"B",
+          "nameIdentifiers"=>[],
+          "affiliation"=>[],
+          "nameType" => "Personal"
+        },
+        {
+          "name"=>"Xie, Y",
+          "familyName"=>"Xie",
+          "givenName"=>"Y",
+          "nameIdentifiers"=>[],
+          "affiliation"=>[],
+          "nameType" => "Personal"
+        },
+        {
+          "name"=>"Li, Z",
+          "familyName"=>"Li",
+          "givenName"=>"Z",
+          "nameIdentifiers"=>[],
+          "affiliation"=>[],
+          "nameType" => "Personal"
+        }
+      ]
+    )
+    expect(subject.titles).to eq(
+      [
+        {"title"=>"Software and supporting material for \"SOAPdenovo2: An empirically improved memory-efficient short read de novo assembly\"", "lang"=>"en"},
+      ]
+    )
+    expect(subject.dates).to eq(
+      [
+        {"date"=>"2012-12-13", "dateType"=>"Available"},
+        {"date"=>"2012", "dateType"=>"Issued"}
+      ]
+    )
+    expect(subject.publication_year).to eq("2012")
+    expect(subject.subjects).to eq(
+      [
+        {
+        "subject"=>"DNA (Genetics)",
+        "lang"=>"en"
+        },
+        {
+        "subject"=>"Computer Program",
+        "lang"=>"en"
+        }
+      ]
+    )
+    expect(subject.related_identifiers).to eq(
+      [
+        {"relatedIdentifier"=>"10.5072/2047-217x-1-1", "relatedIdentifierType"=>"DOI", "relationType"=>"IsReferencedBy"},
+        {"relatedIdentifier"=>"10.5072/100038", "relatedIdentifierType"=>"DOI", "relationType"=>"Compiles"}
+      ]
+    )
+    expect(subject.rights_list).to eq([
+      {
+      "lang"=>"en-US",
+      "rights"=>"Creative Commons Zero v1.0 Universal",
+      "rightsIdentifier"=>"cc0-1.0",
+      "rightsIdentifierScheme"=>"SPDX",
+      "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "schemeUri"=>"https://spdx.org/licenses/"
+      }
+    ])
+    expect(subject.publisher).to eq("GigaScience Database")
+    expect(subject.agency).to eq("datacite")
+    expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+  end
 end
