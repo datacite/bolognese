@@ -280,7 +280,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.4225/03/5a6931f57c654"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.subjects).to eq([{"subject"=>"90301 Biomaterials", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"}, 
+      expect(subject.subjects).to eq([{"subject"=>"90301 Biomaterials", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"},
         {"subject"=>"FOS: Medical engineering", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}])
     end
 
@@ -289,8 +289,8 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.subjects).to eq([{"subject"=>"130103 Higher Education", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"},
-        {"subject"=>"FOS: Educational sciences", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}, 
-        {"subject"=>"130313 Teacher Education and Professional Development of Educators", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"}, 
+        {"subject"=>"FOS: Educational sciences", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"},
+        {"subject"=>"130313 Teacher Education and Professional Development of Educators", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"},
         {"subject"=>"80799 Library and Information Studies not elsewhere classified", "subjectScheme"=>"FOR", "schemeUri"=>"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E"},
         {"subject"=>"FOS: Media and communications", "subjectScheme"=>"Fields of Science and Technology (FOS)", "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf"}, {"subject"=>"Library and Information Studies"}])
     end
@@ -1315,5 +1315,60 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     expect(subject.geo_locations.first["geoLocationPlace"]).to eq("Zandmotor, sand suppletion area on the Dutch coast.")
     expect(subject.geo_locations.first["geoLocationPolygon"].first).to eq("polygonPoint"=>{"pointLatitude"=>"52.03913926329928", "pointLongitude"=>"4.1738852605822"})
+  end
+
+  it "Schema 4.4 from string" do
+    input = fixture_path + "datacite-example-full-v4.4.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.valid?).to be true
+    expect(subject.types["schemaOrg"]).to eq("SoftwareSourceCode")
+    expect(subject.types["resourceType"]).to eq("XML")
+    expect(subject.types["resourceTypeGeneral"]).to eq("Software")
+    expect(subject.creators).to eq(
+      [
+        {
+          "name"=>"Miller, Elizabeth", "givenName"=>"Elizabeth", "familyName"=>"Miller",
+          "nameType" => "Personal",
+          "nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0001-5000-0007",
+             "schemeUri"=>"https://orcid.org",
+             "nameIdentifierScheme"=>"ORCID"}],
+          "affiliation" => [{ "name" => "DataCite" }]
+        }
+      ]
+    )
+    expect(subject.titles).to eq(
+      [
+        {"title"=>"Full DataCite XML Example", "lang"=>"en-US"},
+        {"title"=>"Demonstration of DataCite Properties.", "titleType"=>"Subtitle", "lang"=>"en-US"}
+      ]
+    )
+    expect(subject.identifiers).to eq([{"identifier"=>"https://schema.datacite.org/meta/kernel-4.4/example/datacite-example-full-v4.4.xml", "identifierType"=>"URL"}])
+    expect(subject.dates).to eq(
+      [
+        {"date"=>"2021-01-26", "dateInformation"=>"Updated with 4.4 properties", "dateType"=>"Updated"},
+        {"date"=>"2014", "dateType"=>"Issued"}
+      ]
+    )
+    expect(subject.publication_year).to eq("2014")
+    expect(subject.related_identifiers.length).to eq(2)
+    expect(subject.related_identifiers.last).to eq(
+      "relatedIdentifier"=>"arXiv:0706.0001",
+      "relatedIdentifierType"=>"arXiv",
+      "relationType"=>"IsReviewedBy",
+      "resourceTypeGeneral"=>"Text"
+    )
+    expect(subject.rights_list).to eq([
+      {
+      "lang"=>"en-US",
+      "rights"=>"Creative Commons Zero v1.0 Universal",
+      "rightsIdentifier"=>"cc0-1.0",
+      "rightsIdentifierScheme"=>"SPDX",
+      "rightsUri"=>"https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+      "schemeUri"=>"https://spdx.org/licenses/"
+      }
+    ])
+    expect(subject.publisher).to eq("DataCite")
+    expect(subject.agency).to eq("datacite")
+    expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
   end
 end
