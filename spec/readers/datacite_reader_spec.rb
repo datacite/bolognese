@@ -1379,6 +1379,69 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.publisher).to eq("DataCite")
     expect(subject.agency).to eq("datacite")
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
+    expect(subject.related_items.last).to eq(
+      {
+        "relatedItemType"=>"Journal",
+        "relationType"=>"IsPublishedIn",
+        "relatedItemIdentifier"=>
+        {
+          "relatedItemIdentifier"=>"10.1016/j.physletb.2017.11.044",
+          "relatedItemIdentifierType"=>"DOI",
+        },
+        "titles"=>
+        [
+          {"title"=>"Physics letters / B"},
+        ],
+        "volume"=>"776",
+        "firstPage"=>"249",
+        "lastPage"=>"264",
+        "publicationYear"=>"2018",
+        "contributors"=>[],
+        "creators"=>[],
+      }
+    )
+  end
+
+  it "Schema 4.4 related items from string" do
+    input = fixture_path + "datacite-example-relateditems.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.valid?).to be true
+
+    expect(subject.related_items.last).to eq(
+      {
+        "relatedItemType"=>"Journal",
+        "relationType"=>"IsPublishedIn",
+        "relatedItemIdentifier"=>
+        {
+          "relatedItemIdentifier"=>"10.5072/john-smiths-1234",
+          "relatedItemIdentifierType"=>"DOI",
+          "relatedMetadataScheme"=>"citeproc+json",
+          "schemeURI"=>"https://github.com/citation-style-language/schema/raw/master/csl-data.json",
+          "schemeType"=>"URL"
+        },
+        "creators" =>
+        [
+          {"nameType"=>"Personal", "name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith"}
+        ],
+        "titles"=>
+        [
+          {"title"=>"Understanding the fictional John Smith"},
+          {"title"=>"A detailed look", "titleType"=>"Subtitle"}
+        ],
+        "volume"=>"776",
+        "issue"=>"1",
+        "number"=>"1",
+        "firstPage"=>"50",
+        "lastPage"=>"60",
+        "publisher"=>"Example Inc",
+        "publicationYear"=>"1776",
+        "edition"=>"1",
+        "contributors"=>
+        [
+          {"name"=>"Hallett, Richard", "givenName"=>"Richard", "familyName"=>"Hallett", "contributorType"=>"ProjectLeader"}
+        ]
+      }
+    )
   end
 
   it "Schema 4.4 dissertation from string" do

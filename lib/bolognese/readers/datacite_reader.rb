@@ -92,15 +92,7 @@ module Bolognese
           "ris" => Bolognese::Utils::CR_TO_RIS_TRANSLATIONS[resource_type.to_s.underscore.camelcase] || Bolognese::Utils::DC_TO_RIS_TRANSLATIONS[resource_type_general.to_s.dasherize] || "GEN"
         }.compact
 
-        titles = Array.wrap(meta.dig("titles", "title")).map do |r|
-          if r.blank?
-            nil
-          elsif r.is_a?(String)
-            { "title" => sanitize(r) }
-          else
-            { "title" => sanitize(r["__content__"]), "titleType" => r["titleType"], "lang" => r["lang"] }.compact
-          end
-        end.compact
+        titles = get_titles(meta)
 
         descriptions = Array.wrap(meta.dig("descriptions", "description")).map do |r|
           if r.blank?
@@ -120,7 +112,7 @@ module Bolognese
             hsh_to_spdx(r)
           end
         end.compact
-        
+
         subjects = Array.wrap(meta.dig("subjects", "subject")).reduce([]) do |sum, subject|
           if subject.is_a?(String)
             sum += name_to_fos(subject)
@@ -194,6 +186,42 @@ module Bolognese
             "schemeType" => ri["schemeType"]
           }.compact
         end
+
+        related_items = Array.wrap(meta.dig("relatedItems", "relatedItem")).map do |ri|
+          rii = ri["relatedItemIdentifier"]
+          if rii["relatedItemIdentifierType"] == "DOI"
+            rid = validate_doi(rii["__content__"].to_s.downcase)
+          else
+            rid = rii["__content__"]
+          end
+
+          relatedItemIdentifier = {
+            "relatedItemIdentifier" => rid,
+            "relatedItemIdentifierType" => rii["relatedItemIdentifierType"],
+            "relatedMetadataScheme" => rii["relatedMetadataScheme"],
+            "schemeURI" => rii["schemeURI"],
+            "schemeType" => rii["schemeType"]
+          }.compact
+
+          {
+            "relationType" => ri["relationType"],
+            "relatedItemType" => ri["relatedItemType"],
+            "relatedItemIdentifier" => relatedItemIdentifier,
+            "creators" => get_authors(Array.wrap(ri.dig("creators", "creator"))),
+            "titles" => get_titles(ri),
+            "volume" => ri["volume"],
+            "issue" => ri["issue"],
+            "number" => ri.dig("number", "__content__"),
+            "numberType" => ri["numberType"],
+            "firstPage" => ri["firstPage"],
+            "lastPage" => ri["lastPage"],
+            "publisher" => ri["publisher"],
+            "publicationYear" => ri["publicationYear"],
+            "edition" => ri["edition"],
+            "contributors" => get_authors(Array.wrap(ri.dig("contributors", "contributor"))),
+          }.compact
+        end
+
         geo_locations = Array.wrap(meta.dig("geoLocations", "geoLocation")).map do |gl|
           if !gl.is_a?(Hash) || gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String) || gl["geoLocationPolygon"].is_a?(String)
             nil
@@ -238,6 +266,7 @@ module Bolognese
           "language" => parse_attributes(meta.fetch("language", nil), first: true).to_s.strip.presence,
           "geo_locations" => geo_locations,
           "related_identifiers" => related_identifiers,
+          "related_items" => related_items,
           "formats" => formats,
           "sizes" => sizes,
           "schema_version" => schema_version,
@@ -266,6 +295,21 @@ module Bolognese
           {}
         end
       end
+
+      def get_titles(meta)
+        titles = Array.wrap(meta.dig("titles", "title")).map do |r|
+          if r.blank?
+            nil
+          elsif r.is_a?(String)
+            { "title" => sanitize(r) }
+          else
+            { "title" => sanitize(r["__content__"]), "titleType" => r["titleType"], "lang" => r["lang"] }.compact
+          end
+        end.compact
+
+        titles
+      end
+
     end
   end
 end
