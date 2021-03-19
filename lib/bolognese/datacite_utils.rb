@@ -253,13 +253,13 @@ module Bolognese
               end
             end
 
+            xml.publicationYear(related_item['publicationYear'])
             xml.volume(related_item['volume'])
             xml.issue(related_item['issue'])
             xml.number(related_item['number'], {'numberType' => related_item['numberType']}.compact)
             xml.firstPage(related_item['firstPage'])
             xml.lastPage(related_item['lastPage'])
             xml.publisher(related_item['publisher'])
-            xml.publicationYear(related_item['publicationYear'])
             xml.edition(related_item['edition'])
 
             xml.contributors do

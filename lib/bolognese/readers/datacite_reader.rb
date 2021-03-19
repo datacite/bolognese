@@ -209,6 +209,7 @@ module Bolognese
             "relatedItemIdentifier" => relatedItemIdentifier,
             "creators" => get_authors(Array.wrap(ri.dig("creators", "creator"))),
             "titles" => get_titles(ri),
+            "publicationYear" => ri["publicationYear"],
             "volume" => ri["volume"],
             "issue" => ri["issue"],
             "number" => ri.dig("number", "__content__"),
@@ -216,7 +217,6 @@ module Bolognese
             "firstPage" => ri["firstPage"],
             "lastPage" => ri["lastPage"],
             "publisher" => ri["publisher"],
-            "publicationYear" => ri["publicationYear"],
             "edition" => ri["edition"],
             "contributors" => get_authors(Array.wrap(ri.dig("contributors", "contributor"))),
           }.compact
