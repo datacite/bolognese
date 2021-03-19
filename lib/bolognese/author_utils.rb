@@ -63,8 +63,6 @@ module Bolognese
         names = Namae.parse(name)
         parsed_name = names.first
 
-        puts parsed_name.particle
-
         if parsed_name.present?
           given_name = parsed_name.given
           family_name = parsed_name.family
