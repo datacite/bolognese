@@ -6,11 +6,11 @@
       <xs:documentation>The type of the funderIdentifier.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="ISNI"/>
-      <xs:enumeration value="GRID"/>
-      <xs:enumeration value="ROR"/>
-      <xs:enumeration value="Crossref Funder ID"/>
-      <xs:enumeration value="Other"/>
+      <xs:enumeration value="ISNI" />
+      <xs:enumeration value="GRID" />
+      <xs:enumeration value="ROR" />
+      <xs:enumeration value="Crossref Funder ID" />
+      <xs:enumeration value="Other" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

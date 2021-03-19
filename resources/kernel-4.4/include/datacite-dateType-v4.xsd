@@ -9,17 +9,17 @@
       <xs:documentation>The type of date. Use RKMS‐ISO8601 standard for depicting date ranges.To indicate the end of an embargo period, use Available. To indicate the start of an embargo period, use Submitted or Accepted, as appropriate.</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Accepted"/>
-      <xs:enumeration value="Available"/>
-      <xs:enumeration value="Collected"/>
-      <xs:enumeration value="Copyrighted"/>
-      <xs:enumeration value="Created"/>
-      <xs:enumeration value="Issued"/>
-      <xs:enumeration value="Other"/>
-      <xs:enumeration value="Submitted"/>
-      <xs:enumeration value="Updated"/>
-      <xs:enumeration value="Valid"/>
-      <xs:enumeration value="Withdrawn"/>
+      <xs:enumeration value="Accepted" />
+      <xs:enumeration value="Available" />
+      <xs:enumeration value="Collected" />
+      <xs:enumeration value="Copyrighted" />
+      <xs:enumeration value="Created" />
+      <xs:enumeration value="Issued" />
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="Submitted" />
+      <xs:enumeration value="Updated" />
+      <xs:enumeration value="Valid" />
+      <xs:enumeration value="Withdrawn" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
