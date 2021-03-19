@@ -255,7 +255,6 @@ module Bolognese
 
             xml.volume(related_item['volume'])
             xml.issue(related_item['issue'])
-            puts related_item['numberType']
             xml.number(related_item['number'], {'numberType' => related_item['numberType']}.compact)
             xml.firstPage(related_item['firstPage'])
             xml.lastPage(related_item['lastPage'])
