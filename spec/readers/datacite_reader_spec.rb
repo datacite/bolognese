@@ -1431,6 +1431,7 @@ describe Bolognese::Metadata, vcr: true do
         "volume"=>"776",
         "issue"=>"1",
         "number"=>"1",
+        "numberType"=>"Chapter",
         "firstPage"=>"50",
         "lastPage"=>"60",
         "publisher"=>"Example Inc",

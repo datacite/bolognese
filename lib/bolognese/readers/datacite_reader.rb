@@ -212,7 +212,7 @@ module Bolognese
             "volume" => ri["volume"],
             "issue" => ri["issue"],
             "number" => ri.dig("number", "__content__"),
-            "numberType" => ri["numberType"],
+            "numberType" => ri.dig("number", "numberType"),
             "firstPage" => ri["firstPage"],
             "lastPage" => ri["lastPage"],
             "publisher" => ri["publisher"],
