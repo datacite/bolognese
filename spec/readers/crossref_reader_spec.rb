@@ -148,7 +148,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-642-33191-6_49")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-642-33191-6_49")
-      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"BookChapter", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators.length).to eq(3)
       expect(subject.creators.first).to eq("familyName"=>"Chen", "givenName"=>"Lili", "name"=>"Chen, Lili", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Human Body Orientation Estimation in Multiview Scenarios"}])
@@ -184,7 +184,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.url).to eq("https://elifesciences.org/articles/55167#sa2")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"PeerReview", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"Review")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceType"=>"PeerReview", "resourceTypeGeneral"=>"PeerReview", "ris"=>"JOUR", "schemaOrg"=>"Review")
       expect(subject.creators.count).to eq(8)
       expect(subject.creators.last).to eq("affiliation" => [{"name"=>"Center for Computational Mathematics, Flatiron Institute, New York, United States"}],
         "familyName" => "Barnett",
@@ -364,7 +364,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-662-46370-3_13")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-662-46370-3_13")
-      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"BookChapter", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Diercks, Ronald L.", "givenName"=>"Ronald L.", "familyName"=>"Diercks")
       expect(subject.titles).to eq([{"title"=>"Clinical Symptoms and Physical Examinations"}])
@@ -380,7 +380,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-319-75889-3_1")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-319-75889-3_1")
-      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"BookChapter", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators).to eq([{"familyName"=>"Jones", "givenName"=>"Hunter M.", "name"=>"Jones, Hunter M.", "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"Climate Change and Increasing Risk of Extreme Heat"}])
       expect(subject.dates).to include({"date"=>"2018", "dateType"=>"Issued"})
@@ -395,7 +395,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.4018/978-1-4666-1891-6.ch004")
       expect(subject.url).to eq("http://services.igi-global.com/resolvedoi/resolve.aspx?doi=10.4018/978-1-4666-1891-6.ch004")
-      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"BookChapter", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"Université de Lyon, France"}], "familyName"=>"Bichot", "givenName"=>"Charles-Edmond", "name"=>"Bichot, Charles-Edmond", "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"Unsupervised and Supervised Image Segmentation Using Graph Partitioning"}])
       expect(subject.dates).to eq([{"date"=>"2012-08-08", "dateType"=>"Issued"}, {"date"=>"2019-07-02T17:17:21Z", "dateType"=>"Updated"}])
@@ -426,7 +426,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.1017/9781108348843")
       expect(subject.identifiers).to eq([{"identifier"=>"9781108348843", "identifierType"=>"ISBN"}])
       expect(subject.url).to eq("https://www.cambridge.org/core/product/identifier/9781108348843/type/book")
-      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Text", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq([{"familyName"=>"Leung", "givenName"=>"Vincent S.", "name"=>"Leung, Vincent S.", "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"The Politics of the Past in Early China"}])
       expect(subject.dates).to eq([{"date"=>"2019-07-01", "dateType"=>"Issued"}, {"date"=>"2019-12-01T18:11:11Z", "dateType"=>"Updated"}])
@@ -442,7 +442,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.2973/odp.proc.ir.180.2000")
       expect(subject.url).to eq("http://www-odp.tamu.edu/publications/180_IR/180TOC.HTM")
-      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Text", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq([{"name"=>":(unav)", "nameType"=>"Organizational"}])
       expect(subject.contributors.size).to eq(4)
       expect(subject.contributors.first).to eq("contributorType"=>"Editor", "familyName"=>"Taylor", "givenName"=>"B.", "name"=>"Taylor, B.", "nameType"=>"Personal")
@@ -461,7 +461,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.1029/ar035")
       expect(subject.identifiers).to eq([{"identifier"=>"0-87590-181-6", "identifierType"=>"ISBN"}])
       expect(subject.url).to eq("http://doi.wiley.com/10.1029/AR035")
-      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Text", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators).to eq([{"familyName"=>"McGinnis", "givenName"=>"Richard Frank", "name"=>"McGinnis, Richard Frank", "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"Biogeography of Lanternfishes (Myctophidae) South of 30°S"}])
       expect(subject.dates).to eq([{"date"=>"1982", "dateType"=>"Issued"}, {"date"=>"2019-06-15T05:11:12Z", "dateType"=>"Updated"}])
@@ -706,7 +706,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1007/978-3-642-34922-5_19")
       expect(subject.url).to eq("http://link.springer.com/10.1007/978-3-642-34922-5_19")
-      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"Text", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
+      expect(subject.types).to eq("bibtex"=>"inbook", "citeproc"=>"chapter", "resourceType"=>"BookChapter", "resourceTypeGeneral"=>"BookChapter", "ris"=>"CHAP", "schemaOrg"=>"Chapter")
       expect(subject.creators.length).to eq(3)
       expect(subject.creators.first).to eq("familyName"=>"Razib", "givenName"=>"Ali", "name"=>"Razib, Ali", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Log-Domain Arithmetic for High-Speed Fuzzy Control on a Field-Programmable Gate Array"}])
@@ -762,7 +762,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.url).to eq("http://oxfordhandbooks.com/view/10.1093/oxfordhb/9780198746140.001.0001/oxfordhb-9780198746140-e-5")
-      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Text", "ris"=>"BOOK", "schemaOrg"=>"Book")
+      expect(subject.types).to eq("bibtex"=>"book", "citeproc"=>"book", "resourceType"=>"Book", "resourceTypeGeneral"=>"Book", "ris"=>"BOOK", "schemaOrg"=>"Book")
       expect(subject.creators.count).to eq(1)
       expect(subject.creators.first).to eq("familyName"=>"Clayton", "givenName"=>"Barbra R.", "name"=>"Clayton, Barbra R.", "nameType"=>"Personal")
       expect(subject.contributors.count).to eq(2)
@@ -782,7 +782,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
       expect(subject.url).to eq("http://www.osti.gov/servlets/purl/972169-1QXROM/")
-      expect(subject.types).to eq("bibtex"=>"techreport", "citeproc"=>"report", "resourceType"=>"Report", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"Report")
+      expect(subject.types).to eq("bibtex"=>"techreport", "citeproc"=>"report", "resourceType"=>"Report", "resourceTypeGeneral"=>"Report", "ris"=>"RPRT", "schemaOrg"=>"Report")
       expect(subject.creators.count).to eq(4)
       expect(subject.creators.first).to eq("familyName"=>"Denholm", "givenName"=>"P.", "name"=>"Denholm, P.", "nameType"=>"Personal")
       expect(subject.contributors.count).to eq(0)
