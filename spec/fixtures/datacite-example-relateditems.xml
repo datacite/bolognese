@@ -41,13 +41,13 @@
         <title>Understanding the fictional John Smith</title>
         <title titleType="Subtitle">A detailed look</title>
       </titles>
+      <publicationYear>1776</publicationYear>
       <volume>776</volume>
       <issue>1</volume>
       <number numberType="Chapter">1</number>
       <firstPage>50</firstPage>
       <lastPage>60</lastPage>
       <publisher>Example Inc</publisher>
-      <publicationYear>1776</publicationYear>
       <edition>1</edition>
       <contributors>
         <contributor contributorType="ProjectLeader">
