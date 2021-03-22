@@ -93,7 +93,7 @@ module Bolognese
         resource_type = (resource_type || model).to_s.underscore.camelcase.presence
         schema_org = Bolognese::Utils::CR_TO_SO_TRANSLATIONS[resource_type] || "ScholarlyArticle"
         types = {
-          "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
+          "resourceTypeGeneral" => Bolognese::Utils::CR_TO_DC_TRANSLATIONS[resource_type],
           "resourceType" => resource_type,
           "schemaOrg" => schema_org,
           "citeproc" => Bolognese::Utils::CR_TO_CP_TRANSLATIONS[resource_type] || "article-journal",
@@ -133,10 +133,10 @@ module Bolognese
         # check that date is valid iso8601 date
         date_published = nil unless Date.edtf(date_published.to_h["date"]).present?
         date_updated = nil unless Date.edtf(date_updated.to_h["date"]).present?
-        
+
         dates = [date_published, date_updated].compact
         publication_year = date_published.to_h.fetch("date", "")[0..3].presence
-        
+
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))

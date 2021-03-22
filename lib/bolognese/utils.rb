@@ -233,7 +233,7 @@ module Bolognese
     CR_TO_DC_TRANSLATIONS = {
       "Proceedings" => nil,
       "ReferenceBook" => nil,
-      "JournalIssue" => nil,
+      "JournalIssue" => "Text",
       "ProceedingsArticle" => "ConferencePaper",
       "Other" => "Other",
       "Dissertation" => "Dissertation",
@@ -250,6 +250,7 @@ module Bolognese
       "BookPart" => nil,
       "Book" => "Book",
       "BookChapter" => "BookChapter",
+      "SaComponent" => "Text",
       "StandardSeries" => "Standard",
       "Monograph" => "book",
       "Component" => nil,
@@ -257,7 +258,7 @@ module Bolognese
       "JournalVolume" => nil,
       "BookSet" => nil,
       "PostedContent" => "JournalArticle",
-      "PeerReview" => "Review"
+      "PeerReview" => "PeerReview"
     }
 
     SO_TO_DC_TRANSLATIONS = {
