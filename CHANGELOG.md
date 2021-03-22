@@ -4,9 +4,17 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.8.20...HEAD)
 
+**Implemented enhancements:**
+
+- Add support for Schema 4.4 [\#104](https://github.com/datacite/bolognese/issues/104)
+
 **Fixed bugs:**
 
 - Title field of DOI 10.1104/pp.111.178582 [\#31](https://github.com/datacite/bolognese/issues/31)
+
+**Merged pull requests:**
+
+- Support schema 4 4 [\#105](https://github.com/datacite/bolognese/pull/105) ([richardhallett](https://github.com/richardhallett))
 
 ## [1.8.20](https://github.com/datacite/bolognese/tree/1.8.20) (2020-11-21)
 
