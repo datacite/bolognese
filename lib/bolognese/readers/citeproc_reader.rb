@@ -38,7 +38,7 @@ module Bolognese
         citeproc_type = meta.fetch("type", nil)
         schema_org = CP_TO_SO_TRANSLATIONS[citeproc_type] || "CreativeWork"
         types = {
-          "resourceTypeGeneral" => Bolognese::Utils::SO_TO_DC_TRANSLATIONS[schema_org],
+          "resourceTypeGeneral" => Bolognese::Utils::CP_TO_DC_TRANSLATIONS[citeproc_type],
           "reourceType" => meta.fetch("additionalType", nil),
           "schemaOrg" => schema_org,
           "citeproc" => citeproc_type,
