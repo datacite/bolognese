@@ -108,12 +108,12 @@ module Bolognese
     end
 
     def reverse
-      { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsReferencedBy" }.map do |r| 
+      { "citation" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsReferencedBy" }.map do |r|
         { "@id" => normalize_doi(r["relatedIdentifier"]),
           "@type" => r["resourceTypeGeneral"] || "ScholarlyArticle",
           "identifier" => r["relatedIdentifierType"] == "DOI" ? nil : to_identifier(r) }.compact
         end.unwrap,
-        "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsSupplementTo" }.map do |r| 
+        "isBasedOn" => Array.wrap(related_identifiers).select { |ri| ri["relationType"] == "IsSupplementTo" }.map do |r|
           { "@id" => normalize_doi(r["relatedIdentifier"]),
             "@type" => r["resourceTypeGeneral"] || "ScholarlyArticle",
             "identifier" => r["relatedIdentifierType"] == "DOI" ? nil : to_identifier(r) }.compact
@@ -193,6 +193,7 @@ module Bolognese
         "geo_locations" => geo_locations,
         "funding_references" => funding_references,
         "related_identifiers" => related_identifiers,
+        "related_items" => related_items,
         "schema_version" => schema_version,
         "provider_id" => provider_id,
         "client_id" => client_id,

@@ -524,7 +524,7 @@ Use the complete title of a license and include version information if applicabl
                     </xs:element>
                     <xs:element name="number" minOccurs="0">
                       <xs:annotation>
-                        <xs:documentation>Issue number or name of the related item.</xs:documentation>
+                        <xs:documentation>Number of the related item e.g. report number of article number.</xs:documentation>
                       </xs:annotation>
                       <xs:complexType>
                         <xs:simpleContent>

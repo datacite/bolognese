@@ -8,12 +8,12 @@ module Bolognese
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :show_errors
     attr_reader :doc, :page_start, :page_end
-    attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher, 
+    attr_writer :id, :provider_id, :client_id, :doi, :identifiers, :creators, :contributors, :titles, :publisher,
                 :rights_list, :dates, :publication_year, :volume, :url, :version_info,
                 :subjects, :contributor, :descriptions, :language, :sizes,
                 :formats, :schema_version, :meta, :container, :agency,
                 :format, :funding_references, :state, :geo_locations,
-                :types, :content_url, :related_identifiers, :style, :locale, :date_registered
+                :types, :content_url, :related_identifiers, :related_items, :style, :locale, :date_registered
 
     def initialize(options={})
       options.symbolize_keys!
@@ -42,7 +42,7 @@ module Bolognese
         filename = File.basename(options[:input])
         ext = File.extname(options[:input])
         if %w(.bib .ris .xml .json).include?(ext)
-          hsh = { 
+          hsh = {
             "url" => options[:url],
             "state" => options[:state],
             "date_registered" => options[:date_registered],
@@ -57,7 +57,7 @@ module Bolognese
           exit 1
         end
       else
-        hsh = { 
+        hsh = {
           "url" => options[:url],
           "state" => options[:state],
           "date_registered" => options[:date_registered],
@@ -112,6 +112,7 @@ module Bolognese
         :language,
         :geo_locations,
         :related_identifiers,
+        :related_items,
         :formats,
         :sizes
       ).compact
@@ -150,7 +151,7 @@ module Bolognese
     def errors
       meta.fetch("errors", nil) || datacite_errors(xml: datacite, schema_version: schema_version)
     end
-    
+
     def descriptions
       @descriptions ||= meta.fetch("descriptions", nil)
     end
@@ -185,6 +186,10 @@ module Bolognese
 
     def related_identifiers
       @related_identifiers ||= meta.fetch("related_identifiers", nil)
+    end
+
+    def related_items
+      @related_items ||= meta.fetch("related_items", nil)
     end
 
     def url

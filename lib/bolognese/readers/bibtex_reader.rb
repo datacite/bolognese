@@ -31,12 +31,13 @@ module Bolognese
 
         meta = string.present? ? BibTeX.parse(string).first : OpenStruct.new
 
-        schema_org = BIB_TO_SO_TRANSLATIONS[meta.try(:type).to_s] || "ScholarlyArticle"
+        bibtex_type = meta.try(:type).to_s
+        schema_org = BIB_TO_SO_TRANSLATIONS[bibtex_type] || "ScholarlyArticle"
         types = {
-          "resourceTypeGeneral" => Metadata::SO_TO_DC_TRANSLATIONS[schema_org],
+          "resourceTypeGeneral" => Metadata::BIB_TO_DC_TRANSLATIONS[bibtex_type],
           "resourceType" => Bolognese::Utils::BIB_TO_CR_TRANSLATIONS[meta.try(:type).to_s] || meta.try(:type).to_s,
           "schemaOrg" => schema_org,
-          "bibtex" => meta.type.to_s,
+          "bibtex" => bibtex_type,
           "citeproc" => BIB_TO_CP_TRANSLATIONS[meta.try(:type).to_s] || "misc",
           "ris" => BIB_TO_RIS_TRANSLATIONS[meta.try(:type).to_s] || "GEN"
         }.compact
@@ -60,7 +61,7 @@ module Bolognese
         container = if meta.try(:journal).present?
                       first_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[0] : nil
                       last_page = meta.try(:pages).present? ? meta.try(:pages).split("-").map(&:strip)[1] : nil
-                      
+
                       { "type" => "Journal",
                         "title" => meta.journal.to_s,
                         "identifier" => meta.try(:issn).to_s.presence,

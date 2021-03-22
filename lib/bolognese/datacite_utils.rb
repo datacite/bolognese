@@ -40,6 +40,7 @@ module Bolognese
       insert_language(xml)
       insert_alternate_identifiers(xml)
       insert_related_identifiers(xml)
+      insert_related_items(xml)
       insert_sizes(xml)
       insert_formats(xml)
       insert_version(xml)
@@ -86,7 +87,7 @@ module Bolognese
       end
       Array.wrap(person["affiliation"]).each do |affiliation|
         attributes = { "affiliationIdentifier" => affiliation["affiliationIdentifier"], "affiliationIdentifierScheme" => affiliation["affiliationIdentifierScheme"], "schemeURI" => affiliation["schemeUri"] }.compact
-        xml.affiliation(affiliation["name"], attributes) 
+        xml.affiliation(affiliation["name"], attributes)
       end
     end
 
@@ -209,6 +210,71 @@ module Bolognese
       end
     end
 
+    def insert_related_items(xml)
+      return xml unless related_items.present?
+
+      xml.relatedItems do
+        related_items.each do |related_item|
+          attributes = {
+            'relatedItemType' => related_item["relatedItemType"],
+            'relationType' => related_item["relationType"],
+          }.compact
+
+          xml.relatedItem(related_item["relatedItem"], attributes) do
+
+            xml.relatedItemIdentifier(related_item["relatedItemIdentifier"]['relatedItemIdentifier'],
+              {
+                'relatedItemIdentifierType' => related_item["relatedItemIdentifier"]["relatedItemIdentifierType"],
+                'relatedMetadataScheme' => related_item["relatedItemIdentifier"]["relatedMetadataScheme"],
+                'schemeURI' => related_item["relatedItemIdentifier"]["schemeURI"],
+                'schemeType' => related_item["relatedItemIdentifier"]["schemeType"],
+              }.compact
+            )
+
+            xml.creators do
+              Array.wrap(related_item['creators']).each do |au|
+                xml.creator do
+                  insert_person(xml, au, "creator")
+                end
+              end
+            end
+
+            xml.titles do
+              Array.wrap(related_item['titles']).each do |title|
+                if title.is_a?(Hash)
+                  t = title
+                else
+                  t = {}
+                  t["title"] = title
+                end
+
+                attributes = { 'titleType' => t["titleType"], 'xml:lang' => t["lang"] }.compact
+                xml.title(t["title"], attributes)
+              end
+            end
+
+            xml.publicationYear(related_item['publicationYear'])
+            xml.volume(related_item['volume'])
+            xml.issue(related_item['issue'])
+            xml.number(related_item['number'], {'numberType' => related_item['numberType']}.compact)
+            xml.firstPage(related_item['firstPage'])
+            xml.lastPage(related_item['lastPage'])
+            xml.publisher(related_item['publisher'])
+            xml.edition(related_item['edition'])
+
+            xml.contributors do
+              Array.wrap(related_item["contributors"]).each do |con|
+                xml.contributor("contributorType" => con["contributorType"] || "Other") do
+                  insert_person(xml, con, "contributor")
+                end
+              end
+            end
+
+          end
+        end
+      end
+    end
+
     def insert_sizes(xml)
       xml.sizes do
         Array.wrap(sizes).each do |s|
@@ -238,12 +304,12 @@ module Bolognese
             r["rightsUri"] = normalize_id(rights)
           end
 
-          attributes = { 
+          attributes = {
             "rightsURI" => r["rightsUri"],
             "rightsIdentifier" => r["rightsIdentifier"],
             "rightsIdentifierScheme" => r["rightsIdentifierScheme"],
             "schemeURI" => r["schemeUri"],
-            "xml:lang" => r["lang"] 
+            "xml:lang" => r["lang"]
           }.compact
 
           xml.rights(r["rights"], attributes)

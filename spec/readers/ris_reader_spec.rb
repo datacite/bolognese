@@ -29,14 +29,14 @@ describe Bolognese::Metadata, vcr: true do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.creators.length).to eq(5)
       expect(subject.creators.first).to eq("nameType"=>"Personal",
                                          "name"=>"Sankar, Martial",
                                          "givenName"=>"Martial",
                                          "familyName"=>"Sankar",
-                                         "nameIdentifiers" => [], 
+                                         "nameIdentifiers" => [],
                                          "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(subject.descriptions.first["description"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
@@ -53,7 +53,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Text", "ris"=>"THES", "schemaOrg"=>"Thesis")
+      expect(subject.types).to eq("citeproc"=>"misc", "resourceTypeGeneral"=>"Dissertation", "ris"=>"THES", "schemaOrg"=>"Thesis")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Toparlar, Y.", "givenName"=>"Y.", "familyName"=>"Toparlar", "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect"}])
       expect(subject.descriptions.first["description"]).to start_with("Designing the climates of cities")

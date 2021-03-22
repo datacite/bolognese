@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
+  <identifier identifierType="DOI">10.5072/example-full</identifier>
+  <creators>
+    <creator>
+      <creatorName nameType="Personal">Hallett, Richard</creatorName>
+      <givenName>Richard</givenName>
+      <familyName>Hallett</familyName>
+    </creator>
+  </creators>
+  <titles>
+    <title xml:lang="en-US">Example for related items</title>
+  </titles>
+  <publisher xml:lang="en">DataCite</publisher>
+  <publicationYear>2021</publicationYear>
+  <dates>
+    <date dateType="Updated" dateInformation="Updated with 4.4 properties">2021-01-26</date>
+  </dates>
+  <language>en-US</language>
+  <resourceType resourceTypeGeneral="Software">XML</resourceType>
+  <version>1</version>
+  <descriptions>
+    <description xml:lang="en-US" descriptionType="Abstract">A test example for related items</description>
+  </descriptions>
+  <relatedItems>
+    <relatedItem relationType="IsPublishedIn" relatedItemType="Journal">
+      <relatedItemIdentifier
+        relatedItemIdentifierType="DOI"
+        relatedMetadataScheme="citeproc+json"
+        schemeURI="https://github.com/citation-style-language/schema/raw/master/csl-data.json"
+        schemeType="URL">10.5072/john-smiths-1234</relatedItemIdentifier>
+      <creators>
+          <creator>
+              <creatorName nameType="Personal">Smith, John</creatorName>
+              <givenName>John</givenName>
+              <familyName>Smith</familyName>
+          </creator>
+      </creators>
+      <titles>
+        <title>Understanding the fictional John Smith</title>
+        <title titleType="Subtitle">A detailed look</title>
+      </titles>
+      <publicationYear>1776</publicationYear>
+      <volume>776</volume>
+      <issue>1</volume>
+      <number numberType="Chapter">1</number>
+      <firstPage>50</firstPage>
+      <lastPage>60</lastPage>
+      <publisher>Example Inc</publisher>
+      <edition>1</edition>
+      <contributors>
+        <contributor contributorType="ProjectLeader">
+            <contributorName>Richard, Hallett</contributorName>
+            <givenName>Richard</givenName>
+            <familyName>Hallett</familyName>
+        </contributor>
+      </contributors>
+    </relatedItem>
+  </relatedItems>
+</resource>

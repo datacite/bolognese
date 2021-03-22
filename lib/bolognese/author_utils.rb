@@ -15,7 +15,7 @@ module Bolognese
     def get_one_author(author)
       # author is a string
       author = { "creatorName" => author } if author.is_a?(String)
-      
+
       # malformed XML
       return nil if author.fetch("creatorName", nil).is_a?(Array)
 
@@ -31,17 +31,17 @@ module Bolognese
 
       name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).map do |ni|
         if ni["nameIdentifierScheme"] == "ORCID"
-          { 
+          {
             "nameIdentifier" => normalize_orcid(ni["__content__"]),
             "schemeUri" => "https://orcid.org",
             "nameIdentifierScheme" => "ORCID" }.compact
         elsif ni["schemeURI"].present?
-          { 
+          {
             "nameIdentifier" => ni["schemeURI"].to_s + ni["__content__"].to_s,
             "schemeUri" => ni["schemeURI"].to_s,
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
         else
-          { 
+          {
             "nameIdentifier" => ni["__content__"],
             "schemeUri" => nil,
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
@@ -59,6 +59,7 @@ module Bolognese
       return author if family_name.present?
 
       if is_personal_name?(author)
+        Namae.options[:include_particle_in_family] = true
         names = Namae.parse(name)
         parsed_name = names.first
 
@@ -79,7 +80,7 @@ module Bolognese
           "affiliation" => Array.wrap(author.fetch("affiliation", nil)),
           "contributorType" => contributor_type }.compact
       else
-        { "nameType" => name_type, 
+        { "nameType" => name_type,
           "name" => name,
           "nameIdentifiers" => Array.wrap(name_identifiers),
           "affiliation" => Array.wrap(author.fetch("affiliation", nil)),
