@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(datacite.fetch("relatedIdentifiers").length).to eq(27)
       expect(datacite.fetch("relatedIdentifiers").first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
@@ -25,7 +25,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       datacite = JSON.parse(subject.datacite_json)
       expect(datacite.fetch("url")).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("creators").length).to eq(7)
       expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi", "affiliation" => [{"name"=>"Department of Medicine, Veterans Affairs Palo Alto Health Care System, 3801 Miranda Avenue MC-, Palo Alto, CA 94304-1207, USA"}, {"name"=>"Occupational Health Strategic Health Care Group, Office of Public Health, Veterans Health Administration, Washington, DC 20006, USA"}, {"name"=>"Division of Emergency Medicine, Stanford University School of Medicine, Stanford, CA 94304, USA"}, {"name"=>"War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"}])
     end
@@ -34,7 +34,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       datacite = JSON.parse(subject.datacite_json)
-      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.fetch("creators").length).to eq(5)

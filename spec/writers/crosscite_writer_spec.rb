@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite.fetch("url")).to eq("https://elifesciences.org/articles/01567")
-      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(crosscite.fetch("related_identifiers").length).to eq(27)
       expect(crosscite.fetch("related_identifiers").first).to eq("relatedIdentifier"=>"2050-084X", "relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Collection")
@@ -25,7 +25,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://doi.org/10.1155/2012/291294"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"Text", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("creators").count).to eq(7)
       expect(crosscite.fetch("creators")[2]).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-2043-4925", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Hernandez, Beatriz", "givenName"=>"Beatriz", "familyName"=>"Hernandez", "affiliation" => [{"name"=>"War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"}, {"name"=>"Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA"}])
     end
@@ -41,7 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + "crossref.bib"
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       crosscite = JSON.parse(subject.crosscite)
-      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Text", "resourceType"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(crosscite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"JournalArticle", "resourceType"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(crosscite.fetch("creators").count).to eq(5)

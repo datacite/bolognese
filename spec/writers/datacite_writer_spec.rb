@@ -9,7 +9,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("JournalArticle")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").length).to eq(27)
       expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").first).to eq("relatedIdentifierType"=>"ISSN", "relationType"=>"IsPartOf", "__content__"=>"2050-084X", "resourceTypeGeneral"=>"Collection")
@@ -24,7 +24,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("JournalArticle")
       expect(datacite.dig("creators", "creator").count).to eq(7)
       expect(datacite.dig("creators", "creator")[2]).to eq("creatorName" => {"__content__"=>"Hernandez, Beatriz", "nameType"=>"Personal"},
         "familyName" => "Hernandez",
@@ -46,7 +46,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "bibtex")
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
-      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Text")
+      expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("JournalArticle")
       expect(datacite.dig("titles", "title")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"eLife, 3", "descriptionType"=>"SeriesInformation")
       expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
@@ -341,7 +341,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("identifier", "__content__")).to eq("10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1")
       expect(datacite.dig("resourceType", "resourceTypeGeneral")).to eq("Dataset")
       expect(datacite.dig("titles", "title")).to eq("Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
-      
+
     end
 
     it "change license" do

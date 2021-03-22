@@ -8,12 +8,12 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.7554/eLife.01567"
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       csv = (subject.csv).parse_csv
-      
+
       expect(csv[0]).to eq("10.7554/elife.01567")
       expect(csv[1]).to eq("https://elifesciences.org/articles/01567")
       expect(csv[2]).to eq("2018-08-23")
       expect(csv[3]).to eq("findable")
-      expect(csv[4]).to eq("Text")
+      expect(csv[4]).to eq("JournalArticle")
       expect(csv[5]).to eq("JournalArticle")
       expect(csv[6]).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(csv[7]).to eq("Sankar, Martial and Nieminen, Kaisa and Ragni, Laura and Xenarios, Ioannis and Hardtke, Christian S")
@@ -30,7 +30,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(csv[1]).to eq("http://www.hindawi.com/journals/pm/2012/291294/")
       expect(csv[2]).to eq("2016-08-02")
       expect(csv[3]).to eq("findable")
-      expect(csv[4]).to eq("Text")
+      expect(csv[4]).to eq("JournalArticle")
       expect(csv[5]).to eq("JournalArticle")
       expect(csv[6]).to eq("Delineating a Retesting Zone Using Receiver Operating Characteristic Analysis on Serial QuantiFERON Tuberculosis Test Results in US Healthcare Workers")
       expect(csv[7]).to eq("Thanassi, Wendy and Noda, Art and Hernandez, Beatriz and Newell, Jeffery and Terpeluk, Paul and Marder, David and Yesavage, Jerome A.")
@@ -73,7 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(csv[8]).to eq("NASA Physical Oceanography DAAC")
       expect(csv[9]).to eq("2012")
     end
-    
+
     it "maremma" do
       input = "https://github.com/datacite/maremma"
       subject = Bolognese::Metadata.new(input: input, from: "codemeta")
