@@ -41,14 +41,14 @@ module Bolognese
         ris_type = meta.fetch("TY", nil) || "GEN"
         schema_org = RIS_TO_SO_TRANSLATIONS[ris_type] || "CreativeWork"
         types = {
-          "resourceTypeGeneral" => Metadata::SO_TO_DC_TRANSLATIONS[schema_org],
+          "resourceTypeGeneral" => Metadata::RIS_TO_DC_TRANSLATIONS[ris_type],
           "schemaOrg" => schema_org,
           "citeproc" => RIS_TO_CP_TRANSLATIONS[schema_org] || "misc",
           "ris" => ris_type
         }.compact
 
         id = normalize_doi(options[:doi] || meta.fetch("DO", nil))
-        
+
         author = Array.wrap(meta.fetch("AU", nil)).map { |a| { "creatorName" => a } }
         date_parts = meta.fetch("PY", nil).to_s.split("/")
         created_date_parts = meta.fetch("Y1", nil).to_s.split("/")
@@ -67,7 +67,7 @@ module Bolognese
         end
         container = if meta.fetch("T2", nil).present?
           { "type" => "Journal",
-            "title" => meta.fetch("T2", nil), 
+            "title" => meta.fetch("T2", nil),
             "identifier" => meta.fetch("SN", nil),
             "volume" => meta.fetch("VL", nil),
             "issue" => meta.fetch("IS", nil),
