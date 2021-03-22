@@ -29,7 +29,7 @@ describe Bolognese::Metadata, vcr: true do
     it "Crossref DOI" do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Text", "resourceType"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
+      expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"JournalArticle", "resourceType"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.url).to eq("http://elifesciences.org/lookup/doi/10.7554/eLife.01567")
       expect(subject.creators.length).to eq(5)
       expect(subject.creators.first).to eq("familyName"=>"Sankar", "givenName"=>"Martial", "name"=>"Sankar, Martial", "nameType"=>"Personal")
@@ -52,7 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be false
       expect(subject.state).to eq("not_found")
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
-      expect(subject.types).to eq("bibtex"=>"phdthesis", "citeproc"=>"thesis", "resourceTypeGeneral"=>"Text", "resourceType"=>"Dissertation", "ris"=>"THES", "schemaOrg"=>"Thesis")
+      expect(subject.types).to eq("bibtex"=>"phdthesis", "citeproc"=>"thesis", "resourceTypeGeneral"=>"Dissertation", "resourceType"=>"Dissertation", "ris"=>"THES", "schemaOrg"=>"Thesis")
       expect(subject.creators).to eq([{"familyName"=>"Toparlar", "givenName"=>"Y.", "name"=>"Toparlar, Y.", "nameType"=>"Personal"}])
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect: from city averaged temperatures to the energy demand of individual buildings"}])
       expect(subject.descriptions.first["description"]).to start_with("Designing the climates of cities")
