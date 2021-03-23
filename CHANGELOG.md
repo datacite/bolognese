@@ -10,6 +10,7 @@
 
 **Fixed bugs:**
 
+- Correctly parse DataCite XML for formats and sizes [\#103](https://github.com/datacite/bolognese/issues/103)
 - Title field of DOI 10.1104/pp.111.178582 [\#31](https://github.com/datacite/bolognese/issues/31)
 
 **Merged pull requests:**
