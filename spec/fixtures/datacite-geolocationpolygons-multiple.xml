@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
+<identifier identifierType="DOI">10.5072/multiplegeopolygons</identifier>
+    <creators>
+        <creator>
+            <creatorName>John Smithy</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title>Multiple Geopolygon testing</title>
+    </titles>
+    <resourceType resourceTypeGeneral="Software">XML</resourceType>
+    <publisher>DataCite</publisher>
+    <publicationYear>2021</publicationYear>
+    <geoLocations>
+    <geoLocation>
+      <geoLocationPolygon>
+        <polygonPoint>
+          <pointLongitude>41</pointLongitude>
+          <pointLatitude>71</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>45</pointLongitude>
+          <pointLatitude>75</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>55</pointLongitude>
+          <pointLatitude>85</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>41</pointLongitude>
+          <pointLatitude>71</pointLatitude>
+        </polygonPoint>
+      </geoLocationPolygon>
+      <geoLocationPolygon>
+        <polygonPoint>
+          <pointLongitude>65</pointLongitude>
+          <pointLatitude>80</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>55</pointLongitude>
+          <pointLatitude>75</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>45</pointLongitude>
+          <pointLatitude>73</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>65</pointLongitude>
+          <pointLatitude>80</pointLatitude>
+        </polygonPoint>
+      </geoLocationPolygon>
+    </geoLocation>
+  </geoLocations>
+</resource>
