@@ -1534,4 +1534,15 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.agency).to eq("datacite")
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
   end
+
+
+  it "Parsing xs-string attribute correctly" do
+    input = fixture_path + "datacite-example-xs-string.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.valid?).to be true
+    expect(subject.id).to eq("https://doi.org/10.4225/13/511c71f8612c3")
+    expect(subject.sizes.first).to eq("1.7 GB")
+    expect(subject.formats.first).to eq("application/xml")
+  end
+
 end

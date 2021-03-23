@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resource xmlns="http://datacite.org/schema/kernel-2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-2.2 http://schema.datacite.org/meta/kernel-2.2/metadata.xsd"><identifier identifierType="DOI">10.4225/13/511C71F8612C3</identifier>
+    <creators>
+        <creator>
+            <creatorName>Claire L O?Brien</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Gwen E Allison</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Florian Grimpen</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Paul Pavli</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title>Impact of Colonoscopy Bowel Preparation on Intestinal Microbiota</title>
+    </titles>
+    <publisher>The Australian National University Data Commons</publisher>
+    <publicationYear>2013</publicationYear>
+    <sizes>
+        <size xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">1.7 GB</size>
+    </sizes>
+    <formats>
+        <format xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:string">application/xml</format>
+    </formats>
+</resource>
