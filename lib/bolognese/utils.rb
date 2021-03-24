@@ -882,8 +882,11 @@ module Bolognese
               "@type" => "GeoShape",
               "address" => gl["geoLocationPlace"],
               "polygon" => Array.wrap(gl.dig("geoLocationPolygon")).map do |glp|
-                [glp.dig("polygonPoint", "pointLongitude"), glp.dig("polygonPoint", "pointLatitude")].compact
-              end.compact }
+                Array.wrap(glp).map do |glpp|
+                  [glpp.dig("polygonPoint", "pointLongitude"), glpp.dig("polygonPoint", "pointLatitude")].compact
+                end.compact
+              end.compact.presence,
+              }
           }
         end
 

@@ -145,7 +145,7 @@ describe Bolognese::Metadata, vcr: true do
     it "author is organization" do
       input = fixture_path + 'gtex.xml'
       url = "https://ors.datacite.org/doi:/10.25491/9hx8-ke93"
-      content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"  
+      content_url = "https://storage.googleapis.com/gtex_analysis_v7/single_tissue_eqtl_data/GTEx_Analysis_v7_eQTL_expression_matrices.tar.gz"
       subject = Bolognese::Metadata.new(input: input, url: url, content_url: content_url, from: "datacite")
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.25491/9hx8-ke93")
@@ -281,8 +281,8 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Meteo measurements at the Sand Motor")
       expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer")
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["spatialCoverage"].dig("geo", "polygon").length).to eq(34)
-      expect(json["spatialCoverage"].dig("geo", "polygon").first).to eq(["4.1738852605822", "52.03913926329928"])
+      expect(json["spatialCoverage"].dig("geo", "polygon")[0].length).to eq(34)
+      expect(json["spatialCoverage"].dig("geo", "polygon")[0].first).to eq(["4.1738852605822", "52.03913926329928"])
     end
 
     it "from schema_org gtex" do
