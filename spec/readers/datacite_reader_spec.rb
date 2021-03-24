@@ -1314,7 +1314,7 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.agency).to eq("datacite")
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     expect(subject.geo_locations.first["geoLocationPlace"]).to eq("Zandmotor, sand suppletion area on the Dutch coast.")
-    expect(subject.geo_locations.first["geoLocationPolygon"].first).to eq("polygonPoint"=>{"pointLatitude"=>"52.03913926329928", "pointLongitude"=>"4.1738852605822"})
+    expect(subject.geo_locations.first["geoLocationPolygon"][0].first).to eq("polygonPoint"=>{"pointLatitude"=>"52.03913926329928", "pointLongitude"=>"4.1738852605822"})
   end
 
   it "Schema 4.4 from string" do
