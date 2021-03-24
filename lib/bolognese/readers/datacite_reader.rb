@@ -239,7 +239,7 @@ module Bolognese
               }.compact.presence,
               "geoLocationPolygon" => Array.wrap(gl.dig("geoLocationPolygon")).map do |glp|
                 Array.wrap(glp.dig("polygonPoint")).map { |glpp| { "polygonPoint" => glpp } }.compact.presence
-              end,
+              end.compact.presence,
               "geoLocationPlace" => parse_attributes(gl["geoLocationPlace"], first: true).to_s.strip.presence
             }.compact
           end
