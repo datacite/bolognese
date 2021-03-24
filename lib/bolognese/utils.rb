@@ -534,7 +534,7 @@ module Bolognese
         "codemeta"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("schemaVersion").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
-      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("types")
+      elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("types") && Maremma.from_json(string).to_h.dig("publication_year").present?
         "crosscite"
       elsif options[:ext] == ".json" && Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
@@ -552,7 +552,7 @@ module Bolognese
         "codemeta"
       elsif Maremma.from_json(string).to_h.dig("schema-version").to_s.start_with?("http://datacite.org/schema/kernel")
         "datacite_json"
-      elsif Maremma.from_json(string).to_h.dig("types").present?
+      elsif Maremma.from_json(string).to_h.dig("types").present? && Maremma.from_json(string).to_h.dig("publication_year").present?
         "crosscite"
       elsif Maremma.from_json(string).to_h.dig("issued", "date-parts").present?
         "citeproc"
