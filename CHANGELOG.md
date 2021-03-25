@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.9.1](https://github.com/datacite/bolognese/tree/1.9.1) (2021-03-25)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9...1.9.1)
+
 ## [1.9](https://github.com/datacite/bolognese/tree/1.9) (2021-03-24)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.8.20...1.9)
@@ -1458,7 +1462,6 @@
 **Closed issues:**
 
 - Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
-- Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
 - crossref author id to orcid id?  [\#10](https://github.com/datacite/bolognese/issues/10)
 - datacite: support subjectScheme and subjectURI [\#4](https://github.com/datacite/bolognese/issues/4)
@@ -1469,6 +1472,7 @@
 
 **Closed issues:**
 
+- Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Abstract should be a string in Citeproc writer [\#11](https://github.com/datacite/bolognese/issues/11)
 - the Bolognese gem doesn't properly handle the optional language attribute. [\#8](https://github.com/datacite/bolognese/issues/8)
 - Support funding information [\#7](https://github.com/datacite/bolognese/issues/7)
