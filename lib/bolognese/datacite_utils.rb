@@ -368,13 +368,14 @@ module Bolognese
                 xml.northBoundLatitude(geo_location.dig("geoLocationBox", "northBoundLatitude"))
               end
             end
-
             if geo_location["geoLocationPolygon"]
-              xml.geoLocationPolygon do
-                geo_location["geoLocationPolygon"].each do |polygon_point|
-                  xml.polygonPoint do
-                    xml.pointLatitude(polygon_point["pointLatitude"])
-                    xml.pointLongitude(polygon_point["pointLongitude"])
+              geo_location["geoLocationPolygon"].each do |geo_location_polygon|
+                xml.geoLocationPolygon do
+                  geo_location_polygon.each do |polygon_point|
+                    xml.polygonPoint do
+                      xml.pointLatitude(polygon_point.dig("polygonPoint", "pointLatitude"))
+                      xml.pointLongitude(polygon_point.dig("polygonPoint", "pointLongitude"))
+                    end
                   end
                 end
               end
