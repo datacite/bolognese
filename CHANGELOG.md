@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+## [1.9](https://github.com/datacite/bolognese/tree/1.9) (2021-03-24)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/1.8.20...HEAD)
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.8.20...1.9)
 
 **Implemented enhancements:**
 
@@ -11,10 +11,14 @@
 **Fixed bugs:**
 
 - Correctly parse DataCite XML for formats and sizes [\#103](https://github.com/datacite/bolognese/issues/103)
+- Improve auto detection of metadata formats [\#86](https://github.com/datacite/bolognese/issues/86)
+- geoLocationPolygons can not be added multiple times within geoLocation elements. [\#68](https://github.com/datacite/bolognese/issues/68)
 - Title field of DOI 10.1104/pp.111.178582 [\#31](https://github.com/datacite/bolognese/issues/31)
 
 **Merged pull requests:**
 
+- Change detection for crosscite format [\#107](https://github.com/datacite/bolognese/pull/107) ([richardhallett](https://github.com/richardhallett))
+- Add support for multiple geolocation polygons [\#106](https://github.com/datacite/bolognese/pull/106) ([richardhallett](https://github.com/richardhallett))
 - Support schema 4 4 [\#105](https://github.com/datacite/bolognese/pull/105) ([richardhallett](https://github.com/richardhallett))
 
 ## [1.8.20](https://github.com/datacite/bolognese/tree/1.8.20) (2020-11-21)
