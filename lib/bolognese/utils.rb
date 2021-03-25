@@ -85,7 +85,7 @@ module Bolognese
       "ComputationalNotebook" => nil,
       "ConferencePaper" => "paper_conference",
       "ConferenceProceeding" => nil,
-      "DataPaper" => nil,
+      "DataPaper" => "report",
       "Dataset" => "dataset",
       "Dissertation" => nil,
       "Event" => nil,
