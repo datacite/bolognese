@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+## [1.9.4](https://github.com/datacite/bolognese/tree/1.9.4) (2021-04-13)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.3...HEAD)
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.3...1.9.4)
 
 **Implemented enhancements:**
 
@@ -535,6 +535,10 @@
 
 - Error when schema.org in put has array value for @type [\#66](https://github.com/datacite/bolognese/issues/66)
 
+**Merged pull requests:**
+
+- Default to `ScholarlyArticle` type for `citation` and `isBasedOn` relationships with datasets [\#64](https://github.com/datacite/bolognese/pull/64) ([chrisgorgo](https://github.com/chrisgorgo))
+
 ## [v.1.2.16](https://github.com/datacite/bolognese/tree/v.1.2.16) (2019-07-07)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.1.2.15...v.1.2.16)
@@ -633,7 +637,6 @@
 
 **Merged pull requests:**
 
-- Default to `ScholarlyArticle` type for `citation` and `isBasedOn` relationships with datasets [\#64](https://github.com/datacite/bolognese/pull/64) ([chrisgorgo](https://github.com/chrisgorgo))
 - When authors is a plain string, don't try to parse [\#60](https://github.com/datacite/bolognese/pull/60) ([richardhallett](https://github.com/richardhallett))
 
 ## [v.1.1.12](https://github.com/datacite/bolognese/tree/v.1.1.12) (2019-04-15)
