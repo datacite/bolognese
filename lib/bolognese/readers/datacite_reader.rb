@@ -226,6 +226,19 @@ module Bolognese
           if !gl.is_a?(Hash) || gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String) || gl["geoLocationPolygon"].is_a?(String)
             nil
           else
+
+            # Handle scenario where multiple geoLocationPolygons are allowed within a single geoLocation
+            # we want to return an array if it's already an array (i.e. multiple geoLocationPolygons)
+            # vs if it's singular just return the object
+            # This is for backwards compatability to allow both scenarios.
+            if gl.dig("geoLocationPolygon").kind_of?(Array)
+              geoLocationPolygon = gl.dig("geoLocationPolygon").map do |glp|
+                Array.wrap(glp.dig("polygonPoint")).map { |glpp| { "polygonPoint" => glpp } }.compact.presence
+              end.compact.presence
+            else
+              geoLocationPolygon = Array.wrap(gl.dig("geoLocationPolygon", "polygonPoint")).map { |glp| { "polygonPoint" => glp } }.compact.presence
+            end
+
             {
               "geoLocationPoint" => {
                 "pointLatitude" => gl.dig("geoLocationPoint", "pointLatitude"),
@@ -237,9 +250,7 @@ module Bolognese
                 "southBoundLatitude" => gl.dig("geoLocationBox", "southBoundLatitude"),
                 "northBoundLatitude" => gl.dig("geoLocationBox", "northBoundLatitude")
               }.compact.presence,
-              "geoLocationPolygon" => Array.wrap(gl.dig("geoLocationPolygon")).map do |glp|
-                Array.wrap(glp.dig("polygonPoint")).map { |glpp| { "polygonPoint" => glpp } }.compact.presence
-              end.compact.presence,
+              "geoLocationPolygon" => geoLocationPolygon,
               "geoLocationPlace" => parse_attributes(gl["geoLocationPlace"], first: true).to_s.strip.presence
             }.compact
           end
