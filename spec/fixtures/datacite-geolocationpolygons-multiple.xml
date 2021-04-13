@@ -52,5 +52,25 @@
         </polygonPoint>
       </geoLocationPolygon>
     </geoLocation>
+    <geoLocation>
+      <geoLocationPolygon>
+        <polygonPoint>
+          <pointLongitude>65</pointLongitude>
+          <pointLatitude>80</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>55</pointLongitude>
+          <pointLatitude>75</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>45</pointLongitude>
+          <pointLatitude>73</pointLatitude>
+        </polygonPoint>
+        <polygonPoint>
+          <pointLongitude>65</pointLongitude>
+          <pointLatitude>80</pointLatitude>
+        </polygonPoint>
+      </geoLocationPolygon>
+    </geoLocation>
   </geoLocations>
 </resource>

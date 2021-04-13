@@ -1562,7 +1562,15 @@ describe Bolognese::Metadata, vcr: true do
           {"polygonPoint"=>{"pointLatitude"=>"73", "pointLongitude"=>"45"}},
           {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}}
         ]
-      ] }
+      ] },
+      { "geoLocationPolygon"=>
+        [
+          {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}},
+          {"polygonPoint"=>{"pointLatitude"=>"75", "pointLongitude"=>"55"}},
+          {"polygonPoint"=>{"pointLatitude"=>"73", "pointLongitude"=>"45"}},
+          {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}}
+        ]
+      }
       ]
     )
   end
