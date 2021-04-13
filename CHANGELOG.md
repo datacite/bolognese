@@ -1234,7 +1234,6 @@
 **Merged pull requests:**
 
 - Change to the regex to better support apostrophes in names. [\#22](https://github.com/datacite/bolognese/pull/22) ([richardhallett](https://github.com/richardhallett))
-- Ruby 2.3 and Nokogiri 1.8.1 [\#21](https://github.com/datacite/bolognese/pull/21) ([mfenner](https://github.com/mfenner))
 
 ## [v.0.9.73](https://github.com/datacite/bolognese/tree/v.0.9.73) (2018-01-14)
 
@@ -1279,6 +1278,10 @@
 **Closed issues:**
 
 - Case study for JATS export [\#18](https://github.com/datacite/bolognese/issues/18)
+
+**Merged pull requests:**
+
+- Ruby 2.3 and Nokogiri 1.8.1 [\#21](https://github.com/datacite/bolognese/pull/21) ([mfenner](https://github.com/mfenner))
 
 ## [v.0.9.65](https://github.com/datacite/bolognese/tree/v.0.9.65) (2017-12-15)
 
