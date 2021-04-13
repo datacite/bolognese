@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.3...HEAD)
+
+**Implemented enhancements:**
+
+- Should we resolve the Namespace URL for schema [\#62](https://github.com/datacite/bolognese/issues/62)
+
 ## [1.9.3](https://github.com/datacite/bolognese/tree/1.9.3) (2021-03-26)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.2...1.9.3)
