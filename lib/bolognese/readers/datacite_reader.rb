@@ -203,6 +203,15 @@ module Bolognese
             "schemeType" => rii["schemeType"]
           }.compact
 
+          number = ri["number"]
+          if number.is_a?(String)
+            number = number
+            numberType = nil
+          else
+            number = ri.dig("number", "__content__")
+            numberType = ri.dig("number", "numberType")
+          end
+
           {
             "relationType" => ri["relationType"],
             "relatedItemType" => ri["relatedItemType"],
@@ -212,8 +221,8 @@ module Bolognese
             "publicationYear" => ri["publicationYear"],
             "volume" => ri["volume"],
             "issue" => ri["issue"],
-            "number" => ri.dig("number", "__content__"),
-            "numberType" => ri.dig("number", "numberType"),
+            "number" => number,
+            "numberType" => numberType,
             "firstPage" => ri["firstPage"],
             "lastPage" => ri["lastPage"],
             "publisher" => ri["publisher"],
