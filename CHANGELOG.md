@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.5...HEAD)
+
+**Fixed bugs:**
+
+- Optional numberType being treated as required generating error [\#112](https://github.com/datacite/bolognese/issues/112)
+
 ## [1.9.5](https://github.com/datacite/bolognese/tree/1.9.5) (2021-04-20)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.4...1.9.5)
