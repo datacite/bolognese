@@ -8,6 +8,11 @@
 
 - Optional numberType being treated as required generating error [\#112](https://github.com/datacite/bolognese/issues/112)
 
+**Closed issues:**
+
+- Book metadata seems to be ignored [\#113](https://github.com/datacite/bolognese/issues/113)
+- Funder DOI validation [\#108](https://github.com/datacite/bolognese/issues/108)
+
 ## [1.9.5](https://github.com/datacite/bolognese/tree/1.9.5) (2021-04-20)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.4...1.9.5)
@@ -1092,6 +1097,7 @@
 **Merged pull requests:**
 
 - csl-json: fix date parts label for empty date [\#27](https://github.com/datacite/bolognese/pull/27) ([larsgw](https://github.com/larsgw))
+- Ruby 2.3 and Nokogiri 1.8.1 [\#21](https://github.com/datacite/bolognese/pull/21) ([mfenner](https://github.com/mfenner))
 
 ## [v.0.10.13](https://github.com/datacite/bolognese/tree/v.0.10.13) (2018-05-18)
 
@@ -1291,10 +1297,6 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.67...v.0.9.68)
 
-**Closed issues:**
-
-- Undefined method `dig' in read\_crossref [\#20](https://github.com/datacite/bolognese/issues/20)
-
 ## [v.0.9.67](https://github.com/datacite/bolognese/tree/v.0.9.67) (2017-12-29)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.66...v.0.9.67)
@@ -1306,10 +1308,6 @@
 **Closed issues:**
 
 - Case study for JATS export [\#18](https://github.com/datacite/bolognese/issues/18)
-
-**Merged pull requests:**
-
-- Ruby 2.3 and Nokogiri 1.8.1 [\#21](https://github.com/datacite/bolognese/pull/21) ([mfenner](https://github.com/mfenner))
 
 ## [v.0.9.65](https://github.com/datacite/bolognese/tree/v.0.9.65) (2017-12-15)
 
@@ -1497,6 +1495,7 @@
 
 **Closed issues:**
 
+- Undefined method `dig' in read\_crossref [\#20](https://github.com/datacite/bolognese/issues/20)
 - Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
