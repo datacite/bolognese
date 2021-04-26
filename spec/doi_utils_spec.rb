@@ -272,6 +272,20 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.validate_funder_doi(doi)
       expect(response).to be_nil
     end
+
+    context "when the DOI does not start in 5" do
+      it "validates a DOI ID" do
+        doi = "10.13039/100000050"
+        response = subject.validate_funder_doi(doi)
+        expect(response).to eq("https://doi.org/10.13039/100000050")
+      end
+
+      it "validates a full DOI URI" do
+        doi = "https://doi.org/10.13039/100000050"
+        response = subject.validate_funder_doi(doi)
+        expect(response).to eq("https://doi.org/10.13039/100000050")
+      end
+    end
   end
 
   context "validate prefix" do
