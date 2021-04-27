@@ -9,9 +9,8 @@ module Bolognese
     end
 
     def validate_funder_doi(doi)
-      regex = /\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.13039\/)?([1-9]\d+)\z/.match(doi)
-      # Compact to ensure nil is not returned for valid DOI's without a funder prefix, i.e 501100001711
-      doi = Array(regex).last
+      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.13039\/)?([1-9]\d+)\z/.match(doi)).last
+
       # remove non-printing whitespace and downcase
       if doi.present?
         doi.delete("\u200B").downcase
