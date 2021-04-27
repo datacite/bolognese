@@ -273,19 +273,17 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to be_nil
     end
 
-    context "when the DOI does not start in 5" do
-      it "validates a DOI ID" do
-        doi = "10.13039/100000050"
-        response = subject.validate_funder_doi(doi)
-        expect(response).to eq("https://doi.org/10.13039/100000050")
-      end
-
-      it "validates a full DOI URI" do
-        doi = "https://doi.org/10.13039/100000050"
-        response = subject.validate_funder_doi(doi)
-        expect(response).to eq("https://doi.org/10.13039/100000050")
-      end
-    end
+    it { expect(subject.validate_funder_doi("10.13039/100000050")).to eq "https://doi.org/10.13039/100000050" }
+    it { expect(subject.validate_funder_doi("10.13039/100006492")).to eq "https://doi.org/10.13039/100006492" }
+    it { expect(subject.validate_funder_doi('http://handle.test.datacite.org/10.13039/100000080')).to eq "https://doi.org/10.13039/100000080" }
+    it { expect(subject.validate_funder_doi('https://doi.org/10.13039/100000001')).to eq "https://doi.org/10.13039/100000001" }
+    it { expect(subject.validate_funder_doi('http://doi.org/10.13039/501100001711')).to eq "https://doi.org/10.13039/501100001711" }
+    it { expect(subject.validate_funder_doi('https://dx.doi.org/10.13039/501100001711')).to eq "https://doi.org/10.13039/501100001711" }
+    it { expect(subject.validate_funder_doi('doi:10.13039/501100001711')).to eq "https://doi.org/10.13039/501100001711" }
+    it { expect(subject.validate_funder_doi('10.13039/501100001711')).to eq "https://doi.org/10.13039/501100001711" }
+    it { expect(subject.validate_funder_doi('501100001711')).to eq "https://doi.org/10.13039/501100001711" }
+    it { expect(subject.validate_funder_doi("https://doi.org/10.13039/5monkeymonkey")).to be_nil }
+    it { expect(subject.validate_funder_doi('10.13039/5monkeymonkey')).to be_nil }
   end
 
   context "validate prefix" do
