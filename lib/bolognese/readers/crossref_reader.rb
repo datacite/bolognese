@@ -65,11 +65,11 @@ module Bolognese
           bibliographic_metadata = journal_article.presence || journal_issue.presence || journal_metadata
           program_metadata = bibliographic_metadata.dig("crossmark", "custom_metadata", "program") || bibliographic_metadata.dig("program")
           resource_type = if journal_article.present?
-                            "journal_article"
-                          elsif journal_issue.present?
-                            "journal_issue"
-                          else
-                            "journal"
+                              "journal_article"
+                            elsif journal_issue.present?
+                              "journal_issue"
+                            else
+                              "journal"
                             end
         when "posted_content"
           bibliographic_metadata = meta.dig("crossref", "posted_content").to_h
