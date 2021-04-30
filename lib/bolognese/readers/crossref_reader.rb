@@ -204,7 +204,8 @@ module Bolognese
           "sizes" => nil,
           "schema_version" => nil,
           "state" => state,
-          "date_registered" => date_registered }.merge(read_options)
+          "date_registered" => date_registered
+        }.merge(read_options)
       end
 
       def crossref_alternate_identifiers(bibliographic_metadata)
