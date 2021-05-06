@@ -146,7 +146,10 @@ module Bolognese
         else
           if a["affiliationIdentifier"].present?
             affiliation_identifier = a["affiliationIdentifier"]
-            affiliation_identifier = !affiliation_identifier.to_s.start_with?("https://") && a["schemeURI"].present? ? normalize_id(a["schemeURI"] + affiliation_identifier) : normalize_id(affiliation_identifier)
+            if a["schemeURI"].present?
+              schemeURI = a["schemeURI"].end_with?("/") ? a["schemeURI"] : a["schemeURI"] + "/"
+            end
+            affiliation_identifier = !affiliation_identifier.to_s.start_with?("https://") && schemeURI.present? ? normalize_id(schemeURI + affiliation_identifier) : normalize_id(affiliation_identifier)
           end
           name = a["__content__"].to_s.squish.presence
           affiliation_identifier_scheme = a["affiliationIdentifierScheme"]
