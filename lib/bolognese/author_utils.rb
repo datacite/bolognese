@@ -138,14 +138,16 @@ module Bolognese
 
     def get_affiliations(affiliations)
       Array.wrap(affiliations).map do |a|
+        affiliation_identifier = nil
         if a.is_a?(String)
           name = a.squish
-          affiliation_identifier = nil
           affiliation_identifier_scheme = nil
           scheme_uri = nil
         else
-          affiliation_identifier = a["affiliationIdentifier"]
-          affiliation_identifier = !affiliation_identifier.to_s.start_with?("https://") && a["schemeURI"].present? ? normalize_id(a["schemeURI"] + affiliation_identifier) : normalize_id(affiliation_identifier)
+          if a["affiliationIdentifier"].present?
+            affiliation_identifier = a["affiliationIdentifier"]
+            affiliation_identifier = !affiliation_identifier.to_s.start_with?("https://") && a["schemeURI"].present? ? normalize_id(a["schemeURI"] + affiliation_identifier) : normalize_id(affiliation_identifier)
+          end
           name = a["__content__"].to_s.squish.presence
           affiliation_identifier_scheme = a["affiliationIdentifierScheme"]
           scheme_uri = a["SchemeURI"]
