@@ -56,10 +56,10 @@ module Bolognese
           #               book_series_metadata.dig("publisher", "publisher_name")
           #             end
         when "conference"
-          event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
+          event_metadata = meta.dig("crossref", "conference", "event_metadata") || {}
           bibliographic_metadata = meta.dig("crossref", "conference", "conference_paper").to_h
         when "journal"
-          journal_metadata = meta.dig("crossref", "journal", "journal_metadata") || {}
+          journal_metadata = meta.dig("crossref", "journal", "journal_metadata") || {}
           journal_issue = meta.dig("crossref", "journal", "journal_issue") || {}
           journal_article = meta.dig("crossref", "journal", "journal_article") || {}
           bibliographic_metadata = journal_article.presence || journal_issue.presence || journal_metadata
@@ -140,7 +140,8 @@ module Bolognese
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
         related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
-        container = if journal_metadata.present? || book_metadata.present?
+
+        container = if journal_metadata.present?
                       issn = normalize_issn(journal_metadata.to_h.fetch("issn", nil))
 
                       { "type" => "Journal",
@@ -151,6 +152,19 @@ module Bolognese
                         "issue" => parse_attributes(journal_issue.dig("issue")),
                         "firstPage" => bibliographic_metadata.dig("pages", "first_page") || parse_attributes(journal_article.to_h.dig("publisher_item", "item_number"), first: true),
                         "lastPage" => bibliographic_metadata.dig("pages", "last_page") }.compact
+
+                    # By using book_metadata, we can account for where resource_type is `BookChapter` and not assume its a whole book
+                    elsif book_metadata.present?
+                      identifiers = crossref_alternate_identifiers(book_metadata)
+
+                      {
+                        "type" => "Book",
+                        "title" => book_metadata.dig("titles", "title"),
+                        "firstPage" => bibliographic_metadata.dig("pages", "first_page"),
+                        "lastPage" => bibliographic_metadata.dig("pages", "last_page"),
+                        "identifiers" => identifiers,
+                      }.compact
+
                     elsif book_series_metadata.to_h.fetch("series_metadata", nil).present?
                       issn = normalize_issn(book_series_metadata.dig("series_metadata", "issn"))
 
@@ -162,7 +176,10 @@ module Bolognese
                     end
 
         id = normalize_doi(options[:doi] || options[:id] || bibliographic_metadata.dig("doi_data", "doi"))
-        identifiers = crossref_alternate_identifiers(bibliographic_metadata)
+
+        # Let sections override this in case of alternative metadata structures, such as book chapters, which
+        # have their meta inside `content_item`, but the main book indentifers inside of `book_metadata`
+        identifiers ||= crossref_alternate_identifiers(bibliographic_metadata)
 
         { "id" => id,
           "types" => types,

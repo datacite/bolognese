@@ -76,7 +76,9 @@ module Bolognese
       end
 
       def insert_source(xml)
-        if is_article? || is_data? || is_chapter?
+        if is_chapter?
+          xml.source(publisher)
+        elsif is_article? || is_data?
           xml.source(container && container["title"] || publisher)
         else
           xml.source(parse_attributes(titles, content: "title", first: true))
