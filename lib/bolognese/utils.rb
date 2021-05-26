@@ -1306,8 +1306,8 @@ module Bolognese
         return [{
           "subject" => sanitize(hsh["__content__"] || hsh["subject"]),
           "subjectScheme" => hsh["subjectScheme"],
-          "schemeUri" => hsh["schemeURI"],
-          "valueUri" => hsh["valueURI"],
+          "schemeUri" => hsh["schemeURI"] || hsh["schemeURI"],
+          "valueUri" => hsh["valueURI"] || hsh["valueURI"],
           "classificationCode" => hsh["classificationCode"],
           "lang" => hsh["lang"] }.compact,
         {
@@ -1339,8 +1339,8 @@ module Bolognese
           "subject" => sanitize(hsh["__content__"] || hsh["subject"]),
           "subjectScheme" => hsh["subjectScheme"],
           "classificationCode" => hsh["classificationCode"],
-          "schemeUri" => hsh["schemeURI"],
-          "valueUri" => hsh["valueURI"],
+          "schemeUri" => hsh["schemeURI"] || hsh["schemeURI"],
+          "valueUri" => hsh["valueURI"] || hsh["valueURI"],
           "lang" => hsh["lang"] }.compact,
         {
           "subject" => "FOS: " + subject["fosLabel"],
@@ -1352,8 +1352,8 @@ module Bolognese
           "subject" => sanitize(hsh["__content__"] || hsh["subject"]),
           "subjectScheme" => hsh["subjectScheme"],
           "classificationCode" => hsh["classificationCode"],
-          "schemeUri" => hsh["schemeURI"],
-          "valueUri" => hsh["valueURI"],
+          "schemeUri" => hsh["schemeURI"] || hsh["schemeURI"],
+          "valueUri" => hsh["valueURI"] || hsh["valueURI"],
           "lang" => hsh["lang"] }.compact]
       end
     end
