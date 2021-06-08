@@ -539,7 +539,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq({"rightsUri"=>"info:eu-repo/semantics/openAccess"})
     end
   end
-  
+
   context "fos" do
     it "name_to_fos match" do
       name = "Biological sciences"
@@ -583,10 +583,23 @@ describe Bolognese::Metadata, vcr: true do
         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
     end
 
+    it "hsh_to_fos for with schemeUri in hash" do
+      hsh = {
+      "subject" => "FOS: Computer and information sciences",
+      "subjectScheme" => "Fields of Science and Technology (FOS)",
+      "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"}
+      response = subject.hsh_to_fos(hsh)
+      expect(response).to eq([{
+      "subject" => "FOS: Computer and information sciences",
+      "subjectScheme" => "Fields of Science and Technology (FOS)",
+      "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"}])
+    end
+
     it "hsh_to_fos no match" do
       hsh = { "__content__"=>"Random tag" }
       response = subject.hsh_to_fos(hsh)
       expect(response).to eq([{"subject"=>"Random tag"}])
     end
+
   end
 end

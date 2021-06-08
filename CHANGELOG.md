@@ -1,5 +1,47 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.5...HEAD)
+
+**Fixed bugs:**
+
+- Missing affiliationIdentiifer when used with schemaURI raises an error [\#116](https://github.com/datacite/bolognese/issues/116)
+- Optional numberType being treated as required generating error [\#112](https://github.com/datacite/bolognese/issues/112)
+
+**Closed issues:**
+
+- Book metadata seems to be ignored [\#113](https://github.com/datacite/bolognese/issues/113)
+- Namespaced XML Tags [\#109](https://github.com/datacite/bolognese/issues/109)
+
+**Merged pull requests:**
+
+- Fix missing affiliation identifier [\#117](https://github.com/datacite/bolognese/pull/117) ([richardhallett](https://github.com/richardhallett))
+
+## [1.9.5](https://github.com/datacite/bolognese/tree/1.9.5) (2021-04-20)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.4...1.9.5)
+
+## [1.9.4](https://github.com/datacite/bolognese/tree/1.9.4) (2021-04-13)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.3...1.9.4)
+
+**Implemented enhancements:**
+
+- Should we resolve the Namespace URL for schema [\#62](https://github.com/datacite/bolognese/issues/62)
+
+**Fixed bugs:**
+
+- Singular geoLocationPolygons are wrapped in additional array [\#110](https://github.com/datacite/bolognese/issues/110)
+
+**Merged pull requests:**
+
+- Support returning single geoLocationPolygon [\#111](https://github.com/datacite/bolognese/pull/111) ([richardhallett](https://github.com/richardhallett))
+
+## [1.9.3](https://github.com/datacite/bolognese/tree/1.9.3) (2021-03-26)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.2...1.9.3)
+
 ## [1.9.2](https://github.com/datacite/bolognese/tree/1.9.2) (2021-03-25)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.1...1.9.2)
@@ -977,13 +1019,13 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.0.11.15...v.0.11.16)
 
-## [v.0.11.15](https://github.com/datacite/bolognese/tree/v.0.11.15) (2018-08-01)
-
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.11.14...v.0.11.15)
-
 **Fixed bugs:**
 
 - Handle xs:string attribute [\#32](https://github.com/datacite/bolognese/issues/32)
+
+## [v.0.11.15](https://github.com/datacite/bolognese/tree/v.0.11.15) (2018-08-01)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.11.14...v.0.11.15)
 
 ## [v.0.11.14](https://github.com/datacite/bolognese/tree/v.0.11.14) (2018-07-28)
 
@@ -1469,6 +1511,7 @@
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
 - crossref author id to orcid id?  [\#10](https://github.com/datacite/bolognese/issues/10)
+- Support funding information [\#7](https://github.com/datacite/bolognese/issues/7)
 - datacite: support subjectScheme and subjectURI [\#4](https://github.com/datacite/bolognese/issues/4)
 
 ## [v.0.9.21](https://github.com/datacite/bolognese/tree/v.0.9.21) (2017-06-03)
@@ -1479,7 +1522,6 @@
 
 - Abstract should be a string in Citeproc writer [\#11](https://github.com/datacite/bolognese/issues/11)
 - the Bolognese gem doesn't properly handle the optional language attribute. [\#8](https://github.com/datacite/bolognese/issues/8)
-- Support funding information [\#7](https://github.com/datacite/bolognese/issues/7)
 - datacite: support xml:lang in title [\#3](https://github.com/datacite/bolognese/issues/3)
 
 ## [v.0.9.20](https://github.com/datacite/bolognese/tree/v.0.9.20) (2017-05-13)

@@ -633,6 +633,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2015")
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.agency).to eq("crossref")
+      expect(subject.container["type"]).to eq("Book")
+      expect(subject.container["title"]).to eq("Shoulder Stiffness")
+      expect(subject.container["firstPage"]).to eq("155")
+      expect(subject.container["lastPage"]).to eq("158")
+      expect(subject.container["identifiers"]).to eq([{"identifier"=>"978-3-662-46369-7", "identifierType"=>"ISBN"}])
     end
 
     it "another book chapter" do
@@ -648,6 +653,10 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq("Springer Science and Business Media LLC")
       expect(subject.agency).to eq("crossref")
+      expect(subject.container["type"]).to eq("Book Series")
+      expect(subject.container["title"]).to eq("SpringerBriefs in Medical Earth Sciences")
+      expect(subject.container["identifier"]).to eq("2523-3629")
+      expect(subject.container["identifierType"]).to eq("ISSN")
     end
 
     it "yet another book chapter" do
@@ -663,6 +672,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2012")
       expect(subject.publisher).to eq("IGI Global")
       expect(subject.agency).to eq("crossref")
+      expect(subject.container["type"]).to eq("Book")
+      expect(subject.container["title"]).to eq("Graph-Based Methods in Computer Vision")
+      expect(subject.container["firstPage"]).to eq("72")
+      expect(subject.container["lastPage"]).to eq("94")
+      expect(subject.container["identifiers"]).to eq([{"identifier"=>"9781466618916", "identifierType"=>"ISBN"}])
     end
 
     it "missing creator" do

@@ -281,7 +281,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["name"]).to eq("Meteo measurements at the Sand Motor")
       expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer")
       expect(json["includedInDataCatalog"]).to be_nil
-      expect(json["spatialCoverage"].dig("geo", "polygon")[0].length).to eq(34)
+      expect(json["spatialCoverage"].dig("geo", "polygon").length).to eq(34)
       expect(json["spatialCoverage"].dig("geo", "polygon")[0].first).to eq(["4.1738852605822", "52.03913926329928"])
     end
 
