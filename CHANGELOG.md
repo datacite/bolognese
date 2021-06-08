@@ -1,8 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+## [1.9.8](https://github.com/datacite/bolognese/tree/1.9.8) (2021-06-08)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.5...HEAD)
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.7...1.9.8)
+
+## [1.9.7](https://github.com/datacite/bolognese/tree/1.9.7) (2021-05-26)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.6...1.9.7)
+
+## [1.9.6](https://github.com/datacite/bolognese/tree/1.9.6) (2021-05-26)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.5...1.9.6)
 
 **Fixed bugs:**
 
@@ -13,10 +21,13 @@
 
 - Book metadata seems to be ignored [\#113](https://github.com/datacite/bolognese/issues/113)
 - Namespaced XML Tags [\#109](https://github.com/datacite/bolognese/issues/109)
+- Funder DOI validation [\#108](https://github.com/datacite/bolognese/issues/108)
 
 **Merged pull requests:**
 
 - Fix missing affiliation identifier [\#117](https://github.com/datacite/bolognese/pull/117) ([richardhallett](https://github.com/richardhallett))
+- Add support for book title and additional metadata when reading Crossref Book Chapter DOI [\#115](https://github.com/datacite/bolognese/pull/115) ([prdanelli](https://github.com/prdanelli))
+- Valid Funder DOIs are being rejected for not starting with a 5 [\#114](https://github.com/datacite/bolognese/pull/114) ([prdanelli](https://github.com/prdanelli))
 
 ## [1.9.5](https://github.com/datacite/bolognese/tree/1.9.5) (2021-04-20)
 
@@ -1019,13 +1030,13 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.0.11.15...v.0.11.16)
 
-**Fixed bugs:**
-
-- Handle xs:string attribute [\#32](https://github.com/datacite/bolognese/issues/32)
-
 ## [v.0.11.15](https://github.com/datacite/bolognese/tree/v.0.11.15) (2018-08-01)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.0.11.14...v.0.11.15)
+
+**Fixed bugs:**
+
+- Handle xs:string attribute [\#32](https://github.com/datacite/bolognese/issues/32)
 
 ## [v.0.11.14](https://github.com/datacite/bolognese/tree/v.0.11.14) (2018-07-28)
 
@@ -1511,7 +1522,6 @@
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
 - crossref author id to orcid id?  [\#10](https://github.com/datacite/bolognese/issues/10)
-- Support funding information [\#7](https://github.com/datacite/bolognese/issues/7)
 - datacite: support subjectScheme and subjectURI [\#4](https://github.com/datacite/bolognese/issues/4)
 
 ## [v.0.9.21](https://github.com/datacite/bolognese/tree/v.0.9.21) (2017-06-03)
@@ -1522,6 +1532,7 @@
 
 - Abstract should be a string in Citeproc writer [\#11](https://github.com/datacite/bolognese/issues/11)
 - the Bolognese gem doesn't properly handle the optional language attribute. [\#8](https://github.com/datacite/bolognese/issues/8)
+- Support funding information [\#7](https://github.com/datacite/bolognese/issues/7)
 - datacite: support xml:lang in title [\#3](https://github.com/datacite/bolognese/issues/3)
 
 ## [v.0.9.20](https://github.com/datacite/bolognese/tree/v.0.9.20) (2017-05-13)
