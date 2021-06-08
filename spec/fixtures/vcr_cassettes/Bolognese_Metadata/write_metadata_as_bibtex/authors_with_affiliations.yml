@@ -2,58 +2,83 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.datacite.org/dois/10.16910/jemr.9.1.2?include=media,client
+    uri: https://api.crossref.org/works/10.16910/jemr.9.1.2/transform/application/vnd.crossref.unixsd+xml
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.3; mailto:info@datacite.org)
       Accept:
-      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      - text/xml
   response:
     status:
       code: 200
       message: OK
     headers:
-      Date:
-      - Sun, 12 Jul 2020 11:22:44 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Connection:
-      - keep-alive
-      Status:
-      - 200 OK
-      X-Anonymous-Consumer:
-      - 'true'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Vary:
-      - Accept-Encoding, Origin
-      X-Request-Id:
-      - e5d30e7f-953a-4f7b-b79d-d1f1cd19e010
-      Etag:
-      - W/"da40ebdff12a2acd0a5add51ba910598"
-      X-Runtime:
-      - '1.426324'
-      X-Powered-By:
-      - Phusion Passenger 6.0.5
+      Link:
+      - <http://dx.doi.org/10.16910/jemr.9.1.2>; rel="canonical", <https://bop.unibe.ch/JEMR/article/download/2430/3624>;
+        version="vor"; type="application/pdf"; rel="item", <https://bop.unibe.ch/JEMR/article/download/2430/3624>;
+        version="vor"; rel="item"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - X-Requested-With
+      Content-Length:
+      - '5603'
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - http-kit
+      Date:
+      - Mon, 07 Jun 2021 17:29:40 GMT
+      X-Rate-Limit-Limit:
+      - '50'
+      X-Rate-Limit-Interval:
+      - 1s
+      Permissions-Policy:
+      - interest-cohort=()
+      Connection:
+      - close
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.16910/jemr.9.1.2","type":"dois","attributes":{"doi":"10.16910/jemr.9.1.2","prefix":"10.16910","suffix":"jemr.9.1.2","identifiers":[{"identifier":"https://doi.org/10.16910/jemr.9.1.2","identifierType":"DOI"}],"alternateIdentifiers":[],"creators":[{"name":"Eraslan,
-        Sukru; University Of Manchester, UK, & Middle East Technical University, Northern
-        Cyprus Campus,  Kalkanli, Guzelyurt, Turkey","affiliation":[]},{"name":"Yesilada,
-        Yeliz; Middle East Technical University, Northern Cyprus Campus, 99738 Kalkanli,
-        Guzelyurt, Mersin 10, Turkey","affiliation":[]},{"name":"Harper, Simon; School
-        Of Computer Science, University Of Manchester, Manchester, United Kingdom","affiliation":[]}],"titles":[{"title":"Eye
-        tracking scanpath analysis techniques on web pages: A survey, evaluation and
-        comparison"}],"publisher":"eyemovement.org","container":{},"publicationYear":2015,"subjects":[{"subject":"eye
-        tracking; eye movements; scanpaths; eye movement sequence; web pages; visual
-        elements; web pages; scanpath analysis techniques; scanpath analysis; pattern
-        detection; common scanpaths"}],"contributors":[],"dates":[{"date":"2015-12-30","dateType":"Available"},{"date":"2015","dateType":"Issued"}],"language":"eng","types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork","resourceTypeGeneral":"Workflow"},"relatedIdentifiers":[],"sizes":[],"formats":["application/pdf"],"version":null,"rightsList":[{"rights":"http://creativecommons.org/licenses/by/4.0"},{"rights":"Copyright
-        (c) 2015 Sukru Eraslan, Yeliz Yesilada, Simon Harper"}],"descriptions":[{"description":"Eye
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
+        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
+        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
+        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
+        \     <query status=\"resolved\">\r\n        <doi type=\"journal_article\">10.16910/jemr.9.1.2</doi>\r\n
+        \       <crm-item name=\"publisher-name\" type=\"string\">University of Bern</crm-item>\r\n
+        \       <crm-item name=\"prefix-name\" type=\"string\">University of Bern</crm-item>\r\n
+        \       <crm-item name=\"member-id\" type=\"number\">22676</crm-item>\r\n
+        \       <crm-item name=\"citation-id\" type=\"number\">124518013</crm-item>\r\n
+        \       <crm-item name=\"journal-id\" type=\"number\">421317</crm-item>\r\n
+        \       <crm-item name=\"deposit-timestamp\" type=\"number\">1614427024</crm-item>\r\n
+        \       <crm-item name=\"owner-prefix\" type=\"string\">10.16910</crm-item>\r\n
+        \       <crm-item name=\"last-update\" type=\"date\">2021-02-27T11:57:27Z</crm-item>\r\n
+        \       <crm-item name=\"created\" type=\"date\">2021-02-27T11:57:27Z</crm-item>\r\n
+        \       <crm-item name=\"citedby-count\" type=\"number\">3</crm-item>\r\n
+        \       <crm-item name=\"relation\" type=\"doi\" claim=\"cites\">10.3390/s18061822</crm-item>\r\n
+        \       <doi_record>\r\n          <crossref xmlns=\"http://www.crossref.org/xschema/1.1\"
+        xsi:schemaLocation=\"http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd\">\r\n
+        \           <journal>\r\n              <journal_metadata>\r\n                <full_title>Journal
+        of Eye Movement Research</full_title>\r\n                <abbrev_title>JEMR</abbrev_title>\r\n
+        \               <issn media_type=\"electronic\">1995-8692</issn>\r\n              </journal_metadata>\r\n
+        \             <journal_issue>\r\n                <publication_date media_type=\"online\">\r\n
+        \                 <month>02</month>\r\n                  <day>10</day>\r\n
+        \                 <year>2016</year>\r\n                </publication_date>\r\n
+        \               <journal_volume>\r\n                  <volume>9</volume>\r\n
+        \               </journal_volume>\r\n                <issue>1</issue>\r\n
+        \             </journal_issue>\r\n              <journal_article xmlns:jats=\"http://www.ncbi.nlm.nih.gov/JATS1\"
+        publication_type=\"full_text\" metadata_distribution_opts=\"any\">\r\n                <titles>\r\n
+        \                 <title>Eye tracking scanpath analysis techniques on web
+        pages: A survey, evaluation and comparison</title>\r\n                </titles>\r\n
+        \               <contributors>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"first\">\r\n                    <given_name>Sukru</given_name>\r\n
+        \                   <surname>Eraslan</surname>\r\n                  </person_name>\r\n
+        \                 <person_name contributor_role=\"author\" sequence=\"additional\">\r\n
+        \                   <given_name>Yeliz</given_name>\r\n                    <surname>Yesilada</surname>\r\n
+        \                 </person_name>\r\n                  <person_name contributor_role=\"author\"
+        sequence=\"additional\">\r\n                    <given_name>Simon</given_name>\r\n
+        \                   <surname>Harper</surname>\r\n                  </person_name>\r\n
+        \               </contributors>\r\n                <jats:abstract>\r\n                  <jats:p>Eye
         tracking has commonly been used to investigate how users interact with web
         pages, with the goal of improving their usability. This article comprehensively
         revisits the techniques that could be applicable to eye tracking data for
@@ -68,8 +93,20 @@ http_interactions:
         researchers can directly focus on the appropriate techniques for a sequential
         analysis of user scanpaths on web pages. This article also suggests dealing
         with the limitations of these techniques by pre-processing eye tracking data,
-        considering cognitive processing and addressing their reductionist approach.","descriptionType":"Other"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz48cmVzb3VyY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj48aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4xNjkxMC9qZW1yLjkuMS4yPC9pZGVudGlmaWVyPjxjcmVhdG9ycz48Y3JlYXRvcj48Y3JlYXRvck5hbWU+RXJhc2xhbiwgU3VrcnU7IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlciwgVUssICZhbXA7IE1pZGRsZSBFYXN0IFRlY2huaWNhbCBVbml2ZXJzaXR5LCBOb3J0aGVybiBDeXBydXMgQ2FtcHVzLCAgS2Fsa2FubGksIEd1emVseXVydCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPlllc2lsYWRhLCBZZWxpejsgTWlkZGxlIEVhc3QgVGVjaG5pY2FsIFVuaXZlcnNpdHksIE5vcnRoZXJuIEN5cHJ1cyBDYW1wdXMsIDk5NzM4IEthbGthbmxpLCBHdXplbHl1cnQsIE1lcnNpbiAxMCwgVHVya2V5PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkhhcnBlciwgU2ltb247IFNjaG9vbCBvZiBDb21wdXRlciBTY2llbmNlLCBVbml2ZXJzaXR5IG9mIE1hbmNoZXN0ZXIsIE1hbmNoZXN0ZXIsIFVuaXRlZCBLaW5nZG9tPC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5FeWUgdHJhY2tpbmcgc2NhbnBhdGggYW5hbHlzaXMgdGVjaG5pcXVlcyBvbiB3ZWIgcGFnZXM6IEEgc3VydmV5LCBldmFsdWF0aW9uIGFuZCBjb21wYXJpc29uPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPmV5ZW1vdmVtZW50Lm9yZzwvcHVibGlzaGVyPjxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPjxzdWJqZWN0cz48c3ViamVjdD5leWUgdHJhY2tpbmc7IGV5ZSBtb3ZlbWVudHM7IHNjYW5wYXRoczsgZXllIG1vdmVtZW50IHNlcXVlbmNlOyB3ZWIgcGFnZXM7IHZpc3VhbCBlbGVtZW50czsgd2ViIHBhZ2VzOyBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVzOyBzY2FucGF0aCBhbmFseXNpczsgcGF0dGVybiBkZXRlY3Rpb247IGNvbW1vbiBzY2FucGF0aHM8L3N1YmplY3Q+PC9zdWJqZWN0cz48ZGF0ZXM+PGRhdGUgZGF0ZVR5cGU9IkF2YWlsYWJsZSI+MjAxNS0xMi0zMDwvZGF0ZT48L2RhdGVzPjxsYW5ndWFnZT5lbmc8L2xhbmd1YWdlPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iV29ya2Zsb3ciPjwvcmVzb3VyY2VUeXBlPjxmb3JtYXRzPjxmb3JtYXQ+YXBwbGljYXRpb24vcGRmPC9mb3JtYXQ+PC9mb3JtYXRzPjxyaWdodHNMaXN0PjxyaWdodHM+aHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wPC9yaWdodHM+PHJpZ2h0cz5Db3B5cmlnaHQgKGMpIDIwMTUgU3VrcnUgRXJhc2xhbiwgWWVsaXogWWVzaWxhZGEsIFNpbW9uIEhhcnBlcjwvcmlnaHRzPjwvcmlnaHRzTGlzdD48ZGVzY3JpcHRpb25zPjxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj5FeWUgdHJhY2tpbmcgaGFzIGNvbW1vbmx5IGJlZW4gdXNlZCB0byBpbnZlc3RpZ2F0ZSBob3cgdXNlcnMgaW50ZXJhY3Qgd2l0aCB3ZWIgcGFnZXMsIHdpdGggdGhlIGdvYWwgb2YgaW1wcm92aW5nIHRoZWlyIHVzYWJpbGl0eS4gVGhpcyBhcnRpY2xlIGNvbXByZWhlbnNpdmVseSByZXZpc2l0cyB0aGUgdGVjaG5pcXVlcyB0aGF0IGNvdWxkIGJlIGFwcGxpY2FibGUgdG8gZXllIHRyYWNraW5nIGRhdGEgZm9yIGFuYWx5c2luZyB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIEl0IGFsc28gdXNlcyBhIHRoaXJkLXBhcnR5IGV5ZSB0cmFja2luZyBzdHVkeSB0byBjb21wYXJlIHRoZXNlIHRlY2huaXF1ZXMuIFRoaXMgYWxsb3dzIHJlc2VhcmNoZXJzIHRvIHJlY29nbmlzZSBleGlzdGluZyB0ZWNobmlxdWVzIGZvciB0aGVpciBnb2FscywgdW5kZXJzdGFuZCBob3cgdGhleSB3b3JrIGFuZCBrbm93IHRoZWlyIHN0cmVuZ3RocyBhbmQgbGltaXRhdGlvbnMgc28gdGhhdCB0aGV5IGNhbiBtYWtlIGFuIGVmZmljaWVudCBjaG9pY2UgZm9yIHRoZWlyIHN0dWRpZXMuIFRoZXNlIHRlY2huaXF1ZXMgY2FuIG1haW5seSBiZSB1c2VkIGZvciBjYWxjdWxhdGluZyBzaW1pbGFyaXRpZXMvZGlzc2ltaWxhcml0aWVzIGJldHdlZW4gc2NhbnBhdGhzLCBjb21wdXRpbmcgdHJhbnNpdGlvbiBwcm9iYWJpbGl0aWVzIGJldHdlZW4gd2ViIHBhZ2UgZWxlbWVudHMsIGRldGVjdGluZyBwYXR0ZXJucyBpbiBzY2FucGF0aHMgYW5kIGlkZW50aWZ5aW5nIGNvbW1vbiBzY2FucGF0aHMuIFRoZSBzY2FucGF0aCBhbmFseXNpcyB0ZWNobmlxdWVzIGFyZSBjbGFzc2lmaWVkIGludG8gZm91ciBncm91cHMgYnkgdGhlaXIgZ29hbHMgc28gdGhhdCByZXNlYXJjaGVycyBjYW4gZGlyZWN0bHkgZm9jdXMgb24gdGhlIGFwcHJvcHJpYXRlIHRlY2huaXF1ZXMgZm9yIGEgc2VxdWVudGlhbCBhbmFseXNpcyBvZiB1c2VyIHNjYW5wYXRocyBvbiB3ZWIgcGFnZXMuIFRoaXMgYXJ0aWNsZSBhbHNvIHN1Z2dlc3RzIGRlYWxpbmcgd2l0aCB0aGUgbGltaXRhdGlvbnMgb2YgdGhlc2UgdGVjaG5pcXVlcyBieSBwcmUtcHJvY2Vzc2luZyBleWUgdHJhY2tpbmcgZGF0YSwgY29uc2lkZXJpbmcgY29nbml0aXZlIHByb2Nlc3NpbmcgYW5kIGFkZHJlc3NpbmcgdGhlaXIgcmVkdWN0aW9uaXN0IGFwcHJvYWNoLjwvZGVzY3JpcHRpb24+PC9kZXNjcmlwdGlvbnM+PC9yZXNvdXJjZT4=","url":"https://bop.unibe.ch/index.php/JEMR/article/view/2430","contentUrl":null,"metadataVersion":2,"schemaVersion":null,"source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2016-02-22T14:43:33.000Z","registered":"2016-02-22T14:43:13.000Z","published":"2015","updated":"2019-10-10T18:01:00.000Z"},"relationships":{"client":{"data":{"id":"ethz.bopjemr","type":"clients"}},"media":{"data":{"id":"10.16910/jemr.9.1.2","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"ethz.bopjemr","type":"clients","attributes":{"name":"BOP:
-        JEMR","symbol":"ETHZ.BOPJEMR","year":2016,"contactEmail":"doi@library.ethz.ch","alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"bop.unibe.ch","re3data":null,"opendoar":null,"issn":null,"url":null,"created":"2016-02-22T14:40:17.000Z","updated":"2018-08-26T02:35:40.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"ethz","type":"providers"}},"prefixes":{"data":[{"id":"10.16910","type":"prefixes"}]}}}]}'
+        considering cognitive processing and addressing their reductionist approach.</jats:p>\r\n
+        \               </jats:abstract>\r\n                <publication_date media_type=\"online\">\r\n
+        \                 <month>12</month>\r\n                  <day>30</day>\r\n
+        \                 <year>2015</year>\r\n                </publication_date>\r\n
+        \               <doi_data>\r\n                  <doi>10.16910/jemr.9.1.2</doi>\r\n
+        \                 <resource>https://bop.unibe.ch/JEMR/article/view/2430</resource>\r\n
+        \                 <collection property=\"crawler-based\">\r\n                    <item
+        crawler=\"iParadigms\">\r\n                      <resource>https://bop.unibe.ch/JEMR/article/download/2430/3624</resource>\r\n
+        \                   </item>\r\n                  </collection>\r\n                  <collection
+        property=\"text-mining\">\r\n                    <item>\r\n                      <resource
+        mime_type=\"application/pdf\">https://bop.unibe.ch/JEMR/article/download/2430/3624</resource>\r\n
+        \                   </item>\r\n                  </collection>\r\n                </doi_data>\r\n
+        \             </journal_article>\r\n            </journal>\r\n          </crossref>\r\n
+        \       </doi_record>\r\n      </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:22:44 GMT
+  recorded_at: Mon, 07 Jun 2021 17:29:40 GMT
 recorded_with: VCR 3.0.3

@@ -53,9 +53,9 @@ describe Bolognese::Metadata, vcr: true do
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5061/dryad.8515")
       expect(json["@type"]).to eq("Dataset")
-      expect(json["@reverse"]).to eq("isBasedOn"=>{"@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"ScholarlyArticle"})
+      expect(json["citation"]).to eq("@id"=>"https://doi.org/10.1371/journal.ppat.1000446", "@type"=>"CreativeWork")
       expect(json["license"]).to eq("https://creativecommons.org/publicdomain/zero/1.0/legalcode")
-      expect(json["keywords"]).to eq("Plasmodium, malaria, taxonomy, mitochondrial genome, phylogeny, Parasites")
+      expect(json["keywords"]).to eq("Plasmodium, malaria, taxonomy, mitochondrial genome, Parasites")
     end
 
     it "Schema.org JSON IsSupplementTo" do
@@ -128,7 +128,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.4232/1.2745")
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Flash Eurobarometer 54 (Madrid Summit)")
-      expect(json["keywords"]).to eq("KAT12 International Institutions, Relations, Conditions")
+      expect(json["keywords"]).to eq("KAT12 International Institutions, Relations, Conditions, Internationale Politik und Institutionen, Regierung, politische Systeme, Parteien und Verbände, Wirtschaftssysteme und wirtschaftliche Entwicklung, International politics and organisation, Government, political systems and organisation, Economic systems and development")
     end
 
     it "subject scheme multiple keywords" do
@@ -138,7 +138,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.1594/pangaea.721193")
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Seawater carbonate chemistry and processes during experiments with Crassostrea gigas, 2007, supplement to: Kurihara, Haruko; Kato, Shoji; Ishimatsu, Atsushi (2007): Effects of increased seawater pCO2 on early development of the oyster Crassostrea gigas. Aquatic Biology, 1(1), 91-98")
-      expect(json["keywords"]).to eq("Animalia, Bottles or small containers/Aquaria (&lt;20 L), Calcification/Dissolution, Coast and continental shelf, Crassostrea gigas, Development, Growth/Morphology, Laboratory experiment, Mollusca, North Pacific, Pelagos, Single species, Temperate, Zooplankton, Experimental treatment, Carbonate system computation flag, Temperature, water, Salinity, pH, Alkalinity, total, Carbon, inorganic, dissolved, Carbon dioxide, Bicarbonate ion, Carbonate ion, Partial pressure of carbon dioxide (water) at sea surface temperature (wet air), Fugacity of carbon dioxide (water) at sea surface temperature (wet air), Aragonite saturation state, Calcite saturation state, Proportion, Crassostrea gigas, larvae length, Crassostrea gigas, larvae height, Crassostrea gigas, non mineralized, Crassostrea gigas, partially mineralized, Crassostrea gigas, fully mineralized, Experiment, Calculated using seacarb after Nisumaa et al. (2010), Refractometer (Atago 100-S), pH meter (Mettler Toledo), pH meter (PHM290, Radiometer), Measured, European Project on Ocean Acidification (EPOCA), European network of excellence for Ocean Ecosystems Analysis (EUR-OCEANS), Ocean Acidification International Coordination Centre (OA-ICC)")
+      expect(json["keywords"]).to include("Animalia, Bottles or small containers/Aquaria (&lt;20 L)")
       expect(json["license"]).to eq("https://creativecommons.org/licenses/by/3.0/legalcode")
     end
 

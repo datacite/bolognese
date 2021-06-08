@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:24:54 GMT
+      - Sun, 06 Jun 2021 12:01:58 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d4cfef5813dcd3ab023705dc21f5c47cd1594553094; expires=Tue, 11-Aug-20
-        11:24:54 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 03e45e67e60000c2fee70df200000001
+      - 0a82cc933700004a9779065000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=G7cb8GOoaNIg2%2B4D59nlhOeE6uhZvobYh59kgYLhXaDzcQaNXMCFwMedZFqPemChHtRickOdVaj%2BMBXuFs1k56%2FQzCKBitrsZgB0IWlx7UEqoyJa2w87yOIVzaK5g0%2FI"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5b1a668638b6c2fe-FRA
+      - 65b17d31fb9b4a97-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:24:54 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:49 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.4124/05f6c379-dd68-4cdb-880d-33d3e9576d52/1?include=media,client
@@ -56,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,7 +69,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:24:54 GMT
+      - Sun, 06 Jun 2021 12:02:01 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -77,17 +81,19 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Runtime:
-      - '0.033019'
+      - '0.672964'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Request-Id:
-      - a7b8423b-72d3-45dc-9922-92e7438141af
+      - 81dda36e-0a74-4239-a8d5-8aa2c5d65e75
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:24:54 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:53 GMT
 recorded_with: VCR 3.0.3

@@ -101,7 +101,7 @@ describe Bolognese::Metadata, vcr: true do
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_subjects(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("subjects", "subject")).to eq(["Plasmodium", "malaria", "taxonomy", "mitochondrial genome", "phylogeny", "Parasites"])
+      expect(response.dig("subjects", "subject")).to eq(["Plasmodium", "malaria", "taxonomy", "mitochondrial genome", "Parasites"])
     end
   end
 
@@ -144,13 +144,13 @@ describe Bolognese::Metadata, vcr: true do
   context "insert_related_identifiers" do
     it "related_identifier" do
       expect(subject.related_identifiers.length).to eq(1)
-      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"DOI", "relationType"=>"IsSupplementTo")
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"DOI", "relationType"=>"Cites")
     end
 
     it "insert" do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq("__content__"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"DOI", "relationType"=>"IsSupplementTo")
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq("__content__"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"DOI", "relationType"=>"Cites")
     end
   end
 

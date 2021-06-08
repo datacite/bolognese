@@ -96,10 +96,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[4]).to eq("UR  - https://blog.datacite.org/eating-your-own-dog-food/")
       expect(ris[5]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
       expect(ris[6]).to eq("KW  - datacite")
-      expect(ris[9]).to eq("PY  - 2016")
-      expect(ris[10]).to eq("PB  - DataCite")
-      expect(ris[11]).to eq("SN  - 10.5438/0000-00ss")
-      expect(ris[12]).to eq("ER  - ")
+      expect(ris[9]).to eq("KW  - FOS: Computer and information sciences")
+      expect(ris[10]).to eq("KW  - FOS: Computer and information sciences")
+      expect(ris[11]).to eq("PY  - 2016")
+      expect(ris[12]).to eq("PB  - DataCite")
+      expect(ris[13]).to eq("LA  - en")
+      expect(ris[14]).to eq("SN  - 10.5438/0000-00ss")
+      expect(ris[15]).to eq("ER  - ")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -163,10 +166,9 @@ describe Bolognese::Metadata, vcr: true do
       expect(ris[10]).to eq("DO  - 10.5061/dryad.8515")
       expect(ris[11]).to eq("UR  - http://datadryad.org/stash/dataset/doi:10.5061/dryad.8515")
       expect(ris[13]).to eq("KW  - Plasmodium")
-      expect(ris[19]).to eq("PY  - 2011")
-      expect(ris[20]).to eq("PB  - Dryad")
-      expect(ris[21]).to eq("LA  - en")
-      expect(ris[22]).to eq("ER  - ")
+      expect(ris[19]).to eq("PB  - Dryad")
+      expect(ris[20]).to eq("LA  - en")
+      expect(ris[21]).to eq("ER  - ")
     end
 
     it "maremma" do

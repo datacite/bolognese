@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:22:32 GMT
+      - Sun, 06 Jun 2021 11:55:39 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=dc02c4731a2ae59c73f7fe6f35360bc801594552952; expires=Tue, 11-Aug-20
-        11:22:32 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 03e45c3fac000017620e9de200000001
+      - 0a82c6c9870000dfcfaa9bf000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=JB1sw8iu6muDcm7Ns4L2FjyYrlexCoF1rqXUv0Bz1kfEq%2ByjpE31jcljiSfz3Vlex1cV%2FTtxvBSpuv5zQ9U0AeB%2FaI9YuDG1CMZ4ImuroZt1%2FY6MBMo3scNUkcy6X%2BG%2F"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5b1a6312a8a71762-FRA
+      - 65b173ef39b1dfcf-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,5 +51,5 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:22:32 GMT
+  recorded_at: Sun, 06 Jun 2021 11:55:30 GMT
 recorded_with: VCR 3.0.3

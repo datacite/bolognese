@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 24 Jul 2020 09:45:26 GMT
+      - Sun, 06 Jun 2021 11:55:14 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,21 +31,27 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 9e991a49-1b31-467e-8398-17c65f21adff
+      - 3bfc5b04-cf65-42a2-89ce-3d91fc29dd58
       Etag:
-      - W/"f61889405ef061735e59275bdbe3242a"
+      - W/"71fb1defeb87bf214499fe6c6ef9dd31"
       X-Runtime:
-      - '1.280903'
+      - '1.389469'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Powered-By:
-      - Phusion Passenger 6.0.6
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.6
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.26301/qdpd-2250","type":"dois","attributes":{"doi":"10.26301/qdpd-2250","prefix":"10.26301","suffix":"qdpd-2250","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"USS
-        Pampanito","nameType":"Organizational","givenName":null,"familyName":null,"affiliation":[],"nameIdentifiers":[]}],"titles":[{"lang":null,"title":"USS
-        Pampanito Submarine","titleType":null}],"publisher":"Open Heritage 3D","container":{},"publicationYear":2020,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"3D
-        Data","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjYzMDEvUURQRC0yMjUwPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5VU1MgUGFtcGFuaXRvPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+VVNTIFBhbXBhbml0byBTdWJtYXJpbmU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+T3BlbiBIZXJpdGFnZSAzRDwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAyMDwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+M0QgRGF0YTwvcmVzb3VyY2VUeXBlPgogIDxzaXplcy8+CiAgPGZvcm1hdHMvPgogIDx2ZXJzaW9uLz4KPC9yZXNvdXJjZT4K","url":"https://openheritage3d.org/project.php?id=qdpd-2250","contentUrl":null,"metadataVersion":1,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-01-10T18:51:00.000Z","registered":"2020-01-16T00:17:10.000Z","published":"2020","updated":"2020-07-24T09:41:35.000Z"},"relationships":{"client":{"data":{"id":"cyark.oh","type":"clients"}},"media":{"data":{"id":"10.26301/qdpd-2250","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cyark.oh","type":"clients","attributes":{"name":"OpenHeritage3D","symbol":"CYARK.OH","year":2019,"contactEmail":"scott.lee@cyark.org","alternateName":"Open
+      string: '{"data":{"id":"10.26301/qdpd-2250","type":"dois","attributes":{"doi":"10.26301/qdpd-2250","prefix":"10.26301","suffix":"qdpd-2250","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"CyArk","nameType":"Organizational","affiliation":[],"nameIdentifiers":[{"nameIdentifier":"CyArk","nameIdentifierScheme":"Other"}]}],"titles":[{"title":"USS
+        Pampanito Submarine"}],"publisher":"Open Heritage","container":{},"publicationYear":2020,"subjects":[],"contributors":[],"dates":[{"date":"2020","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"3D
+        Data","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[{"description":"USS
+        Pampanito was towed to Bay Ship &amp; Yacht shipyard and raised out of the
+        water in a dry dock for repairs. On Friday, November 11, 2016 the submarine
+        was scanned. Our goal was to create a baseline scan for future comparison,
+        to inform future repairs, to compare to her builders drawings, and to facilitate
+        interpretation and research.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjYzMDEvUURQRC0yMjUwPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5DeUFyazwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT3RoZXIiIHNjaGVtZVVSST0iIj5DeUFyazwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPlVTUyBQYW1wYW5pdG8gU3VibWFyaW5lPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPk9wZW4gSGVyaXRhZ2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMjA8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPjNEIERhdGE8L3Jlc291cmNlVHlwZT4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDIwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHNpemVzLz4KICA8Zm9ybWF0cy8+CiAgPHZlcnNpb24vPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VVNTIFBhbXBhbml0byB3YXMgdG93ZWQgdG8gQmF5IFNoaXAgJmFtcDsgWWFjaHQgc2hpcHlhcmQgYW5kIHJhaXNlZCBvdXQgb2YgdGhlIHdhdGVyIGluIGEgZHJ5IGRvY2sgZm9yIHJlcGFpcnMuIE9uIEZyaWRheSwgTm92ZW1iZXIgMTEsIDIwMTYgdGhlIHN1Ym1hcmluZSB3YXMgc2Nhbm5lZC4gIE91ciBnb2FsIHdhcyB0byBjcmVhdGUgYSBiYXNlbGluZSBzY2FuIGZvciBmdXR1cmUgY29tcGFyaXNvbiwgdG8gaW5mb3JtIGZ1dHVyZSByZXBhaXJzLCB0byBjb21wYXJlIHRvIGhlciBidWlsZGVycyBkcmF3aW5ncywgYW5kIHRvIGZhY2lsaXRhdGUgaW50ZXJwcmV0YXRpb24gYW5kIHJlc2VhcmNoLjwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+","url":"https://openheritage3d.org/project.php?id=qdpd-2250","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-01-10T18:51:00.000Z","registered":"2020-01-16T00:17:10.000Z","published":"2020","updated":"2021-02-22T23:25:51.000Z"},"relationships":{"client":{"data":{"id":"cyark.oh","type":"clients"}},"provider":{"data":{"id":"cyark","type":"providers"}},"media":{"data":{"id":"10.26301/qdpd-2250","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cyark.oh","type":"clients","attributes":{"name":"OpenHeritage3D","symbol":"CYARK.OH","year":2019,"alternateName":"Open
         Heritage 3D","description":"As 3D and reality capture strategies for heritage
         documentation become more widespread and available, there has emerged a growing
         need to assist with guiding and facilitating accessibility to data, while
@@ -67,7 +73,7 @@ http_interactions:
         discoverable dissemination. Together, the OHA will work to provide democratized
         access to primary heritage 3D data submitted from donors and organizations,
         and will help to facilitate an operation platform, archive, and organization
-        of resources into the future","language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":"https://openheritage3d.org/","created":"2019-03-26T16:21:19.000Z","updated":"2020-04-27T15:30:01.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cyark","type":"providers"}},"prefixes":{"data":[{"id":"10.26301","type":"prefixes"}]}}}]}'
+        of resources into the future","language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":"https://openheritage3d.org/","created":"2019-03-26T16:21:19.000Z","updated":"2020-04-27T15:30:01.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"cyark","type":"providers"}},"prefixes":{"data":[{"id":"10.26301","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Fri, 24 Jul 2020 09:45:26 GMT
+  recorded_at: Sun, 06 Jun 2021 11:55:05 GMT
 recorded_with: VCR 3.0.3

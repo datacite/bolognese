@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Fri, 21 Aug 2020 11:43:04 GMT
+      - Sun, 06 Jun 2021 12:01:13 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=dfd6c87cff8b6f860fa122f6cddf80f0f1598010184; expires=Sun, 20-Sep-20
-        11:43:04 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 04b26d6b940000d6e96a26c200000001
+      - 0a82cbe68700004dca130ec000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=ZqAT4kxcFfrsF27wmNAPrw4%2FlwLYdfVU%2FJhREA7EJuv7%2ByUQMY%2Brux1OvD6zglACOqZG%2BGS3szQpJ%2FmvPQQMiWdqzoM4T1rbRY8tIujv%2BtCfa%2FsM4sHT5TRMS0wrNIW2"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5c641825bf84d6e9-FRA
+      - 65b17c1daa554dca-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Fri, 21 Aug 2020 11:43:04 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:05 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.6084/m9.figshare.1286826.v1?include=media,client
@@ -56,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,7 +69,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 21 Aug 2020 11:43:05 GMT
+      - Sun, 06 Jun 2021 12:01:15 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -79,26 +83,48 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - f32dc0c7-ae28-4225-aebb-690f7ed8f96f
+      - dd77cd07-f23f-41cf-9993-b4a045451987
       Etag:
-      - W/"1053de58f4bcf558a2c6eff57d658893"
+      - W/"aff6f3329c4a69aea69176c3bea58f47"
       X-Runtime:
-      - '0.281050'
+      - '0.975063'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Powered-By:
-      - Phusion Passenger 6.0.6
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.6
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.6084/m9.figshare.1286826.v1","type":"dois","attributes":{"doi":"10.6084/m9.figshare.1286826.v1","prefix":"10.6084","suffix":"m9.figshare.1286826.v1","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Kramer,
-        Bianca","nameType":"Personal","givenName":"Bianca","familyName":"Kramer","affiliation":[],"nameIdentifiers":[{"nameIdentifier":"https://orcid.org/0000-0002-5965-6560","nameIdentifierScheme":"ORCID"}]},{"name":"Bosman,
-        Jeroen","nameType":"Personal","givenName":"Jeroen","familyName":"Bosman","affiliation":[],"nameIdentifiers":[{"nameIdentifier":"https://orcid.org/0000-0001-5796-2727","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"101
-        Innovations in Scholarly Communication - the Changing Research Workflow"}],"publisher":"Figshare","container":{},"publicationYear":2015,"subjects":[],"contributors":[],"dates":[{"date":"2015","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"CC-BY","rightsUri":"http://creativecommons.org/licenses/by/3.0/us"}],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtMyBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC0zL21ldGFkYXRhLnhzZCI+PGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuNjA4NC9NOS5GSUdTSEFSRS4xMjg2ODI2LlYxPC9pZGVudGlmaWVyPjx0aXRsZXM+PHRpdGxlPjEwMSBJbm5vdmF0aW9ucyBpbiBTY2hvbGFybHkgQ29tbXVuaWNhdGlvbiAtIHRoZSBDaGFuZ2luZyBSZXNlYXJjaCBXb3JrZmxvdzwvdGl0bGU+PC90aXRsZXM+PHB1Ymxpc2hlcj5GaWdzaGFyZTwvcHVibGlzaGVyPjxwdWJsaWNhdGlvblllYXI+MjAxNTwvcHVibGljYXRpb25ZZWFyPjxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCI+RGF0YXNldDwvcmVzb3VyY2VUeXBlPjxyaWdodHNMaXN0PjxyaWdodHMgcmlnaHRzVVJJPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS8zLjAvdXMvIj5DQy1CWTwvcmlnaHRzPjwvcmlnaHRzTGlzdD48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkJpYW5jYSAgS3JhbWVyPC9jcmVhdG9yTmFtZT48bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIj4wMDAwLTAwMDItNTk2NS02NTYwPC9uYW1lSWRlbnRpZmllcj48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPkplcm9lbiBCb3NtYW48L2NyZWF0b3JOYW1lPjxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiPjAwMDAtMDAwMS01Nzk2LTI3Mjc8L25hbWVJZGVudGlmaWVyPjwvY3JlYXRvcj48L2NyZWF0b3JzPjwvcmVzb3VyY2U+","url":"https://figshare.com/articles/101_Innovations_in_Scholarly_Communication_the_Changing_Research_Workflow/1286826/1","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2016-01-19T13:15:11.000Z","registered":"2016-01-19T13:15:12.000Z","published":"2015","updated":"2020-07-27T15:52:33.000Z"},"relationships":{"client":{"data":{"id":"figshare.ars","type":"clients"}},"media":{"data":{"id":"10.6084/m9.figshare.1286826.v1","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"figshare.ars","type":"clients","attributes":{"name":"figshare
-        Academic Research System","symbol":"FIGSHARE.ARS","year":2016,"contactEmail":"danielduduta@figshare.com","alternateName":null,"description":"figshare
+        Bianca","nameType":"Personal","givenName":"Bianca","familyName":"Kramer","affiliation":[],"nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0002-5965-6560","nameIdentifierScheme":"ORCID"}]},{"name":"Bosman,
+        Jeroen","nameType":"Personal","givenName":"Jeroen","familyName":"Bosman","affiliation":[],"nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0001-5796-2727","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"101
+        Innovations in Scholarly Communication - the Changing Research Workflow"}],"publisher":"figshare","container":{},"publicationYear":2015,"subjects":[{"subject":"Library
+        and Information Studies"},{"subject":"FOS: Media and communications","schemeUri":"http://www.oecd.org/science/inno/38235147.pdf","subjectScheme":"Fields
+        of Science and Technology (FOS)"},{"subject":"FOS: Media and communications","subjectScheme":"Fields
+        of Science and Technology (FOS)"}],"contributors":[],"dates":[{"date":"2015-01-09","dateType":"Created"},{"date":"2016-01-19","dateType":"Updated"},{"date":"2015","dateType":"Issued"}],"language":null,"types":{"ris":"FIGURE","bibtex":"misc","citeproc":"graphic","schemaOrg":"ImageObject","resourceType":"Poster","resourceTypeGeneral":"Image"},"relatedIdentifiers":[{"relationType":"IsIdenticalTo","relatedIdentifier":"10.6084/m9.figshare.1286826","relatedIdentifierType":"DOI"}],"sizes":["0
+        Bytes"],"formats":[],"version":null,"rightsList":[{"rights":"Creative Commons
+        Attribution 4.0 International","rightsUri":"https://creativecommons.org/licenses/by/4.0/legalcode","schemeUri":"https://spdx.org/licenses/","rightsIdentifier":"cc-by-4.0","rightsIdentifierScheme":"SPDX"}],"descriptions":[{"description":"Poster
+        presented at Force 2015 https://www.force11.org/meetings/force2015 In the
+        fast developing world of scholarly communication it is good to take a step
+        back and look at the patterns and processes of innovation in this field. To
+        this end, we have selected 101 innovations (in the form of tools &amp; sites)
+        and graphically displayed them by year and also according to 6 phases of the
+        research workflow: collection of data &amp; literature, analysis, writing,
+        publishing &amp; archiving, outreach and assessment. This overview facilitates
+        discussion on processes of innovation, disruption, diffusion, consolidation,
+        competition and success, but also of failure and stagnation, over the last
+        3 decades. We describe some of the trends, expectations, uncertainties, opportunities
+        and challenges within each of the workflow phases. Also, based on the graphical
+        overview we present a juxtaposition of typical traditional, innovative and
+        experimental workflows. <b>Accompanying material (see links below)</b> 1)
+        Survey on real-world tool usage (open until Feb 2016) 2) Database of 400+
+        tools (Google Spreadsheet) 3) Database of 101 tools + workflows","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC42MDg0L005LkZJR1NIQVJFLjEyODY4MjYuVjE8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5CaWFuY2EgIEtyYW1lcjwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZyI+MDAwMC0wMDAyLTU5NjUtNjU2MDwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkplcm9lbiBCb3NtYW48L2NyZWF0b3JOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHA6Ly9vcmNpZC5vcmciPjAwMDAtMDAwMS01Nzk2LTI3Mjc8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT4xMDEgSW5ub3ZhdGlvbnMgaW4gU2Nob2xhcmx5IENvbW11bmljYXRpb24gLSB0aGUgQ2hhbmdpbmcgUmVzZWFyY2ggV29ya2Zsb3c8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+Jmx0O3AmZ3Q7UG9zdGVyIHByZXNlbnRlZCBhdCAmbHQ7YSBocmVmPSJodHRwczovL3d3dy5mb3JjZTExLm9yZy9tZWV0aW5ncy9mb3JjZTIwMTUiJmd0O0ZvcmNlIDIwMTUmbHQ7L2EmZ3Q7IGh0dHBzOi8vd3d3LmZvcmNlMTEub3JnL21lZXRpbmdzL2ZvcmNlMjAxNSZsdDsvcCZndDsKJmx0O3AmZ3Q7SW4gdGhlIGZhc3QgZGV2ZWxvcGluZyB3b3JsZCBvZiBzY2hvbGFybHkgY29tbXVuaWNhdGlvbiBpdCBpcyBnb29kIHRvIHRha2UgYSBzdGVwIGJhY2sgYW5kIGxvb2sgYXQgdGhlIHBhdHRlcm5zIGFuZCBwcm9jZXNzZXMgb2YgaW5ub3ZhdGlvbiBpbiB0aGlzIGZpZWxkLiBUbyB0aGlzIGVuZCwgd2UgaGF2ZSBzZWxlY3RlZCAxMDEgaW5ub3ZhdGlvbnMgKGluIHRoZSBmb3JtIG9mIHRvb2xzICZhbXA7IHNpdGVzKSBhbmQgZ3JhcGhpY2FsbHkgZGlzcGxheWVkIHRoZW0gYnkgeWVhciBhbmQgYWxzbyBhY2NvcmRpbmcgdG8gNiBwaGFzZXMgb2YgdGhlIHJlc2VhcmNoIHdvcmtmbG93OiBjb2xsZWN0aW9uIG9mIGRhdGEgJmFtcDsgbGl0ZXJhdHVyZSwgYW5hbHlzaXMsIHdyaXRpbmcsIHB1Ymxpc2hpbmcgJmFtcDsgYXJjaGl2aW5nLCBvdXRyZWFjaCBhbmQgYXNzZXNzbWVudC4gVGhpcyBvdmVydmlldyBmYWNpbGl0YXRlcyBkaXNjdXNzaW9uIG9uIHByb2Nlc3NlcyBvZiBpbm5vdmF0aW9uLCBkaXNydXB0aW9uLCBkaWZmdXNpb24sIGNvbnNvbGlkYXRpb24sIGNvbXBldGl0aW9uIGFuZCBzdWNjZXNzLCBidXQgYWxzbyBvZiBmYWlsdXJlIGFuZCBzdGFnbmF0aW9uLCBvdmVyIHRoZSBsYXN0IDMgZGVjYWRlcy4gV2UgZGVzY3JpYmUgc29tZSBvZiB0aGUgdHJlbmRzLCBleHBlY3RhdGlvbnMsIHVuY2VydGFpbnRpZXMsIG9wcG9ydHVuaXRpZXMgYW5kIGNoYWxsZW5nZXMgd2l0aGluIGVhY2ggb2YgdGhlIHdvcmtmbG93IHBoYXNlcy4gQWxzbywgYmFzZWQgb24gdGhlIGdyYXBoaWNhbCBvdmVydmlldyB3ZSBwcmVzZW50IGEganV4dGFwb3NpdGlvbiBvZiB0eXBpY2FsIHRyYWRpdGlvbmFsLCBpbm5vdmF0aXZlIGFuZCBleHBlcmltZW50YWwgd29ya2Zsb3dzLiZsdDsvcCZndDsKJmx0O3AmZ3Q7Jmx0O2ImZ3Q7QWNjb21wYW55aW5nIG1hdGVyaWFsIChzZWUgbGlua3MgYmVsb3cpJmx0Oy9iJmd0OyZsdDsvcCZndDsKJmx0O3AmZ3Q7MSkgJmx0O2EgaHJlZj0iaHR0cHM6Ly9pbm5vc2Nob2xjb21tLnR5cGVmb3JtLmNvbS90by9Dc3ZyN2I/c291cmNlPTEwMSImZ3Q7U3VydmV5IG9uIHJlYWwtd29ybGQgdG9vbCB1c2FnZSAob3BlbiB1bnRpbCBGZWIgMjAxNikmbHQ7L2EmZ3Q7Jmx0Oy9wJmd0OwombHQ7cCZndDsyKSAmbHQ7YSBocmVmPSJodHRwOi8vYml0Lmx5L2lubm9zY2hvbGNvbW0tbGlzdCImZ3Q7RGF0YWJhc2Ugb2YgNDAwKyB0b29scyAoR29vZ2xlIFNwcmVhZHNoZWV0KSZsdDsvYSZndDsmbHQ7L3AmZ3Q7CiZsdDtwJmd0OzMpICZsdDthIGhyZWY9Imh0dHA6Ly9pbm5vc2Nob2xjb21tLnNpbGsuY28gIiZndDtEYXRhYmFzZSBvZiAxMDEgdG9vbHMgKyB3b3JrZmxvd3MmbHQ7L2EmZ3Q7Jmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+TGlicmFyeSBhbmQgSW5mb3JtYXRpb24gU3R1ZGllczwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxwdWJsaXNoZXI+Zmlnc2hhcmU8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTU8L3B1YmxpY2F0aW9uWWVhcj4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAxNS0wMS0wOTwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDE2LTAxLTE5PC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJJbWFnZSI+UG9zdGVyPC9yZXNvdXJjZVR5cGU+CiAgPHNpemVzPgogICAgPHNpemU+MCBCeXRlczwvc2l6ZT4KICA8L3NpemVzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNJZGVudGljYWxUbyI+MTAuNjA4NC9tOS5maWdzaGFyZS4xMjg2ODI2PC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnkvNC4wLyI+Q0MgQlkgNC4wPC9yaWdodHM+CiAgPC9yaWdodHNMaXN0Pgo8L3Jlc291cmNlPg==","url":"https://figshare.com/articles/poster/101_Innovations_in_Scholarly_Communication_the_Changing_Research_Workflow/1286826/1","contentUrl":null,"metadataVersion":1,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2016-01-19T13:15:11.000Z","registered":"2016-01-19T13:15:12.000Z","published":"2015","updated":"2020-09-04T19:35:58.000Z"},"relationships":{"client":{"data":{"id":"figshare.ars","type":"clients"}},"provider":{"data":{"id":"figshare","type":"providers"}},"media":{"data":{"id":"10.6084/m9.figshare.1286826.v1","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"figshare.ars","type":"clients","attributes":{"name":"figshare
+        Academic Research System","symbol":"FIGSHARE.ARS","year":2016,"alternateName":null,"description":"figshare
         allows researchers to publish all of their research outputs in an easily citable,
         sharable and discoverable manner. All file formats can be published, including
         videos and datasets. Optional peer review process. figshare uses creative
-        commons licensing.","language":null,"clientType":"repository","domains":"figshare.com","re3data":"https://doi.org/10.17616/R3PK5R","opendoar":null,"issn":null,"url":"http://figshare.com/","created":"2016-10-12T13:42:35.000Z","updated":"2019-07-27T07:15:48.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"figshare","type":"providers"}},"prefixes":{"data":[{"id":"10.6084","type":"prefixes"}]}}}]}'
+        commons licensing.","language":[],"clientType":"repository","domains":"figshare.com,*.figshare.com,geolsoc.figshare.com,rs.figshare.com,tandf.figshare.com,springernature.figshare.com,books.openmonographs.org,tome.figshare.com","re3data":"https://doi.org/10.17616/R3PK5R","opendoar":null,"issn":{},"url":"http://figshare.com/","created":"2016-10-12T13:42:35.000Z","updated":"2021-02-01T12:00:19.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"figshare","type":"providers"}},"prefixes":{"data":[{"id":"10.6084","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Fri, 21 Aug 2020 11:43:05 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:06 GMT
 recorded_with: VCR 3.0.3

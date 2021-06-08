@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:25:17 GMT
+      - Sun, 06 Jun 2021 11:54:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,22 +31,24 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - da2732b0-9869-428f-94ee-36b3ce2347c8
+      - d7714469-24f0-4e94-a13c-59d945335873
       Etag:
-      - W/"be4a17c54af853e469b853c1bc7dca9e"
+      - W/"60190f9846dc8ce9ceecb248c8220955"
       X-Runtime:
-      - '0.364889'
+      - '0.623348'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5281/zenodo.2598836","type":"dois","attributes":{"doi":"10.5281/zenodo.2598836","prefix":"10.5281","suffix":"zenodo.2598836","identifiers":[{"identifier":"https://doi.org/10.5281/zenodo.2598836","identifierType":"DOI"},{"identifier":"https://zenodo.org/record/2598836","identifierType":"URL"}],"alternateIdentifiers":[{"alternateIdentifierType":"URL","alternateIdentifier":"https://zenodo.org/record/2598836"}],"creators":[{"name":"Lab
-        For Exosphere And Near Space Environment Studies","affiliation":[]}],"titles":[{"title":"lenses-lab/LYAO_RT-2018JA026426:
+      string: '{"data":{"id":"10.5281/zenodo.2598836","type":"dois","attributes":{"doi":"10.5281/zenodo.2598836","prefix":"10.5281","suffix":"zenodo.2598836","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Lab
+        For Exosphere And Near Space Environment Studies","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"lenses-lab/LYAO_RT-2018JA026426:
         Original Release"}],"publisher":"Zenodo","container":{},"publicationYear":2019,"subjects":[],"contributors":[],"dates":[{"date":"2019-03-20","dateType":"Issued"}],"language":null,"types":{"ris":"COMP","bibtex":"misc","citeproc":"article","schemaOrg":"SoftwareSourceCode","resourceTypeGeneral":"Software"},"relatedIdentifiers":[{"relationType":"IsSupplementTo","relatedIdentifier":"https://github.com/lenses-lab/LYAO_RT-2018JA026426/tree/1.0.0","relatedIdentifierType":"URL"},{"relationType":"IsVersionOf","relatedIdentifier":"10.5281/zenodo.2598835","relatedIdentifierType":"DOI"}],"sizes":[],"formats":[],"version":"1.0.0","rightsList":[{"rights":"Open
         Access","rightsUri":"info:eu-repo/semantics/openAccess"}],"descriptions":[{"description":"Original
-        executables used by Gallant et al. for JGR publication 2018JA026426.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL1pFTk9ETy4yNTk4ODM2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+TGFiIGZvciBFeG9zcGhlcmUgYW5kIE5lYXIgU3BhY2UgRW52aXJvbm1lbnQgU3R1ZGllczwvY3JlYXRvck5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmxlbnNlcy1sYWIvTFlBT19SVC0yMDE4SkEwMjY0MjY6IE9yaWdpbmFsIFJlbGVhc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+WmVub2RvPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE5PC9wdWJsaWNhdGlvblllYXI+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOS0wMy0yMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0idXJsIj5odHRwczovL3plbm9kby5vcmcvcmVjb3JkLzI1OTg4MzY8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8cmVsYXRlZElkZW50aWZpZXJzPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iVVJMIiByZWxhdGlvblR5cGU9IklzU3VwcGxlbWVudFRvIj5odHRwczovL2dpdGh1Yi5jb20vbGVuc2VzLWxhYi9MWUFPX1JULTIwMThKQTAyNjQyNi90cmVlLzEuMC4wPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1ZlcnNpb25PZiI+MTAuNTI4MS96ZW5vZG8uMjU5ODgzNTwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPHZlcnNpb24+MS4wLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaW5mbzpldS1yZXBvL3NlbWFudGljcy9vcGVuQWNjZXNzIj5PcGVuIEFjY2VzczwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0O09yaWdpbmFsIGV4ZWN1dGFibGVzIHVzZWQgYnkgR2FsbGFudCBldCBhbC4gZm9yIEpHUiBwdWJsaWNhdGlvbiAyMDE4SkEwMjY0MjYuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+","url":"https://zenodo.org/record/2598836","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2019-03-20T02:32:02.000Z","registered":"2019-03-20T02:32:02.000Z","published":"2019","updated":"2019-08-02T22:04:29.000Z"},"relationships":{"client":{"data":{"id":"cern.zenodo","type":"clients"}},"media":{"data":{"id":"10.5281/zenodo.2598836","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cern.zenodo","type":"clients","attributes":{"name":"Zenodo","symbol":"CERN.ZENODO","year":2013,"contactEmail":"info@zenodo.org","alternateName":"Research.
+        executables used by Gallant et al. for JGR publication 2018JA026426.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL1pFTk9ETy4yNTk4ODM2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+TGFiIGZvciBFeG9zcGhlcmUgYW5kIE5lYXIgU3BhY2UgRW52aXJvbm1lbnQgU3R1ZGllczwvY3JlYXRvck5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmxlbnNlcy1sYWIvTFlBT19SVC0yMDE4SkEwMjY0MjY6IE9yaWdpbmFsIFJlbGVhc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+WmVub2RvPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE5PC9wdWJsaWNhdGlvblllYXI+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOS0wMy0yMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0idXJsIj5odHRwczovL3plbm9kby5vcmcvcmVjb3JkLzI1OTg4MzY8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8cmVsYXRlZElkZW50aWZpZXJzPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iVVJMIiByZWxhdGlvblR5cGU9IklzU3VwcGxlbWVudFRvIj5odHRwczovL2dpdGh1Yi5jb20vbGVuc2VzLWxhYi9MWUFPX1JULTIwMThKQTAyNjQyNi90cmVlLzEuMC4wPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1ZlcnNpb25PZiI+MTAuNTI4MS96ZW5vZG8uMjU5ODgzNTwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPHZlcnNpb24+MS4wLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaW5mbzpldS1yZXBvL3NlbWFudGljcy9vcGVuQWNjZXNzIj5PcGVuIEFjY2VzczwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0O09yaWdpbmFsIGV4ZWN1dGFibGVzIHVzZWQgYnkgR2FsbGFudCBldCBhbC4gZm9yIEpHUiBwdWJsaWNhdGlvbiAyMDE4SkEwMjY0MjYuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+","url":"https://zenodo.org/record/2598836","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":2,"viewsOverTime":[{"yearMonth":"2020-06","total":2}],"downloadCount":0,"downloadsOverTime":[{"yearMonth":"2020-06","total":0}],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2019-03-20T02:32:02.000Z","registered":"2019-03-20T02:32:02.000Z","published":"2019","updated":"2020-07-29T06:46:44.000Z"},"relationships":{"client":{"data":{"id":"cern.zenodo","type":"clients"}},"provider":{"data":{"id":"cern","type":"providers"}},"media":{"data":{"id":"10.5281/zenodo.2598836","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cern.zenodo","type":"clients","attributes":{"name":"Zenodo","symbol":"CERN.ZENODO","year":2013,"alternateName":"Research.
         Shared","description":"ZENODO builds and operates a simple and innovative
         service that enables researchers, scientists, EU projects and institutions
         to share and showcase multidisciplinary research results (data and publications)
@@ -57,7 +59,7 @@ http_interactions:
         video, and images across all fields of science.\r\ndisplay their research
         results and get credited by making the research results citable and integrate
         them into existing reporting lines to funding agencies like the European Commission.\r\neasily
-        access and reuse shared research results.","language":["en"],"clientType":"repository","domains":"openaire.cern.ch,zenodo.org","re3data":"https://doi.org/10.17616/R3QP53","opendoar":null,"issn":{},"url":"https://zenodo.org/","created":"2013-01-28T12:07:48.000Z","updated":"2020-06-26T12:22:29.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"cern","type":"providers"}},"prefixes":{"data":[{"id":"10.5281","type":"prefixes"}]}}}]}'
+        access and reuse shared research results.","language":["en"],"clientType":"repository","domains":"openaire.cern.ch,zenodo.org","re3data":"https://doi.org/10.17616/R3QP53","opendoar":null,"issn":{},"url":"https://zenodo.org/","created":"2013-01-28T12:07:48.000Z","updated":"2020-06-26T12:22:29.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"cern","type":"providers"}},"prefixes":{"data":[{"id":"10.5281","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:25:17 GMT
+  recorded_at: Sun, 06 Jun 2021 11:54:43 GMT
 recorded_with: VCR 3.0.3

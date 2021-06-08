@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Wed, 29 Jul 2020 21:23:48 GMT
+      - Sun, 06 Jun 2021 11:56:55 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d01ef02c612a86c1cf7a059f5c9c803201596057828; expires=Fri, 28-Aug-20
-        21:23:48 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 043e0ed580000096d473a7a200000001
+      - 0a82c7f4240000062562bf3000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=71Lvz047Fjvm%2FMC57ethfQSjNIjsIjniJK04v%2Brsygga%2BUGlUY3C71AxBewD2DBEhkZ2I7Ewk0pSayiQ3tUHzMgn9VquWwXoMO%2FTFQAG3Ol3yCWJcxDQlIMVWtDN3abX"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5ba9e7359f0c96d4-FRA
+      - 65b175cd0dcc0625-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Wed, 29 Jul 2020 21:23:48 GMT
+  recorded_at: Sun, 06 Jun 2021 11:56:46 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.2172/972169/transform/application/vnd.crossref.unixsd+xml
@@ -56,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -71,15 +75,17 @@ http_interactions:
       Access-Control-Allow-Headers:
       - X-Requested-With
       Content-Length:
-      - '4217'
+      - '4193'
       Server:
       - http-kit
       Date:
-      - Wed, 29 Jul 2020 21:23:49 GMT
+      - Sun, 06 Jun 2021 11:56:55 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
       - 1s
+      Permissions-Policy:
+      - interest-cohort=()
       Connection:
       - close
     body:
@@ -90,17 +96,16 @@ http_interactions:
         \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
         \     <query status=\"resolved\">\r\n        <doi type=\"report-paper_title\">10.2172/972169</doi>\r\n
         \       <crm-item name=\"publisher-name\" type=\"string\">Office of Scientific
-        and Technical Information  (OSTI)</crm-item>\r\n        <crm-item name=\"prefix-name\"
-        type=\"string\">Office of Scientific and Technical Information</crm-item>\r\n
-        \       <crm-item name=\"member-id\" type=\"number\">960</crm-item>\r\n        <crm-item
-        name=\"citation-id\" type=\"number\">41225045</crm-item>\r\n        <crm-item
-        name=\"book-id\" type=\"number\">584445</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
-        type=\"number\">20100218105553</crm-item>\r\n        <crm-item name=\"owner-prefix\"
-        type=\"string\">10.2172</crm-item>\r\n        <crm-item name=\"last-update\"
-        type=\"date\">2010-02-19T03:56:05Z</crm-item>\r\n        <crm-item name=\"created\"
-        type=\"date\">2010-02-19T03:56:03Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
-        type=\"number\">159</crm-item>\r\n        <doi_record>\r\n          <crossref
-        xmlns=\"http://www.crossref.org/xschema/1.0\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0
+        and Technical Information (OSTI)</crm-item>\r\n        <crm-item name=\"prefix-name\"
+        type=\"string\">US Department of Energy</crm-item>\r\n        <crm-item name=\"member-id\"
+        type=\"number\">960</crm-item>\r\n        <crm-item name=\"citation-id\" type=\"number\">41225045</crm-item>\r\n
+        \       <crm-item name=\"book-id\" type=\"number\">584445</crm-item>\r\n        <crm-item
+        name=\"deposit-timestamp\" type=\"number\">20100218105553</crm-item>\r\n        <crm-item
+        name=\"owner-prefix\" type=\"string\">10.2172</crm-item>\r\n        <crm-item
+        name=\"last-update\" type=\"date\">2010-02-19T03:56:05Z</crm-item>\r\n        <crm-item
+        name=\"created\" type=\"date\">2010-02-19T03:56:03Z</crm-item>\r\n        <crm-item
+        name=\"citedby-count\" type=\"number\">181</crm-item>\r\n        <doi_record>\r\n
+        \         <crossref xmlns=\"http://www.crossref.org/xschema/1.0\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0
         http://doi.crossref.org/schemas/unixref1.0.xsd\">\r\n            <report-paper
         publication_type=\"full_text\">\r\n              <report-paper_metadata language=\"en\">\r\n
         \               <contributors>\r\n                  <person_name sequence=\"first\"
@@ -134,5 +139,5 @@ http_interactions:
         \           </report-paper>\r\n          </crossref>\r\n        </doi_record>\r\n
         \     </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
     http_version:
-  recorded_at: Wed, 29 Jul 2020 21:23:49 GMT
+  recorded_at: Sun, 06 Jun 2021 11:56:47 GMT
 recorded_with: VCR 3.0.3

@@ -36,12 +36,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier" => "10.1371/journal.ppat.1000446",
-        "relatedIdentifierType" => "DOI","relationType"=>"IsSupplementTo")
+        "relatedIdentifierType" => "DOI","relationType"=>"Cites")
       expect(subject.subjects).to eq([{"subject"=>"Plasmodium"},
         {"subject"=>"malaria"},
         {"subject"=>"taxonomy"},
         {"subject"=>"mitochondrial genome"},
-        {"subject"=>"phylogeny"},
         {"subject"=>"Parasites"}])
       expect(subject.publisher).to eq("Dryad")
       expect(subject.agency).to eq("datacite")
@@ -61,14 +60,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators).to eq([{"nameIdentifiers"=> [{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
-      expect(subject.identifiers).to eq([{"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")
       expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Created"}, {"date"=>"2016-12-20", "dateType"=>"Issued"}, {"date"=>"2016-12-20", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf")
       expect(subject.publisher).to eq("DataCite")
-      expect(subject.subjects).to eq([{"subject"=>"datacite"}, {"subject"=>"doi"}, {"subject"=>"metadata"}])
+      expect(subject.subjects).to eq([{"subject"=>"datacite"},
+        {"subject"=>"doi"},
+        {"subject"=>"metadata"},
+        {"schemeUri"=>"http://www.oecd.org/science/inno",
+         "subject"=>"FOS: Computer and information sciences",
+         "subjectScheme"=>"Fields of Science and Technology (FOS)",
+         "valueUri"=>"http://www.oecd.org/science/inno/38235147.pdf"},
+        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+         "subject"=>"FOS: Computer and information sciences",
+         "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
       expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -235,15 +242,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.6084/m9.figshare.4234751", "relatedIdentifierType"=>"DOI", "relationType"=>"IsIdenticalTo")
-      expect(subject.publisher).to eq("Figshare")
-      expect(subject.subjects).to eq([{"subject"=>"Bioinformatics"},
-       {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
-        "subject"=>"FOS: Computer and information sciences",
-        "subjectScheme"=>"Fields of Science and Technology (FOS)"},
-       {"subject"=>"Computational Biology"},
-       {"subject"=>"Systems Biology"}])
+      expect(subject.publisher).to eq("figshare")
+      expect(subject.subjects).to eq([
+        {"schemeUri"=>
+          "http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E",
+          "subject"=>"60102 Bioinformatics",
+          "subjectScheme"=>"FOR"},
+            {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+             "subject"=>"FOS: Computer and information sciences",
+             "subjectScheme"=>"Fields of Science and Technology (FOS)"},
+            {"subject"=>"Computational Biology"},
+         {"schemeUri"=>
+          "http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E",
+          "subject"=>"60114 Systems Biology",
+          "subjectScheme"=>"FOR"},
+         {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+          "subject"=>"FOS: Biological sciences",
+          "subjectScheme"=>"Fields of Science and Technology (FOS)"}])
       expect(subject.agency).to eq("datacite")
-      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-3")
+      expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
 
     it "subject scheme FOR" do
@@ -299,11 +316,11 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.6084/m9.figshare.1286826.v1"
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.valid?).to be true
-      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
-        +  "rightsIdentifier"=>"cc-by-3.0",
-        +  "rightsIdentifierScheme"=>"SPDX",
-        +  "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
-        +  "schemeUri"=>"https://spdx.org/licenses/"}])
+      expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 4.0 International",
+        "rightsIdentifier"=>"cc-by-4.0",
+        "rightsIdentifierScheme"=>"SPDX",
+        "rightsUri"=>"https://creativecommons.org/licenses/by/4.0/legalcode",
+        "schemeUri"=>"https://spdx.org/licenses/"}])
     end
 
     it "funding schema version 3" do
@@ -914,7 +931,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5067/terra+aqua/ceres/cldtyphist_l3.004")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
-      expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Wong, Takmeng", "givenName"=>"Takmeng", "familyName"=>"Wong", "nameIdentifiers" => [], "affiliation" => []}])
+      expect(subject.creators).to eq([{"familyName"=>"Wong", "givenName"=>"Takmeng", "name"=>"Wong, Takmeng"}])
       expect(subject.titles).to eq([{"title"=>"CERES Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4"}])
       expect(subject.publication_year).to eq("2016")
       expect(subject.publisher).to eq("NASA Langley Atmospheric Science Data Center DAAC")
@@ -935,7 +952,27 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.contributors.length).to eq(18)
       expect(subject.contributors.first).to eq("affiliation"=>[{"name"=>"Europäische Kommission, Brüssel"}], "contributorType"=>"Researcher", "familyName"=>"Reif", "givenName"=>"Karlheinz", "name"=>"Reif, Karlheinz", "nameType"=>"Personal", "nameIdentifiers" => [])
       expect(subject.titles).to eq([{"lang"=>"de", "title"=>"Flash Eurobarometer 54 (Madrid Summit)"}, {"lang"=>"en", "title"=>"Flash Eurobarometer 54 (Madrid Summit)"}, {"titleType"=>"Subtitle","lang"=>"de", "title"=>"The Common European Currency"}, {"titleType"=>"Subtitle", "lang"=>"en", "title"=>"The Common European Currency"}])
-      expect(subject.subjects).to eq([{"subjectScheme"=>"ZA", "lang"=>"en", "subject"=>"KAT12 International Institutions, Relations, Conditions"}])
+      expect(subject.subjects).to eq([{"lang"=>"en",
+        "subject"=>"KAT12 International Institutions, Relations, Conditions",
+        "subjectScheme"=>"ZA"},
+       {"lang"=>"de",
+        "subject"=>"Internationale Politik und Institutionen",
+        "subjectScheme"=>"CESSDA Topic Classification"},
+       {"lang"=>"de",
+        "subject"=>"Regierung, politische Systeme, Parteien und Verbände",
+        "subjectScheme"=>"CESSDA Topic Classification"},
+       {"lang"=>"de",
+        "subject"=>"Wirtschaftssysteme und wirtschaftliche Entwicklung",
+        "subjectScheme"=>"CESSDA Topic Classification"},
+       {"lang"=>"en",
+        "subject"=>"International politics and organisation",
+        "subjectScheme"=>"CESSDA Topic Classification"},
+       {"lang"=>"en",
+        "subject"=>"Government, political systems and organisation",
+        "subjectScheme"=>"CESSDA Topic Classification"},
+       {"lang"=>"en",
+        "subject"=>"Economic systems and development",
+        "subjectScheme"=>"CESSDA Topic Classification"}])
       expect(subject.dates).to eq([{"date"=>"1995-12", "dateType"=>"Collected"}, {"date"=>"1996", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("1996")
       expect(subject.publisher).to eq("GESIS Data Archive")
@@ -1046,11 +1083,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.state).to eq("not_found")
     end
 
-    it "DOI in test system" do
-      input = "https://handle.test.datacite.org/10.22002/d1.694"
+    it "DOI in staging system" do
+      input = "https://handle.stage.datacite.org/10.22002/d1.694"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://handle.test.datacite.org/10.22002/d1.694")
+      expect(subject.id).to eq("https://handle.stage.datacite.org/10.22002/d1.694")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"Caltech"}], "name"=>"Tester", "nameIdentifiers" => []}])
@@ -1063,11 +1100,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.state).to eq("findable")
     end
 
-    it "DOI in test system schema 3" do
+    it "DOI in staging system schema 3" do
       input = "10.21956/wellcomeopenres.25947.r17364"
       subject = Bolognese::Metadata.new(input: input, doi: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://handle.test.datacite.org/10.21956/wellcomeopenres.25947.r17364")
+      expect(subject.id).to eq("https://handle.stage.datacite.org/10.21956/wellcomeopenres.25947.r17364")
       expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
       expect(subject.types["resourceTypeGeneral"]).to eq("Text")
       expect(subject.creators).to eq([{"name"=>"Fran2 Levy", "nameIdentifiers" => [], "affiliation" => []}])
@@ -1080,11 +1117,11 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.state).to eq("findable")
     end
 
-    it "Referee report in test system" do
+    it "Referee report in staging system" do
       input = "10.21956/gatesopenres.530.r190"
       subject = Bolognese::Metadata.new(input: input, sandbox: true)
       expect(subject.valid?).to be true
-      expect(subject.id).to eq("https://handle.test.datacite.org/10.21956/gatesopenres.530.r190")
+      expect(subject.id).to eq("https://handle.stage.datacite.org/10.21956/gatesopenres.530.r190")
       expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
       expect(subject.types["resourceTypeGeneral"]).to eq("Text")
       expect(subject.types["ris"]).to eq("RPRT")
@@ -1226,7 +1263,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
       expect(subject.titles).to eq([{"title"=>"BPI Challenge 2012"}])
-      expect(subject.dates).to eq([{"date"=>"2011-10-01/2012-03-14", "dateInformation"=>"Temporal coverage of this dataset.", "dateType"=>"Other"}, {"date"=>"2012", "dateType"=>"Issued"}])
+      expect(subject.dates).to eq([{"date"=>"2012-04-23", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2012")
       expect(subject.state).to eq("findable")
     end

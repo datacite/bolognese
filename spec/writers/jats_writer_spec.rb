@@ -35,7 +35,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "crossref")
       jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
       expect(jats.dig("publication_type")).to eq("journal")
-      expect(jats.dig("article_title")).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization–Not Catalytic Inactivity–of the Mutant Enzymes")
+      expect(jats.dig("article_title")).to eq("Triose Phosphate Isomerase Deficiency Is Caused by Altered Dimerization???Not Catalytic Inactivity???of the Mutant Enzymes")
       expect(jats.dig("source")).to eq("PLoS ONE")
       expect(jats.dig("person_group", 0, "name").length).to eq(5)
       expect(jats.dig("person_group", 0, "name").first).to eq("surname"=>"Ralser", "given_names"=>"Markus")

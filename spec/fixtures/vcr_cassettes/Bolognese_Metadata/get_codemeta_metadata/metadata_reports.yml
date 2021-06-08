@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - application/json;charset=UTF-8
   response:
@@ -36,30 +36,30 @@ http_interactions:
       - deny
       X-Xss-Protection:
       - 1; mode=block
-      Via:
-      - 1.1 varnish (Varnish/6.0), 1.1 varnish
       X-Github-Request-Id:
-      - 4836:1D26:24A2EC:2BDD1C:5F0AF33F
+      - 909A:7FA1:CB230D:DC10C0:60BCB7B8
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 12 Jul 2020 11:25:53 GMT
+      - Sun, 06 Jun 2021 11:55:36 GMT
+      Via:
+      - 1.1 varnish
       X-Served-By:
-      - cache-hhn4079-HHN
+      - cache-hhn4069-HHN
       X-Cache:
-      - MISS, MISS
+      - MISS
       X-Cache-Hits:
-      - 0, 0
+      - '0'
       X-Timer:
-      - S1594553153.031909,VS0,VE192
+      - S1622980537.718003,VS0,VE154
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - fce9e4fa9dd84427524fd293b7ee2bcc1c040c5d
+      - 0b609a9aca6b703a7035b3b8190025b67264e724
       Expires:
-      - Sun, 12 Jul 2020 11:30:53 GMT
+      - Sun, 06 Jun 2021 12:00:36 GMT
       Source-Age:
       - '0'
     body:
@@ -88,5 +88,5 @@ http_interactions:
         Registrations for Software\",\n\t\"programmingLanguage\": {\n\t\t\"name\":
         \"R\",\n\t\t\"URL\": \"https://www.r-project.org/\"\n\t}\n}\n"
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:25:53 GMT
+  recorded_at: Sun, 06 Jun 2021 11:55:28 GMT
 recorded_with: VCR 3.0.3

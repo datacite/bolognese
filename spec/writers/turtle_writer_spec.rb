@@ -18,7 +18,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
-      expect(ttl[2]).to eq("<https://doi.org/10.1371/journal.ppat.1000446> a schema:ScholarlyArticle;")
+      expect(ttl[2]).to eq("<https://doi.org/10.5061/dryad.8515> a schema:Dataset;")
     end
 
     it "BlogPosting" do

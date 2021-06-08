@@ -7,7 +7,7 @@ module Bolognese
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
         api_url = doi_api_url(id, options)
-        response = Maremma.get api_url
+        response = Maremma.get(api_url)
         attributes = response.body.dig("data", "attributes")
         return { "string" => nil, "state" => "not_found" } unless attributes.present?
 

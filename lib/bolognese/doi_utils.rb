@@ -3,13 +3,13 @@
 module Bolognese
   module DoiUtils
     def validate_doi(doi)
-      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
+      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.stage.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
       # remove non-printing whitespace and downcase
       doi.delete("\u200B").downcase if doi.present?
     end
 
     def validate_funder_doi(doi)
-      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.13039\/)?(5.+)\z/.match(doi)).last
+      doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.stage.datacite.org)\/)?(doi:)?(10\.13039\/)?(5.+)\z/.match(doi)).last
       # remove non-printing whitespace and downcase
       if doi.present?
         doi.delete("\u200B").downcase 
@@ -18,17 +18,17 @@ module Bolognese
     end
 
     def validate_prefix(doi)
-      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}).*\z/.match(doi)).last
+      Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.stage.datacite.org)\/)?(doi:)?(10\.\d{4,5}).*\z/.match(doi)).last
     end
 
     def doi_resolver(doi, options = {})
-      sandbox = Array(/handle.test.datacite.org/.match(doi)).last
-      sandbox.present? || options[:sandbox] ? "https://handle.test.datacite.org/" : "https://doi.org/"
+      sandbox = Array(/handle.stage.datacite.org/.match(doi)).last
+      sandbox.present? || options[:sandbox] ? "https://handle.stage.datacite.org/" : "https://doi.org/"
     end
 
     def doi_api_url(doi, options = {})
-      sandbox = Array(/handle.test.datacite.org/.match(doi)).last
-      sandbox.present? || options[:sandbox] ? "https://api.test.datacite.org/dois/#{doi_from_url(doi)}?include=media,client"  : "https://api.datacite.org/dois/#{doi_from_url(doi)}?include=media,client"
+      sandbox = Array(/handle.stage.datacite.org/.match(doi)).last
+      sandbox.present? || options[:sandbox] ? "https://api.stage.datacite.org/dois/#{doi_from_url(doi)}?include=media,client"  : "https://api.datacite.org/dois/#{doi_from_url(doi)}?include=media,client"
     end
 
     def normalize_doi(doi, options = {})
@@ -40,7 +40,7 @@ module Bolognese
     end
 
     def doi_from_url(url)
-      if /\A(?:(http|https):\/\/(dx\.)?(doi.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(url)
+      if /\A(?:(http|https):\/\/(dx\.)?(doi.org|handle.stage.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(url)
         uri = Addressable::URI.parse(url)
         uri.path.gsub(/^\//, '').downcase
       end

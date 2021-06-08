@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:22:46 GMT
+      - Sun, 06 Jun 2021 11:58:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,22 +30,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      Etag:
-      - W/"2292e669b1cb4fa8c0705ba3324806a3"
-      X-Runtime:
-      - '0.906322'
       X-Request-Id:
-      - 69a4aca1-56b4-4ecf-98e9-102b73513fa7
+      - 2c799e02-4d65-4bee-8bad-5a9c0e554b4b
+      Etag:
+      - W/"9d9a03641df7b5dadfca391096f09d70"
+      X-Runtime:
+      - '0.869761'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5067/altcy-tj122","type":"dois","attributes":{"doi":"10.5067/altcy-tj122","prefix":"10.5067","suffix":"altcy-tj122","identifiers":[{"identifier":"https://doi.org/10.5067/altcy-tj122","identifierType":"DOI"}],"alternateIdentifiers":[],"creators":[{"name":"GSFC","affiliation":[]}],"titles":[{"title":"Integrated
+      string: '{"data":{"id":"10.5067/altcy-tj122","type":"dois","attributes":{"doi":"10.5067/altcy-tj122","prefix":"10.5067","suffix":"altcy-tj122","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"GSFC","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Integrated
         Multi-Mission Ocean Altimeter Data for Climate Research Version 2"}],"publisher":"NASA
-        Physical Oceanography DAAC","container":{},"publicationYear":2012,"subjects":[],"contributors":[],"dates":[{"date":"2012","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCAgICAgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtNC9tZXRhZGF0YS54c2QiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjUwNjcvQUxUQ1ktVEoxMjI8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5HU0ZDPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+SW50ZWdyYXRlZCBNdWx0aS1NaXNzaW9uIE9jZWFuIEFsdGltZXRlciBEYXRhIGZvciBDbGltYXRlIFJlc2VhcmNoIFZlcnNpb24gMjwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5OQVNBIFBoeXNpY2FsIE9jZWFub2dyYXBoeSBEQUFDPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDEyPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ii8+CjwvcmVzb3VyY2U+","url":"http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_CYCLES_V2","contentUrl":null,"metadataVersion":2,"schemaVersion":null,"source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2014-01-15T16:06:19.000Z","registered":"2014-01-15T16:06:20.000Z","published":"2012","updated":"2019-08-02T03:20:36.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"media":{"data":{"id":"10.5067/altcy-tj122","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
-        Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"contactEmail":"lalit.wanchoo@nasa.gov","alternateName":null,"description":null,"language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2020-06-02T17:04:01.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
+        Physical Oceanography DAAC","container":{},"publicationYear":2012,"subjects":[],"contributors":[],"dates":[{"date":"2012","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCYjMTA7ICBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkJiMxMDsiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjUwNjcvQUxUQ1ktVEoxMjI8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5HU0ZDPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+SW50ZWdyYXRlZCBNdWx0aS1NaXNzaW9uIE9jZWFuIEFsdGltZXRlciBEYXRhIGZvciBDbGltYXRlIFJlc2VhcmNoIFZlcnNpb24gMjwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5OQVNBIFBoeXNpY2FsIE9jZWFub2dyYXBoeSBEQUFDPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDEyPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CjwvcmVzb3VyY2U+","url":"http://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_CYCLES_V2","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2014-01-15T16:06:19.000Z","registered":"2014-01-15T16:06:20.000Z","published":"2012","updated":"2020-11-18T12:17:13.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"provider":{"data":{"id":"esdis","type":"providers"}},"media":{"data":{"id":"10.5067/altcy-tj122","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
+        Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"alternateName":null,"description":null,"language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2020-06-02T17:04:01.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:22:46 GMT
+  recorded_at: Sun, 06 Jun 2021 11:58:14 GMT
 recorded_with: VCR 3.0.3

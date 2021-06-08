@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,22 +17,19 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 11 Oct 2020 05:26:31 GMT
+      - Sun, 06 Jun 2021 11:57:14 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d8a8bdceeec481ceefc93a6afcbde710d1602393990; expires=Tue, 10-Nov-20
-        05:26:30 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 05b7b8ff3c000005dc32162200000001
+      - 0a82c8403900004e3d3f288000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?lkg-colo=71&lkg-time=1602393991"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=wBq3jROCvdsRefwN5zl6HuGWO%2FLKyWLPH%2BRJ8eUBFeQor%2BeU%2FnBoLpICzdJiqLI%2BEflTMveWgnwacxDJ9JXBWXlfGA%2FSEwaVnrWJO9AQk%2Fusqj0NDoA9kahN86uziPCz"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -40,9 +37,10 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 5e062aab9fac05dc-FRA
+      - 65b17646be764e3d-FRA
       Alt-Svc:
-      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -53,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Sun, 11 Oct 2020 05:26:31 GMT
+  recorded_at: Sun, 06 Jun 2021 11:57:06 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.1186/1471-2164-7-187/transform/application/vnd.crossref.unixsd+xml
@@ -62,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -85,11 +83,13 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 11 Oct 2020 05:26:32 GMT
+      - Sun, 06 Jun 2021 11:57:15 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
       - 1s
+      Permissions-Policy:
+      - interest-cohort=()
       Connection:
       - close
     body:
@@ -109,7 +109,7 @@ http_interactions:
         type=\"string\">10.1186</crm-item>\r\n        <crm-item name=\"last-update\"
         type=\"date\">2020-04-20T14:28:32Z</crm-item>\r\n        <crm-item name=\"created\"
         type=\"date\">2006-07-25T18:14:51Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
-        type=\"number\">136</crm-item>\r\n        <crm-item name=\"relation\" type=\"doi\"
+        type=\"number\">144</crm-item>\r\n        <crm-item name=\"relation\" type=\"doi\"
         claim=\"isReviewOf\">10.3410/f.1044091.494000</crm-item>\r\n        <crm-item
         name=\"relation\" type=\"doi\" claim=\"isReviewOf\">10.3410/f.1044091.496329</crm-item>\r\n
         \       <doi_record>\r\n          <crossref xmlns=\"http://www.crossref.org/xschema/1.1\"
@@ -445,5 +445,5 @@ http_interactions:
         \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
         \ </query_result>\r\n</crossref_result>"
     http_version:
-  recorded_at: Sun, 11 Oct 2020 05:26:32 GMT
+  recorded_at: Sun, 06 Jun 2021 11:57:06 GMT
 recorded_with: VCR 3.0.3

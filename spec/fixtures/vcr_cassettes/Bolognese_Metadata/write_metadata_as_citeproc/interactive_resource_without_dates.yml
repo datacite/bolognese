@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:25:08 GMT
+      - Sun, 06 Jun 2021 11:54:55 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -31,22 +31,24 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       X-Request-Id:
-      - 70964803-5fa0-4734-ae52-3f6e9b299034
+      - e746f092-5b4a-49e0-a1da-95ae3f6d6f0b
       Etag:
-      - W/"54c8c88a606187d19d9104a957330227"
+      - W/"276c66b39736166eddc84737acef4ef8"
       X-Runtime:
-      - '1.852423'
+      - '1.593203'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.34747/g6yb-3412","type":"dois","attributes":{"doi":"10.34747/g6yb-3412","prefix":"10.34747","suffix":"g6yb-3412","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Clark,
-        Dav","nameType":"Personal","givenName":"Dav","familyName":"Clark","affiliation":[],"nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0002-3982-4416","nameIdentifierScheme":"ORCID"}]}],"titles":[{"lang":null,"title":"Exploring
-        the \"Many analysts, one dataset\" project from COS","titleType":null}],"publisher":"Gigantum,
-        Inc.","container":{},"publicationYear":2019,"subjects":[],"contributors":[],"dates":[],"language":null,"types":{"resourceType":"Gigantum
-        Project","resourceTypeGeneral":"InteractiveResource"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMzQ3NDcvRzZZQi0zNDEyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5DbGFyaywgRGF2PC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5EYXY8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+Q2xhcms8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMi0zOTgyLTQ0MTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5FeHBsb3JpbmcgdGhlICJNYW55IGFuYWx5c3RzLCBvbmUgZGF0YXNldCIgcHJvamVjdCBmcm9tIENPUzwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HaWdhbnR1bSwgSW5jLjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxOTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iSW50ZXJhY3RpdmVSZXNvdXJjZSI+R2lnYW50dW0gUHJvamVjdDwvcmVzb3VyY2VUeXBlPgogIDxzaXplcy8+CiAgPGZvcm1hdHMvPgogIDx2ZXJzaW9uLz4KPC9yZXNvdXJjZT4K","url":"https://gigantum.com/tinydav/football-skin-tone","contentUrl":null,"metadataVersion":2,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-03-20T19:48:26.000Z","registered":"2020-03-20T19:49:25.000Z","published":"2019","updated":"2020-07-11T09:44:36.000Z"},"relationships":{"client":{"data":{"id":"gigantum.gigantum","type":"clients"}},"media":{"data":{"id":"10.34747/g6yb-3412","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"gigantum.gigantum","type":"clients","attributes":{"name":"Gigantum","symbol":"GIGANTUM.GIGANTUM","year":2019,"contactEmail":"admin+datacite@gigantum.com","alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2019-07-22T14:18:24.000Z","updated":"2020-03-20T19:37:32.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"gigantum","type":"providers"}},"prefixes":{"data":[{"id":"10.34747","type":"prefixes"}]}}}]}'
+        Dav","nameType":"Personal","givenName":"Dav","familyName":"Clark","affiliation":[],"nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0002-3982-4416","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"Exploring
+        the \"Many analysts, one dataset\" project from COS"}],"publisher":"Gigantum,
+        Inc.","container":{},"publicationYear":2019,"subjects":[],"contributors":[],"dates":[{"date":"2019","dateType":"Issued"}],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork","resourceType":"Gigantum
+        Project","resourceTypeGeneral":"InteractiveResource"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMzQ3NDcvRzZZQi0zNDEyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5DbGFyaywgRGF2PC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5EYXY8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+Q2xhcms8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMi0zOTgyLTQ0MTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5FeHBsb3JpbmcgdGhlICJNYW55IGFuYWx5c3RzLCBvbmUgZGF0YXNldCIgcHJvamVjdCBmcm9tIENPUzwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HaWdhbnR1bSwgSW5jLjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxOTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iSW50ZXJhY3RpdmVSZXNvdXJjZSI+R2lnYW50dW0gUHJvamVjdDwvcmVzb3VyY2VUeXBlPgogIDxzaXplcy8+CiAgPGZvcm1hdHMvPgogIDx2ZXJzaW9uLz4KPC9yZXNvdXJjZT4=","url":"https://gigantum.com/tinydav/football-skin-tone","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-03-20T19:48:26.000Z","registered":"2020-03-20T19:49:25.000Z","published":"2019","updated":"2020-07-14T10:46:14.000Z"},"relationships":{"client":{"data":{"id":"gigantum.gigantum","type":"clients"}},"provider":{"data":{"id":"gigantum","type":"providers"}},"media":{"data":{"id":"10.34747/g6yb-3412","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"gigantum.gigantum","type":"clients","attributes":{"name":"Gigantum","symbol":"GIGANTUM.GIGANTUM","year":2019,"alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2019-07-22T14:18:24.000Z","updated":"2020-03-20T19:37:32.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"gigantum","type":"providers"}},"prefixes":{"data":[{"id":"10.34747","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:25:08 GMT
+  recorded_at: Sun, 06 Jun 2021 11:54:47 GMT
 recorded_with: VCR 3.0.3

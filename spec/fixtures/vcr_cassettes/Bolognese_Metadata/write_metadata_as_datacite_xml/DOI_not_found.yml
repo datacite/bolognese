@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,7 +17,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:25:39 GMT
+      - Sun, 06 Jun 2021 12:00:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -28,18 +28,20 @@ http_interactions:
       - no-cache
       Vary:
       - Accept-Encoding, Origin
-      X-Runtime:
-      - '0.126588'
       X-Request-Id:
-      - 5d5fcd7d-b9c1-4cbc-b325-7a9b87ef5d2d
+      - e8c74c4b-199e-4c82-af66-d759828590fd
+      X-Runtime:
+      - '0.137982'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
       string: '{"errors":[{"status":"404","title":"The resource you are looking for
         doesn''t exist."}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:25:39 GMT
+  recorded_at: Sun, 06 Jun 2021 12:00:38 GMT
 recorded_with: VCR 3.0.3

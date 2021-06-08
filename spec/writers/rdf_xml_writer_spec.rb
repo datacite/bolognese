@@ -45,7 +45,7 @@ describe Bolognese::Metadata, vcr: true do
       rdf_xml = Maremma.from_xml(subject.rdf_xml).fetch("RDF", {})
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
-      expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata")
+      expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata, FOS: Computer and information sciences, FOS: Computer and information sciences")
       expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
     end
     

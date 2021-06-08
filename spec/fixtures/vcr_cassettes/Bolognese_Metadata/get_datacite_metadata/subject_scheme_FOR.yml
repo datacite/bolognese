@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:24:49 GMT
+      - Sun, 06 Jun 2021 12:01:08 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d6827e438ab9878d301731e76ddcba6361594553089; expires=Tue, 11-Aug-20
-        11:24:49 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 03e45e5429000096fe9c89b200000001
+      - 0a82cbd0fa0000535dfbb2d000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=eh8Le5%2BakkjobYjlcaRrVq%2B8MJkFWJA6PJeuTXsbD8ayEs4yNYnT9954xOm%2BcpeWNMi4q9RJGzoQyH7fUGLj%2FQGpErjClQfcq1M%2BuDSbiGbHc%2B4jlOkKkcNUQlI30%2B8a"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5b1a6666aaf896fe-FRA
+      - 65b17bfb2a9b535d-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:24:49 GMT
+  recorded_at: Sun, 06 Jun 2021 12:00:59 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.6084/m9.figshare.1449060?include=media,client
@@ -56,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,7 +69,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:24:49 GMT
+      - Sun, 06 Jun 2021 12:01:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -79,15 +83,17 @@ http_interactions:
       Vary:
       - Accept-Encoding, Origin
       Etag:
-      - W/"d6568c12f94e8dde4246e7516cd37e3a"
+      - W/"43351bdd39ea9687956394331d517619"
       X-Runtime:
-      - '0.443741'
+      - '1.088805'
+      X-Rack-Cors:
+      - miss; no-origin
       X-Request-Id:
-      - 6acb140b-b60d-488a-be2d-fc1bbd82b12f
+      - ee522e70-48dd-4d2b-a071-c0601bc45a0f
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
       string: '{"data":{"id":"10.6084/m9.figshare.1449060","type":"dois","attributes":{"doi":"10.6084/m9.figshare.1449060","prefix":"10.6084","suffix":"m9.figshare.1449060","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Dworkin,
@@ -97,21 +103,24 @@ http_interactions:
         Maria","nameType":"Personal","givenName":"Maria","familyName":"Pesevski","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Drosophila
         melanogaster wing images from low and high altitude populations in Ethiopia
         and Zambia."}],"publisher":"figshare","container":{},"publicationYear":2020,"subjects":[{"subject":"Evolutionary
-        Biology"},{"subject":"60412 Quantitative Genetics (incl. Disease and Trait
-        Mapping Genetics)","schemeUri":"http://www.abs.gov.au/ausstats/abs@.nsf/0/6BB427AB9696C225CA2574180004463E","subjectScheme":"FOR"}],"contributors":[],"dates":[{"date":"2015-06-14","dateType":"Created"},{"date":"2020-06-02","dateType":"Updated"},{"date":"2020","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":["3009125660
-        Bytes"],"formats":[],"version":null,"rightsList":[{"rights":"CC BY 4.0","rightsUri":"https://creativecommons.org/licenses/by/4.0"}],"descriptions":[{"description":"These
+        Biology"},{"subject":"FOS: Biological sciences","schemeUri":"http://www.oecd.org/science/inno/38235147.pdf","subjectScheme":"Fields
+        of Science and Technology (FOS)"},{"subject":"FOS: Biological sciences","subjectScheme":"Fields
+        of Science and Technology (FOS)"},{"subject":"60412 Quantitative Genetics
+        (incl. Disease and Trait Mapping Genetics)","subjectScheme":"FOR"}],"contributors":[],"dates":[{"date":"2015-06-14","dateType":"Created"},{"date":"2020-06-02","dateType":"Updated"},{"date":"2020","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":["3009125660
+        Bytes"],"formats":[],"version":null,"rightsList":[{"rights":"Creative Commons
+        Attribution 4.0 International","rightsUri":"https://creativecommons.org/licenses/by/4.0/legalcode","schemeUri":"https://spdx.org/licenses/","rightsIdentifier":"cc-by-4.0","rightsIdentifierScheme":"SPDX"}],"descriptions":[{"description":"These
         are raw wing images from <i>Drosophila melanogaster</i> isofemale lines collected
         from Sub-Saharan Africa by John Pool. The progeny from these lines eclosed
         and then one wing was dissected from each individual (~20 males and females
         from each line). Imaged at 20X total magnification (2X objective) on an Olympus
         BX-51 microscope.<br>Please note. It looks like some images did not transfer
         successfully, but there is no easy way on figshare of getting a list of files,
-        so I may need to re-upload all of them.<br><br>","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC42MDg0L005LkZJR1NIQVJFLjE0NDkwNjA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5JYW4gRHdvcmtpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZyI+MDAwMC0wMDAyLTI4NzQtMjg3WDwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkpvaG4gUG9vbDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPldpbGxpYW0gUGl0Y2hlcnM8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5NYXJpYSBQZXNldnNraTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkRyb3NvcGhpbGEgbWVsYW5vZ2FzdGVyIHdpbmcgaW1hZ2VzIGZyb20gbG93IGFuZCBoaWdoIGFsdGl0dWRlIHBvcHVsYXRpb25zIGluIEV0aGlvcGlhIGFuZCBaYW1iaWEuPC90aXRsZT4KICA8L3RpdGxlcz4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0O1RoZXNlIGFyZSByYXcgd2luZyBpbWFnZXMgZnJvbSAmbHQ7aSZndDtEcm9zb3BoaWxhIG1lbGFub2dhc3RlciZsdDsvaSZndDsgaXNvZmVtYWxlIGxpbmVzIGNvbGxlY3RlZCBmcm9tIFN1Yi1TYWhhcmFuIEFmcmljYSBieSBKb2huIFBvb2wuIFRoZSBwcm9nZW55IGZyb20gdGhlc2UgbGluZXMgZWNsb3NlZCBhbmQgdGhlbiBvbmUgd2luZyB3YXMgZGlzc2VjdGVkIGZyb20gZWFjaCBpbmRpdmlkdWFsICh+MjAgbWFsZXMgYW5kIGZlbWFsZXMgZnJvbSBlYWNoIGxpbmUpLiBJbWFnZWQgYXQgMjBYIHRvdGFsIG1hZ25pZmljYXRpb24gKDJYIG9iamVjdGl2ZSkgb24gYW4gT2x5bXB1cyBCWC01MSBtaWNyb3Njb3BlLiZsdDsvcCZndDsmbHQ7cCZndDsmbHQ7YnImZ3Q7Jmx0Oy9wJmd0OyZsdDtwJmd0O1BsZWFzZSBub3RlLiBJdCBsb29rcyBsaWtlIHNvbWUgaW1hZ2VzIGRpZCBub3QgdHJhbnNmZXIgc3VjY2Vzc2Z1bGx5LCBidXQgdGhlcmUgaXMgbm8gZWFzeSB3YXkgb24gZmlnc2hhcmUgb2YgZ2V0dGluZyBhIGxpc3Qgb2YgZmlsZXMsIHNvIEkgbWF5IG5lZWQgdG8gcmUtdXBsb2FkIGFsbCBvZiB0aGVtLiZsdDsvcCZndDsmbHQ7cCZndDsmbHQ7YnImZ3Q7Jmx0Oy9wJmd0OyZsdDtwJmd0OyZsdDticiZndDsmbHQ7L3AmZ3Q7PC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5Fdm9sdXRpb25hcnkgQmlvbG9neTwvc3ViamVjdD4KICAgIDxzdWJqZWN0IHNjaGVtZVVSST0iaHR0cDovL3d3dy5hYnMuZ292LmF1L2F1c3N0YXRzL2Fic0AubnNmLzAvNkJCNDI3QUI5Njk2QzIyNUNBMjU3NDE4MDAwNDQ2M0UiIHN1YmplY3RTY2hlbWU9IkZPUiI+NjA0MTIgUXVhbnRpdGF0aXZlIEdlbmV0aWNzIChpbmNsLiBEaXNlYXNlIGFuZCBUcmFpdCBNYXBwaW5nIEdlbmV0aWNzKTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxwdWJsaXNoZXI+Zmlnc2hhcmU8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMjA8L3B1YmxpY2F0aW9uWWVhcj4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAxNS0wNi0xNDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDIwLTA2LTAyPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CiAgPHNpemVzPgogICAgPHNpemU+MzAwOTEyNTY2MCBCeXRlczwvc2l6ZT4KICA8L3NpemVzPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvIj5DQyBCWSA0LjA8L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CjwvcmVzb3VyY2U+","url":"https://figshare.com/articles/Drosophila_melanogaster_African_Wings/1449060","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2015-06-15T04:17:37.000Z","registered":"2015-06-15T04:17:38.000Z","published":"2020","updated":"2020-06-29T12:15:35.000Z"},"relationships":{"client":{"data":{"id":"figshare.ars","type":"clients"}},"media":{"data":{"id":"10.6084/m9.figshare.1449060","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"figshare.ars","type":"clients","attributes":{"name":"figshare
-        Academic Research System","symbol":"FIGSHARE.ARS","year":2016,"contactEmail":"danielduduta@figshare.com","alternateName":null,"description":"figshare
+        so I may need to re-upload all of them.<br><br>","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC42MDg0L005LkZJR1NIQVJFLjE0NDkwNjA8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5JYW4gRHdvcmtpbjwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cDovL29yY2lkLm9yZyI+MDAwMC0wMDAyLTI4NzQtMjg3WDwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPkpvaG4gUG9vbDwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPldpbGxpYW0gUGl0Y2hlcnM8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5NYXJpYSBQZXNldnNraTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkRyb3NvcGhpbGEgbWVsYW5vZ2FzdGVyIHdpbmcgaW1hZ2VzIGZyb20gbG93IGFuZCBoaWdoIGFsdGl0dWRlIHBvcHVsYXRpb25zIGluIEV0aGlvcGlhIGFuZCBaYW1iaWEuPC90aXRsZT4KICA8L3RpdGxlcz4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0O1RoZXNlIGFyZSByYXcgd2luZyBpbWFnZXMgZnJvbSAmbHQ7aSZndDtEcm9zb3BoaWxhIG1lbGFub2dhc3RlciZsdDsvaSZndDsgaXNvZmVtYWxlIGxpbmVzIGNvbGxlY3RlZCBmcm9tIFN1Yi1TYWhhcmFuIEFmcmljYSBieSBKb2huIFBvb2wuIFRoZSBwcm9nZW55IGZyb20gdGhlc2UgbGluZXMgZWNsb3NlZCBhbmQgdGhlbiBvbmUgd2luZyB3YXMgZGlzc2VjdGVkIGZyb20gZWFjaCBpbmRpdmlkdWFsICh+MjAgbWFsZXMgYW5kIGZlbWFsZXMgZnJvbSBlYWNoIGxpbmUpLiBJbWFnZWQgYXQgMjBYIHRvdGFsIG1hZ25pZmljYXRpb24gKDJYIG9iamVjdGl2ZSkgb24gYW4gT2x5bXB1cyBCWC01MSBtaWNyb3Njb3BlLiZsdDsvcCZndDsmbHQ7cCZndDsmbHQ7YnImZ3Q7Jmx0Oy9wJmd0OyZsdDtwJmd0O1BsZWFzZSBub3RlLiBJdCBsb29rcyBsaWtlIHNvbWUgaW1hZ2VzIGRpZCBub3QgdHJhbnNmZXIgc3VjY2Vzc2Z1bGx5LCBidXQgdGhlcmUgaXMgbm8gZWFzeSB3YXkgb24gZmlnc2hhcmUgb2YgZ2V0dGluZyBhIGxpc3Qgb2YgZmlsZXMsIHNvIEkgbWF5IG5lZWQgdG8gcmUtdXBsb2FkIGFsbCBvZiB0aGVtLiZsdDsvcCZndDsmbHQ7cCZndDsmbHQ7YnImZ3Q7Jmx0Oy9wJmd0OyZsdDtwJmd0OyZsdDticiZndDsmbHQ7L3AmZ3Q7PC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdD5Fdm9sdXRpb25hcnkgQmlvbG9neTwvc3ViamVjdD4KICAgIDxzdWJqZWN0IHNjaGVtZVVSST0iaHR0cDovL3d3dy5hYnMuZ292LmF1L2F1c3N0YXRzL2Fic0AubnNmLzAvNkJCNDI3QUI5Njk2QzIyNUNBMjU3NDE4MDAwNDQ2M0UiIHN1YmplY3RTY2hlbWU9IkZPUiI+NjA0MTIgUXVhbnRpdGF0aXZlIEdlbmV0aWNzIChpbmNsLiBEaXNlYXNlIGFuZCBUcmFpdCBNYXBwaW5nIEdlbmV0aWNzKTwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxwdWJsaXNoZXI+Zmlnc2hhcmU8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMjA8L3B1YmxpY2F0aW9uWWVhcj4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAxNS0wNi0xNDwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJVcGRhdGVkIj4yMDIwLTA2LTAyPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CiAgPHNpemVzPgogICAgPHNpemU+MzAwOTEyNTY2MCBCeXRlczwvc2l6ZT4KICA8L3NpemVzPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS80LjAvIj5DQyBCWSA0LjA8L3JpZ2h0cz4KICA8L3JpZ2h0c0xpc3Q+CjwvcmVzb3VyY2U+","url":"https://figshare.com/articles/dataset/Drosophila_melanogaster_African_Wings/1449060/4","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":1,"citationsOverTime":[{"year":"2020","total":1}],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2015-06-15T04:17:37.000Z","registered":"2015-06-15T04:17:38.000Z","published":"2020","updated":"2020-09-04T17:01:37.000Z"},"relationships":{"client":{"data":{"id":"figshare.ars","type":"clients"}},"provider":{"data":{"id":"figshare","type":"providers"}},"media":{"data":{"id":"10.6084/m9.figshare.1449060","type":"media"}},"references":{"data":[]},"citations":{"data":[{"id":"10.5061/dryad.b8gtht79c","type":"dois"}]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"figshare.ars","type":"clients","attributes":{"name":"figshare
+        Academic Research System","symbol":"FIGSHARE.ARS","year":2016,"alternateName":null,"description":"figshare
         allows researchers to publish all of their research outputs in an easily citable,
         sharable and discoverable manner. All file formats can be published, including
         videos and datasets. Optional peer review process. figshare uses creative
-        commons licensing.","language":null,"clientType":"repository","domains":"figshare.com","re3data":"https://doi.org/10.17616/R3PK5R","opendoar":null,"issn":null,"url":"http://figshare.com/","created":"2016-10-12T13:42:35.000Z","updated":"2019-07-27T07:15:48.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"figshare","type":"providers"}},"prefixes":{"data":[{"id":"10.6084","type":"prefixes"}]}}}]}'
+        commons licensing.","language":[],"clientType":"repository","domains":"figshare.com,*.figshare.com,geolsoc.figshare.com,rs.figshare.com,tandf.figshare.com,springernature.figshare.com,books.openmonographs.org,tome.figshare.com","re3data":"https://doi.org/10.17616/R3PK5R","opendoar":null,"issn":{},"url":"http://figshare.com/","created":"2016-10-12T13:42:35.000Z","updated":"2021-02-01T12:00:19.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"figshare","type":"providers"}},"prefixes":{"data":[{"id":"10.6084","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:24:49 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:01 GMT
 recorded_with: VCR 3.0.3

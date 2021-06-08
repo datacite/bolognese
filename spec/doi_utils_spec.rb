@@ -32,22 +32,22 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("https://doi.org/")
     end
 
-    it "test resolver" do
-      doi = "https://handle.test.datacite.org/10.5061/dryad.8515"
+    it "stage resolver" do
+      doi = "https://handle.stage.datacite.org/10.5061/dryad.8515"
       response = subject.doi_resolver(doi)
-      expect(response).to eq("https://handle.test.datacite.org/")
+      expect(response).to eq("https://handle.stage.datacite.org/")
     end
 
-    it "test resolver http" do
-      doi = "http://handle.test.datacite.org/10.5061/dryad.8515"
+    it "stage resolver http" do
+      doi = "http://handle.stage.datacite.org/10.5061/dryad.8515"
       response = subject.doi_resolver(doi)
-      expect(response).to eq("https://handle.test.datacite.org/")
+      expect(response).to eq("https://handle.stage.datacite.org/")
     end
 
-    it "force test resolver" do
+    it "force stage resolver" do
       doi = "https://doi.org/10.5061/dryad.8515"
       response = subject.doi_resolver(doi, sandbox: true)
-      expect(response).to eq("https://handle.test.datacite.org/")
+      expect(response).to eq("https://handle.stage.datacite.org/")
     end
   end
 
@@ -77,21 +77,21 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "test resolver" do
-      doi = "https://handle.test.datacite.org/10.5061/dryad.8515"
+      doi = "https://handle.stage.datacite.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515?include=media,client")
+      expect(response).to eq("https://api.stage.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "test resolver http" do
-      doi = "http://handle.test.datacite.org/10.5061/dryad.8515"
+      doi = "http://handle.stage.datacite.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi)
-      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515?include=media,client")
+      expect(response).to eq("https://api.stage.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
 
     it "force test resolver" do
       doi = "https://doi.org/10.5061/dryad.8515"
       response = subject.doi_api_url(doi, sandbox: true)
-      expect(response).to eq("https://api.test.datacite.org/dois/10.5061/dryad.8515?include=media,client")
+      expect(response).to eq("https://api.stage.datacite.org/dois/10.5061/dryad.8515?include=media,client")
     end
   end
 
@@ -157,15 +157,15 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "doi from datacite sandbox" do
-      doi = "https://handle.test.datacite.org/10.5438/55e5-t5c0"
+      doi = "https://handle.stage.datacite.org/10.5438/55e5-t5c0"
       response = subject.normalize_doi(doi)
-      expect(response).to eq("https://handle.test.datacite.org/10.5438/55e5-t5c0")
+      expect(response).to eq("https://handle.stage.datacite.org/10.5438/55e5-t5c0")
     end
 
     it "doi force datacite sandbox" do
       doi = "10.5438/55e5-t5c0"
       response = subject.normalize_doi(doi, sandbox: true)
-      expect(response).to eq("https://handle.test.datacite.org/10.5438/55e5-t5c0")
+      expect(response).to eq("https://handle.stage.datacite.org/10.5438/55e5-t5c0")
     end
   end
 
@@ -191,7 +191,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "sandbox url" do
-      doi = subject.doi_from_url("https://handle.test.datacite.org/10.5438/55e5-t5c0")
+      doi = subject.doi_from_url("https://handle.stage.datacite.org/10.5438/55e5-t5c0")
       expect(doi).to eq("10.5438/55e5-t5c0")
     end
   end

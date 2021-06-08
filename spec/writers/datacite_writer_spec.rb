@@ -222,7 +222,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2011")
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier" => "10.1371/journal.ppat.1000446",
-        "relatedIdentifierType" => "DOI","relationType"=>"IsSupplementTo")
+        "relatedIdentifierType" => "DOI","relationType"=>"Cites")
       expect(subject.publisher).to eq("Dryad")
       expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")

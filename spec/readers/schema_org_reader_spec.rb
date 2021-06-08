@@ -3,10 +3,7 @@
 require 'spec_helper'
 
 describe Bolognese::Metadata, vcr: true do
-  let(:input) { "https://blog.datacite.org/eating-your-own-dog-food/" }
   let(:fixture_path) { "spec/fixtures/" }
-
-  subject { Bolognese::Metadata.new(input: input) }
 
   context "get schema_org raw" do
     it "BlogPosting" do
@@ -18,6 +15,8 @@ describe Bolognese::Metadata, vcr: true do
 
   context "get schema_org metadata" do
     it "BlogPosting" do
+      input = "https://blog.datacite.org/eating-your-own-dog-food/"
+      subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
@@ -36,6 +35,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "BlogPosting with new DOI" do
+      input = "https://blog.datacite.org/eating-your-own-dog-food/"
       subject = Bolognese::Metadata.new(input: input, doi: "10.5438/0000-00ss")
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/0000-00ss")
@@ -47,7 +47,7 @@ describe Bolognese::Metadata, vcr: true do
     it "BlogPosting with type as array" do
       input = fixture_path + 'schema_org_type_as_array.json'
       subject = Bolognese::Metadata.new(input: input)
-      #expect(subject.valid?).to be true
+      expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
@@ -66,7 +66,6 @@ describe Bolognese::Metadata, vcr: true do
       input = "https://www.zenodo.org/record/1196821"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be false
-
       expect(subject.language).to eq("eng")
       expect(subject.errors).to eq("49:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1196821")
@@ -97,7 +96,6 @@ describe Bolognese::Metadata, vcr: true do
     it "pangaea" do
       input = "https://doi.pangaea.de/10.1594/PANGAEA.836178"
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
-      
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.1594/pangaea.836178")
       expect(subject.doi).to eq("10.1594/pangaea.836178")

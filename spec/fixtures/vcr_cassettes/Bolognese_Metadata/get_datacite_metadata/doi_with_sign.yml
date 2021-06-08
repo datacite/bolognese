@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:24:39 GMT
+      - Sun, 06 Jun 2021 12:01:12 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d757c31579199386fdcac584708e62e391594553079; expires=Tue, 11-Aug-20
-        11:24:39 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 03e45e2e530000d6c14807b200000001
+      - 0a82cbdefd0000dfbf132a8000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=wwo%2BXJ%2BcpC9jhzi4ABYapvlIxoy3uI7HBLvx6rrzBXSFVO5mMe19m0UVk0te%2FYUYTLCWW5h14%2B8Sho8o4XjgN%2FJjr77kCe427q8Xc3EEwKi45d1CSr9sAQ%2Few0UuqUn0"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5b1a662a1cf3d6c1-FRA
+      - 65b17c119e92dfbf-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:24:39 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:03 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.5067/terra+aqua/ceres/cldtyphist_l3.004?include=media,client
@@ -56,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -65,7 +69,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:24:41 GMT
+      - Sun, 06 Jun 2021 12:01:13 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -78,23 +82,25 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - b9fbd3d9-fa1d-41b5-a61b-fa4313bf3102
       Etag:
-      - W/"e92d5d894289663522f6f853a7f838e1"
+      - W/"d3c2febfc3465253b5314a7571072bfb"
       X-Runtime:
-      - '1.433027'
+      - '1.495817'
+      X-Rack-Cors:
+      - miss; no-origin
+      X-Request-Id:
+      - 690a78a9-ac99-420f-8cd3-e5f4fbf0fdc1
       X-Powered-By:
-      - Phusion Passenger 6.0.5
+      - Phusion Passenger(R) 6.0.8
       Server:
-      - nginx/1.14.0 + Phusion Passenger 6.0.5
+      - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"dois","attributes":{"doi":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","prefix":"10.5067","suffix":"terra+aqua/ceres/cldtyphist_l3.004","identifiers":[{"identifier":"https://doi.org/10.5067/terra+aqua/ceres/cldtyphist_l3.004","identifierType":"DOI"}],"alternateIdentifiers":[],"creators":[{"name":"Wong,
-        Takmeng","nameType":"Personal","givenName":"Takmeng","familyName":"Wong","affiliation":[]}],"titles":[{"title":"CERES
+      string: '{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"dois","attributes":{"doi":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","prefix":"10.5067","suffix":"terra+aqua/ceres/cldtyphist_l3.004","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Wong,  Takmeng","givenName":"
+        Takmeng","familyName":"Wong","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"CERES
         Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4"}],"publisher":"NASA
-        Langley Atmospheric Science Data Center DAAC","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MDY3L1RFUlJBK0FRVUEvQ0VSRVMvQ0xEVFlQSElTVF9MMy4wMDQ8L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Xb25nLFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5DRVJFUyBMZXZlbCAzIENsb3VkIFR5cGUgSGlzdG9yZ3JhbSBUZXJyYStBcXVhIEhERiBmaWxlIC0gRWRpdGlvbjQ8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+TkFTQSBMYW5nbGV5IEF0bW9zcGhlcmljIFNjaWVuY2UgRGF0YSBDZW50ZXIgREFBQzwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxNjwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRGF0YXNldCIvPgo8L3Jlc291cmNlPgo=","url":"https://asdc.larc.nasa.gov/project/CERES/CER_CldTypHist_GEO-MODIS_Edition4A","contentUrl":null,"metadataVersion":8,"schemaVersion":null,"source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2017-01-04T22:48:06.000Z","registered":"2017-01-04T22:48:07.000Z","published":"2016","updated":"2020-02-13T14:05:27.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"media":{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
-        Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"contactEmail":"lalit.wanchoo@nasa.gov","alternateName":null,"description":null,"language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2020-06-02T17:04:01.000Z","isActive":true,"hasPassword":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
+        Langley Atmospheric Science Data Center DAAC","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCYjMTA7ICBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkJiMxMDsiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjUwNjcvVEVSUkErQVFVQS9DRVJFUy9DTERUWVBISVNUX0wzLjAwNDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPldvbmcsIFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPiBUYWttZW5nPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPldvbmc8L2ZhbWlseU5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkNFUkVTIExldmVsIDMgQ2xvdWQgVHlwZSBIaXN0b3JncmFtIFRlcnJhK0FxdWEgSERGIGZpbGUgLSBFZGl0aW9uNDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5OQVNBIExhbmdsZXkgQXRtb3NwaGVyaWMgU2NpZW5jZSBEYXRhIENlbnRlciBEQUFDPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE2PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CjwvcmVzb3VyY2U+","url":"https://asdc.larc.nasa.gov/project/CERES/CER_CldTypHist_GEO-MODIS_Edition4A","contentUrl":null,"metadataVersion":9,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2017-01-04T22:48:06.000Z","registered":"2017-01-04T22:48:07.000Z","published":"2016","updated":"2020-11-18T16:08:23.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"provider":{"data":{"id":"esdis","type":"providers"}},"media":{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
+        Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"alternateName":null,"description":null,"language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2020-06-02T17:04:01.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:24:41 GMT
+  recorded_at: Sun, 06 Jun 2021 12:01:05 GMT
 recorded_with: VCR 3.0.3

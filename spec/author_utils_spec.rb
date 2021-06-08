@@ -117,10 +117,11 @@ describe Bolognese::Metadata, vcr: true do
 
     it "name with affiliation and country" do
       input = "10.16910/jemr.9.1.2"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      meta = Maremma.from_xml(subject.raw).fetch("resource", {})
-      response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("name"=>"Eraslan, Sukru; University Of Manchester, UK, & Middle East Technical University, Northern Cyprus Campus,  Kalkanli, Guzelyurt, Turkey", "nameIdentifiers" => [], "affiliation" => [])
+      subject = Bolognese::Metadata.new(input: input, from: "crossref")
+      response = subject.get_one_author(subject.creators.first)
+      expect(response).to eq("familyName" => "Eraslan",
+        "givenName" => "Sukru",
+        "name" => "Eraslan, Sukru")
     end
 
     it "name with role" do
@@ -128,7 +129,12 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator").first)
-      expect(response).to eq("nameType"=>"Personal", "name"=>"Schumacher, H. C.", "givenName"=>"H. C.", "familyName"=>"Schumacher", "nameIdentifiers" => [], "affiliation" => [])
+      expect(response).to eq("affiliation" => [],
+        "familyName" => "Schumacher",
+        "givenName" => "Heinrich Christian",
+        "name" => "Schumacher, Heinrich Christian",
+        "nameIdentifiers" => [{"nameIdentifier"=>"http://d-nb.info/gnd/118611593", "nameIdentifierScheme"=>"GND", "schemeUri"=>"http://d-nb.info/gnd/"}],
+        "nameType" => "Personal")
     end
 
     it "multiple name_identifier" do
@@ -167,7 +173,7 @@ describe Bolognese::Metadata, vcr: true do
 
     it "author" do
       response = subject.authors_as_string(subject.creators)
-      expect(response).to eq("Fenner, Martin and Crosas, Mercè and Grethe, Jeffrey and Kennedy, David and Hermjakob, Henning and Rocca-Serra, Philippe and Durand, Gustavo and Berjon, Robin and Karcher, Sebastian and Martone, Maryann and Clark, Timothy")
+      expect(response).to eq("Fenner, Martin and Crosas, Merc?? and Grethe, Jeffrey and Kennedy, David and Hermjakob, Henning and Rocca-Serra, Philippe and Durand, Gustavo and Berjon, Robin and Karcher, Sebastian and Martone, Maryann and Clark, Timothy")
     end
 
     it "single author" do

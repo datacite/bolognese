@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
   response:
@@ -17,26 +17,30 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 12 Jul 2020 11:23:10 GMT
+      - Sun, 06 Jun 2021 11:57:05 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=d3894d1c2053b1f1671882b92313c48451594552990; expires=Tue, 11-Aug-20
-        11:23:10 GMT; path=/; domain=.doi.org; HttpOnly; SameSite=Lax; Secure
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 03e45cd2c9000005b3171e0200000001
+      - 0a82c81cd9000005c436264000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=Ze7Ti7v6NzM4qSqbfJS30Pd4u1%2B1%2F2JBHELv1zRY790eeyMKVMxQrH1zJsdzxpSyAyE0XyoXAsCSHMw3NBoXji8gI9chzy109btXOWioTJ45CApB0LHXaAirBF5ua8x%2B"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 5b1a63fe0b3405b3-FRA
+      - 65b1760e2d7a05c4-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
@@ -47,7 +51,7 @@ http_interactions:
           }
         ]
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:23:10 GMT
+  recorded_at: Sun, 06 Jun 2021 11:56:57 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.1371/journal.pmed.0030277.g001/transform/application/vnd.crossref.unixsd+xml
@@ -56,7 +60,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.7.1; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
       Accept:
       - text/xml
   response:
@@ -75,11 +79,13 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 12 Jul 2020 11:23:10 GMT
+      - Sun, 06 Jun 2021 11:57:06 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
       - 1s
+      Permissions-Policy:
+      - interest-cohort=()
       Connection:
       - close
     body:
@@ -109,5 +115,5 @@ http_interactions:
         \           </sa_component>\r\n          </crossref>\r\n        </doi_record>\r\n
         \     </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
     http_version:
-  recorded_at: Sun, 12 Jul 2020 11:23:10 GMT
+  recorded_at: Sun, 06 Jun 2021 11:56:57 GMT
 recorded_with: VCR 3.0.3

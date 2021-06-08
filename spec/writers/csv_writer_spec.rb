@@ -67,7 +67,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(csv[2]).to eq("2014-01-15")
       expect(csv[3]).to eq("findable")
       expect(csv[4]).to eq("Dataset")
-      expect(csv[5]).to be_nil
+      expect(csv[5]).to eq("Dataset")
       expect(csv[6]).to eq("Integrated Multi-Mission Ocean Altimeter Data for Climate Research Version 2")
       expect(csv[7]).to eq("{GSFC}")
       expect(csv[8]).to eq("NASA Physical Oceanography DAAC")
