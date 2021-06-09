@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 11:55:39 GMT
+      - Wed, 09 Jun 2021 09:08:04 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82c6caff0000061caa09c000000001
+      - 0a91a0713f00002be9bf317000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=TF%2Ffbcjdzlxgt%2FN3NaOdOB0oergPQcl3kKlyb5rFwoNwWKJcJ21IOQ7a7SGuA1%2BFS%2FRFVA8DHIht71Sa9%2BZcE%2Fbdats7SU0%2FO9JXpxVqRXOik%2FvWdQGwbUGL0fHFGyQs"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=weHT%2Bdz2mA3cbrMlCRRTtwojvaHoItQs3DKhpJO6fnZwzSlNM8nLiBcP6zBIgtLnW01TKtvCXWxSZFOpa6C9z7K%2Fq4rPDVrTwOsY1MKDQ0c2VW23"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,19 +41,14 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b173f19b73061c-FRA
+      - 65c936952bd32be9-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.1392",
-            "RA": "mEDRA"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9Q2NLIyUdiGiQI0gw19UFyACK1HLFAgBZ18tlMwAAAA==
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:55:30 GMT
+  recorded_at: Wed, 09 Jun 2021 09:08:04 GMT
 recorded_with: VCR 3.0.3

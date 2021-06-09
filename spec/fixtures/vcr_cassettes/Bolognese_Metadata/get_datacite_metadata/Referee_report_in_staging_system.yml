@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9.3; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Mon, 07 Jun 2021 16:19:15 GMT
+      - Wed, 09 Jun 2021 12:59:31 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a88de7e6900004eeb4eaab000000001
+      - 0a9274581500002c22b8a6f000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=x1ZPeSk1x%2BFJccaXTCcfuzKegwCIbjmYI%2Bcm7jqBlGJN2k%2BrmIsRFotkLJYnm%2BYRver%2F0iWqC7Fk1iXcN%2BRhNODzIc0%2BW5smwPbNMUyF%2BGuO9ZCl%2FSjg5mVENFxOP56V"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=2QrrlOqnueT69UYvJQ29FGbiKNSw7MRF0bNN7tTdagGVgpIYYpDFD13bVTpb%2FO7GjLCqRaAqB2hthIqJTM8pArQnS0rweNTM9gkv1PRYNky%2BP5l3LPOjttJsLrQ5v6Li"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65bb33770c814eeb-FRA
+      - 65ca89a02f7a2c22-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.21956",
-            "RA": "DataCite"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9I0NLUzMlHYhwkCNI1CWxJNE5syRVCShYyxULAE3ugzE3AAAA
     http_version:
-  recorded_at: Mon, 07 Jun 2021 16:19:15 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:31 GMT
 - request:
     method: get
     uri: https://api.stage.datacite.org/dois/10.21956/gatesopenres.530.r190?include=media,client
@@ -60,16 +59,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9.3; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Mon, 07 Jun 2021 16:19:16 GMT
+      - Wed, 09 Jun 2021 12:59:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -82,12 +83,14 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
       X-Request-Id:
-      - 9d303563-e625-4eef-9165-4e1889c2ebf0
+      - 33137d67-2cf5-4224-8933-193d5087c6d3
       Etag:
-      - W/"31346f1c91684db0aa7c1b45cc942b90"
+      - W/"dbe54e4c27063b51af7a2592df03bd07"
       X-Runtime:
-      - '0.140724'
+      - '0.085669'
       X-Rack-Cors:
       - miss; no-origin
       X-Powered-By:
@@ -96,13 +99,8 @@ http_interactions:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.21956/gatesopenres.530.r190","type":"dois","attributes":{"doi":"10.21956/gatesopenres.530.r190","prefix":"10.21956","suffix":"gatesopenres.530.r190","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Patel,
-        Lina","nameType":"Personal","givenName":"Lina","familyName":"Patel","affiliation":[],"nameIdentifiers":[]},{"name":"Test
-        Test","affiliation":[],"nameIdentifiers":[]},{"name":"Test Test1","affiliation":[],"nameIdentifiers":[]},{"name":"Ere
-        Rer","affiliation":[],"nameIdentifiers":[]},{"name":"Test Test4","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Referee
-        report. For: Gates - add article keywords to the metatags [version 2; referees:
-        1 approved]"}],"publisher":"Gates Open Research","container":{},"publicationYear":2018,"subjects":[],"contributors":[],"dates":[{"date":"2018","dateType":"Issued"}],"language":null,"types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceTypeGeneral":"Text"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxyZXNvdXJjZSB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIiB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjIxOTU2L2dhdGVzb3BlbnJlcy41MzAucjE5MDwvaWRlbnRpZmllcj48Y3JlYXRvcnM+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPmxpbmEgcGF0ZWw8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+dGVzdCB0ZXN0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PGNyZWF0b3I+PGNyZWF0b3JOYW1lPnRlc3QgdGVzdDE8L2NyZWF0b3JOYW1lPjwvY3JlYXRvcj48Y3JlYXRvcj48Y3JlYXRvck5hbWU+ZXJlIHJlcjwvY3JlYXRvck5hbWU+PC9jcmVhdG9yPjxjcmVhdG9yPjxjcmVhdG9yTmFtZT50ZXN0IHRlc3Q0PC9jcmVhdG9yTmFtZT48L2NyZWF0b3I+PC9jcmVhdG9ycz48dGl0bGVzPjx0aXRsZT5SZWZlcmVlIHJlcG9ydC4gRm9yOiBHYXRlcyAtwqBhZGQgYXJ0aWNsZSBrZXl3b3JkcyB0byB0aGUgbWV0YXRhZ3MgW3ZlcnNpb24gMjsgcmVmZXJlZXM6IDEgYXBwcm92ZWRdPC90aXRsZT48L3RpdGxlcz48cHVibGlzaGVyPkdhdGVzIE9wZW4gUmVzZWFyY2g8L3B1Ymxpc2hlcj48cHVibGljYXRpb25ZZWFyPjIwMTg8L3B1YmxpY2F0aW9uWWVhcj48cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiLz48L3Jlc291cmNlPg==","url":"https://dev1rg.f1000internal.com/articles/2-14/v2#referee-response-190","contentUrl":null,"metadataVersion":0,"schemaVersion":null,"source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2018-02-13T15:35:12.000Z","registered":"2018-02-13T15:35:13.000Z","published":"2018","updated":"2020-07-27T12:49:45.000Z"},"relationships":{"client":{"data":{"id":"bl.f1000r","type":"clients"}},"provider":{"data":{"id":"bl","type":"providers"}},"media":{"data":{"id":"10.21956/gatesopenres.530.r190","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
-        of 1000 Research","symbol":"BL.F1000R","year":2013,"alternateName":null,"description":null,"language":[],"clientType":"repository","domains":"*.f1000internal.com","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2013-11-07T13:41:36.000Z","updated":"2021-03-26T17:09:50.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"bl","type":"providers"}},"prefixes":{"data":[{"id":"10.5256","type":"prefixes"},{"id":"10.7490","type":"prefixes"},{"id":"10.21956","type":"prefixes"},{"id":"10.21955","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Mon, 07 Jun 2021 16:19:16 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:31 GMT
 recorded_with: VCR 3.0.3

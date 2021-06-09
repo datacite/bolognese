@@ -8,9 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9.3; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
-      - text/xml
+      - text/xml;charset=utf-8
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
@@ -29,7 +31,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Mon, 07 Jun 2021 17:29:40 GMT
+      - Wed, 09 Jun 2021 06:36:56 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -108,5 +110,5 @@ http_interactions:
         \             </journal_article>\r\n            </journal>\r\n          </crossref>\r\n
         \       </doi_record>\r\n      </query>\r\n    </body>\r\n  </query_result>\r\n</crossref_result>"
     http_version:
-  recorded_at: Mon, 07 Jun 2021 17:29:40 GMT
+  recorded_at: Wed, 09 Jun 2021 06:36:56 GMT
 recorded_with: VCR 3.0.3

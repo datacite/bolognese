@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:37 GMT
+      - Wed, 09 Jun 2021 12:59:30 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82cc40d000009796a4008000000001
+      - 0a927454d20000c2aeb3830000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=0tOJMdgfTbOoeL%2BHzwUwBDhXUx1KSPxm3sgjagNN5oXq3WaMJ7aPQDp%2Bm%2BTafI2bmDkXqMtIhzHDjm9LVwQEazJwBiIhUDMOwowtOe6nxxDa40KhCDjp4v7Y2I%2BfKBm1"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=SLlxC5g3MBfxLGS4v2%2BNTeMwp5EWCIbbyEbYayQOLHRlk6drtC%2FWCGXO%2BA5sheq5uTjytxQ5w%2FklGoEssdofdLQAciiGfUgGYmWD0VVXiXH8FieFgvpTq5rO3xyznZBf"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b17cae1ac69796-FRA
+      - 65ca899aecbfc2ae-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.21956",
-            "RA": "DataCite"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9I0NLUzMlHYhwkCNI1CWxJNE5syRVCShYyxULAE3ugzE3AAAA
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:28 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:30 GMT
 - request:
     method: get
     uri: https://api.stage.datacite.org/dois/10.21956/wellcomeopenres.25947.r17364?include=media,client
@@ -60,16 +59,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:37 GMT
+      - Wed, 09 Jun 2021 12:59:30 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -82,25 +83,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - 87bcac44-3ae9-4fa9-b674-3c9d0e904048
       Etag:
-      - W/"c555d2998d94216ab5d1a222b21de51a"
+      - W/"ab021cb2cc45e82d8fec239ecfa2973a"
       X-Runtime:
-      - '0.084675'
+      - '0.107078'
       X-Rack-Cors:
       - miss; no-origin
-      X-Request-Id:
-      - 9fa3704e-7923-48c0-926c-af6a9670d8cc
       X-Powered-By:
       - Phusion Passenger(R) 6.0.8
       Server:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.21956/wellcomeopenres.25947.r17364","type":"dois","attributes":{"doi":"10.21956/wellcomeopenres.25947.r17364","prefix":"10.21956","suffix":"wellcomeopenres.25947.r17364","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Fran2
-        Levy","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Referee
-        report. For: FL Regression Wellcome [version 1; referees: retracted]"}],"publisher":"F1000
-        Research Limited","container":{},"publicationYear":2018,"subjects":[],"contributors":[],"dates":[{"date":"2018","dateType":"Issued"}],"language":null,"types":{"ris":"RPRT","bibtex":"article","citeproc":"article-journal","schemaOrg":"ScholarlyArticle","resourceTypeGeneral":"Text"},"relatedIdentifiers":[{"relationType":"Reviews","relatedIdentifier":"10.12688/wellcomeopenres.24355.1","relatedIdentifierType":"DOI"}],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8cmVzb3VyY2UgeG1sbnM9Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4c2k6c2NoZW1hTG9jYXRpb249Imh0dHA6Ly9kYXRhY2l0ZS5vcmcvc2NoZW1hL2tlcm5lbC0zIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC4yMTk1Ni9XRUxMQ09NRU9QRU5SRVMuMjU5NDcuUjE3MzY0PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+RnJhbjIgTGV2eTwvY3JlYXRvck5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPlJlZmVyZWUgcmVwb3J0LiBGb3I6IEZMIFJlZ3Jlc3Npb24gV2VsbGNvbWUgW3ZlcnNpb24gMTsgcmVmZXJlZXM6IHJldHJhY3RlZF08L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+RjEwMDAgUmVzZWFyY2ggTGltaXRlZDwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxODwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iVGV4dCIvPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iUmV2aWV3cyI+MTAuMTI2ODgvd2VsbGNvbWVvcGVucmVzLjI0MzU1LjE8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgo8L3Jlc291cmNlPgo=","url":"https://dev1rw.f1000internal.com/articles/2-195/v1#referee-response-17364","contentUrl":null,"metadataVersion":1,"schemaVersion":null,"source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2018-07-18T16:10:00.000Z","registered":"2018-07-18T16:09:35.000Z","published":"2018","updated":"2020-07-27T13:14:24.000Z"},"relationships":{"client":{"data":{"id":"bl.f1000r","type":"clients"}},"provider":{"data":{"id":"bl","type":"providers"}},"media":{"data":{"id":"10.21956/wellcomeopenres.25947.r17364","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"bl.f1000r","type":"clients","attributes":{"name":"Faculty
-        of 1000 Research","symbol":"BL.F1000R","year":2013,"alternateName":null,"description":null,"language":[],"clientType":"repository","domains":"*.f1000internal.com","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2013-11-07T13:41:36.000Z","updated":"2021-03-26T17:09:50.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"bl","type":"providers"}},"prefixes":{"data":[{"id":"10.5256","type":"prefixes"},{"id":"10.7490","type":"prefixes"},{"id":"10.21956","type":"prefixes"},{"id":"10.21955","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:28 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:31 GMT
 recorded_with: VCR 3.0.3

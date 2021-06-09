@@ -51,7 +51,7 @@ describe Bolognese::CLI do
       let(:input) { "10.5061/dryad.8515" }
 
       it 'default' do
-        expect { subject.convert input }.to output(/Plasmodium, malaria, taxonomy, mitochondrial genome, phylogeny, Parasites/).to_stdout
+        expect { subject.convert input }.to output(/Plasmodium, malaria, taxonomy, mitochondrial genome, Parasites/).to_stdout
       end
 
       it 'to schema_org' do

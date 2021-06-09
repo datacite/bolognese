@@ -9,7 +9,7 @@ module Bolognese
 
         doi = doi_from_url(id)
         url = "https://api.crossref.org/works/#{doi}/transform/application/vnd.crossref.unixsd+xml"
-        response = Maremma.get(url, accept: "text/xml", raw: true)
+        response = Maremma.get(url, accept: "text/xml;charset=utf-8", raw: true)
         string = response.body.fetch("data", nil)
         string = Nokogiri::XML(string, nil, 'UTF-8', &:noblanks).to_s if string.present?
 

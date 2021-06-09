@@ -8,16 +8,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 11:55:14 GMT
+      - Wed, 09 Jun 2021 10:08:08 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,12 +32,14 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
       X-Request-Id:
-      - 3bfc5b04-cf65-42a2-89ce-3d91fc29dd58
+      - 170cce68-154f-4dc0-94b3-915a881e8296
       Etag:
-      - W/"71fb1defeb87bf214499fe6c6ef9dd31"
+      - W/"6e7c435a86adf210b69ff6933b4adf5f"
       X-Runtime:
-      - '1.389469'
+      - '2.167319'
       X-Rack-Cors:
       - miss; no-origin
       X-Powered-By:
@@ -44,36 +48,8 @@ http_interactions:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.26301/qdpd-2250","type":"dois","attributes":{"doi":"10.26301/qdpd-2250","prefix":"10.26301","suffix":"qdpd-2250","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"CyArk","nameType":"Organizational","affiliation":[],"nameIdentifiers":[{"nameIdentifier":"CyArk","nameIdentifierScheme":"Other"}]}],"titles":[{"title":"USS
-        Pampanito Submarine"}],"publisher":"Open Heritage","container":{},"publicationYear":2020,"subjects":[],"contributors":[],"dates":[{"date":"2020","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"3D
-        Data","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[{"description":"USS
-        Pampanito was towed to Bay Ship &amp; Yacht shipyard and raised out of the
-        water in a dry dock for repairs. On Friday, November 11, 2016 the submarine
-        was scanned. Our goal was to create a baseline scan for future comparison,
-        to inform future repairs, to compare to her builders drawings, and to facilitate
-        interpretation and research.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjYzMDEvUURQRC0yMjUwPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5DeUFyazwvY3JlYXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT3RoZXIiIHNjaGVtZVVSST0iIj5DeUFyazwvbmFtZUlkZW50aWZpZXI+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPlVTUyBQYW1wYW5pdG8gU3VibWFyaW5lPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPk9wZW4gSGVyaXRhZ2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMjA8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPjNEIERhdGE8L3Jlc291cmNlVHlwZT4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDIwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHNpemVzLz4KICA8Zm9ybWF0cy8+CiAgPHZlcnNpb24vPgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VVNTIFBhbXBhbml0byB3YXMgdG93ZWQgdG8gQmF5IFNoaXAgJmFtcDsgWWFjaHQgc2hpcHlhcmQgYW5kIHJhaXNlZCBvdXQgb2YgdGhlIHdhdGVyIGluIGEgZHJ5IGRvY2sgZm9yIHJlcGFpcnMuIE9uIEZyaWRheSwgTm92ZW1iZXIgMTEsIDIwMTYgdGhlIHN1Ym1hcmluZSB3YXMgc2Nhbm5lZC4gIE91ciBnb2FsIHdhcyB0byBjcmVhdGUgYSBiYXNlbGluZSBzY2FuIGZvciBmdXR1cmUgY29tcGFyaXNvbiwgdG8gaW5mb3JtIGZ1dHVyZSByZXBhaXJzLCB0byBjb21wYXJlIHRvIGhlciBidWlsZGVycyBkcmF3aW5ncywgYW5kIHRvIGZhY2lsaXRhdGUgaW50ZXJwcmV0YXRpb24gYW5kIHJlc2VhcmNoLjwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+","url":"https://openheritage3d.org/project.php?id=qdpd-2250","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-01-10T18:51:00.000Z","registered":"2020-01-16T00:17:10.000Z","published":"2020","updated":"2021-02-22T23:25:51.000Z"},"relationships":{"client":{"data":{"id":"cyark.oh","type":"clients"}},"provider":{"data":{"id":"cyark","type":"providers"}},"media":{"data":{"id":"10.26301/qdpd-2250","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cyark.oh","type":"clients","attributes":{"name":"OpenHeritage3D","symbol":"CYARK.OH","year":2019,"alternateName":"Open
-        Heritage 3D","description":"As 3D and reality capture strategies for heritage
-        documentation become more widespread and available, there has emerged a growing
-        need to assist with guiding and facilitating accessibility to data, while
-        maintaining scientific rigor, cultural and ethical sensitivity, discoverability,
-        and archival standards. In response to these areas of need, The Open Heritage
-        3D Alliance (OHA) has developed as an advisory group governing the Open Heritage
-        3D initiative. This collaborative advisory group are among some of the earliest
-        adopters of 3D heritage documentation technologies, and offer first-hand guidance
-        for best practices in data management, sharing, and dissemination approaches
-        for 3D cultural heritage projects.\n\nThe founding members of the OHA, consist
-        of experts and organizational leaders from CyArk, Historic Environment Scotland,
-        and the University of South Florida Libraries, who together have significant
-        repositories of legacy and on-going 3D research and documentation projects.
-        These groups offer unique insight into not only the best practices for 3D
-        data capture and sharing, but also have come together around concerns dealing
-        with standards, formats, approach, ethics, and archive commitment. Together,
-        the OHA has begun the journey to provide open access to cultural heritage
-        3D data, while maintaining integrity, security, and standards relating to
-        discoverable dissemination. Together, the OHA will work to provide democratized
-        access to primary heritage 3D data submitted from donors and organizations,
-        and will help to facilitate an operation platform, archive, and organization
-        of resources into the future","language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":"https://openheritage3d.org/","created":"2019-03-26T16:21:19.000Z","updated":"2020-04-27T15:30:01.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"cyark","type":"providers"}},"prefixes":{"data":[{"id":"10.26301","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:55:05 GMT
+  recorded_at: Wed, 09 Jun 2021 10:08:08 GMT
 recorded_with: VCR 3.0.3

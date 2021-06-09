@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:02:10 GMT
+      - Wed, 09 Jun 2021 12:59:25 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82ccc48a00004e4a2a09b000000001
+      - 0a92743f5e00004dbe0612f000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=BaAFXEWxIHE9jXpVxul2pRobD7POSSjeDzj3ZJPAwQPQWv4WoEzf5MUGpMuRujHzNiJptnhfVi0WQGwugIK%2FgV9kxEMLP4AkYeda63cqmKG0Ws9rb%2BmubETqbIBsMC76"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=NQJz%2FkkjwtYmUrPWK331frPWI1RkRazIhLFCSaSws%2ByVMkDvf2mcEfjq8T1pnEjq%2B0W9a6YfDMsnJH1F6lEEub7pB%2B8s9LTdOOfT55XLivKCGbNkxeoNq2QP7ovLbkRB"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b17d80d8434e4a-FRA
+      - 65ca89789d974dbe-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.23725",
-            "RA": "DataCite"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9I2NzI1MlHYhwkCNI1CWxJNE5syRVCShYyxULAO9TK5o3AAAA
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:02:02 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:24 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.23725/8na3-9s47?include=media,client
@@ -60,16 +59,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:02:14 GMT
+      - Wed, 09 Jun 2021 12:59:26 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -82,29 +83,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - 8b40fe3c-c781-4466-98dc-346f84ad646f
       Etag:
-      - W/"4ec38fbe7656a7d9d33952a8ac458a13"
+      - W/"d47e3e90eb7b4a4229896c1ca2cd35b8"
       X-Runtime:
-      - '1.627372'
+      - '1.573865'
       X-Rack-Cors:
       - miss; no-origin
-      X-Request-Id:
-      - 5a777591-4485-4ede-a8e5-8e1d9af610bd
       X-Powered-By:
       - Phusion Passenger(R) 6.0.8
       Server:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.23725/8na3-9s47","type":"dois","attributes":{"doi":"10.23725/8na3-9s47","prefix":"10.23725","suffix":"8na3-9s47","identifiers":[{"identifier":"ark:/99999/fk41CrU4eszeLUDe","identifierType":"minid"},{"identifier":"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7","identifierType":"dataguid"},{"identifier":"3b33f6b9338fccab0901b7d317577ea3","identifierType":"md5"}],"alternateIdentifiers":[{"alternateIdentifierType":"minid","alternateIdentifier":"ark:/99999/fk41CrU4eszeLUDe"},{"alternateIdentifierType":"dataguid","alternateIdentifier":"dg.4503/c3d66dc9-58da-411c-83c4-dd656aa3c4b7"},{"alternateIdentifierType":"md5","alternateIdentifier":"3b33f6b9338fccab0901b7d317577ea3"}],"creators":[{"name":"TOPMed","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"NWD165827.recab.cram"}],"publisher":"TOPMed","container":{},"publicationYear":2017,"subjects":[{"subject":"topmed"},{"subject":"whole
-        genome sequencing"}],"contributors":[],"dates":[{"date":"2017-11-30","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"CRAM
-        file","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[{"description":"TOPMed:
-        NWD165827 <br>HapMap_1000G: NA19238 <br>Seq Ctr: UW <br>File:  CRAM file","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[{"funderName":"National
-        Heart, Lung, and Blood Institute (NHLBI)","funderIdentifier":"https://doi.org/10.13039/100000050","funderIdentifierType":"Crossref
-        Funder ID"}],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMjM3MjUvOE5BMy05UzQ3PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+VE9QTWVkPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TldEMTY1ODI3LnJlY2FiLmNyYW08L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+VE9QTWVkPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE3PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5DUkFNIGZpbGU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWluaWQiPmFyazovOTk5OTkvZms0MUNyVTRlc3plTFVEZTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJkYXRhZ3VpZCI+ZGcuNDUwMy9jM2Q2NmRjOS01OGRhLTQxMWMtODNjNC1kZDY1NmFhM2M0Yjc8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0ibWQ1Ij4zYjMzZjZiOTMzOGZjY2FiMDkwMWI3ZDMxNzU3N2VhMzwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0PnRvcG1lZDwvc3ViamVjdD4KICAgIDxzdWJqZWN0Pndob2xlIGdlbm9tZSBzZXF1ZW5jaW5nPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGZ1bmRpbmdSZWZlcmVuY2VzPgogICAgPGZ1bmRpbmdSZWZlcmVuY2U+CiAgICAgIDxmdW5kZXJOYW1lPk5hdGlvbmFsIEhlYXJ0LCBMdW5nLCBhbmQgQmxvb2QgSW5zdGl0dXRlIChOSExCSSk8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHBzOi8vZG9pLm9yZy8xMC4xMzAzOS8xMDAwMDAwNTA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgPC9mdW5kaW5nUmVmZXJlbmNlcz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iSXNzdWVkIj4yMDE3LTExLTMwPC9kYXRlPgogIDwvZGF0ZXM+CiAgPHZlcnNpb24vPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cy8+CiAgPC9yaWdodHNMaXN0PgogIDxkZXNjcmlwdGlvbnM+CiAgICA8ZGVzY3JpcHRpb24gZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+VE9QTWVkOiBOV0QxNjU4MjcgJmx0O2JyJmd0O0hhcE1hcF8xMDAwRzogTkExOTIzOCAmbHQ7YnImZ3Q7U2VxIEN0cjogVVcgJmx0O2JyJmd0O0ZpbGU6ICBDUkFNIGZpbGU8L2Rlc2NyaXB0aW9uPgogIDwvZGVzY3JpcHRpb25zPgo8L3Jlc291cmNlPgo=","url":"https://ors.datacite.org/doi:/10.23725/8na3-9s47","contentUrl":null,"metadataVersion":2,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2018-08-16T15:01:46.000Z","registered":"2018-08-16T15:04:36.000Z","published":"2017","updated":"2020-09-20T06:25:56.000Z"},"relationships":{"client":{"data":{"id":"datacite.topmed","type":"clients"}},"provider":{"data":{"id":"datacite","type":"providers"}},"media":{"data":{"id":"10.23725/8na3-9s47","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"datacite.topmed","type":"clients","attributes":{"name":"TOPMed","symbol":"DATACITE.TOPMED","year":2018,"alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":null,"url":null,"created":"2018-08-06T12:46:43.000Z","updated":"2018-08-31T00:25:27.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"datacite","type":"providers"}},"prefixes":{"data":[{"id":"10.23725","type":"prefixes"}]}}},{"id":"0000-0000-0001-e5hc","type":"media","attributes":{"version":0,"url":"s3://cgp-commons-public/topmed_open_access/197bc047-e917-55ed-852d-d563cdbc50e4/NWD165827.recab.cram","mediaType":"text/plain
-        ","created":"2018-08-31T15:42:23.000Z","updated":"2018-08-31T15:42:23.000Z"},"relationships":{"dataciteDoi":{"data":{"id":"10.23725/8NA3-9S47","type":"datacite_dois"}}}},{"id":"0000-0000-0001-e5hd","type":"media","attributes":{"version":1,"url":"gs://topmed-irc-share/public/NWD165827.recab.cram","mediaType":"text/plain
-        ","created":"2018-08-31T15:42:23.000Z","updated":"2018-08-31T15:42:23.000Z"},"relationships":{"dataciteDoi":{"data":{"id":"10.23725/8NA3-9S47","type":"datacite_dois"}}}},{"id":"0000-0000-0001-e5he","type":"media","attributes":{"version":1,"url":"dos://dos.commons.ucsc-cgp.org/c3d66dc9-58da-411c-83c4-dd656aa3c4b7?version=2018-05-26T133719.892835Z","mediaType":"text/plain
-        ","created":"2018-08-31T15:42:23.000Z","updated":"2018-08-31T15:42:23.000Z"},"relationships":{"dataciteDoi":{"data":{"id":"10.23725/8NA3-9S47","type":"datacite_dois"}}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:02:05 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:26 GMT
 recorded_with: VCR 3.0.3

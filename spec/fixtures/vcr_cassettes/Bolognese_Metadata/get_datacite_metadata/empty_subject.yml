@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:48 GMT
+      - Wed, 09 Jun 2021 12:59:47 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82cc6e8a0000dfff7c009000000001
+      - 0a9274956700004e6e079ea000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=9DJuC3Q4rsM3ieSQgrq6YGAIzCFWmIbxFrUOrB2s9yqJLoS36BK24w33HAB3E4d%2BX8a0x9XYfYpvz8SqkeZvSqXdgdf0zPY1tJ8g1kkKZJq2H6JW9hTmUsj9Wdo1Lr3p"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=YM%2Bdm0jd1%2FsojlVpajDyUJ2KIitryJJBDIJWzwHjZMeptGBk62Qml5PGXhStB6BMU9lSSaCrjvANGUf33aobWIfMqPkRZsRXxkpibNjd%2FAehMjFxXudxgyK05H%2FL81JQ"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b17cf74a84dfff-FRA
+      - 65ca8a0239c24e6e-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.18169",
-            "RA": "DataCite"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9QwtDM0slHYhwkCNI1CWxJNE5syRVCShYyxULACO2ens3AAAA
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:40 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:46 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.18169/papdeottx00502?include=media,client
@@ -60,16 +59,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:49 GMT
+      - Wed, 09 Jun 2021 12:59:52 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -82,24 +83,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
-      X-Request-Id:
-      - 2c4fa41a-3617-4ca9-a50b-29829a2ea53c
+      Content-Encoding:
+      - gzip
       Etag:
-      - W/"24fdb2473ad03b344a6c8fdf4d90857d"
+      - W/"05fbefcafd797a3581da3d4b0508ade5"
       X-Runtime:
-      - '0.526472'
+      - '1.155380'
       X-Rack-Cors:
       - miss; no-origin
+      X-Request-Id:
+      - ff8ce200-d2d1-4cfc-8417-d0f06abb02c3
       X-Powered-By:
       - Phusion Passenger(R) 6.0.8
       Server:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.18169/papdeottx00502","type":"dois","attributes":{"doi":"10.18169/papdeottx00502","prefix":"10.18169","suffix":"papdeottx00502","identifiers":[{"identifier":"\nhttp://www.priorartregister.com/resolve.php?disclosure=OTTX00502\n","identifierType":"URL"}],"alternateIdentifiers":[{"alternateIdentifierType":"URL","alternateIdentifier":"\nhttp://www.priorartregister.com/resolve.php?disclosure=OTTX00502\n"}],"creators":[{"name":"Anonymous","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Messung
-        der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen"}],"publisher":"Siemens
-        AG","container":{},"publicationYear":2017,"subjects":[],"contributors":[],"dates":[{"date":"07.04.2017","dateType":"Available"},{"date":"2017","dateType":"Issued"}],"language":"de","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Disclosure","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":["PDF"],"version":null,"rightsList":[],"descriptions":[{"description":"","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxyZXNvdXJjZSB4bWxucz0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTMgaHR0cDovL3NjaGVtYS5kYXRhY2l0ZS5vcmcvbWV0YS9rZXJuZWwtMy9tZXRhZGF0YS54c2QiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjE4MTY5L1BBUERFT1RUWDAwNTAyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+YW5vbnltb3VzPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+TWVzc3VuZyBkZXIgQmlsZHVuc2NoYWVyZmUgaW4gSC4yNjQtY29kaWVydGVuIEJpbGRlcm4gdW5kIFZpZGVvc2VxdWVuemVuPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPlNpZW1lbnMgQUc8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdC8+CiAgICA8c3ViamVjdC8+CiAgICA8c3ViamVjdC8+CiAgPC9zdWJqZWN0cz4KICA8ZGF0ZXM+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQXZhaWxhYmxlIj4wNy4wNC4yMDE3PC9kYXRlPgogIDwvZGF0ZXM+CiAgPGxhbmd1YWdlPmRlPC9sYW5ndWFnZT4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRpc2Nsb3N1cmU8L3Jlc291cmNlVHlwZT4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0iVVJMIj4KaHR0cDovL3d3dy5wcmlvcmFydHJlZ2lzdGVyLmNvbS9yZXNvbHZlLnBocD9kaXNjbG9zdXJlPU9UVFgwMDUwMgo8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8c2l6ZXM+CiAgICA8c2l6ZS8+CiAgPC9zaXplcz4KICA8Zm9ybWF0cz4KICAgIDxmb3JtYXQ+UERGPC9mb3JtYXQ+CiAgPC9mb3JtYXRzPgogIDx2ZXJzaW9uPjE8L3ZlcnNpb24+CiAgPGRlc2NyaXB0aW9ucz4KICAgIDxkZXNjcmlwdGlvbiBkZXNjcmlwdGlvblR5cGU9IkFic3RyYWN0Ij4KPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","url":"http://www.priorartregister.com/resolve.php?disclosure=OTTX00502","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-3","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2017-04-07T11:11:02.000Z","registered":"2017-04-07T11:11:49.000Z","published":"2017","updated":"2020-09-18T19:44:17.000Z"},"relationships":{"client":{"data":{"id":"tib.pap","type":"clients"}},"provider":{"data":{"id":"qjzc","type":"providers"}},"media":{"data":{"id":"10.18169/papdeottx00502","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"tib.pap","type":"clients","attributes":{"name":"Prior
-        Art Publishing GmbH","symbol":"TIB.PAP","year":2015,"alternateName":null,"description":null,"language":[],"clientType":"repository","domains":"www.priorartregister.com","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2015-11-02T13:43:59.000Z","updated":"2021-01-21T09:00:15.000Z","isActive":false},"relationships":{"provider":{"data":{"id":"qjzc","type":"providers"}},"consortium":{"data":{"id":"txvt","type":"providers"}},"prefixes":{"data":[{"id":"10.18169","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:40 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:52 GMT
 recorded_with: VCR 3.0.3

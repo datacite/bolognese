@@ -8,16 +8,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 11:54:52 GMT
+      - Wed, 09 Jun 2021 09:47:41 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,12 +32,14 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
       X-Request-Id:
-      - d7714469-24f0-4e94-a13c-59d945335873
+      - 121ee1a9-6735-4d88-9e80-407a8937ce23
       Etag:
-      - W/"60190f9846dc8ce9ceecb248c8220955"
+      - W/"c3be1ab325f10906c67c0152d5b2b7b1"
       X-Runtime:
-      - '0.623348'
+      - '0.197537'
       X-Rack-Cors:
       - miss; no-origin
       X-Powered-By:
@@ -44,22 +48,8 @@ http_interactions:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5281/zenodo.2598836","type":"dois","attributes":{"doi":"10.5281/zenodo.2598836","prefix":"10.5281","suffix":"zenodo.2598836","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Lab
-        For Exosphere And Near Space Environment Studies","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"lenses-lab/LYAO_RT-2018JA026426:
-        Original Release"}],"publisher":"Zenodo","container":{},"publicationYear":2019,"subjects":[],"contributors":[],"dates":[{"date":"2019-03-20","dateType":"Issued"}],"language":null,"types":{"ris":"COMP","bibtex":"misc","citeproc":"article","schemaOrg":"SoftwareSourceCode","resourceTypeGeneral":"Software"},"relatedIdentifiers":[{"relationType":"IsSupplementTo","relatedIdentifier":"https://github.com/lenses-lab/LYAO_RT-2018JA026426/tree/1.0.0","relatedIdentifierType":"URL"},{"relationType":"IsVersionOf","relatedIdentifier":"10.5281/zenodo.2598835","relatedIdentifierType":"DOI"}],"sizes":[],"formats":[],"version":"1.0.0","rightsList":[{"rights":"Open
-        Access","rightsUri":"info:eu-repo/semantics/openAccess"}],"descriptions":[{"description":"Original
-        executables used by Gallant et al. for JGR publication 2018JA026426.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL1pFTk9ETy4yNTk4ODM2PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWU+TGFiIGZvciBFeG9zcGhlcmUgYW5kIE5lYXIgU3BhY2UgRW52aXJvbm1lbnQgU3R1ZGllczwvY3JlYXRvck5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPmxlbnNlcy1sYWIvTFlBT19SVC0yMDE4SkEwMjY0MjY6IE9yaWdpbmFsIFJlbGVhc2U8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+WmVub2RvPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE5PC9wdWJsaWNhdGlvblllYXI+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxOS0wMy0yMDwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0idXJsIj5odHRwczovL3plbm9kby5vcmcvcmVjb3JkLzI1OTg4MzY8L2FsdGVybmF0ZUlkZW50aWZpZXI+CiAgPC9hbHRlcm5hdGVJZGVudGlmaWVycz4KICA8cmVsYXRlZElkZW50aWZpZXJzPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iVVJMIiByZWxhdGlvblR5cGU9IklzU3VwcGxlbWVudFRvIj5odHRwczovL2dpdGh1Yi5jb20vbGVuc2VzLWxhYi9MWUFPX1JULTIwMThKQTAyNjQyNi90cmVlLzEuMC4wPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1ZlcnNpb25PZiI+MTAuNTI4MS96ZW5vZG8uMjU5ODgzNTwvcmVsYXRlZElkZW50aWZpZXI+CiAgPC9yZWxhdGVkSWRlbnRpZmllcnM+CiAgPHZlcnNpb24+MS4wLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaW5mbzpldS1yZXBvL3NlbWFudGljcy9vcGVuQWNjZXNzIj5PcGVuIEFjY2VzczwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0O09yaWdpbmFsIGV4ZWN1dGFibGVzIHVzZWQgYnkgR2FsbGFudCBldCBhbC4gZm9yIEpHUiBwdWJsaWNhdGlvbiAyMDE4SkEwMjY0MjYuJmx0Oy9wJmd0OzwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+","url":"https://zenodo.org/record/2598836","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":2,"viewsOverTime":[{"yearMonth":"2020-06","total":2}],"downloadCount":0,"downloadsOverTime":[{"yearMonth":"2020-06","total":0}],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2019-03-20T02:32:02.000Z","registered":"2019-03-20T02:32:02.000Z","published":"2019","updated":"2020-07-29T06:46:44.000Z"},"relationships":{"client":{"data":{"id":"cern.zenodo","type":"clients"}},"provider":{"data":{"id":"cern","type":"providers"}},"media":{"data":{"id":"10.5281/zenodo.2598836","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cern.zenodo","type":"clients","attributes":{"name":"Zenodo","symbol":"CERN.ZENODO","year":2013,"alternateName":"Research.
-        Shared","description":"ZENODO builds and operates a simple and innovative
-        service that enables researchers, scientists, EU projects and institutions
-        to share and showcase multidisciplinary research results (data and publications)
-        that are not part of the existing institutional or subject-based repositories
-        of the research communities.\r\nZENODO enables researchers, scientists, EU
-        projects and institutions to:\r\neasily share the long tail of small research
-        results in a wide variety of formats including text, spreadsheets, audio,
-        video, and images across all fields of science.\r\ndisplay their research
-        results and get credited by making the research results citable and integrate
-        them into existing reporting lines to funding agencies like the European Commission.\r\neasily
-        access and reuse shared research results.","language":["en"],"clientType":"repository","domains":"openaire.cern.ch,zenodo.org","re3data":"https://doi.org/10.17616/R3QP53","opendoar":null,"issn":{},"url":"https://zenodo.org/","created":"2013-01-28T12:07:48.000Z","updated":"2020-06-26T12:22:29.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"cern","type":"providers"}},"prefixes":{"data":[{"id":"10.5281","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:54:43 GMT
+  recorded_at: Wed, 09 Jun 2021 09:47:41 GMT
 recorded_with: VCR 3.0.3

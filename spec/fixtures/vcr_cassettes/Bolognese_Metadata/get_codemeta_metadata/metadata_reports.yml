@@ -8,9 +8,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - application/json;charset=UTF-8
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
@@ -19,7 +21,7 @@ http_interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '1624'
+      - '616'
       Cache-Control:
       - max-age=300
       Content-Security-Policy:
@@ -27,7 +29,7 @@ http_interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Etag:
-      - '"0f039fab9129e9e969a55b392caaf73bb1eb1d88977b58a4ea33f2fa344acfc5"'
+      - W/"0b8c49f85cdb6b39ae1fc66b3915819cde3a57973755df018d06602f9927e0c6"
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
@@ -37,56 +39,37 @@ http_interactions:
       X-Xss-Protection:
       - 1; mode=block
       X-Github-Request-Id:
-      - 909A:7FA1:CB230D:DC10C0:60BCB7B8
+      - B908:7D01:BC12F:EAFFA:60C0888A
+      Content-Encoding:
+      - gzip
       Accept-Ranges:
       - bytes
       Date:
-      - Sun, 06 Jun 2021 11:55:36 GMT
+      - Wed, 09 Jun 2021 09:23:22 GMT
       Via:
       - 1.1 varnish
       X-Served-By:
-      - cache-hhn4069-HHN
+      - cache-hhn4066-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1622980537.718003,VS0,VE154
+      - S1623230603.804095,VS0,VE180
       Vary:
       - Authorization,Accept-Encoding
       Access-Control-Allow-Origin:
       - "*"
       X-Fastly-Request-Id:
-      - 0b609a9aca6b703a7035b3b8190025b67264e724
+      - d42ab28e195ef7996e9d298691a1d5bbf2314738
       Expires:
-      - Sun, 06 Jun 2021 12:00:36 GMT
+      - Wed, 09 Jun 2021 09:28:22 GMT
       Source-Age:
       - '0'
     body:
       encoding: ASCII-8BIT
-      string: "{\n\t\"@context\": \"https://raw.githubusercontent.com/codemeta/codemeta/master/codemeta.jsonld\",\n\t\"@type\":
-        \"SoftwareSourceCode\",\n\t\"@id\": \"https://doi.org/10.5438/wr0x-e194\",\n\t\"agents\":
-        [\n    {\n      \"@id\": \"https://orcid.org/0000-0003-0077-4738\",\n      \"@type\":
-        \"person\",\n      \"name\": \"Martin Fenner\",\n      \"mustBeCited\": true,\n
-        \     \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    },\n    {\n
-        \     \"@id\": \"https://orcid.org/0000-0001-5934-7525\",\n      \"@type\":
-        \"person\",\n      \"name\": \"Daniel S. Katz\",\n      \"mustBeCited\": true,\n
-        \     \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    },\n    {\n
-        \     \"@id\": \"https://orcid.org/0000-0002-3957-2474\",\n      \"@type\":
-        \"person\",\n      \"name\": \"Arfon Smith\",\n      \"mustBeCited\": true,\n
-        \     \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    },\n    {\n
-        \     \"@id\": \"https://orcid.org/0000-0001-8135-3489\",\n      \"@type\":
-        \"person\",\n      \"name\": \"Lars Holm Nielsen\",\n      \"mustBeCited\":
-        true,\n      \"isMaintainer\": true,\n      \"isRightsHolder\": true\n    }\n
-        \ ],\n\t\"identifier\": \"https://doi.org/10.5438/wr0x-e194\",\n\t\"codeRepository\":
-        \"https://github.com/datacite/metadata-reports\",\n\t\"controlledTem\": \"software\",\n\t\"dateCreated\":
-        \"2018-03-09\",\n\t\"datePublished\": \"2018-05-17\",\n\t\"dateModified\":
-        \"2018-05-17\",\n\t\"description\": \"Analysis of DataCite DOIs registered
-        for software, broken down by repository and over time.\",\n\t\"isAutomatedBuild\":
-        true,\n\t\"licenseId\": \"MIT\",\n\t\"publisher\": \"DataCite\",\n\t\"tags\":
-        [\n\t\t\"doi\",\n\t\t\"software\",\n\t\t\"codemeta\"\n\t],\n\t\"title\": \"DOI
-        Registrations for Software\",\n\t\"programmingLanguage\": {\n\t\t\"name\":
-        \"R\",\n\t\t\"URL\": \"https://www.r-project.org/\"\n\t}\n}\n"
+      string: !binary |-
+        H4sIAAAAAAAAA81UyW7bMBA9219B6BzJliVBdk7NgqJG47aw01PRAy2OZaYSKQypKm6Qf++Qipcuh/pQIARIiHqzvRnOPA0HwZtCKwuPNrhkwdbaxlyORsi7qJR2265bA+gFlI0KXY8KLaAGy48fNTcW8HCPHoxWlQgunGm7a8DZXemN7TjCSrdYwA2J9rgUp16FlpHGchSPoyxNpqMOx48hxLPUC/OSYjAk/2XIaD35k7HfjWgspPBmxrRC2gkdeR6meTIlQ3utfWgNIAV8BBSv/f8FRysVewtKAR7hujX2Gm6kBefVYgsHSJoFl8rSJoU/sKUst9a805U4oB58vjiTThxmsyQN82ySnUHnlisJFVtF7D23P14Tn0mYzLI8nKR5egafK9xoxVY1PdLXRCYOp3GShUk6nZ1B5o6jYeS9Zh+oSAbU/6RE51fXT1JQP8mN9PA/9qBr8iU02kircXeq108LPyIEt7yggEduHLhLiKSC1Lu9CWVRVxWIe6idBfMyGzxK4nCDwHu6wWQcT0PXwLMD+qldV9JsT/EsjPMDvtDCkforDKZA2VhJNXBPSPFqZ6RhesNuKUyXZHb7cW4YQindUAPBNhrZPsILtkb9DRQTulNsvWN4SAXjSjD9HZBZWUPk3Ulz1VpdOy7XrayO9RsElSxAGZj7KBfzey/fvDDDvl/7gDxiedkPvgGR0NL9G/ySt74yLt/BcOCra6Wt+sb/OGdLzwe5Y248pdVp0hvUJfK6lqq846psadKS5pMzu3+hy97L5+XdadG7roswJPUHKKx/NuT+efg8/AmLwCo5WAYAAA==
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:55:28 GMT
+  recorded_at: Wed, 09 Jun 2021 09:23:22 GMT
 recorded_with: VCR 3.0.3

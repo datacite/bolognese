@@ -8,16 +8,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 11:57:43 GMT
+      - Wed, 09 Jun 2021 12:57:57 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,30 +32,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - 10ee4703-2c1b-447b-a34e-26fbb0c18420
       Etag:
-      - W/"599cebf98a1bb60d04bd0f3c4fdc12dd"
+      - W/"af5bce9bc72c40ea0f983098b62004be"
       X-Runtime:
-      - '1.340283'
+      - '1.515439'
       X-Rack-Cors:
       - miss; no-origin
-      X-Request-Id:
-      - 5be9ece8-5251-498a-99a1-d04cca3d4bad
       X-Powered-By:
       - Phusion Passenger(R) 6.0.8
       Server:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.7910/dvn/eqtqyo","type":"dois","attributes":{"doi":"10.7910/dvn/eqtqyo","prefix":"10.7910","suffix":"dvn/eqtqyo","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Enos,
-        Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck,
-        Lynn (UCLA)","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Replication
-        Data for: Increasing Inequality: The Effect of GOTV Mobilization on the Composition
-        of the Electorate"}],"publisher":"Harvard Dataverse","container":{},"publicationYear":2017,"subjects":[],"contributors":[],"dates":[{"date":"2017","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIKICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIgogIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL2RhdGFjaXRlLm9yZy9zY2hlbWEva2VybmVsLTQKICAgIGh0dHA6Ly9zY2hlbWEuZGF0YWNpdGUub3JnL21ldGEva2VybmVsLTQvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC43OTEwL0RWTi9FUVRRWU88L2lkZW50aWZpZXI+CiAgPGNyZWF0b3JzPgogICAgPGNyZWF0b3I+CiAgICAgIDxjcmVhdG9yTmFtZT5Fbm9zLCBSeWFuIChIYXJ2YXJkIFVuaXZlcnNpdHkpOyBGb3dsZXIsIEFudGhvbnkgKFVuaXZlcnNpdHkgb2YgQ2hpY2Fnbyk7IFZhdnJlY2ssIEx5bm4gKFVDTEEpPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+UmVwbGljYXRpb24gRGF0YSBmb3I6IEluY3JlYXNpbmcgSW5lcXVhbGl0eTogVGhlIEVmZmVjdCBvZiBHT1RWIE1vYmlsaXphdGlvbiBvbiB0aGUgQ29tcG9zaXRpb24gb2YgdGhlIEVsZWN0b3JhdGU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+SGFydmFyZCBEYXRhdmVyc2U8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTc8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiLz4KPC9yZXNvdXJjZT4K","url":"https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/EQTQYO","contentUrl":null,"metadataVersion":0,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2017-04-12T19:46:36.000Z","registered":"2017-04-12T19:46:37.000Z","published":"2017","updated":"2020-09-18T19:48:46.000Z"},"relationships":{"client":{"data":{"id":"gdcc.harvard-dv","type":"clients"}},"provider":{"data":{"id":"harvardu","type":"providers"}},"media":{"data":{"id":"10.7910/dvn/eqtqyo","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"gdcc.harvard-dv","type":"clients","attributes":{"name":"Harvard
-        Dataverse","symbol":"GDCC.HARVARD-DV","year":2018,"alternateName":null,"description":"The
-        Harvard Dataverse is open to all scientific data from all disciplines worldwide.
-        It includes the world''s largest collection of social science research data.
-        It is hosting data for projects, archives, researchers, journals, organizations,
-        and institutions.","language":null,"clientType":"repository","domains":"*","re3data":"https://doi.org/10.17616/R3C880","opendoar":null,"issn":{},"url":"https://dataverse.harvard.edu/","created":"2018-05-31T22:08:15.000Z","updated":"2020-09-17T07:18:56.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"harvardu","type":"providers"}},"consortium":{"data":{"id":"gdccco","type":"providers"}},"prefixes":{"data":[{"id":"10.7910","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:57:34 GMT
+  recorded_at: Wed, 09 Jun 2021 12:57:57 GMT
 recorded_with: VCR 3.0.3

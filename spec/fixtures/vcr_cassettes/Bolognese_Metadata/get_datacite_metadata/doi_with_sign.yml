@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:12 GMT
+      - Wed, 09 Jun 2021 13:00:08 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82cbdefd0000dfbf132a8000000001
+      - 0a9274e97700004a92eb13e000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=wwo%2BXJ%2BcpC9jhzi4ABYapvlIxoy3uI7HBLvx6rrzBXSFVO5mMe19m0UVk0te%2FYUYTLCWW5h14%2B8Sho8o4XjgN%2FJjr77kCe427q8Xc3EEwKi45d1CSr9sAQ%2Few0UuqUn0"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=QSESahc1YMj0UIeZdDSQ8ZE0mQ47HGc%2F%2B31SHdwmZ51SjHlqUnNYlIRnuZyrO2pz6IuEAQyVqkx%2Bh22VNdl2%2FCkc%2FYXXgBi70PM1O3ifaJ3HvfbZulI%2BQPqOQNMfQWoA"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b17c119e92dfbf-FRA
+      - 65ca8a88bbc74a92-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.5067",
-            "RA": "DataCite"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9UwMzcyUdiGiQI0jQJbEk0TmzJFUJKFjLFQsAiWdG1zYAAAA=
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:03 GMT
+  recorded_at: Wed, 09 Jun 2021 13:00:08 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.5067/terra+aqua/ceres/cldtyphist_l3.004?include=media,client
@@ -60,16 +59,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:13 GMT
+      - Wed, 09 Jun 2021 13:00:10 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -82,25 +83,24 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
+      X-Request-Id:
+      - 3e68fd69-59b7-49cc-9229-d9a0b0882029
       Etag:
-      - W/"d3c2febfc3465253b5314a7571072bfb"
+      - W/"55dc2eac2d84d265130198361c5195d8"
       X-Runtime:
-      - '1.495817'
+      - '1.371018'
       X-Rack-Cors:
       - miss; no-origin
-      X-Request-Id:
-      - 690a78a9-ac99-420f-8cd3-e5f4fbf0fdc1
       X-Powered-By:
       - Phusion Passenger(R) 6.0.8
       Server:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"dois","attributes":{"doi":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","prefix":"10.5067","suffix":"terra+aqua/ceres/cldtyphist_l3.004","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Wong,  Takmeng","givenName":"
-        Takmeng","familyName":"Wong","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"CERES
-        Level 3 Cloud Type Historgram Terra+Aqua HDF file - Edition4"}],"publisher":"NASA
-        Langley Atmospheric Science Data Center DAAC","container":{},"publicationYear":2016,"subjects":[],"contributors":[],"dates":[{"date":"2016","dateType":"Issued"}],"language":null,"types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCYjMTA7ICBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkJiMxMDsiPgogIDxpZGVudGlmaWVyIGlkZW50aWZpZXJUeXBlPSJET0kiPjEwLjUwNjcvVEVSUkErQVFVQS9DRVJFUy9DTERUWVBISVNUX0wzLjAwNDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPldvbmcsIFRha21lbmc8L2NyZWF0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPiBUYWttZW5nPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPldvbmc8L2ZhbWlseU5hbWU+CiAgICA8L2NyZWF0b3I+CiAgPC9jcmVhdG9ycz4KICA8dGl0bGVzPgogICAgPHRpdGxlPkNFUkVTIExldmVsIDMgQ2xvdWQgVHlwZSBIaXN0b3JncmFtIFRlcnJhK0FxdWEgSERGIGZpbGUgLSBFZGl0aW9uNDwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5OQVNBIExhbmdsZXkgQXRtb3NwaGVyaWMgU2NpZW5jZSBEYXRhIENlbnRlciBEQUFDPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE2PC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5EYXRhc2V0PC9yZXNvdXJjZVR5cGU+CjwvcmVzb3VyY2U+","url":"https://asdc.larc.nasa.gov/project/CERES/CER_CldTypHist_GEO-MODIS_Edition4A","contentUrl":null,"metadataVersion":9,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2017-01-04T22:48:06.000Z","registered":"2017-01-04T22:48:07.000Z","published":"2016","updated":"2020-11-18T16:08:23.000Z"},"relationships":{"client":{"data":{"id":"esdis.eosdis","type":"clients"}},"provider":{"data":{"id":"esdis","type":"providers"}},"media":{"data":{"id":"10.5067/terra+aqua/ceres/cldtyphist_l3.004","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"esdis.eosdis","type":"clients","attributes":{"name":"Earth
-        Observing System Data and Information System","symbol":"ESDIS.EOSDIS","year":2018,"alternateName":null,"description":null,"language":["en"],"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2018-06-20T14:37:48.000Z","updated":"2020-06-02T17:04:01.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"esdis","type":"providers"}},"prefixes":{"data":[{"id":"10.5067","type":"prefixes"},{"id":"10.7917","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:05 GMT
+  recorded_at: Wed, 09 Jun 2021 13:00:10 GMT
 recorded_with: VCR 3.0.3

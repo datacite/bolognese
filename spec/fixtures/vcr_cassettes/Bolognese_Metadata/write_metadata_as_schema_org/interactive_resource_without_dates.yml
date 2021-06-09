@@ -8,16 +8,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 11:59:52 GMT
+      - Wed, 09 Jun 2021 12:59:05 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,12 +32,14 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
       X-Request-Id:
-      - 5467bb0c-a053-42ca-9631-38cd82c9a2da
+      - 14425ce5-5da5-4fd1-a6d7-5782f0c2d0c4
       Etag:
-      - W/"276c66b39736166eddc84737acef4ef8"
+      - W/"68d8776dd1d4118dbfe1f064bdb1c927"
       X-Runtime:
-      - '0.971256'
+      - '0.873233'
       X-Rack-Cors:
       - miss; no-origin
       X-Powered-By:
@@ -44,11 +48,8 @@ http_interactions:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.34747/g6yb-3412","type":"dois","attributes":{"doi":"10.34747/g6yb-3412","prefix":"10.34747","suffix":"g6yb-3412","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Clark,
-        Dav","nameType":"Personal","givenName":"Dav","familyName":"Clark","affiliation":[],"nameIdentifiers":[{"schemeUri":"https://orcid.org","nameIdentifier":"https://orcid.org/0000-0002-3982-4416","nameIdentifierScheme":"ORCID"}]}],"titles":[{"title":"Exploring
-        the \"Many analysts, one dataset\" project from COS"}],"publisher":"Gigantum,
-        Inc.","container":{},"publicationYear":2019,"subjects":[],"contributors":[],"dates":[{"date":"2019","dateType":"Issued"}],"language":null,"types":{"ris":"GEN","bibtex":"misc","citeproc":"article","schemaOrg":"CreativeWork","resourceType":"Gigantum
-        Project","resourceTypeGeneral":"InteractiveResource"},"relatedIdentifiers":[],"sizes":[],"formats":[],"version":null,"rightsList":[],"descriptions":[],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuMzQ3NDcvRzZZQi0zNDEyPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5DbGFyaywgRGF2PC9jcmVhdG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5EYXY8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+Q2xhcms8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMi0zOTgyLTQ0MTY8L25hbWVJZGVudGlmaWVyPgogICAgPC9jcmVhdG9yPgogIDwvY3JlYXRvcnM+CiAgPHRpdGxlcz4KICAgIDx0aXRsZT5FeHBsb3JpbmcgdGhlICJNYW55IGFuYWx5c3RzLCBvbmUgZGF0YXNldCIgcHJvamVjdCBmcm9tIENPUzwvdGl0bGU+CiAgPC90aXRsZXM+CiAgPHB1Ymxpc2hlcj5HaWdhbnR1bSwgSW5jLjwvcHVibGlzaGVyPgogIDxwdWJsaWNhdGlvblllYXI+MjAxOTwvcHVibGljYXRpb25ZZWFyPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iSW50ZXJhY3RpdmVSZXNvdXJjZSI+R2lnYW50dW0gUHJvamVjdDwvcmVzb3VyY2VUeXBlPgogIDxzaXplcy8+CiAgPGZvcm1hdHMvPgogIDx2ZXJzaW9uLz4KPC9yZXNvdXJjZT4=","url":"https://gigantum.com/tinydav/football-skin-tone","contentUrl":null,"metadataVersion":3,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"fabricaForm","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2020-03-20T19:48:26.000Z","registered":"2020-03-20T19:49:25.000Z","published":"2019","updated":"2020-07-14T10:46:14.000Z"},"relationships":{"client":{"data":{"id":"gigantum.gigantum","type":"clients"}},"provider":{"data":{"id":"gigantum","type":"providers"}},"media":{"data":{"id":"10.34747/g6yb-3412","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"gigantum.gigantum","type":"clients","attributes":{"name":"Gigantum","symbol":"GIGANTUM.GIGANTUM","year":2019,"alternateName":null,"description":null,"language":null,"clientType":"repository","domains":"*","re3data":null,"opendoar":null,"issn":{},"url":null,"created":"2019-07-22T14:18:24.000Z","updated":"2020-03-20T19:37:32.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"gigantum","type":"providers"}},"prefixes":{"data":[{"id":"10.34747","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:59:44 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:05 GMT
 recorded_with: VCR 3.0.3

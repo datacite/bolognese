@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:16 GMT
+      - Wed, 09 Jun 2021 12:59:09 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82cbf14e0000d6fd8dbaa000000001
+      - 0a9274014a00004db23d162000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=CCSreeMRhFXZCbHhrbqnudcTYQdnDAhNRRyEu9X12bOMk2mftiRbPXRIvQG9VA2qvFeGSBS725RLQDIL%2BTMbUwuvWjJNSiRzSuWYxhB%2Fq3yAplA3lD4EYPo7k6i8%2BmRZ"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=z8f%2FUDrXApX8nqOkrnaNJ86n%2Bj8WAeulcavkRH4KE1dRXethJcS5nNRyqAV4vKPuuHn0ezsVp6%2BKYp5At95hExhOIYYHuL9x%2F3%2FFsvQ4kVE79ijNXy8R5NnDmZ%2BDsStQ"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b17c2eef85d6fd-FRA
+      - 65ca891549bb4db2-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.4121",
-            "RA": "DataCite"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9E0MjQyUdiGiQI0jQJbEk0TmzJFUJKFjLFQsApBuzojYAAAA=
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:08 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:08 GMT
 - request:
     method: get
     uri: https://api.datacite.org/dois/10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f?include=media,client
@@ -60,16 +59,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:01:18 GMT
+      - Wed, 09 Jun 2021 12:59:14 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -82,12 +83,14 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
       X-Request-Id:
-      - bc5d4a5f-b322-41f7-a02b-69aa36e58996
+      - e2ac62e8-7b70-4267-abf5-f56c35fa5aae
       Etag:
-      - W/"b9e99ce0e86882f1bb6015c00b6d385f"
+      - W/"41c18c322134c096b8d7a2d7f83527a4"
       X-Runtime:
-      - '1.470315'
+      - '1.335387'
       X-Rack-Cors:
       - miss; no-origin
       X-Powered-By:
@@ -96,31 +99,8 @@ http_interactions:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f","type":"dois","attributes":{"doi":"10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f","prefix":"10.4121","suffix":"uuid:3926db30-f712-4394-aebc-75976070e91f","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"van
-        Dongen, Boudewijn","nameType":"Personal","givenName":"Boudewijn","familyName":"van
-        Dongen","nameIdentifiers":[{"nameIdentifier":"0000-0002-3978-6464","nameIdentifierScheme":"https://orcid.org/"}],"affiliation":[]}],"titles":[{"title":"BPI
-        Challenge 2012"}],"publisher":"Eindhoven University of Technology","container":{},"publicationYear":2012,"subjects":[{"subject":"Information
-        Systems","subjectScheme":"Australian and New Zealand Standard Research Classification
-        (ANZSRC), 2008"},{"subject":"FOS: Computer and information sciences","schemeUri":"http://www.oecd.org/science/inno/38235147.pdf","subjectScheme":"Fields
-        of Science and Technology (FOS)"},{"subject":"FOS: Computer and information
-        sciences","subjectScheme":"Fields of Science and Technology (FOS)"},{"subject":"Business
-        and Management","subjectScheme":"Australian and New Zealand Standard Research
-        Classification (ANZSRC), 2008"},{"subject":"FOS: Economics and business","schemeUri":"http://www.oecd.org/science/inno/38235147.pdf","subjectScheme":"Fields
-        of Science and Technology (FOS)"},{"subject":"FOS: Economics and business","subjectScheme":"Fields
-        of Science and Technology (FOS)"},{"subject":"000 Computer science, knowledge
-        &amp; systems"},{"subject":"Business Process Intelligence (BPI)"},{"subject":"IEEE
-        Task Force on Process Mining"},{"subject":"real life event logs"},{"subject":"Time:
-        2011-10-01T00:38:44.546+02:00 to 2012-03-14T16:04:54.681+01:00"}],"contributors":[{"name":"Eindhoven
-        University Of Technology","nameType":"Organizational","affiliation":[],"contributorType":"Other","nameIdentifiers":[]}],"dates":[{"date":"2012-04-23","dateType":"Issued"}],"language":"nl","types":{"ris":"DATA","bibtex":"misc","citeproc":"dataset","schemaOrg":"Dataset","resourceType":"Dataset","resourceTypeGeneral":"Dataset"},"relatedIdentifiers":[{"relationType":"References","relatedIdentifier":"http://www.win.tue.nl/bpi/2012/challenge","relatedIdentifierType":"URL"},{"relationType":"References","relatedIdentifier":"https://doi.org/10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b","relatedIdentifierType":"URL"},{"relationType":"References","relatedIdentifier":"https://doi.org/10.4121/uuid:7f787965-da13-4bb8-a3fd-242f08aef9c4","relatedIdentifierType":"URL"}],"sizes":[],"formats":["media
-        types: application/x-gzip, text/xml"],"version":"1","rightsList":[{"rights":"4TU
-        General Terms of Use","rightsUri":"https://doi.org/10.4121/resource:terms_of_use"}],"descriptions":[{"description":"Event
-        log of a loan application process","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjMvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC40MTIxL1VVSUQ6MzkyNkRCMzAtRjcxMi00Mzk0LUFFQkMtNzU5NzYwNzBFOTFGPC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5Cb3VkZXdpam4gdmFuIERvbmdlbjwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+Qm91ZGV3aWpuPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPnZhbiBEb25nZW48L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iaHR0cHM6Ly9vcmNpZC5vcmcvIj4wMDAwLTAwMDItMzk3OC02NDY0PC9uYW1lSWRlbnRpZmllcj4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+QlBJIENoYWxsZW5nZSAyMDEyPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyPkVpbmRob3ZlbiBVbml2ZXJzaXR5IG9mIFRlY2hub2xvZ3k8L3B1Ymxpc2hlcj4KICA8cHVibGljYXRpb25ZZWFyPjIwMTI8L3B1YmxpY2F0aW9uWWVhcj4KICA8cmVzb3VyY2VUeXBlIHJlc291cmNlVHlwZUdlbmVyYWw9IkRhdGFzZXQiPkRhdGFzZXQ8L3Jlc291cmNlVHlwZT4KICA8c3ViamVjdHM+CiAgICA8c3ViamVjdCBzdWJqZWN0U2NoZW1lPSJBdXN0cmFsaWFuIGFuZCBOZXcgWmVhbGFuZCBTdGFuZGFyZCBSZXNlYXJjaCBDbGFzc2lmaWNhdGlvbiAoQU5aU1JDKSwgMjAwOCI+SW5mb3JtYXRpb24gU3lzdGVtczwvc3ViamVjdD4KICAgIDxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkF1c3RyYWxpYW4gYW5kIE5ldyBaZWFsYW5kIFN0YW5kYXJkIFJlc2VhcmNoIENsYXNzaWZpY2F0aW9uIChBTlpTUkMpLCAyMDA4Ij5CdXNpbmVzcyBhbmQgTWFuYWdlbWVudDwvc3ViamVjdD4KICAgIDxzdWJqZWN0PjAwMCBDb21wdXRlciBzY2llbmNlLCBrbm93bGVkZ2UgJmFtcDsgc3lzdGVtczwvc3ViamVjdD4KICAgIDxzdWJqZWN0PkJ1c2luZXNzIFByb2Nlc3MgSW50ZWxsaWdlbmNlIChCUEkpPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+SUVFRSBUYXNrIEZvcmNlIG9uIFByb2Nlc3MgTWluaW5nPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+cmVhbCBsaWZlIGV2ZW50IGxvZ3M8L3N1YmplY3Q+CiAgICA8c3ViamVjdD5UaW1lOiAyMDExLTEwLTAxVDAwOjM4OjQ0LjU0NiswMjowMCB0byAyMDEyLTAzLTE0VDE2OjA0OjU0LjY4MSswMTowMDwvc3ViamVjdD4KICA8L3N1YmplY3RzPgogIDxjb250cmlidXRvcnM+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJPdGhlciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5FaW5kaG92ZW4gVW5pdmVyc2l0eSBvZiBUZWNobm9sb2d5PC9jb250cmlidXRvck5hbWU+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMTItMDQtMjM8L2RhdGU+CiAgPC9kYXRlcz4KICA8bGFuZ3VhZ2U+bmw8L2xhbmd1YWdlPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyI+aHR0cDovL3d3dy53aW4udHVlLm5sL2JwaS8yMDEyL2NoYWxsZW5nZTwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyI+aHR0cHM6Ly9kb2kub3JnLzEwLjQxMjEvdXVpZDo1ZjMwNjdkZi1mMTBiLTQ1ZGEtYjk4Yi04NmFlNGM3YTMxMGI8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iVVJMIiByZWxhdGlvblR5cGU9IlJlZmVyZW5jZXMiPmh0dHBzOi8vZG9pLm9yZy8xMC40MTIxL3V1aWQ6N2Y3ODc5NjUtZGExMy00YmI4LWEzZmQtMjQyZjA4YWVmOWM0PC9yZWxhdGVkSWRlbnRpZmllcj4KICA8L3JlbGF0ZWRJZGVudGlmaWVycz4KICA8Zm9ybWF0cz4KICAgIDxmb3JtYXQ+bWVkaWEgdHlwZXM6IGFwcGxpY2F0aW9uL3gtZ3ppcCwgdGV4dC94bWw8L2Zvcm1hdD4KICA8L2Zvcm1hdHM+CiAgPHZlcnNpb24+MTwvdmVyc2lvbj4KICA8cmlnaHRzTGlzdD4KICAgIDxyaWdodHMgcmlnaHRzVVJJPSJodHRwczovL2RvaS5vcmcvMTAuNDEyMS9yZXNvdXJjZTp0ZXJtc19vZl91c2UiPjRUVSBHZW5lcmFsIFRlcm1zIG9mIFVzZTwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPkV2ZW50IGxvZyBvZiBhIGxvYW4gYXBwbGljYXRpb24gcHJvY2VzczwvZGVzY3JpcHRpb24+CiAgPC9kZXNjcmlwdGlvbnM+CjwvcmVzb3VyY2U+","url":"https://data.4tu.nl/articles/_/12689204/1","contentUrl":null,"metadataVersion":16,"schemaVersion":"http://datacite.org/schema/kernel-4","source":"mds","isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":2,"citationCount":3,"citationsOverTime":[{"year":"2020","total":2},{"year":"2021","total":1}],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2012-04-24T08:32:06.000Z","registered":"2012-04-24T08:32:02.000Z","published":"2012","updated":"2021-02-15T13:23:52.000Z"},"relationships":{"client":{"data":{"id":"delft.data4tu","type":"clients"}},"provider":{"data":{"id":"hnye","type":"providers"}},"media":{"data":{"id":"10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f","type":"media"}},"references":{"data":[{"id":"10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b","type":"dois"},{"id":"10.4121/uuid:7f787965-da13-4bb8-a3fd-242f08aef9c4","type":"dois"}]},"citations":{"data":[{"id":"10.1007/s10270-020-00789-3","type":"dois"},{"id":"10.4121/uuid:5f3067df-f10b-45da-b98b-86ae4c7a310b","type":"dois"},{"id":"10.4121/uuid:7f787965-da13-4bb8-a3fd-242f08aef9c4","type":"dois"}]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"delft.data4tu","type":"clients","attributes":{"name":"4TU.ResearchData","symbol":"DELFT.DATA4TU","year":2011,"alternateName":null,"description":"4TU.ResearchData,
-        previously known as 3TU.Datacentrum, is an archive for research data. It offers
-        the knowledge, experience and the tools to share and safely store scientific
-        research data in a standardized, secure and well-documented manner. 4TU.Centre
-        for Research Data provides the research community with:\r\nAdvice and support
-        on data management;\r\nA long-term archive for scientific research data;\r\nSupport
-        for current research projects;\r\nTools for reusing research data.","language":["nl","en"],"clientType":"repository","domains":"*,data.4tu.nl","re3data":"https://doi.org/10.17616/R3VG6N","opendoar":null,"issn":{},"url":"https://researchdata.4tu.nl/en/home/","created":"2011-09-30T09:18:16.000Z","updated":"2020-12-16T10:27:54.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"hnye","type":"providers"}},"consortium":{"data":{"id":"delftco","type":"providers"}},"prefixes":{"data":[{"id":"10.4121","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        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
     http_version:
-  recorded_at: Sun, 06 Jun 2021 12:01:09 GMT
+  recorded_at: Wed, 09 Jun 2021 12:59:14 GMT
 recorded_with: VCR 3.0.3

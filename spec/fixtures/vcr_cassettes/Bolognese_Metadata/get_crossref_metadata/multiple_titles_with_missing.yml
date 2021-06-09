@@ -8,28 +8,32 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: ''
     headers:
       Date:
-      - Sun, 06 Jun 2021 11:57:14 GMT
+      - Wed, 09 Jun 2021 12:56:47 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Connection:
       - keep-alive
+      Content-Encoding:
+      - gzip
       Cf-Cache-Status:
       - DYNAMIC
       Cf-Request-Id:
-      - 0a82c8403900004e3d3f288000000001
+      - 0a9271d87a0000c2ea42915000000001
       Expect-Ct:
       - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=wBq3jROCvdsRefwN5zl6HuGWO%2FLKyWLPH%2BRJ8eUBFeQor%2BeU%2FnBoLpICzdJiqLI%2BEflTMveWgnwacxDJ9JXBWXlfGA%2FSEwaVnrWJO9AQk%2Fusqj0NDoA9kahN86uziPCz"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v2?s=%2B1kHs%2BbupiT2MMPHH8D4ElgmD9zg22wkLPZYsyPy7af3ghvIX5sM5fvaOme%2BCsTuSNjlzxmF88m%2FQTEPqqsyn6fsBSX%2BoP4B6tv1oLHa7%2BVW5WTA2MB86dh9qIGNCaSS"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"report_to":"cf-nel","max_age":604800}'
       Strict-Transport-Security:
@@ -37,21 +41,16 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 65b17646be764e3d-FRA
+      - 65ca85a0cc59c2ea-FRA
       Alt-Svc:
       - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
         ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
-        [
-          {
-            "DOI": "10.1186",
-            "RA": "Crossref"
-          }
-        ]
+      string: !binary |-
+        H4sIAAAAAAAAA4vmUlCoBmIFBSUXf08lKwUlQwM9Q0MLMyUdiGiQI0jQuSi/uLgoNU0JKFjLFQsA7Op2YDYAAAA=
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:57:06 GMT
+  recorded_at: Wed, 09 Jun 2021 12:56:47 GMT
 - request:
     method: get
     uri: https://api.crossref.org/works/10.1186/1471-2164-7-187/transform/application/vnd.crossref.unixsd+xml
@@ -60,9 +59,11 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
-      - text/xml
+      - text/xml;charset=utf-8
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
@@ -83,7 +84,7 @@ http_interactions:
       Server:
       - http-kit
       Date:
-      - Sun, 06 Jun 2021 11:57:15 GMT
+      - Wed, 09 Jun 2021 12:56:48 GMT
       X-Rate-Limit-Limit:
       - '50'
       X-Rate-Limit-Interval:
@@ -445,5 +446,5 @@ http_interactions:
         \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
         \ </query_result>\r\n</crossref_result>"
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:57:06 GMT
+  recorded_at: Wed, 09 Jun 2021 12:56:48 GMT
 recorded_with: VCR 3.0.3

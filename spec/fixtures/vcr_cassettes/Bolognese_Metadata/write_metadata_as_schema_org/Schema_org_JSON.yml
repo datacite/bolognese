@@ -8,16 +8,18 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Mozilla/5.0 (compatible; Maremma/4.9; mailto:info@datacite.org)
+      - Mozilla/5.0 (compatible; Maremma/4.9.4; mailto:info@datacite.org)
       Accept:
       - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Sun, 06 Jun 2021 12:00:04 GMT
+      - Wed, 09 Jun 2021 12:58:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Connection:
@@ -30,12 +32,14 @@ http_interactions:
       - max-age=0, private, must-revalidate
       Vary:
       - Accept-Encoding, Origin
+      Content-Encoding:
+      - gzip
       X-Request-Id:
-      - e4afcfd3-fdf0-40f1-93d6-9ef0fb00545c
+      - 89c2eba3-d7ff-46c0-9755-ecad04cc75f4
       Etag:
-      - W/"8ecabc6d63f92c949f63d2a7ecfd7984"
+      - W/"31520d313fb4524e189a6bcbe3a34814"
       X-Runtime:
-      - '1.246255'
+      - '0.575311'
       X-Rack-Cors:
       - miss; no-origin
       X-Powered-By:
@@ -44,34 +48,8 @@ http_interactions:
       - nginx/1.14.0 + Phusion Passenger(R) 6.0.8
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"id":"10.5281/zenodo.48440","type":"dois","attributes":{"doi":"10.5281/zenodo.48440","prefix":"10.5281","suffix":"zenodo.48440","identifiers":[],"alternateIdentifiers":[],"creators":[{"name":"Garza,
-        Kristian","nameType":"Personal","givenName":"Kristian","familyName":"Garza","affiliation":[],"nameIdentifiers":[]}],"titles":[{"title":"Analysis
-        Tools For Crossover Experiment Of Ui Using Choice Architecture"}],"publisher":"Zenodo","container":{},"publicationYear":2016,"subjects":[{"subject":"choice
-        architecture"},{"subject":"crossover experiment"},{"subject":"hci"}],"contributors":[],"dates":[{"date":"2016-03-27","dateType":"Issued"}],"language":null,"types":{"ris":"COMP","bibtex":"misc","citeproc":"article","schemaOrg":"SoftwareSourceCode","resourceTypeGeneral":"Software"},"relatedIdentifiers":[{"relationType":"IsSupplementTo","relatedIdentifier":"https://github.com/kjgarza/frame_experiment_analysis/tree/v1.0","relatedIdentifierType":"URL"}],"sizes":[],"formats":[],"version":null,"rightsList":[{"rights":"Creative
-        Commons Attribution-NonCommercial-ShareAlike","rightsUri":"https://creativecommons.org/licenses/by-nc-sa/4.0"},{"rights":"Open
-        Access","rightsUri":"info:eu-repo/semantics/openAccess"}],"descriptions":[{"description":"This
-        tools are used to analyse the data produced by the Crosssover Experiment I
-        designed to test Choice Architecture techniques as UI interventions in a SEEk4Science
-        data catalogue. It contains:\n\n- Data structures for the experimental data.<br>\n-
-        Visualisation functions<br>\n- Analysis functions\n\n## Installation\n\n-
-        R<br>\n- python<br>\n- ipython 4\n\nClone and use.\n\n## Usage\n\n<br>\n```python<br>\nsource(''parallel_plot.r'')<br>\nwith(z,
-        parallelset(trt,response, freq=count, alpha=0.2))<br>\n```\n\n<br>\n## Contributing\n\n1.
-        Fork it!<br>\n2. Create your feature branch: `git checkout -b my-new-feature`<br>\n3.
-        Commit your changes: `git commit -am ''Add some feature''`<br>\n4. Push to
-        the branch: `git push origin my-new-feature`<br>\n5. Submit a pull request
-        :D\n\n<br>\n## License\n\nThis work supports my PhD Thesis at University of
-        Manchester.","descriptionType":"Abstract"}],"geoLocations":[],"fundingReferences":[],"xml":"PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0ndXRmLTgnPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00LjEvbWV0YWRhdGEueHNkIj4KICA8aWRlbnRpZmllciBpZGVudGlmaWVyVHlwZT0iRE9JIj4xMC41MjgxL3plbm9kby40ODQ0MDwvaWRlbnRpZmllcj4KICA8Y3JlYXRvcnM+CiAgICA8Y3JlYXRvcj4KICAgICAgPGNyZWF0b3JOYW1lPktyaXN0aWFuIEdhcnphPC9jcmVhdG9yTmFtZT4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGU+QW5hbHlzaXMgVG9vbHMgRm9yIENyb3Nzb3ZlciBFeHBlcmltZW50IE9mIFVpIFVzaW5nIENob2ljZSBBcmNoaXRlY3R1cmU8L3RpdGxlPgogIDwvdGl0bGVzPgogIDxwdWJsaXNoZXI+WmVub2RvPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDE2PC9wdWJsaWNhdGlvblllYXI+CiAgPHN1YmplY3RzPgogICAgPHN1YmplY3Q+Y2hvaWNlIGFyY2hpdGVjdHVyZTwvc3ViamVjdD4KICAgIDxzdWJqZWN0PmNyb3Nzb3ZlciBleHBlcmltZW50PC9zdWJqZWN0PgogICAgPHN1YmplY3Q+aGNpPC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGRhdGVzPgogICAgPGRhdGUgZGF0ZVR5cGU9Iklzc3VlZCI+MjAxNi0wMy0yNzwvZGF0ZT4KICA8L2RhdGVzPgogIDxyZXNvdXJjZVR5cGUgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU29mdHdhcmUiLz4KICA8YWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgICA8YWx0ZXJuYXRlSWRlbnRpZmllciBhbHRlcm5hdGVJZGVudGlmaWVyVHlwZT0idXJsIj5odHRwczovL3plbm9kby5vcmcvcmVjb3JkLzQ4NDQwPC9hbHRlcm5hdGVJZGVudGlmaWVyPgogIDwvYWx0ZXJuYXRlSWRlbnRpZmllcnM+CiAgPHJlbGF0ZWRJZGVudGlmaWVycz4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IlVSTCIgcmVsYXRpb25UeXBlPSJJc1N1cHBsZW1lbnRUbyI+aHR0cHM6Ly9naXRodWIuY29tL2tqZ2FyemEvZnJhbWVfZXhwZXJpbWVudF9hbmFseXNpcy90cmVlL3YxLjA8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDx2ZXJzaW9uPnYxLjA8L3ZlcnNpb24+CiAgPHJpZ2h0c0xpc3Q+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8iPkNyZWF0aXZlIENvbW1vbnMgQXR0cmlidXRpb24tTm9uQ29tbWVyY2lhbC1TaGFyZUFsaWtlPC9yaWdodHM+CiAgICA8cmlnaHRzIHJpZ2h0c1VSST0iaW5mbzpldS1yZXBvL3NlbWFudGljcy9vcGVuQWNjZXNzIj5PcGVuIEFjY2VzczwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uVHlwZT0iQWJzdHJhY3QiPiZsdDtwJmd0OyZhbXA7bmJzcDsmbHQ7L3AmZ3Q7CgombHQ7cCZndDtUaGlzIHRvb2xzIGFyZSB1c2VkIHRvIGFuYWx5c2UgdGhlIGRhdGEgcHJvZHVjZWQgYnkgdGhlIENyb3Nzc292ZXIgRXhwZXJpbWVudCBJIGRlc2lnbmVkIHRvIHRlc3QgQ2hvaWNlIEFyY2hpdGVjdHVyZSB0ZWNobmlxdWVzIGFzIFVJIGludGVydmVudGlvbnMgaW4gYSBTRUVrNFNjaWVuY2UgZGF0YSBjYXRhbG9ndWUuIEl0IGNvbnRhaW5zOiZsdDsvcCZndDsKCiZsdDtwJmd0Oy0gRGF0YSBzdHJ1Y3R1cmVzIGZvciB0aGUgZXhwZXJpbWVudGFsIGRhdGEuJmx0O2JyIC8mZ3Q7Ci0gVmlzdWFsaXNhdGlvbiBmdW5jdGlvbnMmbHQ7YnIgLyZndDsKLSBBbmFseXNpcyBmdW5jdGlvbnMmbHQ7L3AmZ3Q7CgombHQ7cCZndDsjIyBJbnN0YWxsYXRpb24mbHQ7L3AmZ3Q7CgombHQ7cCZndDstIFImbHQ7YnIgLyZndDsKLSBweXRob24mbHQ7YnIgLyZndDsKLSBpcHl0aG9uIDQmbHQ7L3AmZ3Q7CgombHQ7cCZndDtDbG9uZSBhbmQgdXNlLiZsdDsvcCZndDsKCiZsdDtwJmd0OyMjIFVzYWdlJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CmBgYHB5dGhvbiZsdDticiAvJmd0Owpzb3VyY2UoJmFtcDsjMzk7cGFyYWxsZWxfcGxvdC5yJmFtcDsjMzk7KSZsdDticiAvJmd0Owp3aXRoKHosIHBhcmFsbGVsc2V0KHRydCxyZXNwb25zZSwgZnJlcT1jb3VudCwgYWxwaGE9MC4yKSkmbHQ7YnIgLyZndDsKYGBgJmx0Oy9wJmd0OwoKJmx0O3AmZ3Q7Jmx0O2JyIC8mZ3Q7CiMjIENvbnRyaWJ1dGluZyZsdDsvcCZndDsKCiZsdDtwJmd0OzEuIEZvcmsgaXQhJmx0O2JyIC8mZ3Q7CjIuIENyZWF0ZSB5b3VyIGZlYXR1cmUgYnJhbmNoOiBgZ2l0IGNoZWNrb3V0IC1iIG15LW5ldy1mZWF0dXJlYCZsdDticiAvJmd0OwozLiBDb21taXQgeW91ciBjaGFuZ2VzOiBgZ2l0IGNvbW1pdCAtYW0gJmFtcDsjMzk7QWRkIHNvbWUgZmVhdHVyZSZhbXA7IzM5O2AmbHQ7YnIgLyZndDsKNC4gUHVzaCB0byB0aGUgYnJhbmNoOiBgZ2l0IHB1c2ggb3JpZ2luIG15LW5ldy1mZWF0dXJlYCZsdDticiAvJmd0Owo1LiBTdWJtaXQgYSBwdWxsIHJlcXVlc3QgOkQmbHQ7L3AmZ3Q7CgombHQ7cCZndDsmbHQ7YnIgLyZndDsKIyMgTGljZW5zZSZsdDsvcCZndDsKCiZsdDtwJmd0O1RoaXMgd29yayBzdXBwb3J0cyBteSBQaEQgVGhlc2lzIGF0IFVuaXZlcnNpdHkgb2YgTWFuY2hlc3Rlci4mbHQ7L3AmZ3Q7PC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KPC9yZXNvdXJjZT4K","url":"https://zenodo.org/record/48440","contentUrl":null,"metadataVersion":10,"schemaVersion":"http://datacite.org/schema/kernel-4","source":null,"isActive":true,"state":"findable","reason":null,"viewCount":0,"viewsOverTime":[],"downloadCount":0,"downloadsOverTime":[],"referenceCount":0,"citationCount":0,"citationsOverTime":[],"partCount":0,"partOfCount":0,"versionCount":0,"versionOfCount":0,"created":"2016-03-27T22:18:37.000Z","registered":"2016-03-27T22:18:38.000Z","published":"2016","updated":"2020-07-27T16:41:09.000Z"},"relationships":{"client":{"data":{"id":"cern.zenodo","type":"clients"}},"provider":{"data":{"id":"cern","type":"providers"}},"media":{"data":{"id":"10.5281/zenodo.48440","type":"media"}},"references":{"data":[]},"citations":{"data":[]},"parts":{"data":[]},"partOf":{"data":[]},"versions":{"data":[]},"versionOf":{"data":[]}}},"included":[{"id":"cern.zenodo","type":"clients","attributes":{"name":"Zenodo","symbol":"CERN.ZENODO","year":2013,"alternateName":"Research.
-        Shared","description":"ZENODO builds and operates a simple and innovative
-        service that enables researchers, scientists, EU projects and institutions
-        to share and showcase multidisciplinary research results (data and publications)
-        that are not part of the existing institutional or subject-based repositories
-        of the research communities.\r\nZENODO enables researchers, scientists, EU
-        projects and institutions to:\r\neasily share the long tail of small research
-        results in a wide variety of formats including text, spreadsheets, audio,
-        video, and images across all fields of science.\r\ndisplay their research
-        results and get credited by making the research results citable and integrate
-        them into existing reporting lines to funding agencies like the European Commission.\r\neasily
-        access and reuse shared research results.","language":["en"],"clientType":"repository","domains":"openaire.cern.ch,zenodo.org","re3data":"https://doi.org/10.17616/R3QP53","opendoar":null,"issn":{},"url":"https://zenodo.org/","created":"2013-01-28T12:07:48.000Z","updated":"2020-06-26T12:22:29.000Z","isActive":true},"relationships":{"provider":{"data":{"id":"cern","type":"providers"}},"prefixes":{"data":[{"id":"10.5281","type":"prefixes"}]}}}]}'
+      string: !binary |-
+        H4sIABC7wGAAA6RZbXPiuLL+K745H3a3ZkKMgZmQuudWBcLrAAmvBu9u7fhF2AL5ZS0ZMFPz30+3bBMgmbnn3PtharDUarWefrpbaX27cUxh3jx8u6HOzcNNWS3VtPvy3ZEEoROWqvfVqnrz8UakEYFZJ6QcvkwhYmolgnBcB4M/XhjFZE0Pr/MwxJN1NnQlSh0SCLqmJAa1v/8J2zBB4sAUpHc9Y8fEFKH8+nYTmD7a1jHjo/lR+RJTLqgZgEKcmGWGv8DSMDAZjLp0R4JRtuZMeG36lKWjM114ULCUUVPQMMg2RpVX1nyHYUEFI5k18ieoeITdUk65MgtDxpV2GCvNOOQ83JFYaR0iElMf9CjPa2VOlTmngas0vZDaRHmMbY8KYoskJjeoPkosRrlHYtBrSNDANjsMhEkDHPz2PZexpakrYsKgppY/IdjWBjRltuUfoMXOdjIvdvp4IXEylpyMvRLxbCrNQ0skH8LCP0CpHA78BaJozK1audU+32SzuV96nCfEkVqYGbiJ6cJokDCWUU7yC3wEks3n4QustaglCJLHp9xGFMD8KA5tGDFjQW3AHg5te8Q3n2MXRqfhWuzNmEzDJLZJM3RQICZcfqIVHQIYAjNeReGYIMHASufS19+yYYD4ZP40iSJGEJxZePPOMoRJiIg/3N25VHiJVbJD/267cZFhd+sY+PTXK8B/mTlr7kRMyN2uXFLfU5rvPp8MJHKcHkkO/DqMfVPkH+A8LpmbARpT1xN8AIzPjiI/EVkMJggKpRn6fhhw5TEPb1h7OwoDHCaxTU12O/UAnkdGtxJEqWAe07Mz2rkuO1NVCmP3DmhJAk74nZXeBvYtN++qcCyk0smE54gEyqNtE86vFNNgHT6Q5DYmUXjHwasAgc3vQliQyyMCDuF2TCO0OKfd6wAomXkQh0LGIdivJJw48KlkYBNFeETBJKgAkZzEhkkrlYMyYN9EbE8B7dQNMiVAdPFe4MKE7QX074TAplyZ9xQaQDrboQ8RZBoopjJttbbVqU1JYOcmQASbLHQTUlJ6QsljnD/8EfwR3CpPKMFFnMgduALelna+EshkUk3pv634f3DFgvLEhNwhSausk8CWuxfTpyR1msGN/vEPpRdw0JVxPdt7UqyJUuGFQfFFs0+lilJNFgaQVAIHIS7lquYcghp/Z0u+fv16riGLw19/iUyIQUbYXxELRSn+5bdseg8x8+vxo1JMcyJ+FbH4CKePwFryUVnH5O9/2mESiI+KySLP/Kda0n777bTZ685gS7PIVJBtcaJcwsS8Vaj4r0xGKykyHIiSgmHKGn6iL63YDGzvQfkKMaxAcrG3YSKUW0vxgdJkf5vLfc2UVEoylEBUKrE9yGyEF6uzmVvTV355dByFhz4p9vklV1AtKS8J9yS9vKvdI5wIIUSAQO/uXisp08TCPYDQEPgKAJQgSR+eLrAYZGGJYzI+9ggEh3QWxoKDauXFe1JmHkF6mEKZB1TmE5Eq4VoZokWglMSlm4vwy1PTowU0NaFKYHS6JByEWWkq0lQSOOCCCVmTGLmfDx98TMMvT/Wqpe9dx1+ktsZ21kYNhtPqvp82mOWPdkaHJcZRDZzlxB/M3ODlWP3y0u0zW6uXbX/Eel1PWJ3a8TnwjuZMpWZ3otpP4W5QcSpOWqsM09rO9u3dcPO4H07rq9n8MFtpHrP0ljD12tHptJOVNqeFnpdpP3S6k/0zvYe92+pKH0VOZ55YlX4wqIw2ZmchVtN6bCz7iaHvxajZc0l3FD0H+dz8sFtpbdXU68l/rqtxkre1UWjoZW/gTzywcWMuJ2zg11MjrQtjOfEGmmC2X2NWU1UHm9bO0hegH2VbCdiz7W2qX3rNx3tTnzArmESGz5hNG5HRWSROh/mmvkgXXbY3ALNJq94H+cOwWS0PN+5hUIkA+/rWSqvq89NYHT7tdxd6ct2rSp+tlpOdHQw/NOmjezGWyeCY+9IZpYbeVuHczyu9zF62IjWXI8ConfRajmcHkffSrG9sfwH219OZ3xbGLF8Pe1/pvB9oJ33HFzcEmYMK+HBj+WoHnFG1OvMPY73mWV12NJdDd9Gp76zu0J0Ajr3WKLUqo6NVMRCXNuk2AE8mDL2m9lp1v9deRPDvCBwJQDa0NLYxpo0GcC5EX6wqE+Df/H5QmYBPDyyzY7/L9l0Udu0dvc/hrKGx7H3Q/UViaZMdnPViHG1+6TbKK/8QFdzR9YUH502HTy3tJK+PAB+IEcYAj2LdCNZFaE+2Z/N8bPwBuA6+gzjptFP4DbYuNk53kRqz/c6uLKjpw/dTgfXhCPv8begj9cW/wIed4wP2vMq9s6fZGUVvZJ7O9utmfnrpIF8Xr3bL77mLsWIsJjW7M6/3tuwI65jR7H2AGD6MqLofpmo6Ou5lTOU8AU6c6Xo6pMZytHOW/U2uxwVuwVkWgMFiTpYNNtEWCcSdZz2pdK7VfacLPPTndHDMua0fVIxL4B2bnnP/nOs/kqEN4NwE4xNt6r8Xc2Ab721qMt7tI+arIuayfAX2boDf28FxXB09jfeA5w91Fvj+bzZj3rQQM31ysd4+nvwPcXVA/dur87w/znIfscV0BnkQbOawd2RpNYkx5L++XR6V7W6DQy7DdXMr7X2QObo7/DRI6wHEUujoPcjBdQE57W9Da6fEb+2MAHyjL9bG0tvDmSL4nThtwMBvc7IcRXZaV2E/NqisDoMN+L/y/tlO3MtsY0aLbZHDpm5EoLfgi4a/Zc4OCn3A+2AEZ6kW2EWG5qm2eohs4HjBAYiJAM5z7BXz5cV0WtSh7Ix5XmMaxALk6fLOCoZZDdAw3heJrS2OA61fG+i1zWA58sDnybB5T1+2WZ4zlwaDHFSsdcdL0O0z4BBiXRUzv56MAT/ACPjNPKtZnpkQ78a8DTlDMOBOaupOWMTdT+3Wa751jJgzLUMMNYCXI6iVbcRzA5jvbMB2rI82EF9H4O8Lfvda7Q2c42gfEedM7yvu2fesw455nrkH/xwhp0d2V3LlPP6hro+gNjRkDuxdfRexM9b7R6fb9yDX0BdqcOdJ7Pu+oz6nhmctHz9bfv9oP3Hf6o4/DyqPvlEZf266ofy2m0YA8nMT7Ol1JztLOxwxN0JuL4MftjjWwzuBfqjZ2tx1Oh7kTllXXbvb3xndxcbQx+4q2GZzeR2B+whwqOdOzvnabPSzM7DA8nPdGMOVsTsu8nLrKi9PG8BhqDc+Ozj6Am07Qh0CPQx8sEjhnpTIGgA8MPWqu5o2ZpP5Ih614T4Be8JdRuZPGN8A3z2rUw8cfQ4+YmqvAxwKJh7ee54lbnyX4cG/NC9wVN1JpgNxLme1Dm0xdpALVBNz9Pk5O22eY5T0/YP6rPXTXvM+w52q7sIH3+ttrHdZ/aIN3wGu5+eQflkFPXeQZrYMoM6+xvlb2fd9yje9tNG3ghHcgw55Hqr+TF702r339t4TyEnF2qs54CyD8wM3n8Y/49cT4J6ALyFfjV1nOWKDn+I93OBdY6U7TOKX1rPxffhFfud7vMHWb7irbqMGPARMpT5q08ddtjbK69087MN9CuJhMzxuP9t4DwB8IJ+v7c5h5zRr6fn8l+kbPRXM0V+6Ie91G1Aj2xzuNxxiRf3SnaROU9baPcaxMd27kLeZPStD7UL+713Ya292WnW4W6Zfpts3mK46Dfc/OjMFrFqSx5DT+mUH/z5If4LtsQXcB9763DWXY++Nvk0vwRjGPAv+qiFmwHO8b+L9DuIc6hDc+Z5pwzU0GUNwLx/FIKf2mmXa65QxbzMnLfuoA+o6WzWvMQyPA9p4srSyABtcosPfLrQB9/92YkDePNONOT5ymo9ipavuuV/G+gTyB85D7GE9kbkiy3e947D2rD2+wXbUrLrzLtxhmw3VSrO4fXOeLuY914V6BHWAJf/mecpwnhnc7+R5IE/A/fQA/ADfLxcyvz1vfxYf/I2tvXToQo2A3Io8+ok/y5MQ7/KOBjUthfy0bOzBdhXyhCDTxthsjeGe72HOxdypQlwlWD+xljvdrWtpK3em4998IFOBXEwvcwTUyi3wGWo228ucc/qb47IW4Z0J6+rpngn3UPjjOInZWYMs73ljXywmdhg7d0X7G3s9JBBzFM8adj4RJnZzFkUfr6wWvc3TkFQMelEOe6FScyZztyVxQNhtFTuiss1SKKb80cYu3c2DiBMCsyLr0q5p4JgWyzqkJn9tHe4o2Texx3LzoGZf/HlH4hnFbrls+Ib7gIWm8ypUjFwJxsWf/K+SYLbsDbwduVobmbF4FcKv5/WZVRkkbwbOZWR7kjgXDemZpj2U7x8qn0uqqhry6C7FzsYP5O4LuaIrX4ihryPnpF9Tb9XPuK786aFaflDr2bqit4zH82gkO9w2o9hdf/h2+RZjg/9Kx6Lfnz/BZLL85jv2/ONwRx35AvB25euSQixb5BOHmm9W/PzdJ1vz/fuZ//irit///H7ms6txdNN7Y8/rq8HcXdeyJy9ejKMpNLDhAoRo//7vAHb9bJU/G53eU3jqWyGGarM1GZWM1uj56RmG0+IxpXL2IJU/E00IJ/iEUlJkY9y5bIWhcqlFsRLKHC4bo2FEYnwcUUyFU/jjOGuX0iAId1kTnpN4h71k4ZlCIQGGI1fifCPA4qPCsV8sgKLwuzXHprV84ckVcUFFkrWYRahwtEvOcC/c2yYnip8wQR0KWiJGAzNOT9rxB0xy5VfZisZVZ69K/LfMJlQYhAJbsgJbgVkDGt/RAvd8f5MpYazkr0W3lolNd+zicyrCmMKh8rWn3bEzmgRUwFzpj/iPIAfv/4vBA+qCbEZZmsOBu7IQrBUmZWgG903ZJ72CQbbo9xA5ys4Ei7POZ/7ComTswzMLchBgUQS5xYF0QNAmE6bCjwqGHfwnrfJNF90u39UU3G9NCbIC989eAOSpwTMRM+X7A43f2oSqXCIUyGQOpHv5VOGbW2nHOZiFPIaldWKZIC6yD0V9/AxfPYeuieUvYAWR5Mm7tAoYHtjoMXz4kdu0khiIbAZZn5tjgJbOYDbly4zcMyYJcE7i7ryxDnvHr89+v9+Q4AafE2XA5o3kE2NSDK7Qx9cQGMb3H5PGpCRD3vY+vtZVmcErWaY4lV0npLIyQporf/5U/nQ3qYxfahWQRU1OiDFe1EYeZC+qPyzcN1eFpHKrlm+1+1lZe1A/P1RPBeK6Gny61T6hEBQSrV4IXdbi96rD/ynLZ+/uF1n6MtOfL8xFv2Ne/fP7vwAAAP//AwBICMVJEiAAAA==
     http_version:
-  recorded_at: Sun, 06 Jun 2021 11:59:56 GMT
+  recorded_at: Wed, 09 Jun 2021 12:58:56 GMT
 recorded_with: VCR 3.0.3
