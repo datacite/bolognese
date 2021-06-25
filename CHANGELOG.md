@@ -255,10 +255,6 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.6.3...1.6.4)
 
-**Merged pull requests:**
-
-- Adding support for spdx rightsidentifier [\#92](https://github.com/datacite/bolognese/pull/92) ([mfenner](https://github.com/mfenner))
-
 ## [1.6.3](https://github.com/datacite/bolognese/tree/1.6.3) (2020-06-02)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.6.2...1.6.3)
@@ -282,6 +278,7 @@
 
 **Merged pull requests:**
 
+- Adding support for spdx rightsidentifier [\#92](https://github.com/datacite/bolognese/pull/92) ([mfenner](https://github.com/mfenner))
 - rename internal property version\_info to version [\#89](https://github.com/datacite/bolognese/pull/89) ([mfenner](https://github.com/mfenner))
 
 ## [1.5.21](https://github.com/datacite/bolognese/tree/1.5.21) (2020-05-03)
