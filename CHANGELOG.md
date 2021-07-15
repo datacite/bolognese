@@ -255,6 +255,10 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.6.3...1.6.4)
 
+**Merged pull requests:**
+
+- Adding support for spdx rightsidentifier [\#92](https://github.com/datacite/bolognese/pull/92) ([mfenner](https://github.com/mfenner))
+
 ## [1.6.3](https://github.com/datacite/bolognese/tree/1.6.3) (2020-06-02)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.6.2...1.6.3)
@@ -278,7 +282,6 @@
 
 **Merged pull requests:**
 
-- Adding support for spdx rightsidentifier [\#92](https://github.com/datacite/bolognese/pull/92) ([mfenner](https://github.com/mfenner))
 - rename internal property version\_info to version [\#89](https://github.com/datacite/bolognese/pull/89) ([mfenner](https://github.com/mfenner))
 
 ## [1.5.21](https://github.com/datacite/bolognese/tree/1.5.21) (2020-05-03)
@@ -1186,6 +1189,7 @@
 **Closed issues:**
 
 - Refactor metadata class as module [\#24](https://github.com/datacite/bolognese/issues/24)
+- Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 
 ## [v.0.9.95](https://github.com/datacite/bolognese/tree/v.0.9.95) (2018-04-24)
 
@@ -1519,7 +1523,6 @@
 
 **Closed issues:**
 
-- Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
 - crossref author id to orcid id?  [\#10](https://github.com/datacite/bolognese/issues/10)
