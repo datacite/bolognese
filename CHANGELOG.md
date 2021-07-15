@@ -1189,7 +1189,6 @@
 **Closed issues:**
 
 - Refactor metadata class as module [\#24](https://github.com/datacite/bolognese/issues/24)
-- Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 
 ## [v.0.9.95](https://github.com/datacite/bolognese/tree/v.0.9.95) (2018-04-24)
 
@@ -1523,6 +1522,7 @@
 
 **Closed issues:**
 
+- Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
 - crossref author id to orcid id?  [\#10](https://github.com/datacite/bolognese/issues/10)
