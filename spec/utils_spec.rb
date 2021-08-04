@@ -64,6 +64,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq("0000-0002-1394-3097")
     end
 
+    it "validate_orcid sandbox" do
+      orcid = "http://sandbox.orcid.org/0000-0002-2590-225X"
+      response = subject.validate_orcid(orcid)
+      expect(response).to eq("0000-0002-2590-225X")
+    end
+
+    it "validate_orcid sandbox https" do
+      orcid = "https://sandbox.orcid.org/0000-0002-2590-225X"
+      response = subject.validate_orcid(orcid)
+      expect(response).to eq("0000-0002-2590-225X")
+    end
+
     it "validate_orcid wrong id" do
       orcid = "0000-0002-1394-309"
       response = subject.validate_orcid(orcid)
