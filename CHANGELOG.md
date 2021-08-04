@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.10...HEAD)
+
+**Closed issues:**
+
+- Sandbox Orcid URLs are not allowed.  [\#120](https://github.com/datacite/bolognese/issues/120)
+
+**Merged pull requests:**
+
+- Allow Orcid URLs to have been issued from the sandbox [\#121](https://github.com/datacite/bolognese/pull/121) ([prdanelli](https://github.com/prdanelli))
+
 ## [1.9.10](https://github.com/datacite/bolognese/tree/1.9.10) (2021-07-20)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.9...1.9.10)
