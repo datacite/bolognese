@@ -565,12 +565,14 @@ module Bolognese
       nil
     end
 
+    ## Parse the ORCID ID from the ORCID URL
     def orcid_from_url(url)
-      Array(/\A:(http|https):\/\/orcid\.org\/(.+)/.match(url)).last
+      url.match(/orcid.org\/(.+)$/)[1]
     end
 
+    ## Create ORCID URL from ORCID ID
     def orcid_as_url(orcid)
-      "https://orcid.org/#{orcid}" if orcid.present?
+      "https://orcid.org/#{orcid}"
     end
 
     def validate_orcid(orcid)
@@ -627,21 +629,16 @@ module Bolognese
     def normalize_url(id, options={})
       return nil unless id.present?
 
-      # handle info URIs
-      return id if id.to_s.start_with?("info")
+      # check for valid DOI
+      doi = normalize_doi(id, options)
+      return doi if doi.present?
 
       # check for valid HTTP uri
       uri = Addressable::URI.parse(id)
-
-      return nil unless uri && uri.host && %w(http https ftp).include?(uri.scheme)
-
-      # optionally turn into https URL
-      uri.scheme = "https" if options[:https]
+      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
 
       # clean up URL
-      uri.path = PostRank::URI.clean(uri.path)
-
-      uri.to_s
+      PostRank::URI.clean(id)
     rescue Addressable::URI::InvalidURIError
       nil
     end
@@ -659,42 +656,30 @@ module Bolognese
       "https://orcid.org/" + Addressable::URI.encode(orcid)
     end
 
+    ## Normalize an array of DOIs
     def normalize_ids(ids: nil, relation_type: nil)
-      Array.wrap(ids).select { |idx| idx["@id"].present? }.map do |idx|
-        id = normalize_id(idx["@id"])
-        related_identifier_type = doi_from_url(id).present? ? "DOI" : "URL"
-        id = doi_from_url(id) || id
+      ids = Array(ids).compact
+      return [] unless ids.present?
 
-        { "relatedIdentifier" => id,
-          "relationType" => relation_type,
-          "relatedIdentifierType" => related_identifier_type,
-          "resourceTypeGeneral" => Metadata::SO_TO_DC_TRANSLATIONS[idx["@type"]] }.compact
-      end.unwrap
+      ids.map do |id|
+        normalize_id(id, relation_type: relation_type)
+      end.compact
     end
 
     # pick electronic issn if there are multiple
     # format issn as xxxx-xxxx
+
+    ## Extract a ISSN from a string, Hash, or Array
+    ## ISSN is a single string with the format 'xxxx-xxxx'
     def normalize_issn(input, options={})
-      content = options[:content] || "__content__"
+      return nil unless input.present?
 
-      issn = if input.blank?
-        nil
-      elsif input.is_a?(String) && options[:content].nil?
-        input
+      if input.is_a?(Array)
+        input.map { |i| normalize_issn(i, options) }.compact
       elsif input.is_a?(Hash)
-        input.fetch(content, nil)
-      elsif input.is_a?(Array)
-        a = input.find { |a| a["media_type"] == "electronic" } || input.first
-        a.fetch(content, nil)
-      end
-
-      case issn.to_s.length
-      when 9
-        issn
-      when 8
-        issn[0..3] + "-" + issn[4..7]
-      else
-        nil
+        input.fetch("ISSN", nil)
+      elsif input.is_a?(String)
+        input.gsub(/[^\d]/, "").gsub(/\D/, "")
       end
     end
 
@@ -736,16 +721,39 @@ module Bolognese
     end
 
     def to_datacite_json(element, options={})
-      a = Array.wrap(element).map do |e|
-        e.inject({}) {|h, (k,v)| h[k.dasherize] = v; h }
-      end
-      options[:first] ? a.unwrap : a.presence
+      return nil unless element.present?
+
+      # check for valid DOI
+      doi = normalize_doi(element, options)
+      return doi if doi.present?
+
+      # check for valid HTTP uri
+      uri = Addressable::URI.parse(element)
+      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
+
+      # clean up URL
+      PostRank::URI.clean(element)
+
+      # create JSON
+      { "identifier" => { "identifier" => element, "identifierType" => "URL" } }
     end
 
     def from_datacite_json(element)
-      Array.wrap(element).map do |e|
-        e.inject({}) {|h, (k,v)| h[k.underscore] = v; h }
-      end
+      return nil unless element.present?
+
+      # check for valid DOI
+      doi = normalize_doi(element)
+      return doi if doi.present?
+
+      # check for valid HTTP uri
+      uri = Addressable::URI.parse(element)
+      return nil unless uri && uri.host && %w(http https).include?(uri.scheme)
+
+      # clean up URL
+      PostRank::URI.clean(element)
+
+      # create JSON
+      { "identifier" => { "identifier" => element, "identifierType" => "URL" } }
     end
 
     def to_schema_org(element)
@@ -959,17 +967,16 @@ module Bolognese
     end
 
     def map_hash_keys(element: nil, mapping: nil)
-      Array.wrap(element).map do |a|
-        a.map {|k, v| [mapping.fetch(k, k), v] }.reduce({}) do |hsh, (k, v)|
-          if v.is_a?(Hash)
-            hsh[k] = to_schema_org(v)
-            hsh
-          else
-            hsh[k] = v
-            hsh
-          end
+      element = element.to_h if element.is_a?(Hash)
+      mapping = mapping.to_h if mapping.is_a?(Hash)
+
+      element.each do |k, v|
+        if mapping.key?(k)
+          element[mapping[k]] = element.delete(k)
         end
-      end.unwrap
+      end
+
+      element
     end
 
     def to_identifier(identifier)
@@ -1105,35 +1112,46 @@ module Bolognese
     end
 
     def get_iso8601_date(iso8601_time)
-      return nil if iso8601_time.nil?
+      return iso8601_time if iso8601_time.nil?
 
-      iso8601_time[0..9]
+      year = iso8601_time[0..3].to_i
+      month = iso8601_time[5..6].to_i
+      day = iso8601_time[8..9].to_i
+      get_date_from_parts(year, month, day)
     end
 
+    ## get year and month from iso8601 datetime
     def get_year_month(iso8601_time)
-      return [] if iso8601_time.nil?
+      return iso8601_time if iso8601_time.nil?
 
-      year = iso8601_time[0..3]
-      month = iso8601_time[5..6]
-
-      [year.to_i, month.to_i].reject { |part| part == 0 }
+      year = iso8601_time[0..3].to_i
+      month = iso8601_time[5..6].to_i
+      get_date_from_parts(year, month)
     end
 
+    ## get year and month from iso8601 datetime
     def get_year_month_day(iso8601_time)
-      return [] if iso8601_time.nil?
+      return iso8601_time if iso8601_time.nil?
 
-      year = iso8601_time[0..3]
-      month = iso8601_time[5..6]
-      day = iso8601_time[8..9]
-
-      [year.to_i, month.to_i, day.to_i].reject { |part| part == 0 }
+      year = iso8601_time[0..3].to_i
+      month = iso8601_time[5..6].to_i
+      day = iso8601_time[8..9].to_i
+      get_date_from_parts(year, month, day)
     end
 
     # parsing of incomplete iso8601 timestamps such as 2015-04 is broken
     # in standard library
     # return nil if invalid iso8601 timestamp
     def get_datetime_from_iso8601(iso8601_time)
-      ISO8601::DateTime.new(iso8601_time).to_time.utc
+      return iso8601_time if iso8601_time.nil?
+
+      year = iso8601_time[0..3].to_i
+      month = iso8601_time[4..5].to_i
+      day = iso8601_time[6..7].to_i
+      hour = iso8601_time[9..10].to_i
+      minute = iso8601_time[11..12].to_i
+      second = iso8601_time[13..14].to_i
+      get_datetime_from_parts(year, month, day, hour, minute, second)
     rescue
       nil
     end
@@ -1141,8 +1159,16 @@ module Bolognese
     # iso8601 datetime without hyphens and colons, used by Crossref
     # return nil if invalid
     def get_datetime_from_time(time)
-      DateTime.strptime(time.to_s, "%Y%m%d%H%M%S").strftime('%Y-%m-%dT%H:%M:%SZ')
-    rescue ArgumentError
+      return time if time.nil?
+
+      year = time[0..3].to_i
+      month = time[4..5].to_i
+      day = time[6..7].to_i
+      hour = time[8..9].to_i
+      minute = time[10..11].to_i
+      second = time[12..13].to_i
+      get_datetime_from_parts(year, month, day, hour, minute, second)
+    rescue
       nil
     end
 
