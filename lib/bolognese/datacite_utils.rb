@@ -28,26 +28,70 @@ module Bolognese
     end
 
     def insert_work(xml)
-      insert_identifier(xml)
-      insert_creators(xml)
-      insert_titles(xml)
-      insert_publisher(xml)
-      insert_publication_year(xml)
-      insert_resource_type(xml)
-      insert_subjects(xml)
-      insert_contributors(xml)
-      insert_dates(xml)
-      insert_language(xml)
-      insert_alternate_identifiers(xml)
-      insert_related_identifiers(xml)
-      insert_related_items(xml)
-      insert_sizes(xml)
-      insert_formats(xml)
-      insert_version(xml)
-      insert_rights_list(xml)
-      insert_descriptions(xml)
-      insert_geo_locations(xml)
-      insert_funding_references(xml)
+      xml.creators do
+        if work.present?
+          work.creators.each do |creator|
+            xml.creator do
+              xml.creatorName creator.name
+              xml.givenName creator.given_name
+              xml.familyName creator.family_name
+              xml.nameIdentifier creator.name_identifier
+              xml.affiliation creator.affiliation
+              xml.nameIdentifier scheme: "orcid", scheme_uri: "http://orcid.org", value: creator.orcid
+            end
+          end
+        end
+      end
+
+      xml.titles do
+        if work.present?
+          work.titles.each do |title|
+            xml.title title.title
+            xml.subtitle title.subtitle
+          end
+        end
+      end
+
+      xml.publishers do
+        if work.present?
+          work.publishers.each do |publisher|
+            xml.publisher publisher.publisher
+          end
+        end
+      end
+
+      xml.publication_year work.publication_year if work.present?
+
+      xml.descriptions do
+        if work.present?
+          work.descriptions.each do |description|
+            xml.description description.description
+          end
+        end
+      end
+
+      xml.subjects do
+        if work.present?
+          work.subjects.each do |subject|
+            xml.subject subject.subject
+          end
+        end
+      end
+
+      xml.contributors do
+        if work.present?
+          work.contributors.each do |contributor|
+            xml.contributor do
+              xml.contributorName contributor.name
+              xml.givenName contributor.given_name
+              xml.familyName contributor.family_name
+              xml.nameIdentifier contributor.name_identifier
+              xml.affiliation contributor.affiliation
+              xml.nameIdentifier scheme: "orcid", scheme_uri: "http://orcid.org", value: contributor.orcid
+            end
+          end
+        end
+      end
     end
 
     def insert_identifier(xml)
