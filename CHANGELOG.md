@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.9.11](https://github.com/datacite/bolognese/tree/1.9.11) (2021-08-04)
+## [1.9.11](https://github.com/datacite/bolognese/tree/1.9.11) (2021-08-17)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.10...1.9.11)
 
@@ -291,7 +291,6 @@
 
 - Map Fields of Research classification to OECD Fields of Science [\#93](https://github.com/datacite/bolognese/pull/93) ([mfenner](https://github.com/mfenner))
 - Don't try and normalise "Other" funder types. [\#91](https://github.com/datacite/bolognese/pull/91) ([richardhallett](https://github.com/richardhallett))
-- fixes missing version attribute when data comes from datacite\_json [\#85](https://github.com/datacite/bolognese/pull/85) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.6](https://github.com/datacite/bolognese/tree/1.6) (2020-05-16)
 
@@ -320,6 +319,10 @@
 ## [1.5.18](https://github.com/datacite/bolognese/tree/1.5.18) (2020-04-30)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.5.17...1.5.18)
+
+**Merged pull requests:**
+
+- fixes missing version attribute when data comes from datacite\_json [\#85](https://github.com/datacite/bolognese/pull/85) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.5.17](https://github.com/datacite/bolognese/tree/1.5.17) (2020-04-18)
 
@@ -1353,6 +1356,10 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.64...v.0.9.65)
 
+**Closed issues:**
+
+- inconsistent name parsing in JSON-LD conversion [\#16](https://github.com/datacite/bolognese/issues/16)
+
 **Merged pull requests:**
 
 - \[\#28\] Removing multi author support from parsing single author fields. [\#19](https://github.com/datacite/bolognese/pull/19) ([richardhallett](https://github.com/richardhallett))
@@ -1531,7 +1538,6 @@
 
 **Closed issues:**
 
-- inconsistent name parsing in JSON-LD conversion [\#16](https://github.com/datacite/bolognese/issues/16)
 - Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
