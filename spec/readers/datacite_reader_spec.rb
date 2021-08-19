@@ -1482,6 +1482,47 @@ describe Bolognese::Metadata, vcr: true do
     )
   end
 
+
+  it "Schema 4.4 related items from string minus relatedIdentifier" do
+    input = fixture_path + "datacite-example-relateditems.xml"
+
+    # Remove relatedItemIdentifier from raw input
+    @doc = File.open(input) { |f| Nokogiri::XML(f) }
+    @doc.xpath("//xmlns:relatedItemIdentifier").each {|x| x.remove}
+
+    subject = Bolognese::Metadata.new(input: @doc.to_s)
+    expect(subject.valid?).to be true
+
+    expect(subject.related_items.last).to eq(
+      {
+        "relatedItemType"=>"Journal",
+        "relationType"=>"IsPublishedIn",
+        "creators" =>
+        [
+          {"nameType"=>"Personal", "name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith"}
+        ],
+        "titles"=>
+        [
+          {"title"=>"Understanding the fictional John Smith"},
+          {"title"=>"A detailed look", "titleType"=>"Subtitle"}
+        ],
+        "volume"=>"776",
+        "issue"=>"1",
+        "number"=>"1",
+        "numberType"=>"Chapter",
+        "firstPage"=>"50",
+        "lastPage"=>"60",
+        "publisher"=>"Example Inc",
+        "publicationYear"=>"1776",
+        "edition"=>"1",
+        "contributors"=>
+        [
+          {"name"=>"Hallett, Richard", "givenName"=>"Richard", "familyName"=>"Hallett", "contributorType"=>"ProjectLeader"}
+        ]
+      }
+    )
+  end
+
   it "Schema 4.4 dissertation from string" do
     input = fixture_path + "datacite-example-dissertation-v4.4.xml"
     subject = Bolognese::Metadata.new(input: input)
