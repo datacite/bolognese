@@ -188,20 +188,24 @@ module Bolognese
         end
 
         related_items = Array.wrap(meta.dig("relatedItems", "relatedItem")).map do |ri|
-          rii = ri["relatedItemIdentifier"]
-          if rii["relatedItemIdentifierType"] == "DOI"
-            rid = validate_doi(rii["__content__"].to_s.downcase)
-          else
-            rid = rii["__content__"]
-          end
 
-          relatedItemIdentifier = {
-            "relatedItemIdentifier" => rid,
-            "relatedItemIdentifierType" => rii["relatedItemIdentifierType"],
-            "relatedMetadataScheme" => rii["relatedMetadataScheme"],
-            "schemeURI" => rii["schemeURI"],
-            "schemeType" => rii["schemeType"]
-          }.compact
+          rii = ri["relatedItemIdentifier"]
+          relatedItemIdentifier = nil
+          if rii
+            if rii["relatedItemIdentifierType"] == "DOI"
+              rid = validate_doi(rii["__content__"].to_s.downcase)
+            else
+              rid = rii["__content__"]
+            end
+
+            relatedItemIdentifier = {
+              "relatedItemIdentifier" => rid,
+              "relatedItemIdentifierType" => rii["relatedItemIdentifierType"],
+              "relatedMetadataScheme" => rii["relatedMetadataScheme"],
+              "schemeURI" => rii["schemeURI"],
+              "schemeType" => rii["schemeType"]
+            }.compact
+          end
 
           number = ri["number"]
           if number.is_a?(String)
@@ -212,7 +216,7 @@ module Bolognese
             numberType = ri.dig("number", "numberType")
           end
 
-          {
+          a = {
             "relationType" => ri["relationType"],
             "relatedItemType" => ri["relatedItemType"],
             "relatedItemIdentifier" => relatedItemIdentifier,
