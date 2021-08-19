@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.9.12](https://github.com/datacite/bolognese/tree/1.9.12) (2021-08-19)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.11...1.9.12)
+
 ## [1.9.11](https://github.com/datacite/bolognese/tree/1.9.11) (2021-08-17)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.10...1.9.11)
