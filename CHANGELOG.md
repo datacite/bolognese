@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.12...HEAD)
+
+**Fixed bugs:**
+
+- Schema 4 RelatedItems does not allow relatedItem without relatedItemIdentifier [\#118](https://github.com/datacite/bolognese/issues/118)
+
 ## [1.9.12](https://github.com/datacite/bolognese/tree/1.9.12) (2021-08-19)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.11...1.9.12)
