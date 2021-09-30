@@ -1,7 +1,7 @@
 {
   "mappingListVersion": "1.0",
   "originalUrl": "https://www.dfg.de/en/dfg_profile/statutory_bodies/review_boards/subject_areas/index.jsp",
-  "fosFields": [
+  "dfgFields": [
     {
       "dfgId": "101",
       "dfgLabel": "Ancient Cultures",
