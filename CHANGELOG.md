@@ -8,6 +8,10 @@
 
 - Schema 4 RelatedItems does not allow relatedItem without relatedItemIdentifier [\#118](https://github.com/datacite/bolognese/issues/118)
 
+**Merged pull requests:**
+
+- mapping for DFG-to-OECD [\#125](https://github.com/datacite/bolognese/pull/125) ([kjgarza](https://github.com/kjgarza))
+
 ## [1.9.12](https://github.com/datacite/bolognese/tree/1.9.12) (2021-08-19)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.11...1.9.12)
