@@ -214,6 +214,7 @@
 **Merged pull requests:**
 
 - Fix  content negotiate for schema 3.x dois [\#97](https://github.com/datacite/bolognese/pull/97) ([kjgarza](https://github.com/kjgarza))
+- Adding support for spdx rightsidentifier [\#92](https://github.com/datacite/bolognese/pull/92) ([mfenner](https://github.com/mfenner))
 
 ## [1.8](https://github.com/datacite/bolognese/tree/1.8) (2020-07-14)
 
@@ -286,10 +287,6 @@
 ## [1.6.4](https://github.com/datacite/bolognese/tree/1.6.4) (2020-06-03)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.6.3...1.6.4)
-
-**Merged pull requests:**
-
-- Adding support for spdx rightsidentifier [\#92](https://github.com/datacite/bolognese/pull/92) ([mfenner](https://github.com/mfenner))
 
 ## [1.6.3](https://github.com/datacite/bolognese/tree/1.6.3) (2020-06-02)
 
