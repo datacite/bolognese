@@ -11,9 +11,11 @@
 **Closed issues:**
 
 - How to use "bolognese help \[COMMAND\]"?  [\#129](https://github.com/datacite/bolognese/issues/129)
+- Move nokogiri dependency up to dependency \>= 1.12.5 [\#127](https://github.com/datacite/bolognese/issues/127)
 
 **Merged pull requests:**
 
+- update nokogiri to latest, including updating maremma [\#130](https://github.com/datacite/bolognese/pull/130) ([orangewolf](https://github.com/orangewolf))
 - mapping for DFG-to-OECD [\#125](https://github.com/datacite/bolognese/pull/125) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.9.12](https://github.com/datacite/bolognese/tree/1.9.12) (2021-08-19)
@@ -119,6 +121,7 @@
 **Merged pull requests:**
 
 - Change detection for crosscite format [\#107](https://github.com/datacite/bolognese/pull/107) ([richardhallett](https://github.com/richardhallett))
+- Add support for multiple geolocation polygons [\#106](https://github.com/datacite/bolognese/pull/106) ([richardhallett](https://github.com/richardhallett))
 - Support schema 4 4 [\#105](https://github.com/datacite/bolognese/pull/105) ([richardhallett](https://github.com/richardhallett))
 
 ## [1.8.20](https://github.com/datacite/bolognese/tree/1.8.20) (2020-11-21)
@@ -308,7 +311,6 @@
 
 **Merged pull requests:**
 
-- Add support for multiple geolocation polygons [\#106](https://github.com/datacite/bolognese/pull/106) ([richardhallett](https://github.com/richardhallett))
 - Map Fields of Research classification to OECD Fields of Science [\#93](https://github.com/datacite/bolognese/pull/93) ([mfenner](https://github.com/mfenner))
 - Don't try and normalise "Other" funder types. [\#91](https://github.com/datacite/bolognese/pull/91) ([richardhallett](https://github.com/richardhallett))
 
@@ -331,6 +333,7 @@
 **Merged pull requests:**
 
 - Sizes and formats [\#88](https://github.com/datacite/bolognese/pull/88) ([mfenner](https://github.com/mfenner))
+- bump version [\#75](https://github.com/datacite/bolognese/pull/75) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.5.19](https://github.com/datacite/bolognese/tree/1.5.19) (2020-04-30)
 
@@ -503,10 +506,6 @@
 ## [v.1.3.16](https://github.com/datacite/bolognese/tree/v.1.3.16) (2019-08-27)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v.1.3.14...v.1.3.16)
-
-**Merged pull requests:**
-
-- bump version [\#75](https://github.com/datacite/bolognese/pull/75) ([kjgarza](https://github.com/kjgarza))
 
 ## [v.1.3.14](https://github.com/datacite/bolognese/tree/v.1.3.14) (2019-08-27)
 
@@ -1562,6 +1561,7 @@
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
 - crossref author id to orcid id?  [\#10](https://github.com/datacite/bolognese/issues/10)
+- datacite: support subjectScheme and subjectURI [\#4](https://github.com/datacite/bolognese/issues/4)
 
 ## [v.0.9.21](https://github.com/datacite/bolognese/tree/v.0.9.21) (2017-06-03)
 
@@ -1572,7 +1572,6 @@
 - Abstract should be a string in Citeproc writer [\#11](https://github.com/datacite/bolognese/issues/11)
 - the Bolognese gem doesn't properly handle the optional language attribute. [\#8](https://github.com/datacite/bolognese/issues/8)
 - Support funding information [\#7](https://github.com/datacite/bolognese/issues/7)
-- datacite: support subjectScheme and subjectURI [\#4](https://github.com/datacite/bolognese/issues/4)
 - datacite: support xml:lang in title [\#3](https://github.com/datacite/bolognese/issues/3)
 
 ## [v.0.9.20](https://github.com/datacite/bolognese/tree/v.0.9.20) (2017-05-13)
