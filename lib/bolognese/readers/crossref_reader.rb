@@ -307,12 +307,17 @@ module Bolognese
               award_uri = a.fetch("awardURI", nil)
             elsif a.fetch("name") == "funder_name"
               funder_name = a.fetch("__content__", nil).to_s.squish.presence
-              funder_identifier = validate_funder_doi(a.dig("assertion", "__content__"))
-              funder_identifier_type = "Crossref Funder ID" if funder_identifier.present?
+              Array.wrap(a.fetch("assertion")).each do |a|
+                if a.fetch("name") == "funder_identifier"
+                  funder_identifier = validate_funder_doi(a.dig("__content__"))
+                  # funder_identifier = validate_funder_doi(a.dig("assertion", "__content__"))
+                  funder_identifier_type = "Crossref Funder ID" if funder_identifier.present?
+                end
+              end
             end
           end
 
-          # funder_name is required in DataCite
+          # funder_name is required in DataCite. Multiple identifier/identifierTypes?
           if funder_name.present?
             { "funderIdentifier" => funder_identifier,
               "funderIdentifierType" => funder_identifier_type,
