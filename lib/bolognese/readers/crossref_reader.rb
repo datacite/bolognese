@@ -307,6 +307,7 @@ module Bolognese
               award_uri = a.fetch("awardURI", nil)
             elsif a.fetch("name") == "funder_name"
               funder_name = a.fetch("__content__", nil).to_s.squish.presence
+              #####
               funder_identifier = validate_funder_doi(a.dig("assertion", "__content__"))
               funder_identifier_type = "Crossref Funder ID" if funder_identifier.present?
             end
