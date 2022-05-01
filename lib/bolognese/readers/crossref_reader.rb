@@ -292,6 +292,7 @@ module Bolognese
       end
 
       def crossref_funding_reference(program_metadata)
+        id  = []
         fundref = Array.wrap(program_metadata).find { |a| a["name"] == "fundref" } || {}
         Array.wrap(fundref.fetch("assertion", [])).select { |a| a["name"] == "fundgroup" && a["assertion"].present? }.map do |f|
           funder_identifier = nil
@@ -307,13 +308,17 @@ module Bolognese
               award_uri = a.fetch("awardURI", nil)
             elsif a.fetch("name") == "funder_name"
               funder_name = a.fetch("__content__", nil).to_s.squish.presence
-              #####
-              funder_identifier = validate_funder_doi(a.dig("assertion", "__content__"))
-              funder_identifier_type = "Crossref Funder ID" if funder_identifier.present?
+
+              # This is work-in-progress.  This reads input with multiple funder_identifiers, but only outputs the last one.
+              # We need to determine what the DataCite xml writer will accept for multiple funder_identifiers to generate the correct DataCite xml.
+              Array.wrap(a.fetch("assertion", [])).select { |a| a["name"] == "funder_identifier" && a["__content__"].present? }.map do |f|
+                funder_identifier = validate_funder_doi(f.fetch("__content__", nil))
+                funder_identifier_type = "Crossref Funder ID" if funder_identifier.present?
+              end
             end
           end
 
-          # funder_name is required in DataCite
+          # funder_name is required in DataCite. How do we handle multiple identifier/identifierTypes?
           if funder_name.present?
             { "funderIdentifier" => funder_identifier,
               "funderIdentifierType" => funder_identifier_type,
