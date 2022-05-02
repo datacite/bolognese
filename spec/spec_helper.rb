@@ -91,4 +91,5 @@ VCR.configure do |c|
   c.ignore_localhost = true
   c.ignore_hosts 'codeclimate.com'
   c.configure_rspec_metadata!
+  # c.allow_http_connections_when_no_cassette = true
 end

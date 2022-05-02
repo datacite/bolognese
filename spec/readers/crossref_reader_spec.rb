@@ -104,6 +104,122 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("crossref")
     end
 
+    # WIP
+    #   1) Crossref returns "Organization", crossref_reader.rb changes that to 'Crossref Funder ID"
+    #   2) Funder "New York University University of Notre Dame" should have 2 funderIdentifiers
+    #      Funder "Ohio State University Pennsylvania State University..." should have 5 funderIdentifiers
+    it "journal article with funding multiple funder_identifiers" do
+      input = "https://doi.org/10.1093/mnras/stab1131"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.1093/mnras/stab1131")
+      expect(subject.funding_references).to eq(
+        [
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/501100002923",
+            # "funderIdentifierType"=>"Organization",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"CONICET"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100007747",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"University of Utah"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100008047",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"Carnegie Mellon University"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100009207",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"Harvard-Smithsonian Center for Astrophysics"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/501100004721",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"University of Tokyo"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100005846",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"AIP"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100009611",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"New Mexico State University"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100008109",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"New York University University of Notre Dame"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100007493",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"Ohio State University Pennsylvania State University Universidad Nacional Aut??noma de M??xico University of Arizona University of Colorado Boulder"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100009153",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"University of Portsmouth"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100008457",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"University of Virginia"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100007812",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"University of Washington"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100005595",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"University of California"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/100000104",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"National Aeronautics and Space Administration"
+          }
+        ]
+      )
+    end
+
+    # WIP
+    #   1) Crossref returns "Organization", crossref_reader.rb changes that to 'Crossref Funder ID"
+    #   2) Funder "Zhejiang Innovation Team Grant": should have 1 funderIdentifier and 2 award numbers.
+    it "journal article with funding multiple award_numbers" do
+      input = "https://doi.org/10.3390/ijms23084442"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.id).to eq("https://doi.org/10.3390/ijms23084442")
+      expect(subject.funding_references).to eq(
+        [
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/501100001809",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"National Natural Science Foundation of China",
+            "awardNumber"=>"82170143; 82000155; 81872942"
+          },
+          {
+            "funderIdentifier"=>"https://doi.org/10.13039/501100002858",
+            "funderIdentifierType"=>"Crossref Funder ID",
+            "funderName"=>"China Postdoctoral Science Foundation",
+            "awardNumber"=>"2021M702877"
+          },
+          {
+            "funderName"=>"Zhejiang Innovation Team Grant",
+            "awardNumber"=>"LD22H310005"
+          }
+        ]
+      )
+    end
+
     it "journal article original language title" do
       input = "https://doi.org/10.7600/jspfsm.56.60"
       subject = Bolognese::Metadata.new(input: input)
