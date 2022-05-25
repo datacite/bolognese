@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.14](https://github.com/datacite/bolognese/tree/1.9.14) (2022-05-25)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.13...1.9.14)
+
+**Merged pull requests:**
+
+- Update critical dependencies [\#134](https://github.com/datacite/bolognese/pull/134) ([jrhoads](https://github.com/jrhoads))
+
 ## [1.9.13](https://github.com/datacite/bolognese/tree/1.9.13) (2022-01-06)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.12...1.9.13)
@@ -86,6 +94,11 @@
 **Fixed bugs:**
 
 - Singular geoLocationPolygons are wrapped in additional array [\#110](https://github.com/datacite/bolognese/issues/110)
+
+**Merged pull requests:**
+
+- Support returning single geoLocationPolygon [\#111](https://github.com/datacite/bolognese/pull/111) ([richardhallett](https://github.com/richardhallett))
+- Fix  content negotiate for schema 3.x dois [\#97](https://github.com/datacite/bolognese/pull/97) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.9.3](https://github.com/datacite/bolognese/tree/1.9.3) (2021-03-26)
 
@@ -187,7 +200,6 @@
 
 **Merged pull requests:**
 
-- Support returning single geoLocationPolygon [\#111](https://github.com/datacite/bolognese/pull/111) ([richardhallett](https://github.com/richardhallett))
 - Allow some pre-1.0 versions of thor [\#102](https://github.com/datacite/bolognese/pull/102) ([cjcolvar](https://github.com/cjcolvar))
 
 ## [1.8.5](https://github.com/datacite/bolognese/tree/1.8.5) (2020-07-30)
@@ -213,10 +225,6 @@
 ## [1.8.1](https://github.com/datacite/bolognese/tree/1.8.1) (2020-07-17)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.8...1.8.1)
-
-**Merged pull requests:**
-
-- Fix  content negotiate for schema 3.x dois [\#97](https://github.com/datacite/bolognese/pull/97) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.8](https://github.com/datacite/bolognese/tree/1.8) (2020-07-14)
 
@@ -339,6 +347,10 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.5.17...1.5.18)
 
+**Merged pull requests:**
+
+- fixes missing version attribute when data comes from datacite\_json [\#85](https://github.com/datacite/bolognese/pull/85) ([kjgarza](https://github.com/kjgarza))
+
 ## [1.5.17](https://github.com/datacite/bolognese/tree/1.5.17) (2020-04-18)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.5.16...1.5.17)
@@ -445,7 +457,6 @@
 
 **Merged pull requests:**
 
-- fixes missing version attribute when data comes from datacite\_json [\#85](https://github.com/datacite/bolognese/pull/85) ([kjgarza](https://github.com/kjgarza))
 - Bump rack from 2.0.7 to 2.0.8 [\#79](https://github.com/datacite/bolognese/pull/79) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v.1.4.1](https://github.com/datacite/bolognese/tree/v.1.4.1) (2019-12-15)
