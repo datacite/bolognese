@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   # Declare dependencies here, rather than in the Gemfile
   s.add_dependency 'maremma', '>= 4.9.4', '< 5'
   s.add_dependency 'faraday', '~> 0.17.3'
-  s.add_dependency 'nokogiri', '~> 1.12.0'
+  s.add_dependency 'nokogiri', '>= 1.13.2', '< 1.14'
   s.add_dependency 'loofah', '~> 2.0', '>= 2.0.3'
   s.add_dependency 'builder', '~> 3.2', '>= 3.2.2'
   s.add_dependency 'activesupport', '>= 4.2.5'
