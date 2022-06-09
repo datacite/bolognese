@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-%s http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+    <identifier identifierType="DOI">10.48321/D1Z60Q</identifier>
+    <creators>
+        <creator>
+            <creatorName nameType="Personal">Erin Robinson</creatorName>
+            <nameIdentifier schemeURI="https://orcid.org/" nameIdentifierScheme="ORCID"> https://orcid.org/0000-0001-9998-0114 </nameIdentifier>
+            <affiliation schemeURI="https://ror.org" affiliationIdentifier="https://ror.org/05bp8ka05" affiliationIdentifierScheme="ROR"> Metadata Game Changers </affiliation>
+        </creator>
+        <creator>
+            <creatorName nameType="Organizational">Gump South Pacific Research Station</creatorName>
+            <nameIdentifier nameIdentifierScheme="ROR" schemeURI="https://ror.org/">https://ror.org/04sk0et52</nameIdentifier>
+        </creator>
+        <creator>
+            <creatorName nameType="Organizational">Gump South Pacific Research Station</creatorName>
+            <nameIdentifier nameIdentifierScheme="ROR" schemeURI="https://ror.org">04sk0et52</nameIdentifier>
+        </creator>
+        <creator>
+            <creatorName nameType="Organizational">Gump South Pacific Research Station</creatorName>
+            <nameIdentifier nameIdentifierScheme="ROR">04sk0et52</nameIdentifier>
+        </creator>
+    </creators>
+    <titles>
+        <title xml:lang="en-US">Genomic Standards Consortium (GSC) Island Sampling Day: Moorea Reef to Ridges Genomic Transect</title>
+    </titles>
+    <publisher xml:lang="en-US">DMPHub</publisher>
+    <publicationYear>2022</publicationYear>
+    <contributors>
+        <contributor contributorType="Producer">
+            <contributorName nameType="Organizational"> Gump South Pacific Research Station </contributorName>
+            <nameIdentifier nameIdentifierScheme="ROR">https://ror.org/04sk0et52</nameIdentifier>
+        </contributor>
+        <contributor contributorType="ProjectLeader">
+            <contributorName nameType="Personal">Neil Davies</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0001-8085-5014</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/01an7q238" affiliationIdentifierScheme="ROR"> University of California, Berkeley </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectLeader">
+            <contributorName nameType="Personal">Ramona Walls</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0001-8815-0078</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/03m2x1q45" affiliationIdentifierScheme="ROR"> University of Arizona </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectLeader">
+            <contributorName nameType="Personal">Serge Planes</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0002-5689-5371</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/02feahw73" affiliationIdentifierScheme="ROR"> French National Centre for Scientific Research </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectLeader">
+            <contributorName nameType="Personal">Chris Meyer</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0003-2501-7952</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/01pp8nd67" affiliationIdentifierScheme="ROR"> Smithsonian Institution </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectLeader">
+            <contributorName nameType="Personal">Lynn Schriml</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0001-8910-9851</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/04rq5mt64" affiliationIdentifierScheme="ROR"> University of Maryland, Baltimore </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectMember">
+            <contributorName nameType="Personal">Scott Tighe</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0002-3988-0741</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/0155zta11" affiliationIdentifierScheme="ROR"> University of Vermont </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectMember">
+            <contributorName nameType="Personal">Pier Luigi Buttigieg</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0002-4366-3088</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/02h2x0161" affiliationIdentifierScheme="ROR"> GEOMAR Helmholtz Centre for Ocean Research Kiel </affiliation>
+        </contributor>
+        <contributor contributorType="ProjectMember">
+            <contributorName nameType="Personal">Raïssa Meyer</contributorName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org/">https://orcid.org/0000-0002-2996-719X</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/032e6b942" affiliationIdentifierScheme="ROR"> Alfred Wegener Institute for Polar and Marine Research </affiliation>
+        </contributor>
+        <contributor contributorType="Sponsor">
+            <contributorName nameType="Organizational">Gump South Pacific Research Station (moorea.berkeley.edu)</contributorName>
+            <nameIdentifier nameIdentifierScheme="ROR" schemeURI="https://ror.org/">https://ror.org/04sk0et52</nameIdentifier>
+        </contributor>
+    </contributors>
+    <language>en-US</language>
+    <resourceType resourceTypeGeneral="OutputManagementPlan">Data Management Plan</resourceType>
+    <descriptions>
+        <description xml:lang="en-US" descriptionType="Abstract"> &lt;p&gt;Here we describe a project that supports the mission of the Genomic Standards Consortium (GSC) and contributes to the “Ocean Biomolecular Observations Network” (OBON) and the “Ocean Best Practice System” (OBPS - Omics Task Team), flagship programs of the UN Ocean Decade of Ocean Science for Sustainable Development. The project serves as a test case for two related infrastructure projects that aim to improve standards, policies, and best practices in sample collection: Sampling Nature (SN) Research Coordination Network and the Internet of Samples (iSamples).&lt;/p&gt;  &lt;p&gt;&lt;strong&gt;The project’s primary goal (first paper) is methodologica&lt;/strong&gt;l: (i) to demonstrate the value of genomic standards for both genomic research and secondary interdisciplinary research, (ii) to highlight the importance of data curation workflows that follow FAIR+CARE principles maximizing the potential for appropriate reuse of data and material samples, (iii) to illustrate the challenges that remain in implementing those standards - including ethical, legal, and social aspects, and (iv) to demonstrate some of the tools, infrastructures, and best-practices available for overcoming these challenges. This paper will include all the elements of a data paper (primary publication of the initial data collected), but with broader discussion around it as a use case for metadata standards and best practices in multi-omic sampling.&lt;/p&gt;  &lt;p&gt;&lt;strong&gt;The project’s secondary goal (second paper) is to address research questions including&lt;/strong&gt;: (1) To what extent can one day of environmental sampling, and subsequent multi-omic analyses, characterize the ecological state of an island (coupled marine-terrestrial ecosystem)? (2) To what extent might such surveys serve as baselines for futuromic study (future analysis of biomolecules from the material samples archived), and (3) if repeated, could these surveys help address long-term changes in genomic biodiversity? (4) How does marine and terrestrial eDNA change across a transect? Moorea is one of the most well-described biotas in the world and has one of the longest and most intensive time-series of ecological data, particularly for coral reef ecosystems. It thus serves as a powerful calibration site for such a study.&lt;/p&gt;  &lt;p&gt;&lt;br&gt;&lt;strong&gt;The project’s broader impact goal is public outreach &lt;/strong&gt;– if possible engage local citizen scientists/schools, ideally through Fare Natura (ecomuseum at entrance to the Opunohu Valley. (Also perhaps local Associations that might be interested, e.g., Te Pu Atitia). Sampling Nature will produce an outreach videos based on this Island Sampling Day.&lt;/p&gt; </description>
+    </descriptions>
+    <fundingReferences>
+        <fundingReference>
+            <funderName>Genomic Standards Consortium</funderName>
+        </fundingReference>
+    </fundingReferences>
+    <relatedIdentifiers>
+        <relatedIdentifier relationType="IsMetadataFor" relatedIdentifierType="URL"> https://dmptool.org/api/v2/plans/74309.pdf </relatedIdentifier>
+        <relatedIdentifier relationType="Cites" relatedIdentifierType="URL"> https://n2t.net/ark:/21547/EBW2 </relatedIdentifier>
+        <relatedIdentifier relationType="Cites" relatedIdentifierType="URL"> https://docs.google.com/document/d/1EYgEEUroMBiTNc5Px11_44G-B17JtTgyssyNkK3hV_U/edit#heading=h.ckwz8v2yry1q </relatedIdentifier>
+    </relatedIdentifiers>
+</resource>

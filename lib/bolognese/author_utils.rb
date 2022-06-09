@@ -36,9 +36,15 @@ module Bolognese
             "schemeUri" => "https://orcid.org",
             "nameIdentifierScheme" => "ORCID" }.compact
         elsif ni["schemeURI"].present?
+          name_identifier = nil
+          if ni["__content__"].present?
+            name_identifier = ni["__content__"].to_s.strip
+            schemeURI = ni["schemeURI"].end_with?("/") ? ni["schemeURI"] : ni["schemeURI"] + "/"
+            name_identifier = !name_identifier.start_with?("https://") && schemeURI.present? ? normalize_id(schemeURI +  name_identifier) : normalize_id(name_identifier)
+          end 
           {
-            "nameIdentifier" => ni["schemeURI"].to_s + ni["__content__"].to_s,
-            "schemeUri" => ni["schemeURI"].to_s,
+            "nameIdentifier" => name_identifier,
+            "schemeUri" => ni["schemeURI"],
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
         else
           {

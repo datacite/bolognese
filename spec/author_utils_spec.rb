@@ -160,6 +160,16 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  it "URL nameIdentifier with schemeURI" do
+    input = fixture_path + 'datacite-example-nameIdentifier-with-schemeURI.xml'
+    subject = Bolognese::Metadata.new(input: input, from: "datacite")
+    expect(subject.creators[1]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org/", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"04sk0et52", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.contributors.first).to eq("nameType"=>"Organizational", "name"=>" Gump South Pacific Research Station ", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52",   "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[], "contributorType"=>"Producer")
+    expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station (Moorea.Berkeley.Edu)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org/", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
+  end
+
   context "authors_as_string" do
     let(:author_with_organization) { [{"type"=>"Person",
                                        "id"=>"http://orcid.org/0000-0003-0077-4738",
