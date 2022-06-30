@@ -57,3 +57,4 @@ coverage/
 !.env.travis
 
 .vscode
+.ruby-version
