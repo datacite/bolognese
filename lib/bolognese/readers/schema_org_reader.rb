@@ -28,11 +28,10 @@ module Bolognese
 
         url = normalize_id(id)
         response = Maremma.get(url)
-        doc = Nokogiri::XML(response.body.fetch("data", nil), nil, 'UTF-8')
 
-        # workaround for xhtml documents
-        nodeset = doc.css("script")
-        string = nodeset.find { |element| element["type"] == "application/ld+json" }
+        # Find the schema.org json from the html body
+        doc = Nokogiri::HTML(response.body.fetch("data", nil))
+        string = doc.at('script[type="application/ld+json"]')
         string = string.text if string.present?
 
         { "string" => string }
