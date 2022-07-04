@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.14...HEAD)
+
+**Merged pull requests:**
+
+- Fix issue Bracco 521 [\#138](https://github.com/datacite/bolognese/pull/138) ([richardhallett](https://github.com/richardhallett))
+
 ## [1.9.14](https://github.com/datacite/bolognese/tree/1.9.14) (2022-05-25)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.13...1.9.14)
@@ -98,7 +106,6 @@
 **Merged pull requests:**
 
 - Support returning single geoLocationPolygon [\#111](https://github.com/datacite/bolognese/pull/111) ([richardhallett](https://github.com/richardhallett))
-- Fix  content negotiate for schema 3.x dois [\#97](https://github.com/datacite/bolognese/pull/97) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.9.3](https://github.com/datacite/bolognese/tree/1.9.3) (2021-03-26)
 
@@ -225,6 +232,10 @@
 ## [1.8.1](https://github.com/datacite/bolognese/tree/1.8.1) (2020-07-17)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.8...1.8.1)
+
+**Merged pull requests:**
+
+- Fix  content negotiate for schema 3.x dois [\#97](https://github.com/datacite/bolognese/pull/97) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.8](https://github.com/datacite/bolognese/tree/1.8) (2020-07-14)
 
