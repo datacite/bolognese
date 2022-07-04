@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+## [1.9.15](https://github.com/datacite/bolognese/tree/1.9.15) (2022-07-04)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.14...HEAD)
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.14...1.9.15)
 
 **Merged pull requests:**
 
@@ -1356,15 +1356,15 @@
 
 ## [v.0.9.70](https://github.com/datacite/bolognese/tree/v.0.9.70) (2018-01-12)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.69...v.0.9.70)
-
-## [v.0.9.69](https://github.com/datacite/bolognese/tree/v.0.9.69) (2018-01-11)
-
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.6.69...v.0.9.69)
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.6.69...v.0.9.70)
 
 ## [v.0.6.69](https://github.com/datacite/bolognese/tree/v.0.6.69) (2018-01-11)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.68...v.0.6.69)
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.69...v.0.6.69)
+
+## [v.0.9.69](https://github.com/datacite/bolognese/tree/v.0.9.69) (2018-01-11)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.68...v.0.9.69)
 
 ## [v.0.9.68](https://github.com/datacite/bolognese/tree/v.0.9.68) (2018-01-11)
 
