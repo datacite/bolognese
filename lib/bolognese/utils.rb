@@ -578,6 +578,10 @@ module Bolognese
       orcid.gsub(/[[:space:]]/, "-") if orcid.present?
     end
 
+    def validate_ror(ror)
+      Array(/^(?:(?:(?:http|https):\/\/)?ror\.org\/)?(0\w{6}\d{2})$/.match(ror)).last
+    end
+
     def validate_orcid_scheme(orcid_scheme)
       Array(/\A(http|https):\/\/(www\.)?(orcid\.org)/.match(orcid_scheme)).last
     end
@@ -657,6 +661,14 @@ module Bolognese
 
       # turn ORCID ID into URL
       "https://orcid.org/" + Addressable::URI.encode(orcid)
+    end
+
+    def normalize_ror(ror)
+      ror = validate_ror(ror)
+      return nil unless ror.present?
+
+      # turn ROR into URL
+      "https://ror.org/" + Addressable::URI.encode(ror)
     end
 
     def normalize_ids(ids: nil, relation_type: nil)

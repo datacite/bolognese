@@ -133,7 +133,7 @@ describe Bolognese::Metadata, vcr: true do
         "familyName" => "Schumacher",
         "givenName" => "Heinrich Christian",
         "name" => "Schumacher, Heinrich Christian",
-        "nameIdentifiers" => [{"nameIdentifier"=>"http://d-nb.info/gnd/118611593", "nameIdentifierScheme"=>"GND", "schemeUri"=>"http://d-nb.info/gnd/"}],
+        "nameIdentifiers" => [{"nameIdentifier"=>"118611593", "nameIdentifierScheme"=>"GND", "schemeUri"=>"http://d-nb.info/gnd/"}],
         "nameType" => "Personal")
     end
 
@@ -142,7 +142,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_one_author(meta.dig("creators", "creator"))
-      expect(response).to eq("nameType"=>"Personal", "name"=>"Dubos, Thomas", "givenName"=>"Thomas", "familyName"=>"Dubos", "affiliation" => [{"name"=>"&#201;cole Polytechnique Laboratoire de M&#233;t&#233;orologie Dynamique"}], "nameIdentifiers" => [{"nameIdentifier"=>"http://isni.org/isni/0000 0003 5752 6882", "nameIdentifierScheme"=>"ISNI", "schemeUri"=>"http://isni.org/isni/"}, {"nameIdentifier"=>"https://orcid.org/0000-0003-4514-4211", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}])
+      expect(response).to eq("nameType"=>"Personal", "name"=>"Dubos, Thomas", "givenName"=>"Thomas", "familyName"=>"Dubos", "affiliation" => [{"name"=>"&#201;cole Polytechnique Laboratoire de M&#233;t&#233;orologie Dynamique"}], "nameIdentifiers" => [{"nameIdentifier"=>"0000 0003 5752 6882", "nameIdentifierScheme"=>"ISNI", "schemeUri"=>"http://isni.org/isni/"}, {"nameIdentifier"=>"https://orcid.org/0000-0003-4514-4211", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}])
     end
 
     it "nameType organizational" do
@@ -158,6 +158,18 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
     end
+  end
+
+  it "has ROR nameIdentifiers" do
+    input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
+    subject = Bolognese::Metadata.new(input: input, from: "datacite")
+    expect(subject.creators[1]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"University Of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.contributors.first).to eq("nameType"=>"Organizational", "name"=>" Nawroz University ", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04gp75d48", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[], "contributorType"=>"Producer")
+    expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"University Of Greenland (Https://Www.Uni.Gl/)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/00t5j6b61", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
   end
 
   context "authors_as_string" do

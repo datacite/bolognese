@@ -592,7 +592,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.18429/jacow-ipac2016-tupmy003")
       expect(subject.types["schemaOrg"]).to eq("ScholarlyArticle")
       expect(subject.creators.length).to eq(12)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"http://jacow.org/JACoW-00077389", "nameIdentifierScheme"=>"JACoW-ID", "schemeUri"=>"http://jacow.org/"}], "name"=>"Otani, Masashi", "givenName"=>"Masashi", "familyName"=>"Otani", "affiliation" => [{"name"=>"KEK, Tsukuba, Japan"}])
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "nameIdentifiers" => [{"nameIdentifier"=>"JACoW-00077389", "nameIdentifierScheme"=>"JACoW-ID", "schemeUri"=>"http://jacow.org/"}], "name"=>"Otani, Masashi", "givenName"=>"Masashi", "familyName"=>"Otani", "affiliation" => [{"name"=>"KEK, Tsukuba, Japan"}])
     end
 
     it "author with wrong orcid scheme" do
@@ -722,7 +722,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("BOOK")
       expect(subject.types["citeproc"]).to eq("book")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith", "nameIdentifiers" => [], "affiliation" => []}, {"name"=>"つまらないものですが","nameIdentifiers"=>
-        [{"nameIdentifier"=>"http://isni.org/isni/0000000134596520",
+        [{"nameIdentifier"=>"0000000134596520",
           "nameIdentifierScheme"=>"ISNI",
           "schemeUri"=>"http://isni.org/isni/"}],
           "affiliation" => []}])
@@ -753,7 +753,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("BOOK")
       expect(subject.types["citeproc"]).to eq("book")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith", "nameIdentifiers" => [], "affiliation" => []}, {"name"=>"つまらないものですが","nameIdentifiers"=>
-        [{"nameIdentifier"=>"http://isni.org/isni/0000000134596520",
+        [{"nameIdentifier"=>"0000000134596520",
           "nameIdentifierScheme"=>"ISNI",
           "schemeUri"=>"http://isni.org/isni/"}],
           "affiliation" => []}])
@@ -812,7 +812,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("BOOK")
       expect(subject.types["citeproc"]).to eq("book")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith", "nameIdentifiers" => [], "affiliation" => []}, {"name"=>"つまらないものですが","nameIdentifiers"=>
-        [{"nameIdentifier"=>"http://isni.org/isni/0000000134596520",
+        [{"nameIdentifier"=>"0000000134596520",
           "nameIdentifierScheme"=>"ISNI",
           "schemeUri"=>"http://isni.org/isni/"}],
           "affiliation" => []}])
@@ -864,7 +864,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceType"]).to eq("Monograph")
       expect(subject.types["resourceTypeGeneral"]).to eq("Text")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith", "nameIdentifiers" => [], "affiliation" => []}, {"name"=>"つまらないものですが","nameIdentifiers"=>
-        [{"nameIdentifier"=>"http://isni.org/isni/0000000134596520",
+        [{"nameIdentifier"=>"0000000134596520",
           "nameIdentifierScheme"=>"ISNI",
           "schemeUri"=>"http://isni.org/isni/"}],
           "affiliation" => []}])
