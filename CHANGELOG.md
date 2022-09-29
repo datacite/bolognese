@@ -4,10 +4,6 @@
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.17...HEAD)
 
-**Fixed bugs:**
-
-- Including a schemeURI with a nameIdentifier that is a URL will concatenate the schemeURI and the nameIdentifier  [\#136](https://github.com/datacite/bolognese/issues/136)
-
 **Merged pull requests:**
 
 - Including a schemeURI with a nameIdentifier that is a URL will concat… [\#137](https://github.com/datacite/bolognese/pull/137) ([codycooperross](https://github.com/codycooperross))
@@ -1275,6 +1271,7 @@
 **Closed issues:**
 
 - \#10111 Query to datacite Content-Negotiation does not return subject [\#23](https://github.com/datacite/bolognese/issues/23)
+- Full Schema.org support in Bolognese library [\#15](https://github.com/datacite/bolognese/issues/15)
 - implementation details in the schema.org representation of articles [\#9](https://github.com/datacite/bolognese/issues/9)
 
 ## [v.0.9.93](https://github.com/datacite/bolognese/tree/v.0.9.93) (2018-04-01)
@@ -1595,7 +1592,6 @@
 
 **Closed issues:**
 
-- Full Schema.org support in Bolognese library [\#15](https://github.com/datacite/bolognese/issues/15)
 - Fix error handling alternate names in ris writer [\#14](https://github.com/datacite/bolognese/issues/14)
 - Error displaying container-title [\#13](https://github.com/datacite/bolognese/issues/13)
 - Error parsing funding information [\#12](https://github.com/datacite/bolognese/issues/12)
