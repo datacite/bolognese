@@ -141,6 +141,7 @@ describe Bolognese::Metadata, vcr: true do
         "awardTitle"=>"Full DataCite XML Example",
         "funderIdentifier"=>"https://doi.org/10.13039/100000001",
         "funderIdentifierType"=>"Crossref Funder ID",
+        "schemeUri"=>"https://doi.org/",
         "funderName"=>"National Science Foundation"}])
       expect(subject.related_identifiers.length).to eq(2)
       expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"https://data.datacite.org/application/citeproc+json/10.5072/example-full", "relatedIdentifierType"=>"URL", "relationType"=>"HasMetadata", "relatedMetadataScheme"=>"citeproc+json", "schemeUri"=>"https://github.com/citation-style-language/schema/raw/master/csl-data.json")
@@ -420,15 +421,46 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.funding_references.first).to eq({
         "funderIdentifier"=>"http://www.isni.org/isni/0000000119587073",
         "funderIdentifierType"=>"ISNI",
+        "schemeUri"=>"http://www.isni.org/isni/",
         "funderName"=>"National Science Foundation (NSF)"})
-      expect(subject.funding_references.last).to eq({
+      expect(subject.funding_references[2]).to eq({
         "funderIdentifier"=>"https://doi.org/10.13039/501100000780",
         "funderIdentifierType"=>"Crossref Funder ID",
+        "schemeUri"=>"https://doi.org/",
         "funderName"=>"European Commission"})
       expect(subject.funding_references[1]).to eq({
           "funderIdentifier"=>"1234",
           "funderIdentifierType"=>"Other",
           "funderName"=>"Acme Inc"})
+    end
+
+    it "funder identifier with normalized identifiers and non-normalized identifiers" do
+      input = fixture_path + 'datacite-funderIdentifier.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.funding_references[3]).to eq({
+        "funderIdentifier"=>"0000 0001 2298 6657",
+        "funderIdentifierType"=>"ISNI",
+        "schemeUri"=>"http://www.isni.org/isni/",
+        "funderName"=>"University of Washington"})
+      expect(subject.funding_references[4]).to eq({
+        "funderIdentifier"=>"127467345",
+        "funderIdentifierType"=>"Other",
+        "schemeUri"=>"http://viaf.org/viaf/",
+        "funderName"=>"National Library of Ireland."})
+      expect(subject.funding_references[5]).to eq({
+          "funderIdentifier"=>"https://ror.org/04wxnsj81",
+          "funderIdentifierType"=>"ROR",
+          "schemeUri"=>"https://ror.org",
+          "funderName"=>"DataCite"})
+      expect(subject.funding_references[6]).to eq({
+          "funderIdentifier"=>"https://ror.org/038wwg650",
+          "funderIdentifierType"=>"ROR",
+          "schemeUri"=>"https://ror.org",
+          "funderName"=>"Department of Agriculture"})
+      expect(subject.funding_references[7]).to eq({
+        "funderIdentifier"=>"https://doi.org/10.13039/501100005695",
+        "funderIdentifierType"=>"Crossref Funder ID",
+        "funderName"=>"Tottori University"})
     end
 
     it "geo_location empty" do

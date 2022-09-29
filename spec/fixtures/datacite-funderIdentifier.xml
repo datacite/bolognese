@@ -59,6 +59,26 @@
       <funderName>European Commission</funderName>
       <funderIdentifier funderIdentifierType="Crossref Funder ID" schemeURI="https://doi.org/">https://doi.org/10.13039/501100000780</funderIdentifier>
     </fundingReference>
+    <fundingReference>
+      <funderName>University of Washington</funderName>
+      <funderIdentifier funderIdentifierType="ISNI" schemeURI="http://www.isni.org/isni/">0000 0001 2298 6657</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>National Library of Ireland.</funderName>
+      <funderIdentifier funderIdentifierType="Other" schemeURI="http://viaf.org/viaf/">127467345</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>DataCite</funderName>
+      <funderIdentifier funderIdentifierType="ROR" schemeURI="https://ror.org/">https://ror.org/04wxnsj81</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>Department of Agriculture</funderName>
+      <funderIdentifier funderIdentifierType="ROR">038wwg650</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>Tottori University</funderName>
+      <funderIdentifier funderIdentifierType="Crossref Funder ID">10.13039/501100005695</funderIdentifier>
+    </fundingReference>
   </fundingReferences>
   <rightsList>
     <rights xml:lang="eng" rightsURI="http://creativecommons.org/licenses/by-nd/2.0/">Creative Commons
