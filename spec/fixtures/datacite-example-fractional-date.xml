@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
+  <identifier identifierType="DOI">10.5072/example-fractional-date</identifier>
+  <creators>
+        <creator>
+            <creatorName>Claire L O?Brien</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title>Impact of Colonoscopy Bowel Preparation on Intestinal Microbiota</title>
+    </titles>
+    <dates>
+        <date dateType="Updated">2020-11-06T21:37:33.12Z</date>
+    </dates>
+    <publisher>The Australian National University Data Commons</publisher>
+    <publicationYear>2013</publicationYear>
+      <rightsList>
+    <rights xml:lang="en-US" schemeURI="https://spdx.org/licenses/" rightsIdentifierScheme="SPDX" rightsIdentifier="CC0 1.0" rightsURI="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </rightsList>
+    <language>en</language>
+  <resourceType resourceTypeGeneral="Dissertation"></resourceType>
+</resource>
