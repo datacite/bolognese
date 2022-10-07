@@ -164,7 +164,7 @@ module Bolognese
             funder_identifier =  normalize_ror(funder_identifier)
             scheme_uri = "https://ror.org"
           else
-            funder_identifier = funder_identifier.to_s.start_with?("https://","http://") ? normalize_id(funder_identifier) : funder_identifier
+            funder_identifier = normalize_id(funder_identifier) ? normalize_id(funder_identifier) : funder_identifier
           end
 
           {
