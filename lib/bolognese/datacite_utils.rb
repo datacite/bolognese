@@ -222,19 +222,23 @@ module Bolognese
 
           xml.relatedItem(related_item["relatedItem"], attributes) do
 
-            xml.relatedItemIdentifier(related_item["relatedItemIdentifier"]['relatedItemIdentifier'],
-              {
-                'relatedItemIdentifierType' => related_item["relatedItemIdentifier"]["relatedItemIdentifierType"],
-                'relatedMetadataScheme' => related_item["relatedItemIdentifier"]["relatedMetadataScheme"],
-                'schemeURI' => related_item["relatedItemIdentifier"]["schemeURI"],
-                'schemeType' => related_item["relatedItemIdentifier"]["schemeType"],
-              }.compact
-            )
+            if related_item["relatedItemIdentifier"].present?
+              xml.relatedItemIdentifier(related_item["relatedItemIdentifier"]['relatedItemIdentifier'],
+                {
+                  'relatedItemIdentifierType' => related_item["relatedItemIdentifier"]["relatedItemIdentifierType"],
+                  'relatedMetadataScheme' => related_item["relatedItemIdentifier"]["relatedMetadataScheme"],
+                  'schemeURI' => related_item["relatedItemIdentifier"]["schemeURI"],
+                  'schemeType' => related_item["relatedItemIdentifier"]["schemeType"],
+                }.compact
+              )
+            end
 
-            xml.creators do
-              Array.wrap(related_item['creators']).each do |au|
-                xml.creator do
-                  insert_person(xml, au, "creator")
+            if related_item["creators"].present?
+              xml.creators do
+                Array.wrap(related_item['creators']).each do |au|
+                  xml.creator do
+                    insert_person(xml, au, "creator")
+                  end
                 end
               end
             end
@@ -253,19 +257,21 @@ module Bolognese
               end
             end
 
-            xml.publicationYear(related_item['publicationYear'])
-            xml.volume(related_item['volume'])
-            xml.issue(related_item['issue'])
-            xml.number(related_item['number'], {'numberType' => related_item['numberType']}.compact)
-            xml.firstPage(related_item['firstPage'])
-            xml.lastPage(related_item['lastPage'])
-            xml.publisher(related_item['publisher'])
-            xml.edition(related_item['edition'])
+            xml.publicationYear(related_item['publicationYear']) if related_item["publicationYear"].present?
+            xml.volume(related_item['volume']) if related_item["volume"].present?
+            xml.issue(related_item['issue']) if related_item["issue"].present?
+            xml.number(related_item['number'], {'numberType' => related_item['numberType']}.compact) if related_item["number"].present?
+            xml.firstPage(related_item['firstPage']) if related_item["firstPage"].present?
+            xml.lastPage(related_item['lastPage']) if related_item["lastPage"].present?
+            xml.publisher(related_item['publisher']) if related_item["publisher"].present?
+            xml.edition(related_item['edition']) if related_item["edition"].present?
 
-            xml.contributors do
-              Array.wrap(related_item["contributors"]).each do |con|
-                xml.contributor("contributorType" => con["contributorType"] || "Other") do
-                  insert_person(xml, con, "contributor")
+            if related_item["contributors"].present?
+              xml.contributors do
+                Array.wrap(related_item["contributors"]).each do |con|
+                  xml.contributor("contributorType" => con["contributorType"] || "Other") do
+                    insert_person(xml, con, "contributor")
+                  end
                 end
               end
             end

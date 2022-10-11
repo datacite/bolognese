@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.stage.datacite.org/dois/10.70048/290320201351?include=media,client
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Mozilla/5.0 (compatible; Maremma/4.9.8; mailto:info@datacite.org)
+      Accept:
+      - text/html,application/json,application/xml;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5
+      Accept-Encoding:
+      - gzip,deflate
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 30 Sep 2022 18:54:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Anonymous-Consumer:
+      - 'true'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - e5175ead-ec58-459c-a35e-dcdb834c09ca
+      X-Download-Options:
+      - noopen
+      Etag:
+      - W/"0aa74c09b0b6e8f485e8160c0c8079c7"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.031155'
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R) 6.0.15
+      Server:
+      - nginx/1.18.0 + Phusion Passenger(R) 6.0.15
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, PUT, PATCH, DELETE, OPTIONS
+      Access-Control-Allow-Headers:
+      - Accept,Access-Control-Allow-Origin,Access-Control-Expose-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Headers,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Mx-ReqToken,X-Requested-With
+      Access-Control-Expose-Headers:
+      - Authorization
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Fri, 30 Sep 2022 18:54:43 GMT
+recorded_with: VCR 3.0.3
