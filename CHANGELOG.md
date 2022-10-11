@@ -2,10 +2,21 @@
 
 ## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.17...HEAD)
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.18...HEAD)
+
+**Fixed bugs:**
+
+- Fix related items handling to not include elements when they are blank [\#140](https://github.com/datacite/bolognese/issues/140)
+- Related Items error out if RelatedItemIdentifier is nil [\#139](https://github.com/datacite/bolognese/issues/139)
+
+## [1.9.18](https://github.com/datacite/bolognese/tree/1.9.18) (2022-10-11)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.17...1.9.18)
 
 **Merged pull requests:**
 
+- Fix relatedItems handling [\#144](https://github.com/datacite/bolognese/pull/144) ([digitaldogsbody](https://github.com/digitaldogsbody))
+- Fixes normalization behavior that omitted non-URL funding identifiers when reading from DataCite XML. Adds normalization for Crossref Funder ID and ROR funderIdentifierTypes. [\#143](https://github.com/datacite/bolognese/pull/143) ([codycooperross](https://github.com/codycooperross))
 - Including a schemeURI with a nameIdentifier that is a URL will concat… [\#137](https://github.com/datacite/bolognese/pull/137) ([codycooperross](https://github.com/codycooperross))
 
 ## [1.9.17](https://github.com/datacite/bolognese/tree/1.9.17) (2022-07-04)
@@ -119,10 +130,6 @@
 
 - Singular geoLocationPolygons are wrapped in additional array [\#110](https://github.com/datacite/bolognese/issues/110)
 
-**Merged pull requests:**
-
-- Support returning single geoLocationPolygon [\#111](https://github.com/datacite/bolognese/pull/111) ([richardhallett](https://github.com/richardhallett))
-
 ## [1.9.3](https://github.com/datacite/bolognese/tree/1.9.3) (2021-03-26)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/1.9.2...1.9.3)
@@ -152,6 +159,7 @@
 
 **Merged pull requests:**
 
+- Support returning single geoLocationPolygon [\#111](https://github.com/datacite/bolognese/pull/111) ([richardhallett](https://github.com/richardhallett))
 - Change detection for crosscite format [\#107](https://github.com/datacite/bolognese/pull/107) ([richardhallett](https://github.com/richardhallett))
 - Add support for multiple geolocation polygons [\#106](https://github.com/datacite/bolognese/pull/106) ([richardhallett](https://github.com/richardhallett))
 - Support schema 4 4 [\#105](https://github.com/datacite/bolognese/pull/105) ([richardhallett](https://github.com/richardhallett))
