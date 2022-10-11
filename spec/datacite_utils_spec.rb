@@ -175,4 +175,29 @@ describe Bolognese::Metadata, vcr: true do
       expect(response.dig("descriptions", "description")).to eq("descriptionType" => "Abstract", "__content__" => "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
     end
   end
+
+  context "insert_related_items" do
+    let(:input) { IO.read(fixture_path + 'datacite-example-relateditems.xml') }
+    it "insert" do
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedItems", "relatedItem")).to eq(
+        "relationType" => "IsPublishedIn",
+        "relatedItemType" => "Journal",
+        "relatedItemIdentifier" => {"__content__"=>"10.5072/john-smiths-1234", "relatedItemIdentifierType"=>"DOI", "relatedMetadataScheme"=>"citeproc+json", "schemeType"=>"URL", "schemeURI"=>"https://github.com/citation-style-language/schema/raw/master/csl-data.json"},
+        "creators" => {"creator"=>{"creatorName"=>{"__content__"=>"Smith, John", "nameType"=>"Personal"}, "familyName"=>"Smith", "givenName"=>"John"}},
+        "titles" => {"title"=>["Understanding the fictional John Smith", {"__content__"=>"A detailed look", "titleType"=>"Subtitle"}]},
+        "publicationYear" => "1776",
+        "volume" => "776",
+        "issue" => "1",
+        "number" => {"__content__"=>"1", "numberType"=>"Chapter"},
+        "firstPage" => "50",
+        "lastPage" => "60",
+        "publisher" => "Example Inc",
+        "edition" => "1",
+        "contributors" => {"contributor"=>{"contributorName"=>"Hallett, Richard", "contributorType"=>"ProjectLeader", "familyName"=>"Hallett", "givenName"=>"Richard"}}
+      )
+    end
+  end
 end
