@@ -157,14 +157,21 @@ module Bolognese
           scheme_uri = parse_attributes(fr["funderIdentifier"], content: "schemeURI")
           funder_identifier = parse_attributes(fr["funderIdentifier"])
           funder_identifier_type = parse_attributes(fr["funderIdentifier"], content: "funderIdentifierType")
-          if funder_identifier_type != "Other"
-            funder_identifier = !funder_identifier.to_s.start_with?("https://","http://") && scheme_uri.present? ? normalize_id(scheme_uri + funder_identifier) : normalize_id(funder_identifier)
+
+          if funder_identifier_type == "Crossref Funder ID"
+            funder_identifier = validate_funder_doi(funder_identifier)
+          elsif funder_identifier_type == "ROR"
+            funder_identifier =  normalize_ror(funder_identifier)
+            scheme_uri = "https://ror.org"
+          else
+            funder_identifier = normalize_id(funder_identifier) ? normalize_id(funder_identifier) : funder_identifier
           end
 
           {
             "funderName" => fr["funderName"],
             "funderIdentifier" => funder_identifier,
             "funderIdentifierType" => funder_identifier_type,
+            "schemeUri" => scheme_uri,
             "awardNumber" => parse_attributes(fr["awardNumber"]),
             "awardUri" => parse_attributes(fr["awardNumber"], content: "awardURI"),
             "awardTitle" => fr["awardTitle"] }.compact
