@@ -4,28 +4,23 @@ on:
   release:
     types: [published]
 jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
   build:
+    needs: ci
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Ruby 2.6
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6.x
 
-    - name: Build and test
+    - name: Build
       run: |
-        gem install bundler
         bundle install
-        bundle exec rspec spec
-
-    - name: Code Climate Test Reporter
-      uses: aktions/codeclimate-test-reporter@v1
-      with:
-        codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-        command: after-build
 
     - name: Publish to RubyGems
       run: |
