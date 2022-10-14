@@ -2,6 +2,10 @@
 
 module Bolognese
   module DoiUtils
+    class << self
+      include DoiUtils
+    end
+
     def validate_doi(doi)
       doi = Array(/\A(?:(http|https):\/(\/)?(dx\.)?(doi.org|handle.stage.datacite.org|handle.test.datacite.org)\/)?(doi:)?(10\.\d{4,5}\/.+)\z/.match(doi)).last
       # remove non-printing whitespace and downcase

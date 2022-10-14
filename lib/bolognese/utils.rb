@@ -2,6 +2,10 @@
 
 module Bolognese
   module Utils
+    class << self
+      include Utils
+    end
+
     NORMALIZED_LICENSES = {
       "https://creativecommons.org/licenses/by/1.0" => "https://creativecommons.org/licenses/by/1.0/legalcode",
       "https://creativecommons.org/licenses/by/2.0" => "https://creativecommons.org/licenses/by/2.0/legalcode",
@@ -615,7 +619,7 @@ module Bolognese
       return nil unless id.present?
 
       # check for valid DOI
-      doi = normalize_doi(id, options)
+      doi = DoiUtils::normalize_doi(id, options)
       return doi if doi.present?
 
       # check for valid HTTP uri
@@ -674,8 +678,8 @@ module Bolognese
     def normalize_ids(ids: nil, relation_type: nil)
       Array.wrap(ids).select { |idx| idx["@id"].present? }.map do |idx|
         id = normalize_id(idx["@id"])
-        related_identifier_type = doi_from_url(id).present? ? "DOI" : "URL"
-        id = doi_from_url(id) || id
+        related_identifier_type = DoiUtils::doi_from_url(id).present? ? "DOI" : "URL"
+        id = DoiUtils::doi_from_url(id) || id
 
         { "relatedIdentifier" => id,
           "relationType" => relation_type,
@@ -1367,6 +1371,21 @@ module Bolognese
           "schemeUri" => hsh["schemeURI"] || hsh["schemeUri"],
           "valueUri" => hsh["valueURI"] || hsh["valueUri"],
           "lang" => hsh["lang"] }.compact]
+      end
+    end
+
+    def dfg_ids_to_fos(dfg_ids)
+      dfgs = JSON.load(File.read(File.expand_path('../../../resources/oecd/dfg-mappings.json', __FILE__))).fetch("dfgFields")
+      ids = Array.wrap(dfg_ids)
+
+      subjects = dfgs.select { |l| ids.include?(l["dfgId"])}
+      subjects.map do |subject|
+        {
+          "classificationCode" => subject["fosId"],
+          "subject" =>  subject["fosLabel"],
+          "subjectScheme" => "Fields of Science and Technology (FOS)",
+          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
+        }
       end
     end
   end
