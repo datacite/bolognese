@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Add DFG-to-FOS mappings utility function [\#147](https://github.com/datacite/bolognese/pull/147) ([jrhoads](https://github.com/jrhoads))
 - Test against multiple versions of ruby \(2.6, 2.7, 3.0, and 3.1\) [\#141](https://github.com/datacite/bolognese/pull/141) ([jrhoads](https://github.com/jrhoads))
 
 ## [1.9.18](https://github.com/datacite/bolognese/tree/1.9.18) (2022-10-11)
@@ -823,6 +824,10 @@
 
 - Support CSV export [\#53](https://github.com/datacite/bolognese/issues/53)
 
+**Merged pull requests:**
+
+- Refactor update codemeta [\#54](https://github.com/datacite/bolognese/pull/54) ([kjgarza](https://github.com/kjgarza))
+
 ## [v.1.1.2](https://github.com/datacite/bolognese/tree/v.1.1.2) (2019-01-12)
 
 [Full Changelog](https://github.com/datacite/bolognese/compare/v1.1.1...v.1.1.2)
@@ -1198,7 +1203,6 @@
 
 **Merged pull requests:**
 
-- Refactor update codemeta [\#54](https://github.com/datacite/bolognese/pull/54) ([kjgarza](https://github.com/kjgarza))
 - csl-json: fix date parts label for empty date [\#27](https://github.com/datacite/bolognese/pull/27) ([larsgw](https://github.com/larsgw))
 
 ## [v.0.10.13](https://github.com/datacite/bolognese/tree/v.0.10.13) (2018-05-18)
