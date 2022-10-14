@@ -1,13 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/datacite/bolognese/tree/HEAD)
+## [1.10.0](https://github.com/datacite/bolognese/tree/1.10.0) (2022-10-14)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.18...HEAD)
+[Full Changelog](https://github.com/datacite/bolognese/compare/1.9.18...1.10.0)
 
 **Merged pull requests:**
 
 - Add DFG-to-FOS mappings utility function [\#147](https://github.com/datacite/bolognese/pull/147) ([jrhoads](https://github.com/jrhoads))
-- Test against multiple versions of ruby \(2.6, 2.7, 3.0, and 3.1\) [\#141](https://github.com/datacite/bolognese/pull/141) ([jrhoads](https://github.com/jrhoads))
 
 ## [1.9.18](https://github.com/datacite/bolognese/tree/1.9.18) (2022-10-11)
 
@@ -65,7 +64,6 @@
 **Merged pull requests:**
 
 - update nokogiri to latest, including updating maremma [\#130](https://github.com/datacite/bolognese/pull/130) ([orangewolf](https://github.com/orangewolf))
-- mapping for DFG-to-OECD [\#125](https://github.com/datacite/bolognese/pull/125) ([kjgarza](https://github.com/kjgarza))
 
 ## [1.9.12](https://github.com/datacite/bolognese/tree/1.9.12) (2021-08-19)
 
@@ -81,6 +79,7 @@
 
 **Merged pull requests:**
 
+- Test against multiple versions of ruby \(2.6, 2.7, 3.0, and 3.1\) [\#141](https://github.com/datacite/bolognese/pull/141) ([jrhoads](https://github.com/jrhoads))
 - Allow Orcid URLs to have been issued from the sandbox [\#121](https://github.com/datacite/bolognese/pull/121) ([prdanelli](https://github.com/prdanelli))
 
 ## [1.9.10](https://github.com/datacite/bolognese/tree/1.9.10) (2021-07-20)
@@ -116,6 +115,7 @@
 
 **Merged pull requests:**
 
+- mapping for DFG-to-OECD [\#125](https://github.com/datacite/bolognese/pull/125) ([kjgarza](https://github.com/kjgarza))
 - Fix missing affiliation identifier [\#117](https://github.com/datacite/bolognese/pull/117) ([richardhallett](https://github.com/richardhallett))
 - Add support for book title and additional metadata when reading Crossref Book Chapter DOI [\#115](https://github.com/datacite/bolognese/pull/115) ([prdanelli](https://github.com/prdanelli))
 - Valid Funder DOIs are being rejected for not starting with a 5 [\#114](https://github.com/datacite/bolognese/pull/114) ([prdanelli](https://github.com/prdanelli))
@@ -1389,15 +1389,15 @@
 
 ## [v.0.9.70](https://github.com/datacite/bolognese/tree/v.0.9.70) (2018-01-12)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.6.69...v.0.9.70)
-
-## [v.0.6.69](https://github.com/datacite/bolognese/tree/v.0.6.69) (2018-01-11)
-
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.69...v.0.6.69)
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.69...v.0.9.70)
 
 ## [v.0.9.69](https://github.com/datacite/bolognese/tree/v.0.9.69) (2018-01-11)
 
-[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.68...v.0.9.69)
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.6.69...v.0.9.69)
+
+## [v.0.6.69](https://github.com/datacite/bolognese/tree/v.0.6.69) (2018-01-11)
+
+[Full Changelog](https://github.com/datacite/bolognese/compare/v.0.9.68...v.0.6.69)
 
 ## [v.0.9.68](https://github.com/datacite/bolognese/tree/v.0.9.68) (2018-01-11)
 
