@@ -2,6 +2,10 @@
 
 module Bolognese
   module Utils
+    class << self
+      include Utils
+    end
+
     NORMALIZED_LICENSES = {
       "https://creativecommons.org/licenses/by/1.0" => "https://creativecommons.org/licenses/by/1.0/legalcode",
       "https://creativecommons.org/licenses/by/2.0" => "https://creativecommons.org/licenses/by/2.0/legalcode",
@@ -484,6 +488,28 @@ module Bolognese
       ":etal" => "too numerous to list (et alia)"
     }
 
+    RESOURCE_PATHS = {
+      spdx: 'spdx/licenses.json',
+      fos: 'oecd/fos-mappings.json',
+      for: 'oecd/for-mappings.json',
+      dfg: 'oecd/dfg-mappings.json'
+    }
+
+    def resources_dir_path
+      File.expand_path('../../../resources', __FILE__) + '/'
+    end
+
+    def resource_file( extra_path )
+      File.read(resources_dir_path + extra_path)
+    end
+
+    def resource_json( resource_symbol )
+      if RESOURCE_PATHS.keys().include?(resource_symbol)
+        JSON.load(resource_file(RESOURCE_PATHS[resource_symbol]))
+      end
+    end
+
+
     def find_from_format(id: nil, string: nil, ext: nil, filename: nil)
       if id.present?
         find_from_format_by_id(id)
@@ -615,7 +641,7 @@ module Bolognese
       return nil unless id.present?
 
       # check for valid DOI
-      doi = normalize_doi(id, options)
+      doi = DoiUtils::normalize_doi(id, options)
       return doi if doi.present?
 
       # check for valid HTTP uri
@@ -674,8 +700,8 @@ module Bolognese
     def normalize_ids(ids: nil, relation_type: nil)
       Array.wrap(ids).select { |idx| idx["@id"].present? }.map do |idx|
         id = normalize_id(idx["@id"])
-        related_identifier_type = doi_from_url(id).present? ? "DOI" : "URL"
-        id = doi_from_url(id) || id
+        related_identifier_type = DoiUtils::doi_from_url(id).present? ? "DOI" : "URL"
+        id = DoiUtils::doi_from_url(id) || id
 
         { "relatedIdentifier" => id,
           "relationType" => relation_type,
@@ -1233,7 +1259,7 @@ module Bolognese
     end
 
     def name_to_spdx(name)
-      spdx = JSON.load(File.read(File.expand_path('../../../resources/spdx/licenses.json', __FILE__))).fetch("licenses")
+      spdx = resource_json(:spdx).fetch("licenses")
       license = spdx.find { |l| l["name"] == name || l["licenseId"] == name || l["seeAlso"].first == normalize_cc_url(name) }
 
       if license
@@ -1249,7 +1275,7 @@ module Bolognese
     end
 
     def hsh_to_spdx(hsh)
-      spdx = JSON.load(File.read(File.expand_path('../../../resources/spdx/licenses.json', __FILE__))).fetch("licenses")
+      spdx = resource_json(:spdx).fetch("licenses")
       license = spdx.find { |l| l["licenseId"].casecmp?(hsh["rightsIdentifier"]) || l["seeAlso"].first == normalize_cc_url(hsh["rightsURI"]) || l["name"] == hsh["rights"] || l["seeAlso"].first == normalize_cc_url(hsh["rights"]) }
 
       if license
@@ -1273,7 +1299,7 @@ module Bolognese
 
     def name_to_fos(name)
       # first find subject in Fields of Science (OECD)
-      fos = JSON.load(File.read(File.expand_path('../../../resources/oecd/fos-mappings.json', __FILE__))).fetch("fosFields")
+      fos = resource_json(:fos).fetch("fosFields")
 
       subject = fos.find { |l| l["fosLabel"] == name || "FOS: " + l["fosLabel"] == name }
 
@@ -1289,7 +1315,7 @@ module Bolognese
 
       # if not found, look in Fields of Research (Australian and New Zealand Standard Research Classification)
       # and map to Fields of Science. Add an extra entry for the latter
-      fores = JSON.load(File.read(File.expand_path('../../../resources/oecd/for-mappings.json', __FILE__)))
+      fores = resource_json(:for)
       for_fields = fores.fetch("forFields")
       for_disciplines = fores.fetch("forDisciplines")
 
@@ -1311,7 +1337,7 @@ module Bolognese
 
     def hsh_to_fos(hsh)
       # first find subject in Fields of Science (OECD)
-      fos = JSON.load(File.read(File.expand_path('../../../resources/oecd/fos-mappings.json', __FILE__))).fetch("fosFields")
+      fos = resource_json(:fos).fetch("fosFields")
       subject = fos.find { |l| l["fosLabel"] == hsh["__content__"] || "FOS: " + l["fosLabel"] == hsh["__content__"] || l["fosLabel"] == hsh["subject"]}
 
       if subject
@@ -1330,7 +1356,7 @@ module Bolognese
 
       # if not found, look in Fields of Research (Australian and New Zealand Standard Research Classification)
       # and map to Fields of Science. Add an extra entry for the latter
-      fores = JSON.load(File.read(File.expand_path('../../../resources/oecd/for-mappings.json', __FILE__)))
+      fores = resource_json(:for)
       for_fields = fores.fetch("forFields")
       for_disciplines = fores.fetch("forDisciplines")
 
@@ -1367,6 +1393,21 @@ module Bolognese
           "schemeUri" => hsh["schemeURI"] || hsh["schemeUri"],
           "valueUri" => hsh["valueURI"] || hsh["valueUri"],
           "lang" => hsh["lang"] }.compact]
+      end
+    end
+
+    def dfg_ids_to_fos(dfg_ids)
+      dfgs = resource_json(:dfg).fetch("dfgFields")
+      ids = Array.wrap(dfg_ids)
+
+      subjects = dfgs.select { |l| ids.include?(l["dfgId"])}
+      subjects.map do |subject|
+        {
+          "classificationCode" => subject["fosId"],
+          "subject" =>  subject["fosLabel"],
+          "subjectScheme" => "Fields of Science and Technology (FOS)",
+          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
+        }
       end
     end
   end

@@ -2,10 +2,8 @@
 
 require 'spec_helper'
 
-describe Bolognese::Metadata, vcr: true do
-  let(:input) { "https://doi.org/10.1101/097196" }
-
-  subject { Bolognese::Metadata.new(input: input, from: "crossref") }
+describe Bolognese::Utils do
+  subject { Bolognese::Utils }
 
   context "validate url" do
     it "DOI" do
@@ -612,6 +610,57 @@ describe Bolognese::Metadata, vcr: true do
       response = subject.hsh_to_fos(hsh)
       expect(response).to eq([{"subject"=>"Random tag"}])
     end
+
+  end
+
+  context "DFG mappings" do
+    it "dfg_id_to_fos match" do
+      dfg_id = "20108"
+      response = subject.dfg_ids_to_fos(dfg_id)
+      expect(response).to eq([
+        {
+          "classificationCode" =>"1.6",
+          "subject" => "Biological sciences",
+          "subjectScheme" => "Fields of Science and Technology (FOS)",
+          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
+        },
+        {
+          "classificationCode" =>"3.1",
+          "subject" => "Basic medicine",
+          "subjectScheme" => "Fields of Science and Technology (FOS)",
+          "schemeUri" => "http://www.oecd.org/science/inno/38235147.pdf"
+        },
+      ])
+    end
+    it "dfg_id_to_fos no match" do
+      dfg_id = "000"
+      response = subject.dfg_ids_to_fos(dfg_id)
+      expect(response).to eq([])
+    end
+
+    it "dfg_id_to_fos match list" do
+      dfg_ids = ["101", "20108"]
+      response = subject.dfg_ids_to_fos(dfg_ids)
+      expect(response).to eq([
+        {"classificationCode"=>"6.1",
+         "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+         "subject"=>"History and archaeology",
+         "subjectScheme"=>"Fields of Science and Technology (FOS)"},
+        {"classificationCode"=>"6.2",
+         "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+         "subject"=>"Languages and literature",
+         "subjectScheme"=>"Fields of Science and Technology (FOS)"},
+        {"classificationCode"=>"1.6",
+         "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+         "subject"=>"Biological sciences",
+         "subjectScheme"=>"Fields of Science and Technology (FOS)"},
+        {"classificationCode"=>"3.1",
+         "schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
+         "subject"=>"Basic medicine",
+         "subjectScheme"=>"Fields of Science and Technology (FOS)"}
+      ])
+    end
+
 
   end
 end
