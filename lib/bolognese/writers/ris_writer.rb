@@ -11,7 +11,7 @@ module Bolognese
           "AU" => to_ris(creators),
           "DO" => doi,
           "UR" => url,
-          "AB" => parse_attributes(descriptions, content: "description", first: true),
+          "AB" => parse_attributes(abstract_description, content: "description", first: true),
           "KW" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
           "PY" => publication_year,
           "PB" => publisher,
