@@ -13,7 +13,7 @@ module Bolognese
           "name" => parse_attributes(titles, content: "title", first: true),
           "author" => to_schema_org_creators(creators),
           "editor" => to_schema_org_contributors(contributors),
-          "description" => parse_attributes(descriptions, content: "description", first: true),
+          "description" => parse_attributes(abstract_description, content: "description", first: true),
           "license" => Array.wrap(rights_list).map { |l| l["rightsUri"] }.compact.unwrap,
           "version" => version_info,
           "keywords" => subjects.present? ? Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.join(", ") : nil,

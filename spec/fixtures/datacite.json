@@ -43,7 +43,7 @@
     }
   ],
   "dates": [
-    { 
+    {
       "dateType": "Created",
       "date": "2016-12-20"
     },
@@ -74,10 +74,16 @@
     }
   ],
   "version": "1.0",
-  "descriptions": [{
+  "descriptions": [
+    {
+      "descriptionType": "SeriesInformation",
+      "description": "Volume(1) Series(3)"
+    },
+    {
     "descriptionType": "Abstract",
     "description": "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for..."
-  }],
+    }
+  ],
   "schemaVersion": "http://datacite.org/schema/kernel-4",
   "agency": "datacite"
 }
