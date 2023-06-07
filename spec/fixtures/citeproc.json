@@ -25,6 +25,8 @@
     },
     "author": [{
         "family": "Fenner",
-        "given": "Martin"
-    }]
+        "given": "Martin",
+        "literal": "Fenner, Martin"
+    }
+]
 }

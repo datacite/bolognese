@@ -1021,7 +1021,7 @@ module Bolognese
       Array.wrap(element).map do |a|
         if a["literal"].present?
           a["@type"] = "Organization"
-          a["name"] = a["literal"]
+          a["creatorName"] = a["literal"]
         else
           a["@type"] = "Person"
           a["name"] = [a["given"], a["family"]].compact.join(" ")
