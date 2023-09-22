@@ -163,13 +163,24 @@ describe Bolognese::Metadata, vcr: true do
   it "has ROR nameIdentifiers" do
     input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
     subject = Bolognese::Metadata.new(input: input, from: "datacite")
-    expect(subject.creators[1]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"University Of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
-    expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University Of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.creators[6]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
     expect(subject.contributors.first).to eq("nameType"=>"Organizational", "name"=>" Nawroz University ", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04gp75d48", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[], "contributorType"=>"Producer")
     expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"University Of Greenland (Https://Www.Uni.Gl/)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/00t5j6b61", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
+  end
+
+  context "has ROR affiliationIdentifier" do
+    it "should parse affiliationIdentifier with and without URL" do
+      input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      # without URL inside affiliationIdentifier="05bp8ka77"
+      expect(subject.creators[0]).to eq({"nameType"=>"Personal", "name"=>"Sukale, Ashwini", "givenName"=>"Ashwini", "familyName"=>"Sukale", "nameIdentifiers"=>[{"schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}], "affiliation"=>[{"name"=>"Metadata Game Changers", "affiliationIdentifier"=>"https://ror.org/05bp8ka77", "affiliationIdentifierScheme"=>"ROR", "schemeUri"=>"https://ror.org"}]})
+      # with URL "affiliationIdentifier"=>"https://ror.org/05bp8ka05"
+      expect(subject.creators[1]).to eq({"nameType"=>"Personal", "name"=>"Robinson, Erin", "givenName"=>"Erin", "familyName"=>"Robinson", "nameIdentifiers"=>[{"schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}], "affiliation"=>[{"name"=>"Metadata Game Changers", "affiliationIdentifier"=>"https://ror.org/05bp8ka05", "affiliationIdentifierScheme"=>"ROR", "schemeUri"=>"https://ror.org"}]})
+    end
   end
 
   context "authors_as_string" do

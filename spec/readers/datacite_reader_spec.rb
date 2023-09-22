@@ -121,7 +121,7 @@ describe Bolognese::Metadata, vcr: true do
         "name"=>"Brown University"},
        {"affiliationIdentifier"=>"https://grid.ac/institutes/grid.268117.b",
         "affiliationIdentifierScheme"=>"GRID",
-        "name"=>"Wesleyan University"}])
+        "name"=>"Wesleyan University", "schemeUri"=>"https://grid.ac/institutes/"}])
       expect(subject.creators.dig(2, "affiliation")).to eq([{"affiliationIdentifier"=>"https://ror.org/05gq02987",
         "affiliationIdentifierScheme"=>"ROR", "name"=>"Brown University"}])
       expect(subject.titles).to eq([{"lang"=>"en-US", "title"=>"Full DataCite XML Example"}, {"lang"=>"en-US", "title"=>"Demonstration of DataCite Properties.", "titleType"=>"Subtitle"}])
@@ -950,7 +950,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("DATA")
       expect(subject.types["bibtex"]).to eq("misc")
       expect(subject.creators.length).to eq(1)
-      expect(subject.creators.first).to eq("affiliation" => [{"affiliationIdentifier"=>"https://ror.org/04zt3wx35", "affiliationIdentifierScheme"=>"ROR", "name"=>"Canada Mortgage and Housing Corporation"}],
+      expect(subject.creators.first).to eq("affiliation" => [{"affiliationIdentifier"=>"https://ror.org/04zt3wx35", "affiliationIdentifierScheme"=>"ROR", "name"=>"Canada Mortgage and Housing Corporation", "schemeUri"=>"https://ror.org"}],
         "name" => "Statistique Canada",
          "nameIdentifiers" => [],
         "nameType" => "Organizational")
