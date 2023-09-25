@@ -7,11 +7,13 @@
             <creatorName nameType="Personal">Ashwini Sukale</creatorName>
             <nameIdentifier schemeURI="https://orcid.org/" nameIdentifierScheme="ORCID"> https://orcid.org/0000-0001-9998-0117 </nameIdentifier>
             <affiliation affiliationIdentifier="05bp8ka77" affiliationIdentifierScheme="ROR"> Metadata Game Changers </affiliation>
+            <affiliation affiliationIdentifier="grid.268117.b" affiliationIdentifierScheme="GRID">Wesleyan University</affiliation>
         </creator>
         <creator>
             <creatorName nameType="Personal">Erin Robinson</creatorName>
             <nameIdentifier schemeURI="https://orcid.org/" nameIdentifierScheme="ORCID"> https://orcid.org/0000-0001-9998-0114 </nameIdentifier>
             <affiliation schemeURI="https://ror.org" affiliationIdentifier="https://ror.org/05bp8ka05" affiliationIdentifierScheme="ROR"> Metadata Game Changers </affiliation>
+            <affiliation affiliationIdentifier="grid.268117.b" affiliationIdentifierScheme="GRID" schemeURI="https://grid.ac/institutes/">Wesleyan University</affiliation>
         </creator>
         <creator>
             <creatorName nameType="Organizational">Gump South Pacific Research Station</creatorName>

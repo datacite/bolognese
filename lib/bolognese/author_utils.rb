@@ -154,9 +154,14 @@ module Bolognese
             # The normalize_id(affiliation_identifier) method currently discards affiliation identifiers that don't start with a URL, 
             # for example: affiliation_identifier = "05bp8ka05".
             # To address this issue, we are introducing the following change to handle such affiliation identifiers.
-            if a["affiliationIdentifierScheme"] == "ROR" && affiliation_identifier.nil?
-              scheme_uri = "https://ror.org"
-              affiliation_identifier = scheme_uri + "/" + a["affiliationIdentifier"]
+            # when `normalize_id` method could not normalize, it returns nil, hence we have following condition
+            if affiliation_identifier.nil?
+              if a["affiliationIdentifierScheme"] == "ROR"
+                scheme_uri = "https://ror.org"
+                affiliation_identifier = normalize_ror(a["affiliationIdentifier"])
+              else
+                affiliation_identifier = a["affiliationIdentifier"]
+              end
             end
           end
           name = a["__content__"].to_s.squish.presence
