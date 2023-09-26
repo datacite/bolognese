@@ -163,13 +163,37 @@ describe Bolognese::Metadata, vcr: true do
   it "has ROR nameIdentifiers" do
     input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
     subject = Bolognese::Metadata.new(input: input, from: "datacite")
-    expect(subject.creators[1]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"University Of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
-    expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University Of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.creators[6]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
     expect(subject.contributors.first).to eq("nameType"=>"Organizational", "name"=>" Nawroz University ", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04gp75d48", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[], "contributorType"=>"Producer")
     expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"University Of Greenland (Https://Www.Uni.Gl/)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/00t5j6b61", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
+  end
+
+  context "affiliationIdentifier" do
+    it "should normalize ROR affiliationIdentifier with and without URL" do
+      input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      # without URL inside affiliationIdentifier="05bp8ka77"
+      ror_affiliater0 = subject.creators[0]["affiliation"].select { |r| r["affiliationIdentifierScheme"] == "ROR" }
+      expect(ror_affiliater0[0]["affiliationIdentifier"]).to eq("https://ror.org/05bp8ka77")
+      # with URL "affiliationIdentifier"=>"https://ror.org/05bp8ka05"
+      ror_affiliater1 = subject.creators[1]["affiliation"].select { |r| r["affiliationIdentifierScheme"] == "ROR" }
+      expect(ror_affiliater1[0]["affiliationIdentifier"]).to eq("https://ror.org/05bp8ka05")
+    end
+
+    it "should parse non ROR schema's without normalizing them" do
+      input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      # without "schemeURI"
+      grid_affiliater0 = subject.creators[0]["affiliation"].select { |r| r["affiliationIdentifierScheme"] == "GRID" }
+      expect(grid_affiliater0[0]["affiliationIdentifier"]).to eq("grid.268117.b")
+      # with "schemeURI"=>"https://grid.ac/institutes/"
+      grid_affiliater1 = subject.creators[1]["affiliation"].select { |r| r["affiliationIdentifierScheme"] == "GRID" }
+      expect(grid_affiliater1[0]["affiliationIdentifier"]).to eq("https://grid.ac/institutes/grid.268117.b")
+    end
   end
 
   context "authors_as_string" do
