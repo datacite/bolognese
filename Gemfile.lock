@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bolognese (1.11.2)
+    bolognese (1.11.3)
       activesupport (>= 4.2.5)
       benchmark_methods (~> 0.7)
       bibtex-ruby (>= 5.1.0)
@@ -232,4 +232,4 @@ DEPENDENCIES
   webmock (~> 3.0, >= 3.0.1)
 
 BUNDLED WITH
-   2.3.12
+   2.4.10
