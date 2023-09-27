@@ -9,8 +9,8 @@ jobs:
   build:
     needs: ci
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+ #   env:
+ #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby 2.6
@@ -33,10 +33,10 @@ jobs:
       env:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
 
-    - name: Notify Slack
-      uses: adamkdean/simple-slack-notify@1.0.4
-      with:
-        channel: '#ops'
-        username: 'GitHub Actions'
-        color: 'good'
-        text: 'A new version of the bolognese gem has been released.'
+#    - name: Notify Slack
+#      uses: adamkdean/simple-slack-notify@1.0.4
+#      with:
+#        channel: '#ops'
+#        username: 'GitHub Actions'
+#        color: 'good'
+#        text: 'A new version of the bolognese gem has been released.'
