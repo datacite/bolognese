@@ -15,4 +15,4 @@ jobs:
       ABC: "PQR"
     steps:
     - name: Notify Slack
-      run: echo "SLACK_WEBHOOK_URL is $SLACK_WEBHOOK_URL $ABC"
+      run: echo "SLACK_WEBHOOK_URL is $SLACK_WEBHOOK_URL $ABC[0]"
