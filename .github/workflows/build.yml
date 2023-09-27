@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      ABC: "PQR"
     steps:
     - name: Notify Slack
-      run: echo "SLACK_WEBHOOK_URL is $SLACK_WEBHOOK_URL $ABC[0]"
+      run: |
+        # Set the secret URL as an environment variable for printing
+        SECRET_URL=$SLACK_WEBHOOK_URL
+        echo "Secret URL: $SECRET_URL"
