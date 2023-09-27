@@ -3,7 +3,7 @@ name: Build Ruby Gem
 on:
   push:
     branches:
-      - "master"
+      - "issue-152-slack-notify"
 jobs:
   ci:
     uses: ./.github/workflows/ci.yml
@@ -14,10 +14,4 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
     - name: Notify Slack
-      uses: adamkdean/simple-slack-notify@1.0.4
-      with:
-        channel: '#ops'
-        username: 'GitHub Actions'
-        color: 'good'
-        text: 'A new version of the bolognese gem is ready for release.'
-
+      run: echo "SLACK_WEBHOOK_URL is $SLACK_WEBHOOK_URL"
