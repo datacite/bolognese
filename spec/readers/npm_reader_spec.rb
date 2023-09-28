@@ -38,6 +38,7 @@ describe Bolognese::Metadata, vcr: true do
       #expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "reourceType"=>"NPM Package", "resourceTypeGeneral"=>"Software", "ris"=>"GEN", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"name"=>":(unav)", "nameType"=>"Organizational"}])
+      expect(subject.publisher).to eq(nil)
       expect(subject.titles).to eq([{"title"=>"CITapp"}])
       expect(subject.descriptions).to eq([{"description"=>"Concealed Information Test app", "descriptionType"=>"Abstract"}])
       expect(subject.version_info).to eq("1.1.0")
@@ -54,6 +55,7 @@ describe Bolognese::Metadata, vcr: true do
       #expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "reourceType"=>"NPM Package", "resourceTypeGeneral"=>"Software", "ris"=>"GEN", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[], "familyName"=>"Brancotte", "givenName"=>"Bryan", "name"=>"Brancotte, Bryan", "nameIdentifiers"=>[], "nameType"=>"Personal"}])
+      expect(subject.publisher).to eq(nil)
       expect(subject.titles).to eq([{"title"=>"edam-browser"}])
       expect(subject.descriptions).to eq([{"description"=>
         +   "The EDAM Browser is a client-side web-based visualization javascript widget. Its goals are to help describing bio-related resources and service with EDAM, and to facilitate and foster community contributions to EDAM.",

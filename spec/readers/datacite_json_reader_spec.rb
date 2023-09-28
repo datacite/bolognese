@@ -18,6 +18,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"BlogPosting", "resourceTypeGeneral"=>"Text", "ris"=>"RPRT", "schemaOrg"=>"ScholarlyArticle")
       expect(subject.creators).to eq([{"type"=>"Person", "id"=>"http://orcid.org/0000-0003-1419-2405", "name"=>"Fenner, Martin", "givenName"=>"Martin", "familyName"=>"Fenner"}])
+      expect(subject.publisher).to eq({"name"=>"DataCite"})
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.identifiers).to eq([{"identifier"=>"https://doi.org/10.5438/4k3m-nyvg", "identifierType"=>"DOI"}, {"identifier"=>"MS-49-3632-5083", "identifierType"=>"Local accession number"}])
       expect(subject.dates).to eq([{"date"=>"2016-12-20", "dateType"=>"Created"}, {"date"=>"2016-12-20", "dateType"=>"Issued"}, {"date"=>"2016-12-20", "dateType"=>"Updated"}])
@@ -65,6 +66,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("affiliation"=>[{"name"=>"University of Washington"}], "familyName"=>"Vanderplas", "givenName"=>"Jake", "name"=>"Vanderplas, Jake", "nameIdentifiers"=>[], "nameType"=>"Personal")
+      expect(subject.publisher).to eq({"name"=>"Zenodo"})
       expect(subject.titles).to eq([{"title"=>"Supersmoother: Minor Bug Fix Release"}])
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.28518")
       expect(subject.identifiers).to eq([{"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])

@@ -18,6 +18,7 @@ describe Bolognese::Metadata, vcr: true do
         "rightsIdentifierScheme"=>"SPDX",
         "rightsUri"=>"https://creativecommons.org/licenses/by/3.0/legalcode",
         "schemeUri"=>"https://spdx.org/licenses/"}])
+      expect(datacite.fetch("publisher")).to eq({"name"=>"eLife Sciences Publications, Ltd"})
     end
 
     it "with ORCID ID" do
@@ -28,6 +29,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("types")).to eq("bibtex"=>"article", "citeproc"=>"article-journal", "resourceType"=>"JournalArticle", "resourceTypeGeneral"=>"JournalArticle", "ris"=>"JOUR", "schemaOrg"=>"ScholarlyArticle")
       expect(datacite.fetch("creators").length).to eq(7)
       expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Thanassi, Wendy", "givenName"=>"Wendy", "familyName"=>"Thanassi", "affiliation" => [{"name"=>"Department of Medicine, Veterans Affairs Palo Alto Health Care System, 3801 Miranda Avenue MC-, Palo Alto, CA 94304-1207, USA"}, {"name"=>"Occupational Health Strategic Health Care Group, Office of Public Health, Veterans Health Administration, Washington, DC 20006, USA"}, {"name"=>"Division of Emergency Medicine, Stanford University School of Medicine, Stanford, CA 94304, USA"}, {"name"=>"War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA"}])
+      expect(datacite.fetch("publisher")).to eq({"name"=>"Hindawi Limited"})
     end
 
     it "Crossref DOI" do
@@ -39,6 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.fetch("creators").length).to eq(5)
       expect(datacite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
+      expect(datacite.fetch("publisher")).to eq({"name"=>"{eLife} Sciences Organisation, Ltd."})
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -49,6 +52,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(datacite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
       expect(datacite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin"}])
+      expect(datacite.fetch("publisher")).to eq({"name"=>"DataCite"})
     end
 
     it "rdataone" do
@@ -60,6 +64,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("creators").first).to eq("affiliation"=>[{"name"=>"NCEAS"}], "nameType"=>"Personal", "name" => "Jones, Matt",
         "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "givenName"=>"Matt", "familyName"=>"Jones")
       expect(datacite.fetch("version")).to eq("2.0.0")
+      expect(datacite.fetch("publisher")).to eq({"name"=>"https://cran.r-project.org"})
     end
 
     it "maremma" do
@@ -75,6 +80,7 @@ describe Bolognese::Metadata, vcr: true do
          [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
            "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"}])
+      expect(datacite.fetch("publisher")).to eq({"name"=>"DataCite"})
     end
 
     it "with data citation schema.org" do
@@ -85,6 +91,21 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(datacite.fetch("relatedIdentifiers").count).to eq(3)
       expect(datacite.fetch("relatedIdentifiers").first).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
+      expect(datacite.fetch("publisher")).to eq({"name"=>"DataCite"})
+    end
+
+    it "DataCite DOI with Schema 4. publisher attributes" do
+      input = fixture_path + "datacite-example-full-v4.5.xml"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      datacite = JSON.parse(subject.datacite_json)
+      expect(datacite.fetch("publisher")).to eq(
+        {
+          "name" => "Example Publisher",
+          "publisherIdentifier" => "https://ror.org/04z8jg394",
+          "publisherIdentifierScheme" => "ROR",
+          "schemeUri" => "https://ror.org/",
+        },
+      )
     end
   end
 end

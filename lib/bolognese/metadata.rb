@@ -222,7 +222,12 @@ module Bolognese
     end
 
     def publisher
-      @publisher ||= meta.fetch("publisher", nil)
+      @publisher ||= 
+        if meta.fetch("publisher", nil).is_a?(Hash)
+          meta.fetch("publisher", nil)
+        elsif meta.fetch("publisher", nil).is_a?(String)
+          { "name" => meta.fetch("publisher", nil) }.compact
+        end
     end
 
     def identifiers

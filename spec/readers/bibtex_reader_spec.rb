@@ -34,6 +34,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators.length).to eq(5)
       expect(subject.creators.first).to eq("familyName"=>"Sankar", "givenName"=>"Martial", "name"=>"Sankar, Martial", "nameType"=>"Personal")
       expect(subject.titles).to eq([{"title"=>"Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth"}])
+      expect(subject.publisher).to eq({"name"=>"{eLife} Sciences Organisation, Ltd."})
       expect(subject.descriptions.first["description"]).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(subject.rights_list).to eq([{"rights"=>"Creative Commons Attribution 3.0 Unported",
         "rightsIdentifier"=>"cc-by-3.0",
@@ -54,6 +55,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.7554/elife.01567")
       expect(subject.types).to eq("bibtex"=>"phdthesis", "citeproc"=>"thesis", "resourceTypeGeneral"=>"Dissertation", "resourceType"=>"Dissertation", "ris"=>"THES", "schemaOrg"=>"Thesis")
       expect(subject.creators).to eq([{"familyName"=>"Toparlar", "givenName"=>"Y.", "name"=>"Toparlar, Y.", "nameType"=>"Personal"}])
+      expect(subject.publisher).to eq({"name"=>"Technische Universiteit Eindhoven"})
       expect(subject.titles).to eq([{"title"=>"A multiscale analysis of the urban heat island effect: from city averaged temperatures to the energy demand of individual buildings"}])
       expect(subject.descriptions.first["description"]).to start_with("Designing the climates of cities")
       expect(subject.dates).to eq([{"date"=>"2018", "dateType"=>"Issued"}])

@@ -10,6 +10,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.7554/elife.01567> a schema:ScholarlyArticle;")
+      expect(ttl[46]).to eq("    schema:name \"{eLife} Sciences Organisation, Ltd.\"")
     end
 
     it "Dataset" do
@@ -19,6 +20,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5061/dryad.8515> a schema:Dataset;")
+      expect(ttl[65]).to eq("    schema:name \"Dryad\"")
     end
 
     it "BlogPosting" do
@@ -28,6 +30,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:ScholarlyArticle;")
+      expect(ttl[27]).to eq("    schema:name \"DataCite\"")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -36,6 +39,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:BlogPosting;")
+      expect(ttl[18]).to eq("    schema:name \"DataCite\"")
     end
 
     it "BlogPosting DataCite JSON" do
@@ -44,6 +48,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:ScholarlyArticle;")
+      expect(ttl[28]).to eq("    schema:name \"DataCite\"")
     end
 
     it "BlogPosting schema.org" do
@@ -53,6 +58,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5438/4k3m-nyvg> a schema:BlogPosting;")
+      expect(ttl[15]).to eq("    schema:name \"DataCite\"")
     end
 
     it "DataONE" do
@@ -61,6 +67,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.5063/f1m61h5x> a schema:SoftwareSourceCode;")
+      expect(ttl[17]).to eq("    schema:name \"https://cran.r-project.org\"")
     end
 
     it "journal article" do
@@ -70,6 +77,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.7554/elife.01567> a schema:ScholarlyArticle;")
+      expect(ttl[111]).to eq("    schema:name \"eLife Sciences Publications, Ltd\"")
     end
 
     it "with pages" do
@@ -79,6 +87,7 @@ describe Bolognese::Metadata, vcr: true do
       ttl = subject.turtle.split("\n")
       expect(ttl[0]).to eq("@prefix schema: <http://schema.org/> .")
       expect(ttl[2]).to eq("<https://doi.org/10.1155/2012/291294> a schema:ScholarlyArticle;")
+      expect(ttl[117]).to eq("    schema:name \"Hindawi Limited\"")
     end
   end
 end

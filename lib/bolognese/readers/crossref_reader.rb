@@ -40,8 +40,7 @@ module Bolognese
         journal_metadata = nil
         journal_issue = {}
         journal_metadata = nil
-        publisher = query.dig("crm_item", 0)
-        publisher = nil unless publisher.is_a?(String)
+        publisher = query.dig("crm_item", 0).is_a?(String) ? { "name" => query.dig("crm_item", 0) } : nil
 
         case model
         when "book"

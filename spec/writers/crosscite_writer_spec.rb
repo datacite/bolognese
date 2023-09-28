@@ -46,6 +46,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(crosscite.fetch("creators").count).to eq(5)
       expect(crosscite.fetch("creators").first).to eq("nameType"=>"Personal", "name"=>"Sankar, Martial", "givenName"=>"Martial", "familyName"=>"Sankar")
+      expect(crosscite.fetch("publisher")).to eq({"name"=>"{eLife} Sciences Organisation, Ltd."})
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -57,6 +58,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("titles")).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(crosscite.dig("descriptions", 0, "description")).to start_with("Eating your own dog food")
       expect(crosscite.fetch("creators")).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin"}])
+      expect(crosscite.fetch("publisher")).to eq({"name"=>"DataCite"})
     end
 
     it "rdataone" do
@@ -67,6 +69,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite["creators"].length).to eq(3)
       expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite["version"]).to eq("2.0.0")
+      expect(crosscite["publisher"]).to eq({"name"=>"https://cran.r-project.org"})
     end
 
     it "rdataone codemeta v2" do
@@ -77,6 +80,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite["creators"].length).to eq(3)
       expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite["version"]).to eq("2.0.0")
+      expect(crosscite["publisher"]).to eq({"name"=>"https://cran.r-project.org"})
     end
 
     it "datacite database attributes" do
@@ -91,6 +95,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("publication_year")).to eq("2011")
       expect(crosscite.fetch("provider_id")).to eq("dryad")
       expect(crosscite.fetch("client_id")).to eq("dryad.dryad")
+      expect(crosscite.fetch("publisher")).to eq({"name"=>"Dryad"})
     end
 
     it "maremma" do
@@ -106,6 +111,7 @@ describe Bolognese::Metadata, vcr: true do
           [{"nameIdentifier"=>"https://orcid.org/0000-0003-0077-4738",
             "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"}])
+      expect(crosscite.fetch("publisher")).to eq({"name"=>"DataCite"})
     end
 
     it "with data citation schema.org" do
@@ -117,6 +123,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(crosscite.fetch("related_identifiers").count).to eq(3)
       expect(crosscite.fetch("related_identifiers").first).to eq("relatedIdentifier"=>"10.5438/0000-00ss", "relatedIdentifierType"=>"DOI", "relationType"=>"IsPartOf", "resourceTypeGeneral"=>"Text")
       expect(crosscite.fetch("related_identifiers").last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
+      expect(crosscite.fetch("publisher")).to eq({"name"=>"DataCite"})
     end
   end
 end

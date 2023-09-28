@@ -17,6 +17,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("rightsList", "rights")).to eq("rightsURI"=>"https://creativecommons.org/licenses/by/3.0/legalcode", "rightsIdentifier"=>"cc-by-3.0", "rightsIdentifierScheme"=>"SPDX", "schemeURI"=>"https://spdx.org/licenses/", "__content__"=>"Creative Commons Attribution 3.0 Unported")
       expect(datacite.dig("fundingReferences", "fundingReference").count).to eq(4)
       expect(datacite.dig("fundingReferences", "fundingReference").last).to eq("funderName"=>"University of Lausanne", "funderIdentifier" => {"funderIdentifierType"=>"Crossref Funder ID", "__content__"=>"https://doi.org/10.13039/501100006390"})
+      expect(datacite.dig("publisher")).to eq("eLife Sciences Publications, Ltd")
     end
 
     it "with ORCID ID" do
@@ -31,6 +32,7 @@ describe Bolognese::Metadata, vcr: true do
         "givenName" => "Beatriz",
         "affiliation" => ["War Related Illness and Injury Study Center (WRIISC) and Mental Illness Research Education and Clinical Center (MIRECC), Department of Veterans Affairs, Palo Alto, CA 94304, USA", "Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA"],
         "nameIdentifier" => {"nameIdentifierScheme"=>"ORCID", "schemeURI"=>"https://orcid.org", "__content__"=>"https://orcid.org/0000-0003-2043-4925"})
+      expect(datacite.dig("publisher")).to eq("Hindawi Limited")
     end
 
     it "with editor" do
@@ -39,6 +41,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("contributors", "contributor")).to eq("contributorName"=>{"__content__"=>"Janbon, Guilhem", "nameType"=>"Personal"}, "contributorType"=>"Editor", "familyName"=>"Janbon", "givenName"=>"Guilhem")
+      expect(datacite.dig("publisher")).to eq("Public Library of Science (PLoS)")
     end
 
     it "Crossref DOI" do
@@ -52,6 +55,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Among various advantages, their small size makes model organisms preferred subjects of investigation.")
       expect(datacite.dig("creators", "creator").count).to eq(5)
       expect(datacite.dig("creators", "creator").first).to eq("creatorName"=>{"__content__"=>"Sankar, Martial", "nameType"=>"Personal"}, "familyName"=>"Sankar", "givenName"=>"Martial")
+      expect(datacite.dig("publisher")).to eq("{eLife} Sciences Organisation, Ltd.")
     end
 
     it "BlogPosting Citeproc JSON" do
@@ -64,6 +68,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.dig("descriptions", "description").first).to eq("__content__"=>"DataCite Blog", "descriptionType"=>"SeriesInformation")
       expect(datacite.dig("descriptions", "description", 1, "__content__")).to start_with("Eating your own dog food")
       expect(datacite.dig("creators", "creator")).to eq("creatorName"=>"Fenner, Martin", "familyName"=>"Fenner", "givenName"=>"Martin")
+      expect(datacite.dig("publisher")).to eq("DataCite")
     end
 
     it "rdataone" do
@@ -88,6 +93,7 @@ describe Bolognese::Metadata, vcr: true do
                                                           "__content__"=>"https://orcid.org/0000-0002-2192-403X"}},
                                                          {"creatorName"=>{"__content__"=>"University Of California, Santa Barbara", "nameType"=>"Organizational"}}])
       expect(datacite.fetch("version")).to eq("2.0.0")
+      expect(datacite.dig("publisher")).to eq("https://cran.r-project.org")
     end
 
     it "rdataone and codemeta_v2" do
@@ -112,6 +118,7 @@ describe Bolognese::Metadata, vcr: true do
                                                           "__content__"=>"https://orcid.org/0000-0002-2192-403X"}},
                                                          {"creatorName"=>{"__content__"=>"University Of California, Santa Barbara", "nameType"=>"Organizational"}}])
       expect(datacite.fetch("version")).to eq("2.0.0")
+      expect(datacite.dig("publisher")).to eq("https://cran.r-project.org")
     end
 
     it "maremma" do
@@ -121,6 +128,7 @@ describe Bolognese::Metadata, vcr: true do
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.dig("titles", "title")).to eq("Maremma: a Ruby library for simplified network calls")
       expect(datacite.dig("creators", "creator")).to eq("affiliation"=>"DataCite", "creatorName"=> {"__content__"=>"Fenner, Martin", "nameType"=>"Personal"}, "givenName"=>"Martin", "familyName"=>"Fenner", "nameIdentifier"=>{"__content__"=>"https://orcid.org/0000-0003-0077-4738", "nameIdentifierScheme"=>"ORCID", "schemeURI"=>"https://orcid.org"})
+      expect(datacite.dig("publisher")).to eq("DataCite")
     end
 
     it "with version" do
@@ -146,7 +154,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2015-08-19", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
       expect(subject.version_info).to eq("v0.3.2")
-      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.publisher).to eq({"name"=>"Zenodo"})
       expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
       expect(subject.datacite).to include("<version>v0.3.2</version>")
@@ -168,7 +176,7 @@ describe Bolognese::Metadata, vcr: true do
         "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
-      expect(subject.publisher).to eq("Figshare")
+      expect(subject.publisher).to eq({"name"=>"Figshare"})
       expect(subject.subjects).to eq([{"subject"=>"Information Systems"},
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
         "subject"=>"FOS: Computer and information sciences",
@@ -194,7 +202,7 @@ describe Bolognese::Metadata, vcr: true do
         "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2017-06-28", "dateType"=>"Created"}, {"date"=>"2017-06-28", "dateType"=>"Updated"}, {"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
-      expect(subject.publisher).to eq("Figshare")
+      expect(subject.publisher).to eq({"name"=>"Figshare"})
       expect(subject.subjects).to eq([{"subject"=>"Information Systems"},
        {"schemeUri"=>"http://www.oecd.org/science/inno/38235147.pdf",
         "subject"=>"FOS: Computer and information sciences",
@@ -223,12 +231,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.related_identifiers.length).to eq(1)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier" => "10.1371/journal.ppat.1000446",
         "relatedIdentifierType" => "DOI","relationType"=>"Cites")
-      expect(subject.publisher).to eq("Dryad")
+      expect(subject.publisher).to eq({"name"=>"Dryad"})
       expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+      expect(datacite.dig("publisher")).to eq("Dryad")
     end
 
     it "Affiliation" do
@@ -248,13 +257,82 @@ describe Bolognese::Metadata, vcr: true do
         "schemeUri"=>"https://spdx.org/licenses/"}])
       expect(subject.dates).to eq([{"date"=>"2014-10-17", "dateType"=>"Updated"}, {"date"=>"2016-03-14T17:02:02Z", "dateType"=>"Available"}, {"date"=>"2013", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")
-      expect(subject.publisher).to eq("UC Merced")
+      expect(subject.publisher).to eq({"name"=>"UC Merced"})
       expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
       expect(datacite.dig("creators", "creator", 0, "affiliation")).to eq(["UC Merced", "NSF"])
+      expect(datacite.dig("publisher")).to eq("UC Merced")
+    end
+
+    it "Schema 4.5 publisher with attributes" do
+      input = fixture_path + 'datacite-example-full-v4.5.xml'
+      doi = "10.82433/B09Z-4K37"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
+      expect(subject.valid?).to be true
+
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+      expect(datacite.dig("publisher")).to eq(
+        {
+          "__content__" => "Example Publisher",
+          "publisherIdentifier" => "https://ror.org/04z8jg394",
+          "publisherIdentifierScheme" => "ROR",
+          "schemeURI" => "https://ror.org/",
+        }
+      )
+    end
+
+    it "Geolocations" do
+      input = fixture_path + 'datacite-example-full-v4.5.xml'
+      doi = "10.82433/B09Z-4K37"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
+      expect(subject.valid?).to be true
+
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.dig("geoLocations", "geoLocation", "geoLocationPlace")).to eq("Vancouver, British Columbia, Canada")
+      expect(datacite.dig("geoLocations", "geoLocation", "geoLocationPoint")).to eq(
+        {
+          "pointLatitude" => "49.2827",
+          "pointLongitude" => "-123.1207",
+        }
+      )
+      expect(datacite.dig("geoLocations", "geoLocation", "geoLocationBox")).to eq(
+        {
+          "westBoundLongitude" => "-123.27",
+          "eastBoundLongitude" => "-123.02",
+          "southBoundLatitude" => "49.195",
+          "northBoundLatitude" => "49.315",
+        }
+      )
+      expect(datacite.dig("geoLocations", "geoLocation", "geoLocationPolygon")).to eq(
+        { 
+          "polygonPoint" => [
+            {
+              "pointLatitude" => "41.991",
+              "pointLongitude" => "-71.032",
+            },
+            {
+              "pointLatitude" => "42.893",
+              "pointLongitude" => "-69.622",
+            },
+            {
+              "pointLatitude" => "41.991",
+              "pointLongitude" => "-68.211",
+            },
+            {
+              "pointLatitude" => "41.090",
+              "pointLongitude" => "-69.622",
+            },
+            {
+              "pointLatitude" => "41.991",
+              "pointLongitude" => "-71.032",
+            },
+          ]
+        }
+      )
     end
 
     it "with data citation schema.org" do
