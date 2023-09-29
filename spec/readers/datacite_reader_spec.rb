@@ -149,7 +149,12 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.language).to eq("en-US")
       expect(subject.sizes).to eq(["4 kB"])
       expect(subject.formats).to eq(["application/xml"])
-      expect(subject.publisher).to eq({"name"=>"DataCite"})
+      expect(subject.publisher).to eq(
+        {
+          "name"=>"DataCite",
+          "lang"=>"en",
+        }
+      )
       expect(subject.agency).to eq("datacite")
       expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     end
@@ -1445,7 +1450,12 @@ describe Bolognese::Metadata, vcr: true do
       "schemeUri"=>"https://spdx.org/licenses/"
       }
     ])
-    expect(subject.publisher).to eq({"name"=>"DataCite"})
+    expect(subject.publisher).to eq(
+      {
+        "name"=>"DataCite",
+        "lang"=>"en",
+        }
+      )
     expect(subject.agency).to eq("datacite")
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
     expect(subject.related_items.last).to eq(
@@ -1683,7 +1693,12 @@ describe Bolognese::Metadata, vcr: true do
       "schemeUri"=>"https://spdx.org/licenses/"
       }
     ])
-    expect(subject.publisher).to eq({"name"=>"GigaScience Database"})
+    expect(subject.publisher).to eq(
+      {
+        "name"=>"GigaScience Database",
+        "lang"=>"en",
+      }
+    )
     expect(subject.agency).to eq("datacite")
     expect(subject.schema_version).to eq("http://datacite.org/schema/kernel-4")
   end
@@ -1739,6 +1754,7 @@ describe Bolognese::Metadata, vcr: true do
           "publisherIdentifier" => "https://ror.org/04z8jg394",
           "publisherIdentifierScheme" => "ROR",
           "schemeUri" => "https://ror.org/",
+          "lang" => "en",
         }
       )
     end

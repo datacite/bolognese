@@ -281,6 +281,7 @@ describe Bolognese::Metadata, vcr: true do
           "publisherIdentifier" => "https://ror.org/04z8jg394",
           "publisherIdentifierScheme" => "ROR",
           "schemeURI" => "https://ror.org/",
+          "xml:lang" => "en",
         }
       )
     end

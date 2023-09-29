@@ -100,11 +100,12 @@ module Bolognese
           elsif r.is_a?(String)
             { "name" => r.strip }
           elsif r.is_a?(Hash)
-            { 
+            {
               "name" => r["__content__"].strip,
               "publisherIdentifier" => r["publisherIdentifier"],
               "publisherIdentifierScheme" => r["publisherIdentifierScheme"],
               "schemeUri" => r["schemeURI"],
+              "lang" => r["lang"],
             }.compact
           end
         end.compact.first

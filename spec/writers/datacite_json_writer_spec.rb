@@ -94,7 +94,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(datacite.fetch("publisher")).to eq({"name"=>"DataCite"})
     end
 
-    it "DataCite DOI with Schema 4. publisher attributes" do
+    it "DataCite DOI with Schema 4.5 publisher attributes" do
       input = fixture_path + "datacite-example-full-v4.5.xml"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       datacite = JSON.parse(subject.datacite_json)
@@ -104,6 +104,7 @@ describe Bolognese::Metadata, vcr: true do
           "publisherIdentifier" => "https://ror.org/04z8jg394",
           "publisherIdentifierScheme" => "ROR",
           "schemeUri" => "https://ror.org/",
+          "lang" => "en",
         },
       )
     end
