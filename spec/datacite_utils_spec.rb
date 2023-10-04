@@ -99,9 +99,13 @@ describe Bolognese::Metadata, vcr: true do
 
   context "insert_subjects" do
     it "insert" do
+      input = "https://doi.org/10.5878/xyad-9f70"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_subjects(xml) }.to_xml
       response = Maremma.from_xml(xml)
-      expect(response.dig("subjects", "subject")).to eq(["Plasmodium", "malaria", "taxonomy", "mitochondrial genome", "Parasites"])
+      # It should preserve the classificationCode
+      expect(response.dig("subjects", "subject")[0]["classificationCode"]).to eq("a046a1ec-a4d1-4777-8705-3a17548f1969")
+      expect(response.dig("subjects", "subject")[0]).to eq({"subjectScheme"=>"ELSST", "valueURI"=>"https://elsst.cessda.eu/id/a046a1ec-a4d1-4777-8705-3a17548f1969", "classificationCode"=>"a046a1ec-a4d1-4777-8705-3a17548f1969", "xml:lang"=>"en", "__content__"=>"decision making"})
     end
   end
 
