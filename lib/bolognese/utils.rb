@@ -1057,8 +1057,9 @@ module Bolognese
       custom_scrubber = Bolognese::WhitelistScrubber.new(options)
 
       if text.is_a?(String)
-        # remove excessive internal whitespace with squish
-        Loofah.scrub_fragment(text, custom_scrubber).to_s.squish
+        # Use eval to convert the double-escaped string to the Unicode character
+        text = eval('"' + text + '"')
+        Loofah.scrub_fragment(text, custom_scrubber).to_s.strip
       elsif text.is_a?(Hash)
         sanitize(text.fetch(content, nil))
       elsif text.is_a?(Array)

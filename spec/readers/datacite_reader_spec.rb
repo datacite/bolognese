@@ -547,7 +547,7 @@ describe Bolognese::Metadata, vcr: true do
         "descriptionType"=>"SeriesInformation",
         "lang"=>"en"},
        {"description"=>
-        "Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...",
+        "Eating your own dog food is a slang term to \n      describe that an organization should itself use the products and services it provides. \n      For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...\n      • Unicode Bullet Point: This is an example of a bullet point.★\n      ■ Unicode Black Square: This is an example of a black square.",
         "descriptionType"=>"Abstract"}])
       expect(subject.container).to eq("firstPage"=>"3", "identifier"=>"10.5438/0000-00SS", "identifierType"=>"DOI", "issue"=>"9", "lastPage"=>"4", "title"=>"DataCite Blog", "type"=>"Series", "volume"=>"2")
     end
