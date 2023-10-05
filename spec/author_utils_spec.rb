@@ -197,6 +197,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.creators[7]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0117", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
     end
 
+    it "should keep nameIdentifier URL after normalization" do
+      # ORICD normalization  https://orcid.org/0000-0001-9998-0114 => https://orcid.org/0000-0001-9998-0114
+      expect(subject.creators[1]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0114", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
+    end
+
+    it "should sanitize valid ORCID id/URL before normalization" do
+      #"  0000-0001-9998-0118  ",  # Valid ORCID with leading/trailing spaces
+      expect(subject.creators[8]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0118", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
+    end
+
     it "should parse non ROR schema's without normalizing them" do
       input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
