@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock', '~> 3.0', '>= 3.0.1'
   s.add_development_dependency 'simplecov', '0.17.1'
   s.add_development_dependency 'hashdiff', ['>= 1.0.0.beta1', '< 2.0.0']
+  s.add_development_dependency 'byebug'
 
   s.require_paths = ["lib"]
   s.files       = `git ls-files`.split($/)
