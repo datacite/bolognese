@@ -108,9 +108,14 @@ module Bolognese
     end
     
     def insert_publisher(xml)
-      if (publisher_obj && !publisher_obj.empty?)
-        attributes = { 'publisherIdentifier' => publisher_obj["publisherIdentifier"] || "", 'publisherIdentifierScheme' => publisher_obj["publisherIdentifierScheme"] || "", 'schemeURI' => publisher_obj["schemeUri"] || "", "xml:lang" => publisher_obj["lang"] || "" }.compact
-        xml.publisher(publisher_obj["name"], attributes)
+      if publisher.is_a?(Hash)
+        attributes = {
+          'publisherIdentifier' => publisher["publisherIdentifier"] || nil,
+          'publisherIdentifierScheme' => publisher["publisherIdentifierScheme"] || nil,
+          'schemeURI' => publisher["schemeUri"] || nil,
+          "xml:lang" => publisher["lang"] || nil
+        }.compact
+        xml.publisher(publisher["name"] || container && container["title"], attributes)
       else
         xml.publisher(publisher || container && container["title"])
       end
