@@ -102,7 +102,7 @@ module Bolognese
           elsif r.is_a?(Hash)
             {
               "name" => r["__content__"].strip,
-              "publisherIdentifier" => r["publisherIdentifier"],
+              "publisherIdentifier" => r["publisherIdentifierScheme"] == "ROR" ? normalize_ror(r["publisherIdentifier"]) : r["publisherIdentifier"],
               "publisherIdentifierScheme" => r["publisherIdentifierScheme"],
               "schemeUri" => r["schemeURI"],
               "lang" => r["lang"],
