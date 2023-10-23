@@ -173,15 +173,38 @@ describe Bolognese::Metadata, vcr: true do
   end
 
   context "affiliationIdentifier" do
+    let(:input) { fixture_path + 'datacite-example-ROR-nameIdentifiers.xml' }
+    subject { Bolognese::Metadata.new(input: input, from: "datacite") }
+
     it "should normalize ROR affiliationIdentifier with and without URL" do
-      input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
       # without URL inside affiliationIdentifier="05bp8ka77"
       ror_affiliater0 = subject.creators[0]["affiliation"].select { |r| r["affiliationIdentifierScheme"] == "ROR" }
       expect(ror_affiliater0[0]["affiliationIdentifier"]).to eq("https://ror.org/05bp8ka77")
       # with URL "affiliationIdentifier"=>"https://ror.org/05bp8ka05"
       ror_affiliater1 = subject.creators[1]["affiliation"].select { |r| r["affiliationIdentifierScheme"] == "ROR" }
       expect(ror_affiliater1[0]["affiliationIdentifier"]).to eq("https://ror.org/05bp8ka05")
+    end
+
+    it "should normalize the valid ORCID nameIdentifier to URL with schemeURI" do
+      # with "schemeURI"
+      # ORICD normalization  0000-0001-9998-0117 => https://orcid.org/0000-0001-9998-0117
+      expect(subject.creators[0]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0117", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
+    end
+
+    it "should normalize the valid ORCID nameIdentifier to URL without schemeURI" do
+      # without "schemeURI"
+      # ORICD normalization  0000-0001-9998-0117 => https://orcid.org/0000-0001-9998-0117
+      expect(subject.creators[7]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0117", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
+    end
+
+    it "should keep nameIdentifier URL after normalization" do
+      # ORICD normalization  https://orcid.org/0000-0001-9998-0114 => https://orcid.org/0000-0001-9998-0114
+      expect(subject.creators[1]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0114", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
+    end
+
+    it "should sanitize valid ORCID id/URL before normalization" do
+      #"  0000-0001-9998-0118  ",  # Valid ORCID with leading/trailing spaces
+      expect(subject.creators[8]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0118", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
     end
 
     it "should parse non ROR schema's without normalizing them" do

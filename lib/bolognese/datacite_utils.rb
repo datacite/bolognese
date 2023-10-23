@@ -181,7 +181,7 @@ module Bolognese
             s["subject"] = subject
           end
 
-          attributes = { "subjectScheme" => s["subjectScheme"], "schemeURI" => s["schemeUri"], "valueURI" => s["valueUri"], "xml:lang" => s["lang"] }.compact
+          attributes = { "subjectScheme" => s["subjectScheme"], "schemeURI" => s["schemeUri"], "valueURI" => s["valueUri"], "classificationCode" => s["classificationCode"], "xml:lang" => s["lang"] }.compact
 
           xml.subject(s["subject"], attributes)
         end
