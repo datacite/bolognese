@@ -46,13 +46,6 @@ module Bolognese
       def schema_org
         JSON.pretty_generate schema_hsh
       end
-
-      private
-
-      def abstract_description
-        # Fetch the first description with descriptionType "Abstract"
-        descriptions&.find { |d| d["descriptionType"] == "Abstract" }
-      end
     end
   end
 end
