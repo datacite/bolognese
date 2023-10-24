@@ -1410,5 +1410,10 @@ module Bolognese
         }
       end
     end
+
+    def abstract_description
+      # Fetch the first description with descriptionType "Abstract"
+      descriptions&.find { |d| d["descriptionType"] == "Abstract" }
+    end
   end
 end
