@@ -156,11 +156,6 @@ module Bolognese
       @descriptions ||= meta.fetch("descriptions", nil)
     end
 
-    def abstract_description
-      # Fetch the first description with descriptionType "Abstract"
-      @abstract_description ||= descriptions&.find { |d| d["descriptionType"] == "Abstract" }
-    end
-
     def rights_list
       @rights_list ||= meta.fetch("rights_list", nil)
     end

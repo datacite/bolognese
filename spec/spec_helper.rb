@@ -14,6 +14,7 @@ require 'webmock/rspec'
 require 'rspec/xsd'
 require 'nokogiri'
 require 'vcr'
+require 'byebug'
 
 RSpec.configure do |config|
   config.order = :random
