@@ -217,12 +217,7 @@ module Bolognese
     end
 
     def publisher
-      @publisher ||=
-        if meta.fetch("publisher", nil).respond_to?(:to_hash)
-          meta.fetch("publisher", nil)
-        elsif meta.fetch("publisher", nil).respond_to?(:to_str)
-          { "name" => meta.fetch("publisher", nil) }.compact
-        end
+      @publisher ||= normalize_publisher(meta.fetch("publisher", nil)) if meta.fetch("publisher", nil).present?
     end
 
     def identifiers
