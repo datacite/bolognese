@@ -217,10 +217,10 @@ module Bolognese
     end
 
     def publisher
-      @publisher ||= 
-        if meta.fetch("publisher", nil).is_a?(Hash)
+      @publisher ||=
+        if meta.fetch("publisher", nil).respond_to?(:to_hash)
           meta.fetch("publisher", nil)
-        elsif meta.fetch("publisher", nil).is_a?(String)
+        elsif meta.fetch("publisher", nil).respond_to?(:to_str)
           { "name" => meta.fetch("publisher", nil) }.compact
         end
     end

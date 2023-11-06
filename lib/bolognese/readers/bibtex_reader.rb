@@ -86,7 +86,7 @@ module Bolognese
           "titles" => meta.try(:title).present? ? [{ "title" => meta.try(:title).to_s }] : [],
           "creators" => creators,
           "container" => container,
-          "publisher" => meta.try(:publisher).present? ? { "name" => meta.try(:publisher).to_s }.compact : nil,
+          "publisher" => meta.try(:publisher).present? ? { "name" => meta.publisher.to_s } : nil,
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
