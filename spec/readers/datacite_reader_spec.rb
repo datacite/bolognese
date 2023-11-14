@@ -1728,4 +1728,12 @@ describe Bolognese::Metadata, vcr: true do
     )
   end
 
+  it "Parses dates with fractional seconds" do
+    input = fixture_path + "datacite-example-fractional-date.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.valid?).to be true
+    expect(subject.dates).to eq([{"date"=>"2020-11-06T21:37:33.12Z", "dateType"=>"Updated"}, {"date"=>"2013", "dateType"=>"Issued"}])
+  end
+
+
 end
