@@ -78,6 +78,7 @@ module Bolognese
           if parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
             {
               "name" => parse_attributes(meta.fetch("publisher", nil), content: "name", first: true),
+              "publisherIdentifier" => parse_attributes(meta.fetch("publisher", nil), content: "@id", first: true),
             }.compact
           end
 

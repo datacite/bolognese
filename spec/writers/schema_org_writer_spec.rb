@@ -365,5 +365,18 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@type"]).to eq("CreativeWork")
       expect(json["datePublished"]).to eq("2019")
     end
+
+    it "from Schema 4.5 with publisher attributes" do
+      input = fixture_path + 'datacite-example-full-v4.5.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.schema_org)
+      expect(json["publisher"]).to eq(
+         {
+          "@type" => "Organization",
+          "@id" => "https://ror.org/04z8jg394",
+          "name" => "Example Publisher"
+         }
+      )
+    end
   end
 end

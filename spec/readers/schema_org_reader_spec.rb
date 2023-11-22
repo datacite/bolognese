@@ -169,7 +169,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.publisher).to eq({"name"=>"DataCite"})
+      expect(subject.publisher).to eq({"name"=>"DataCite", "publisherIdentifier"=>"https://ror.org/04wxnsj81"})
     end
 
     it "GTEx dataset" do
