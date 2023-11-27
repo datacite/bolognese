@@ -110,10 +110,10 @@ module Bolognese
     def insert_publisher(xml)
       if publisher.is_a?(Hash)
         attributes = {
-          'publisherIdentifier' => publisher["publisherIdentifier"] || nil,
-          'publisherIdentifierScheme' => publisher["publisherIdentifierScheme"] || nil,
-          'schemeURI' => publisher["schemeUri"] || nil,
-          "xml:lang" => publisher["lang"] || nil
+          'publisherIdentifier' => publisher["publisherIdentifier"],
+          'publisherIdentifierScheme' => publisher["publisherIdentifierScheme"],
+          'schemeURI' => publisher["schemeUri"],
+          "xml:lang" => publisher["lang"]
         }.compact
         xml.publisher(publisher["name"] || container && container["title"], attributes)
       else
