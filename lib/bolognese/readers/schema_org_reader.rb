@@ -181,7 +181,7 @@ module Bolognese
           "related_identifiers" => related_identifiers,
           "publication_year" => publication_year,
           "dates" => dates,
-          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
+          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description"), new_line: true), "descriptionType" => "Abstract" }] : nil,
           "rights_list" => rights_list,
           "version_info" => meta.fetch("version", nil).to_s.presence,
           "subjects" => subjects,
