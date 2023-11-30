@@ -8,7 +8,7 @@ module Bolognese
         return { "errors" => errors } if errors.present?
 
         crosscite = string.present? ? Maremma.from_json(string) : {}
-        crosscite["publisher"] = normalize_publisher(crosscite.fetch("publisher", nil)) if crosscite.fetch("publisher", nil).present?
+        crosscite["publisher"] = normalize_publisher(crosscite["publisher"]) if crosscite.fetch("publisher", nil).present?
 
         crosscite
       end

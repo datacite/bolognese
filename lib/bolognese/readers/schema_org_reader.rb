@@ -74,13 +74,11 @@ module Bolognese
           creators = get_authors(from_schema_org_creators(Array.wrap(authors)))
         end
         contributors = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("editor", nil))))
-        publisher = 
-          if parse_attributes(meta.fetch("publisher", nil), content: "name", first: true)
-            {
-              "name" => parse_attributes(meta.fetch("publisher", nil), content: "name", first: true),
-              "publisherIdentifier" => parse_attributes(meta.fetch("publisher", nil), content: "@id", first: true),
-            }.compact
-          end
+
+        publisher = {
+          "name" => parse_attributes(meta.fetch("publisher", nil), content: "name", first: true),
+          "publisherIdentifier" => parse_attributes(meta.fetch("publisher", nil), content: "@id", first: true),
+        }.compact if meta.fetch("publisher", nil).present?
 
         ct = (schema_org == "Dataset") ? "includedInDataCatalog" : "Periodical"
         container = if meta.fetch(ct, nil).present?
