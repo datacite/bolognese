@@ -89,7 +89,7 @@ module Bolognese
           "url" => meta.fetch("UR", nil),
           "titles" => meta.fetch("T1", nil).present? ? [{ "title" => meta.fetch("T1", nil) }] : nil,
           "creators" => get_authors(author),
-          "publisher" => meta.fetch("PB", "(:unav)"),
+          "publisher" => { "name" => meta.fetch("PB", "(:unav)") },
           "container" => container,
           "related_identifiers" => related_identifiers,
           "dates" => dates,

@@ -15,7 +15,7 @@ module Bolognese
           resource_type: types["resourceType"],
           title: parse_attributes(titles, content: "title", first: true),
           author: authors_as_string(creators),
-          publisher: publisher,
+          publisher: publisher["name"],
           publication_year: publication_year
         }.values
 

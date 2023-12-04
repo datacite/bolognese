@@ -31,7 +31,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publisher).to eq({"name"=>"DataCite"})
     end
 
     it "BlogPosting with new DOI" do
@@ -59,7 +59,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publisher).to eq({"name"=>"DataCite"})
     end
 
     it "zenodo" do
@@ -104,7 +104,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Hydrological and meteorological investigations in a lake near Kangerlussuaq, west Greenland"}])
       expect(subject.creators.size).to eq(8)
       expect(subject.creators.first).to eq("nameType" => "Personal", "name"=>"Johansson, Emma", "givenName"=>"Emma", "familyName"=>"Johansson")
-      expect(subject.publisher).to eq("PANGAEA")
+      expect(subject.publisher).to eq({"name"=>"PANGAEA"})
       expect(subject.publication_year).to eq("2014")
     end
 
@@ -169,7 +169,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.publication_year).to eq("2016")
       expect(subject.related_identifiers.length).to eq(3)
       expect(subject.related_identifiers.last).to eq("relatedIdentifier"=>"10.5438/55e5-t5c0", "relatedIdentifierType"=>"DOI", "relationType"=>"References")
-      expect(subject.publisher).to eq("DataCite")
+      expect(subject.publisher).to eq({"name"=>"DataCite"})
     end
 
     it "GTEx dataset" do
@@ -189,7 +189,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
       expect(subject.container).to eq("title"=>"GTEx", "type"=>"DataRepository")
-      expect(subject.publisher).to eq("GTEx")
+      expect(subject.publisher).to eq({"name"=>"GTEx"})
       expect(subject.funding_references.length).to eq(7)
       expect(subject.funding_references.first).to eq("funderIdentifier"=>"https://doi.org/10.13039/100000052", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"Common Fund of the Office of the Director of the NIH")
     end
@@ -209,7 +209,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.subjects).to eq([{"subject"=>"topmed"}, {"subject"=>"whole genome sequencing"}])
       expect(subject.dates).to eq([{"date"=>"2017-11-30", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
-      expect(subject.publisher).to eq("TOPMed")
+      expect(subject.publisher).to eq({"name"=>"TOPMed"})
       expect(subject.related_identifiers).to eq([{"relatedIdentifier"=>"10.23725/2g4s-qv04", "relatedIdentifierType"=>"DOI", "relationType"=>"References", "resourceTypeGeneral"=>"Dataset"}])
       expect(subject.funding_references).to eq([{"funderIdentifier"=>"https://doi.org/10.13039/100000050", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"National Heart, Lung, and Blood Institute (NHLBI)"}])
     end
@@ -240,7 +240,7 @@ describe Bolognese::Metadata, vcr: true do
         {"subject"=>"Sierra (mountain range)"}])
       expect(subject.dates).to eq([{"date"=>"2013", "dateType"=>"Issued"}, {"date"=>"2014-10-17", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2013")
-      expect(subject.publisher).to eq("UC Merced")
+      expect(subject.publisher).to eq({"name"=>"UC Merced"})
       expect(subject.funding_references).to eq([{"funderName"=>"National Science Foundation, Division of Earth Sciences, Critical Zone Observatories"}])
       expect(subject.geo_locations).to eq([{"geoLocationPlace"=>"Providence Creek (Lower, Upper and P301)", "geoLocationPoint"=>{"pointLatitude"=>"37.047756", "pointLongitude"=>"-119.221094"}}])
     end
@@ -258,7 +258,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.titles).to eq([{"title"=>"Registry of all stations from the Tara Oceans Expedition (2009-2013)"}])
       expect(subject.dates).to eq([{"date"=>"2015-02-03", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2015")
-      expect(subject.publisher).to eq("PANGAEA")
+      expect(subject.publisher).to eq({"name"=>"PANGAEA"})
       expect(subject.geo_locations).to eq([{"geoLocationBox"=>{"eastBoundLongitude"=>"174.9006", "northBoundLatitude"=>"79.6753", "southBoundLatitude"=>"-64.3088", "westBoundLongitude"=>"-168.5182"}}])
     end
 
@@ -280,7 +280,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.subjects).to eq([{"subject"=>"topmed"}, {"subject"=>"whole genome sequencing"}])
       expect(subject.dates).to eq([{"date"=>"2017-11-30", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
-      expect(subject.publisher).to eq("TOPMed")
+      expect(subject.publisher).to eq({"name"=>"TOPMed"})
       expect(subject.funding_references).to eq([{"funderIdentifier"=>"https://doi.org/10.13039/100000050", "funderIdentifierType"=>"Crossref Funder ID", "funderName"=>"National Heart, Lung, and Blood Institute (NHLBI)"}])
     end
 
@@ -299,7 +299,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.dates).to eq([{"date"=>"2019-01-09", "dateType"=>"Issued"}, {"date"=>"2019-01-09", "dateType"=>"Created"}, {"date"=>"2019-01-09", "dateType"=>"Updated"}])
       expect(subject.publication_year).to eq("2019")
       expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
-      expect(subject.publisher).to eq("AIDA")
+      expect(subject.publisher).to eq({"name"=>"AIDA"})
       expect(subject.rights_list).to eq([{"rights"=>"Restricted access", "rightsUri"=>"https://datasets.aida.medtech4health.se/10.23698/aida/drov#license"}])
       expect(subject.id).to eq("https://doi.org/10.23698/aida/drov")
     end
@@ -332,7 +332,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.descriptions.first["description"]).to start_with("The dataset contains a sample of metadata describing papers")
       expect(subject.dates).to eq([{"date"=>"2013-04-03", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2013")
-      expect(subject.publisher).to eq("Zenodo")
+      expect(subject.publisher).to eq({"name"=>"Zenodo"})
       expect(subject.funding_references).to eq([{"awardNumber"=>"246686",
         "awardTitle"=>"Open Access Infrastructure for Research in Europe",
         "awardUri"=>"info:eu-repo/grantAgreement/EC/FP7/246686/",

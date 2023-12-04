@@ -773,6 +773,14 @@ module Bolognese
       nil
     end
 
+    def normalize_publisher(publisher)
+      if publisher.respond_to?(:to_hash)
+        publisher
+      elsif publisher.respond_to?(:to_str)
+        { "name" => publisher }
+      end
+    end
+
     def to_datacite_json(element, options={})
       a = Array.wrap(element).map do |e|
         e.inject({}) {|h, (k,v)| h[k.dasherize] = v; h }

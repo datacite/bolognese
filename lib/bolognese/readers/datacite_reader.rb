@@ -94,6 +94,22 @@ module Bolognese
 
         titles = get_titles(meta)
 
+        publisher = Array.wrap(meta.dig("publisher")).map do |r|
+          if r.blank?
+            nil
+          elsif r.is_a?(String)
+            { "name" => r.strip }
+          elsif r.is_a?(Hash)
+            {
+              "name" => r["__content__"].strip,
+              "publisherIdentifier" => r["publisherIdentifierScheme"] == "ROR" ? normalize_ror(r["publisherIdentifier"]) : r["publisherIdentifier"],
+              "publisherIdentifierScheme" => r["publisherIdentifierScheme"],
+              "schemeUri" => r["schemeURI"],
+              "lang" => r["lang"],
+            }.compact
+          end
+        end.compact.first
+
         descriptions = Array.wrap(meta.dig("descriptions", "description")).map do |r|
           if r.blank?
             nil
@@ -287,7 +303,7 @@ module Bolognese
           "creators" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributors" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
           "container" => set_container(meta),
-          "publisher" => parse_attributes(meta.fetch("publisher", nil), first: true).to_s.strip.presence,
+          "publisher" => publisher,
           "agency" => "datacite",
           "funding_references" => funding_references,
           "dates" => dates,

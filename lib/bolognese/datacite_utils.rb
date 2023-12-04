@@ -106,9 +106,19 @@ module Bolognese
         end
       end
     end
-
+    
     def insert_publisher(xml)
-      xml.publisher(publisher || container && container["title"])
+      if publisher.is_a?(Hash)
+        attributes = {
+          'publisherIdentifier' => publisher["publisherIdentifier"],
+          'publisherIdentifierScheme' => publisher["publisherIdentifierScheme"],
+          'schemeURI' => publisher["schemeUri"],
+          "xml:lang" => publisher["lang"]
+        }.compact
+        xml.publisher(publisher["name"] || container && container["title"], attributes)
+      else
+        xml.publisher(publisher || container && container["title"])
+      end
     end
 
     def insert_publication_year(xml)
@@ -375,13 +385,11 @@ module Bolognese
               end
             end
             if geo_location["geoLocationPolygon"]
-              geo_location["geoLocationPolygon"].each do |geo_location_polygon|
-                xml.geoLocationPolygon do
-                  geo_location_polygon.each do |polygon_point|
-                    xml.polygonPoint do
-                      xml.pointLatitude(polygon_point.dig("polygonPoint", "pointLatitude"))
-                      xml.pointLongitude(polygon_point.dig("polygonPoint", "pointLongitude"))
-                    end
+              xml.geoLocationPolygon do
+                Array.wrap(geo_location["geoLocationPolygon"]).each do |polygon_point|
+                  xml.polygonPoint do
+                    xml.pointLatitude(polygon_point.dig("polygonPoint", "pointLatitude"))
+                    xml.pointLongitude(polygon_point.dig("polygonPoint", "pointLongitude"))
                   end
                 end
               end

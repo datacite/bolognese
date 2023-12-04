@@ -12,6 +12,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("ScholarlyArticle", "rdf:about")).to eq("https://doi.org/10.7554/elife.01567")
       expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014-02-11")
+      expect(rdf_xml.dig("ScholarlyArticle", "publisher", "Organization", "name")).to eq("eLife Sciences Publications, Ltd")
     end
     
     it "with pages" do
@@ -24,6 +25,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2012")
       expect(rdf_xml.dig("ScholarlyArticle", "pageStart")).to eq("1")
       expect(rdf_xml.dig("ScholarlyArticle", "pageEnd")).to eq("7")
+      expect(rdf_xml.dig("ScholarlyArticle", "publisher", "Organization", "name")).to eq("Hindawi Limited")
     end
 
     it "Crossref DOI" do
@@ -36,6 +38,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth")
       expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2014")
       expect(rdf_xml.dig("ScholarlyArticle", "periodical", "Journal", "name")).to eq("eLife")
+      expect(rdf_xml.dig("ScholarlyArticle", "publisher", "Organization", "name")).to eq("{eLife} Sciences Organisation, Ltd.")
     end
 
     it "BlogPosting" do
@@ -47,6 +50,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("ScholarlyArticle", "name")).to eq("Eating your own Dog Food")
       expect(rdf_xml.dig("ScholarlyArticle", "keywords")).to eq("datacite, doi, metadata, FOS: Computer and information sciences, FOS: Computer and information sciences")
       expect(rdf_xml.dig("ScholarlyArticle", "datePublished", "__content__")).to eq("2016-12-20")
+      expect(rdf_xml.dig("ScholarlyArticle", "publisher", "Organization", "name")).to eq("DataCite")
     end
     
     it "BlogPosting Citeproc JSON" do
@@ -56,6 +60,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("BlogPosting", "rdf:about")).to eq("https://doi.org/10.5438/4k3m-nyvg")
       expect(rdf_xml.dig("BlogPosting", "name")).to eq("Eating your own Dog Food")
       expect(rdf_xml.dig("BlogPosting", "datePublished", "__content__")).to eq("2016-12-20")
+      expect(rdf_xml.dig("BlogPosting", "publisher", "Organization", "name")).to eq("DataCite")
     end
     
     it "maremma" do
@@ -68,6 +73,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("SoftwareSourceCode", "name")).to eq("Maremma: a Ruby library for simplified network calls")
       expect(rdf_xml.dig("SoftwareSourceCode", "keywords")).to eq("faraday, excon, net/http")
       expect(rdf_xml.dig("SoftwareSourceCode", "datePublished", "__content__")).to eq("2017-02-24")
+      expect(rdf_xml.dig("SoftwareSourceCode", "publisher", "Organization", "name")).to eq("DataCite")
     end
 
     it "BlogPosting schema.org" do
@@ -81,6 +87,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(rdf_xml.dig("BlogPosting", "name")).to eq("Eating your own Dog Food")
       expect(rdf_xml.dig("BlogPosting", "keywords")).to eq("datacite, doi, metadata, featured")
       expect(rdf_xml.dig("BlogPosting", "datePublished", "__content__")).to eq("2016-12-20")
+      expect(rdf_xml.dig("BlogPosting", "publisher", "Organization", "name")).to eq("DataCite")
     end
   end
 end

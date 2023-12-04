@@ -7,7 +7,10 @@ module Bolognese
         errors = jsonlint(string)
         return { "errors" => errors } if errors.present?
 
-        string.present? ? Maremma.from_json(string).transform_keys! { |key| key.underscore } : {}
+        datacite_json = string.present? ? Maremma.from_json(string).transform_keys! { |key| key.underscore } : {}
+        datacite_json["publisher"] = normalize_publisher(datacite_json["publisher"]) if datacite_json.fetch("publisher", nil).present?
+
+        datacite_json
       end
     end
   end

@@ -217,7 +217,7 @@ module Bolognese
     end
 
     def publisher
-      @publisher ||= meta.fetch("publisher", nil)
+      @publisher ||= normalize_publisher(meta["publisher"]) if meta.fetch("publisher", nil).present?
     end
 
     def identifiers

@@ -21,7 +21,7 @@ module Bolognese
           volume: container.to_h["volume"],
           issue: container.to_h["issue"],
           pages: pages,
-          publisher: publisher,
+          publisher: publisher["name"],
           year: publication_year,
           copyright: Array.wrap(rights_list).map { |l| l["rights"] }.first,
         }.compact

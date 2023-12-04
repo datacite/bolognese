@@ -43,7 +43,7 @@ module Bolognese
         dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if meta.fetch("dateCreated", nil).present?
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if meta.fetch("dateModified", nil).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
-        publisher = meta.fetch("publisher", nil)
+        publisher = { "name" => meta.fetch("publisher", nil) } if meta.fetch("publisher", nil).present?
         state = meta.present? || read_options.present? ? "findable" : "not_found"
         schema_org = meta.fetch("@type", nil)
         types = {
