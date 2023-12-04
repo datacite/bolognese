@@ -4,7 +4,7 @@ module Bolognese
   module Writers
     module DataciteJsonWriter
       def datacite_json
-        # Remove the following line for the schema 4.5 release
+        # Remove the following change for the schema 4.5 release
         if crosscite_hsh.present?
           datacite_json_hsh = crosscite_hsh
           datacite_json_hsh['publisher'] = self.publisher['name'] if self.publisher&.respond_to?(:to_hash) && self.publisher.has_key?('name') && !self.publisher['name'].blank?
