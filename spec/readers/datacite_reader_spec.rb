@@ -1759,4 +1759,46 @@ describe Bolognese::Metadata, vcr: true do
       )
     end
   end
+
+  it "blank nameIdentifier" do
+    input = fixture_path + "datacite_blank_name_identifier.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.creators).to eq(
+      [
+        {
+          "nameType" => "Personal",
+          "name" => "KARST, SNO",
+          "givenName" => "SNO",
+          "familyName" => "KARST",
+          "nameIdentifiers" =>
+            [
+              {
+                "schemeUri" => "https://orcid.org",
+                "nameIdentifierScheme" => "ORCID"
+              }
+            ],
+          "affiliation" => []
+        }
+      ]
+    )
+    expect(subject.contributors).to eq(
+      [
+        {
+          "nameType" => "Personal",
+          "name" => "Manche, Yannick",
+          "givenName" => "Yannick",
+          "familyName" => "Manche",
+          "nameIdentifiers" =>
+            [
+              {
+                "schemeUri" => "https://orcid.org",
+                "nameIdentifierScheme" => "ORCID"
+              }
+            ],
+          "affiliation" => [],
+          "contributorType" => "ProjectMember"
+        }
+      ]
+    )
+  end
 end
