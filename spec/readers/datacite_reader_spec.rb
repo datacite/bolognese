@@ -1801,4 +1801,12 @@ describe Bolognese::Metadata, vcr: true do
       ]
     )
   end
+
+  it "blank publisher" do
+    input = fixture_path + "datacite_blank_publisher.xml"
+    subject = Bolognese::Metadata.new(input: input)
+    expect(subject.publisher).to eq(
+      { "publisherIdentifier" => "https://ror.org/04wxnsj81" }
+    )
+  end
 end
