@@ -14,7 +14,7 @@ module Bolognese
           "AB" => parse_attributes(abstract_description, content: "description", first: true),
           "KW" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
           "PY" => publication_year,
-          "PB" => publisher["name"],
+          "PB" => publisher.present? ? publisher["name"] : nil,
           "LA" => language,
           "VL" => container.to_h["volume"],
           "IS" => container.to_h["issue"],

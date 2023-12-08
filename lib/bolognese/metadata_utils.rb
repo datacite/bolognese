@@ -161,7 +161,7 @@ module Bolognese
         "volume" => container.to_h["volume"],
         "issue" => container.to_h["issue"],
         "page" => page,
-        "publisher" => publisher["name"],
+        "publisher" => publisher.present? ? publisher["name"] : nil,
         "title" => parse_attributes(titles, content: "title", first: true),
         "URL" => url,
         "copyright" => Array.wrap(rights_list).map { |l| l["rights"] }.first,
