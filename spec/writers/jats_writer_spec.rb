@@ -179,6 +179,13 @@ describe Bolognese::Metadata, vcr: true do
       expect(jats.dig("day")).to be_nil
       expect(jats.dig("pub_id")).to eq("pub_id_type"=>"doi", "__content__"=>"10.34747/g6yb-3412")
     end
+
+    it "with publisher with language" do
+      input = fixture_path + 'datacite-xml-lang.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      jats = Maremma.from_xml(subject.jats).fetch("element_citation", {})
+      expect(jats.dig("publisher_name")).to eq({"xml:lang"=>"en", "__content__"=>"OSI SAF"})
+    end
   end
 
   context "change metadata as datacite xml" do
