@@ -96,7 +96,7 @@ module Bolognese
       if container.present?
         container["title"]
       elsif types["citeproc"] == "article-journal"
-        publisher
+        publisher["name"] if publisher.present?
       else
         nil
       end
