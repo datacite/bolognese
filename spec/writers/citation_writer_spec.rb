@@ -48,14 +48,5 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.locale).to eq("en-US")
       expect(subject.citation).to eq("Clark, D. (2019). <i>Exploring the \"Many analysts, one dataset\" project from COS</i>. Gigantum, Inc. https://doi.org/10.34747/g6yb-3412")
     end
-
-    it "journal article with container title" do
-      input = fixture_path + "datacite_journal_article.xml"
-      subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      expect(subject.types["citeproc"]).to eq("article-journal")
-      expect(subject.style).to eq("apa")
-      expect(subject.locale).to eq("en-US")
-      expect(subject.citation).to eq('Feldman, H. L. (1995). Science and Uncertainty in Mass Exposure Litigation. <i>Texas Law Review</i>. https://doi.org/10.60843/5egy-vc42')
-    end
   end
 end

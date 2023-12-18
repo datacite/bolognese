@@ -1065,16 +1065,12 @@ module Bolognese
       custom_scrubber = Bolognese::WhitelistScrubber.new(options)
 
       if text.is_a?(String)
-        if options[:new_line]
-          # Remove multiple spaces, tabs, and other whitespace characters while preserving single spaces and new lines
-          Loofah.scrub_fragment(text, custom_scrubber).to_s.gsub(/[ \t]+/, ' ').strip
-        else
-          Loofah.scrub_fragment(text, custom_scrubber).to_s.squish
-        end
+        # remove excessive internal whitespace with squish
+        Loofah.scrub_fragment(text, custom_scrubber).to_s.squish
       elsif text.is_a?(Hash)
-        sanitize(text.fetch(content, nil), new_line: options[:new_line])
+        sanitize(text.fetch(content, nil))
       elsif text.is_a?(Array)
-        a = text.map { |e| e.is_a?(Hash) ? sanitize(e.fetch(content, nil), new_line: options[:new_line]) : sanitize(e, new_line: options[:new_line]) }.uniq
+        a = text.map { |e| e.is_a?(Hash) ? sanitize(e.fetch(content, nil)) : sanitize(e) }.uniq
         a = options[:first] ? a.first : a.unwrap
       else
         nil

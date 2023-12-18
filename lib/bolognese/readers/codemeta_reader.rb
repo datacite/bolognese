@@ -76,7 +76,7 @@ module Bolognese
           #{}"is_part_of" => is_part_of,
           "dates" => dates,
           "publication_year" => publication_year,
-          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description"), new_line: true), "descriptionType" => "Abstract" }] : nil,
+          "descriptions" => meta.fetch("description", nil).present? ? [{ "description" => sanitize(meta.fetch("description")), "descriptionType" => "Abstract" }] : nil,
           "rights_list" => rights_list,
           "version_info" => meta.fetch("version", nil),
           "subjects" => subjects,

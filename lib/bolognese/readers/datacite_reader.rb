@@ -101,7 +101,7 @@ module Bolognese
             { "name" => r.strip }
           elsif r.is_a?(Hash)
             {
-              "name" => r["__content__"].present? ? r["__content__"].strip : nil,
+              "name" => r["__content__"].strip,
               "publisherIdentifier" => r["publisherIdentifierScheme"] == "ROR" ? normalize_ror(r["publisherIdentifier"]) : r["publisherIdentifier"],
               "publisherIdentifierScheme" => r["publisherIdentifierScheme"],
               "schemeUri" => r["schemeURI"],
@@ -114,9 +114,9 @@ module Bolognese
           if r.blank?
             nil
           elsif r.is_a?(String)
-            { "description" => sanitize(r, new_line: true), "descriptionType" => "Abstract" }
+            { "description" => sanitize(r), "descriptionType" => "Abstract" }
           elsif r.is_a?(Hash)
-            { "description" => sanitize(r["__content__"], new_line: true), "descriptionType" => r["descriptionType"], "lang" => r["lang"] }.compact
+            { "description" => sanitize(r["__content__"]), "descriptionType" => r["descriptionType"], "lang" => r["lang"] }.compact
           end
         end.compact
         rights_list = Array.wrap(meta.dig("rightsList", "rights")).map do |r|

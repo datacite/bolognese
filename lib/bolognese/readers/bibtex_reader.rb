@@ -90,7 +90,7 @@ module Bolognese
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
-          "descriptions" => meta.try(:abstract).present? ? [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s, new_line: true).presence, "descriptionType" => "Abstract" }] : [],
+          "descriptions" => meta.try(:abstract).present? ? [{ "description" => meta.try(:abstract) && sanitize(meta.abstract.to_s).presence, "descriptionType" => "Abstract" }] : [],
           "rights_list" => rights_list,
           "state" => state
         }.merge(read_options)

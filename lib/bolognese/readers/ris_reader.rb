@@ -94,7 +94,7 @@ module Bolognese
           "related_identifiers" => related_identifiers,
           "dates" => dates,
           "publication_year" => publication_year,
-          "descriptions" => meta.fetch("AB", nil).present? ? [{ "description" => sanitize(meta.fetch("AB"), new_line: true), "descriptionType" => "Abstract" }] : nil,
+          "descriptions" => meta.fetch("AB", nil).present? ? [{ "description" => sanitize(meta.fetch("AB")), "descriptionType" => "Abstract" }] : nil,
           "subjects" => subjects,
           "language" => meta.fetch("LA", nil),
           "state" => state

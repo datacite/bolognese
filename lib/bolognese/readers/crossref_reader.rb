@@ -231,11 +231,11 @@ module Bolognese
 
       def crossref_description(bibliographic_metadata)
         abstract = Array.wrap(bibliographic_metadata.dig("abstract")).map do |r|
-          { "descriptionType" => "Abstract", "description" => sanitize(parse_attributes(r, content: 'p'), new_line: true) }.compact
+          { "descriptionType" => "Abstract", "description" => sanitize(parse_attributes(r, content: 'p')) }.compact
         end
 
         description = Array.wrap(bibliographic_metadata.dig("description")).map do |r|
-          { "descriptionType" => "Other", "description" => sanitize(parse_attributes(r), new_line: true) }.compact
+          { "descriptionType" => "Other", "description" => sanitize(parse_attributes(r)) }.compact
         end
 
         (abstract + description)

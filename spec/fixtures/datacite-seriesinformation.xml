@@ -36,11 +36,6 @@
   <version>1.0</version>
   <descriptions>
     <description descriptionType="SeriesInformation" xml:lang="en">DataCite Blog, 2(9), 3-4</description>
-    <description descriptionType="Abstract">Eating your own dog food is a slang term to 
-      describe that an organization should itself use the products and services it provides. 
-      For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...
-      &#8226; Unicode Bullet Point: This is an example of a bullet point.\u2605
-      &#9632; Unicode Black Square: This is an example of a black square.
-    </description>
-</descriptions>
+    <description descriptionType="Abstract">Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...</description>
+  </descriptions>
 </resource>

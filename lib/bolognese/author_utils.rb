@@ -30,20 +30,20 @@ module Bolognese
       name_type = parse_attributes(author.fetch("creatorName", nil), content: "nameType", first: true) || parse_attributes(author.fetch("contributorName", nil), content: "nameType", first: true)
 
       name_identifiers = Array.wrap(author.fetch("nameIdentifier", nil)).map do |ni|
-        name_identifier = ni["__content__"].strip if ni["__content__"].present?
+        ni["__content__"] = ni["__content__"].strip
         if ni["nameIdentifierScheme"] == "ORCID"
           {
-            "nameIdentifier" => normalize_orcid(name_identifier),
+            "nameIdentifier" => normalize_orcid(ni["__content__"]),
             "schemeUri" => "https://orcid.org",
             "nameIdentifierScheme" => "ORCID" }.compact
         elsif ni["nameIdentifierScheme"] == "ROR"
           {
-            "nameIdentifier" => normalize_ror(name_identifier),
+            "nameIdentifier" => normalize_ror(ni["__content__"]),
             "schemeUri" => "https://ror.org",
             "nameIdentifierScheme" => "ROR" }.compact
         else
           {
-            "nameIdentifier" => name_identifier,
+            "nameIdentifier" => ni["__content__"],
             "schemeUri" => ni.fetch("schemeURI", nil),
             "nameIdentifierScheme" => ni["nameIdentifierScheme"] }.compact
         end
