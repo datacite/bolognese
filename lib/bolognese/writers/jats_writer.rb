@@ -16,7 +16,7 @@ module Bolognese
         insert_editors(xml)
         insert_citation_title(xml) if is_article? || is_data? || is_chapter?
         insert_source(xml)
-        insert_publisher(xml) if publisher.present? && !is_data?
+        insert_publisher_name(xml) if publisher.present? && !is_data?
         insert_publication_date(xml)
         insert_volume(xml) if container.to_h["volume"].present?
         insert_issue(xml) if container.to_h["issue"].present?
@@ -85,7 +85,7 @@ module Bolognese
         end
       end
 
-      def insert_publisher(xml)
+      def insert_publisher_name(xml)
         attributes = {
           "xml:lang" => publisher["lang"]
         }.compact
