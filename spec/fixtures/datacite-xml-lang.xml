@@ -15,7 +15,7 @@
         <title xml:lang="en">DOI Test 2 title content</title>
         <title xml:lang="en">AAPP</title>
     </titles>
-    <publisher>OSI SAF</publisher>
+    <publisher xml:lang="en">OSI SAF</publisher>
     <publicationYear>2004</publicationYear>
     <resourceType resourceTypeGeneral="Collection">Climate Data Record</resourceType>
     <dates>

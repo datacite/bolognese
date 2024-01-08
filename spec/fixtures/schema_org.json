@@ -14,6 +14,7 @@
     }],
     "publisher": {
         "@type": "Organization",
+        "@id": "https://ror.org/04wxnsj81",
         "name": "DataCite"
     },
     "dateCreated": "2016-12-20",

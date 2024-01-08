@@ -86,7 +86,10 @@ module Bolognese
       end
 
       def insert_publisher_name(xml)
-        xml.send("publisher-name", publisher["name"])
+        attributes = {
+          "xml:lang" => publisher["lang"]
+        }.compact
+        xml.send("publisher-name", attributes, publisher["name"])
       end
 
       def insert_publication_date(xml)

@@ -37,7 +37,7 @@ module Bolognese
           "schemaVersion" => schema_version,
           "periodical" => types.present? ? ((types["schemaOrg"] != "Dataset") && container.present? ? to_schema_org(container) : nil) : nil,
           "includedInDataCatalog" => types.present? ? ((types["schemaOrg"] == "Dataset") && container.present? ? to_schema_org_container(container, type: "Dataset") : nil) : nil,
-          "publisher" => publisher.present? ? { "@type" => "Organization", "name" => publisher["name"] } : nil,
+          "publisher" => publisher.present? ? { "@type" => "Organization", "@id" => publisher["publisherIdentifier"], "name" => publisher["name"] }.compact : nil,
           "funder" => to_schema_org_funder(funding_references),
           "provider" => agency.present? ? { "@type" => "Organization", "name" => agency } : nil
         }.compact.presence
