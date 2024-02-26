@@ -600,12 +600,12 @@ module Bolognese
     end
 
     def validate_orcid(orcid)
-      orcid = Array(/\A(?:(?:http|https):\/\/(?:(?:www|sandbox)?\.)?orcid\.org\/)?(\d{4}[[:space:]-]\d{4}[[:space:]-]\d{4}[[:space:]-]\d{3}[0-9X]+)\z/.match(orcid)).last
+      orcid = Array(/\A(?:(?:http|https):\/\/(?:(?:www|sandbox)?\.)?orcid\.org\/)?(\d{4}[[:space:]-]\d{4}[[:space:]-]\d{4}[[:space:]-]\d{3}[0-9X]+)\/{0,1}\z/.match(orcid)).last
       orcid.gsub(/[[:space:]]/, "-") if orcid.present?
     end
 
     def validate_ror(ror)
-      Array(/^(?:(?:(?:http|https):\/\/)?ror\.org\/)?(0\w{6}\d{2})$/.match(ror)).last
+      Array(/^(?:(?:(?:http|https):\/\/)?ror\.org\/)?(0\w{6}\d{2})\/{0,1}$/.match(ror)).last
     end
 
     def validate_orcid_scheme(orcid_scheme)

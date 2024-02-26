@@ -168,11 +168,12 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
     expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
     expect(subject.creators[6]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
+    expect(subject.creators[9]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
     expect(subject.contributors.first).to eq("nameType"=>"Organizational", "name"=>" Nawroz University ", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04gp75d48", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[], "contributorType"=>"Producer")
     expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"University Of Greenland (Https://Www.Uni.Gl/)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/00t5j6b61", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
   end
 
-  context "affiliationIdentifier" do
+  context "affiliationIdentifier/nameIdentifier" do
     let(:input) { fixture_path + 'datacite-example-ROR-nameIdentifiers.xml' }
     subject { Bolognese::Metadata.new(input: input, from: "datacite") }
 
@@ -205,6 +206,11 @@ describe Bolognese::Metadata, vcr: true do
     it "should sanitize valid ORCID id/URL before normalization" do
       #"  0000-0001-9998-0118  ",  # Valid ORCID with leading/trailing spaces
       expect(subject.creators[8]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0118", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
+    end
+
+    it "should normalize valid ORCID nameIdentifier with trailing slash" do
+      #"  0000-0001-9998-0118  ",  # Valid ORCID with leading/trailing spaces
+      expect(subject.creators[10]["nameIdentifiers"]).to eq([{"nameIdentifier"=>"https://orcid.org/0000-0001-9998-0117", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}])
     end
 
     it "should parse non ROR schema's without normalizing them" do
