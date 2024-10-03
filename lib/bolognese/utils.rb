@@ -78,7 +78,9 @@ module Bolognese
       "Other" => "CreativeWork",
       # not part of DataCite schema, but used internally
       "Periodical" => "Periodical",
-      "DataCatalog" => "DataCatalog"
+      "DataCatalog" => "DataCatalog",
+      "Award" => "Grant",
+      "Project" => "Project"
     }
 
     DC_TO_CP_TRANSLATIONS = {
@@ -1234,7 +1236,9 @@ module Bolognese
         "urn" => "URN",
         "md5" => "md5",
         "minid" => "minid",
-        "dataguid" => "dataguid"
+        "dataguid" => "dataguid",
+        "cstr" => "CSTR",
+        "rrid" => "RRID"
       }
 
       identifierTypes[identifier_type.downcase] || identifier_type
