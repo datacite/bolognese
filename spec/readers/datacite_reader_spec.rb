@@ -1809,4 +1809,46 @@ describe Bolognese::Metadata, vcr: true do
       { "publisherIdentifier" => "https://ror.org/04wxnsj81" }
     )
   end
+
+  describe "DataCite Schema 4.6" do
+    it "handles all DataCite 4.6 features in one XML" do
+      input = fixture_path + 'datacite-example-full-v4.6.xml'
+      subject = Bolognese::Metadata.new(input: input)
+
+      puts "Validation Errors: #{subject.errors.inspect}"
+
+      expect(subject.valid?).to be true
+
+      # Test resourceTypeGeneral for Project
+      expect(subject.types["resourceTypeGeneral"]).to eq("Project")
+      expect(subject.types["resourceType"]).to eq("Research Project")
+
+      # Test relatedIdentifiers for RRID and CSTR
+      expect(subject.related_identifiers.length).to eq(3)
+      expect(subject.related_identifiers).to include(
+        { "relatedIdentifier" => "RRID:AB_90755", "relatedIdentifierType" => "RRID", "relationType" => "References" },
+        { "relatedIdentifier" => "CSTR:AB_12345", "relatedIdentifierType" => "CSTR", "relationType" => "References" }
+      )
+
+      # Test relationType HasTranslation
+      expect(subject.related_identifiers).to include(
+        { "relatedIdentifier" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "HasTranslation" }
+      )
+
+      # Test contributorType for Translator
+      expect(subject.contributors.length).to eq(2)
+      expect(subject.contributors.first).to include(
+        "contributorType" => "Translator",
+        "familyName" => "Doe",
+        "givenName" => "Jane"
+      )
+
+      # Test dateType for Coverage
+      expect(subject.dates).to include(
+        { "dateType" => "Coverage", "date" => "2020-01-01" }
+      )
+
+    end
+  end
 end
+
