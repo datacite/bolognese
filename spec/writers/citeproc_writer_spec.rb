@@ -286,5 +286,25 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["DOI"]).to eq("10.34747/g6yb-3412")
       expect(json["issued"]).to eq("date-parts"=>[[2019]])
     end
+
+    it "arxiv" do
+      input = "https://doi.org/10.48550/arxiv.2410.00001"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite")
+      json = JSON.parse(subject.citeproc)
+      expect(json["type"]).to eq("article")
+      expect(json["id"]).to eq("https://doi.org/10.48550/arxiv.2410.00001")
+      expect(json["DOI"]).to eq("10.48550/arxiv.2410.00001")
+      expect(json["URL"]).to eq("https://arxiv.org/abs/2410.00001")
+      expect(json["title"]).to eq("iSurgARy: A mobile augmented reality solution for ventriculostomy in resource-limited settings")
+      expect(json["author"]).to eq([{"family"=>"Asadi", "given"=>"Zahra"},
+                                    {"family"=>"Castillo", "given"=>"Joshua Pardillo"},
+                                    {"family"=>"Asadi", "given"=>"Mehrdad"},
+                                    {"family"=>"Sinclair", "given"=>"David S."},
+                                    {"family"=>"Kersten-Oertel", "given"=>"Marta"}])
+      expect(json["publisher"]).to eq("arXiv")
+      expect(json["issued"]).to eq("date-parts" => [[2024]])
+      expect(json["available-date"]).to eq("date-parts" => [[2024, 10]])
+      expect(json["submitted"]).to eq("date-parts" => [[2024, 9, 12]])
+    end
   end
 end
