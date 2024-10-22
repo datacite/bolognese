@@ -204,4 +204,112 @@ describe Bolognese::Metadata, vcr: true do
       )
     end
   end
+
+  ### New DataCite 4.6 Features Tests ###
+
+  context "insert_resource_type with Project" do
+    it "supports Project as resourceTypeGeneral" do
+      # Mock the `types` hash to include Project
+      subject.instance_variable_set(:@types, {
+        "resourceTypeGeneral" => "Project",
+        "resourceType" => "Research Project"
+      })
+
+      # Generate XML using the insert_resource_type method
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_resource_type(xml) }.to_xml
+
+      response = Maremma.from_xml(xml)
+
+      # Expect `Project` in resourceTypeGeneral and `Research Project` as the content
+      expect(response["resourceType"]).to eq(
+        "resourceTypeGeneral" => "Project",
+        "__content__" => "Research Project"
+      )
+    end
+  end
+
+  context "insert_resource_type with Award" do
+    it "supports Award as resourceTypeGeneral" do
+      # Mock the `types` hash to include Award
+      subject.instance_variable_set(:@types, {
+        "resourceTypeGeneral" => "Award",
+        "resourceType" => "Nobel Prize"
+      })
+
+      # Generate XML using the insert_resource_type method
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_resource_type(xml) }.to_xml
+
+      response = Maremma.from_xml(xml)
+
+      # Expect `Award` in resourceTypeGeneral and `Nobel Prize` as the content
+      expect(response["resourceType"]).to eq(
+        "resourceTypeGeneral" => "Award",
+        "__content__" => "Nobel Prize"
+      )
+    end
+  end
+
+  # Test case to insert Coverage DateType (new dateType in DataCite 4.6).
+  context "insert_dates with Coverage" do
+    it "inserts date with dateType Coverage" do
+      subject.dates = [{ "date" => "2021-01-01", "dateType" => "Coverage" }]
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_dates(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      dates = response.dig("dates", "date")
+      expect(dates).to eq("__content__" => "2021-01-01", "dateType" => "Coverage")
+    end
+  end
+
+  # Test case to insert Translator contributor (new contributorType in DataCite 4.6)
+  context "insert_contributors Translator" do
+    it "supports Translator contributorType" do
+      subject.contributors = [
+        { "contributorName" => "John Translator", "contributorType" => "Translator" }
+      ]
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_contributors(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("contributors", "contributor", "contributorType")).to eq("Translator")
+    end
+  end
+
+  # Test case for RRID (new relatedIdentifierType in DataCite 4.6)
+  context "insert_related_identifiers RRID" do
+    it "supports RRID relatedIdentifierType" do
+      subject.related_identifiers = [
+        { "relatedIdentifier" => "RRID:AB_90755", "relatedIdentifierType" => "RRID", "relationType" => "References" }
+      ]
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq("__content__" => "RRID:AB_90755", "relatedIdentifierType" => "RRID", "relationType" => "References")
+    end
+  end
+
+  ### Test case #2 for adding CSTR ###
+  context "insert_related_identifiers CSTR" do
+    it "supports CSTR relatedIdentifierType" do
+      subject.related_identifiers = [
+        { "relatedIdentifier" => "CSTR:AB_12345", "relatedIdentifierType" => "CSTR", "relationType" => "References" }
+      ]
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq("__content__" => "CSTR:AB_12345", "relatedIdentifierType" => "CSTR", "relationType" => "References")
+    end
+  end
+
+  # Test case for HasTranslation (new relationType in DataCite 4.6)
+  context "insert_related_identifiers HasTranslation" do
+    it "supports HasTranslation relationType" do
+      subject.related_identifiers = [
+        { "relatedIdentifier" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "HasTranslation" }
+      ]
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq("__content__" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "HasTranslation")
+    end
+  end
 end
