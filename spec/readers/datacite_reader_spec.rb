@@ -1824,15 +1824,16 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceType"]).to eq("Research Project")
 
       # Test relatedIdentifiers for RRID and CSTR
-      expect(subject.related_identifiers.length).to eq(3)
+      expect(subject.related_identifiers.length).to eq(4)
       expect(subject.related_identifiers).to include(
         { "relatedIdentifier" => "RRID:AB_90755", "relatedIdentifierType" => "RRID", "relationType" => "References" },
         { "relatedIdentifier" => "CSTR:AB_12345", "relatedIdentifierType" => "CSTR", "relationType" => "References" }
       )
 
-      # Test relationType HasTranslation
+      # Test relationType HasTranslation and IsTranslationOf
       expect(subject.related_identifiers).to include(
-        { "relatedIdentifier" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "HasTranslation" }
+        { "relatedIdentifier" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "HasTranslation" },
+        { "relatedIdentifier" => "10.1234/other-version", "relatedIdentifierType" => "DOI", "relationType" => "IsTranslationOf" }
       )
 
       # Test contributorType for Translator

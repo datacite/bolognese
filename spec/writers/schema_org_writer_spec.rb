@@ -378,5 +378,41 @@ describe Bolognese::Metadata, vcr: true do
          }
       )
     end
+
+    it "from Schema 4.6 with Translator contributor, workTranslation, translationOfWork, and temporalCoverage" do
+      input = fixture_path + 'datacite-example-full-v4.6.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.schema_org)
+
+      expect(json["@type"]).to eq(
+        "Project"
+      )
+      expect(json["translator"]).to eq(
+        {
+          "name" => "Jane Doe",
+          "givenName" => "Jane",
+          "familyName" => "Doe",
+          "affiliation" => {
+            "@type" => "Organization",
+            "@id" => "https://ror.org/04wxnsj81",
+            "name" => "ExampleAffiliation"
+          },
+          "contributorType" => "Translator",
+          "@type" => "Person",
+          "@id" => "https://orcid.org/0000-0003-1419-2405"
+        }
+      )
+      expect(json["workTranslation"]).to eq(
+        "@id" => "https://doi.org/10.1234/translated-version",
+        "@type" => "CreativeWork"
+      )
+      expect(json["translationOfWork"]).to eq(
+        "@id" => "https://doi.org/10.1234/other-version",
+        "@type" => "CreativeWork"
+      )
+      expect(json["temporalCoverage"]).to eq(
+        "2020-01-01"
+      )      
+    end
   end
 end

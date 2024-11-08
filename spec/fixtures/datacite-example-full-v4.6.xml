@@ -77,6 +77,7 @@
         <relatedIdentifier relatedIdentifierType="RRID" relationType="References">RRID:AB_90755</relatedIdentifier>         <!-- DataCite 4.6: New RRID Identifier -->
         <relatedIdentifier relatedIdentifierType="CSTR" relationType="References">CSTR:AB_12345</relatedIdentifier>       <!-- DataCite 4.6: New CSTR Identifier -->
         <relatedIdentifier relatedIdentifierType="DOI" relationType="HasTranslation">10.1234/translated-version</relatedIdentifier>     <!-- DataCite 4.6: HasTranslation RelationType -->
+        <relatedIdentifier relatedIdentifierType="DOI" relationType="IsTranslationOf">10.1234/other-version</relatedIdentifier>     <!-- DataCite 4.6: HasTranslation RelationType -->
     </relatedIdentifiers>
 
     <!-- Sizes & Formats -->
