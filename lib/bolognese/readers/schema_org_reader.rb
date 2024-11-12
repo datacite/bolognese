@@ -10,7 +10,9 @@ module Bolognese
         "isPartOf" => "IsPartOf",
         "hasPart" => "HasPart",
         "isPredecessor" => "IsPreviousVersionOf",
-        "isSuccessor" => "IsNewVersionOf"
+        "isSuccessor" => "IsNewVersionOf",
+        "workTranslation" => "HasTranslation",
+        "translationOfWork" => "IsTranslationOf"
       }
 
       SO_TO_DC_REVERSE_RELATION_TYPES = {
@@ -74,6 +76,12 @@ module Bolognese
           creators = get_authors(from_schema_org_creators(Array.wrap(authors)))
         end
         contributors = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("editor", nil))))
+        translators = get_authors(from_schema_org_contributors(Array.wrap(meta.fetch("translator", nil))))
+        translators.map! do |translator|
+          translator["contributorType"] = "Translator"
+          translator
+        end
+        contributors += translators
 
         publisher = {
           "name" => parse_attributes(meta.fetch("publisher", nil), content: "name", first: true),
@@ -106,7 +114,9 @@ module Bolognese
           Array.wrap(schema_org_references(meta)) +
           Array.wrap(schema_org_is_referenced_by(meta)) +
           Array.wrap(schema_org_is_supplement_to(meta)) +
-          Array.wrap(schema_org_is_supplemented_by(meta))
+          Array.wrap(schema_org_is_supplemented_by(meta)) +
+          Array.wrap(schema_org_has_translation(meta)) +
+          Array.wrap(schema_org_is_translation_of(meta))
 
         rights_list = Array.wrap(meta.fetch("license", nil)).compact.map do |rl|
           hsh_to_spdx("__content__" => rl["name"], "rightsURI" => rl["id"])
@@ -127,6 +137,7 @@ module Bolognese
         dates << { "date" => meta.fetch("datePublished"), "dateType" => "Issued" } if Date.edtf(meta.fetch("datePublished", nil)).present?
         dates << { "date" => meta.fetch("dateCreated"), "dateType" => "Created" } if Date.edtf(meta.fetch("dateCreated", nil)).present?
         dates << { "date" => meta.fetch("dateModified"), "dateType" => "Updated" } if Date.edtf(meta.fetch("dateModified", nil)).present?
+        dates << { "date" => meta.fetch("temporalCoverage"), "dateType" => "Coverage" } if Date.edtf(meta.fetch("temporalCoverage", nil)).present?
         publication_year = meta.fetch("datePublished")[0..3] if meta.fetch("datePublished", nil).present?
 
         if meta.fetch("inLanguage", nil).is_a?(String)
@@ -238,6 +249,14 @@ module Bolognese
 
       def schema_org_is_supplemented_by(meta)
         schema_org_related_identifier(meta, relation_type: "isBasedOn")
+      end
+
+      def schema_org_has_translation(meta)
+        schema_org_related_identifier(meta, relation_type: "workTranslation", )
+      end
+
+      def schema_org_is_translation_of(meta)
+        schema_org_related_identifier(meta, relation_type: "translationOfWork")
       end
 
     end

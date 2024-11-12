@@ -52,6 +52,12 @@ module Bolognese
           [{ "nameType" => "Organizational", "name" => ":(unav)" }]
         end
         contributors = get_authors(from_citeproc(Array.wrap(meta.fetch("editor", nil))))
+        translators = get_authors(from_citeproc(Array.wrap(meta.fetch("translator", nil))))
+        translators.each do |translator|
+          translator["contributorType"] = "Translator"
+        end
+        contributors += translators
+
         dates = if date = get_date_from_date_parts(meta.fetch("issued", nil))
                   if Date.edtf(date).present?
                     [{ "date" => date,

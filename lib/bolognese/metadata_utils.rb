@@ -153,6 +153,7 @@ module Bolognese
         "language" => language,
         "author" => author,
         "contributor" => to_citeproc(contributors),
+        "translator" => contributors ? to_citeproc(contributors.select { |c| c["contributorType"] == "Translator" }) : nil,
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : get_date_parts(publication_year.to_s),
         "submitted" => Array.wrap(dates).find { |d| d["dateType"] == "Submitted" }.to_h.fetch("__content__", nil),
         "abstract" => parse_attributes(descriptions, content: "description", first: true),

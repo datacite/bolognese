@@ -1815,8 +1815,6 @@ describe Bolognese::Metadata, vcr: true do
       input = fixture_path + 'datacite-example-full-v4.6.xml'
       subject = Bolognese::Metadata.new(input: input)
 
-      puts "Validation Errors: #{subject.errors.inspect}"
-
       expect(subject.valid?).to be true
 
       # Test resourceTypeGeneral for Project

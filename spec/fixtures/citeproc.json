@@ -27,6 +27,10 @@
         "family": "Fenner",
         "given": "Martin",
         "literal": "Fenner, Martin"
-    }
-]
+    }],
+    "translator": [{
+        "family": "Ross",
+        "given": "Cody",
+        "literal": "Ross, Cody"
+    }]
 }

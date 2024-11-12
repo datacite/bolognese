@@ -13,7 +13,7 @@ module Bolognese
           "name" => parse_attributes(titles, content: "title", first: true),
           "author" => to_schema_org_creators(creators),
           "editor" => to_schema_org_contributors(contributors),
-          "translator" => to_schema_org_contributors(contributors.select { |c| c["contributorType"] == "Translator" }),
+          "translator" => contributors ? to_schema_org_contributors(contributors.select { |c| c["contributorType"] == "Translator" }) : nil,
           "description" => parse_attributes(abstract_description, content: "description", first: true),
           "license" => Array.wrap(rights_list).map { |l| l["rightsUri"] }.compact.unwrap,
           "version" => version_info,

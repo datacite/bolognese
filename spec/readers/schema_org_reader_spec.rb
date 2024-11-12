@@ -340,5 +340,32 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"}])
     end
+
+    it "Schema 4.6 attributes" do
+      input = fixture_path + 'schema_org_4.6_attributes.json'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.related_identifiers).to eq(
+        [
+          {"relatedIdentifier"=>"10.1234/translated-version", "relatedIdentifierType"=>"DOI", "relationType"=>"HasTranslation"},
+          {"relatedIdentifier"=>"10.1234/other-version", "relatedIdentifierType"=>"DOI", "relationType"=>"IsTranslationOf"},
+        ]
+      )
+      expect(subject.dates).to eq(
+        [
+          {"date"=>"2023-01-01", "dateType"=>"Issued"},
+          {"date"=>"2023-01-01", "dateType"=>"Created"},
+          {"date"=>"2023-01-01", "dateType"=>"Updated"},
+          {"date"=>"2020-01-01", "dateType"=>"Coverage"}
+        ]
+      )
+      expect(subject.contributors).to eq(
+        [
+          {"name"=>"Doe, Jane", "givenName"=>"Jane", "familyName"=>"Doe", "nameType"=>"Personal", "affiliation"=>[{"name"=>"ExampleAffiliation", "affiliationIdentifier"=>"https://ror.org/04wxnsj81", "affiliationIdentifierScheme"=>"ROR"}], "nameIdentifiers"=>[{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}]},
+          {"name"=>"Smith, John", "givenName"=>"John", "familyName"=>"Smith", "nameType"=>"Personal", "affiliation"=>[{"name"=>"ExampleAffiliation", "affiliationIdentifier"=>"https://ror.org/04wxnsj81", "affiliationIdentifierScheme"=>"ROR"}]},
+          {"name"=>"Ross, Cody", "givenName"=>"Cody", "familyName"=>"Ross", "nameType"=>"Personal", "affiliation"=>[{"name"=>"ExampleAffiliation", "affiliationIdentifier"=>"https://ror.org/04wxnsj81", "affiliationIdentifierScheme"=>"ROR"}], "nameIdentifiers"=>[{"nameIdentifier"=>"https://orcid.org/0000-0003-1419-2405", "schemeUri"=>"https://orcid.org", "nameIdentifierScheme"=>"ORCID"}], "contributorType"=>"Translator"},
+        ]
+      )
+    end
   end
 end
