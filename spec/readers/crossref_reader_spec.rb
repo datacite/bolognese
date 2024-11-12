@@ -1098,5 +1098,36 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.agency).to eq("crossref")
       expect(subject.state).to eq("not_found")
     end
+
+    it "with Schema 4.6 Translator contributor" do
+      input = fixture_path + 'crossref.xml'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.contributors).to eq([
+        {"givenName"=>"Ashwini", "familyName"=>"Sukale", "name"=>"Sukale, Ashwini", "nameType"=>"Personal", "affiliation"=>[{"name"=>"DataCite"}], "contributorType"=>"Editor"},
+        {"givenName"=>"Cody", "familyName"=>"Ross", "name"=>"Ross, Cody", "nameType"=>"Personal", "affiliation"=>[{"name"=>"DataCite"}], "contributorType"=>"Translator"},
+      ])
+    end
+
+    it "with Schema 4.6 HasTranslation and IsTranslationOf" do
+      input = fixture_path + 'crossref_schema_4.6_values.xml'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.related_identifiers.count).to eq(7)
+      expect(subject.related_identifiers).to include(
+        {
+          "relatedIdentifier"=>"10.32013/zll10oq",
+          "relatedIdentifierType"=>"DOI",
+          "relationType"=>"HasTranslation",
+        }
+      )
+      expect(subject.related_identifiers).to include(
+        {
+          "relatedIdentifier"=>"10.5555/original_language",
+          "relatedIdentifierType"=>"DOI",
+          "relationType"=>"IsTranslationOf",
+        }
+      )
+    end
   end
 end

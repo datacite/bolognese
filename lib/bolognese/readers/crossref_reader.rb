@@ -4,6 +4,12 @@ module Bolognese
   module Readers
     module CrossrefReader
       # CrossRef types from https://api.crossref.org/types
+
+      CR_TO_DC_CONTRIBUTOR_TYPES = {
+        "editor" => "Editor",
+        "translator" => "Translator",
+      }
+
       def get_crossref(id: nil, **options)
         return { "string" => nil, "state" => "not_found" } unless id.present?
 
@@ -138,7 +144,7 @@ module Bolognese
 
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
-        related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata))
+        related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata)) + Array.wrap(crossref_has_translation(program_metadata)) + Array.wrap(crossref_is_translation_of(program_metadata))
 
         container = if journal_metadata.present?
                       issn = normalize_issn(journal_metadata.to_h.fetch("issn", nil))
@@ -187,7 +193,7 @@ module Bolognese
           "titles" => titles,
           "identifiers" => identifiers,
           "creators" => crossref_people(bibliographic_metadata, "author"),
-          "contributors" => crossref_people(bibliographic_metadata, "editor"),
+          "contributors" => crossref_people(bibliographic_metadata, "editor") + crossref_people(bibliographic_metadata, "translator"),
           "funding_references" => crossref_funding_reference(program_metadata),
           "publisher" => publisher,
           "container" => container,
@@ -276,13 +282,15 @@ module Bolognese
               end
             end.compact
 
+            contributor_type = CR_TO_DC_CONTRIBUTOR_TYPES[a["contributor_role"]]
+
             { "nameType" => "Personal",
               "nameIdentifiers" => name_identifiers,
               "name" => [family_name, given_name].compact.join(", "),
               "givenName" => given_name,
               "familyName" => family_name,
               "affiliation" => affiliation.presence,
-              "contributorType" => contributor_role == "editor" ? "Editor" : nil }.compact
+              "contributorType" => contributor_type }.compact
           else
             { "nameType" => "Organizational",
               "name" => a["name"] || a["__content__"] }
@@ -356,6 +364,32 @@ module Bolognese
           if c["doi"].present?
             { "relatedIdentifier" => parse_attributes(c["doi"]).downcase,
               "relationType" => "References",
+              "relatedIdentifierType" => "DOI" }.compact
+          else
+            nil
+          end
+        end.compact.unwrap
+      end
+    
+      def crossref_has_translation(program_metadata)
+        refs = program_metadata.dig("related_item") if program_metadata.is_a?(Hash)
+        Array.wrap(refs).select { |a| a["intra_work_relation"]["relationship_type"] == "hasTranslation" }.map do |c|
+          if c["intra_work_relation"]["identifier_type"] == "doi"
+            { "relatedIdentifier" => parse_attributes(c["intra_work_relation"]).downcase,
+              "relationType" => "HasTranslation",
+              "relatedIdentifierType" => "DOI" }.compact
+          else
+            nil
+          end
+        end.compact.unwrap
+      end
+
+      def crossref_is_translation_of(program_metadata)
+        refs = program_metadata.dig("related_item") if program_metadata.is_a?(Hash)
+        Array.wrap(refs).select { |a| a["intra_work_relation"]["relationship_type"] == "isTranslationOf" }.map do |c|
+          if c["intra_work_relation"]["identifier_type"] == "doi"
+            { "relatedIdentifier" => parse_attributes(c["intra_work_relation"]).downcase,
+              "relationType" => "IsTranslationOf",
               "relatedIdentifierType" => "DOI" }.compact
           else
             nil

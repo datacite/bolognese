@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crossref_result xmlns="http://www.crossref.org/qrschema/3.0" version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crossref.org/qrschema/3.0 http://www.crossref.org/schemas/crossref_query_output3.0.xsd">
+  <query_result>
+    <head>
+      <doi_batch_id>none</doi_batch_id>
+    </head>
+    <body>
+      <query status="resolved">
+        <doi type="journal_article">10.7554/eLife.01567</doi>
+        <crm-item name="publisher-name" type="string">eLife Sciences Publications, Ltd</crm-item>
+        <crm-item name="prefix-name" type="string">eLife Sciences Publications, Ltd.</crm-item>
+        <crm-item name="member-id" type="number">4374</crm-item>
+        <crm-item name="citation-id" type="number">67124617</crm-item>
+        <crm-item name="journal-id" type="number">189365</crm-item>
+        <crm-item name="deposit-timestamp" type="number">20180823133646</crm-item>
+        <crm-item name="owner-prefix" type="string">10.7554</crm-item>
+        <crm-item name="last-update" type="date">2018-08-23T13:41:49Z</crm-item>
+        <crm-item name="created" type="date">2014-02-11T16:29:04Z</crm-item>
+        <crm-item name="citedby-count" type="number">13</crm-item>
+        <doi_record>
+          <crossref xmlns="http://www.crossref.org/xschema/1.1" xsi:schemaLocation="http://www.crossref.org/xschema/1.1 http://doi.crossref.org/schemas/unixref1.1.xsd">
+            <journal>
+              <journal_metadata language="en">
+                  <full_title>Journal of Metadata Perfection</full_title>
+                  <abbrev_title>JOMPer</abbrev_title>
+                  <doi_data>
+                      <doi>10.32013/487529</doi>
+                      <resource>https://www.crossref.org/jomper</resource>
+                  </doi_data>
+              </journal_metadata>
+              <journal_issue>
+                  <publication_date media_type="online">
+                      <month>08</month>
+                      <day>13</day>
+                      <year>2008</year>
+                  </publication_date>
+                  <publication_date media_type="print">
+                      <month>08</month>
+                      <day>14</day>
+                      <year>2008</year>
+                  </publication_date>
+                  <journal_volume>
+                      <volume>5</volume>
+                  </journal_volume>
+                  <issue>11</issue>
+              </journal_issue>
+              <journal_article publication_type="full_text">
+                  <titles>
+                      <title>Quand vos meilleures métadonnées ne suffisent pas: travailler avec une spécification imparfaite</title>
+                      <original_language_title language="en">When your best metadata isn't good enough: working with an imperfect specification </original_language_title>
+                  </titles>
+                  <contributors>
+                      <person_name sequence="first" contributor_role="author">
+                          <given_name>Minerva</given_name>
+                          <surname>Housecat</surname>
+                          <affiliation>Crossref University</affiliation>
+                          <ORCID authenticated="true">https://orcid.org/0000-0002-4011-3590</ORCID>
+                      </person_name>
+                      <person_name sequence="additional" contributor_role="author">
+                          <given_name>Josiah</given_name>
+                          <surname>Carberry</surname>
+                          <affiliation>Brown University</affiliation>
+                          <ORCID authenticated="true">https://orcid.org/0000-0002-1825-0097</ORCID>
+                      </person_name>
+                  </contributors>
+                  
+                  <publication_date media_type="online">
+                      <month>08</month>
+                      <day>13</day>
+                      <year>2018</year>
+                  </publication_date>
+                  <publication_date media_type="print">
+                      <month>08</month>
+                      <day>14</day>
+                      <year>2018</year>
+                  </publication_date>
+                  <acceptance_date>
+                      <month>05</month>
+                      <day>21</day>
+                      <year>2018</year>
+                  </acceptance_date>
+                  <pages>
+                      <first_page>1</first_page>
+                      <last_page>3</last_page>
+                  </pages>
+                  <publisher_item>
+                      <item_number item_number_type="article_number">2347854-0</item_number>
+                  </publisher_item>
+                  <program xmlns="http://www.crossref.org/relations.xsd">
+                      <related_item>
+                          <description>English language version</description>
+                          <intra_work_relation relationship-type="hasTranslation" identifier-type="doi"
+                              >10.32013/zLl10OQ</intra_work_relation>
+                      </related_item>
+                      <related_item>
+                        <description>Portuguese translation of an article</description>
+                        <intra_work_relation relationship-type="isTranslationOf" identifier-type="doi">10.5555/original_language</intra_work_relation>
+                      </related_item>
+                  </program>
+                  <archive_locations>
+                      <archive name="CLOCKSS"/>
+                      <archive name="Internet Archive"/>
+                      <archive name="Portico"/>
+                      <archive name="KB"/>
+                  </archive_locations>
+                  <doi_data>
+                      <doi>10.32013/4859104</doi>
+                      <resource>https://www.crossref.org/xml-samples/</resource>
+                      <collection property="crawler-based">
+                          <item crawler="iParadigms">
+                              <resource>https://www.crossref.org/faqs.html</resource>
+                          </item>
+                      </collection>
+                      <collection property="text-mining">
+                          <item>
+                              <resource content_version="vor" mime_type="text/xml"
+                                  >https://www.crossref.org/example.xml</resource>
+                          </item>
+                      </collection>
+                      <collection property="link-header">
+                          <item link_header_relationship="dul">
+                              <resource>http://www.crossref.org/exampleDULendpoint</resource>
+                          </item>
+                      </collection>
+                  </doi_data>
+                  <citation_list>
+                      <citation key="ref1">
+                          <doi>10.1101/144147</doi>
+                          <unstructured_citation>BioSharing: Harnessing Metadata Standards For The
+                              Data Commons. Susanna-Assunta Sansone, Alejandra Gonzalez-Beltran,
+                              Philippe Rocca-Serra, PeterMcQuilton, Massimiliano Izzo, Allyson Lister,
+                              Milo Thurston. bioRxiv 144147</unstructured_citation>
+                      </citation>
+                      <citation key="ref2">
+                          <doi>10.1515/jdis-2017-0012</doi>
+                          <unstructured_citation>Greenberg, J. (2017). Big Metadata, Smart Metadata,
+                              and Metadata Capital: Toward Greater Synergy Between Data Science and
+                              Metadata, Journal of Data and Information Science, 2(3), 19-36.
+                          </unstructured_citation>
+                      </citation>
+                      <citation key="ref3">
+                          <doi>10.32013/s4947892</doi>
+                      </citation>
+                      <citation key="ref4">
+                          <doi>10.1108/LHTN-12-2016-0059</doi>
+                          <unstructured_citation>Jung ran Park, Yuji Tosaka, (2017) “Emerging
+                              information standards and technologies: cataloging and metadata
+                              professionals’ perspectives", Library Hi Tech News, Vol. 34 Issue: 4,
+                              pp.22-26</unstructured_citation>
+                      </citation>
+                      <citation key="ref5">
+                          <journal_title>Information Technology and Libraries</journal_title>
+                          <author>Park</author>
+                          <volume>29</volume>
+                          <issue>3</issue>
+                          <first_page>104</first_page>
+                          <cYear>2010</cYear>
+                          <doi>10.6017/ital.v29i3.3136</doi>
+                          <article_title>Metadata creation practices in digital repositories and collections: Schemata, selection criteria, and interoperability</article_title>
+                      </citation>
+                      <citation key="ref6">
+                          <unstructured_citation>Riley, J. (2017). Understanding metadata.
+                              Bethesda,MD: NISO Press.</unstructured_citation>
+                      </citation>
+                  </citation_list>
+              </journal_article>
+          </journal>
+  
+          </crossref>
+        </doi_record>
+      </query>
+    </body>
+  </query_result>
+</crossref_result>
