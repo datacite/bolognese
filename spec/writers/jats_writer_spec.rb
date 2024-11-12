@@ -87,7 +87,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(jats.dig("publication_type")).to be_nil
       expect(jats.dig("source")).to eq("Eating your own Dog Food")
       expect(jats.dig("publisher_name")).to eq("DataCite")
-      expect(jats.dig("person_group", "name")).to eq("surname"=>"Fenner", "given_names"=>"Martin")
+      expect(jats.dig("person_group", 0, "name")).to eq("surname"=>"Fenner", "given_names"=>"Martin")
       expect(jats.dig("year")).to eq("iso_8601_date"=>"2016-12-20", "__content__"=>"2016")
       expect(jats.dig("month")).to eq("12")
       expect(jats.dig("day")).to eq("20")
