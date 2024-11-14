@@ -20,6 +20,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.url).to eq("https://blog.datacite.org/eating-your-own-dog-food")
       expect(subject.types).to eq("bibtex"=>"article", "citeproc"=>"post-weblog", "resourceTypeGeneral"=>"Text", "ris"=>"GEN", "schemaOrg"=>"BlogPosting")
       expect(subject.creators).to eq([{"familyName"=>"Fenner", "givenName"=>"Martin", "name"=>"Fenner, Martin"}])
+      expect(subject.contributors).to eq([{"familyName"=>"Ross", "givenName"=>"Cody", "name"=>"Ross, Cody", "contributorType"=>"Translator"}])
       expect(subject.publisher).to eq({"name"=>"DataCite"})
       expect(subject.titles).to eq([{"title"=>"Eating your own Dog Food"}])
       expect(subject.descriptions.first["description"]).to start_with("Eating your own dog food")

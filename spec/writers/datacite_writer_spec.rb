@@ -286,6 +286,77 @@ describe Bolognese::Metadata, vcr: true do
       )
     end
 
+    it "Schema 4.6" do
+      input = fixture_path + 'datacite-example-full-v4.6.xml'
+      doi = "10.82433/B09Z-4K37"
+      subject = Bolognese::Metadata.new(input: input, from: "datacite", regenerate: true)
+      expect(subject.valid?).to be true
+
+      datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
+      expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
+      expect(datacite.dig("contributors", "contributor").count).to eq(2)
+      expect(datacite.dig("contributors", "contributor")).to include(
+        {
+          "contributorType"=>"Translator",
+          "contributorName"=>{
+            "nameType"=>"Personal",
+            "__content__"=>"Doe, Jane"
+          },
+          "givenName"=>"Jane",
+          "familyName"=>"Doe",
+          "nameIdentifier"=>{
+            "nameIdentifierScheme"=>"ORCID",
+            "schemeURI"=>"https://orcid.org",
+            "__content__"=>"https://orcid.org/0000-0003-1419-2405"
+          },
+          "affiliation"=>{
+            "affiliationIdentifier"=>"https://ror.org/04wxnsj81",
+            "affiliationIdentifierScheme"=>"ROR",
+            "schemeURI"=>"https://ror.org",
+            "__content__"=>"ExampleAffiliation"
+          }
+        }
+      )
+      expect(datacite.dig("dates", "date").count).to eq(5)
+      expect(datacite.dig("dates", "date")).to include(
+        {
+          "dateType"=>"Coverage",
+          "__content__"=>"2020-01-01"
+        }
+      )
+      expect(datacite.dig("resourceType")).to eq(
+        {
+          "__content__"=>"Research Project",
+          "resourceTypeGeneral"=>"Project"
+        }
+      )
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier").count).to eq(4)
+      expect(datacite.dig("relatedIdentifiers", "relatedIdentifier")).to eq(
+        [
+          {
+            "relatedIdentifierType"=>"RRID",
+            "relationType"=>"References",
+            "__content__"=>"RRID:AB_90755"
+          },
+          {
+            "relatedIdentifierType"=>"CSTR",
+            "relationType"=>"References",
+            "__content__"=>"CSTR:AB_12345"
+          },
+          {
+            "relatedIdentifierType"=>"DOI",
+            "relationType"=>"HasTranslation",
+            "__content__"=>"10.1234/translated-version"
+          },
+          {
+            "relatedIdentifierType"=>"DOI",
+            "relationType"=>"IsTranslationOf",
+            "__content__"=>"10.1234/other-version"
+          }
+        ]
+      )
+    end
+
     it "Geolocations" do
       input = fixture_path + 'datacite-example-full-v4.5.xml'
       doi = "10.82433/B09Z-4K37"

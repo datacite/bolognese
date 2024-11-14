@@ -64,6 +64,16 @@
                     <surname>Hardtke</surname>
                     <affiliation>Department of Plant Molecular Biology, University of Lausanne, Lausanne, Switzerland</affiliation>
                   </person_name>
+                  <person_name contributor_role="editor" sequence="additional">
+                    <given_name>Ashwini</given_name>
+                    <surname>Sukale</surname>
+                    <affiliation>DataCite</affiliation>
+                  </person_name>
+                  <person_name contributor_role="translator" sequence="additional">
+                    <given_name>Cody</given_name>
+                    <surname>Ross</surname>
+                    <affiliation>DataCite</affiliation>
+                  </person_name>
                 </contributors>
                 <jats:abstract xmlns:jats="http://www.ncbi.nlm.nih.gov/JATS1">
                   <jats:p>Among various advantages, their small size makes model organisms preferred subjects of investigation. Yet, even in model systems detailed analysis of numerous developmental processes at cellular level is severely hampered by their scale. For instance, secondary growth of Arabidopsis hypocotyls creates a radial pattern of highly specialized tissues that comprises several thousand cells starting from a few dozen. This dynamic process is difficult to follow because of its scale and because it can only be investigated invasively, precluding comprehensive understanding of the cell proliferation, differentiation, and patterning events involved. To overcome such limitation, we established an automated quantitative histology approach. We acquired hypocotyl cross-sections from tiled high-resolution images and extracted their information content using custom high-throughput image processing and segmentation. Coupled with automated cell type recognition through machine learning, we could establish a cellular resolution atlas that reveals vascular morphodynamics during secondary growth, for example equidistant phloem pole formation.</jats:p>
@@ -152,6 +162,14 @@
                   <rel:related_item>
                     <rel:description>Data from: Automated quantitative histology reveals vascular morphodynamics during Arabidopsis hypocotyl secondary growth</rel:description>
                     <rel:inter_work_relation identifier-type="doi" relationship-type="isSupplementedBy">10.5061/dryad.b835k</rel:inter_work_relation>
+                  </rel:related_item>
+                  <rel:related_item>
+                    <rel:description>Portuguese translation of an article</rel:description>
+                    <rel:intra_work_relation relationship-type="isTranslationOf" identifier-type="doi">10.5555/original_language</rel:intra_work_relation>
+                  </rel:related_item>
+                  <rel:related_item>
+                    <rel:description>Spanish translation of an article</rel:description>
+                    <rel:intra_work_relation relationship-type="hasTranslation" identifier-type="doi">10.5555/other_language</rel:intra_work_relation>
                   </rel:related_item>
                 </rel:program>
                 <archive_locations>

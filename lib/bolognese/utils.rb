@@ -78,7 +78,9 @@ module Bolognese
       "Other" => "CreativeWork",
       # not part of DataCite schema, but used internally
       "Periodical" => "Periodical",
-      "DataCatalog" => "DataCatalog"
+      "DataCatalog" => "DataCatalog",
+      "Award" => "Grant",
+      "Project" => "Project"
     }
 
     DC_TO_CP_TRANSLATIONS = {
@@ -825,7 +827,8 @@ module Bolognese
 
     def to_schema_org_contributors(element)
       element = Array.wrap(element).map do |c|
-        c["affiliation"] = Array.wrap(c["affiliation"]).map do |a|
+        transformed_c = c.dup
+        transformed_c["affiliation"] = Array.wrap(c["affiliation"]).map do |a|
           if a.is_a?(String)
             name = a
             affiliation_identifier = nil
@@ -839,10 +842,10 @@ module Bolognese
             "@id" => affiliation_identifier,
             "name" => name }.compact
         end.unwrap
-        c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
-        c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
-        c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]
-        c.except("nameIdentifiers", "nameType").compact
+        transformed_c["@type"] = c["nameType"].present? ? c["nameType"][0..-3] : nil
+        transformed_c["@id"] = Array.wrap(c["nameIdentifiers"]).first.to_h.fetch("nameIdentifier", nil)
+        transformed_c["name"] = c["familyName"].present? ? [c["givenName"], c["familyName"]].join(" ") : c["name"]
+        transformed_c.except("nameIdentifiers", "nameType").compact
       end.unwrap
     end
 
@@ -1234,7 +1237,9 @@ module Bolognese
         "urn" => "URN",
         "md5" => "md5",
         "minid" => "minid",
-        "dataguid" => "dataguid"
+        "dataguid" => "dataguid",
+        "cstr" => "CSTR",
+        "rrid" => "RRID"
       }
 
       identifierTypes[identifier_type.downcase] || identifier_type
