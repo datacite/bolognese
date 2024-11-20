@@ -373,8 +373,8 @@ module Bolognese
     
       def crossref_has_translation(program_metadata)
         refs = program_metadata.dig("related_item") if program_metadata.is_a?(Hash)
-        Array.wrap(refs).select { |a| a["intra_work_relation"]["relationship_type"] == "hasTranslation" }.map do |c|
-          if c["intra_work_relation"]["identifier_type"] == "doi"
+        Array.wrap(refs).select { |a| a.dig("intra_work_relation", "relationship_type") == "hasTranslation" }.map do |c|
+          if c.dig("intra_work_relation", "identifier_type") == "doi"
             { "relatedIdentifier" => parse_attributes(c["intra_work_relation"]).downcase,
               "relationType" => "HasTranslation",
               "relatedIdentifierType" => "DOI" }.compact
@@ -386,8 +386,8 @@ module Bolognese
 
       def crossref_is_translation_of(program_metadata)
         refs = program_metadata.dig("related_item") if program_metadata.is_a?(Hash)
-        Array.wrap(refs).select { |a| a["intra_work_relation"]["relationship_type"] == "isTranslationOf" }.map do |c|
-          if c["intra_work_relation"]["identifier_type"] == "doi"
+        Array.wrap(refs).select { |a| a.dig("intra_work_relation", "relationship_type") == "isTranslationOf" }.map do |c|
+          if c.dig("intra_work_relation", "identifier_type") == "doi"
             { "relatedIdentifier" => parse_attributes(c["intra_work_relation"]).downcase,
               "relationType" => "IsTranslationOf",
               "relatedIdentifierType" => "DOI" }.compact

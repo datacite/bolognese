@@ -62,8 +62,17 @@
                           <affiliation>Brown University</affiliation>
                           <ORCID authenticated="true">https://orcid.org/0000-0002-1825-0097</ORCID>
                       </person_name>
+                      <person_name contributor_role="editor" sequence="additional">
+                        <given_name>Ashwini</given_name>
+                        <surname>Sukale</surname>
+                        <affiliation>DataCite</affiliation>
+                      </person_name>
+                      <person_name contributor_role="translator" sequence="additional">
+                        <given_name>Cody</given_name>
+                        <surname>Ross</surname>
+                        <affiliation>DataCite</affiliation>
+                      </person_name>
                   </contributors>
-                  
                   <publication_date media_type="online">
                       <month>08</month>
                       <day>13</day>

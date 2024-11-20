@@ -1100,7 +1100,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "with Schema 4.6 Translator contributor" do
-      input = fixture_path + 'crossref.xml'
+      input = fixture_path + 'crossref_schema_4.6_values.xml'
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.contributors).to eq([
