@@ -249,6 +249,48 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
+  context "insert_resource_type when resourceType is available, but using schemaOrg (via SO_TO_DC_TRANSLATIONS) when resourceTypeGeneral is unavailable" do
+    it "supports schemaOrg value as resourceTypeGeneral" do
+      # Mock the `types` hash to include the necessary values
+      subject.instance_variable_set(:@types, {
+        "schemaOrg" => "BlogPosting",
+        "resourceType" => "This dataset contains all projects funded by the European Union under the fifth framework programme for research and technological development (FP5) from 1998 to 2002."
+      })
+
+      # Generate XML using the insert_resource_type method
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_resource_type(xml) }.to_xml
+
+      response = Maremma.from_xml(xml)
+
+      # Expect `Text` in resourceTypeGeneral (via SO_TP_DC_TRANSLATIONS) and `This dataset contains all projects funded...` as the content
+      expect(response["resourceType"]).to eq(
+        "resourceTypeGeneral" => "Text",
+        "__content__" => "This dataset contains all projects funded by the European Union under the fifth framework programme for research and technological development (FP5) from 1998 to 2002."
+      )
+    end
+  end
+
+  context "insert_resource_type when resourceType is available, 'OTHER' when schemaOrg has no valid translations, and 'resourceTypeGeneral is unavailable" do
+    it "supports Other as resourceTypeGeneral" do
+      # Mock the `types` hash to include the necessary values
+      subject.instance_variable_set(:@types, {
+        "schemaOrg" => "Invalid_SO_Value",
+        "resourceType" => "This dataset contains all projects funded by the European Union under the fifth framework programme for research and technological development (FP5) from 1998 to 2002."
+      })
+
+      # Generate XML using the insert_resource_type method
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_resource_type(xml) }.to_xml
+
+      response = Maremma.from_xml(xml)
+
+      # Expect `Text` in resourceTypeGeneral (via SO_TP_DC_TRANSLATIONS) and `This dataset contains all projects funded...` as the content
+      expect(response["resourceType"]).to eq(
+        "resourceTypeGeneral" => "Other",
+        "__content__" => "This dataset contains all projects funded by the European Union under the fifth framework programme for research and technological development (FP5) from 1998 to 2002."
+      )
+    end
+  end
+
   # Test case to insert Coverage DateType (new dateType in DataCite 4.6).
   context "insert_dates with Coverage" do
     it "inserts date with dateType Coverage" do

@@ -128,7 +128,7 @@ module Bolognese
     def insert_resource_type(xml)
       return xml unless types.is_a?(Hash) && (types["schemaOrg"].present? || types["resourceTypeGeneral"])
 
-      xml.resourceType(types["resourceType"] || types["schemaOrg"],
+      xml.resourceType(types["resourceType"],
         'resourceTypeGeneral' => types["resourceTypeGeneral"] || Metadata::SO_TO_DC_TRANSLATIONS[types["schemaOrg"]] || "Other")
     end
 
