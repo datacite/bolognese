@@ -69,7 +69,7 @@ module Bolognese
 
       xml.contributors do
         Array.wrap(contributors).each do |con|
-          xml.contributor("contributorType" => con["contributorType"] || "Other") do
+          xml.contributor("contributorType" => con["contributorType"]) do
             insert_person(xml, con, "contributor")
           end
         end
