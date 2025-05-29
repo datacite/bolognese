@@ -91,48 +91,8 @@ http_interactions:
       - close
     body:
       encoding: ASCII-8BIT
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<crossref_result xmlns=\"http://www.crossref.org/qrschema/3.0\"
-        version=\"3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.crossref.org/qrschema/3.0
-        http://www.crossref.org/schemas/crossref_query_output3.0.xsd\">\r\n  <query_result>\r\n
-        \   <head>\r\n      <doi_batch_id>none</doi_batch_id>\r\n    </head>\r\n    <body>\r\n
-        \     <query status=\"resolved\">\r\n        <doi type=\"book_title\">10.2973/odp.proc.ir.180.2000</doi>\r\n
-        \       <crm-item name=\"publisher-name\" type=\"string\">International Ocean
-        Discovery Program (IODP)</crm-item>\r\n        <crm-item name=\"prefix-name\"
-        type=\"string\">International Ocean Discovery Program Texas</crm-item>\r\n
-        \       <crm-item name=\"member-id\" type=\"number\">1029</crm-item>\r\n        <crm-item
-        name=\"citation-id\" type=\"number\">23807285</crm-item>\r\n        <crm-item
-        name=\"book-id\" type=\"number\">284099</crm-item>\r\n        <crm-item name=\"series-id\"
-        type=\"number\">283327</crm-item>\r\n        <crm-item name=\"deposit-timestamp\"
-        type=\"number\">20061017201744</crm-item>\r\n        <crm-item name=\"owner-prefix\"
-        type=\"string\">10.2973</crm-item>\r\n        <crm-item name=\"last-update\"
-        type=\"date\">2009-02-02T21:19:43Z</crm-item>\r\n        <crm-item name=\"created\"
-        type=\"date\">2006-10-17T19:50:37Z</crm-item>\r\n        <crm-item name=\"citedby-count\"
-        type=\"number\">21</crm-item>\r\n        <doi_record>\r\n          <crossref
-        xmlns=\"http://www.crossref.org/xschema/1.0\" xsi:schemaLocation=\"http://www.crossref.org/xschema/1.0
-        http://doi.crossref.org/schemas/unixref1.0.xsd\">\r\n            <book book_type=\"monograph\">\r\n
-        \             <book_metadata language=\"en\">\r\n                <contributors>\r\n
-        \                 <person_name sequence=\"first\" contributor_role=\"editor\">\r\n
-        \                   <given_name>B.</given_name>\r\n                    <surname>Taylor</surname>\r\n
-        \                 </person_name>\r\n                  <person_name sequence=\"additional\"
-        contributor_role=\"editor\">\r\n                    <given_name>P.</given_name>\r\n
-        \                   <surname>Huchon</surname>\r\n                  </person_name>\r\n
-        \                 <person_name sequence=\"additional\" contributor_role=\"editor\">\r\n
-        \                   <given_name>A.</given_name>\r\n                    <surname>Klaus</surname>\r\n
-        \                 </person_name>\r\n                  <organization sequence=\"additional\"
-        contributor_role=\"editor\">et al.</organization>\r\n                </contributors>\r\n
-        \               <titles>\r\n                  <title>Proceedings of the Ocean
-        Drilling Program, 180 Initial Reports</title>\r\n                </titles>\r\n
-        \               <series_metadata>\r\n                  <titles>\r\n                    <title>Proceedings
-        of the Ocean Drilling Program</title>\r\n                  </titles>\r\n                </series_metadata>\r\n
-        \               <volume>180</volume>\r\n                <publication_date
-        media_type=\"online\">\r\n                  <month>02</month>\r\n                  <day>04</day>\r\n
-        \                 <year>2000</year>\r\n                </publication_date>\r\n
-        \               <publisher>\r\n                  <publisher_name>Ocean Drilling
-        Program</publisher_name>\r\n                </publisher>\r\n                <doi_data>\r\n
-        \                 <doi>10.2973/odp.proc.ir.180.2000</doi>\r\n                  <resource>http://www-odp.tamu.edu/publications/180_IR/180TOC.HTM</resource>\r\n
-        \               </doi_data>\r\n              </book_metadata>\r\n            </book>\r\n
-        \         </crossref>\r\n        </doi_record>\r\n      </query>\r\n    </body>\r\n
-        \ </query_result>\r\n</crossref_result>"
-    http_version:
-  recorded_at: Wed, 09 Jun 2021 12:57:05 GMT
-recorded_with: VCR 3.0.3
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGNyb3NzcmVmX3Jlc3VsdCB4bWxucz0iaHR0cDovL3d3dy5jcm9zc3JlZi5vcmcvcXJzY2hlbWEvMy4wIiB2ZXJzaW9uPSIzLjAiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL3d3dy5jcm9zc3JlZi5vcmcvcXJzY2hlbWEvMy4wIGh0dHA6Ly93d3cuY3Jvc3NyZWYub3JnL3NjaGVtYXMvY3Jvc3NyZWZfcXVlcnlfb3V0cHV0My4wLnhzZCI+CiAgPHF1ZXJ5X3Jlc3VsdD4KICAgIDxoZWFkPgogICAgICA8ZG9pX2JhdGNoX2lkPm5vbmU8L2RvaV9iYXRjaF9pZD4KICAgIDwvaGVhZD4KICAgIDxib2R5PgogICAgICA8cXVlcnkgc3RhdHVzPSJyZXNvbHZlZCI+CiAgICAgICAgPGRvaSB0eXBlPSJib29rX3RpdGxlIj4xMC4yOTczL29kcC5wcm9jLmlyLjE4MC4yMDAwPC9kb2k+CiAgICAgICAgPGNybS1pdGVtIG5hbWU9InB1Ymxpc2hlci1uYW1lIiB0eXBlPSJzdHJpbmciPkludGVybmF0aW9uYWwgT2NlYW4gRGlzY292ZXJ5IFByb2dyYW0gKElPRFApPC9jcm0taXRlbT4KICAgICAgICA8Y3JtLWl0ZW0gbmFtZT0icHJlZml4LW5hbWUiIHR5cGU9InN0cmluZyI+SW50ZXJuYXRpb25hbCBPY2VhbiBEaXNjb3ZlcnkgUHJvZ3JhbSBUZXhhczwvY3JtLWl0ZW0+CiAgICAgICAgPGNybS1pdGVtIG5hbWU9Im1lbWJlci1pZCIgdHlwZT0ibnVtYmVyIj4xMDI5PC9jcm0taXRlbT4KICAgICAgICA8Y3JtLWl0ZW0gbmFtZT0iY2l0YXRpb24taWQiIHR5cGU9Im51bWJlciI+MjM4MDcyODU8L2NybS1pdGVtPgogICAgICAgIDxjcm0taXRlbSBuYW1lPSJib29rLWlkIiB0eXBlPSJudW1iZXIiPjI4NDA5OTwvY3JtLWl0ZW0+CiAgICAgICAgPGNybS1pdGVtIG5hbWU9InNlcmllcy1pZCIgdHlwZT0ibnVtYmVyIj4yODMzMjc8L2NybS1pdGVtPgogICAgICAgIDxjcm0taXRlbSBuYW1lPSJkZXBvc2l0LXRpbWVzdGFtcCIgdHlwZT0ibnVtYmVyIj4yMDA2MTAxNzIwMTc0NDwvY3JtLWl0ZW0+CiAgICAgICAgPGNybS1pdGVtIG5hbWU9Im93bmVyLXByZWZpeCIgdHlwZT0ic3RyaW5nIj4xMC4yOTczPC9jcm0taXRlbT4KICAgICAgICA8Y3JtLWl0ZW0gbmFtZT0ibGFzdC11cGRhdGUiIHR5cGU9ImRhdGUiPjIwMDktMDItMDJUMjE6MTk6NDNaPC9jcm0taXRlbT4KICAgICAgICA8Y3JtLWl0ZW0gbmFtZT0iY3JlYXRlZCIgdHlwZT0iZGF0ZSI+MjAwNi0xMC0xN1QxOTo1MDozN1o8L2NybS1pdGVtPgogICAgICAgIDxjcm0taXRlbSBuYW1lPSJjaXRlZGJ5LWNvdW50IiB0eXBlPSJudW1iZXIiPjIxPC9jcm0taXRlbT4KICAgICAgICA8ZG9pX3JlY29yZD4KICAgICAgICAgIDxjcm9zc3JlZiB4bWxucz0iaHR0cDovL3d3dy5jcm9zc3JlZi5vcmcveHNjaGVtYS8xLjAiIHhzaTpzY2hlbWFMb2NhdGlvbj0iaHR0cDovL3d3dy5jcm9zc3JlZi5vcmcveHNjaGVtYS8xLjAgaHR0cDovL2RvaS5jcm9zc3JlZi5vcmcvc2NoZW1hcy91bml4cmVmMS4wLnhzZCI+CiAgICAgICAgICAgIDxib29rIGJvb2tfdHlwZT0ibW9ub2dyYXBoIj4KICAgICAgICAgICAgICA8Ym9va19tZXRhZGF0YSBsYW5ndWFnZT0iZW4iPgogICAgICAgICAgICAgICAgPGNvbnRyaWJ1dG9ycz4KICAgICAgICAgICAgICAgICAgPHBlcnNvbl9uYW1lIHNlcXVlbmNlPSJmaXJzdCIgY29udHJpYnV0b3Jfcm9sZT0iZWRpdG9yIj4KICAgICAgICAgICAgICAgICAgICA8Z2l2ZW5fbmFtZT5CLjwvZ2l2ZW5fbmFtZT4KICAgICAgICAgICAgICAgICAgICA8c3VybmFtZT5UYXlsb3I8L3N1cm5hbWU+CiAgICAgICAgICAgICAgICAgIDwvcGVyc29uX25hbWU+CiAgICAgICAgICAgICAgICAgIDxwZXJzb25fbmFtZSBzZXF1ZW5jZT0iYWRkaXRpb25hbCIgY29udHJpYnV0b3Jfcm9sZT0iZWRpdG9yIj4KICAgICAgICAgICAgICAgICAgICA8Z2l2ZW5fbmFtZT5QLjwvZ2l2ZW5fbmFtZT4KICAgICAgICAgICAgICAgICAgICA8c3VybmFtZT5IdWNob248L3N1cm5hbWU+CiAgICAgICAgICAgICAgICAgIDwvcGVyc29uX25hbWU+CiAgICAgICAgICAgICAgICAgIDxwZXJzb25fbmFtZSBzZXF1ZW5jZT0iYWRkaXRpb25hbCIgY29udHJpYnV0b3Jfcm9sZT0iZWRpdG9yIj4KICAgICAgICAgICAgICAgICAgICA8Z2l2ZW5fbmFtZT5BLjwvZ2l2ZW5fbmFtZT4KICAgICAgICAgICAgICAgICAgICA8c3VybmFtZT5LbGF1czwvc3VybmFtZT4KICAgICAgICAgICAgICAgICAgPC9wZXJzb25fbmFtZT4KICAgICAgICAgICAgICAgICAgPG9yZ2FuaXphdGlvbiBzZXF1ZW5jZT0iYWRkaXRpb25hbCIgY29udHJpYnV0b3Jfcm9sZT0iZWRpdG9yIj5ldCBhbC48L29yZ2FuaXphdGlvbj4KICAgICAgICAgICAgICAgIDwvY29udHJpYnV0b3JzPgogICAgICAgICAgICAgICAgPHRpdGxlcz4KICAgICAgICAgICAgICAgICAgPHRpdGxlPlByb2NlZWRpbmdzIG9mIHRoZSBPY2VhbiBEcmlsbGluZyBQcm9ncmFtLCAxODAgSW5pdGlhbCBSZXBvcnRzPC90aXRsZT4KICAgICAgICAgICAgICAgIDwvdGl0bGVzPgogICAgICAgICAgICAgICAgPHNlcmllc19tZXRhZGF0YT4KICAgICAgICAgICAgICAgICAgPHRpdGxlcz4KICAgICAgICAgICAgICAgICAgICA8dGl0bGU+UHJvY2VlZGluZ3Mgb2YgdGhlIE9jZWFuIERyaWxsaW5nIFByb2dyYW08L3RpdGxlPgogICAgICAgICAgICAgICAgICA8L3RpdGxlcz4KICAgICAgICAgICAgICAgIDwvc2VyaWVzX21ldGFkYXRhPgogICAgICAgICAgICAgICAgPHZvbHVtZT4xODA8L3ZvbHVtZT4KICAgICAgICAgICAgICAgIDxwdWJsaWNhdGlvbl9kYXRlIG1lZGlhX3R5cGU9Im9ubGluZSI+CiAgICAgICAgICAgICAgICAgIDxtb250aD4wMjwvbW9udGg+CiAgICAgICAgICAgICAgICAgIDxkYXk+MDQ8L2RheT4KICAgICAgICAgICAgICAgICAgPHllYXI+MjAwMDwveWVhcj4KICAgICAgICAgICAgICAgIDwvcHVibGljYXRpb25fZGF0ZT4KICAgICAgICAgICAgICAgIDxwdWJsaXNoZXI+CiAgICAgICAgICAgICAgICAgIDxwdWJsaXNoZXJfbmFtZT5PY2VhbiBEcmlsbGluZyBQcm9ncmFtPC9wdWJsaXNoZXJfbmFtZT4KICAgICAgICAgICAgICAgIDwvcHVibGlzaGVyPgogICAgICAgICAgICAgICAgPGRvaV9kYXRhPgogICAgICAgICAgICAgICAgIDxkb2k+MTAuMjk3My9vZHAucHJvYy5pci4xODAuMjAwMDwvZG9pPgogICAgICAgICAgICAgICAgICA8cmVzb3VyY2U+aHR0cDovL3d3dy1vZHAudGFtdS5lZHUvcHVibGljYXRpb25zLzE4MF9JUi8xODBUT0MuSFRNPC9yZXNvdXJjZT4KICAgICAgICAgICAgICAgIDwvZG9pX2RhdGE+CiAgICAgICAgICAgICAgPC9ib29rX21ldGFkYXRhPgogICAgICAgICAgICA8L2Jvb2s+CiAgICAgICAgICA8L2Nyb3NzcmVmPgogICAgICAgIDwvZG9pX3JlY29yZD4KICAgICAgPC9xdWVyeT4KICAgIDwvYm9keT4KICA8L3F1ZXJ5X3Jlc3VsdD4KPC9jcm9zc3JlZl9yZXN1bHQ+
+    http_version: 
+  recorded_at: Thu, 29 May 2025 02:56:56 GMT
+recorded_with: VCR 3.0.33
