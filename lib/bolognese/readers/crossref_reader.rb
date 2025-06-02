@@ -282,18 +282,17 @@ module Bolognese
               end
             end.compact
 
-            contributor_type = CR_TO_DC_CONTRIBUTOR_TYPES[a["contributor_role"]]
-
             { "nameType" => "Personal",
               "nameIdentifiers" => name_identifiers,
               "name" => [family_name, given_name].compact.join(", "),
               "givenName" => given_name,
               "familyName" => family_name,
               "affiliation" => affiliation.presence,
-              "contributorType" => contributor_type }.compact
+              "contributorType" => contributor_role == 'author' ? nil : CR_TO_DC_CONTRIBUTOR_TYPES[a["contributor_role"]] }.compact
           else
             { "nameType" => "Organizational",
-              "name" => a["name"] || a["__content__"] }
+              "name" => a["name"] || a["__content__"],
+              "contributorType" => contributor_role == 'author' ? nil : CR_TO_DC_CONTRIBUTOR_TYPES[a["contributor_role"]] }.compact
           end
         end
       end
