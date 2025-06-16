@@ -131,7 +131,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"dataset", "resourceTypeGeneral"=>"Dataset", "ris"=>"DATA", "schemaOrg"=>"Dataset")
       expect(subject.titles).to eq([{"title"=>"Summary data ankylosing spondylitis GWAS"}])
       expect(subject.container).to eq("identifier"=>"https://dataverse.harvard.edu", "identifierType"=>"URL", "title"=>"Harvard Dataverse", "type"=>"DataRepository")
-      expect(subject.creators).to eq([{"name" => "International Genetics Of Ankylosing Spondylitis Consortium (IGAS)", "nameIdentifiers"=>[], "affiliation" => []}])
+      expect(subject.creators).to eq([{"name" => "International Genetics of Ankylosing Spondylitis Consortium (IGAS)", "nameIdentifiers"=>[], "affiliation" => []}])
       expect(subject.subjects).to eq([{"subject"=>"Medicine, Health and Life Sciences"},
         {"subject"=>"Genome-Wide Association Studies"},
         {"subject"=>"Ankylosing spondylitis"}])

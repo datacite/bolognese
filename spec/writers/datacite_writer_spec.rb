@@ -91,7 +91,7 @@ describe Bolognese::Metadata, vcr: true do
                                                          {"nameIdentifierScheme"=>"ORCID",
                                                           "schemeURI"=>"https://orcid.org",
                                                           "__content__"=>"https://orcid.org/0000-0002-2192-403X"}},
-                                                         {"creatorName"=>{"__content__"=>"University Of California, Santa Barbara", "nameType"=>"Organizational"}}])
+                                                         {"creatorName"=>{"__content__"=>"University of California, Santa Barbara", "nameType"=>"Organizational"}}])
       expect(datacite.fetch("version")).to eq("2.0.0")
       expect(datacite.dig("publisher")).to eq("https://cran.r-project.org")
     end
@@ -116,7 +116,7 @@ describe Bolognese::Metadata, vcr: true do
                                                          {"nameIdentifierScheme"=>"ORCID",
                                                           "schemeURI"=>"https://orcid.org",
                                                           "__content__"=>"https://orcid.org/0000-0002-2192-403X"}},
-                                                         {"creatorName"=>{"__content__"=>"University Of California, Santa Barbara", "nameType"=>"Organizational"}}])
+                                                         {"creatorName"=>{"__content__"=>"University of California, Santa Barbara", "nameType"=>"Organizational"}}])
       expect(datacite.fetch("version")).to eq("2.0.0")
       expect(datacite.dig("publisher")).to eq("https://cran.r-project.org")
     end
