@@ -67,7 +67,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
-      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
+      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite["version"]).to eq("2.0.0")
       expect(crosscite["publisher"]).to eq({"name"=>"https://cran.r-project.org"})
     end
@@ -78,7 +78,7 @@ describe Bolognese::Metadata, vcr: true do
       crosscite = JSON.parse(subject.crosscite)
       expect(crosscite["titles"]).to eq([{"title"=>"R Interface to the DataONE REST API"}])
       expect(crosscite["creators"].length).to eq(3)
-      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
+      expect(crosscite["creators"].last).to eq("nameType" => "Organizational", "name"=>"University of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
       expect(crosscite["version"]).to eq("2.0.0")
       expect(crosscite["publisher"]).to eq({"name"=>"https://cran.r-project.org"})
     end

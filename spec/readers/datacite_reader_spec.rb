@@ -619,7 +619,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.7910/dvn/eqtqyo")
       expect(subject.types["schemaOrg"]).to eq("Dataset")
-      expect(subject.creators).to eq([{"name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)", "nameIdentifiers" => [], "affiliation" => []}])
+      expect(subject.creators).to eq([{"name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University of Chicago); Vavreck, Lynn (UCLA)", "nameIdentifiers" => [], "affiliation" => []}])
     end
 
     it "author with scheme" do
@@ -935,7 +935,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceType"]).to eq("Simulation Tool")
       expect(subject.types["resourceTypeGeneral"]).to eq("Software")
       expect(subject.creators.length).to eq(5)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"PatiÃ±O, Carlos", "givenName"=>"Carlos", "familyName"=>"PatiÃ±O", "nameIdentifiers" => [], "affiliation" => [])
+      expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"PatiÃ±o, Carlos", "givenName"=>"Carlos", "familyName"=>"PatiÃ±o", "nameIdentifiers" => [], "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"LAMMPS Data-File Generator"}])
       expect(subject.dates).to eq([{"date"=>"2018-07-18", "dateType"=>"Valid"}, {"date"=>"2018-07-18", "dateType"=>"Accepted"}, {"date"=>"2018", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2018")
@@ -1061,7 +1061,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["schemaOrg"]).to eq("Dataset")
       expect(subject.types["resourceType"]).to eq("Disclosure")
       expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
-      expect(subject.creators).to eq([{"name"=>"Anonymous", "nameIdentifiers" => [], "affiliation" => []}])
+      expect(subject.creators).to eq([{"name"=>"anonymous", "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"Messung der Bildunschaerfe in H.264-codierten Bildern und Videosequenzen"}])
       expect(subject.dates).to eq([{"date"=>"2017", "dateType"=>"Issued"}])
       expect(subject.publication_year).to eq("2017")
@@ -1085,9 +1085,9 @@ describe Bolognese::Metadata, vcr: true do
                                        "nameIdentifiers"=>
                                          [{"nameIdentifier"=>"https://orcid.org/0000-0002-0077-5338",
                                            "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}],
-                                     "name"=>"Van Der A, Ronald",
+                                     "name"=>"Van der A, Ronald",
                                      "givenName"=>"Ronald",
-                                     "familyName"=>"Van Der A",
+                                     "familyName"=>"Van der A",
                                      "affiliation"=>[{"name"=>"Royal Netherlands Meteorological Institute (KNMI)"}]},
                                     {"nameType"=>"Personal",
                                      "name"=>"Allaart, Marc",
@@ -1164,7 +1164,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["ris"]).to eq("RPRT")
       expect(subject.types["citeproc"]).to eq("article-journal")
       expect(subject.creators.length).to eq(5)
-      expect(subject.creators.first).to eq("nameType"=>"Personal", "name"=>"Patel, Lina", "givenName"=>"Lina", "familyName"=>"Patel", "nameIdentifiers" => [], "affiliation" => [])
+      expect(subject.creators.first).to eq("name"=>"lina patel", "nameIdentifiers" => [], "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"Referee report. For: Gates - add article keywords to the metatags [version 2; referees: 1 approved]"}])
       expect(subject.publication_year).to eq("2018")
       expect(subject.publisher).to eq({"name"=>"Gates Open Research"})
@@ -1381,7 +1381,7 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.types["resourceTypeGeneral"]).to eq("Dataset")
     expect(subject.types["ris"]).to eq("DATA")
     expect(subject.types["citeproc"]).to eq("dataset")
-    expect(subject.creators.first).to eq("familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"Den Heijer, C", "nameType"=>"Personal", "nameIdentifiers" => [], "affiliation" => [])
+    expect(subject.creators.first).to eq("familyName"=>"den Heijer", "givenName"=>"C", "name"=>"den Heijer, C", "nameType"=>"Personal", "nameIdentifiers" => [], "affiliation" => [])
     expect(subject.titles).to eq([{"lang"=>"en", "title"=>"Meteo measurements at the Sand Motor"}])
     expect(subject.publication_year).to eq("2017")
     expect(subject.publisher).to eq({"name"=>"4TU.Centre for Research Data"})

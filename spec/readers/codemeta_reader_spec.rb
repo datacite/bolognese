@@ -67,7 +67,7 @@ describe Bolognese::Metadata, vcr: true do
             "nameIdentifierScheme"=>"ORCID",
             "schemeUri"=>"https://orcid.org"}],
         "nameType"=>"Personal"},
-       {"name"=>"University Of California, Santa Barbara",
+       {"name"=>"University of California, Santa Barbara",
         "nameType"=>"Organizational",
         "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"R Interface to the DataONE REST API"}])

@@ -89,7 +89,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
       meta = Maremma.from_xml(subject.raw).fetch("resource", {})
       response = subject.get_authors(meta.dig("creators", "creator"))
-      expect(response).to eq([{"name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University Of Chicago); Vavreck, Lynn (UCLA)", "nameIdentifiers" => [], "affiliation" => []}])
+      expect(response).to eq([{"name" => "Enos, Ryan (Harvard University); Fowler, Anthony (University of Chicago); Vavreck, Lynn (UCLA)", "nameIdentifiers" => [], "affiliation" => []}])
     end
 
     it "hyper-authorship" do
@@ -104,7 +104,7 @@ describe Bolognese::Metadata, vcr: true do
     it "is organization" do
       author = {"email"=>"info@ucop.edu", "creatorName"=> { "__content__" => "University of California, Santa Barbara", "nameType" => "Organizational" }, "role"=>{"namespace"=>"http://www.ngdc.noaa.gov/metadata/published/xsd/schema/resources/Codelist/gmxCodelists.xml#CI_RoleCode", "roleCode"=>"copyrightHolder"} }
       response = subject.get_one_author(author)
-      expect(response).to eq("nameType"=>"Organizational", "name"=>"University Of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
+      expect(response).to eq("nameType"=>"Organizational", "name"=>"University of California, Santa Barbara", "nameIdentifiers" => [], "affiliation" => [])
     end
 
     it "name with affiliation" do
@@ -164,13 +164,13 @@ describe Bolognese::Metadata, vcr: true do
     input = fixture_path + 'datacite-example-ROR-nameIdentifiers.xml'
     subject = Bolognese::Metadata.new(input: input, from: "datacite")
     expect(subject.creators[2]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University Of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
-    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"University Of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[3]).to eq("nameType"=>"Organizational", "name"=>"University of Vic", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/006zjws59", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
+    expect(subject.creators[4]).to eq("nameType"=>"Organizational", "name"=>"University of Kivu", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/01qfhxr31", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
     expect(subject.creators[5]).to eq("nameType"=>"Organizational", "name"=>"សាកលវិទ្យាល័យកម្ពុជា", "nameIdentifiers"=> [{"nameIdentifier"=>"http://ror.org/025e3rc84", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
     expect(subject.creators[6]).to eq("nameType"=>"Organizational", "name"=>"جامعة زاخۆ", "nameIdentifiers"=> [{"nameIdentifier"=>"05sd1pz50", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"RORS"}], "affiliation"=>[])
     expect(subject.creators[9]).to eq("nameType"=>"Organizational", "name"=>"Gump South Pacific Research Station", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04sk0et52", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[])
     expect(subject.contributors.first).to eq("nameType"=>"Organizational", "name"=>" Nawroz University ", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/04gp75d48", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}], "affiliation"=>[], "contributorType"=>"Producer")
-    expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"University Of Greenland (Https://Www.Uni.Gl/)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/00t5j6b61", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
+    expect(subject.contributors.last).to eq("nameType"=>"Organizational", "name"=>"University of Greenland (https://www.uni.gl/)", "nameIdentifiers"=> [{"nameIdentifier"=>"https://ror.org/00t5j6b61", "schemeUri"=>"https://ror.org", "nameIdentifierScheme"=>"ROR"}],"affiliation"=>[], "contributorType"=>"Sponsor")
   end
 
   context "affiliationIdentifier/nameIdentifier" do

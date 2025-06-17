@@ -94,7 +94,7 @@ describe Bolognese::Metadata, vcr: true do
                                      "@type"=>"Person",
                                      "@id"=>"https://orcid.org/0000-0002-2192-403X",
                                      "affiliation"=>{"@type"=>"Organization", "name"=>"NCEAS"}},
-                                    {"name"=>"University Of California, Santa Barbara", "@type"=>"Organization"}])
+                                    {"name"=>"University of California, Santa Barbara", "@type"=>"Organization"}])
       expect(json["version"]).to eq("2.0.0")
       expect(json["keywords"]).to eq("data sharing, data repository, DataONE")
     end
@@ -279,7 +279,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["@id"]).to eq("https://doi.org/10.5072/example-polygon")
       expect(json["@type"]).to eq("Dataset")
       expect(json["name"]).to eq("Meteo measurements at the Sand Motor")
-      expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"Den Heijer", "givenName"=>"C", "name"=>"C Den Heijer")
+      expect(json["author"]).to eq("@type"=>"Person", "familyName"=>"den Heijer", "givenName"=>"C", "name"=>"C den Heijer")
       expect(json["includedInDataCatalog"]).to be_nil
       expect(json["spatialCoverage"].dig("geo", "polygon").length).to eq(34)
       expect(json["spatialCoverage"].dig("geo", "polygon")[0].first).to eq(["4.1738852605822", "52.03913926329928"])
