@@ -1430,7 +1430,7 @@ module Bolognese
 
     def abstract_description
       # Fetch the first description with descriptionType "Abstract"
-      descriptions&.find { |d| d["descriptionType"] == "Abstract" }
+      Array.wrap(descriptions)&.find { |d| d["descriptionType"] == "Abstract" }
     end
   end
 end
