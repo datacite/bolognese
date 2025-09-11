@@ -414,5 +414,13 @@ describe Bolognese::Metadata, vcr: true do
         "2020-01-01"
       )      
     end
+
+    it "when descriptions is a dictionary" do
+      input = fixture_path + 'datacite-example-full-v4.6.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      subject.descriptions = { "descriptionType" => "Abstract", "description" => "This is an abstract as a dictionary." }
+      json = JSON.parse(subject.schema_org)
+      expect(json.fetch("description")).to eq("This is an abstract as a dictionary.")
+    end
   end
 end
