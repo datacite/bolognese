@@ -1293,7 +1293,7 @@ module Bolognese
 
     def hsh_to_spdx(hsh)
       spdx = resource_json(:spdx).fetch("licenses")
-      license = spdx.find { |l| l["licenseId"].casecmp?(hsh["rightsIdentifier"]) || l["seeAlso"].first == normalize_cc_url(hsh["rightsURI"]) || l["name"] == hsh["rights"] || l["seeAlso"].first == normalize_cc_url(hsh["rights"]) }
+      license = spdx.find { |l| l["licenseId"].casecmp?(hsh["rightsIdentifier"]) || l["seeAlso"].first == normalize_cc_url(hsh["rightsUri"]) || l["seeAlso"].first == normalize_cc_url(hsh["rightsURI"]) || l["name"] == hsh["rights"] || l["seeAlso"].first == normalize_cc_url(hsh["rights"]) }
 
       if license
         {
