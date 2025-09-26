@@ -1373,7 +1373,7 @@ describe Bolognese::Metadata, vcr: true do
   end
 
   it "geo_location_polygon" do
-    input = fixture_path + 'datacite-example-polygon-v4.1.xml'
+    input = fixture_path + 'datacite-example-polygon.xml'
     subject = Bolognese::Metadata.new(input: input)
     expect(subject.id).to eq("https://doi.org/10.5072/example-polygon")
     expect(subject.types["schemaOrg"]).to eq("Dataset")
