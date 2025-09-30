@@ -1849,5 +1849,17 @@ describe Bolognese::Metadata, vcr: true do
 
     end
   end
+
+  describe "DataCite with CC-BY-ND 4.0 rightsURI" do
+    it "returns correct normalized right" do
+      input = fixture_path + 'datacite-by-nd-4.0.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+
+      rights_list = subject.rights_list
+      right = rights_list.find { |r| r["rightsIdentifier"] == "cc-by-nd-4.0" }
+      expect(right).not_to be_nil
+    end
+  end
 end
 
