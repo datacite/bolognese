@@ -32,7 +32,7 @@ module Bolognese
       "https://creativecommons.org/licenses/by-nd/2.0" => "https://creativecommons.org/licenses/by-nd/2.0/legalcode",
       "https://creativecommons.org/licenses/by-nd/2.5" => "https://creativecommons.org/licenses/by-nd/2.5/legalcode",
       "https://creativecommons.org/licenses/by-nd/3.0" => "https://creativecommons.org/licenses/by-nd/3.0/legalcode",
-      "https://creativecommons.org/licenses/by-nd/4.0" => "https://creativecommons.org/licenses/by-nd/2.0/legalcode",
+      "https://creativecommons.org/licenses/by-nd/4.0" => "https://creativecommons.org/licenses/by-nd/4.0/legalcode",
       "https://creativecommons.org/licenses/by-sa/1.0" => "https://creativecommons.org/licenses/by-sa/1.0/legalcode",
       "https://creativecommons.org/licenses/by-sa/2.0" => "https://creativecommons.org/licenses/by-sa/2.0/legalcode",
       "https://creativecommons.org/licenses/by-sa/2.5" => "https://creativecommons.org/licenses/by-sa/2.5/legalcode",
