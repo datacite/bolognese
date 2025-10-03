@@ -268,11 +268,13 @@ module Bolognese
             # vs if it's singular just return the object
             # This is for backwards compatability to allow both scenarios.
             if gl.dig("geoLocationPolygon").kind_of?(Array)
-              geoLocationPolygon = gl.dig("geoLocationPolygon").map do |glp|
-                Array.wrap(glp.dig("polygonPoint")).map { |glpp| { "polygonPoint" => glpp } }
-                  .push(Array.wrap(glp.dig("inPolygonPoint")).map { |glpp| { "inPolygonPoint" => glpp } }.first)
-                  .compact.presence
-              end.compact.presence
+              #geoLocationPolygon = gl.dig("geoLocationPolygon").map do |glp|
+              #  Array.wrap(glp.dig("polygonPoint")).map { |glpp| { "polygonPoint" => glpp } }
+              #    .push(Array.wrap(glp.dig("inPolygonPoint")).map { |glpp| { "inPolygonPoint" => glpp } }.first)
+              #    .compact.presence
+              #end.compact.presence
+              ## Array of geoLocationPolygons within a geoLocation is Unsupported in JSON.
+              geoLocationPolygon = []
             else
               geoLocationPolygon = Array.wrap(gl.dig("geoLocationPolygon", "polygonPoint")).map { |glp| { "polygonPoint" => glp } }
                 .push(Array.wrap(gl.dig("geoLocationPolygon", "inPolygonPoint")).map { |glp| { "inPolygonPoint" => glp } }.first)
