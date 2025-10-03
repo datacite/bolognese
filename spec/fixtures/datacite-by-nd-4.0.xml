@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource
+    xmlns="http://datacite.org/schema/kernel-3"
+    xmlns:dspace="http://www.dspace.org/xmlns/dspace/dim"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd">
+    <identifier identifierType="DOI">10.26041/FHNW-7645</identifier>
+    <creators>
+        <creator>
+            <creatorName>Piñeiro, Esteban</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Locher, Nora</creatorName>
+        </creator>
+        <creator>
+            <creatorName>Pasche, Nathalie</creatorName>
+        </creator>
+    </creators>
+    <titles>
+        <title>The art of soft power banishment. New insights into the Swiss deportation regime</title>
+    </titles>
+    <publisher>Taylor &amp; Francis</publisher>
+    <publicationYear>2021</publicationYear>
+    <subjects>
+        <subject subjectScheme="ddc">300 - Sozialwissenschaften, Soziologie, Anthropologie</subject>
+    </subjects>
+    <contributors>
+        <contributor contributorType="DataManager">
+            <contributorName>Fachhochschule Nordwestschweiz FHNW</contributorName>
+        </contributor>
+        <contributor contributorType="HostingInstitution">
+            <contributorName>Fachhochschule Nordwestschweiz FHNW</contributorName>
+        </contributor>
+    </contributors>
+    <dates>
+        <date dateType="Accepted">2024-01-19</date>
+        <date dateType="Available">2024-01-19</date>
+        <date dateType="Issued">2021</date>
+    </dates>
+    <language>de</language>
+    <resourceType resourceTypeGeneral="Other">01A - Beitrag in wissenschaftlicher Zeitschrift</resourceType>
+    <alternateIdentifiers>
+        <alternateIdentifier alternateIdentifierType="doi">10.1080/01419870.2021.1989010</alternateIdentifier>
+        <alternateIdentifier alternateIdentifierType="issn">0141-9870</alternateIdentifier>
+        <alternateIdentifier alternateIdentifierType="issn">1466-4356</alternateIdentifier>
+        <alternateIdentifier alternateIdentifierType="uri">https://irf.fhnw.ch/handle/11654/43705</alternateIdentifier>
+        <alternateIdentifier alternateIdentifierType="uri">https://doi.org/10.26041/fhnw-7645</alternateIdentifier>
+    </alternateIdentifiers>
+    <rightsList>
+        <rights rightsURI="https://creativecommons.org/licenses/by-nd/4.0/"/>
+    </rightsList>
+</resource>
