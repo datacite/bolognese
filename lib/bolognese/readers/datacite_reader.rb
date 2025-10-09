@@ -262,19 +262,9 @@ module Bolognese
           if !gl.is_a?(Hash) || gl["geoLocationPoint"].is_a?(String) || gl["geoLocationBox"].is_a?(String) || gl["geoLocationPolygon"].is_a?(String)
             nil
           else
-
-            # Handle scenario where multiple geoLocationPolygons are allowed within a single geoLocation
-            # we want to return an array if it's already an array (i.e. multiple geoLocationPolygons)
-            # vs if it's singular just return the object
-            # This is for backwards compatability to allow both scenarios.
+            ## Array of geoLocationPolygons within a geoLocation is Unsupported in JSON.
             if gl.dig("geoLocationPolygon").kind_of?(Array)
-              #geoLocationPolygon = gl.dig("geoLocationPolygon").map do |glp|
-              #  Array.wrap(glp.dig("polygonPoint")).map { |glpp| { "polygonPoint" => glpp } }
-              #    .push(Array.wrap(glp.dig("inPolygonPoint")).map { |glpp| { "inPolygonPoint" => glpp } }.first)
-              #    .compact.presence
-              #end.compact.presence
-              ## Array of geoLocationPolygons within a geoLocation is Unsupported in JSON.
-              geoLocationPolygon = []
+              geoLocationPolygon = nil
             else
               geoLocationPolygon = Array.wrap(gl.dig("geoLocationPolygon", "polygonPoint")).map { |glp| { "polygonPoint" => glp } }
                 .push(Array.wrap(gl.dig("geoLocationPolygon", "inPolygonPoint")).map { |glp| { "inPolygonPoint" => glp } }.first)
