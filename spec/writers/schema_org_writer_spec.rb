@@ -273,7 +273,7 @@ describe Bolognese::Metadata, vcr: true do
     end
 
     it "geo_location_polygon" do
-      input = fixture_path + 'datacite-example-polygon-v4.1.xml'
+      input = fixture_path + 'datacite-example-polygon.xml'
       subject = Bolognese::Metadata.new(input: input)
       json = JSON.parse(subject.schema_org)
       expect(json["@id"]).to eq("https://doi.org/10.5072/example-polygon")

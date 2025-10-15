@@ -1,7 +1,6 @@
-<resource xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd" 
+<resource xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns="http://datacite.org/schema/kernel-4">
-  <script/>
   <identifier identifierType="DOI">10.5072/example-polygon</identifier>
   <creators>
     <creator>
@@ -157,6 +156,10 @@
           <pointLongitude>4.1738852605822</pointLongitude>
           <pointLatitude>52.03913926329928</pointLatitude>
         </polygonPoint>
+        <inPolygonPoint>
+          <pointLongitude>4.1738852605822</pointLongitude>
+          <pointLatitude>52.03913926329928</pointLatitude>
+        </inPolygonPoint>
       </geoLocationPolygon>
     </geoLocation>
   </geoLocations>

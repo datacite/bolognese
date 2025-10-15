@@ -387,9 +387,16 @@ module Bolognese
             if geo_location["geoLocationPolygon"]
               xml.geoLocationPolygon do
                 Array.wrap(geo_location["geoLocationPolygon"]).each do |polygon_point|
-                  xml.polygonPoint do
-                    xml.pointLatitude(polygon_point.dig("polygonPoint", "pointLatitude"))
-                    xml.pointLongitude(polygon_point.dig("polygonPoint", "pointLongitude"))
+                  if polygon_point.has_key?("polygonPoint")
+                    xml.polygonPoint do
+                      xml.pointLatitude(polygon_point.dig("polygonPoint", "pointLatitude"))
+                      xml.pointLongitude(polygon_point.dig("polygonPoint", "pointLongitude"))
+                    end
+                  else
+                    xml.inPolygonPoint do
+                      xml.pointLatitude(polygon_point.dig("inPolygonPoint", "pointLatitude"))
+                      xml.pointLongitude(polygon_point.dig("inPolygonPoint", "pointLongitude"))
+                    end
                   end
                 end
               end

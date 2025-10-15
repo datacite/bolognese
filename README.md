@@ -11,7 +11,7 @@ Ruby gem and command-line utility for conversion of DOI metadata from and to dif
 
 ## Features
 
-Bolognese reads and/or writes these metadata formats:
+Bolognese reads and/or writes these metadata formats: 
 
 <table class="table table-bordered table-striped">
   <thead>

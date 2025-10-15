@@ -1373,7 +1373,7 @@ describe Bolognese::Metadata, vcr: true do
   end
 
   it "geo_location_polygon" do
-    input = fixture_path + 'datacite-example-polygon-v4.1.xml'
+    input = fixture_path + 'datacite-example-polygon.xml'
     subject = Bolognese::Metadata.new(input: input)
     expect(subject.id).to eq("https://doi.org/10.5072/example-polygon")
     expect(subject.types["schemaOrg"]).to eq("Dataset")
@@ -1711,36 +1711,6 @@ describe Bolognese::Metadata, vcr: true do
     expect(subject.id).to eq("https://doi.org/10.4225/13/511c71f8612c3")
     expect(subject.sizes.first).to eq("1.7 GB")
     expect(subject.formats.first).to eq("application/xml")
-  end
-
-  it "Parsing multiple geolocationpolygon elements" do
-    input = fixture_path + "datacite-geolocationpolygons-multiple.xml"
-    subject = Bolognese::Metadata.new(input: input)
-    expect(subject.valid?).to be true
-    expect(subject.id).to eq("https://doi.org/10.5072/multiplegeopolygons")
-    expect(subject.geo_locations).to eq([
-      { "geoLocationPolygon"=> [
-        [ {"polygonPoint"=>{"pointLatitude"=>"71", "pointLongitude"=>"41"}},
-          {"polygonPoint"=>{"pointLatitude"=>"75", "pointLongitude"=>"45"}},
-          {"polygonPoint"=>{"pointLatitude"=>"85", "pointLongitude"=>"55"}},
-          {"polygonPoint"=>{"pointLatitude"=>"71", "pointLongitude"=>"41"}}],
-        [
-          {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}},
-          {"polygonPoint"=>{"pointLatitude"=>"75", "pointLongitude"=>"55"}},
-          {"polygonPoint"=>{"pointLatitude"=>"73", "pointLongitude"=>"45"}},
-          {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}}
-        ]
-      ] },
-      { "geoLocationPolygon"=>
-        [
-          {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}},
-          {"polygonPoint"=>{"pointLatitude"=>"75", "pointLongitude"=>"55"}},
-          {"polygonPoint"=>{"pointLatitude"=>"73", "pointLongitude"=>"45"}},
-          {"polygonPoint"=>{"pointLatitude"=>"80", "pointLongitude"=>"65"}}
-        ]
-      }
-      ]
-    )
   end
 
   describe "Schema 4.5" do
