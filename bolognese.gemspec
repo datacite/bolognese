@@ -54,6 +54,6 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
   s.files       = `git ls-files`.split($/)
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files = `git ls-files`.split($/).reject { |f| f.match(%r{^(test|spec|features)/}) }
   s.executables = ["bolognese"]
 end
