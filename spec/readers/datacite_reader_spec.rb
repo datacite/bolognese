@@ -109,7 +109,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["resourceType"]).to eq("XML")
       expect(subject.types["resourceTypeGeneral"]).to eq("Software")
       expect(subject.types["ris"]).to eq("COMP")
-      expect(subject.types["citeproc"]).to eq("article")
+      expect(subject.types["citeproc"]).to eq("software")
       expect(subject.creators.length).to eq(3)
       expect(subject.creators.first).to eq("nameType"=>"Personal", "affiliation" => [{"affiliationIdentifier"=>"https://ror.org/04wxnsj81", "affiliationIdentifierScheme"=>"ROR", "name"=>"DataCite"}],
         "familyName" => "Miller",
@@ -204,7 +204,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.types["schemaOrg"]).to eq("SoftwareSourceCode")
       expect(subject.types["resourceTypeGeneral"]).to eq("Software")
       expect(subject.types["ris"]).to eq("COMP")
-      expect(subject.types["citeproc"]).to eq("article")
+      expect(subject.types["citeproc"]).to eq("software")
       expect(subject.creators).to eq([{"nameType"=>"Personal", "name"=>"Garza, Kristian", "givenName"=>"Kristian", "familyName"=>"Garza", "nameIdentifiers" => [], "affiliation" => []}])
       expect(subject.titles).to eq([{"title"=>"Analysis Tools For Crossover Experiment Of Ui Using Choice Architecture"}])
       expect(subject.descriptions.first["description"]).to start_with(" \n\nThis tools are used to analyse the data produced by the Crosssover Experiment I designed to test Choice Architecture techniques as UI interventions in a SEEk4Science data catalogue. It contains:\n\n- Data structures for the experimental data.<br>\n- Visualisation functions<br>\n- Analysis functions\n\n## Installation\n\n- R<br>\n- python<br>\n- ipython 4\n\nClone and use.\n\n## Usage\n\n<br>\n```python<br>\nsource('parallel_plot.r')<br>\nwith(z, parallelset(trt,response, freq=count, alpha=0.2))<br>\n```\n\n<br>\n## Contributing\n\n1. Fork it!<br>\n2. Create your feature branch: `git checkout -b my-new-feature`<br>\n3. Commit your changes: `git commit -am 'Add some feature'`<br>\n4. Push to the branch: `git push origin my-new-feature`<br>\n5. Submit a pull request :D\n\n<br>\n## License\n\nThis work supports my PhD Thesis at University of Manchester.")

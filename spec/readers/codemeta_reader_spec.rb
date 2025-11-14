@@ -20,7 +20,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
         "familyName"=>"Fenner",
         "givenName"=>"Martin",
@@ -48,7 +48,7 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input)
       expect(subject.id).to eq("https://doi.org/10.5063/f1m61h5x")
       expect(subject.url).to eq("https://github.com/DataONEorg/rdataone")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"NCEAS"}],
         "familyName"=>"Jones",
         "givenName"=>"Matt",
@@ -90,7 +90,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/qeg0-3gm3")
       expect(subject.url).to eq("https://github.com/datacite/maremma")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators).to eq([{"affiliation"=>[{"name"=>"DataCite"}],
         "familyName"=>"Fenner",
         "givenName"=>"Martin",
@@ -119,7 +119,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.valid?).to be true
       expect(subject.id).to eq("https://doi.org/10.5438/wr0x-e194")
       expect(subject.url).to eq("https://github.com/datacite/metadata-reports")
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article-journal", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.size).to eq(4)
       expect(subject.creators.last).to eq("familyName" => "Nielsen", "givenName" => "Lars Holm","name" => "Nielsen, Lars Holm", "nameIdentifiers" => [{"nameIdentifier"=>"https://orcid.org/0000-0001-8135-3489", "nameIdentifierScheme"=>"ORCID", "schemeUri"=>"https://orcid.org"}], "nameType" => "Personal", "affiliation" => [])
       expect(subject.titles).to eq([{"title"=>"DOI Registrations for Software"}])

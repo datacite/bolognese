@@ -63,7 +63,7 @@ describe Bolognese::Metadata, vcr: true do
       input = "10.5281/zenodo.28518"
       subject = Bolognese::Metadata.new(input: input, regenerate: true)
       expect(subject.valid?).to be true
-      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"article", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
+      expect(subject.types).to eq("bibtex"=>"misc", "citeproc"=>"software", "resourceTypeGeneral"=>"Software", "ris"=>"COMP", "schemaOrg"=>"SoftwareSourceCode")
       expect(subject.creators.length).to eq(2)
       expect(subject.creators.first).to eq("affiliation"=>[{"name"=>"University of Washington"}], "familyName"=>"Vanderplas", "givenName"=>"Jake", "name"=>"Vanderplas, Jake", "nameIdentifiers"=>[], "nameType"=>"Personal")
       expect(subject.publisher).to eq({"name"=>"Zenodo"})

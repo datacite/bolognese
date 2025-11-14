@@ -138,7 +138,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.28518")
       expect(subject.identifiers).to eq([{"identifier"=>"https://zenodo.org/record/28518", "identifierType"=>"URL"}])
       expect(subject.types).to eq("bibtex" => "misc",
-        "citeproc" => "article",
+        "citeproc" => "software",
         "resourceTypeGeneral" => "Software",
         "ris" => "COMP",
         "schemaOrg" => "SoftwareSourceCode")
