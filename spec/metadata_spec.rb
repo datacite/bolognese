@@ -162,4 +162,51 @@ describe Bolognese::Metadata, vcr: true do
       expect(response).to eq(["The same key is defined more than once: id"])
     end
   end
+
+  context "container"
+    it "has provided container when present" do
+      input = fixture_path + "datacite_with_container.json"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.container).to eq({
+        "type" => "Series",
+        "identifier" => "10.17605/OSF.IO/CEA94",
+        "identifierType" => "DOI"
+      })
+    end
+
+    it "has SeriesInformation when present" do
+      input = fixture_path + "datacite_with_container_and_seriesinformation.json"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.container).to eq({
+        "firstPage" => "firstpage",
+        "identifier" => "10.5438/0000-00ss",
+        "identifierType" => "DOI",
+        "issue" => "issue",
+        "lastPage" => "lastpage",
+        "title" => "series title",
+        "type" => "Series",
+        "volume" => "volume"
+      })
+    end
+
+    it "has relatedItem when present" do
+      input = fixture_path + "datacite_with_container_and_seriesinformation_and_relateditem.json"
+      subject = Bolognese::Metadata.new(input: input)
+      expect(subject.valid?).to be true
+      expect(subject.container).to eq({
+        "firstPage" => "50",
+        "identifier" => "3034-834X",
+        "identifierType" => "ISSN",
+        "issue" => "1",
+        "lastPage" => "60",
+        "title" => "Understanding the fictional John Smith",
+        "type" => "Series",
+        "volume" => "776",
+        "edition" => "1",
+        "number" => "1",
+        "chapterNumber" => "1"
+      })
+    end
 end

@@ -298,7 +298,6 @@ module Bolognese
           "titles" => titles,
           "creators" => get_authors(Array.wrap(meta.dig("creators", "creator"))),
           "contributors" => get_authors(Array.wrap(meta.dig("contributors", "contributor"))),
-          "container" => set_container(meta),
           "publisher" => publisher,
           "agency" => "datacite",
           "funding_references" => funding_references,
@@ -317,28 +316,6 @@ module Bolognese
           "schema_version" => schema_version,
           "state" => state
         }.merge(read_options)
-      end
-
-      def set_container(meta)
-        series_information = Array.wrap(meta.dig("descriptions", "description")).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("__content__", nil)
-        si = get_series_information(series_information)
-
-        is_part_of = Array.wrap(meta.dig("relatedIdentifiers", "relatedIdentifier")).find { |ri| ri["relationType"] == "IsPartOf" }.to_h
-
-        if si["title"].present? || is_part_of.present?
-          {
-            "type" => meta.dig("resourceType", "resourceTypeGeneral") == "Dataset" ? "DataRepository" : "Series",
-            "identifier" => is_part_of["__content__"],
-            "identifierType" => is_part_of["relatedIdentifierType"],
-            "title" => si["title"],
-            "volume" => si["volume"],
-            "issue" => si["issue"],
-            "firstPage" => si["firstPage"],
-            "lastPage" => si["lastPage"]
-          }.compact
-        else
-          {}
-        end
       end
 
       def get_titles(meta)
