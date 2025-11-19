@@ -205,7 +205,9 @@ module Bolognese
     end
 
     def container
-      @container ||= meta.fetch("container", nil)
+      @container ||= begin
+        generate_container || meta.fetch("container", nil)
+      end
     end
 
     def geo_locations
