@@ -124,6 +124,24 @@
           "givenName": "Richard",
           "familyName": "Hallett",
           "contributorType": "ProjectLeader"
+        },
+        {
+          "name": "Ross, Cody",
+          "givenName": "Cody",
+          "familyName": "Ross",
+          "contributorType": "Editor"
+        },
+        {
+          "name": "Stathis, Kelly",
+          "givenName": "Kelly",
+          "familyName": "Stathis",
+          "contributorType": "Editor"
+        },
+        {
+          "name": "Doe, Jane",
+          "givenName": "Jane",
+          "familyName": "Doe",
+          "contributorType": "Translator"
         }
       ]
     }

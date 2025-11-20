@@ -5,6 +5,7 @@ require_relative 'metadata_utils'
 module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
+    include Bolognese::Utils
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :show_errors
     attr_reader :doc, :page_start, :page_end
@@ -206,7 +207,7 @@ module Bolognese
 
     def container
       @container ||= begin
-        generate_container || meta.fetch("container", nil)
+        generate_container(types, related_items, related_identifiers, descriptions) || meta.fetch("container", nil)
       end
     end
 
@@ -256,50 +257,6 @@ module Bolognese
 
     def contributors
       @contributors ||= meta.fetch("contributors", nil)
-    end
-
-    private
-
-    def generate_container
-      container_type = types&.dig("resourceTypeGeneral") == "Dataset" ? "DataRepository" : "Series"
-
-      # relatedItem container
-      related_item = Array.wrap(related_items).find { |ri| ri["relationType"] == "IsPublishedIn" }.to_h
-
-      if related_item.present?
-        return {
-          "type" => container_type,
-          "identifier" => related_item.dig("relatedItemIdentifier", "relatedItemIdentifier"),
-          "identifierType" => related_item.dig("relatedItemIdentifier", "relatedItemIdentifierType"),
-          "title" => related_item.dig("titles", 0).then { |t| t ? parse_attributes(t, content: "title", first: true) : nil },
-          "volume" => related_item["volume"],
-          "issue" => related_item["issue"],
-          "edition" => related_item["edition"],
-          "number" => related_item["number"],
-          "chapterNumber" => related_item["numberType"] == "Chapter" ? related_item["number"] : nil,
-          "firstPage" => related_item["firstPage"],
-          "lastPage" => related_item["lastPage"]
-        }.compact
-      end
-
-      # Legacy SeriesInformation/relatedIdentifier container fallback 
-      series_information = Array.wrap(descriptions).find { |r| r["descriptionType"] == "SeriesInformation" }.to_h.fetch("description", nil)
-      si = get_series_information(series_information)
-
-      is_part_of = Array.wrap(related_identifiers).find { |ri| ri["relationType"] == "IsPartOf" }.to_h
-
-      if si["title"].present?
-        return {
-          "type" => container_type,
-          "identifier" => is_part_of["relatedIdentifier"],
-          "identifierType" => is_part_of["relatedIdentifierType"],
-          "title" => si["title"],
-          "volume" => si["volume"],
-          "issue" => si["issue"],
-          "firstPage" => si["firstPage"],
-          "lastPage" => si["lastPage"]
-        }.compact
-      end
     end
   end
 end

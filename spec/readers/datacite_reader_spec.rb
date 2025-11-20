@@ -1846,7 +1846,7 @@ describe Bolognese::Metadata, vcr: true do
       )
 
       # Test contributorType for Translator
-      expect(subject.contributors.length).to eq(2)
+      expect(subject.contributors.length).to eq(4)
       expect(subject.contributors.first).to include(
         "contributorType" => "Translator",
         "familyName" => "Doe",
