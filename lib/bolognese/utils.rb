@@ -1436,7 +1436,7 @@ module Bolognese
     end
 
     def generate_container(types, related_items, related_identifiers, descriptions)
-      container_type = types&.dig("resourceTypeGeneral") == "Dataset" ? "DataRepository" : "Series"
+      container_type = (types.respond_to?(:dig) && types&.dig("resourceTypeGeneral")) == "Dataset" ? "DataRepository" : "Series"
 
       # relatedItem container
       related_item = Array.wrap(related_items).find { |ri| ri["relationType"] == "IsPublishedIn" }.to_h
