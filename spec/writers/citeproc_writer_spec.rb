@@ -287,7 +287,7 @@ describe Bolognese::Metadata, vcr: true do
       expect(json["issued"]).to eq("date-parts"=>[[2019]])
     end
 
-    it "from Schema 4.6 with Translator  and Editor contributors" do
+    it "from Schema 4.6 with Translator and Editor contributors" do
       input = fixture_path + 'datacite-example-full-v4.6.xml'
       subject = Bolognese::Metadata.new(input: input)
       json = JSON.parse(subject.citeproc)

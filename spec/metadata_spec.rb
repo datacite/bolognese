@@ -163,7 +163,7 @@ describe Bolognese::Metadata, vcr: true do
     end
   end
 
-  context "container"
+  context "container" do
     it "has provided container when present" do
       input = fixture_path + "datacite_with_container.json"
       subject = Bolognese::Metadata.new(input: input)
@@ -209,4 +209,5 @@ describe Bolognese::Metadata, vcr: true do
         "chapterNumber" => "1"
       })
     end
+  end
 end
