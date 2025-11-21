@@ -67,7 +67,6 @@ describe Bolognese::Metadata, vcr: true do
       subject = Bolognese::Metadata.new(input: input, from: "schema_org")
       expect(subject.valid?).to be false
       expect(subject.language).to eq("eng")
-      pp subject.errors
       expect(subject.errors).to eq("49:0: ERROR: Element '{http://datacite.org/schema/kernel-4}publisher': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.")
       expect(subject.id).to eq("https://doi.org/10.5281/zenodo.1196821")
       expect(subject.doi).to eq("10.5281/zenodo.1196821")
