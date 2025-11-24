@@ -5,6 +5,7 @@ require_relative 'metadata_utils'
 module Bolognese
   class Metadata
     include Bolognese::MetadataUtils
+    include Bolognese::Utils
 
     attr_accessor :string, :from, :sandbox, :meta, :regenerate, :issue, :show_errors
     attr_reader :doc, :page_start, :page_end
@@ -205,7 +206,9 @@ module Bolognese
     end
 
     def container
-      @container ||= meta.fetch("container", nil)
+      @container ||= begin
+        generate_container(types, related_items, related_identifiers, descriptions) || meta.fetch("container", nil)
+      end
     end
 
     def geo_locations

@@ -128,14 +128,15 @@ describe Bolognese::Metadata, vcr: true do
       ris = subject.ris.split("\r\n")
       expect(ris[0]).to eq("TY  - RPRT")
       expect(ris[1]).to eq("T1  - Eating your own Dog Food")
-      expect(ris[2]).to eq("AU  - Fenner, Martin")
-      expect(ris[3]).to eq("DO  - 10.5438/4k3m-nyvg")
-      expect(ris[4]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
-      expect(ris[5]).to eq("KW  - datacite")
-      expect(ris[8]).to eq("PY  - 2016")
-      expect(ris[9]).to eq("PB  - DataCite")
-      expect(ris[10]).to eq("SN  - 10.5438/0000-00ss")
-      expect(ris[11]).to eq("ER  - ")
+      expect(ris[2]).to eq("T2  - Volume(1) Series(3)")
+      expect(ris[3]).to eq("AU  - Fenner, Martin")
+      expect(ris[4]).to eq("DO  - 10.5438/4k3m-nyvg")
+      expect(ris[5]).to eq("AB  - Eating your own dog food is a slang term to describe that an organization should itself use the products and services it provides. For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...")
+      expect(ris[6]).to eq("KW  - datacite")
+      expect(ris[9]).to eq("PY  - 2016")
+      expect(ris[10]).to eq("PB  - DataCite")
+      expect(ris[11]).to eq("SN  - 10.5438/0000-00ss")
+      expect(ris[12]).to eq("ER  - ")
     end
 
     it "BlogPosting schema.org" do

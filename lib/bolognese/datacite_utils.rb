@@ -337,7 +337,7 @@ module Bolognese
       return xml unless descriptions.present? || container && container["title"].present?
 
       xml.descriptions do
-        if container && container["title"].present?
+        if (respond_to?(:from) && !from.to_s.include?("datacite")) && container && container["title"].present?
           issue = container["issue"].present? ? "(#{container["issue"]})" : nil
           volume_issue = container["volume"].present? ? [container["volume"], issue].join("") : nil
           pages = [container["firstPage"], container["lastPage"]].compact.join("-") if container["firstPage"].present?

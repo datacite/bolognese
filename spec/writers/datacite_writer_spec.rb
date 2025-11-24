@@ -294,7 +294,7 @@ describe Bolognese::Metadata, vcr: true do
 
       datacite = Maremma.from_xml(subject.datacite).fetch("resource", {})
       expect(datacite.fetch("xsi:schemaLocation", "").split(" ").first).to eq("http://datacite.org/schema/kernel-4")
-      expect(datacite.dig("contributors", "contributor").count).to eq(2)
+      expect(datacite.dig("contributors", "contributor").count).to eq(4)
       expect(datacite.dig("contributors", "contributor")).to include(
         {
           "contributorType"=>"Translator",

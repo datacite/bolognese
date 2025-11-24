@@ -554,7 +554,7 @@ describe Bolognese::Metadata, vcr: true do
        {"description"=>
         "Eating your own dog food is a slang term to \n describe that an organization should itself use the products and services it provides. \n For DataCite this means that we should use DOIs with appropriate metadata and strategies for long-term preservation for...\n • Unicode Bullet Point: This is an example of a bullet point.\\u2605\n ■ Unicode Black Square: This is an example of a black square.",
         "descriptionType"=>"Abstract"}])
-      expect(subject.container).to eq("firstPage"=>"3", "identifier"=>"10.5438/0000-00SS", "identifierType"=>"DOI", "issue"=>"9", "lastPage"=>"4", "title"=>"DataCite Blog", "type"=>"Series", "volume"=>"2")
+      expect(subject.container).to eq("firstPage"=>"3", "identifier"=>"10.5438/0000-00ss", "identifierType"=>"DOI", "issue"=>"9", "lastPage"=>"4", "title"=>"DataCite Blog", "type"=>"Series", "volume"=>"2")
     end
 
     it "geo_location" do
@@ -1479,6 +1479,17 @@ describe Bolognese::Metadata, vcr: true do
         "creators"=>[],
       }
     )
+    expect(subject.container).to eq(
+      {
+        "firstPage"=>"249",
+        "identifier"=>"10.1016/j.physletb.2017.11.044",
+        "identifierType"=>"DOI",
+        "lastPage"=>"264",
+        "title"=>"Physics letters / B",
+        "type"=>"Series",
+        "volume"=>"776"
+      }
+    )
   end
 
   it "Schema 4.4 related items from string" do
@@ -1522,6 +1533,22 @@ describe Bolognese::Metadata, vcr: true do
         ]
       }
     )
+
+    expect(subject.container).to eq(
+      {
+        "firstPage" => "50",
+        "identifier" => "10.5072/john-smiths-1234",
+        "identifierType" => "DOI",
+        "lastPage" => "60",
+        "title" => "Understanding the fictional John Smith",
+        "type" => "Series",
+        "volume" => "776",
+        "issue" => "1",
+        "edition" => "1",
+        "number" => "1",
+        "chapterNumber" => "1"
+      }
+    )
   end
 
 
@@ -1563,6 +1590,20 @@ describe Bolognese::Metadata, vcr: true do
         ]
       }
     )
+
+    expect(subject.container).to eq(
+      {
+        "firstPage" => "50",
+        "lastPage" => "60",
+        "title" => "Understanding the fictional John Smith",
+        "type" => "Series",
+        "volume" => "776",
+        "issue" => "1",
+        "edition" => "1",
+        "number" => "1",
+        "chapterNumber" => "1"
+      }
+    )    
   end
 
   it "Schema 4.4 related items from string with attributes" do
@@ -1805,7 +1846,7 @@ describe Bolognese::Metadata, vcr: true do
       )
 
       # Test contributorType for Translator
-      expect(subject.contributors.length).to eq(2)
+      expect(subject.contributors.length).to eq(4)
       expect(subject.contributors.first).to include(
         "contributorType" => "Translator",
         "familyName" => "Doe",

@@ -61,6 +61,18 @@
             <familyName>Smith</familyName>
             <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
         </contributor>
+        <contributor contributorType="Editor">
+            <contributorName nameType="Personal">Ross, Cody</contributorName>
+            <givenName>Cody</givenName>
+            <familyName>Ross</familyName>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </contributor>
+        <contributor contributorType="Editor">
+            <contributorName nameType="Personal">Stathis, Kelly</contributorName>
+            <givenName>Kelly</givenName>
+            <familyName>Stathis</familyName>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </contributor>
     </contributors>
 
     <!-- Dates (Including New dateType "Coverage") -->
