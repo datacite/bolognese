@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.version       = Bolognese::VERSION
   s.extra_rdoc_files = ["README.md"]
   s.license       = 'MIT'
-  s.required_ruby_version = ['3.2.9']
+  s.required_ruby_version = ['>= 3.1', '< 3.3']
 
   # Declare dependencies here, rather than in the Gemfile
   s.add_dependency 'maremma', '~> 5.0'
