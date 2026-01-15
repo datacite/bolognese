@@ -209,7 +209,9 @@ module Bolognese
           attributes = {
             'relatedIdentifierType' => related_identifier["relatedIdentifierType"],
             'relationType' => related_identifier["relationType"],
-            'resourceTypeGeneral' => related_identifier["resourceTypeGeneral"] }.compact
+            'relationTypeInformation' => related_identifier["relationTypeInformation"],
+            'resourceTypeGeneral' => related_identifier["resourceTypeGeneral",
+            ] }.compact
 
           attributes.merge({ 'relatedMetadataScheme' => related_identifier["relatedMetadataSchema"],
             'schemeURI' => related_identifier["schemeUri"],
@@ -228,6 +230,7 @@ module Bolognese
           attributes = {
             'relatedItemType' => related_item["relatedItemType"],
             'relationType' => related_item["relationType"],
+            'relationTypeInformation' => related_item["relationTypeInformation"],
           }.compact
 
           xml.relatedItem(related_item["relatedItem"], attributes) do
