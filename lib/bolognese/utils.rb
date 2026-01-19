@@ -356,8 +356,10 @@ module Bolognese
       "Event" => nil,
       "ImageObject" => "FIGURE",
       "Movie" => "MPCT",
-      "Report" => "RPRT",
+      "Poster" => "GEN",
+      "PresentationDigitalDocument" => "SLIDE",
       "PublicationIssue" => nil,
+      "Report" => "RPRT",
       "ScholarlyArticle" => "JOUR",
       "Service" => nil,
       "SoftwareSourceCode" => "COMP",
@@ -414,7 +416,9 @@ module Bolognese
       "OutputManagementPlan" => nil,
       "PeerReview" => nil,
       "PhysicalObject" => nil,
+      "Poster" => "GEN",
       "Preprint" => nil,
+      "Presentation" => "SLIDE",
       "Report" => "RRPT",
       "Service" => nil,
       "Software" => "COMP",
@@ -427,7 +431,7 @@ module Bolognese
 
     RIS_TO_DC_TRANSLATIONS = {
       "BLOG" => "Text",
-      "GEN" => "Text",
+      "GEN" => "Poster",
       "CTLG" => "Collection",
       "DATA" => "Dataset",
       "FIGURE" => "Image",
@@ -436,7 +440,8 @@ module Bolognese
       "JOUR" => "JournalArticle",
       "COMP" => "Software",
       "VIDEO" => "Audiovisual",
-      "ELEC" => "Text"
+      "ELEC" => "Text",
+      "SLIDE" => "Presentation"
     }
 
     BIB_TO_DC_TRANSLATIONS = {
