@@ -105,7 +105,9 @@ module Bolognese
       "OutputManagementPlan" => nil,
       "PeerReview" => "review",
       "PhysicalObject" => nil,
+      "Poster" => "document",
       "Preprint" => nil,
+      "Presentation" => "presentation",
       "Report" => "report",
       "Service" => nil,
       "Sound" => "song",
@@ -330,6 +332,8 @@ module Bolognese
       "Event" => nil,
       "ImageObject" => "graphic",
       "Movie" => "motion_picture",
+      "Poster" => "document",
+      "PresentationDigitalDocument" => "presentation",
       "PublicationIssue" => nil,
       "Report" => "report",
       "ScholarlyArticle" => "article-journal",
@@ -456,7 +460,9 @@ module Bolognese
       "motion_picture" => "Audiovisual",
       "article-journal" => "JournalArticle",
       "broadcast" => "Audiovisual",
-      "webpage" => "Text"
+      "webpage" => "Text",
+      "document" => "Poster",
+      "presentation" => "Presentation"
     }
 
     SO_TO_BIB_TRANSLATIONS = {
