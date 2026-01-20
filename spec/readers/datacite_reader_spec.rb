@@ -1872,5 +1872,36 @@ describe Bolognese::Metadata, vcr: true do
       expect(right).not_to be_nil
     end
   end
-end
 
+  describe "DataCite Schema 4.7" do
+    it "resourceTypeGeneral/relatedItem" do
+      input = fixture_path + 'datacite-example-full-v4.7.xml'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.valid?).to be true
+
+      # Test resourceType with resourceTypeGeneral => Project
+      expect(subject.types["resourceTypeGeneral"]).to eq("Poster")
+      expect(subject.types["resourceType"]).to eq("Research Project")
+
+      # Test relatedIdentifiers with resourceTypeGeneral => Poster or Presentation
+      expect(subject.related_identifiers.length).to eq(5)
+      expect(subject.related_identifiers).to include(
+        { "relatedIdentifier" => "RRID:AB_90755", "relatedIdentifierType" => "RAiD", "relationType" => "References" },
+        { "relatedIdentifier" => "CSTR:AB_12345", "relatedIdentifierType" => "SWHID", "relationType" => "References" },
+        { "relatedIdentifier" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "Other", "relationTypeInformation" => "Free text field!" },
+        { "relatedIdentifier" => "10.1234/other-version", "relatedIdentifierType" => "DOI", "relationType" => "IsTranslationOf", "resourceTypeGeneral" => "Poster" },
+        { "relatedIdentifier" => "10.1234/other-version", "relatedIdentifierType" => "DOI", "relationType" => "IsTranslationOf", "resourceTypeGeneral" => "Presentation" }
+      )
+
+      # Test relatedItems with relatedItemType => Poster or Presentation
+      expect(subject.related_items.length).to eq(2)
+      expect(subject.related_items[0]["relatedItemType"]).to eq("Poster")
+      expect(subject.related_items[0]["relationType"]).to eq("Other")
+      # expect(subject.related_items[1]["relationTypeInformation"]).to eq("Free text field!")
+      expect(subject.related_items[0]["titles"][0]["title"]).to eq("Understanding the fictional John Smith, Vol 1")
+      expect(subject.related_items[1]["relatedItemType"]).to eq("Presentation")
+      expect(subject.related_items[1]["titles"][0]["title"]).to eq("Understanding the fictional John Smith, Vol 2")
+    end
+  end
+end

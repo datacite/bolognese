@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://datacite.org/schema/kernel-4"
+    xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.7/metadata.xsd">
+
+    <!-- DOI Identifier -->
+    <identifier identifierType="DOI">10.82433/B09Z-4K37</identifier>
+
+    <!-- Creators -->
+    <creators>
+        <creator>
+            <creatorName nameType="Personal">ExampleFamilyName, ExampleGivenName</creatorName>
+            <givenName>ExampleGivenName</givenName>
+            <familyName>ExampleFamilyName</familyName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org">https://orcid.org/0000-0001-5727-2427</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </creator>
+        <creator>
+            <creatorName xml:lang="en" nameType="Organizational">ExampleOrganization</creatorName>
+            <nameIdentifier nameIdentifierScheme="ROR" schemeURI="https://ror.org">https://ror.org/04wxnsj81</nameIdentifier>
+        </creator>
+    </creators>
+
+    <!-- Titles -->
+    <titles>
+        <title xml:lang="en">Example Title</title>
+        <title titleType="Subtitle" xml:lang="en">Example Subtitle</title>
+        <title titleType="TranslatedTitle" xml:lang="fr">Example TranslatedTitle</title>
+        <title titleType="AlternativeTitle" xml:lang="en">Example AlternativeTitle</title>
+    </titles>
+
+    <!-- Publisher -->
+    <publisher xml:lang="en" publisherIdentifier="https://ror.org/04z8jg394" publisherIdentifierScheme="ROR" schemeURI="https://ror.org/">Example Publisher</publisher>
+
+    <!-- Publication Year -->
+    <publicationYear>2023</publicationYear>
+
+    <!-- ResourceTypeGeneral -->
+    <resourceType resourceTypeGeneral="Poster">Research Project</resourceType> <!-- DataCite 4.7: resourceTypeGeneral => Poster -->
+
+    <!-- Subjects -->
+    <subjects>
+        <subject subjectScheme="Fields of Science and Technology (FOS)" schemeURI="http://www.oecd.org/science/inno" valueURI="http://www.oecd.org/science/inno/38235147.pdf">FOS: Computer and information sciences</subject>
+        <subject subjectScheme="Australian and New Zealand Standard Research Classification (ANZSRC), 2020" schemeURI="https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc" classificationCode="461001">Digital curation and preservation</subject>
+        <subject>Example Subject</subject>
+    </subjects>
+
+    <!-- ContributorType -->
+    <contributors>
+        <contributor contributorType="Translator">
+            <contributorName nameType="Personal">Doe, Jane</contributorName>
+            <givenName>Jane</givenName>
+            <familyName>Doe</familyName>
+            <nameIdentifier nameIdentifierScheme="ORCID" schemeURI="https://orcid.org">https://orcid.org/0000-0003-1419-2405</nameIdentifier>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </contributor>
+        <contributor contributorType="ContactPerson">
+            <contributorName nameType="Personal">Smith, John</contributorName>
+            <givenName>John</givenName>
+            <familyName>Smith</familyName>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </contributor>
+        <contributor contributorType="Editor">
+            <contributorName nameType="Personal">Ross, Cody</contributorName>
+            <givenName>Cody</givenName>
+            <familyName>Ross</familyName>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </contributor>
+        <contributor contributorType="Editor">
+            <contributorName nameType="Personal">Stathis, Kelly</contributorName>
+            <givenName>Kelly</givenName>
+            <familyName>Stathis</familyName>
+            <affiliation affiliationIdentifier="https://ror.org/04wxnsj81" affiliationIdentifierScheme="ROR" schemeURI="https://ror.org">ExampleAffiliation</affiliation>
+        </contributor>
+    </contributors>
+
+    <!-- Dates (Including dateType "Coverage") -->
+    <dates>
+        <date dateType="Coverage">2020-01-01</date>
+        <date dateType="Created">2023-01-01</date>
+        <date dateType="Issued">2023-01-01</date>
+        <date dateType="Submitted">2023-01-01</date>
+        <date dateType="Updated">2023-01-01</date>
+    </dates>
+
+    <!-- Related Identifiers (Including CSTR, RRID, HasTranslation) -->
+    <relatedIdentifiers>
+        <relatedIdentifier relatedIdentifierType="RAiD" relationType="References">RRID:AB_90755</relatedIdentifier>                                                    <!-- DataCite 4.7: relatedIdentifiertype => RAiD -->
+        <relatedIdentifier relatedIdentifierType="SWHID" relationType="References">CSTR:AB_12345</relatedIdentifier>                                                   <!-- DataCite 4.7: relatedIdentifiertype => SWHID -->
+        <relatedIdentifier relatedIdentifierType="DOI" relationType="Other" relationTypeInformation="Free text field!">10.1234/translated-version</relatedIdentifier>  <!-- DataCite 4.7: relationType => Other, relationTypeInformation => "Free text field!" -->
+        <relatedIdentifier relatedIdentifierType="DOI" relationType="IsTranslationOf" resourceTypeGeneral="Poster">10.1234/other-version</relatedIdentifier>           <!-- DataCite 4.7: resourceTypeGeneral => Poster -->
+        <relatedIdentifier relatedIdentifierType="DOI" relationType="IsTranslationOf" resourceTypeGeneral="Presentation">10.1234/other-version</relatedIdentifier>     <!-- DataCite 4.7: resourceTypeGeneral => Presentation -->
+    </relatedIdentifiers>
+
+    <!-- Related Items -->
+
+    <relatedItems>
+      <relatedItem relationType="Other" relatedItemType="Poster" relationTypeInformation="Free text field!">                                                                                              <!-- DataCite 4.7: relatedItemType => Poster, relationType => Other -->
+        <relatedItemIdentifier
+          relatedItemIdentifierType="DOI"
+          relatedMetadataScheme="citeproc+json"
+          schemeURI="https://github.com/citation-style-language/schema/raw/master/csl-data.json"
+          schemeType="URL">10.5072/john-smiths-1234</relatedItemIdentifier>
+        <creators>
+            <creator>
+                <creatorName nameType="Personal">Smith, John</creatorName>
+                <givenName>John</givenName>
+                <familyName>Smith</familyName>
+            </creator>
+        </creators>
+        <titles>
+          <title>Understanding the fictional John Smith, Vol 1</title>
+          <title titleType="Subtitle">A detailed look</title>
+        </titles>
+        <publicationYear>1776</publicationYear>
+        <volume xml:lang="en">776</volume>
+        <issue xml:lang="en">1</issue>
+        <number numberType="Chapter">1</number>
+        <firstPage xml:lang="en">50</firstPage>
+        <lastPage xml:lang="en">60</lastPage>
+        <publisher xml:lang="en">Example Inc</publisher>
+        <edition xml:lang="en">1</edition>
+        <contributors>
+          <contributor contributorType="ProjectLeader">
+              <contributorName>Richard, Hallett</contributorName>
+              <givenName>Richard</givenName>
+              <familyName>Hallett</familyName>
+          </contributor>
+        </contributors>
+      </relatedItem>
+      <relatedItem relationType="IsPublishedIn" relatedItemType="Presentation" relationTypeInformation="Free text field!">                                             <!-- DataCite 4.7: relatedItemType => Presentation -->
+        <relatedItemIdentifier
+          relatedItemIdentifierType="DOI"
+          relatedMetadataScheme="citeproc+json"
+          schemeURI="https://github.com/citation-style-language/schema/raw/master/csl-data.json"
+          schemeType="URL">10.5072/john-smiths-1234</relatedItemIdentifier>
+        <creators>
+            <creator>
+                <creatorName nameType="Personal">Smith, John</creatorName>
+                <givenName>John</givenName>
+                <familyName>Smith</familyName>
+            </creator>
+        </creators>
+        <titles>
+          <title>Understanding the fictional John Smith, Vol 2</title>
+          <title titleType="Subtitle">A detailed look</title>
+        </titles>
+        <publicationYear>1776</publicationYear>
+        <volume xml:lang="en">776</volume>
+        <issue xml:lang="en">1</issue>
+        <number numberType="Chapter">1</number>
+        <firstPage xml:lang="en">50</firstPage>
+        <lastPage xml:lang="en">60</lastPage>
+        <publisher xml:lang="en">Example Inc</publisher>
+        <edition xml:lang="en">1</edition>
+        <contributors>
+          <contributor contributorType="ProjectLeader">
+              <contributorName>Richard, Hallett</contributorName>
+              <givenName>Richard</givenName>
+              <familyName>Hallett</familyName>
+          </contributor>
+        </contributors>
+      </relatedItem>
+  </relatedItems>
+
+    <!-- Sizes & Formats -->
+    <sizes>
+        <size>1 MB</size>
+    </sizes>
+    <formats>
+        <format>application/xml</format>
+    </formats>
+
+    <!-- Version -->
+    <version>1</version>
+
+    <!-- Rights (CC BY 4.0) -->
+    <rightsList>
+        <rights xml:lang="en" rightsURI="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</rights>
+    </rightsList>
+
+    <!-- Descriptions (Abstract) -->
+    <descriptions>
+        <description xml:lang="en" descriptionType="Abstract">This dataset illustrates the use of new DataCite fields and field values.</description>
+    </descriptions>
+
+    <!-- GeoLocations Example -->
+    <geoLocations>
+        <geoLocation>
+            <geoLocationPlace>Vancouver, British Columbia, Canada</geoLocationPlace>
+            <geoLocationPoint>
+                <pointLatitude>49.2827</pointLatitude>
+                <pointLongitude>-123.1207</pointLongitude>
+            </geoLocationPoint>
+        </geoLocation>
+    </geoLocations>
+</resource>
