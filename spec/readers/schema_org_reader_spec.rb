@@ -340,6 +340,7 @@ describe Bolognese::Metadata, vcr: true do
         "funderIdentifierType"=>"Crossref Funder ID",
         "funderName"=>"European Commission"}])
     end
+  end
 
     it "Schema 4.6 attributes" do
       input = fixture_path + 'schema_org_4.6_attributes.json'
@@ -367,5 +368,24 @@ describe Bolognese::Metadata, vcr: true do
         ]
       )
     end
-  end
+
+    ## Schema.org 4.7 types - translation from schemaOrg to resourceTypeGeneral
+      
+    it "Schema 4.7 attributes - type - Poster" do
+      input = fixture_path + 'schema_org_4.7_types_poster.json'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.types["schemaOrg"]).to eq("Poster")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Poster")
+
+    end
+
+    it "Schema 4.7 attributes - type - presentationDigitalDocument" do
+      input = fixture_path + 'schema_org_4.7_types_presentation.json'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.types["schemaOrg"]).to eq("PresentationDigitalDocument")
+      expect(subject.types["resourceTypeGeneral"]).to eq("Presentation")
+
+    end
 end

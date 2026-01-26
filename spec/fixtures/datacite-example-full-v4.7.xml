@@ -2,7 +2,7 @@
 <resource
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="http://datacite.org/schema/kernel-4"
-    xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.7/metadata.xsd">
+    xsi:schemaLocation="http://datacite.org/schema/kernel-4 ../resources/kernel-4.7/metadata.xsd">
 
     <!-- DOI Identifier -->
     <identifier identifierType="DOI">10.82433/B09Z-4K37</identifier>
@@ -96,7 +96,7 @@
     <!-- Related Items -->
 
     <relatedItems>
-      <relatedItem relationType="Other" relatedItemType="Poster" relationTypeInformation="Free text field!">                                                                                              <!-- DataCite 4.7: relatedItemType => Poster, relationType => Other -->
+      <relatedItem relationType="Other" relatedItemType="Poster" relationTypeInformation="Free text field 1!">                                                                                              <!-- DataCite 4.7: relatedItemType => Poster, relationType => Other -->
         <relatedItemIdentifier
           relatedItemIdentifierType="DOI"
           relatedMetadataScheme="citeproc+json"
@@ -129,7 +129,7 @@
           </contributor>
         </contributors>
       </relatedItem>
-      <relatedItem relationType="IsPublishedIn" relatedItemType="Presentation" relationTypeInformation="Free text field!">                                             <!-- DataCite 4.7: relatedItemType => Presentation -->
+      <relatedItem relationType="IsPublishedIn" relatedItemType="Presentation" relationTypeInformation="Free text field 2!">                                             <!-- DataCite 4.7: relatedItemType => Presentation -->
         <relatedItemIdentifier
           relatedItemIdentifierType="DOI"
           relatedMetadataScheme="citeproc+json"

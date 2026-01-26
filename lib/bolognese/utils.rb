@@ -483,6 +483,8 @@ module Bolognese
       "Event" => "misc",
       "ImageObject" => "misc",
       "Movie" => "misc",
+      "Poster" => "misc",
+      "PresentationDigitalDocument" => "misc",
       "PublicationIssue" => "misc",
       "ScholarlyArticle" => "article",
       "Service" => "misc",

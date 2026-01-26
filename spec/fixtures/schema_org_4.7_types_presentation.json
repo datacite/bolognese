@@ -1,0 +1,108 @@
+{
+    "@context": "http://schema.org",
+    "@type": "PresentationDigitalDocument",
+    "@id": "https://doi.org/10.82433/b09z-4k37",
+    "additionalType": "Research Project",
+    "name": "Example Title",
+    "author": [
+      {
+        "name": "ExampleGivenName ExampleFamilyName",
+        "givenName": "ExampleGivenName",
+        "familyName": "ExampleFamilyName",
+        "affiliation": {
+          "@type": "Organization",
+          "@id": "https://ror.org/04wxnsj81",
+          "name": "ExampleAffiliation"
+        },
+        "@type": "Person",
+        "@id": "https://orcid.org/0000-0001-5727-2427"
+      },
+      {
+        "name": "ExampleOrganization",
+        "@type": "Organization",
+        "@id": "https://ror.org/04wxnsj81"
+      }
+    ],
+    "editor": [
+      {
+        "name": "Jane Doe",
+        "givenName": "Jane",
+        "familyName": "Doe",
+        "affiliation": {
+          "@type": "Organization",
+          "@id": "https://ror.org/04wxnsj81",
+          "name": "ExampleAffiliation"
+        },
+        "@type": "Person",
+        "@id": "https://orcid.org/0000-0003-1419-2405"
+      },
+      {
+        "name": "John Smith",
+        "givenName": "John",
+        "familyName": "Smith",
+        "affiliation": {
+          "@type": "Organization",
+          "@id": "https://ror.org/04wxnsj81",
+          "name": "ExampleAffiliation"
+        },
+        "@type": "Person"
+      }
+    ],
+    "translator": {
+      "name": "Cody",
+      "givenName": "Cody",
+      "familyName": "Ross",
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://ror.org/04wxnsj81",
+        "name": "ExampleAffiliation"
+      },
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0003-1419-2405"
+    },
+    "description": "This dataset illustrates the use of new DataCite fields, including Project and Award resource types, RRID, CSTR, Translator, and others.",
+    "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    "version": "1",
+    "keywords": "FOS: Computer and information sciences, FOS: Computer and information sciences, Digital curation and preservation, Example Subject",
+    "contentSize": "1 MB",
+    "encodingFormat": "application/xml",
+    "dateCreated": "2023-01-01",
+    "datePublished": "2023-01-01",
+    "dateModified": "2023-01-01",
+    "temporalCoverage": "2020-01-01",
+    "spatialCoverage": {
+      "@type": "Place",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "address": "Vancouver, British Columbia, Canada",
+        "latitude": "49.2827",
+        "longitude": "-123.1207"
+      }
+    },
+    "citation": [
+      {
+        "@type": "CreativeWork"
+      },
+      {
+        "@type": "CreativeWork"
+      }
+    ],
+    "workTranslation": {
+      "@id": "https://doi.org/10.1234/translated-version",
+      "@type": "CreativeWork"
+    },
+    "translationOfWork": {
+      "@id": "https://doi.org/10.1234/other-version",
+      "@type": "CreativeWork"
+    },
+    "schemaVersion": "http://datacite.org/schema/kernel-4",
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://ror.org/04z8jg394",
+      "name": "Example Publisher"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "datacite"
+    }
+  }

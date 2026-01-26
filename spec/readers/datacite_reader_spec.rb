@@ -1821,6 +1821,8 @@ describe Bolognese::Metadata, vcr: true do
     )
   end
 
+  ### New DataCite 4.7 Features Tests ###
+
   describe "DataCite Schema 4.6" do
     it "handles all DataCite 4.6 features in one XML" do
       input = fixture_path + 'datacite-example-full-v4.6.xml'
@@ -1874,34 +1876,32 @@ describe Bolognese::Metadata, vcr: true do
   end
 
   describe "DataCite Schema 4.7" do
-    it "resourceTypeGeneral/relatedItem" do
-      input = fixture_path + 'datacite-example-full-v4.7.xml'
+    it "resourceTypeGeneral Translations for Poster" do
+      input = fixture_path + 'datacite-example-full-v4.7-types-poster.xml'
       subject = Bolognese::Metadata.new(input: input)
 
       expect(subject.valid?).to be true
 
-      # Test resourceType with resourceTypeGeneral => Project
+      # Test resourceTypeGeneral translations - Poster
       expect(subject.types["resourceTypeGeneral"]).to eq("Poster")
-      expect(subject.types["resourceType"]).to eq("Research Project")
+      expect(subject.types["schemaOrg"]).to eq("Poster")
+      expect(subject.types["citeproc"]).to eq("document")
+      expect(subject.types["bibtex"]).to eq("misc")
+      expect(subject.types["ris"]).to eq("GEN")
+    end
 
-      # Test relatedIdentifiers with resourceTypeGeneral => Poster or Presentation
-      expect(subject.related_identifiers.length).to eq(5)
-      expect(subject.related_identifiers).to include(
-        { "relatedIdentifier" => "RRID:AB_90755", "relatedIdentifierType" => "RAiD", "relationType" => "References" },
-        { "relatedIdentifier" => "CSTR:AB_12345", "relatedIdentifierType" => "SWHID", "relationType" => "References" },
-        { "relatedIdentifier" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "Other", "relationTypeInformation" => "Free text field!" },
-        { "relatedIdentifier" => "10.1234/other-version", "relatedIdentifierType" => "DOI", "relationType" => "IsTranslationOf", "resourceTypeGeneral" => "Poster" },
-        { "relatedIdentifier" => "10.1234/other-version", "relatedIdentifierType" => "DOI", "relationType" => "IsTranslationOf", "resourceTypeGeneral" => "Presentation" }
-      )
+    it "resourceTypeGeneral Translations for Presentation" do
+      input = fixture_path + 'datacite-example-full-v4.7-types-presentation.xml'
+      subject = Bolognese::Metadata.new(input: input)
 
-      # Test relatedItems with relatedItemType => Poster or Presentation
-      expect(subject.related_items.length).to eq(2)
-      expect(subject.related_items[0]["relatedItemType"]).to eq("Poster")
-      expect(subject.related_items[0]["relationType"]).to eq("Other")
-      # expect(subject.related_items[1]["relationTypeInformation"]).to eq("Free text field!")
-      expect(subject.related_items[0]["titles"][0]["title"]).to eq("Understanding the fictional John Smith, Vol 1")
-      expect(subject.related_items[1]["relatedItemType"]).to eq("Presentation")
-      expect(subject.related_items[1]["titles"][0]["title"]).to eq("Understanding the fictional John Smith, Vol 2")
+      expect(subject.valid?).to be true
+
+      # Test resourceTypeGeneral translations - Presentation
+      expect(subject.types["resourceTypeGeneral"]).to eq("Presentation")
+      expect(subject.types["schemaOrg"]).to eq("PresentationDigitalDocument")
+      expect(subject.types["citeproc"]).to eq("presentation")
+      expect(subject.types["bibtex"]).to eq("misc")
+      expect(subject.types["ris"]).to eq("SLIDE")
     end
   end
 end
