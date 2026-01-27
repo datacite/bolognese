@@ -1821,6 +1821,8 @@ describe Bolognese::Metadata, vcr: true do
     )
   end
 
+  ### New DataCite 4.7 Features Tests ###
+
   describe "DataCite Schema 4.6" do
     it "handles all DataCite 4.6 features in one XML" do
       input = fixture_path + 'datacite-example-full-v4.6.xml'
@@ -1872,5 +1874,34 @@ describe Bolognese::Metadata, vcr: true do
       expect(right).not_to be_nil
     end
   end
-end
 
+  describe "DataCite Schema 4.7" do
+    it "resourceTypeGeneral Translations for Poster" do
+      input = fixture_path + 'datacite-example-full-v4.7-types-poster.xml'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.valid?).to be true
+
+      # Test resourceTypeGeneral translations - Poster
+      expect(subject.types["resourceTypeGeneral"]).to eq("Poster")
+      expect(subject.types["schemaOrg"]).to eq("Poster")
+      expect(subject.types["citeproc"]).to eq("document")
+      expect(subject.types["bibtex"]).to eq("misc")
+      expect(subject.types["ris"]).to eq("GEN")
+    end
+
+    it "resourceTypeGeneral Translations for Presentation" do
+      input = fixture_path + 'datacite-example-full-v4.7-types-presentation.xml'
+      subject = Bolognese::Metadata.new(input: input)
+
+      expect(subject.valid?).to be true
+
+      # Test resourceTypeGeneral translations - Presentation
+      expect(subject.types["resourceTypeGeneral"]).to eq("Presentation")
+      expect(subject.types["schemaOrg"]).to eq("PresentationDigitalDocument")
+      expect(subject.types["citeproc"]).to eq("presentation")
+      expect(subject.types["bibtex"]).to eq("misc")
+      expect(subject.types["ris"]).to eq("SLIDE")
+    end
+  end
+end

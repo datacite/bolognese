@@ -67,7 +67,9 @@ module Bolognese
       "OutputManagementPlan" => nil,
       "PeerReview" => "Review",
       "PhysicalObject" => nil,
+      "Poster" => "Poster",
       "Preprint" => nil,
+      "Presentation" => "PresentationDigitalDocument",
       "Report" => "Report",
       "Service" => "Service",
       "Software" => "SoftwareSourceCode",
@@ -103,7 +105,9 @@ module Bolognese
       "OutputManagementPlan" => nil,
       "PeerReview" => "review",
       "PhysicalObject" => nil,
+      "Poster" => "document",
       "Preprint" => nil,
+      "Presentation" => "presentation",
       "Report" => "report",
       "Service" => nil,
       "Sound" => "song",
@@ -280,6 +284,8 @@ module Bolognese
       "Event" => "Event",
       "ImageObject" => "Image",
       "Movie" => "Audiovisual",
+      "Poster" => "Poster",
+      "PresentationDigitalDocument" => "Presentation",
       "PublicationIssue" => "Text",
       "Report" => "Report",
       "ScholarlyArticle" => "Text",
@@ -326,6 +332,8 @@ module Bolognese
       "Event" => nil,
       "ImageObject" => "graphic",
       "Movie" => "motion_picture",
+      "Poster" => "document",
+      "PresentationDigitalDocument" => "presentation",
       "PublicationIssue" => nil,
       "Report" => "report",
       "ScholarlyArticle" => "article-journal",
@@ -348,8 +356,10 @@ module Bolognese
       "Event" => nil,
       "ImageObject" => "FIGURE",
       "Movie" => "MPCT",
-      "Report" => "RPRT",
+      "Poster" => "GEN",
+      "PresentationDigitalDocument" => "SLIDE",
       "PublicationIssue" => nil,
+      "Report" => "RPRT",
       "ScholarlyArticle" => "JOUR",
       "Service" => nil,
       "SoftwareSourceCode" => "COMP",
@@ -406,7 +416,9 @@ module Bolognese
       "OutputManagementPlan" => nil,
       "PeerReview" => nil,
       "PhysicalObject" => nil,
+      "Poster" => "GEN",
       "Preprint" => nil,
+      "Presentation" => "SLIDE",
       "Report" => "RRPT",
       "Service" => nil,
       "Software" => "COMP",
@@ -419,7 +431,7 @@ module Bolognese
 
     RIS_TO_DC_TRANSLATIONS = {
       "BLOG" => "Text",
-      "GEN" => "Text",
+      "GEN" => "Poster",
       "CTLG" => "Collection",
       "DATA" => "Dataset",
       "FIGURE" => "Image",
@@ -428,7 +440,8 @@ module Bolognese
       "JOUR" => "JournalArticle",
       "COMP" => "Software",
       "VIDEO" => "Audiovisual",
-      "ELEC" => "Text"
+      "ELEC" => "Text",
+      "SLIDE" => "Presentation"
     }
 
     BIB_TO_DC_TRANSLATIONS = {
@@ -452,7 +465,9 @@ module Bolognese
       "motion_picture" => "Audiovisual",
       "article-journal" => "JournalArticle",
       "broadcast" => "Audiovisual",
-      "webpage" => "Text"
+      "webpage" => "Text",
+      "document" => "Poster",
+      "presentation" => "Presentation"
     }
 
     SO_TO_BIB_TRANSLATIONS = {
@@ -468,6 +483,8 @@ module Bolognese
       "Event" => "misc",
       "ImageObject" => "misc",
       "Movie" => "misc",
+      "Poster" => "misc",
+      "PresentationDigitalDocument" => "misc",
       "PublicationIssue" => "misc",
       "ScholarlyArticle" => "article",
       "Service" => "misc",

@@ -206,7 +206,8 @@ module Bolognese
             "resourceTypeGeneral" => ri["resourceTypeGeneral"],
             "relatedMetadataScheme" => ri["relatedMetadataScheme"],
             "schemeUri" => ri["schemeURI"],
-            "schemeType" => ri["schemeType"]
+            "schemeType" => ri["schemeType"],
+            "relationTypeInformation" => ri["relationTypeInformation"]
           }.compact
         end
 
@@ -226,7 +227,8 @@ module Bolognese
               "relatedItemIdentifierType" => rii["relatedItemIdentifierType"],
               "relatedMetadataScheme" => rii["relatedMetadataScheme"],
               "schemeURI" => rii["schemeURI"],
-              "schemeType" => rii["schemeType"]
+              "schemeType" => rii["schemeType"],
+              "relationTypeInformation" => ri["relationTypeInformation"]
             }.compact
           end
 

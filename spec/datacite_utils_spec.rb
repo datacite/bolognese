@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'pp'
 
 describe Bolognese::Metadata, vcr: true do
   let(:input) { "https://doi.org/10.5061/DRYAD.8515" }
@@ -352,6 +353,282 @@ describe Bolognese::Metadata, vcr: true do
       xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
       response = Maremma.from_xml(xml)
       expect(response.dig("relatedIdentifiers", "relatedIdentifier")).to eq("__content__" => "10.1234/translated-version", "relatedIdentifierType" => "DOI", "relationType" => "HasTranslation")
+    end
+  end
+
+  ### New DataCite 4.7 Features Tests ###
+
+  context "insert_resource_type with resourceTypeGeneral Poster" do
+    it "resource_type" do
+      # Mock the `types` hash to include Project
+      subject.instance_variable_set(:@types, {
+        "resourceTypeGeneral" => "Poster",
+        "resourceType" => "Research Project"
+      })
+
+      # Generate XML using the insert_resource_type method
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_resource_type(xml) }.to_xml
+
+      response = Maremma.from_xml(xml)
+
+      # Expect `Project` in resourceTypeGeneral and `Research Project` as the content
+      expect(response["resourceType"]).to eq(
+        "resourceTypeGeneral" => "Poster",
+        "__content__" => "Research Project"
+      )
+    end
+  end
+
+  context "insert_resource_type with resourceTypeGeneral Presentation" do
+    it "resource_type" do
+      # Mock the `types` hash to include Project
+      subject.instance_variable_set(:@types, {
+        "resourceTypeGeneral" => "Presentation",
+        "resourceType" => "Research Project"
+      })
+
+      # Generate XML using the insert_resource_type method
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_resource_type(xml) }.to_xml
+
+      response = Maremma.from_xml(xml)
+
+      # Expect `Poster` in resourceTypeGeneral and `Research Project` as the content
+      expect(response["resourceType"]).to eq(
+        "resourceTypeGeneral" => "Presentation",
+        "__content__" => "Research Project"
+      )
+    end
+  end
+
+  context "insert_related_identifier with resourceTypeGeneral Poster" do
+    it "related_identifier" do
+      subject.instance_variable_set(:@related_identifiers, [{"relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"ARK", "relationType"=>"IsCitedBy", "resourceTypeGeneral"=>"Poster"}])
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"ARK", "relationType"=>"IsCitedBy", "resourceTypeGeneral"=>"Poster")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier", "resourceTypeGeneral")).to eq("Poster")
+    end
+  end
+
+  context "insert_related_identifier with resourceTypeGeneral Presentation" do
+    it "related_identifier" do
+      subject.instance_variable_set(:@related_identifiers, [{"relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"ARK", "relationType"=>"IsCitedBy", "resourceTypeGeneral"=>"Presentation"}])
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"ARK", "relationType"=>"IsCitedBy", "resourceTypeGeneral"=>"Presentation")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier", "resourceTypeGeneral")).to eq("Presentation")
+    end
+  end
+
+  context "insert_insert_related_item with related_item_type Poster" do
+    it "related_item" do
+      subject.instance_variable_set(:@related_items, [{"relatedItemType"=>"Poster", "relationType"=>"IsCitedBy"}])
+      expect(subject.related_items.length).to eq(1)
+      expect(subject.related_items.first).to eq("relatedItemType"=>"Poster", "relationType"=>"IsCitedBy")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig("relatedItems", "relatedItem", "relatedItemType")).to eq("Poster")
+    end
+  end
+
+  context "insert_insert_related_item with related_item_type Presentation" do
+    it "related_item" do
+      subject.instance_variable_set(:@related_items, [{"relatedItemType"=>"Presentation", "relationType"=>"IsCitedBy"}])
+      expect(subject.related_items.length).to eq(1)
+      expect(subject.related_items.first).to eq("relatedItemType"=>"Presentation", "relationType"=>"IsCitedBy")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig("relatedItems", "relatedItem", "relatedItemType")).to eq("Presentation")
+    end
+  end
+
+  context "insert_related_identifier with relatedIdentifierType RAiD" do
+    it "related_identifier" do
+      subject.instance_variable_set(:@related_identifiers, [{"relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"RAiD", "relationType"=>"IsCitedBy"}])
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"RAiD", "relationType"=>"IsCitedBy")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier", "relatedIdentifierType")).to eq("RAiD")
+    end
+  end
+
+  context "insert_related_identifier with relatedIdentifierType SWHID" do
+    it "related_identifier" do
+      subject.instance_variable_set(:@related_identifiers, [{"relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"SWHID", "relationType"=>"IsCitedBy"}])
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"SWHID", "relationType"=>"IsCitedBy")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier", "relatedIdentifierType")).to eq("SWHID")
+    end
+  end
+
+  context "insert_insert_related_item with relatedItemIdentifierType RAiD" do
+    it "related_item" do
+      subject.instance_variable_set(:@related_items, [
+        {
+          "relatedItemType"=>"Presentation",
+          "relationType"=>"IsCitedBy",
+          "relatedItemIdentifier" => {
+            "relatedItemIdentifier" => "10.82523/hnhr-r562",
+            "relatedItemIdentifierType" => "RAiD"
+          }
+        }])
+      expect(subject.related_items.length).to eq(1)
+      expect(subject.related_items.first).to eq(
+        "relatedItemType"=>"Presentation",
+        "relationType"=>"IsCitedBy",
+        "relatedItemIdentifier" => {
+          "relatedItemIdentifier" => "10.82523/hnhr-r562",
+          "relatedItemIdentifierType" => "RAiD"
+        }
+      )
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig(
+        "relatedItems",
+        "relatedItem",
+        "relatedItemIdentifier",
+        "relatedItemIdentifierType"
+      )).to eq("RAiD")
+    end
+  end
+
+  context "insert_insert_related_item with relatedItemIdentifierType SWHID" do
+    it "related_item" do
+      subject.instance_variable_set(:@related_items, [
+        {
+          "relatedItemType"=>"Presentation",
+          "relationType"=>"IsCitedBy",
+          "relatedItemIdentifier" => {
+            "relatedItemIdentifier" => "10.82523/hnhr-r562",
+            "relatedItemIdentifierType" => "SWHID"
+          }
+        }])
+      expect(subject.related_items.length).to eq(1)
+      expect(subject.related_items.first).to eq(
+        "relatedItemType"=>"Presentation",
+        "relationType"=>"IsCitedBy",
+        "relatedItemIdentifier" => {
+          "relatedItemIdentifier" => "10.82523/hnhr-r562",
+          "relatedItemIdentifierType" => "SWHID"
+        }
+      )
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig(
+        "relatedItems",
+        "relatedItem",
+        "relatedItemIdentifier",
+        "relatedItemIdentifierType"
+      )).to eq("SWHID")
+    end
+  end
+
+  context "insert_related_identifier with relationType Other" do
+    it "related_identifier" do
+      subject.instance_variable_set(:@related_identifiers, [{"relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"IsCitedBy", "relationType"=>"Other"}])
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"IsCitedBy", "relationType"=>"Other")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier", "relationType")).to eq("Other")
+    end
+  end
+
+  context "insert_insert_related_item with relationType Other" do
+    it "related_item" do
+      subject.instance_variable_set(:@related_items, [
+        {
+          "relatedItemType"=>"Presentation",
+          "relationType"=>"Other",
+          "relatedItemIdentifier" => {
+            "relatedItemIdentifier" => "10.82523/hnhr-r562",
+            "relatedItemIdentifierType" => "SWHID"
+          }
+        }])
+      expect(subject.related_items.length).to eq(1)
+      expect(subject.related_items.first).to eq(
+        "relatedItemType"=>"Presentation",
+        "relationType"=>"Other",
+        "relatedItemIdentifier" => {
+          "relatedItemIdentifier" => "10.82523/hnhr-r562",
+          "relatedItemIdentifierType" => "SWHID"
+        }
+      )
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig(
+        "relatedItems",
+        "relatedItem",
+        "relationType"
+      )).to eq("Other")
+    end
+  end
+
+  context "insert_related_identifier with relationTypeInformation 'Free text 1 - relationTypeInformation'" do
+    it "related_identifier" do
+      subject.instance_variable_set(:@related_identifiers, [{"relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"SWHID", "relationType"=>"IsCitedBy", "relationTypeInformation" => "Free text 1 - relationTypeInformation"}])
+
+      expect(subject.related_identifiers.length).to eq(1)
+      expect(subject.related_identifiers.first).to eq("relatedIdentifier"=>"10.1371/journal.ppat.1000446", "relatedIdentifierType"=>"SWHID", "relationType"=>"IsCitedBy", "relationTypeInformation" => "Free text 1 - relationTypeInformation")
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_identifiers(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig("relatedIdentifiers", "relatedIdentifier", "relationTypeInformation")).to eq("Free text 1 - relationTypeInformation")
+    end
+  end
+
+  context "insert_insert_related_item with relationTypeInformation 'Free text 2 - relationTypeInformation'" do
+    it "related_item" do
+      subject.instance_variable_set(:@related_items, [
+        {
+          "relatedItemType"=>"Presentation",
+          "relationType"=>"IsCitedBy",
+          "relationTypeInformation" => "Free text 2 - relationTypeInformation",
+          "relatedItemIdentifier" => {
+            "relatedItemIdentifier" => "10.82523/hnhr-r562",
+            "relatedItemIdentifierType" => "SWHID"
+          }
+        }])
+      expect(subject.related_items.length).to eq(1)
+      expect(subject.related_items.first).to eq(
+        "relatedItemType"=>"Presentation",
+        "relationType"=>"IsCitedBy",
+        "relationTypeInformation" => "Free text 2 - relationTypeInformation",
+        "relatedItemIdentifier" => {
+          "relatedItemIdentifier" => "10.82523/hnhr-r562",
+          "relatedItemIdentifierType" => "SWHID"
+        }
+      )
+
+      xml = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') { |xml| subject.insert_related_items(xml) }.to_xml
+      response = Maremma.from_xml(xml)
+
+      expect(response.dig(
+        "relatedItems",
+        "relatedItem",
+        "relationTypeInformation"
+      )).to eq("Free text 2 - relationTypeInformation")
     end
   end
 end

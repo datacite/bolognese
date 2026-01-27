@@ -144,7 +144,7 @@ module Bolognese
 
         state = meta.present? || read_options.present? ? "findable" : "not_found"
 
-        related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata)) + Array.wrap(crossref_has_translation(program_metadata)) + Array.wrap(crossref_is_translation_of(program_metadata))
+        related_identifiers = Array.wrap(crossref_is_part_of(journal_metadata)) + Array.wrap(crossref_references(bibliographic_metadata)) + Array.wrap(crossref_has_translation(program_metadata)) + Array.wrap(crossref_is_translation_of(program_metadata)) + Array.wrap(crossref_is_related_material(program_metadata))
 
         container = if journal_metadata.present?
                       issn = normalize_issn(journal_metadata.to_h.fetch("issn", nil))
@@ -389,6 +389,19 @@ module Bolognese
           if c.dig("intra_work_relation", "identifier_type") == "doi"
             { "relatedIdentifier" => parse_attributes(c["intra_work_relation"]).downcase,
               "relationType" => "IsTranslationOf",
+              "relatedIdentifierType" => "DOI" }.compact
+          else
+            nil
+          end
+        end.compact.unwrap
+      end
+
+      def crossref_is_related_material(program_metadata)
+        refs = program_metadata.dig("related_item") if program_metadata.is_a?(Hash)
+        Array.wrap(refs).select { |a| a.dig("interwork_relation", "relationship_type") == "isRelatedMaterial" }.map do |c|
+          if c.dig("inter_work_relation", "identifier_type") == "doi"
+            { "relatedIdentifier" => parse_attributes(c["inter_work_relation"]).downcase,
+              "relationType" => "Other",
               "relatedIdentifierType" => "DOI" }.compact
           else
             nil

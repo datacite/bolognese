@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 require_relative 'metadata_utils'
 
@@ -76,8 +76,8 @@ module Bolognese
       end
 
       # make sure input is encoded as utf8
-      string = string.force_encoding("UTF-8") if string.present?
-      @string = string
+      string1 = string.dup.force_encoding("UTF-8") if string.present?
+      @string = string1
 
       # input options for citation formatting
       @style = options[:style]
@@ -120,7 +120,7 @@ module Bolognese
 
       @regenerate = options[:regenerate] || read_options.present?
       # generate name for method to call dynamically
-      opts = { string: string, sandbox: options[:sandbox], doi: options[:doi], id: id, ra: ra }.merge(read_options)
+      opts = { string: string1, sandbox: options[:sandbox], doi: options[:doi], id: id, ra: ra }.merge(read_options)
       @meta = @from.present? ? send("read_" + @from, **opts) : {}
     end
 

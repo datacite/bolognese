@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
+require 'pp'
 
 describe Bolognese::Metadata, vcr: true do
   context "write metadata as citeproc" do
@@ -299,5 +300,24 @@ describe Bolognese::Metadata, vcr: true do
         {"family"=>"Stathis", "given"=>"Kelly"}
       ])
     end
+
+    it "from Schema 4.7 with resourceTypeGeneral - poster" do
+      input = fixture_path + 'datacite-example-full-v4.7-types-poster.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.citeproc)
+
+      expect(subject.types["resourceTypeGeneral"]).to eq("Poster")
+      expect(json["type"]).to eq("document")
+    end
+
+    it "from Schema 4.7 with resourceTypeGeneral - presentation" do
+      input = fixture_path + 'datacite-example-full-v4.7-types-presentation.xml'
+      subject = Bolognese::Metadata.new(input: input)
+      json = JSON.parse(subject.citeproc)
+
+      expect(subject.types["resourceTypeGeneral"]).to eq("Presentation")
+      expect(json["type"]).to eq("presentation")
+    end
+
   end
 end
