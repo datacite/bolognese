@@ -9,25 +9,25 @@ module CiteProc
       # If @value has the take method (like CiteProc::Names), delegate to it
       return @value.take(n) if @value.respond_to?(:take)
       
-      # Otherwise @value is likely a String; treat as single element
-      [to_s].take(n)
+      # Otherwise @value is likely a String; wrap the value itself, not its string representation
+      [@value].take(n)
     end
 
     # Fix for: undefined method '[]' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when accessing names[-1] or names[0...-1]
     # https://github.com/inukshuk/citeproc-ruby/blob/2d6313cbb58d884dbfbccfb6f4a169d8d7c1b6fa/lib/citeproc/ruby/renderer/names.rb#L198
     def [](index)
-      # If @value has the [] method (like CiteProc::Names), delegate to it
+      # If @value has the [] method and is not a String, delegate to it
       return @value[index] if @value.respond_to?(:[]) && !@value.is_a?(String)
       
-      # Otherwise treat as single element array
-      [to_s][index]
+      # Otherwise wrap the value itself
+      [@value][index]
     end
 
     # Fix for: undefined method 'length' for an instance of CiteProc::Variable
     # Used to check array size in citeproc-ruby
     def length
-      # If @value is a CiteProc::Names or similar array-like object, use its length
+      # If @value is not a String and has length, use it
       return @value.length if @value.respond_to?(:length) && !@value.is_a?(String)
       
       # Otherwise return 1 (single element)
@@ -37,11 +37,11 @@ module CiteProc
     # Fix for: undefined method 'map' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when iterating over names
     def map(&block)
-      # If @value has the map method (like CiteProc::Names), delegate to it
+      # If @value has the map method and is not a String, delegate to it
       return @value.map(&block) if @value.respond_to?(:map) && !@value.is_a?(String)
       
-      # Otherwise treat as single element array
-      [to_s].map(&block)
+      # Otherwise wrap the value itself
+      [@value].map(&block)
     end
   end
 end
