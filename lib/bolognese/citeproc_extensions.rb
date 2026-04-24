@@ -6,6 +6,10 @@ module CiteProc
     # Fix for: undefined method 'take' for an instance of CiteProc::Variable
     # https://github.com/inukshuk/csl-ruby/blob/b2131c0ce832f332c3db3c49fd2baf7e41ac0aa6/lib/csl/style/names.rb#L98
     def take(n)
+      # If @value already responds to take (like CiteProc::Names), delegate to it
+      return @value.take(n) if @value.respond_to?(:take)
+      
+      # Otherwise treat as array-like
       val = @value
       array = case val
               when Array then val
@@ -19,29 +23,41 @@ module CiteProc
     # Used in citeproc-ruby when accessing names[-1] or names[0...-1]
     # https://github.com/inukshuk/citeproc-ruby/blob/2d6313cbb58d884dbfbccfb6f4a169d8d7c1b6fa/lib/citeproc/ruby/renderer/names.rb#L198
     def [](index)
-        val = @value
-        array = case val
-                when Array then val
-                when nil then []
-                else [val]
-                end
-        array[index]
+      # If @value already responds to [], delegate to it
+      return @value[index] if @value.respond_to?(:[])
+      
+      # Otherwise treat as array-like
+      val = @value
+      array = case val
+              when Array then val
+              when nil then []
+              else [val]
+              end
+      array[index]
     end
 
     # Fix for: undefined method 'length' for an instance of CiteProc::Variable
     # Used to check array size in citeproc-ruby
     def length
-        val = @value
-        case val
-        when Array then val.length
-        when nil then 0
-        else 1
-        end
+      # If @value already responds to length, delegate to it
+      return @value.length if @value.respond_to?(:length)
+      
+      # Otherwise treat as array-like
+      val = @value
+      case val
+      when Array then val.length
+      when nil then 0
+      else 1
+      end
     end
     
     # Fix for: undefined method 'map' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when iterating over names
     def map(&block)
+      # If @value already responds to map, delegate to it
+      return @value.map(&block) if @value.respond_to?(:map)
+      
+      # Otherwise treat as array-like
       val = @value
       array = case val
               when Array then val
