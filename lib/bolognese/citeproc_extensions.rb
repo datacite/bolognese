@@ -14,6 +14,30 @@ module CiteProc
               end
       array.take(n)
     end
+
+    # Fix for: undefined method '[]' for an instance of CiteProc::Variable
+    # Used in citeproc-ruby when accessing names[-1] or names[0...-1]
+    # https://github.com/inukshuk/citeproc-ruby/blob/2d6313cbb58d884dbfbccfb6f4a169d8d7c1b6fa/lib/citeproc/ruby/renderer/names.rb#L198
+    def [](index)
+        val = @value
+        array = case val
+                when Array then val
+                when nil then []
+                else [val]
+                end
+        array[index]
+    end
+
+    # Fix for: undefined method 'length' for an instance of CiteProc::Variable
+    # Used to check array size in citeproc-ruby
+    def length
+        val = @value
+        case val
+        when Array then val.length
+        when nil then 0
+        else 1
+        end
+    end
   end
 end
 
