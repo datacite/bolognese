@@ -49,5 +49,26 @@ module CiteProc
     def select(&block)
       to_a.select(&block)
     end
+    
+    # CiteProc name type checking methods
+    def personal?
+      # Check if the value is a personal name (has family/given structure)
+      val = @value
+      return false if val.nil?
+      return val.personal? if val.respond_to?(:personal?)
+      # If it's a hash with family name, it's personal
+      return true if val.is_a?(Hash) && val.key?('family')
+      false
+    end
+    
+    def literal?
+      # Check if the value is a literal name (organization)
+      val = @value
+      return false if val.nil?
+      return val.literal? if val.respond_to?(:literal?)
+      # If it's a hash with literal key, it's literal
+      return true if val.is_a?(Hash) && val.key?('literal')
+      false
+    end
   end
 end
