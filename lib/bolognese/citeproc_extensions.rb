@@ -6,30 +6,42 @@ module CiteProc
     # Fix for: undefined method 'take' for an instance of CiteProc::Variable
     # https://github.com/inukshuk/csl-ruby/blob/b2131c0ce832f332c3db3c49fd2baf7e41ac0aa6/lib/csl/style/names.rb#L98
     def take(n)
-      # Delegate directly to @value (which is typically a CiteProc::Names or Array)
-      @value.take(n)
+      # If @value has the take method (like CiteProc::Names), delegate to it
+      return @value.take(n) if @value.respond_to?(:take)
+      
+      # Otherwise @value is likely a String; treat as single element
+      [to_s].take(n)
     end
 
     # Fix for: undefined method '[]' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when accessing names[-1] or names[0...-1]
     # https://github.com/inukshuk/citeproc-ruby/blob/2d6313cbb58d884dbfbccfb6f4a169d8d7c1b6fa/lib/citeproc/ruby/renderer/names.rb#L198
     def [](index)
-      # Delegate directly to @value
-      @value[index]
+      # If @value has the [] method (like CiteProc::Names), delegate to it
+      return @value[index] if @value.respond_to?(:[]) && !@value.is_a?(String)
+      
+      # Otherwise treat as single element array
+      [to_s][index]
     end
 
     # Fix for: undefined method 'length' for an instance of CiteProc::Variable
     # Used to check array size in citeproc-ruby
     def length
-      # Delegate directly to @value
-      @value.length
+      # If @value is a CiteProc::Names or similar array-like object, use its length
+      return @value.length if @value.respond_to?(:length) && !@value.is_a?(String)
+      
+      # Otherwise return 1 (single element)
+      1
     end
     
     # Fix for: undefined method 'map' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when iterating over names
     def map(&block)
-      # Delegate directly to @value
-      @value.map(&block)
+      # If @value has the map method (like CiteProc::Names), delegate to it
+      return @value.map(&block) if @value.respond_to?(:map) && !@value.is_a?(String)
+      
+      # Otherwise treat as single element array
+      [to_s].map(&block)
     end
   end
 end
