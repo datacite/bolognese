@@ -9,8 +9,8 @@ module CiteProc
       # If @value is Enumerable (like CiteProc::Names), use it directly
       return @value.take(n) if @value.is_a?(Enumerable)
       
-      # Otherwise, @value should be a String; delegate to it via to_s
-      to_s.chars.take(n).join
+      # Otherwise wrap in array and take from that
+      [@value].take(n)
     end
 
     # Fix for: undefined method '[]' for an instance of CiteProc::Variable
@@ -20,8 +20,8 @@ module CiteProc
       # If @value responds to [] (like CiteProc::Names or Array), use it
       return @value[index] if @value.respond_to?(:[])
       
-      # Otherwise treat as string
-      to_s[index]
+      # Otherwise wrap in array
+      [@value][index]
     end
 
     # Fix for: undefined method 'length' for an instance of CiteProc::Variable
@@ -30,8 +30,8 @@ module CiteProc
       # If @value responds to length (like CiteProc::Names or Array), use it
       return @value.length if @value.respond_to?(:length)
       
-      # Otherwise return string length
-      to_s.length
+      # Otherwise return 1 (single element)
+      1
     end
     
     # Fix for: undefined method 'map' for an instance of CiteProc::Variable
@@ -40,8 +40,8 @@ module CiteProc
       # If @value is Enumerable (like CiteProc::Names), use it
       return @value.map(&block) if @value.is_a?(Enumerable)
       
-      # Otherwise treat as string and map over characters
-      to_s.chars.map(&block)
+      # Otherwise wrap in array and map over that
+      [@value].map(&block)
     end
   end
 end
