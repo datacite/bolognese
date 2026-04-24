@@ -27,5 +27,11 @@ class String
   def literal?
     true
   end
+  
+  # Fix for: private method 'format' called for an instance of String
+  # When a String is used as a name, it needs to return itself as formatted output
+  def format
+    self
+  end
 end
 
