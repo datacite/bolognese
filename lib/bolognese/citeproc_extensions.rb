@@ -38,6 +38,18 @@ module CiteProc
         else 1
         end
     end
+    
+    # Fix for: undefined method 'map' for an instance of CiteProc::Variable
+    # Used in citeproc-ruby when iterating over names
+    def map(&block)
+      val = @value
+      array = case val
+              when Array then val
+              when nil then []
+              else [val]
+              end
+      array.map(&block)
+    end
   end
 end
 
