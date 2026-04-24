@@ -6,42 +6,30 @@ module CiteProc
     # Fix for: undefined method 'take' for an instance of CiteProc::Variable
     # https://github.com/inukshuk/csl-ruby/blob/b2131c0ce832f332c3db3c49fd2baf7e41ac0aa6/lib/csl/style/names.rb#L98
     def take(n)
-      # If @value is Enumerable (like CiteProc::Names), use it directly
-      return @value.take(n) if @value.is_a?(Enumerable)
-      
-      # Otherwise wrap in array and take from that
-      [@value].take(n)
+      # Delegate directly to @value (which is typically a CiteProc::Names or Array)
+      @value.take(n)
     end
 
     # Fix for: undefined method '[]' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when accessing names[-1] or names[0...-1]
     # https://github.com/inukshuk/citeproc-ruby/blob/2d6313cbb58d884dbfbccfb6f4a169d8d7c1b6fa/lib/citeproc/ruby/renderer/names.rb#L198
     def [](index)
-      # If @value responds to [] (like CiteProc::Names or Array), use it
-      return @value[index] if @value.respond_to?(:[])
-      
-      # Otherwise wrap in array
-      [@value][index]
+      # Delegate directly to @value
+      @value[index]
     end
 
     # Fix for: undefined method 'length' for an instance of CiteProc::Variable
     # Used to check array size in citeproc-ruby
     def length
-      # If @value responds to length (like CiteProc::Names or Array), use it
-      return @value.length if @value.respond_to?(:length)
-      
-      # Otherwise return 1 (single element)
-      1
+      # Delegate directly to @value
+      @value.length
     end
     
     # Fix for: undefined method 'map' for an instance of CiteProc::Variable
     # Used in citeproc-ruby when iterating over names
     def map(&block)
-      # If @value is Enumerable (like CiteProc::Names), use it
-      return @value.map(&block) if @value.is_a?(Enumerable)
-      
-      # Otherwise wrap in array and map over that
-      [@value].map(&block)
+      # Delegate directly to @value
+      @value.map(&block)
     end
   end
 end
