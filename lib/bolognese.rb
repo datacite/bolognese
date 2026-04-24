@@ -13,7 +13,6 @@ require 'iso8601'
 require 'jsonlint'
 require 'gender_detector'
 require 'citeproc'
-require 'bolognese/citeproc_extensions'
 require 'csl/styles'
 require 'edtf'
 
