@@ -24,6 +24,14 @@ module CiteProc
       @fields = fields_dup
       @types = Hash.new { |h,k| h.fetch(k.to_sym, nil) }.merge(types_hash).freeze
       
+      # Rebuild @factories from the new @types
+      # This maps each field name to its Variable subclass (Names, Date, Text, Number)
+      @factories = Hash.new { |h,k| h.fetch(k.to_s.intern, CiteProc::Variable) }.merge(
+        Hash[*@types.map { |field_name, type|
+          [field_name, CiteProc.const_get(type.to_s.capitalize)]
+        }.flatten]
+      ).freeze
+      
       # Recreate the aliases
       @fields[:name] = @fields[:names]
       @fields[:dates] = @fields[:date]
