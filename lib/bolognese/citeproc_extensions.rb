@@ -6,16 +6,35 @@
 
 module CiteProc
   class Variable
-    # Add 'contributor' to the list of name variables
-    # Add 'accepted-date' to the list of date variables
-    if @fields[:names]
-      @fields[:names] << :contributor unless @fields[:names].include?(:contributor)
-      @fields[:date] << :'accepted-date' unless @fields[:date].include?(:'accepted-date')
+    # Unfreeze, modify, and refreeze the fields to add 'contributor' and 'accepted-date'
+    if @fields
+      # Unfreeze the fields hash temporarily
+      fields_dup = @fields.dup
       
-      # Rebuild the types mapping to include the new fields
-      @types = Hash.new { |h,k| h.fetch(k.to_sym, nil) }.merge(
-        Hash[*@fields.keys.map { |k| @fields[k].map { |n| [n,k] } }.flatten]
-      ).freeze
+      # Add contributor to names (make a new unfrozen array)
+      fields_dup[:names] = (@fields[:names] + [:contributor]).uniq
+      
+      # Add accepted-date to dates (make a new unfrozen array)
+      fields_dup[:date] = (@fields[:date] + [:'accepted-date']).uniq
+      
+      # Rebuild the types mapping
+      types_hash = Hash[*fields_dup.keys.map { |k| fields_dup[k].map { |n| [n, k] } }.flatten]
+      
+      # Update the class instance variables
+      @fields = fields_dup
+      @types = Hash.new { |h,k| h.fetch(k.to_sym, nil) }.merge(types_hash).freeze
+      
+      # Recreate the aliases
+      @fields[:name] = @fields[:names]
+      @fields[:dates] = @fields[:date]
+      @fields[:numbers] = @fields[:number]
+      
+      # Recreate :all and :any
+      @fields[:all] = @fields[:any] =
+        [:date, :names, :text, :number].reduce([]) { |s,a| s.concat(@fields[a]) }.sort
+      
+      # Refreeze fields
+      @fields.freeze
     end
   end
 end
