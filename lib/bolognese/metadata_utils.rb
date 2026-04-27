@@ -145,13 +145,22 @@ module Bolognese
         type = types["citeproc"]
       end
 
+      # Filter out contributors who are already creators, editors, or translators to avoid duplication
+      creator_names = Array.wrap(creators).map { |c| c["name"] || [c["givenName"], c["familyName"]].compact.join(" ") }.compact
+      unique_contributors = Array.wrap(contributors).reject do |c|
+        contributor_name = c["name"] || [c["givenName"], c["familyName"]].compact.join(" ")
+        creator_names.include?(contributor_name) ||
+        c["contributorType"] == "Editor" ||
+        c["contributorType"] == "Translator"
+      end
+
       {
         "type" => type,
         "id" => normalize_doi(doi),
         "categories" => Array.wrap(subjects).map { |k| parse_attributes(k, content: "subject", first: true) }.presence,
         "language" => language,
         "author" => author,
-        "contributor" => to_citeproc(contributors),
+        "contributor" => unique_contributors.presence ? to_citeproc(unique_contributors) : nil,
         "editor" => contributors ? to_citeproc(contributors.select { |c| c["contributorType"] == "Editor" }) : nil,
         "translator" => contributors ? to_citeproc(contributors.select { |c| c["contributorType"] == "Translator" }) : nil,
         "issued" => get_date(dates, "Issued") ? get_date_parts(get_date(dates, "Issued")) : get_date_parts(publication_year.to_s),
