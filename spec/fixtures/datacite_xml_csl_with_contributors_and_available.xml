@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.81360/BIFURCATED</identifier>
+  <creators>
+    <creator>
+      <creatorName>Toon, Geoffrey C.</creatorName>
+      <affiliation>Jet Propulsion Laboratory, California Institute of Technology, Pasadena, CA, USA</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Wunch, Debra</creatorName>
+      <nameIdentifier nameIdentifierScheme="ORCID">0000-0002-4924-0377</nameIdentifier>
+      <affiliation>California Institute of Technology, Pasadena, CA, U.S.A.</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title>A stand-alone a priori profile generation tool for GGG2014 release</title>
+  </titles>
+  <publisher>CaltechDATA</publisher>
+  <publicationYear>2015</publicationYear>
+  <subjects>
+    <subject>TCCON</subject>
+  </subjects>
+  <contributors>
+    <contributor contributorType="ContactPerson">
+      <contributorName>Toon, Geoffrey C.</contributorName>
+      <affiliation>Jet Propulsion Laboratory, California Institute of Technology, Pasadena, CA, USA</affiliation>
+    </contributor>
+    <contributor contributorType="ContactPerson">
+      <contributorName>Wunch, Debra</contributorName>
+      <affiliation>California Institute of Technology, Pasadena, CA, USA</affiliation>
+    </contributor>
+    <contributor contributorType="ResearchGroup">
+      <contributorName>TCCON</contributorName>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Submitted">2017-07-24</date>
+    <date dateType="Available">2015-10-14</date>
+  </dates>
+  <language>eng</language>
+  <resourceType resourceTypeGeneral="Software"/>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">250</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">250</alternateIdentifier>
+  </alternateIdentifiers>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsDocumentedBy">10.14291/tccon.ggg2014.documentation.R0/1221662</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="URL" relationType="IsDocumentedBy">https://tccon-wiki.caltech.edu/</relatedIdentifier>
+  </relatedIdentifiers>
+  <version>GGG2014.R0</version>
+  <rightsList>
+    <rights rightsURI="https://data.caltech.edu/tindfiles/serve/8ff8bc09-cecd-468d-b219-3ea372f2ea95/">TCCON Data Use Policy</rights>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Other">The Total Carbon Column Observing Network (TCCON) is a network of ground-based Fourier Transform Spectrometers that record direct solar absorption spectra of the atmosphere in the near-infrared. From these spectra, accurate and precise column-averaged abundances of atmospheric constituents including CO2, CH4, N2O, HF, CO, H2O, and HDO, are retrieved.  This is a stand-alone a priori profile generation tool for the GGG2014 data release.</description>
+    <description descriptionType="Other">&lt;br&gt;Cite this record as:&lt;br&gt;Toon, G. C., &amp;amp; Wunch, D. (2017). A stand-alone a priori profile generation tool for GGG2014 release. CaltechDATA. &lt;a href="https://doi.org/10.14291/tccon.ggg2014.priors.r0/1221661"&gt;https://doi.org/10.14291/tccon.ggg2014.priors.r0/1221661&lt;/a&gt;&lt;br&gt; or choose a &lt;a href="https://crosscite.org/?doi=10.14291/TCCON.GGG2014.PRIORS.R0/1221661"&gt; different citation style.&lt;/a&gt;&lt;br&gt;&lt;a href="https://data.datacite.org/application/x-bibtex/10.14291/TCCON.GGG2014.PRIORS.R0/1221661"&gt;Download Citation&lt;/a&gt;&lt;br&gt;</description>
+  </descriptions>
+</resource>
