@@ -17,8 +17,8 @@ module CiteProc
       # Add accepted-date to dates (make a new unfrozen array)
       fields_dup[:date] = (@fields[:date] + [:'accepted-date']).uniq
       
-      # Rebuild the types mapping
-      types_hash = Hash[*fields_dup.keys.map { |k| fields_dup[k].map { |n| [n, k] } }.flatten]
+      # Rebuild the types mapping - only use actual type keys, not aliases like :all, :any, etc.
+      types_hash = Hash[*[:date, :names, :number, :text].map { |k| fields_dup[k].map { |n| [n, k] } }.flatten]
       
       # Update the class instance variables
       @fields = fields_dup
