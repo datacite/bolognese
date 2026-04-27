@@ -16,7 +16,7 @@ require 'citeproc'
 require 'csl/styles'
 require 'edtf'
 
-# require "bolognese/citeproc_extensions"
+require "bolognese/citeproc_extensions"
 require "bolognese/version"
 require "bolognese/metadata"
 require "bolognese/cli"
