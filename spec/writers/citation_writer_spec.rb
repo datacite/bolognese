@@ -116,7 +116,7 @@ describe Bolognese::Metadata, vcr: true do
     it "with contributors and available date" do
       input = fixture_path + "datacite_xml_csl_with_contributors_and_available.xml"
       subject = Bolognese::Metadata.new(input: input, from: "datacite")
-      expect(subject.citation).to eq("Fenner, M. (2016). Eating your own Dog Food. DataCite. https://doi.org/10.5438/4k3m-nyvg")
+      expect(subject.citation).to eq("Toon, G. C., &amp; Wunch, D. (2015). <i>A stand-alone a priori profile generation tool for GGG2014 release</i> (Version GGG2014.R0) [Computer software]. CaltechDATA. https://doi.org/10.81360/bifurcated")
     end 
   end
 end
