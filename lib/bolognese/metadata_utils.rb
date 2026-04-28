@@ -139,8 +139,8 @@ module Bolognese
         author = to_citeproc(creators)
       end
 
-      if types["resourceTypeGeneral"] == "Software" && version_info.present?
-        type = "book"
+      if types["resourceTypeGeneral"] == "Software"
+        type = "software"
       else
         type = types["citeproc"]
       end
